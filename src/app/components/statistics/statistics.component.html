@@ -4,34 +4,41 @@
     <div class="component__content">
 
         <div class="cards">
-            <div class="card">
-                <h1 class="card__heading"><a [routerLink]="['overview-numbers']">Oversiktstall</a></h1>
-            </div>
-            
-            <div class="card">
+
+            <a class="card" [routerLink]="['overview-numbers']">
+                <h1 class="card__heading">Oversiktstall</h1>
+            </a>
+
+
+            <a class="card" [routerLink]="['quality-assured-data']">
                 <h1 class="card__heading">Kvalitetssikrede data</h1>
-            </div>
-            
-            <div class="card">
+            </a>
+
+
+            <a class="card" [routerLink]="['red-listed-species']">
                 <h1 class="card__heading">Rødlistede arter</h1>
-            </div>
-            
-            <div class="card">
+            </a>
+
+
+            <a class="card" [routerLink]="['alien-species']">
                 <h1 class="card__heading">Fremmede arter</h1>
-            </div>
-            
-            <div class="card">
+            </a>
+
+
+            <a class="card" [routerLink]="['overview-numbers']">
                 <h1 class="card__heading">Arter med ikke nok data</h1>
-                <!-- <h2 class="card__subheading">Her kan du bidra til å tette hullene!</h2> -->
-            </div>
-            
-            <div class="card">
+            </a>
+
+
+            <a class="card" [routerLink]="['user-statistics']">
                 <h1 class="card__heading">Brukerstatistikk</h1>
-            </div>
-            
-            <div class="card">
+            </a>
+
+
+            <a class="card" [routerLink]="['user-lists']">
                 <h1 class="card__heading">Mine lister</h1>
-            </div>
+            </a>
+
         </div>
 
     </div>

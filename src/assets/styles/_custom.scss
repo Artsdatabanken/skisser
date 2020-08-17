@@ -19,7 +19,7 @@
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -29,16 +29,21 @@
     border-radius: 20px;
     padding: 20px;
     //flex: 50%;
-    flex: 1 1 0;
+    flex: auto 1 0;
     margin: 20px 10px;
     min-height: 20vh;
 
     &__heading {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     &__subheading {
-        font-size: 18px;
+        font-size: 17px;
         font-weight: 600;
+    }
+
+    &:hover {
+        @include variable(background-color, clrSecondary2);
+        border: none;
     }
 }
