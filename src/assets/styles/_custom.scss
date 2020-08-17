@@ -31,7 +31,7 @@
     //flex: 50%;
     flex: auto 1 0;
     margin: 20px 10px;
-    min-height: 20vh;
+    text-align-last: center;
 
     &__heading {
         font-size: 20px;
@@ -43,7 +43,8 @@
     }
 
     &:hover {
-        @include variable(background-color, clrSecondary2);
+        @include variable(background-color, clrSecondary6);
+        @include variable(color, clrBlack);
         border: none;
     }
 }
