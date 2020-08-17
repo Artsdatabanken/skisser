@@ -1,11 +1,47 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    data: {
+      title: 'Forsiden',
+      name: 'home'
+    }
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: {
+      title: 'Forsiden',
+      name: 'home'
+    }
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: {
+      title: 'Om',
+      name: 'about'
+    }
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+    data: {
+      title: 'Not found',
+      name: 'notfound'
+    }
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

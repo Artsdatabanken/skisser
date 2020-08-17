@@ -1,0 +1,56 @@
+// ----------LAYOUT
+
+.layout {
+    @include variable(background-color, backgroundColor);
+    margin: 100px;
+    padding: 100px;
+
+    &__header {
+    }
+
+    &__footer {
+    }
+
+    &__main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 1px 1px;
+        grid-template-areas: ". .";
+    }
+}
+
+.header {
+    //border: 2px solid #262626;
+    border-bottom: 2px solid #262626;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //margin-bottom: 15px;
+}
+
+.navigation {
+    &__link {
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
+.logo {
+    font-size: 16px;
+}
+
+.subheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: initial !important;
+    margin-bottom: 50px;
+
+    & > * {
+        //font-size: 20px !important;
+        margin-left: 5px;
+        text-transform: uppercase;
+    }
+}

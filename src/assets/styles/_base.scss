@@ -1,0 +1,416 @@
+// ----------BASE styles, html/tag selectors without classes or IDs
+
+html {
+}
+
+body {
+  @include variable(background-color, backgroundColor);
+  @include variable(color, textColor);
+  @include variable(font-family, fontPrimary);
+
+  background-image: url("/assets/images/ssbg.jpg");
+  background-image: url("/assets/images/ss00.jpg");
+  //background-image: url("/assets/images/ssbg1.jpg");
+  // background-position: right bottom;
+  // background-repeat: no-repeat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.618;
+  min-height: 80vh;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+  }
+}
+
+/**/
+
+*:focus {
+  outline-color: #262626;
+  outline-style: solid;
+  outline-offset: 3px;
+  outline-width: 3px;
+}
+
+/*links*/
+
+a {
+  @include variable(color, clrBlack);
+  text-decoration: none !important;
+
+  &:focus {
+    display: inline-block;
+  }
+}
+
+a:not([class]) {
+  @include variable(color, clrBlack);
+  border-bottom: 2px solid #383838;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: border 0.5s;
+
+  &:hover {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+a:not([href*="cnstnz.net"]):not([href^="#"]):not([href^="/"]):after {
+  content: "\0020 \2197";
+  font-weight: 800;
+
+  .intro & {
+    content: none !important;
+  }
+}
+
+/*headings*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include variable(font-family, fontAccent);
+  font-weight: 800;
+  font-kerning: normal;
+  -webkit-font-feature-settings: normal;
+  -moz-font-feature-settings: normal;
+  -ms-font-feature-settings: normal;
+  font-feature-settings: normal;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.2;
+
+  @media screen and (max-width: 900px) {
+    font-size: 40px;
+    line-height: 1.25;
+  }
+}
+
+h1:not([class]) {
+}
+
+h2 {
+  font-size: 36px;
+  margin: 70px 0 20px;
+
+  @media screen and (max-width: 900px) {
+    font-size: 25px;
+    line-height: 1.2;
+  }
+
+  hr + & {
+    margin: 30px 0 20px;
+  }
+
+  h3 + & {
+    margin: 30px 0 15px;
+  }
+}
+
+h3 {
+  font-size: 30px;
+  margin: 60px 0 15px;
+}
+
+h4 {
+  font-size: 24px;
+  margin: 50px 0 15px;
+}
+
+h5 {
+  font-size: 20px;
+  margin: 30px 0 10px;
+}
+
+h6 {
+}
+
+h2 + h3 {
+  margin: 30px 0 15px;
+}
+
+h1 pre,
+h2 pre,
+h3 pre,
+h4 pre,
+h5 pre,
+h6 pre,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  @include variable(font-family, fontSecondary);
+  background: none !important;
+  font-size: inherit;
+  font-weight: 600;
+  font-kerning: normal;
+  -webkit-font-feature-settings: normal;
+  -moz-font-feature-settings: normal;
+  -ms-font-feature-settings: normal;
+  font-feature-settings: normal;
+  padding: 0 5px !important;
+}
+
+/*text*/
+
+:lang(ko),
+[lang="ko"] {
+  font-family: "gaegu", "Times New Roman", Times, serif;
+  font-family: "nanumgothic", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-weight: 700;
+  //font-size: 22px;
+  font-size: 19px;
+}
+
+:lang(no) {
+  font-style: italic;
+}
+
+p {
+  margin: 0 0 30px;
+}
+
+small {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+hr {
+  background: url("/assets/images/chauDivider.png");
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-size: 15%;
+  border: 0;
+  display: block;
+  height: 48px;
+  margin: 30px auto 40px;
+  width: 60%;
+}
+
+// hr + h2 {
+//   border: 1px solid red;
+//   margin: 30px 0;
+// }
+
+strong {
+  font-weight: 700;
+}
+
+mark {
+  @include variable(background-color, --clrBlack);
+  @include variable(color, --clrWhite);
+  @include variable(font-family, --fontPrimary);
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 2px 17px;
+}
+
+abbr {
+  position: relative;
+  z-index: 1;
+}
+
+abbr[title] {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  position: relative;
+  text-decoration: none;
+
+  // &:before {
+  //   background-color: transparentize(#abebc6, 0.5);
+  //   content: "";
+  //   display: block;
+  //   height: 20px;
+  //   position: absolute;
+  //   top: 3px;
+  //   bottom: 0;
+  //   left: -7px;
+  //   right: -7px;
+  //   z-index: -1;
+  // }
+}
+
+/*lists*/
+
+ol {
+  margin: 50px 0;
+  padding-inline-start: 30px;
+
+  li {
+  }
+}
+
+ul {
+  list-style-type: square;
+  margin: 20px 0 40px;
+  padding-inline-start: 50px;
+  padding-inline-start: 15px;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
+    padding-inline-start: 15px;
+    width: 95%;
+  }
+
+  li {
+    margin: 0 0 20px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+dl {
+  border: 1px solid black;
+  margin: 25px 0;
+
+  // dt {
+  //   font-size: 1.2em;
+  //   font-weight: 700;
+  //   margin-top: 30px;
+
+  //   &:first-child {
+  //     margin: 0;
+  //   }
+  // }
+  
+
+  dd {
+  }
+}
+
+/*quotes*/
+
+blockquote {
+  @include variable(background-color, clrAccent);
+  @include variable(background-color, clrShadow);
+  @include variable(font-family, fontAccent);
+  // border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  margin: 30px -30% 30px 30px;
+  padding: 30px;
+  width: 65%;
+  float: right;
+
+  p {
+    line-height: 1;
+    margin: 0;
+
+    &:before {
+      @include variable(font-family, fontAccent);
+      content: "\201D";
+      display: block;
+      float: right;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 2em;
+      text-align: right;
+
+      @media screen and (max-width: 900px) {
+        font-size: 1.5em;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    float: none;
+    font-size: 30px;
+    margin: 40px auto;
+    padding: 15px;
+    width: 90%;
+  }
+}
+
+q {
+  font-style: italic;
+  font-weight: 600;
+
+  &::before {
+    content: open-quote;
+    font-style: normal;
+    margin: 0 0 0 -4px;
+    padding-right: 2px;
+  }
+
+  &::after {
+    content: close-quote;
+    font-style: normal;
+    margin: 0;
+    padding-left: 2px;
+  }
+}
+
+/*form elements*/
+
+button {
+  @include variable(font-family, fontPrimary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  &:focus,
+  &:active {
+    border: none;
+    outline: 0;
+  }
+}
+
+/*tables*/
+
+table {
+  border-collapse: collapse;
+  font-size: 16px;
+  margin: 50px auto;
+  max-width: 100%;
+  overflow-x: auto;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  th {
+  }
+
+  th,
+  td {
+    border: 2px solid #383838;
+    padding: 15px;
+    vertical-align: middle;
+
+    @media screen and (max-width: 900px) {
+      font-size: 0.9em;
+      font-weight: 600;
+      padding: 7px;
+    }
+  }
+
+  td:first-child {
+  }
+}

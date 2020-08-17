@@ -1,0 +1,38 @@
+// ----------SETTINGS
+
+// :root {
+//   --fontPrimary: 'rationaltwdisplay', Consolas, monospace;
+//   --fontSecondary: 'rationaltwtext', Consolas, monospace;
+// }
+
+@import "fonts";
+
+$vars: (
+  fontPrimary: #{"nunito",  Consolas,  monospace},
+  fontSecondary: #{"antikormono",  Consolas,  monospace},
+  fontAccent: #{"spacegrotesk",  serif},
+  black: #262626,
+  clrBlack: #383838,
+  clrWhite: #f0ebd9,
+  clrAccent: transparentize(#555, 0.5),
+  clrShadow: transparentize(#ddd, 0.5),
+);
+
+:root {
+  --fontPrimary: #{map-get($vars, fontPrimary)};
+  --fontSecondary: #{map-get($vars, fontSecondary)};
+  --fontAccent: #{map-get($vars, fontAccent)};
+  --clrBlack: #{map-get($vars, clrBlack)};
+  --clrDark: #{map-get($vars, clrBlack)};
+  --clrWhite: #{map-get($vars, clrWhite)};
+  --clrAccent: #{map-get($vars, clrAccent)};
+  --clrShadow: #{map-get($vars, clrShadow)};
+  --backgroundColor: #{map-get($vars, clrWhite)};
+  --textColor: #{map-get($vars, clrBlack)};
+
+}
+
+@mixin variable($property, $varName) {
+  #{$property}: map-get($vars, $varName);
+  #{$property}: var(--#{$varName});
+}
