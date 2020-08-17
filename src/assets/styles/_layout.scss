@@ -2,31 +2,43 @@
 
 .layout {
     @include variable(background-color, backgroundColor);
+    @include variable(background-color, clrNeutral3);
     margin: 100px;
-    padding: 100px;
+
+    /*grid*/
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 1fr auto 1fr;
+    // gap: 1px 1px;
+    // grid-template-areas: "." "." ".";
+
+    /*grid*/
 
     &__header {
+        @include variable(background-color, clrSecondary3);
+        // @include variable(border-color, clrWhite);
+        // border-style: solid;
+        // border-width: 10px;
     }
 
     &__footer {
     }
 
     &__main {
+        @include variable(background-color, clrNeutral2);
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        gap: 1px 1px;
-        grid-template-areas: ". .";
+        grid-template-areas: ".";
+        min-height: 50vh;
+        padding: 50px;
     }
 }
 
 .header {
-    //border: 2px solid #262626;
-    border-bottom: 2px solid #262626;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    //margin-bottom: 15px;
 }
 
 .navigation {

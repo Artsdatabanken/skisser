@@ -8,8 +8,6 @@ body {
   @include variable(color, textColor);
   @include variable(font-family, fontPrimary);
 
-  background-image: url("/assets/images/ssbg.jpg");
-  background-image: url("/assets/images/ss00.jpg");
   //background-image: url("/assets/images/ssbg1.jpg");
   // background-position: right bottom;
   // background-repeat: no-repeat;
@@ -78,7 +76,7 @@ h4,
 h5,
 h6 {
   @include variable(font-family, fontAccent);
-  font-weight: 800;
+  font-weight: 700;
   font-kerning: normal;
   -webkit-font-feature-settings: normal;
   -moz-font-feature-settings: normal;
@@ -88,7 +86,7 @@ h6 {
 
 h1 {
   font-size: 52px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.2;
 
   @media screen and (max-width: 900px) {

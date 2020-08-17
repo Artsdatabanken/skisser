@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,14 @@ const routes: Routes = [
     data: {
       title: 'Om',
       name: 'about'
+    }
+  },
+  {
+    path: 'statistics',
+    component: StatisticsComponent,
+    data: {
+      title: 'Statistikk',
+      name: 'statistics'
     }
   },
   {

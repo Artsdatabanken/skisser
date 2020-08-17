@@ -16,7 +16,7 @@ import { environment } from './../environments/environment';
 
 export class AppComponent {
 
-  title = 'secretsanta';
+  title = 'Artsobservasjoner';
   page: string = '';
   pageName: string = '';
   skipLinkPath: string;
@@ -50,15 +50,15 @@ export class AppComponent {
       this.page = x.title;
       this.pageName = x.name;
 
-      if (this.pageName === "home" || this.pageName === "user") {
-        this.page = null;
-      }
+      // if (this.pageName === "home") {
+      //   this.page = null;
+      // }
 
       if (this.pageName === 'home') {
-        this.titleService.setTitle(`Forsiden - Secret Santa`);
+        this.titleService.setTitle(`Forsiden - Artsobservasjoner`);
       }
       else {
-        this.titleService.setTitle(`${this.page} - Secret Santa`);
+        this.titleService.setTitle(`${this.page} - Artsobservasjoner`);
       }
     });
 

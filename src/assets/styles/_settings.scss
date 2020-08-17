@@ -9,13 +9,22 @@
 
 $vars: (
   fontPrimary: #{"nunito",  Consolas,  monospace},
-  fontSecondary: #{"antikormono",  Consolas,  monospace},
-  fontAccent: #{"spacegrotesk",  serif},
+  fontSecondary: #{"nunito",  Consolas,  monospace},
+  fontAccent: #{"nunito",  serif},
   black: #262626,
-  clrBlack: #383838,
-  clrWhite: #f0ebd9,
-  clrAccent: transparentize(#555, 0.5),
-  clrShadow: transparentize(#ddd, 0.5),
+  clrBlack: #4c4a48,
+  clrWhite: #fff,
+  clrAccent1: #de8608,
+  clrAccent2: #eb6109,
+  clrSecondary1: #35a3b2,
+  clrSecondary2: #5fb7b1,
+  clrSecondary3: #71b581,
+  clrSecondary4: #a0ba5b,
+  clrSecondary5: #d2c160,  
+  clrSecondary6: #e5b445,
+  clrNeutral1: #bebba3,
+  clrNeutral2: #e3e3e3,
+  clrNeutral3: #fbf9f7
 );
 
 :root {
@@ -25,11 +34,19 @@ $vars: (
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrDark: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
-  --clrAccent: #{map-get($vars, clrAccent)};
-  --clrShadow: #{map-get($vars, clrShadow)};
-  --backgroundColor: #{map-get($vars, clrWhite)};
+  --clrAccent1: #{map-get($vars, clrAccent1)};
+  --clrAccent2: #{map-get($vars, clrAccent2)};
+  --clrSecondary1: #{map-get($vars, clrSecondary1)};
+  --clrSecondary2: #{map-get($vars, clrSecondary2)};
+  --clrSecondary3: #{map-get($vars, clrSecondary3)};
+  --clrSecondary4: #{map-get($vars, clrSecondary4)};
+  --clrSecondary5: #{map-get($vars, clrSecondary5)};
+  --clrSecondary6: #{map-get($vars, clrSecondary6)};
+  --clrNeutral1: #{map-get($vars, clrNeutral1)};
+  --clrNeutral2: #{map-get($vars, clrNeutral2)};
+  --clrNeutral3: #{map-get($vars, clrNeutral3)};
+  --backgroundColor: #{map-get($vars, clrSecondary5)};
   --textColor: #{map-get($vars, clrBlack)};
-
 }
 
 @mixin variable($property, $varName) {
