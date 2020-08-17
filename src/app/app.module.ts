@@ -11,6 +11,13 @@ import { LogoComponent } from './layout/logo/logo.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { PageComponent } from './components/shared/page/page.component';
+import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
+import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
+import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
+import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
+import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
+import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { AboutComponent } from './components/about/about.component';
     LogoComponent,
     PageNotFoundComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    PageComponent,
+    OverviewNumbersComponent,
+    QualityAssuredDataComponent,
+    RedListedSpeciesComponent,
+    AlienSpeciesComponent,
+    UserStatisticsComponent,
+    UserListsComponent
   ],
   imports: [
     BrowserModule,
