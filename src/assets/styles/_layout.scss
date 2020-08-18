@@ -109,12 +109,24 @@ main {
     }
 }
 
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0 0;
+    grid-template-areas: ". ." ". .";
+
+    &>* {
+        border: 1px solid red;
+    }
+}
+
 .page {
     &__header {
     }
-    
+
     &__content {
-        @include variable(background-color, clrNature0a);
+        //@include variable(background-color, clrNature0a);
     }
 
     &__footer {
