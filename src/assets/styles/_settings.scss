@@ -11,8 +11,11 @@ $vars: (
   black: #262626,
   clrBlack: #4c4a48,
   clrWhite: #fff,
-  clrAccent1: #de8608,
-  clrAccent2: #eb6109,
+  // clrAccent1: #de8608,
+  // clrAccent2: #eb6109,
+
+  clrAccent1: #a9d1ce,
+  clrAccent2: #557170,
 
   clrPrimary: #71b581,
   clrSecondary: darken(#71b581, 18),
@@ -25,9 +28,9 @@ $vars: (
   clrSecondary6: #e5b445,
 
   clrNature0: lighten(#ccc2ba, 10%),
-  clrNature0a: lighten(#ccc2ba, 12%),
-  clrNature0b: lighten(#ccc2ba, 14%),
-  clrNature0c: lighten(#ccc2ba, 15%),
+  clrNature0a: lighten(#ccc2ba, 13%),
+  clrNature0b: lighten(#ccc2ba, 15%),
+  clrNature0c: lighten(#ccc2ba, 17%),
 
   clrNature1: #ccc2ba,
   clrNature2: #a39282,

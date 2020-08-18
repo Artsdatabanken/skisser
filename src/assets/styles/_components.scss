@@ -8,22 +8,17 @@
 
 // buttons
 
-.button-list {
-    // display: flex;
-    // flex-flow: row;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
-    // align-items: center;
-
-    &--grid {
+.cards {
+    &--grid-5 {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-areas: "overviewNumbers qualityAssuredData" "redListedSpecies alienSpecies" "noData noData" "userStatistics userLists";
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
+        grid-gap: 15px 30px;
     }
 }
 
-.button {
+.card {
     @include variable(background-color, clrNeutral3);
     @include variable(color, clrBlack);
     @include variable(border-color, clrBlack);
@@ -32,22 +27,14 @@
     border-radius: 20px;
     font-weight: 600;
     padding: 20px;
-    margin: 20px 10px;
-    text-align-last: center;
+    text-align: center;
 
-    &__heading {
-        font-size: 20px;
-        font-weight: 800;
-    }
+    display: flex;
+    flex-direction: column;
 
-    &__subheading {
-        font-size: 17px;
-        font-weight: 600;
-    }
-
-    &:hover {
-        @include variable(background-color, clrBlack);
-        @include variable(color, clrWhite);
+    & > * {
+        align-self: center;
+        justify-self: center;
     }
 
     &--active {
@@ -55,8 +42,14 @@
         @include variable(color, clrWhite);
     }
 
-    .button-list--grid & {
-        align-self: center;
+    &:hover {
+        @include variable(background-color, clrBlack);
+        @include variable(color, clrWhite);
+    }
+
+    .cards--grid-5 & {
+        align-self: stretch;
+        justify-self: stretch;
 
         &:nth-child(1) {
             grid-area: overviewNumbers;
@@ -75,18 +68,56 @@
         }
 
         &:nth-child(5) {
-            align-self: center;
-            justify-self: center;
             grid-area: noData;
-            width: 50%;
         }
 
         &:nth-child(6) {
             grid-area: userStatistics;
+            align-self: center;
         }
 
         &:nth-child(7) {
             grid-area: userLists;
+            align-self: center;
+        }
+    }
+
+    // elements
+
+    &__heading {
+        font-size: 20px;
+        font-weight: 700;
+        order: 2;
+    }
+
+    &__text {
+        font-size: 16px;
+        margin-top: 10px;
+        order: 3;
+        text-align: left;
+    }
+
+    &__image {
+        // border: 1px solid red;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 64px;
+        margin-bottom: 10px;
+        order: 1;
+        width: 64px;
+
+        &--sm {
+            height: 36px;
+            width: 36px;
+        }
+
+        &--1 {
+            background-image: url(../../assets/images/artIconDataUsage.png);
+
+            &:hover {
+                background-image: url(../images/artIconDataUsageWhite.png);
+            }
         }
     }
 }
