@@ -3,21 +3,19 @@ import { NavigationService } from 'src/app/services/navigation.service.js';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  selector: 'app-subnavigation',
+  templateUrl: './subnavigation.component.html',
+  styleUrls: ['./subnavigation.component.scss']
 })
 
-export class NavigationComponent implements OnInit {
+export class SubnavigationComponent implements OnInit {
 
-  //navigationLinks: string[] = Settings.menu;
   navigationLinks$: Observable<string[]>;
   @Input() ariaLabel: string;
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.navigationLinks$ = this.navigationService.getMenuItems();
+    this.navigationLinks$ = this.navigationService.getSubMenuItems();
   }
-
 }

@@ -20,6 +20,10 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
+import { TranslationPipe } from './helpers/translation.pipe';
+import { NavigationService } from './services/navigation.service';
+import { SubnavigationComponent } from './layout/subnavigation/subnavigation.component';
+import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 
 @NgModule({
   declarations: [
@@ -40,13 +44,16 @@ import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumb
     UserStatisticsComponent,
     UserListsComponent,
     NoDataSpeciesComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    TranslationPipe,
+    SubnavigationComponent,
+    LanguageSwitcherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NavigationService],
   bootstrap: [AppComponent]
 })
 

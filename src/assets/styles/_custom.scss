@@ -1,4 +1,4 @@
-// ----------CUSTOM
+// ----------CUSTOM: used once or twice
 
 .scroll-up {
     @include variable(background-color, clrWhite);
@@ -15,86 +15,44 @@
     bottom: 50px;
 }
 
-.button-list {
-    // display: flex;
-    // flex-flow: row;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
-    // align-items: center;
+.skip-to-content {
+    @include variable(background-color, clrBlack);
+    @include variable(color, clrWhite);
+    font-size: 13px;
+    font-weight: 700;
+    height: 30px;
+    left: 50%;
+    line-height: 24px;
+    padding: 5px 20px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
 
-    &--grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-areas: "overviewNumbers qualityAssuredData" "redListedSpecies alienSpecies" "noData noData" "userStatistics userLists";
+    &:focus {
+        transform: translateY(0%);
     }
 }
 
-.button {
-    @include variable(background-color, clrNeutral3);
-    @include variable(color, clrBlack);
-    @include variable(border-color, clrBlack);
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 20px;
-    font-weight: 600;
-    padding: 20px;
-    margin: 20px 10px;
-    text-align-last: center;
+.flags {
+}
 
-    &__heading {
-        font-size: 20px;
-        font-weight: 800;
+.flag {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 10px;
+
+    height: 30px;
+    width: 45px;
+
+    &--1 {
+        background-image: url(../images/flagNorway.png);
     }
-
-    &__subheading {
-        font-size: 17px;
-        font-weight: 600;
-    }
-
-    &:hover {
-        @include variable(background-color, clrBlack);
-        @include variable(color, clrWhite);
-    }
-
-    &--active {
-        @include variable(background-color, clrBlack);
-        @include variable(color, clrWhite);
-    }
-
-    .button-list--grid & {
-        align-self: center;
-
-        &:nth-child(1) {
-            grid-area: overviewNumbers;
-        }
-
-        &:nth-child(2) {
-            grid-area: qualityAssuredData;
-        }
-
-        &:nth-child(3) {
-            grid-area: redListedSpecies;
-        }
-
-        &:nth-child(4) {
-            grid-area: alienSpecies;
-        }
-
-        &:nth-child(5) {
-            align-self: center;
-            justify-self: center;
-            grid-area: noData;
-            width: 50%;
-        }
-
-        &:nth-child(6) {
-            grid-area: userStatistics;
-        }
-
-        &:nth-child(7) {
-            grid-area: userLists;
-        }
+    &--2 {
+        background-image: url(../images/flaguk.png);
     }
 }
 

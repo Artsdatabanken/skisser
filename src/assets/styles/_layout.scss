@@ -6,7 +6,6 @@
 
     &__header {
         @include variable(background-color, clrNature0b);
-        @include variable(background-color, clrSecondary);
     }
 
     &__footer {
@@ -31,7 +30,7 @@
             grid-template-columns: 1fr 8fr 1fr;
             grid-template-rows: 1fr;
             grid-template-areas: ". main .";
-        }   
+        }
     }
 }
 
@@ -40,20 +39,62 @@ main {
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    padding: 0 15px;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0 0;
+    grid-template-areas: ". . .";
+
+    & > * {
+        align-self: center;
+        justify-self: stretch;
+    }
 }
 
 .navigation {
+    text-align: center;
+
+    &__link {
+        border-bottom: 3px solid transparent;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 25px;
+        padding: 0;
+        padding-bottom: 3px;
+
+        &--active {
+            border-bottom: 3px solid #4c4a48;
+        }
+    }
+}
+
+.subnavigation {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+
     &__link {
         font-size: 16px;
         font-weight: 700;
+        margin-left: 20px;
     }
 }
 
 .logo {
-    font-size: 16px;
+    background-image: url(../images/artsdatabankenHorizontalGreyscale.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    height: 66px;
+    width: 426px;
 }
 
 .subheader {

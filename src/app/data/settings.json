@@ -1,0 +1,30 @@
+{
+    "startPage": "home",
+    "year": "2020",
+    "googleAnalyticsKey": "",
+    "categories": [
+        {
+            "label": "General",
+            "value": "general"
+        },
+        {
+            "label": "Uncategorized",
+            "value": "uncategorized"
+        }
+    ],
+    "tags": [
+        "All"
+    ],
+    "menu": [
+        "home",
+        "report",
+        "search",
+        "statistics",
+        "images",
+        "about"
+    ],
+    "submenu": [
+        "register",
+        "login"
+    ]
+}

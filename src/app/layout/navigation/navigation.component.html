@@ -1,1 +1,15 @@
-<p>navigation works!</p>
+<!--layout component-->
+
+<nav class="navigation" role="navigation" [attr.aria-label]="ariaLabel">
+    <a class="navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
+    <a  class="navigation__link" 
+        routerLinkActive="navigation__link--active" 
+        routerLink="{{ link }}"
+        [ngClass]="{'navigation__link--in-footer': ariaLabel === 'footerMenu'}"
+        *ngFor="let link of navigationLinks$ | async">
+        {{ link | titlecase | translate }}
+    </a>
+    <a class="navigation__link" href="/feed.xml" *ngIf="ariaLabel === 'footerMenu'">Feed</a>
+</nav>
+
+<!--layout component-->
