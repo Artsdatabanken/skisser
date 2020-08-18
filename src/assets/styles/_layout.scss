@@ -6,6 +6,7 @@
 
     &__header {
         @include variable(background-color, clrNature0b);
+        @include variable(background-color, clrSecondary);
     }
 
     &__footer {
@@ -14,17 +15,23 @@
     &__main {
         @include variable(background-color, clrNature0c);
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 4fr 1fr;
         grid-template-rows: 1fr;
-        grid-template-areas: ".";
+        grid-template-areas: ". main .";
         min-height: 50vh;
         padding: 50px;
 
         @media screen and (max-width: 1600px) {
-            grid-template-columns: 1fr 5fr 1fr;
+            grid-template-columns: 1fr 8fr 1fr;
             grid-template-rows: 1fr;
             grid-template-areas: ". main .";
         }
+
+        @media screen and (max-width: 1600px) {
+            grid-template-columns: 1fr 8fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: ". main .";
+        }   
     }
 }
 

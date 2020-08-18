@@ -76,8 +76,8 @@ h3,
 h4,
 h5,
 h6 {
-  @include variable(font-family, fontAccent);
-  font-weight: 700;
+  @include variable(font-family, fontPrimary);
+  font-weight: 900;
   font-kerning: normal;
   -webkit-font-feature-settings: normal;
   -moz-font-feature-settings: normal;
@@ -87,7 +87,7 @@ h6 {
 
 h1 {
   font-size: 52px;
-  font-weight: 700;
+  font-weight: 00;
   line-height: 1.2;
 
   @media screen and (max-width: 900px) {
@@ -137,30 +137,6 @@ h6 {
 
 h2 + h3 {
   margin: 30px 0 15px;
-}
-
-h1 pre,
-h2 pre,
-h3 pre,
-h4 pre,
-h5 pre,
-h6 pre,
-h1 code,
-h2 code,
-h3 code,
-h4 code,
-h5 code,
-h6 code {
-  @include variable(font-family, fontSecondary);
-  background: none !important;
-  font-size: inherit;
-  font-weight: 600;
-  font-kerning: normal;
-  -webkit-font-feature-settings: normal;
-  -moz-font-feature-settings: normal;
-  -ms-font-feature-settings: normal;
-  font-feature-settings: normal;
-  padding: 0 5px !important;
 }
 
 /*text*/
@@ -383,11 +359,12 @@ button {
 
 table {
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 18px;
   margin: 50px auto;
   max-width: 100%;
+  min-width: 50%;
   overflow-x: auto;
-  width: 100%;
+  width: auto;
 
   @media screen and (max-width: 900px) {
     max-width: 90%;
@@ -399,7 +376,8 @@ table {
 
   th,
   td {
-    border: 2px solid #383838;
+    border: 3px solid #4c4a48;
+    font-weight: 700;
     padding: 15px;
     vertical-align: middle;
 

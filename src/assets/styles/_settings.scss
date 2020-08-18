@@ -5,14 +5,17 @@
 @import "fonts";
 
 $vars: (
-  fontPrimary: #{"nunito",  Consolas,  monospace},
+  fontPrimary: #{"worksans",  Consolas,  monospace},
   fontSecondary: #{"nunito",  Consolas,  monospace},
-  fontAccent: #{"nunito",  serif},
+  fontAccent: #{"spacemono",  Consolas, monospace},
   black: #262626,
   clrBlack: #4c4a48,
   clrWhite: #fff,
   clrAccent1: #de8608,
   clrAccent2: #eb6109,
+
+  clrPrimary: #35a3b2,
+  clrSecondary: #a0ba5b,
 
   clrSecondary1: #35a3b2,
   clrSecondary2: #5fb7b1,
@@ -21,14 +24,11 @@ $vars: (
   clrSecondary5: #d2c160,  
   clrSecondary6: #e5b445,
 
-  clrNeutral1: #bebba3,
-  clrNeutral2: #e3e3e3,
-  clrNeutral3: #fbf9f7,
-
   clrNature0: lighten(#ccc2ba, 10%),
   clrNature0a: lighten(#ccc2ba, 12%),
   clrNature0b: lighten(#ccc2ba, 14%),
   clrNature0c: lighten(#ccc2ba, 15%),
+
   clrNature1: #ccc2ba,
   clrNature2: #a39282,
   clrNature3: #7f726a,
@@ -46,6 +46,9 @@ $vars: (
 
   --clrAccent1: #{map-get($vars, clrAccent1)};
   --clrAccent2: #{map-get($vars, clrAccent2)};
+
+  --clrPrimary: #{map-get($vars, clrPrimary)};
+  --clrSecondary: #{map-get($vars, clrSecondary)};
 
   --clrSecondary1: #{map-get($vars, clrSecondary1)};
   --clrSecondary2: #{map-get($vars, clrSecondary2)};

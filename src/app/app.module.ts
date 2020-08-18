@@ -19,6 +19,7 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
+import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NoDataSpeciesComponent } from './components/statistics/no-data-species/
     AlienSpeciesComponent,
     UserStatisticsComponent,
     UserListsComponent,
-    NoDataSpeciesComponent
+    NoDataSpeciesComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     BrowserModule,

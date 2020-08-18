@@ -10,8 +10,12 @@
         [ngClass]="{'layout__main--frontpage': pageName === 'home', 'layout__main--post': pageName === 'post'}">
 
         <main role="main" class="main" id="content" tabindex="-1">
-            
+
+
             <h1 class="page-title" *ngIf="page">{{ page }}</h1>
+            
+            <app-breadcrumbs></app-breadcrumbs>
+
             <!-- <router-outlet></router-outlet> -->
             <router-outlet (activate)="onActivate($event)"></router-outlet>
 
