@@ -18,6 +18,7 @@ import { RedListedSpeciesComponent } from './components/statistics/red-listed-sp
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
+import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserListsComponent } from './components/statistics/user-lists/user-list
     RedListedSpeciesComponent,
     AlienSpeciesComponent,
     UserStatisticsComponent,
-    UserListsComponent
+    UserListsComponent,
+    NoDataSpeciesComponent
   ],
   imports: [
     BrowserModule,
