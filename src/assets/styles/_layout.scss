@@ -86,7 +86,7 @@ main {
 }
 
 .logo {
-    background-image: url(../images/artsdatabankenHorizontalGreyscale.png);
+    background-image: url(../images/logos/artsdatabankenHorizontalGreyscale.png);
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 75%;
@@ -110,16 +110,76 @@ main {
 }
 
 .footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0 0;
-    grid-template-areas: ". ." ". .";
+    padding: 45px;
 
-    &>* {
-        border: 1px solid red;
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0 0;
+        grid-template-areas: "x x y y z z" "footerContentBottom footerContentBottom footerContentBottom footerContentBottom footerContentBottom footerContentBottom";
+        grid-area: footerContent;
+    }
+
+    &__column {
+        &--x {
+            grid-area: x;
+        }
+
+        &--y {
+            grid-area: y;
+        }
+
+        &--z {
+            grid-area: z;
+        }
+
+        &--wide {
+            grid-area: footerContentBottom;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+
+            & > * {
+                margin-right: 45px;
+            }
+        }
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    button {
+        display: inline-block;
+        font-weight: 700;
     }
 }
+
+.footer-nav {
+    a {
+        font-weight: 600;
+    }
+}
+
+.footer-logo {
+    width: 100px;
+}
+
+// page
 
 .page {
     &__header {

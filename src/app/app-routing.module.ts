@@ -11,6 +11,9 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { TouComponent } from './components/tou/tou.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,38 @@ const routes: Routes = [
     data: {
       title: 'Om',
       name: 'about'
+    }
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: {
+      title: 'Kontakt',
+      name: 'contact'
+    }
+  },
+  {
+    path: 'tou',
+    component: TouComponent,
+    data: {
+      title: 'Brukervilkår',
+      name: 'tou'
+    }
+  },
+  {
+    path: 'faq',
+    component: FaqComponent,
+    data: {
+      title: 'Ofte stilte spørsmål',
+      name: 'faq'
+    }
+  },
+  {
+    path: 'dictionary',
+    component: FaqComponent,
+    data: {
+      title: 'Ordliste',
+      name: 'dictionary'
     }
   },
   {

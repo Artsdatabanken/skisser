@@ -24,6 +24,10 @@ import { TranslationPipe } from './helpers/translation.pipe';
 import { NavigationService } from './services/navigation.service';
 import { SubnavigationComponent } from './layout/subnavigation/subnavigation.component';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { TouComponent } from './components/tou/tou.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { DictionaryComponent } from './components/dictionary/dictionary.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { LanguageSwitcherComponent } from './layout/language-switcher/language-s
     BreadcrumbsComponent,
     TranslationPipe,
     SubnavigationComponent,
-    LanguageSwitcherComponent
+    LanguageSwitcherComponent,
+    ContactComponent,
+    TouComponent,
+    FaqComponent,
+    DictionaryComponent
   ],
   imports: [
     BrowserModule,

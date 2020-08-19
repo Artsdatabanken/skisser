@@ -2,38 +2,64 @@
 
 <footer class="footer" role="contentinfo">
 
-    <div class="footer__column">
+    <div class="footer__grid">
+
+        <div class="footer__column footer__column--x">
+
+            <nav class="footer-nav">
+                <ul>
+                    <li><a routerLink="/about">Om Artsobservasjoner</a></li>
+                    <li><a routerLink="/contact">Kontakt & Brukerstøtte</a></li>
+                    <li><a routerLink="/tou">Brukervilkår</a></li>
+                </ul>
+            </nav>
 
 
-        Om Artsobservasjoner
-        Kontakt & Brukerstøtte
-        Brukervilkår
-    
-    
-    </div>
+        </div>
 
-    <div class="footer__column">
+        <div class="footer__column footer__column--y">
 
+            <h1>Samarbeidspartnere</h1>
 
-        Samarbeidspartnere:
-        Sabima
-        Norsk Ornitologisk Forening
-        Norsk Botanisk Forening
-        Norges sopp- og nyttevekstforbund
-        Norsk Zoologisk Forening
-        Norsk entomologisk forening
-    
-        Finansiert av:
-        Klima- og miljødepartementet
-    
-    
-    </div>
+            <ul>
+                <li><a href="">Sabima</a></li>
+                <li><a href="">Norsk Ornitologisk Forening</a></li>
+                <li><a href="">Norsk Botanisk Forening</a></li>
+                <li><a href="">Norges sopp- og nyttevekstforbund</a></li>
+                <li><a href="">Norsk Zoologisk Forening</a></li>
+                <li><a href="">Norsk entomologisk forening</a></li>
+            </ul>
 
-    <div class="footer__column">
+        </div>
 
-    </div>
+        <div class="footer__column footer__column--z">
+            <nav class="footer-nav">
+                <button>NO</button>
+                &nbsp;
+                <button>EN</button>
 
-    <div class="footer__column">
+                <ul>
+                    <li><a routerLink="/faq">Ofte stilte spørsmål</a></li>
+                    <li><a routerLink="/dictionary">Ordliste</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer__column footer__column--wide">
+            <h1>Medlem av</h1>
+
+            <a href="https://artsdatabanken.no/" style="border: none">
+                <img class="footer-logo" style="width: 200px"
+                    src="./assets/images/logos/artsdatabankenHorizontalGreyscale.png" alt="Artsdatabanken">
+            </a>
+
+            <a href="https://ecsa.citizen-science.net/" style="border: none">
+                <img class="footer-logo" src="./assets/images/logos/ecsa.jpg"
+                    alt="ECSA European Citizen Science Association">
+            </a>
+
+        </div>
 
     </div>
 

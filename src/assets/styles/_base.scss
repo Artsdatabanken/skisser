@@ -59,14 +59,15 @@ a:not([class]) {
   }
 }
 
-a:not([href*="cnstnz.net"]):not([href^="#"]):not([href^="/"]):after {
-  content: "\0020 \2197";
-  font-weight: 800;
+// a:not([href*=""]):not([href^="#"]):not([href^="/"]):after {
+//   content: "\0020 \2197";
+//   font-weight: 800;
+// }
 
-  .intro & {
-    content: none !important;
-  }
-}
+// a:not([href*="localhost:4200"]):not([href^="#"]):not([href^="/"]):after {
+//   content: "\0020 \2197";
+//   font-weight: 800;
+// }
 
 /*headings*/
 
