@@ -13,7 +13,7 @@
     }
 
     &__main {
-        @include variable(background-color, clrLight1);
+        @include variable(background-color, clrWhite);
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: 1fr;
@@ -45,7 +45,7 @@ main {
     grid-template-rows: 1fr;
     gap: 0 0;
     grid-template-areas: ". . .";
-    padding: 0 15px;
+    padding: 15px;
 
     & > * {
         align-self: center;
@@ -195,7 +195,7 @@ main {
 
 .footer-nav {
     a {
-        font-weight: 600;
+        font-weight: 700;
     }
 }
 

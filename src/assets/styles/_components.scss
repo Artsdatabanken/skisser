@@ -29,8 +29,7 @@
 .card {
     @include variable(background-color, transparent);
     @include variable(color, clrPrimary);
-    @include variable(border-color, clrBlack);
-    @include variable(border-color, clrPrimary);
+    @include variable(border-color, clrSecondary);
     border-style: solid;
     border-width: 2px;
     border-radius: 20px;
