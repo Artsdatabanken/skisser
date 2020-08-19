@@ -12,17 +12,25 @@
 .cards {
     &--grid-5 {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+               
+        grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
+
         grid-gap: 15px 30px;
+
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
+
     }
 }
 
 .card {
-    @include variable(background-color, clrNeutral3);
-    @include variable(color, clrBlack);
+    @include variable(background-color, transparent);
+    @include variable(color, clrPrimary);
     @include variable(border-color, clrBlack);
+    @include variable(border-color, clrPrimary);
     border-style: solid;
     border-width: 2px;
     border-radius: 20px;
@@ -43,8 +51,15 @@
         @include variable(color, clrWhite);
     }
 
+    &--secondary {
+        @include variable(border-color, clrSecondary);
+    }
+
     &:hover {
         @include variable(background-color, clrBlack);
+        @include variable(border-color, clrBlack);
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
         @include variable(color, clrWhite);
     }
 
@@ -74,11 +89,13 @@
 
         &:nth-child(6) {
             grid-area: userStatistics;
+            grid-column-start: span 2;
             align-self: center;
         }
 
         &:nth-child(7) {
             grid-area: userLists;
+            grid-column-end: span 2;
             align-self: center;
         }
     }
@@ -86,20 +103,25 @@
     // elements
 
     &__heading {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 700;
+        font-weight: 800;
+        margin-top: 40px;
         order: 2;
+
+        &--short {
+            margin-top: 0;
+        }
     }
 
     &__text {
         font-size: 16px;
-        margin-top: 10px;
+        margin-top: 15px;
         order: 3;
         text-align: left;
     }
 
     &__image {
-        // border: 1px solid red;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -111,14 +133,6 @@
         &--sm {
             height: 36px;
             width: 36px;
-        }
-
-        &--1 {
-            background-image: url(../../assets/images/artIconDataUsage.png);
-
-            &:hover {
-                background-image: url(../images/artIconDataUsageWhite.png);
-            }
         }
     }
 }

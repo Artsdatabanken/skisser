@@ -42,10 +42,11 @@ body {
 
 a {
   @include variable(color, clrBlack);
+  display: inline-block;
   text-decoration: none !important;
 
   &:focus {
-    //display: inline-block;
+    display: inline-block;
   }
 }
 
@@ -54,6 +55,7 @@ a:not([class]) {
   @include variable(border-color, clrBlack);
   border-bottom-style: solid;
   border-bottom-width: 2px;
+  display: inline-block;
   padding-bottom: 2px;
   text-decoration: none;
   transition: border 0.5s;

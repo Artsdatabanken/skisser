@@ -2,17 +2,18 @@
 
 .layout {
     @include variable(background-color, backgroundColor);
-    @include variable(background-color, clrNature0);
+    @include variable(background-color, clrWhite);
 
     &__header {
-        @include variable(background-color, clrNature0b);
+        @include variable(background-color, clrLight2);
     }
 
     &__footer {
+        @include variable(background-color, clrLight2);
     }
 
     &__main {
-        @include variable(background-color, clrNature0c);
+        @include variable(background-color, clrLight1);
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: 1fr;
@@ -39,13 +40,12 @@ main {
 }
 
 .header {
-    padding: 0 15px;
-
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr;
     gap: 0 0;
     grid-template-areas: ". . .";
+    padding: 0 15px;
 
     & > * {
         align-self: center;
@@ -59,13 +59,22 @@ main {
     &__link {
         border-bottom: 3px solid transparent;
         font-size: 16px;
+        font-size: 20px;
         font-weight: 700;
         margin: 0 25px;
         padding: 0;
         padding-bottom: 3px;
 
         &--active {
-            border-bottom: 3px solid #4c4a48;
+            @include variable(border-color, clrBlack);
+            border-bottom-style: solid;
+            border-bottom-width: 3px;
+        }
+
+        &:hover {
+            @include variable(border-color, clrBlack);
+            border-bottom-style: solid;
+            border-bottom-width: 3px;
         }
     }
 }

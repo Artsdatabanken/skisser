@@ -4,39 +4,34 @@
 
 @import "fonts";
 
+/*
+
+// COLORS
+
+ORIGINAL #ccc2ba
+
+*/
+
 $vars: (
-  fontPrimary: #{"worksans",  Consolas,  monospace},
-  fontSecondary: #{"nunito",  Consolas,  monospace},
+  fontPrimary: #{"nunito",  Consolas,  monospace},
+  fontSecondary: #{"worksans",  Consolas,  monospace},
   fontAccent: #{"spacemono",  Consolas, monospace},
-  black: #262626,
-  clrBlack: #4c4a48,
-  clrWhite: #fff,
-  // clrAccent1: #de8608,
-  // clrAccent2: #eb6109,
 
-  clrAccent1: #a9d1ce,
-  clrAccent2: #557170,
+  clrBlack: #2d2620,
+  clrWhite: #f7f6f5,  
 
-  clrPrimary: #71b581,
-  clrSecondary: darken(#71b581, 18),
+  clrLight1: #ede9e6,
+  clrLight2: #e2dcd7,
+  clrLight3: #d7cfc9,
+  clrLight4: #ccc2ba,
 
-  clrSecondary1: #35a3b2,
-  clrSecondary2: #5fb7b1,
-  clrSecondary3: #71b581,
-  clrSecondary4: #a0ba5b,
-  clrSecondary5: #d2c160,  
-  clrSecondary6: #e5b445,
+  clrDark1: #a19790,
+  clrDark2: #786f68,
+  clrDark3: #514942,
+  clrDark4: #302924,
 
-  clrNature0: lighten(#ccc2ba, 10%),
-  clrNature0a: lighten(#ccc2ba, 13%),
-  clrNature0b: lighten(#ccc2ba, 15%),
-  clrNature0c: lighten(#ccc2ba, 17%),
-
-  clrNature1: #ccc2ba,
-  clrNature2: #a39282,
-  clrNature3: #7f726a,
-  clrNature4: #936649,
-  clrNature5: #e5b445
+  clrPrimary: darken(#6f968e, 10% * 1.25), // #53726c
+  clrSecondary: darken(#a3ccc4, 10% * 1.25) // ##7ab5aa
 );
 
 :root {
@@ -47,33 +42,18 @@ $vars: (
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
 
-  --clrAccent1: #{map-get($vars, clrAccent1)};
-  --clrAccent2: #{map-get($vars, clrAccent2)};
-
+  --clrLight1: #{map-get($vars, clrLight1)};
+  --clrLight2: #{map-get($vars, clrLight2)};
+  --clrLight3: #{map-get($vars, clrLight3)};
+  --clrLight4: #{map-get($vars, clrLight4)};
+  
+  --clrDark1: #{map-get($vars, clrDark1)};
+  --clrDark2: #{map-get($vars, clrDark2)};
+  --clrDark3: #{map-get($vars, clrDark3)};
+  --clrDark4: #{map-get($vars, clrDark4)};
+  
   --clrPrimary: #{map-get($vars, clrPrimary)};
   --clrSecondary: #{map-get($vars, clrSecondary)};
-
-  --clrSecondary1: #{map-get($vars, clrSecondary1)};
-  --clrSecondary2: #{map-get($vars, clrSecondary2)};
-  --clrSecondary3: #{map-get($vars, clrSecondary3)};
-  --clrSecondary4: #{map-get($vars, clrSecondary4)};
-  --clrSecondary5: #{map-get($vars, clrSecondary5)};
-  --clrSecondary6: #{map-get($vars, clrSecondary6)};
-
-  --clrNeutral1: #{map-get($vars, clrNeutral1)};
-  --clrNeutral2: #{map-get($vars, clrNeutral2)};
-  --clrNeutral3: #{map-get($vars, clrNeutral3)};
-
-  --clrNature0: #{map-get($vars, clrNature0)};
-  --clrNature0a: #{map-get($vars, clrNature0a)};
-  --clrNature0b: #{map-get($vars, clrNature0b)};
-  --clrNature0c: #{map-get($vars, clrNature0c)};
-  
-  --clrNature1: #{map-get($vars, clrNature1)};
-  --clrNature2: #{map-get($vars, clrNature2)};
-  --clrNature3: #{map-get($vars, clrNature3)};
-  --clrNature4: #{map-get($vars, clrNature4)};
-  --clrNature5: #{map-get($vars, clrNature5)};
 
   --backgroundColor: #{map-get($vars, clrNature0)};
   --textColor: #{map-get($vars, clrBlack)};
@@ -85,3 +65,14 @@ $vars: (
 }
 
 // color variations
+
+// #00382b#007156#00aa82#00e2ad#1cffc9#55fed7#8dffe4#c6fff1
+
+$baseColor1: rgb(0, 158, 121);
+$contrast: 20%;
+$contrastIncrease: 1.25;
+
+$clrArt1Light: lighten($baseColor1, $contrast);
+$clrArt1Dark: lighten($baseColor1, $contrast);
+$clrArt1Lightest: lighten($baseColor1, $contrast * $contrastIncrease);
+$clrArt1Darkest: lighten($baseColor1, $contrast * $contrastIncrease);
