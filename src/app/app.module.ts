@@ -28,6 +28,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TouComponent } from './components/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { DictionaryComponent } from './components/dictionary/dictionary.component';
+import { ReportComponent } from './components/report/report.component';
+import { TrimPipe } from './helpers/trim.pipe';
 
 @NgModule({
   declarations: [
@@ -50,12 +52,14 @@ import { DictionaryComponent } from './components/dictionary/dictionary.componen
     NoDataSpeciesComponent,
     BreadcrumbsComponent,
     TranslationPipe,
+    TrimPipe,
     SubnavigationComponent,
     LanguageSwitcherComponent,
     ContactComponent,
     TouComponent,
     FaqComponent,
-    DictionaryComponent
+    DictionaryComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

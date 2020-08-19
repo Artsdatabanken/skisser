@@ -92,6 +92,21 @@ main {
     background-size: 75%;
     height: 66px;
     width: 426px;
+    position: relative;
+
+    a {
+        border: none;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        &:hover {
+            border: none;
+        }
+    }
 }
 
 .subheader {

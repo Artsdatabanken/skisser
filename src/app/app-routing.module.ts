@@ -10,10 +10,10 @@ import { RedListedSpeciesComponent } from './components/statistics/red-listed-sp
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
-import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TouComponent } from './components/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { ReportComponent } from './components/report/report.component';
 
 const routes: Routes = [
   {
@@ -185,6 +185,14 @@ const routes: Routes = [
     data: {
       title: 'Mine lister',
       name: 'user-lists'
+    }
+  },
+  {
+    path: 'report',
+    component: ReportComponent,
+    data: {
+      title: 'Rapportere',
+      name: 'report'
     }
   },
   {

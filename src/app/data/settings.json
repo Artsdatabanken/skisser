@@ -16,11 +16,9 @@
         "All"
     ],
     "menu": [
-        "home",
         "report",
         "search",
         "statistics",
-        "images",
         "about"
     ],
     "submenu": [

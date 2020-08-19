@@ -7,7 +7,7 @@
         routerLink="{{ link }}"
         [ngClass]="{'navigation__link--in-footer': ariaLabel === 'footerMenu'}"
         *ngFor="let link of navigationLinks$ | async">
-        {{ link | titlecase | translate }}
+        {{ link | titlecase | translate | trim }}
     </a>
     <a class="navigation__link" href="/feed.xml" *ngIf="ariaLabel === 'footerMenu'">Feed</a>
 </nav>
