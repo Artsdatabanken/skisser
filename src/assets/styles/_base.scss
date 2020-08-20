@@ -19,7 +19,7 @@ body {
   min-height: 80vh;
 
   @media screen and (min-width: 2000px) {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   @media screen and (max-width: 900px) {
@@ -56,7 +56,8 @@ a:not([class]) {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   display: inline-block;
-  padding-bottom: 2px;
+  line-height: 1.15;
+  padding: 0;
   text-decoration: none;
   transition: border 0.5s;
 
@@ -70,11 +71,6 @@ a:not([class]) {
 //   font-weight: 800;
 // }
 
-// a:not([href*="localhost:4200"]):not([href^="#"]):not([href^="/"]):after {
-//   content: "\0020 \2197";
-//   font-weight: 800;
-// }
-
 /*headings*/
 
 h1,
@@ -83,8 +79,9 @@ h3,
 h4,
 h5,
 h6 {
-  @include variable(font-family, fontPrimary);
-  font-weight: 900;
+  @include variable(font-family, fontSecondary);
+  @include variable(fcolor, clrdark2);
+  font-weight: 500;
   font-kerning: normal;
   -webkit-font-feature-settings: normal;
   -moz-font-feature-settings: normal;
@@ -103,11 +100,11 @@ h1 {
   }
 }
 
-h1:not([class]) {
-}
-
 h2 {
+  @include variable(font-family, fontSecondary);
   font-size: 36px;
+  font-weight: 500;
+  line-height: 1.2;
   margin: 70px 0 20px;
 
   @media screen and (max-width: 900px) {
@@ -148,17 +145,7 @@ h2 + h3 {
 
 /*text*/
 
-:lang(ko),
-[lang="ko"] {
-  font-family: "gaegu", "Times New Roman", Times, serif;
-  font-family: "nanumgothic", "Times New Roman", Times, serif;
-  font-weight: 400;
-  font-weight: 700;
-  //font-size: 22px;
-  font-size: 19px;
-}
-
-:lang(no) {
+:lang {
   font-style: italic;
 }
 

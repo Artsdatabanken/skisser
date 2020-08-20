@@ -24,7 +24,7 @@ export class TranslationPipe implements PipeTransform {
             return 'Forsiden';
         }
         else if (value === 'about') {
-            return 'Om';
+            return 'Om Artsobservasjoner';
         }
         else if (value === 'report') {
             return 'Rapportere';

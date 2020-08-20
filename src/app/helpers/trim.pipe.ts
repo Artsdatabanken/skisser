@@ -13,7 +13,7 @@ export class TrimPipe implements PipeTransform {
 
         value = value.toString();
         value = value.trim();
-        value = value.replace(' ', '')
+        //value = value.replace(' ', '')
         
         return value;
 

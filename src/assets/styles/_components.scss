@@ -12,7 +12,7 @@
 .cards {
     &--grid-5 {
         display: grid;
-               
+
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
@@ -22,7 +22,6 @@
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
-
     }
 }
 
@@ -102,9 +101,9 @@
     // elements
 
     &__heading {
-        font-size: 24px;
-        font-weight: 700;
-        font-weight: 800;
+        @include variable(color, clrPrimary);
+        font-size: 34px;
+        font-weight: 400;
         margin-top: 40px;
         order: 2;
 
@@ -140,14 +139,48 @@
 
 .toc {
     list-style: none;
-    margin: 0;
+    margin: 0 0 75px;
     padding: 0;
 
-    li {
-        margin: 0;
+    &:before {
+        @include variable(font-family, fontSecondary);
+        content: "Innhold";
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 15px;
+    }
 
-        &:first-child {
-            font-weight: 700;
-        }
+    li {
+        margin: 0 0 10px;
+    }
+
+    a {
+        @include variable(border-color, clrSecondary);
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+}
+
+.link-list {
+    font-size: 20px;
+    font-weight: 700;
+    list-style: none;
+    margin: 0 0 75px;
+    padding: 0;
+
+    &--sm {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    li {
+        margin: 0 0 10px;
+    }
+
+    a {
+        @include variable(border-color, clrSecondary);
+        line-height: 1.5;
     }
 }

@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent,
     data: {
-      title: 'Om',
+      title: 'Om Artsobservasjoner',
       name: 'about'
     }
   },

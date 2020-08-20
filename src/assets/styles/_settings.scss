@@ -14,7 +14,7 @@ ORIGINAL #ccc2ba
 
 $vars: (
   fontPrimary: #{"nunito",  Consolas,  monospace},
-  fontSecondary: #{"worksans",  Consolas,  monospace},
+  fontSecondary: #{"oswald",  Consolas,  monospace},
   fontAccent: #{"spacemono",  Consolas, monospace},
 
   clrBlack: #2d2620,
@@ -30,7 +30,7 @@ $vars: (
   clrDark3: #514942,
   clrDark4: #302924,
 
-  clrPrimary: darken(#6f968e, 10% * 1.25), // #53726c
+  clrPrimary: darken(#6f968e, 15% * 1.25), // #53726c
   clrSecondary: darken(#a3ccc4, 10% * 1.25) // #7ab5aa
 );
 
