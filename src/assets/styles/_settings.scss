@@ -17,6 +17,10 @@ $vars: (
   fontSecondary: #{"oswald",  Consolas,  monospace},
   fontAccent: #{"spacemono",  Consolas, monospace},
 
+  fontSizeSmall: 16px,
+  fontSizeMedium: 20px,
+  fontSizeLarge: 32px,
+
   clrBlack: #2d2620,
   clrWhite: #f7f6f5,  
 
@@ -31,7 +35,10 @@ $vars: (
   clrDark4: #302924,
 
   clrPrimary: darken(#6f968e, 15% * 1.25), // #53726c
-  clrSecondary: darken(#a3ccc4, 10% * 1.25) // #7ab5aa
+  clrSecondary: darken(#a3ccc4, 10% * 1.25), // #7ab5aa
+
+  borderWidth1: 2px,
+  borderWidth2: 3px
 );
 
 :root {

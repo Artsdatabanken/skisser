@@ -1,0 +1,14 @@
+<button class="hamburger hamburger--squeeze" [ngClass]="{'hamburger--is-active': isActive}" type="button"
+    (click)="toggleMenu()">
+    <span class="hamburger__box">
+        <span class="hamburger__inner"></span>
+    </span>
+</button>
+
+<nav class="mobile-navigation" [ngClass]="{'mobile-navigation--visible': isActive}">
+    <a class="mobile-navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
+    <a class="mobile-navigation__link" routerLinkActive="mobile-navigation__link--active" routerLink="{{ link }}"
+        *ngFor="let link of navigationLinks$ | async">
+        {{ link | titlecase | translate | trim }}
+    </a>
+</nav>

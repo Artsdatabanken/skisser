@@ -8,10 +8,6 @@ body {
   @include variable(color, textColor);
   @include variable(font-family, fontPrimary);
 
-  //background-image: url("/assets/images/ssbg1.jpg");
-  // background-position: right bottom;
-  // background-repeat: no-repeat;
-
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -80,7 +76,7 @@ h4,
 h5,
 h6 {
   @include variable(font-family, fontSecondary);
-  @include variable(fcolor, clrdark2);
+  @include variable(color, clrBlack);
   font-weight: 500;
   font-kerning: normal;
   -webkit-font-feature-settings: normal;
@@ -90,7 +86,7 @@ h6 {
 }
 
 h1 {
-  font-size: 52px;
+  font-size: 62px;
   font-weight: 00;
   line-height: 1.2;
 
@@ -102,7 +98,7 @@ h1 {
 
 h2 {
   @include variable(font-family, fontSecondary);
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 500;
   line-height: 1.2;
   margin: 70px 0 20px;
@@ -365,12 +361,22 @@ table {
   }
 
   th {
+    @include variable(font-family, fontSecondary);
+    font-weight: 400;    
+    
+    &:first-child {
+      text-align: left;
+    }
   }
 
   th,
   td {
     border: 3px solid #4c4a48;
-    font-weight: 700;
+
+    @include variable(border-color, clrDark3);
+    border-style: solid;
+    border-width: 2px;
+
     padding: 15px;
     vertical-align: middle;
 
@@ -381,6 +387,11 @@ table {
     }
   }
 
-  td:first-child {
+  td {
+    font-weight: 600;
+
+    &:first-child {
+      font-weight: 800;
+    }
   }
 }

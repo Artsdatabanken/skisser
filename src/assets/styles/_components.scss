@@ -1,8 +1,8 @@
 // ----------COMPONENTS
 
 .section {
-    border: 1px solid red;
-    margin: 100px 0;
+    //border: 1px solid red;
+    margin: 150px 0;
 }
 
 // buttons
@@ -151,6 +151,10 @@
 
         &:hover {
             @include variable(border-color, clrPrimary);
+        }
+
+        @media screen and (max-width: 900px) {
+            display: inline;
         }
     }
 }

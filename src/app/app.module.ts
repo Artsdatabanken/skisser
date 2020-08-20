@@ -30,6 +30,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { DictionaryComponent } from './components/dictionary/dictionary.component';
 import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
+import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { TrimPipe } from './helpers/trim.pipe';
     TouComponent,
     FaqComponent,
     DictionaryComponent,
-    ReportComponent
+    ReportComponent,
+    HamburgerComponent
   ],
   imports: [
     BrowserModule,
