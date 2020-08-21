@@ -15,6 +15,7 @@ import { TouComponent } from './components/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ReportComponent } from './components/report/report.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 const routes: Routes = [
   {
@@ -22,13 +23,7 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Forsiden',
-      name: 'home',
-      breadcrumb: [
-        {
-          label: 'Forsiden',
-          url: ''
-        }
-      ]
+      name: 'home'
     }
   },
   {
@@ -36,13 +31,7 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Forsiden',
-      name: 'home',
-      breadcrumb: [
-        {
-          label: 'Forsiden',
-          url: ''
-        }
-      ]
+      name: 'home'
     }
   },
   {
@@ -50,13 +39,7 @@ const routes: Routes = [
     component: AboutComponent,
     data: {
       title: 'Om Artsobservasjoner',
-      name: 'about',
-      breadcrumb: [
-        {
-          label: 'Om Artsobservasjoner',
-          url: 'about'
-        }
-      ]
+      name: 'about'
     }
   },
   {
@@ -64,13 +47,7 @@ const routes: Routes = [
     component: ContactComponent,
     data: {
       title: 'Kontakt',
-      name: 'contact',
-      breadcrumb: [
-        {
-          label: 'Kontakt',
-          url: 'contact'
-        }
-      ]
+      name: 'contact'
     }
   },
   {
@@ -78,13 +55,7 @@ const routes: Routes = [
     component: TouComponent,
     data: {
       title: 'Brukervilkår',
-      name: 'tou',
-      breadcrumb: [
-        {
-          label: 'Brukervilkår',
-          url: 'tou'
-        }
-      ]
+      name: 'tou'
     }
   },
   {
@@ -92,13 +63,7 @@ const routes: Routes = [
     component: FaqComponent,
     data: {
       title: 'Ofte stilte spørsmål',
-      name: 'faq',
-      breadcrumb: [
-        {
-          label: 'Ofte stilte spørsmål',
-          url: 'faq'
-        }
-      ]
+      name: 'faq'
     }
   },
   {
@@ -106,13 +71,7 @@ const routes: Routes = [
     component: FaqComponent,
     data: {
       title: 'Ordliste',
-      name: 'dictionary',
-      breadcrumb: [
-        {
-          label: 'Ordliste',
-          url: 'dictionary'
-        }
-      ]
+      name: 'dictionary'
     }
   },
   {
@@ -120,18 +79,12 @@ const routes: Routes = [
     component: StatisticsComponent,
     data: {
       title: 'Statistikk',
-      name: 'statistics',
-      breadcrumb: [
-        {
-          label: 'Statistikk',
-          url: 'statistics'
-        }
-      ]
+      name: 'statistics'
     },
     children: [
       {
         path: 'overview-numbers', // child route path
-        component: OverviewNumbersComponent, 
+        component: OverviewNumbersComponent,
         data: {
           title: 'Oversiktstall',
           name: 'overview-numbers'
@@ -139,7 +92,7 @@ const routes: Routes = [
       },
       {
         path: 'quality-assured-data',
-        component: QualityAssuredDataComponent, 
+        component: QualityAssuredDataComponent,
         data: {
           title: 'Kvalitetssikrede data',
           name: 'quality-assured-data'
@@ -147,7 +100,7 @@ const routes: Routes = [
       },
       {
         path: 'red-listed-species',
-        component: RedListedSpeciesComponent,  
+        component: RedListedSpeciesComponent,
         data: {
           title: 'Rødlistede arter',
           name: 'red-listed-species'
@@ -155,7 +108,7 @@ const routes: Routes = [
       },
       {
         path: 'alien-species',
-        component: AlienSpeciesComponent, 
+        component: AlienSpeciesComponent,
         data: {
           title: 'Fremmede arter',
           name: 'alien-species'
@@ -163,7 +116,7 @@ const routes: Routes = [
       },
       {
         path: 'no-data-species',
-        component: NoDataSpeciesComponent, 
+        component: NoDataSpeciesComponent,
         data: {
           title: 'Arter uten nok data',
           name: 'no-data-species'
@@ -171,7 +124,7 @@ const routes: Routes = [
       },
       {
         path: 'user-statistics',
-        component: UserStatisticsComponent, 
+        component: UserStatisticsComponent,
         data: {
           title: 'Brukerstatistikk',
           name: 'user-statistics'
@@ -179,7 +132,7 @@ const routes: Routes = [
       },
       {
         path: 'user-lists',
-        component: UserListsComponent, 
+        component: UserListsComponent,
         data: {
           title: 'Mine lister',
           name: 'user-lists'
@@ -273,17 +226,19 @@ const routes: Routes = [
   //   }
   // },
   {
+    path: 'gallery',
+    component: GalleryComponent,
+    data: {
+      title: 'Fotogallery',
+      name: 'gallery'
+    }
+  },
+  {
     path: 'report',
     component: ReportComponent,
     data: {
       title: 'Rapportere',
-      name: 'report',
-      breadcrumb: [
-        {
-          label: 'Rapportere',
-          url: 'report'
-        }
-      ]
+      name: 'report'
     }
   },
   {
@@ -291,13 +246,7 @@ const routes: Routes = [
     component: PageNotFoundComponent,
     data: {
       title: 'Not found',
-      name: 'notfound',
-      breadcrumb: [
-        {
-          label: '404',
-          url: '**'
-        }
-      ]
+      name: 'notfound'
     }
   }
 ];

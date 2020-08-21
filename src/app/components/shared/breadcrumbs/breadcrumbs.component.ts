@@ -12,8 +12,7 @@ import { filter, distinctUntilChanged, mergeMap, map } from 'rxjs/operators';
 export class BreadcrumbsComponent implements OnInit {
 
   public breadcrumbs: Breadcrumb[];
-
-  breadcrumb: Breadcrumb;
+  isHome: boolean;
 
   constructor(
     private router: Router,
@@ -31,32 +30,6 @@ export class BreadcrumbsComponent implements OnInit {
       this.breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
     });
 
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => this.activatedRoute),
-      map(route => {
-        while (route.firstChild) { route = route.firstChild; }
-        return route;
-      }),
-      mergeMap(route => route.data)
-    ).subscribe(x => {
-
-      let temp = this.router.url.split('/');
-      
-      console.log('temp', temp)
-
-      this.breadcrumb = {label: x.title, url: this.router.url};
-
-      console.log('breadcrumb', this.breadcrumb)
-
-      console.log('PATH ???', this.activatedRoute.snapshot.firstChild.url[0].path)
-
-
-    });
-
-
-
-
   }
 
   buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
@@ -64,14 +37,9 @@ export class BreadcrumbsComponent implements OnInit {
     let label = route.routeConfig && route.routeConfig.data ? route.routeConfig.data.title : "";
     let path = route.routeConfig && route.routeConfig.data ? route.routeConfig.path : "";
 
-    let newBreadcrumbs2 = [];
-
     // If the route is dynamic route such as ':id', remove it
     const lastRoutePart = path.split('/').pop();
     const isDynamicRoute = lastRoutePart.startsWith(':');
-
-
-
 
     if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart.split(':')[1];
@@ -79,17 +47,19 @@ export class BreadcrumbsComponent implements OnInit {
       label = route.snapshot.params[paramName];
     }
 
-
     //In the routeConfig the complete path is not available,
     //so we rebuild it each time
     const nextUrl = path ? `${url}/${path}` : url;
 
+  
+
+    nextUrl === '' ? this.isHome = true : this.isHome = false;
+    console.log('url', this.isHome)
+    
     const breadcrumb: Breadcrumb = {
       label: label,
       url: nextUrl,
     };
-
-
 
     // Only adding route with non-empty label
     const newBreadcrumbs = breadcrumb.label ? [...breadcrumbs, breadcrumb] : [...breadcrumbs];

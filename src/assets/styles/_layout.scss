@@ -126,9 +126,17 @@ main {
     align-items: center;
 
     &__link {
+        @include variable(background-color, clrAccentLight);
+        border-radius: 5px;
         font-size: 16px;
         font-weight: 700;
         margin-left: 20px;
+        padding: 4px 9px;
+
+        &:hover {
+            @include variable(background-color, clrDark3);
+            @include variable(color, clrWhite);
+        }
     }
 
     @media screen and (max-width: 900px) {

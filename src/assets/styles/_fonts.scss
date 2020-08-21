@@ -22,8 +22,8 @@
 
 @font-face {
     font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Light.woff2") format("woff2"), 
-    url("/assets/fonts/nunito/Nunito-Light.woff") format("woff");
+    src: url("/assets/fonts/nunito/Nunito-Light.woff2") format("woff2"),
+        url("/assets/fonts/nunito/Nunito-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -94,8 +94,8 @@
 
 @font-face {
     font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Bold.woff2") format("woff2"), 
-    url("/assets/fonts/nunito/Nunito-Bold.woff") format("woff");
+    src: url("/assets/fonts/nunito/Nunito-Bold.woff2") format("woff2"),
+        url("/assets/fonts/nunito/Nunito-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -112,8 +112,8 @@
 
 @font-face {
     font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Black.woff2") format("woff2"), 
-    url("/assets/fonts/nunito/Nunito-Black.woff") format("woff");
+    src: url("/assets/fonts/nunito/Nunito-Black.woff2") format("woff2"),
+        url("/assets/fonts/nunito/Nunito-Black.woff") format("woff");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -131,166 +131,312 @@
 /*oswald*/
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-ExtraLight.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-ExtraLight.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-ExtraLight.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-ExtraLight.woff") format("woff");
     font-weight: 200;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-ExtraLightItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-ExtraLightItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-ExtraLightItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-ExtraLightItalic.woff") format("woff");
     font-weight: 200;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-Light.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-Light.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-Light.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-LightItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-LightItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-LightItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-LightItalic.woff") format("woff");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-Regular.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-Regular.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-Regular.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-RegularItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-RegularItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-RegularItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-RegularItalic.woff") format("woff");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-Medium.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-Medium.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-Medium.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-MediumItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-MediumItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-MediumItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-MediumItalic.woff") format("woff");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-SemiBold.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-SemiBold.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-SemiBold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-SemiBoldItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-SemiBoldItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-SemiBoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-SemiBoldItalic.woff") format("woff");
     font-weight: 600;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-Bold.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-Bold.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-Bold.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-BoldItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-BoldItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-BoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-BoldItalic.woff") format("woff");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-Heavy.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-Heavy.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-Heavy.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-Heavy.woff") format("woff");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url('/assets/fonts/oswald/Oswald-HeavyItalic.woff2') format('woff2'),
-        url('/assets/fonts/oswald/Oswald-HeavyItalic.woff') format('woff');
+    font-family: "oswald";
+    src: url("/assets/fonts/oswald/Oswald-HeavyItalic.woff2") format("woff2"),
+        url("/assets/fonts/oswald/Oswald-HeavyItalic.woff") format("woff");
     font-weight: 900;
     font-style: italic;
     font-display: swap;
 }
 
-/* space mono */
+// roboto condensed
 
 @font-face {
-    font-family: 'spacemono';
-    src: url('/assets/fonts/SpaceMono-Regular.woff2') format('woff2'),
-        url('/assets/fonts/SpaceMono-Regular.woff') format('woff');
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-Light.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-LightItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-Regular.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'spacemono';
-    src: url('/assets/fonts/SpaceMono-RegularItalic.woff2') format('woff2'),
-        url('/assets/fonts/SpaceMono-RegularItalic.woff') format('woff');
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-RegularItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-RegularItalic.woff") format("woff");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'spacemono';
-    src: url('/assets/fonts/SpaceMono-BoldItalic.woff2') format('woff2'),
-        url('/assets/fonts/SpaceMono-BoldItalic.woff') format('woff');
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-Bold.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-BoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-BoldItalic.woff") format("woff");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
 
+// robotomono
+
 @font-face {
-    font-family: 'spacemono';
-    src: url('/assets/fonts/SpaceMono-Bold.woff2') format('woff2'),
-        url('/assets/fonts/SpaceMono-Bold.woff') format('woff');
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Thin.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-ThinItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-ThinItalic.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-ExtraLight.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-ExtraLight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-ExtraLightItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-ExtraLightItalic.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Light.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-LightItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Regular.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Italic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Medium.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-MediumItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-MediumItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-SemiBoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Bold.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-BoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -334,8 +480,8 @@
 
 @font-face {
     font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Light.woff2") format("woff2"), 
-    url("/assets/fonts/WorkSans-Light.woff") format("woff");
+    src: url("/assets/fonts/WorkSans-Light.woff2") format("woff2"),
+        url("/assets/fonts/WorkSans-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -406,8 +552,8 @@
 
 @font-face {
     font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Bold.woff2") format("woff2"), 
-    url("/assets/fonts/WorkSans-Bold.woff") format("woff");
+    src: url("/assets/fonts/WorkSans-Bold.woff2") format("woff2"),
+        url("/assets/fonts/WorkSans-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -442,8 +588,8 @@
 
 @font-face {
     font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Black.woff2") format("woff2"), 
-    url("/assets/fonts/WorkSans-Black.woff") format("woff");
+    src: url("/assets/fonts/WorkSans-Black.woff2") format("woff2"),
+        url("/assets/fonts/WorkSans-Black.woff") format("woff");
     font-weight: 900;
     font-style: normal;
     font-display: swap;

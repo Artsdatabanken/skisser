@@ -27,8 +27,8 @@
 
 .card {
     @include variable(background-color, transparent);
-    @include variable(color, clrPrimary);
     @include variable(border-color, clrSecondary);
+    @include variable(color, clrPrimary);
     border-style: solid;
     border-width: 2px;
     border-radius: 20px;
@@ -48,8 +48,8 @@
     }
 
     &--active {
-        @include variable(background-color, clrLight3);
-        @include variable(border-color, clrLight3);
+        @include variable(background-color, clrAccentLight);
+        @include variable(border-color, clrAccentLight);
     }
 
     &--secondary {
@@ -57,8 +57,6 @@
     }
 
     &:hover {
-        @include variable(background-color, clrBlack);
-        @include variable(border-color, clrBlack);
         @include variable(background-color, clrPrimary);
         @include variable(border-color, clrPrimary);
         @include variable(color, clrWhite);
@@ -102,12 +100,19 @@
 
     // elements
 
+    & > * {
+        color: inherit;
+    }
+
     &__heading {
-        @include variable(color, clrPrimary);
         font-size: 34px;
         font-weight: 400;
         font-weight: 300;
         order: 2;
+
+        // .card--active & {
+        //     @include variable(color, clrDark4);
+        // }
     }
 
     &__text {

@@ -33,6 +33,7 @@ import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
 import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
     FaqComponent,
     DictionaryComponent,
     ReportComponent,
-    HamburgerComponent
+    HamburgerComponent,
+    GalleryComponent
   ],
   imports: [
     NgDynamicBreadcrumbModule,

@@ -1,12 +1,20 @@
 <div class="shareable-component">
 
     <ul class="breadcrumbs" aria-label="Breadcrumbs">
+
+        <li class="breadcrumbs__item" *ngIf="!isHome">
+            <span class="breadcrumbs__link" [routerLink]="['/']" routerLinkActive="breadcrumbs__link--active">
+                Forsiden
+            </span>
+            <span class="separator"> </span>
+        </li>
         <li class="breadcrumbs__item" *ngFor="let breadcrumb of breadcrumbs; let i = index">
             <span class="breadcrumbs__link" [routerLink]="breadcrumb.url" routerLinkActive="breadcrumbs__link--active">
                 {{ breadcrumb.label }}
             </span>
             <span class="separator" *ngIf="i !== breadcrumbs.length - 1"> </span>
         </li>
+
     </ul>
 
 </div>
