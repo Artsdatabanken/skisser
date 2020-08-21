@@ -38,7 +38,9 @@
 }
 
 .flags {
+    margin-left: 20px;
     &--mobile {
+        margin: 0;
     }
 }
 
@@ -47,16 +49,17 @@
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    margin-left: 10px;
-
-    height: 30px;
-    width: 45px;
+    font-weight: 700;
+    // height: 30px;
+    // width: 45px;
 
     &--1 {
-        background-image: url(../images/flagNorway.png);
+        //background-image: url(../images/flagNorway.png);
+        font-weight: 900;
+        text-decoration: underline;
     }
     &--2 {
-        background-image: url(../images/flaguk.png);
+        //background-image: url(../images/flaguk.png);
     }
 
     .flags--mobile & {
