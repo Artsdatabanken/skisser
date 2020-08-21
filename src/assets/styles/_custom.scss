@@ -39,7 +39,6 @@
 
 .flags {
     &--mobile {
-        
     }
 }
 
@@ -70,20 +69,34 @@
 .breadcrumbs {
     list-style: none;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     padding: 0;
 
     &__item {
-        border: 1px solid red;
+        display: inline-block;
 
-        &:after {
-            content: '>';
+        & > * {
+            //display: inline;
         }
     }
 
     &__link {
-        font-weight: 300;
+        font-weight: 400;
+
+        &--active {
+            font-weight: 700;
+        }
     }
+}
+
+.separator {
+    @include variable(background-color, clrSecondary);
+    height: 1em;
+    display: inline-block;
+    margin: -2px 13px 0 10px;
+    vertical-align: middle;
+    width: 3px;
+    transform: skewX(-45deg);
 }
 
 // infographics

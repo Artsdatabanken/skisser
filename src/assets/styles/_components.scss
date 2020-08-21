@@ -47,6 +47,11 @@
         align-self: center;
     }
 
+    &--active {
+        @include variable(background-color, clrLight3);
+        @include variable(border-color, clrLight3);
+    }
+
     &--secondary {
         @include variable(border-color, clrSecondary);
     }
