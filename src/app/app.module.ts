@@ -32,6 +32,8 @@ import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
+import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +66,7 @@ import { HamburgerComponent } from './layout/hamburger/hamburger.component';
     HamburgerComponent
   ],
   imports: [
+    NgDynamicBreadcrumbModule,
     BrowserModule,
     AppRoutingModule
   ],

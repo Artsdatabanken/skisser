@@ -1,8 +1,8 @@
 <div class="shareable-component">
 
     <ol class="breadcrumbs">
-        <li *ngFor="let breadcrumb of breadcrumbs">
-            <span [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+        <li class="breadcrumbs__item" *ngFor="let breadcrumb of breadcrumbs">
+            <span class="breadcrumbs__link" [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
                 {{ breadcrumb.label }}
             </span>
         </li>

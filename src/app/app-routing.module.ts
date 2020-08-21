@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TouComponent } from './components/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ReportComponent } from './components/report/report.component';
+import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,13 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Forsiden',
-      name: 'home'
+      name: 'home',
+      breadcrumb: [
+        {
+          label: 'Forsiden',
+          url: ''
+        }
+      ]
     }
   },
   {
@@ -29,7 +36,13 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Forsiden',
-      name: 'home'
+      name: 'home',
+      breadcrumb: [
+        {
+          label: 'Forsiden',
+          url: ''
+        }
+      ]
     }
   },
   {
@@ -37,7 +50,13 @@ const routes: Routes = [
     component: AboutComponent,
     data: {
       title: 'Om Artsobservasjoner',
-      name: 'about'
+      name: 'about',
+      breadcrumb: [
+        {
+          label: 'Om Artsobservasjoner',
+          url: 'about'
+        }
+      ]
     }
   },
   {
@@ -45,7 +64,13 @@ const routes: Routes = [
     component: ContactComponent,
     data: {
       title: 'Kontakt',
-      name: 'contact'
+      name: 'contact',
+      breadcrumb: [
+        {
+          label: 'Kontakt',
+          url: 'contact'
+        }
+      ]
     }
   },
   {
@@ -53,7 +78,13 @@ const routes: Routes = [
     component: TouComponent,
     data: {
       title: 'Brukervilkår',
-      name: 'tou'
+      name: 'tou',
+      breadcrumb: [
+        {
+          label: 'Brukervilkår',
+          url: 'tou'
+        }
+      ]
     }
   },
   {
@@ -61,7 +92,13 @@ const routes: Routes = [
     component: FaqComponent,
     data: {
       title: 'Ofte stilte spørsmål',
-      name: 'faq'
+      name: 'faq',
+      breadcrumb: [
+        {
+          label: 'Ofte stilte spørsmål',
+          url: 'faq'
+        }
+      ]
     }
   },
   {
@@ -69,7 +106,13 @@ const routes: Routes = [
     component: FaqComponent,
     data: {
       title: 'Ordliste',
-      name: 'dictionary'
+      name: 'dictionary',
+      breadcrumb: [
+        {
+          label: 'Ordliste',
+          url: 'dictionary'
+        }
+      ]
     }
   },
   {
@@ -77,122 +120,170 @@ const routes: Routes = [
     component: StatisticsComponent,
     data: {
       title: 'Statistikk',
-      name: 'statistics'
+      name: 'statistics',
+      breadcrumb: [
+        {
+          label: 'Statistikk',
+          url: 'statistics'
+        }
+      ]
     },
-    // children: [
-    //   {
-    //     path: 'overview-numbers', // child route path
-    //     component: OverviewNumbersComponent, // child route component that the router renders 
-    //     data: {
-    //       title: 'Oversiktstall',
-    //       name: 'overview-numbers'
-    //     }
-    //   },
-    //   {
-    //     path: 'quality-assured-data',
-    //     component: QualityAssuredDataComponent, // another child route component that the router renders
-    //     data: {
-    //       title: 'Kvalitetssikrede data',
-    //       name: 'quality-assured-data'
-    //     }
-    //   },
-    //   {
-    //     path: 'red-listed-species',
-    //     component: RedListedSpeciesComponent, // another child route component that the router renders 
-    //     data: {
-    //       title: 'Rødlistede arter',
-    //       name: 'red-listed-species'
-    //     }
-    //   },
-    //   {
-    //     path: 'alien-species',
-    //     component: AlienSpeciesComponent, // another child route component that the router renders
-    //     data: {
-    //       title: 'Fremmede arter',
-    //       name: 'alien-species'
-    //     }
-    //   },
-    //   {
-    //     path: 'no-data-species',
-    //     component: NoDataSpeciesComponent, // another child route component that the router renders
-    //     data: {
-    //       title: 'Arter uten nok data',
-    //       name: 'no-data-species'
-    //     }
-    //   },
-    //   {
-    //     path: 'user-statistics',
-    //     component: UserStatisticsComponent, // another child route component that the router renders
-    //     data: {
-    //       title: 'Brukerstatistikk',
-    //       name: 'user-statistics'
-    //     }
-    //   },
-    //   {
-    //     path: 'user-lists',
-    //     component: UserListsComponent, // another child route component that the router renders
-    //     data: {
-    //       title: 'Mine lister',
-    //       name: 'user-lists'
-    //     }
-    //   },
-    // ],
+    children: [
+      {
+        path: 'overview-numbers', // child route path
+        component: OverviewNumbersComponent, 
+        data: {
+          title: 'Oversiktstall',
+          name: 'overview-numbers'
+        }
+      },
+      {
+        path: 'quality-assured-data',
+        component: QualityAssuredDataComponent, 
+        data: {
+          title: 'Kvalitetssikrede data',
+          name: 'quality-assured-data'
+        }
+      },
+      {
+        path: 'red-listed-species',
+        component: RedListedSpeciesComponent,  
+        data: {
+          title: 'Rødlistede arter',
+          name: 'red-listed-species'
+        }
+      },
+      {
+        path: 'alien-species',
+        component: AlienSpeciesComponent, 
+        data: {
+          title: 'Fremmede arter',
+          name: 'alien-species'
+        }
+      },
+      {
+        path: 'no-data-species',
+        component: NoDataSpeciesComponent, 
+        data: {
+          title: 'Arter uten nok data',
+          name: 'no-data-species'
+        }
+      },
+      {
+        path: 'user-statistics',
+        component: UserStatisticsComponent, 
+        data: {
+          title: 'Brukerstatistikk',
+          name: 'user-statistics'
+        }
+      },
+      {
+        path: 'user-lists',
+        component: UserListsComponent, 
+        data: {
+          title: 'Mine lister',
+          name: 'user-lists'
+        }
+      },
+    ],
   },
 
-  {
-    path: 'statistics/overview-numbers', // child route path
-    component: OverviewNumbersComponent, // child route component that the router renders 
-    data: {
-      title: 'Oversiktstall',
-      name: 'overview-numbers'
-    }
-  },
-  {
-    path: 'statistics/quality-assured-data',
-    component: QualityAssuredDataComponent, // another child route component that the router renders
-    data: {
-      title: 'Kvalitetssikrede data',
-      name: 'quality-assured-data'
-    }
-  },
-  {
-    path: 'statistics/red-listed-species',
-    component: RedListedSpeciesComponent, // another child route component that the router renders 
-    data: {
-      title: 'Rødlistede arter',
-      name: 'red-listed-species'
-    }
-  },
-  {
-    path: 'statistics/alien-species',
-    component: AlienSpeciesComponent, // another child route component that the router renders
-    data: {
-      title: 'Fremmede arter',
-      name: 'alien-species'
-    }
-  },
-  {
-    path: 'statistics/user-statistics',
-    component: UserStatisticsComponent, // another child route component that the router renders
-    data: {
-      title: 'Brukerstatistikk',
-      name: 'user-statistics'
-    }
-  },
-  {
-    path: 'statistics/user-lists',
-    component: UserListsComponent, // another child route component that the router renders
-    data: {
-      title: 'Mine lister',
-      name: 'user-lists'
-    }
-  },
+  // {
+  //   path: 'statistics/overview-numbers', 
+  //   component: OverviewNumbersComponent, 
+  //   data: {
+  //     title: 'Oversiktstall',
+  //     name: 'overview-numbers',
+  //     breadcrumb: [
+  //       {
+  //         label: 'Oversiktstall',
+  //         url: 'statistics/overview-numbers'
+  //       }
+  //     ]
+  //   }
+  // },
+  // {
+  //   path: 'statistics/quality-assured-data',
+  //   component: QualityAssuredDataComponent, 
+  //   data: {
+  //     title: 'Kvalitetssikrede data',
+  //     name: 'quality-assured-data',
+  //     breadcrumb: [
+  //       {
+  //         label: 'Kvalitetssikrede data',
+  //         url: 'statistics/quality-assured-data'
+  //       }
+  //     ]
+  //   }
+  // },
+  // {
+  //   path: 'statistics/red-listed-species',
+  //   component: RedListedSpeciesComponent,  
+  //   data: {
+  //     title: 'Rødlistede arter',
+  //     name: 'red-listed-species',
+  //     breadcrumb: [
+  //       {
+  //         label: 'Rødlistede arter',
+  //         url: 'statistics/red-listed-species'
+  //       }
+  //     ]
+  //   }
+  // },
+  // {
+  //   path: 'statistics/alien-species',
+  //   component: AlienSpeciesComponent, 
+  //   data: {
+  //     title: 'Fremmede arter',
+  //     name: 'alien-species',
+  //     breadcrumb: [
+  //       {
+  //         label: 'Fremmede arter',
+  //         url: 'statistics/alien-species'
+  //       }
+  //     ]
+  //   }
+  // },
+  // {
+  //   path: 'statistics/user-statistics',
+  //   component: UserStatisticsComponent, 
+  //   data: {
+  //     title: 'Brukerstatistikk',
+  //     name: 'user-statistics',
+  //     breadcrumb: [
+  //       {
+  //         label: 'Brukerstatistikk',
+  //         url: 'statistics/user-statistics'
+  //       }
+  //     ]
+  //   }
+  // },
+  // {
+  //   path: 'statistics/user-lists',
+  //   component: UserListsComponent, 
+  //   data: {
+  //     title: 'Mine lister',
+  //     name: 'user-lists',
+  //     breadcrumb: [
+  //       {
+  //         label: 'Mine lister',
+  //         url: 'statistics/user-lists'
+  //       }
+  //     ]
+  //   }
+  // },
   {
     path: 'report',
     component: ReportComponent,
     data: {
       title: 'Rapportere',
-      name: 'report'
+      name: 'report',
+      breadcrumb: [
+        {
+          label: 'Rapportere',
+          url: 'report'
+        }
+      ]
     }
   },
   {
@@ -200,7 +291,13 @@ const routes: Routes = [
     component: PageNotFoundComponent,
     data: {
       title: 'Not found',
-      name: 'notfound'
+      name: 'notfound',
+      breadcrumb: [
+        {
+          label: '404',
+          url: '**'
+        }
+      ]
     }
   }
 ];

@@ -43,6 +43,8 @@ export class AppComponent {
       mergeMap(route => route.data)
     ).subscribe(x => {
 
+      //console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', x)
+
       if (!this.router.url.endsWith('#content')) {
         this.skipLinkPath = `${this.router.url}#content`;
       }
