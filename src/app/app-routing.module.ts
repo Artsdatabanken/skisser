@@ -11,7 +11,7 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { TouComponent } from './components/tou/tou.component';
+import { TouComponent } from './components/about/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ReportComponent } from './components/report/report.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
@@ -40,7 +40,17 @@ const routes: Routes = [
     data: {
       title: 'Om Artsobservasjoner',
       name: 'about'
-    }
+    },
+    children: [
+      {
+        path: 'tou',
+        component: TouComponent,
+        data: {
+          title: 'Brukervilkår',
+          name: 'tou'
+        }
+      }
+    ]
   },
   {
     path: 'contact',
@@ -48,14 +58,6 @@ const routes: Routes = [
     data: {
       title: 'Kontakt',
       name: 'contact'
-    }
-  },
-  {
-    path: 'tou',
-    component: TouComponent,
-    data: {
-      title: 'Brukervilkår',
-      name: 'tou'
     }
   },
   {
@@ -83,7 +85,7 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'overview-numbers', // child route path
+        path: 'overview-numbers',
         component: OverviewNumbersComponent,
         data: {
           title: 'Oversiktstall',
