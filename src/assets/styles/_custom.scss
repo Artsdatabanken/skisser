@@ -20,12 +20,14 @@
 .skip-to-content {
     @include variable(background-color, clrBlack);
     @include variable(color, clrWhite);
+    @include variable(font-family, fontAccent);
+    border-radius: 5px;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 500;
     height: 30px;
     left: 50%;
-    line-height: 24px;
-    padding: 5px 20px;
+    line-height: 28px;
+    padding: 0 20px;
     position: absolute;
     text-transform: uppercase;
     top: 0;

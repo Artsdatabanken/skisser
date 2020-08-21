@@ -52,7 +52,8 @@ form {
 }
 
 .button {
-    @include variable(border-color, clrPrimary);
+    @include variable(background-color, clrAccentLight);
+    @include variable(border-color, clrAccentLight);
     @include variable(color, clrBlack);
     @include variable(font-family, fontPrimary);
     border-style: solid;
@@ -68,6 +69,12 @@ form {
 
     &:focus {
         padding: 10px 12px;
+    }
+
+    &:hover {
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
+        @include variable(color, clrWhite);
     }
 
     &--primary {
@@ -93,6 +100,10 @@ form {
             @include variable(border-color, clrPrimary);
             @include variable(color, clrWhite);
         }
+    }
+
+    &--sm {
+        padding: 3px 13px;
     }
 
     &--styleless {
