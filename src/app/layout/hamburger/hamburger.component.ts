@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, Renderer2 } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { Observable } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-hamburger',
@@ -15,17 +16,30 @@ export class HamburgerComponent implements OnInit {
   subNavigationLinks$: Observable<string[]>;
   @Input() ariaLabel: string;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(
+    private navigationService: NavigationService,
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit(): void {
     this.navigationLinks$ = this.navigationService.getMenuItems();
     this.subNavigationLinks$ = this.navigationService.getSubMenuItems();
   }
 
+  ngOnDestroy(): void {
+    this.renderer.removeClass(this.document.body, 'mobile');
+  }
+
   toggleMenu(): void {
     this.isActive = !this.isActive;
 
-    console.log('is active', this.isActive)
+    if (this.isActive) {
+      this.renderer.addClass(this.document.body, 'mobile');
+    }
+    else {
+      this.renderer.removeClass(this.document.body, 'mobile');
+    }
   }
 
 }

@@ -47,11 +47,11 @@ main {
     padding: 15px;
 
     @media screen and (max-width: 900px) {
-        grid-template-columns: 1fr 1fr;        
-    grid-template-rows: 100px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 100px;
         grid-template-areas: "headerLogo hamburger . .";
-        
-    padding: 0 15px;
+
+        padding: 0 15px;
     }
 
     & > * {
@@ -139,9 +139,10 @@ main {
 .mobile-navigation {
     display: none;
 
+    @include variable(background-color, clrAccentLight);
 
-    @include variable(background-color, clrSecondary);
-    position: absolute;
+    padding: 25px;
+    position: fixed;
     top: 100px;
     bottom: 0;
     left: 0;
@@ -149,6 +150,20 @@ main {
 
     &--visible {
         display: block;
+
+        @media screen and (min-width: 900px) {
+            display: none;
+        }
+    }
+
+    &__item {
+        font-size: 28px;
+        font-weight: 600;
+
+        &--secondary {
+            font-size: 22px;
+            margin-top: 50px;
+        }
     }
 
     &__link {

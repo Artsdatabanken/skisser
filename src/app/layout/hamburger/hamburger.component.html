@@ -5,10 +5,26 @@
     </span>
 </button>
 
+
+
 <nav class="mobile-navigation" [ngClass]="{'mobile-navigation--visible': isActive}">
-    <a class="mobile-navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
-    <a class="mobile-navigation__link" routerLinkActive="mobile-navigation__link--active" routerLink="{{ link }}"
-        *ngFor="let link of navigationLinks$ | async">
-        {{ link | titlecase | translate | trim }}
-    </a>
+    <div class="mobile-navigation__item">
+        <a class="mobile-navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
+        <a class="mobile-navigation__link" routerLinkActive="mobile-navigation__link--active" routerLink="{{ link }}"
+            *ngFor="let link of navigationLinks$ | async">
+            {{ link | titlecase | translate | trim }}
+        </a>
+    </div>
+
+    <div class="mobile-navigation__item mobile-navigation__item--secondary">
+        <a class="mobile-navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
+        <a class="mobile-navigation__link" routerLinkActive="mobile-navigation__link--active" routerLink="{{ link }}"
+            *ngFor="let link of subNavigationLinks$ | async">
+            {{ link | titlecase | translate | trim }}
+        </a>
+    </div>
+
+    <div>
+        <app-language-switcher [cssClass]="'flags--mobile'"></app-language-switcher>
+    </div>
 </nav>

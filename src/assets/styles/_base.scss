@@ -21,6 +21,10 @@ body {
   @media screen and (max-width: 900px) {
     font-size: 16px;
   }
+
+  &.mobile {
+    position: fixed;
+  }
 }
 
 /**/
@@ -362,8 +366,8 @@ table {
 
   th {
     @include variable(font-family, fontSecondary);
-    font-weight: 400;    
-    
+    font-weight: 400;
+
     &:first-child {
       text-align: left;
     }
