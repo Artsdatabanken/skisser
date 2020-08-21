@@ -24,6 +24,7 @@ $vars: (
   clrBlack: #2d2620,
   clrWhite: #f7f6f5,  
 
+  clrLight0: #efeceb,
   clrLight1: #ede9e6,
   clrLight2: #e2dcd7,
   clrLight3: #d7cfc9,
@@ -52,6 +53,7 @@ $vars: (
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
 
+  --clrLight0: #{map-get($vars, clrLight0)};
   --clrLight1: #{map-get($vars, clrLight1)};
   --clrLight2: #{map-get($vars, clrLight2)};
   --clrLight3: #{map-get($vars, clrLight3)};

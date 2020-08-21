@@ -346,3 +346,31 @@ main {
     &__footer {
     }
 }
+
+// grid
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    &--2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__cell {
+        //border: 1px solid red;
+        align-self: stretch;
+        justify-self: stretch;
+
+        &--centered {
+            align-self: center;
+            justify-self: center;
+        }
+
+        // &--left {
+        //     align-self: stretch;
+        //     justify-self: start;
+        // }
+    }
+}

@@ -1,20 +1,27 @@
 // ----------FORMS and FORM ELEMENTS
 
 form {
+    @include variable(background-color, clrLight0);
+    border-radius: 5px;
+    padding: 25px;
     width: 100%;
 
     label {
+        @include variable(font-family, fontAccent);
         display: block;
         font-size: 16px;
-        font-weight: 700;
+        font-weight: 500;
         margin-top: 20px;
         margin-bottom: 5px;
     }
 
     input {
-        @include variable(border-color, clrBlack);
+        @include variable(background-color, clrWhite);
+        @include variable(border-color, clrPrimary);
         @include variable(font-family, fontPrimary);
+        border-style: solid;
         border-width: 2px;
+        border-radius: 5px;
         display: block;
         margin-bottom: 15px;
         padding: 10px 12px;
@@ -23,6 +30,14 @@ form {
         &:disabled {
             @include variable(border-color, clrAccent);
             border: 2px solid #666;
+        }
+
+        &:active {
+            padding: 10px 12px;
+        }
+
+        &:focus {
+            padding: 10px 12px;
         }
     }
 
@@ -36,33 +51,65 @@ form {
     }
 }
 
-// .button {
-//     @include variable(color, clrBlack);
-//     @include variable(font-family, fontPrimary);
-//     border: 2px solid #262626;
-//     font-size: 16px;
-//     font-weight: 700;
-//     padding: 7px 12px;
+.button {
+    @include variable(border-color, clrPrimary);
+    @include variable(color, clrBlack);
+    @include variable(font-family, fontPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 7px 12px;
 
-//     &--primary {
-//         @include variable(background-color, clrBlack);
-//         @include variable(color, clrWhite);
+    &:active {
+        padding: 10px 12px;
+    }
 
-//         &:hover {
-//             @include variable(background-color, clrWhite);
-//             @include variable(color, clrBlack);
-//             @include variable(font-family, fontPrimary);
-//             border: 2px solid #262626;
-//         }
-//     }
+    &:focus {
+        padding: 10px 12px;
+    }
 
-//     &--styleless {
-//         background: initial;
-//         border: none;
-//         font-size: initial;
-//         padding: 0;
-//     }
-// }
+    &--primary {
+        @include variable(background-color, clrBlack);
+        @include variable(color, clrWhite);
+
+        &:hover {
+            @include variable(background-color, clrWhite);
+            @include variable(color, clrBlack);
+            @include variable(font-family, fontPrimary);
+            border: 2px solid #262626;
+        }
+    }
+
+    &--cta {
+        @include variable(background-color, clrAccentLight);
+        @include variable(border-color, clrAccentLight);
+        border-radius: 5px;
+        font-size: 30px;
+
+        &:hover {
+            @include variable(background-color, clrPrimary);
+            @include variable(border-color, clrPrimary);
+            @include variable(color, clrWhite);
+        }
+    }
+
+    &--styleless {
+        background: initial;
+        border: none;
+        font-size: initial;
+        padding: 0;
+    }
+
+    &--submit {
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
+        @include variable(color, clrWhite);
+
+        width: auto;
+    }
+}
 
 .error-message {
     //@include variable(color, #ff0000);
