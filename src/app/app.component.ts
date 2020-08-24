@@ -1,4 +1,4 @@
-import { Component, Inject, HostListener } from '@angular/core';
+import { Component, Inject, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
@@ -19,10 +19,13 @@ export class AppComponent {
   title = 'Artsobservasjoner';
   page: string = '';
   pageName: string = '';
+  pageType: string = '';
   skipLinkPath: string;
   routerSubscription: Subscription;
   windowScrolled: boolean = false;
 
+  @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
+ 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private router: Router,
@@ -40,29 +43,24 @@ export class AppComponent {
         while (route.firstChild) { route = route.firstChild; }
         return route;
       }),
-      mergeMap(route => route.data)
-    ).subscribe(x => {
+      mergeMap(route => route.data)).subscribe(obj => {
 
-      //console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', x)
+        if (!this.router.url.endsWith('#mainContent')) {
+          this.skipLinkPath = `${this.router.url}#mainContent`;
+        }
 
-      if (!this.router.url.endsWith('#content')) {
-        this.skipLinkPath = `${this.router.url}#content`;
-      }
+        this.page = obj.title;
+        this.pageName = obj.name;
+        this.pageType = obj.type;
 
-      this.page = x.title;
-      this.pageName = x.name;
+        if (this.pageName === 'home') {
+          this.titleService.setTitle(`Artsobservasjoner`);
+        }
+        else {
+          this.titleService.setTitle(`${this.page} - Artsobservasjoner`);
+        }
 
-      // if (this.pageName === "home") {
-      //   this.page = null;
-      // }
-
-      if (this.pageName === 'home') {
-        this.titleService.setTitle(`Forsiden - Artsobservasjoner`);
-      }
-      else {
-        this.titleService.setTitle(`${this.page} - Artsobservasjoner`);
-      }
-    });
+      });
 
   }
 
@@ -72,23 +70,22 @@ export class AppComponent {
 
   onActivate(event: any) {
 
-    if (environment.production) {
+    this.mainContent.nativeElement.focus();
 
-      if (isPlatformBrowser(this.platformId) && environment.production) {
-        const scrollToTop = window.setInterval(() => {
+    if (isPlatformBrowser(this.platformId)) {
+      const scrollToTop = window.setInterval(() => {
 
-          const pos = window.pageYOffset;
+        const pos = window.pageYOffset;
 
-          if (pos > 0) {
-            window.scrollTo(0, pos - 50); // how far to scroll on each step
-          }
-          else {
-            window.clearInterval(scrollToTop);
-          }
+        if (pos > 0) {
+          window.scrollTo(0, pos - 50); // how far to scroll on each step
+        }
+        else {
+          window.clearInterval(scrollToTop);
+        }
 
-        }, 10);
+      }, 10);
 
-      }
     }
 
   }

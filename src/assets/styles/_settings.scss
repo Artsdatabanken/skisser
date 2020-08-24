@@ -37,6 +37,7 @@ $vars: (
 
   clrPrimary: darken(#6f968e, 15% * 1.25), // #53726c
   clrSecondary: darken(#a3ccc4, 10% * 1.25), // #7ab5aa
+  clrPrimaryDark: #355a53,
 
   clrAccentLight: #a3ccc4,
   clrAccentDark: #6f968e,
@@ -67,6 +68,8 @@ $vars: (
   --clrPrimary: #{map-get($vars, clrPrimary)};
   --clrSecondary: #{map-get($vars, clrSecondary)};
     
+  --clrPrimaryDark: #{map-get($vars, clrPrimaryDark)};
+
   --clrAccentLight: #{map-get($vars, clrAccentLight)};
   --clrAccentDark: #{map-get($vars, clrAccentDark)};
 

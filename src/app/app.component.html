@@ -6,16 +6,24 @@
         <app-header></app-header>
     </div>
 
-    <div class="layout__main"
-        [ngClass]="{'layout__main--frontpage': pageName === 'home', 'layout__main--post': pageName === 'post'}">
+    <div class="layout__main">
 
-        <main role="main" class="main" id="content" tabindex="-1">
+        <div *ngIf="page" aria-live="assertive">
+            <span [attr.aria-label]="page"></span>
+        </div>
+
+        <main 
+            role="main" 
+            id="mainContent" 
+            tabindex="-1" 
+            #mainContent 
+            class="main grid"
+            [ngClass]="{'grid--std': pageType === 'page', 'grid--mega': pageType === 'mega'}">
 
             <h1 class="page-title" *ngIf="page">{{ page }}</h1>
-            
+
             <app-breadcrumbs></app-breadcrumbs>
 
-            <!-- <router-outlet></router-outlet> -->
             <router-outlet (activate)="onActivate($event)"></router-outlet>
 
         </main>

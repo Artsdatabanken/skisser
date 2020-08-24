@@ -25,15 +25,16 @@ import { NavigationService } from './services/navigation.service';
 import { SubnavigationComponent } from './layout/subnavigation/subnavigation.component';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { TouComponent } from './components/tou/tou.component';
+import { TouComponent } from './components/about/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { DictionaryComponent } from './components/dictionary/dictionary.component';
 import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
-import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
+// import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { DesignComponent } from './components/design/design.component';
 
 @NgModule({
   declarations: [
@@ -65,10 +66,10 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     DictionaryComponent,
     ReportComponent,
     HamburgerComponent,
-    GalleryComponent
+    GalleryComponent,
+    DesignComponent
   ],
   imports: [
-    NgDynamicBreadcrumbModule,
     BrowserModule,
     AppRoutingModule
   ],

@@ -23,7 +23,8 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Forsiden',
-      name: 'home'
+      name: 'home',
+      type: 'page'
     }
   },
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       title: 'Forsiden',
-      name: 'home'
+      name: 'home',
+      type: 'page'
     }
   },
   {
@@ -39,7 +41,8 @@ const routes: Routes = [
     component: AboutComponent,
     data: {
       title: 'Om Artsobservasjoner',
-      name: 'about'
+      name: 'about',
+      type: 'page'
     },
     children: [
       {
@@ -47,7 +50,8 @@ const routes: Routes = [
         component: TouComponent,
         data: {
           title: 'Brukervilkår',
-          name: 'tou'
+          name: 'tou',
+          type: 'page'
         }
       }
     ]
@@ -57,7 +61,8 @@ const routes: Routes = [
     component: ContactComponent,
     data: {
       title: 'Kontakt',
-      name: 'contact'
+      name: 'contact',
+      type: 'page'
     }
   },
   {
@@ -65,7 +70,8 @@ const routes: Routes = [
     component: FaqComponent,
     data: {
       title: 'Ofte stilte spørsmål',
-      name: 'faq'
+      name: 'faq',
+      type: 'page'
     }
   },
   {
@@ -73,7 +79,8 @@ const routes: Routes = [
     component: FaqComponent,
     data: {
       title: 'Ordliste',
-      name: 'dictionary'
+      name: 'dictionary',
+      type: 'page'
     }
   },
   {
@@ -81,7 +88,8 @@ const routes: Routes = [
     component: StatisticsComponent,
     data: {
       title: 'Statistikk',
-      name: 'statistics'
+      name: 'statistics',
+      type: 'mega'
     },
     children: [
       {
@@ -89,7 +97,8 @@ const routes: Routes = [
         component: OverviewNumbersComponent,
         data: {
           title: 'Oversiktstall',
-          name: 'overview-numbers'
+          name: 'overview-numbers',
+          type: 'mega'
         }
       },
       {
@@ -97,7 +106,8 @@ const routes: Routes = [
         component: QualityAssuredDataComponent,
         data: {
           title: 'Kvalitetssikrede data',
-          name: 'quality-assured-data'
+          name: 'quality-assured-data',
+          type: 'mega'
         }
       },
       {
@@ -105,7 +115,8 @@ const routes: Routes = [
         component: RedListedSpeciesComponent,
         data: {
           title: 'Rødlistede arter',
-          name: 'red-listed-species'
+          name: 'red-listed-species',
+          type: 'mega'
         }
       },
       {
@@ -113,7 +124,8 @@ const routes: Routes = [
         component: AlienSpeciesComponent,
         data: {
           title: 'Fremmede arter',
-          name: 'alien-species'
+          name: 'alien-species',
+          type: 'mega'
         }
       },
       {
@@ -121,7 +133,8 @@ const routes: Routes = [
         component: NoDataSpeciesComponent,
         data: {
           title: 'Arter uten nok data',
-          name: 'no-data-species'
+          name: 'no-data-species',
+          type: 'mega'
         }
       },
       {
@@ -129,7 +142,8 @@ const routes: Routes = [
         component: UserStatisticsComponent,
         data: {
           title: 'Brukerstatistikk',
-          name: 'user-statistics'
+          name: 'user-statistics',
+          type: 'mega'
         }
       },
       {
@@ -137,7 +151,8 @@ const routes: Routes = [
         component: UserListsComponent,
         data: {
           title: 'Mine lister',
-          name: 'user-lists'
+          name: 'user-lists',
+          type: 'mega'
         }
       },
     ],
@@ -248,7 +263,8 @@ const routes: Routes = [
     component: PageNotFoundComponent,
     data: {
       title: 'Not found',
-      name: 'notfound'
+      name: 'notfound',
+      type: 'page'
     }
   }
 ];

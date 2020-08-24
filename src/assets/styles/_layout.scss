@@ -14,17 +14,10 @@
 
     &__main {
         @include variable(background-color, clrWhite);
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: ". main .";
-        min-height: 50vh;
         padding: 50px;
 
         @media screen and (max-width: 1600px) {
-            grid-template-columns: 1fr 8fr 1fr;
-            grid-template-rows: 1fr;
-            grid-template-areas: ". main .";
+            min-height: 80vh;
         }
 
         @media screen and (max-width: 900px) {
@@ -32,10 +25,6 @@
             padding: 50px 15px;
         }
     }
-}
-
-main {
-    grid-area: main;
 }
 
 .header {
@@ -187,7 +176,7 @@ main {
     }
 
     &__image {
-        background-image: url(../images/logos/artsobservasjoner3.png);
+        background-image: url(../images/logos/artsobservasjoner5.png);
         background-position: left center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -310,23 +299,17 @@ main {
     width: 100px;
 }
 
+// MAIN
+
+main {
+    // se grid
+    min-height: 75vh;
+}
+
 // page
 
 .page {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-columns: 3fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 0 0;
-    grid-template-areas: "pageContent . .";
-
-    @media screen and (max-width: 900px) {
-        display: block;
-    }
-
-    & > * {
-        //border: 1px solid red;
-    }
+    grid-area: pageContent;
 
     &__header {
     }
@@ -344,10 +327,40 @@ main {
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: "pageTitle" "breadcrumbs" "." "component";
 
-    &--2 {
-        grid-template-columns: 1fr 1fr;
+    &--std {
+        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component . ." "router router router router router";
+    }
+
+    &--mega {
+        grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component component ." "router router router router router";
+    }
+
+
+    & > * {
+        // border: 1px solid red;
+    }
+
+    & > *:nth-child(1) {
+        grid-area: pageTitle;
+    }
+    
+    & > *:nth-child(2) {
+        grid-area: breadcrumbs;
+    }
+    
+    & > *:nth-child(3) {
+        grid-area: router;
+    }
+    
+    & > *:nth-child(4) {
+        grid-area: component;
     }
 
     &__cell {
