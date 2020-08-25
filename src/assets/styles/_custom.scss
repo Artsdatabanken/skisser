@@ -177,12 +177,12 @@
     }
 }
 
-$red: #f15854;
-$gray: #4d4d4d;
-$blue: #5da5da;
-$yellow: #decf3f;
-$purple: #b276b2;
-$orange: red;
+$red: #355a53;
+$gray: #514942;
+$blue: #a3ccc4;
+$yellow: #e5b445;
+$purple: #6f968e;
+$orange: #d7cfc9;
 
 // colors from http://www.mulinblog.com/a-color-palette-optimized-for-data-visualization/
 
@@ -197,16 +197,22 @@ $orange: red;
 }
 
 .key {
-    width: 50%;
+    border-collapse: separate;
+    display: table;
     float: right;
     list-style: none;
-    display: table;
-    border-collapse: separate;
+    padding: 0;
+    width: 100%;
+
     > li {
         display: table-row;
+
         > * {
             display: table-cell;
             //border-bottom: 12px solid white;
+            font-weight: 600;
+            padding-left: 20px;
+            text-align: left;
         }
     }
 }
@@ -214,9 +220,10 @@ $orange: red;
 .percent {
     color: white;
     padding: 10px 2px;
-    text-shadow: 0 0 1px black;
     text-align: center;
+    //text-shadow: 0 1px 0 black;
 }
+
 .choice {
     padding-left: 10px;
 }
@@ -231,10 +238,12 @@ $orange: red;
 
 .blue {
     background: $blue;
+    color: black;
 }
 
 .yellow {
     background: $yellow;
+    color: black;
 }
 
 .purple {
@@ -243,4 +252,5 @@ $orange: red;
 
 .orange {
     background: $orange;
+    color: black;
 }

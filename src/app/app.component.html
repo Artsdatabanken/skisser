@@ -17,8 +17,8 @@
             id="mainContent" 
             tabindex="-1" 
             #mainContent 
-            class="main grid"
-            [ngClass]="{'grid--std': pageType === 'page', 'grid--mega': pageType === 'mega'}">
+            class="main main-grid"
+            [ngClass]="{'main-grid--page': pageType === 'page', 'main-grid--mega': pageType === 'mega', 'main-grid--std': pageType === 'std'}">
 
             <h1 class="page-title" *ngIf="page">{{ page }}</h1>
 

@@ -34,7 +34,7 @@ export class BreadcrumbsComponent implements OnInit {
 
   buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
 
-    let label = route.routeConfig && route.routeConfig.data ? route.routeConfig.data.title : "";
+    let label = route.routeConfig && route.routeConfig.data ? route.routeConfig.data.breadcrumb : "";
     let path = route.routeConfig && route.routeConfig.data ? route.routeConfig.path : "";
 
     // If the route is dynamic route such as ':id', remove it
@@ -51,9 +51,8 @@ export class BreadcrumbsComponent implements OnInit {
     //so we rebuild it each time
     const nextUrl = path ? `${url}/${path}` : url;
 
-  
-
     nextUrl === '' ? this.isHome = true : this.isHome = false;
+
     console.log('url', this.isHome)
     
     const breadcrumb: Breadcrumb = {

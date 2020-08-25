@@ -91,157 +91,133 @@ const routes: Routes = [
       name: 'statistics',
       type: 'mega'
     },
-    children: [
-      {
-        path: 'overview-numbers',
-        component: OverviewNumbersComponent,
-        data: {
-          title: 'Oversiktstall',
-          name: 'overview-numbers',
-          type: 'mega'
-        }
-      },
-      {
-        path: 'quality-assured-data',
-        component: QualityAssuredDataComponent,
-        data: {
-          title: 'Kvalitetssikrede data',
-          name: 'quality-assured-data',
-          type: 'mega'
-        }
-      },
-      {
-        path: 'red-listed-species',
-        component: RedListedSpeciesComponent,
-        data: {
-          title: 'Rødlistede arter',
-          name: 'red-listed-species',
-          type: 'mega'
-        }
-      },
-      {
-        path: 'alien-species',
-        component: AlienSpeciesComponent,
-        data: {
-          title: 'Fremmede arter',
-          name: 'alien-species',
-          type: 'mega'
-        }
-      },
-      {
-        path: 'no-data-species',
-        component: NoDataSpeciesComponent,
-        data: {
-          title: 'Arter uten nok data',
-          name: 'no-data-species',
-          type: 'mega'
-        }
-      },
-      {
-        path: 'user-statistics',
-        component: UserStatisticsComponent,
-        data: {
-          title: 'Brukerstatistikk',
-          name: 'user-statistics',
-          type: 'mega'
-        }
-      },
-      {
-        path: 'user-lists',
-        component: UserListsComponent,
-        data: {
-          title: 'Mine lister',
-          name: 'user-lists',
-          type: 'mega'
-        }
-      },
-    ],
+    // children: [
+    //   {
+    //     path: 'overview-numbers',
+    //     component: OverviewNumbersComponent,
+    //     data: {
+    //       title: 'Oversiktstall',
+    //       name: 'overview-numbers',
+    //       type: 'mega'
+    //     }
+    //   },
+    //   {
+    //     path: 'quality-assured-data',
+    //     component: QualityAssuredDataComponent,
+    //     data: {
+    //       title: 'Kvalitetssikrede data',
+    //       name: 'quality-assured-data',
+    //       type: 'mega'
+    //     }
+    //   },
+    //   {
+    //     path: 'red-listed-species',
+    //     component: RedListedSpeciesComponent,
+    //     data: {
+    //       title: 'Rødlistede arter',
+    //       name: 'red-listed-species',
+    //       type: 'mega'
+    //     }
+    //   },
+    //   {
+    //     path: 'alien-species',
+    //     component: AlienSpeciesComponent,
+    //     data: {
+    //       title: 'Fremmede arter',
+    //       name: 'alien-species',
+    //       type: 'mega'
+    //     }
+    //   },
+    //   {
+    //     path: 'no-data-species',
+    //     component: NoDataSpeciesComponent,
+    //     data: {
+    //       title: 'Arter uten nok data',
+    //       name: 'no-data-species',
+    //       type: 'mega'
+    //     }
+    //   },
+    //   {
+    //     path: 'user-statistics',
+    //     component: UserStatisticsComponent,
+    //     data: {
+    //       title: 'Brukerstatistikk',
+    //       name: 'user-statistics',
+    //       type: 'mega'
+    //     }
+    //   },
+    //   {
+    //     path: 'user-lists',
+    //     component: UserListsComponent,
+    //     data: {
+    //       title: 'Mine lister',
+    //       name: 'user-lists',
+    //       type: 'mega'
+    //     }
+    //   },
+    // ],
   },
 
-  // {
-  //   path: 'statistics/overview-numbers', 
-  //   component: OverviewNumbersComponent, 
-  //   data: {
-  //     title: 'Oversiktstall',
-  //     name: 'overview-numbers',
-  //     breadcrumb: [
-  //       {
-  //         label: 'Oversiktstall',
-  //         url: 'statistics/overview-numbers'
-  //       }
-  //     ]
-  //   }
-  // },
-  // {
-  //   path: 'statistics/quality-assured-data',
-  //   component: QualityAssuredDataComponent, 
-  //   data: {
-  //     title: 'Kvalitetssikrede data',
-  //     name: 'quality-assured-data',
-  //     breadcrumb: [
-  //       {
-  //         label: 'Kvalitetssikrede data',
-  //         url: 'statistics/quality-assured-data'
-  //       }
-  //     ]
-  //   }
-  // },
-  // {
-  //   path: 'statistics/red-listed-species',
-  //   component: RedListedSpeciesComponent,  
-  //   data: {
-  //     title: 'Rødlistede arter',
-  //     name: 'red-listed-species',
-  //     breadcrumb: [
-  //       {
-  //         label: 'Rødlistede arter',
-  //         url: 'statistics/red-listed-species'
-  //       }
-  //     ]
-  //   }
-  // },
-  // {
-  //   path: 'statistics/alien-species',
-  //   component: AlienSpeciesComponent, 
-  //   data: {
-  //     title: 'Fremmede arter',
-  //     name: 'alien-species',
-  //     breadcrumb: [
-  //       {
-  //         label: 'Fremmede arter',
-  //         url: 'statistics/alien-species'
-  //       }
-  //     ]
-  //   }
-  // },
-  // {
-  //   path: 'statistics/user-statistics',
-  //   component: UserStatisticsComponent, 
-  //   data: {
-  //     title: 'Brukerstatistikk',
-  //     name: 'user-statistics',
-  //     breadcrumb: [
-  //       {
-  //         label: 'Brukerstatistikk',
-  //         url: 'statistics/user-statistics'
-  //       }
-  //     ]
-  //   }
-  // },
-  // {
-  //   path: 'statistics/user-lists',
-  //   component: UserListsComponent, 
-  //   data: {
-  //     title: 'Mine lister',
-  //     name: 'user-lists',
-  //     breadcrumb: [
-  //       {
-  //         label: 'Mine lister',
-  //         url: 'statistics/user-lists'
-  //       }
-  //     ]
-  //   }
-  // },
+  {
+    path: 'statistics/overview-numbers',
+    component: OverviewNumbersComponent,
+    data: {
+      title: 'Oversiktstall',
+      name: 'overview-numbers',
+      type: 'std',
+      breadcrumb: 'Statistikk: Oversiktstall'
+    }
+  },
+  {
+    path: 'statistics/quality-assured-data',
+    component: QualityAssuredDataComponent,
+    data: {
+      title: 'Kvalitetssikrede data',
+      name: 'quality-assured-data',
+      type: 'std',
+      breadcrumb: 'Statistikk: Kvalitetssikrede data'
+    }
+  },
+  {
+    path: 'statistics/red-listed-species',
+    component: RedListedSpeciesComponent,
+    data: {
+      title: 'Rødlistede arter',
+      name: 'red-listed-species',
+      type: 'std',
+      breadcrumb: 'Statistikk: Rødlistede arter'
+    }
+  },
+  {
+    path: 'statistics/alien-species',
+    component: AlienSpeciesComponent,
+    data: {
+      title: 'Fremmede arter',
+      name: 'alien-species',
+      type: 'std',
+      breadcrumb: 'Statistikk: Fremmede arter'
+    }
+  },
+  {
+    path: 'statistics/user-statistics',
+    component: UserStatisticsComponent,
+    data: {
+      title: 'Brukerstatistikk',
+      name: 'user-statistics',
+      type: 'std',
+      breadcrumb: 'Statistikk: Brukerstatistikk'
+    }
+  },
+  {
+    path: 'statistics/user-lists',
+    component: UserListsComponent,
+    data: {
+      title: 'Mine lister',
+      name: 'user-lists',
+      type: 'std',
+      breadcrumb: 'Statistikk: Mine lister'
+    }
+  },
   {
     path: 'gallery',
     component: GalleryComponent,
@@ -255,7 +231,8 @@ const routes: Routes = [
     component: ReportComponent,
     data: {
       title: 'Rapportere',
-      name: 'report'
+      name: 'report',
+      type: 'std'
     }
   },
   {

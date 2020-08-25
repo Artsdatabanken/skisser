@@ -324,47 +324,74 @@ main {
 
 // grid
 
-.grid {
+.main-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, auto);
     grid-template-areas: "pageTitle" "breadcrumbs" "." "component";
 
-    &--std {
+    &--page {
         grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component . ." "router router router router router";
+    
+        @media screen and (max-width: 1600px) {
+            grid-template-columns: 1fr 2fr 1fr 1fr;
+            grid-template-areas: ". pageTitle pageTitle ." ". breadcrumbs breadcrumbs ." ". component component ." ". router router .";
+
+        }
     }
 
     &--mega {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component component ." "router router router router router";
+
+        @media screen and (max-width: 1600px) {
+            grid-template-columns: 1fr 6fr 1fr;
+            grid-template-areas: "pageTitle pageTitle pageTitle" "breadcrumbs breadcrumbs breadcrumbs" "component component component" "router router router";
+
+        }
     }
 
+    &--std {
+        grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component component ." "router router router router router";
+    }
 
     & > * {
-        // border: 1px solid red;
+        //border: 1px solid red;
+        align-self: stretch;
+        justify-self: stretch;
     }
 
     & > *:nth-child(1) {
         grid-area: pageTitle;
     }
-    
+
     & > *:nth-child(2) {
         grid-area: breadcrumbs;
     }
-    
+
     & > *:nth-child(3) {
         grid-area: router;
     }
-    
+
     & > *:nth-child(4) {
         grid-area: component;
     }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1px 1px;
+    grid-template-areas: ". .";
 
     &__cell {
-        //border: 1px solid red;
+        // border: 1px solid red;
         align-self: stretch;
         justify-self: stretch;
 
@@ -372,10 +399,5 @@ main {
             align-self: center;
             justify-self: center;
         }
-
-        // &--left {
-        //     align-self: stretch;
-        //     justify-self: start;
-        // }
     }
 }
