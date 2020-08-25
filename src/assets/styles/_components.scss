@@ -69,7 +69,7 @@
     }
 
     &--secondary {
-        @include variable(border-color, clrSecondary);
+        @include variable(border-color, clrLight3);
     }
 
     &:hover {

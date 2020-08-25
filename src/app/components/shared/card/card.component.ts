@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() type: string; // if button, , this. anchor link or div
+  @Input() cssClass: string | null;
   @Input() size: string | null;
   @Input() icon: string | null;
   @Input() title: string;
