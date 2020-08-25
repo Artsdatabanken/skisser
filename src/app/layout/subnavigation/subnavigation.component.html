@@ -1,10 +1,8 @@
 <!--layout component-->
 
-<nav class="subnavigation" role="subnavigation" [attr.aria-label]="ariaLabel">
-    <a class="subnavigation__link button button--sm" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
-    <a class="subnavigation__link button button--sm" routerLinkActive="subnavigation__link button--active" routerLink="{{ link }}"
-        [ngClass]="{'navigation__link--in-footer': ariaLabel === 'footerMenu'}"
-        *ngFor="let link of navigationLinks$ | async">
+<nav class="subnavigation" role="navigation" [attr.aria-label]="ariaLabel">
+    <a class="subnavigation__link button button--sm" routerLinkActive="subnavigation__link--active button--active"
+        routerLink="{{ link }}" *ngFor="let link of navigationLinks$ | async">
         {{ link | titlecase | translate }}
     </a>
 

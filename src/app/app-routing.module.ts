@@ -42,7 +42,8 @@ const routes: Routes = [
     data: {
       title: 'Om Artsobservasjoner',
       name: 'about',
-      type: 'page'
+      type: 'page',
+      breadcrumb: 'Om Artsobservasjoner'
     },
     children: [
       {
@@ -51,7 +52,8 @@ const routes: Routes = [
         data: {
           title: 'Brukervilkår',
           name: 'tou',
-          type: 'page'
+          type: 'page',
+          breadcrumb: 'Brukervilkår'
         }
       }
     ]
@@ -62,7 +64,8 @@ const routes: Routes = [
     data: {
       title: 'Kontakt',
       name: 'contact',
-      type: 'page'
+      type: 'page',
+      breadcrumb: 'Kontakt'
     }
   },
   {
@@ -71,7 +74,8 @@ const routes: Routes = [
     data: {
       title: 'Ofte stilte spørsmål',
       name: 'faq',
-      type: 'page'
+      type: 'page',
+      breadcrumb: 'Ofte stilte spørsmål'
     }
   },
   {
@@ -80,7 +84,8 @@ const routes: Routes = [
     data: {
       title: 'Ordliste',
       name: 'dictionary',
-      type: 'page'
+      type: 'page',
+      breadcrumb: 'Ordliste'
     }
   },
   {
@@ -89,7 +94,8 @@ const routes: Routes = [
     data: {
       title: 'Statistikk',
       name: 'statistics',
-      type: 'mega'
+      type: 'mega',
+      breadcrumb: 'Statistikk'
     },
     // children: [
     //   {
@@ -232,7 +238,8 @@ const routes: Routes = [
     data: {
       title: 'Rapportere',
       name: 'report',
-      type: 'std'
+      type: 'std',
+      breadcrumb: 'Rapportere'
     }
   },
   {
@@ -241,7 +248,8 @@ const routes: Routes = [
     data: {
       title: 'Not found',
       name: 'notfound',
-      type: 'page'
+      type: 'page',
+      breadcrumb: '404'
     }
   }
 ];

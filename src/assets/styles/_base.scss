@@ -364,9 +364,21 @@ table {
     width: 90%;
   }
 
+  thead {
+    @include variable(background-color, clrAccent);
+  }
+
+  tr {
+    &:nth-child(even) {
+      td {
+        @include variable(background-color, cleSecondaryLight);
+      }
+    }
+  }
+
   th {
     @include variable(font-family, fontSecondary);
-    font-weight: 400;
+    font-weight: 700;
 
     &:first-child {
       text-align: left;

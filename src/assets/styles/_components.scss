@@ -55,8 +55,8 @@
     }
 
     &--active {
-        @include variable(background-color, clrAccentLight);
-        @include variable(border-color, clrAccentLight);
+        @include variable(background-color, clrSecondaryOriginal);
+        @include variable(border-color, clrSecondaryOriginal);
     }
 
     &--secondary {

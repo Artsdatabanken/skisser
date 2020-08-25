@@ -176,7 +176,7 @@
     }
 
     &__image {
-        background-image: url(../images/logos/artsobservasjoner5.png);
+        background-image: url(../images/logos/artsobservasjoner6.png);
         background-position: left center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -333,6 +333,7 @@ main {
     &--page {
         grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
         grid-template-rows: repeat(4, auto);
+        grid-template-rows: auto auto 1fr 0;
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component . ." "router router router router router";
     
         @media screen and (max-width: 1600px) {
@@ -345,6 +346,7 @@ main {
     &--mega {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
+        grid-template-rows: auto auto 1fr 0;
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component component ." "router router router router router";
 
         @media screen and (max-width: 1600px) {
@@ -357,11 +359,12 @@ main {
     &--std {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
+        grid-template-rows: auto auto 1fr 0;
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". breadcrumbs breadcrumbs breadcrumbs ." ". component component component ." "router router router router router";
     }
 
     & > * {
-        //border: 1px solid red;
+        // border: 1px solid red;
         align-self: stretch;
         justify-self: stretch;
     }

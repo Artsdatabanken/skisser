@@ -52,9 +52,9 @@ form {
 }
 
 .button {
-    @include variable(background-color, clrAccentLight);
-    @include variable(border-color, clrAccentLight);
-    @include variable(color, clrBlack);
+    @include variable(background-color, clrPrimary);
+    @include variable(border-color, clrPrimary);
+    @include variable(color, clrWhite);
     @include variable(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
@@ -72,9 +72,9 @@ form {
     }
 
     &:hover {
-        @include variable(background-color, clrPrimary);
-        @include variable(border-color, clrPrimary);
-        @include variable(color, clrWhite);
+        @include variable(background-color, clrAccent);
+        @include variable(border-color, clrAccent);
+        @include variable(color, clrBlack);
     }
 
     &--primary {
@@ -90,15 +90,15 @@ form {
     }
 
     &--cta {
-        @include variable(background-color, clrAccentLight);
-        @include variable(border-color, clrAccentLight);
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
         border-radius: 5px;
         font-size: 30px;
 
         &:hover {
-            @include variable(background-color, clrPrimary);
-            @include variable(border-color, clrPrimary);
-            @include variable(color, clrWhite);
+            @include variable(background-color, clrAccent);
+            @include variable(border-color, clrAccent);
+            @include variable(color, clrBlack);
         }
     }
 
