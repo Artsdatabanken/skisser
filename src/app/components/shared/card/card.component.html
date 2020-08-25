@@ -1,0 +1,20 @@
+<div class="shareable-component">
+
+
+    <ng-container *ngIf="div"></ng-container>
+
+    <ng-container *ngIf="type === 'link'">
+        
+        <a class="card" [routerLink]="[url]" routerLinkActive="card--active">
+            <h1 class="card__heading">{{ title }}</h1>
+            <!-- <img class="card__image" src="`./assets/images/${{icon}}`" alt=""> -->
+            <img class="card__image" src="{{icon}}" alt="">
+            <p class="card__text">{{ text }}</p>
+        </a>
+
+    </ng-container>
+
+    <ng-container *ngIf="button"></ng-container>
+
+
+</div>

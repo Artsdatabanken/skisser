@@ -6,3 +6,10 @@
     font-size: 62px;
     font-weight: 900;
 }
+
+.design {
+    & > * {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

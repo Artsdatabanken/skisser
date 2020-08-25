@@ -16,6 +16,8 @@ import { FaqComponent } from './components/faq/faq.component';
 import { ReportComponent } from './components/report/report.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { FindingsComponent } from './components/findings/findings.component';
+import { DesignComponent } from './components/design/design.component';
 
 const routes: Routes = [
   {
@@ -240,6 +242,26 @@ const routes: Routes = [
       name: 'report',
       type: 'std',
       breadcrumb: 'Rapportere'
+    }
+  }, 
+  {
+    path: 'findings',
+    component: FindingsComponent,
+    data: {
+      title: 'Funn & Observasjoner',
+      name: 'findings',
+      type: 'std',
+      breadcrumb: 'Funn & Observasjoner'
+    }
+  },
+  {
+    path: 'design',
+    component: DesignComponent,
+    data: {
+      title: 'Designssystem',
+      name: 'design',
+      type: 'std',
+      breadcrumb: 'Designssystem'
     }
   },
   {

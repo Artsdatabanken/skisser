@@ -14,16 +14,7 @@ export class NavigationService {
 
   getMenuItems(): Observable<string[]> {
 
-    //let navigationLinks: string[] = this.settings.submenu;
-    let trimedLinks: string[] = [];
-
-    this.settings.menu.forEach(link => {
-      link = link.trim();
-      trimedLinks.push(link);
-    })
-
-    let navigationLinks: string[] = trimedLinks;
-
+    const navigationLinks: string[] = this.settings.menu;
     return of(navigationLinks).pipe();
 
   }

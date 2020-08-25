@@ -10,9 +10,9 @@
 <nav class="mobile-navigation" [ngClass]="{'mobile-navigation--visible': isActive}">
     <div class="mobile-navigation__item">
         <a class="mobile-navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
-        <a class="mobile-navigation__link" routerLinkActive="mobile-navigation__link--active" routerLink="{{ link }}"
+        <a class="mobile-navigation__link" routerLinkActive="mobile-navigation__link--active" routerLink="{{ link.name }}"
             *ngFor="let link of navigationLinks$ | async">
-            {{ link | titlecase | translate | trim }}
+            {{ link.title }}
         </a>
     </div>
 

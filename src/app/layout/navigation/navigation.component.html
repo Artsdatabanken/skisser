@@ -4,10 +4,10 @@
     <a class="navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a>
     <a class="navigation__link" 
         routerLinkActive="navigation__link--active" 
-        routerLink="{{ link }}"
+        routerLink="{{ link.url }}"
         [ngClass]="{'navigation__link--in-footer': ariaLabel === 'footerMenu'}"
         *ngFor="let link of navigationLinks$ | async">
-        {{ link | titlecase | translate | trim }}
+        {{ link.title }}
     </a>
 </nav>
 

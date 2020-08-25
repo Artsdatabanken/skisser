@@ -16,13 +16,36 @@
         "All"
     ],
     "menu": [
-        "report",
-        "search",
-        "statistics",
-        "about"
+        {
+            "title": "Rapportere",
+            "name": "report",
+            "url": "report"
+        },
+        {
+            "title": "Søk",
+            "name": "search",
+            "url": "search"
+        },
+        {
+            "title": "Statistikk",
+            "name": "statistics",
+            "url": "statistics"
+        },
+        {
+            "title": "Funn & Observasjoner",
+            "name": "findings",
+            "url": "findings"
+        }
     ],
     "submenu": [
         "register",
         "login"
+    ],
+    "footerMenu": [
+        {
+            "title": "Om Artsobservasjoner",
+            "name": "about",
+            "url": "about"
+        }
     ]
 }

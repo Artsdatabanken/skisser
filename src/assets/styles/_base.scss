@@ -378,6 +378,7 @@ table {
 
   th {
     @include variable(font-family, fontSecondary);
+    font-size: 22px;
     font-weight: 700;
 
     &:first-child {

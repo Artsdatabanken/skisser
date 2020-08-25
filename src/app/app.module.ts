@@ -35,6 +35,10 @@ import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 // import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
+import { FindingsComponent } from './components/findings/findings.component';
+import { EbwComponent } from './components/ebw/ebw.component';
+import { CardComponent } from './components/shared/card/card.component';
+import { ButtonComponent } from './components/shared/button/button.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { DesignComponent } from './components/design/design.component';
     ReportComponent,
     HamburgerComponent,
     GalleryComponent,
-    DesignComponent
+    DesignComponent,
+    FindingsComponent,
+    EbwComponent,
+    CardComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

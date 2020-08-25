@@ -59,16 +59,13 @@ form {
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
-    font-size: 16px;
     font-weight: 700;
-    padding: 7px 12px;
+    width: auto;
 
     &:active {
-        padding: 10px 12px;
     }
 
     &:focus {
-        padding: 10px 12px;
     }
 
     &:hover {
@@ -89,37 +86,29 @@ form {
         }
     }
 
-    &--cta {
-        @include variable(background-color, clrPrimary);
-        @include variable(border-color, clrPrimary);
-        border-radius: 5px;
-        font-size: 30px;
+    &--sm {
+        font-size: 15px;
+        padding: 3px 13px;
 
-        &:hover {
-            @include variable(background-color, clrAccent);
-            @include variable(border-color, clrAccent);
-            @include variable(color, clrBlack);
+        @media screen and (max-width: 1600px) {
+            font-size: 14px;
         }
     }
 
-    &--sm {
-        padding: 3px 13px;
+    &--md {
+        font-size: 18px;
+        padding: 7px 18px;
     }
 
-    &--styleless {
-        background: initial;
-        border: none;
-        font-size: initial;
-        padding: 0;
+    &--lg {
+        font-size: 24px;
+        padding: 13px 33px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 14px;
+        }
     }
 
-    &--submit {
-        @include variable(background-color, clrPrimary);
-        @include variable(border-color, clrPrimary);
-        @include variable(color, clrWhite);
-
-        width: auto;
-    }
 }
 
 .error-message {

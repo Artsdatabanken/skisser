@@ -10,9 +10,9 @@
 // buttons
 
 .cards {
-    &--grid-5 {
-        display: grid;
+    display: grid;
 
+    &--grid-5 {
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
@@ -22,12 +22,20 @@
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
-    
+
         @media screen and (max-width: 1920px) {
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: 1fr 1fr;
             grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
-        
+        }
+    }
+
+    &--grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-gap: 15px 30px;
+
+        @media screen and (max-width: 1920px) {
         }
     }
 }
@@ -42,6 +50,7 @@
     font-weight: 600;
     padding: 20px;
     text-align: center;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -72,37 +81,37 @@
     .cards--grid-5 & {
         align-self: stretch;
 
-        &:nth-child(1) {
-            grid-area: overviewNumbers;
-        }
+        // &:nth-child(1) {
+        //     grid-area: overviewNumbers;
+        // }
 
-        &:nth-child(2) {
-            grid-area: qualityAssuredData;
-        }
+        // &:nth-child(2) {
+        //     grid-area: qualityAssuredData;
+        // }
 
-        &:nth-child(3) {
-            grid-area: redListedSpecies;
-        }
+        // &:nth-child(3) {
+        //     grid-area: redListedSpecies;
+        // }
 
-        &:nth-child(4) {
-            grid-area: alienSpecies;
-        }
+        // &:nth-child(4) {
+        //     grid-area: alienSpecies;
+        // }
 
-        &:nth-child(5) {
-            grid-area: noData;
-        }
+        // &:nth-child(5) {
+        //     grid-area: noData;
+        // }
 
-        &:nth-child(6) {
-            grid-area: userStatistics;
-            grid-column-start: span 2;
-            align-self: center;
-        }
+        // &:nth-child(6) {
+        //     grid-area: userStatistics;
+        //     grid-column-start: span 2;
+        //     align-self: center;
+        // }
 
-        &:nth-child(7) {
-            grid-area: userLists;
-            grid-column-end: span 2;
-            align-self: center;
-        }
+        // &:nth-child(7) {
+        //     grid-area: userLists;
+        //     grid-column-end: span 2;
+        //     align-self: center;
+        // }
     }
 
     // elements
