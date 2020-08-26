@@ -10,32 +10,59 @@
 // buttons
 
 .cards {
-    display: grid;
+    //display: grid;
 
-    &--grid-5 {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
+    // &--grid-5 {
+    //     grid-template-columns: repeat(5, 1fr);
+    //     grid-template-rows: 1fr 1fr;
+    //     grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
 
-        grid-gap: 15px 30px;
+    //     grid-gap: 15px 30px;
 
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
+    //     grid-template-columns: repeat(5, 1fr);
+    //     grid-template-rows: 1fr 1fr;
+    //     grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
 
-        @media screen and (max-width: 1920px) {
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: 1fr 1fr;
-            grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
+    //     @media screen and (max-width: 1920px) {
+    //         grid-template-columns: repeat(5, 1fr);
+    //         grid-template-rows: 1fr 1fr;
+    //         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
+    //     }
+    // }
+
+    // &--grid-4 {
+    //     grid-template-columns: repeat(4, 1fr);
+
+    //     grid-gap: 15px 30px;
+
+    //     @media screen and (max-width: 1920px) {
+    //     }
+    // }
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+
+    & > * {
+        flex: 1 0 25%;
+        margin: 10px;
+
+        &:first-child {
         }
-    }
 
-    &--grid-4 {
-        grid-template-columns: repeat(4, 1fr);
+        &:last-child {
+            margin-right: 0;
+        }
 
-        grid-gap: 15px 30px;
+        &:nth-child(3n +1) {
+            margin-left: 0;
+        }
 
-        @media screen and (max-width: 1920px) {
+        &:nth-child(3n) {
+            margin-right: 0;
         }
     }
 }
