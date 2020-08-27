@@ -22,33 +22,33 @@ $vars: (
   fontSizeLarge: 32px,
 
   clrBlack: #2d2620,
-  clrWhite: #f7f6f5,  
-
-  clrLight0: #efeceb,
-  clrLight1: #ede9e6,
-  clrLight2: #e2dcd7,
-  clrLight3: #d7cfc9,
-  clrLight4: #ccc2ba,
-
-  clrDark1: #a19790,
-  clrDark2: #786f68,
-  clrDark3: #514942,
-  clrDark4: #302924,
-
-  clrPrimary: darken(#6f968e, 15% * 1.25), // #53726c
-  clrSecondary: darken(#a3ccc4, 10% * 1.25), // #7ab5aa
+  clrWhite: #f7f6f5, 
   
-  clrPrimaryDark: #355a53,
-  clrSecondaryLight: lighten(#a3ccc4, 10% * 1.25), // #7ab5aa
-
+  clrLight: #ccc2ba,
+  clrDark: #514942,
   clrAccent: #e5b445,
+
+  clrPrimary: darken(#6f968e, 20% * 1.25), // #53726c
+  clrSecondary: darken(#a3ccc4, 10% * 1.25), // #7ab5aa
 
   clrPrimaryOriginal: #6f968e,
   clrSecondaryOriginal: #a3ccc4,
 
-  borderWidth1: 2px,
-  borderWidth2: 3px
+  paddingStd: 15px
+
+  // clrLight0: #efeceb,
+  // clrLight1: #ede9e6,
+  // clrLight2: #e2dcd7,
+  // clrLight3: #d7cfc9,
+  // clrLight4: #ccc2ba,
+
+  // clrDark1: #a19790,
+  // clrDark2: #786f68,
+  // clrDark3: #514942,
+  // clrDark4: #302924,
+
 );
+
 
 :root {
   --fontPrimary: #{map-get($vars, fontPrimary)};
@@ -58,30 +58,20 @@ $vars: (
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
 
-  --clrLight0: #{map-get($vars, clrLight0)};
-  --clrLight1: #{map-get($vars, clrLight1)};
-  --clrLight2: #{map-get($vars, clrLight2)};
-  --clrLight3: #{map-get($vars, clrLight3)};
-  --clrLight4: #{map-get($vars, clrLight4)};
-  
-  --clrDark1: #{map-get($vars, clrDark1)};
-  --clrDark2: #{map-get($vars, clrDark2)};
-  --clrDark3: #{map-get($vars, clrDark3)};
-  --clrDark4: #{map-get($vars, clrDark4)};
+  --clrLight: #{map-get($vars, clrLight)};
+  --clrDark: #{map-get($vars, clrDark)};
+  --clrAccent: #{map-get($vars, clrAccent)};
   
   --clrPrimary: #{map-get($vars, clrPrimary)};
   --clrSecondary: #{map-get($vars, clrSecondary)};
     
-  --clrPrimaryDark: #{map-get($vars, clrPrimaryDark)};
-  --clrSecondaryLight: #{map-get($vars, clrSecondaryLight)};
-
-  --clrAccent: #{map-get($vars, clrAccent)};
-
   --clrPrimaryOriginal: #{map-get($vars, clrPrimaryOriginal)};
   --clrSecondaryOriginal: #{map-get($vars, clrSecondaryOriginal)};
 
-  --backgroundColor: #{map-get($vars, clrNature0)};
+  --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};
+
+  --paddingStd: #{map-get($vars, paddingStd)};
 }
 
 @mixin variable($property, $varName) {
@@ -89,7 +79,16 @@ $vars: (
   #{$property}: var(--#{$varName});
 }
 
+
 // color variations
+
+$clrBlack: #{map-get($vars, clrBlack)};
+$clrWhite: #{map-get($vars, clrWhite)};
+$clrLight: #{map-get($vars, clrLight)};
+$clrDark: #{map-get($vars, clrDark)};
+$clrAccent: #{map-get($vars, clrAccent)};
+$clrPrimary: #{map-get($vars, clrPrimary)};
+$clrSecondary: #{map-get($vars, clrSecondary)};
 
 // #00382b#007156#00aa82#00e2ad#1cffc9#55fed7#8dffe4#c6fff1
 

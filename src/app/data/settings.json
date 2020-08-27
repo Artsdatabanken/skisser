@@ -39,7 +39,9 @@
     ],
     "submenu": [
         "register",
-        "login"
+        "login",
+        "norsk",
+        "english"
     ],
     "footerMenu": [
         {

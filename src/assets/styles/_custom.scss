@@ -69,33 +69,7 @@
     }
 }
 
-// breadcrumbs
 
-.breadcrumbs {
-    list-style: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0;
-
-    &__item {
-        display: inline-block;
-
-        & > * {
-            //display: inline;
-        }
-    }
-
-    &__link {
-        cursor: pointer;
-        font-weight: 400;
-
-        &--active {
-            font-weight: 700;
-        }
-    }
-
-    
-}
 
 .separator {
     @include variable(background-color, clrSecondary);
@@ -180,11 +154,11 @@
 }
 
 $red: #355a53;
-$gray: #514942;
+$gray: #d7cfc9;
 $blue: #a3ccc4;
 $yellow: #e5b445;
 $purple: #6f968e;
-$orange: #d7cfc9;
+$orange: #514942;
 
 // colors from http://www.mulinblog.com/a-color-palette-optimized-for-data-visualization/
 
