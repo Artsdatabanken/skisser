@@ -45,8 +45,11 @@ export class TranslationPipe implements PipeTransform {
             return 'Logg inn';
         }
         else {
-            return 'Ikke funnet';
+            return '';
         }
+        // else {
+        //     return 'Ikke funnet';
+        // }
 
     }
 }

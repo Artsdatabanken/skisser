@@ -38,10 +38,26 @@
         }
     ],
     "submenu": [
-        "register",
-        "login",
-        "norsk",
-        "english"
+        {
+            "title": "Registrer deg",
+            "name": "register",
+            "url": "register"
+        },
+        {
+            "title": "Logg inn",
+            "name": "login",
+            "url": "login"
+        },
+        {
+            "title": "Norsk",
+            "name": "norwegian",
+            "url": "norwegian"
+        },
+        {
+            "title": "English",
+            "name": "english",
+            "url": "english"
+        }
     ],
     "footerMenu": [
         {
