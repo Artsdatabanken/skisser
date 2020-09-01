@@ -1,9 +1,9 @@
 <!--layout component-->
 
 <nav class="subnavigation" role="navigation" [attr.aria-label]="ariaLabel">
-    <a class="subnavigation__link button button--sm" routerLinkActive="subnavigation__link--active button--active"
+    <a class="subnavigation__link" routerLinkActive="subnavigation__link--active"
         routerLink="{{ link }}" *ngFor="let link of navigationLinks$ | async">
-        {{ link | titlecase | translate }}
+        {{ link.title | titlecase }}
     </a>
 
     <app-language-switcher></app-language-switcher>

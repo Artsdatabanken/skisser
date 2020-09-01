@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Breadcrumb } from '../../../models/breadcrumb';
+import { Breadcrumb } from '../../models/breadcrumb';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, distinctUntilChanged, mergeMap, map } from 'rxjs/operators';
 

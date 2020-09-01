@@ -19,7 +19,7 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
-import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
+import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
 import { TranslationPipe } from './helpers/translation.pipe';
 import { NavigationService } from './services/navigation.service';
 import { SubnavigationComponent } from './layout/subnavigation/subnavigation.component';

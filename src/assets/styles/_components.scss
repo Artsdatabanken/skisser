@@ -10,66 +10,22 @@
 // buttons
 
 .cards {
-    //display: grid;
-
-    // &--grid-5 {
-    //     grid-template-columns: repeat(5, 1fr);
-    //     grid-template-rows: 1fr 1fr;
-    //     grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics . userLists .";
-
-    //     grid-gap: 15px 30px;
-
-    //     grid-template-columns: repeat(5, 1fr);
-    //     grid-template-rows: 1fr 1fr;
-    //     grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
-
-    //     @media screen and (max-width: 1920px) {
-    //         grid-template-columns: repeat(5, 1fr);
-    //         grid-template-rows: 1fr 1fr;
-    //         grid-template-areas: "overviewNumbers qualityAssuredData redListedSpecies alienSpecies noData" ". userStatistics userStatistics . userLists userLists .";
-    //     }
-    // }
-
-    // &--grid-4 {
-    //     grid-template-columns: repeat(4, 1fr);
-
-    //     grid-gap: 15px 30px;
-
-    //     @media screen and (max-width: 1920px) {
-    //     }
-    // }
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
 
     & > * {
-        flex: 1 0 25%;
+        border: 1px solid red;
+        flex: 1 0 50%;
         margin: 10px;
-
-        &:first-child {
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        &:nth-child(3n +1) {
-            margin-left: 0;
-        }
-
-        &:nth-child(3n) {
-            margin-right: 0;
-        }
     }
 }
 
 .card {
     @include variable(background-color, transparent);
-    @include variable(border-color, clrSecondary);
     @include variable(color, clrPrimary);
     border-style: solid;
     border-width: 2px;
@@ -77,7 +33,6 @@
     font-weight: 600;
     padding: 20px;
     text-align: center;
-    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -103,42 +58,6 @@
         @include variable(background-color, clrPrimary);
         @include variable(border-color, clrPrimary);
         @include variable(color, clrWhite);
-    }
-
-    .cards--grid-5 & {
-        align-self: stretch;
-
-        // &:nth-child(1) {
-        //     grid-area: overviewNumbers;
-        // }
-
-        // &:nth-child(2) {
-        //     grid-area: qualityAssuredData;
-        // }
-
-        // &:nth-child(3) {
-        //     grid-area: redListedSpecies;
-        // }
-
-        // &:nth-child(4) {
-        //     grid-area: alienSpecies;
-        // }
-
-        // &:nth-child(5) {
-        //     grid-area: noData;
-        // }
-
-        // &:nth-child(6) {
-        //     grid-area: userStatistics;
-        //     grid-column-start: span 2;
-        //     align-self: center;
-        // }
-
-        // &:nth-child(7) {
-        //     grid-area: userLists;
-        //     grid-column-end: span 2;
-        //     align-self: center;
-        // }
     }
 
     // elements
