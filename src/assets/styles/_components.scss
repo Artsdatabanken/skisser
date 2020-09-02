@@ -10,6 +10,7 @@
 // buttons
 
 .cards {
+    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -18,34 +19,38 @@
     align-content: flex-start;
 
     & > * {
-        border: 1px solid red;
-        flex: 1 0 50%;
-        margin: 10px;
+        // flex: 1 0 50%;
+        // margin: 10px;
+        margin: 10px 20px;
+        width: 40%;
+
+        & > * {
+            width: 100%;
+        }
+
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        // justify-content: center;
+        // align-items: center;
+        // align-content: flex-start;
     }
 }
 
 .card {
     @include variable(background-color, transparent);
     @include variable(color, clrPrimary);
+    background-image: url(../images/iconChevronRight.png);
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 11px 20px;
     border-style: solid;
     border-width: 2px;
-    border-radius: 20px;
+    border-radius: 15px;
     border-bottom-right-radius: 0;
     font-weight: 600;
-    padding: 20px;
+    padding: 20px 45px 20px 20px;
     text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-
-    & > * {
-        
-        align-self: center;
-    }
 
     &--active {
         @include variable(background-color, clrSecondaryOriginal);
@@ -64,14 +69,10 @@
 
     // elements
 
-    & > * {
-        color: inherit;
-    }
-
     &__heading {
         font-size: 34px;
+        font-size: 24px;
         font-weight: 400;
-        font-weight: 300;
         order: 2;
 
         // .card--active & {
@@ -95,6 +96,7 @@
         margin: 0 0 10px;
         order: 1;
         width: 64px;
+        display: none;
 
         &--sm {
             height: 36px;
