@@ -1,18 +1,16 @@
-<div class="shareable-component">
+<!--shareable component-->
 
+<ng-container *ngIf="div"></ng-container>
 
-    <ng-container *ngIf="div"></ng-container>
+<ng-container *ngIf="type === 'link'">
 
-    <ng-container *ngIf="type === 'link'">
-        
-        <a class="card" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="card--active">
-            <h1 class="card__heading">{{ title }}</h1>
-            <p class="card__text">{{ text }}</p>
-        </a>
+    <a class="card" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="card--active">
+        <h1 class="card__heading">{{ title }}</h1>
+        <p class="card__text">{{ text }}</p>
+    </a>
 
-    </ng-container>
+</ng-container>
 
-    <ng-container *ngIf="button"></ng-container>
+<ng-container *ngIf="button"></ng-container>
 
-
-</div>
+<!--shareable component-->

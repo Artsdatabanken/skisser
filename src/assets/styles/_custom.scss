@@ -69,8 +69,6 @@
     }
 }
 
-
-
 .separator {
     @include variable(background-color, clrSecondary);
     height: 1em;
@@ -229,4 +227,37 @@ $orange: #514942;
 .orange {
     background: $orange;
     color: black;
+}
+
+/*liga*/
+
+.liga {
+    li {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+
+        span {
+            // border: 1px solid deeppink;
+            align-self: stretch;
+
+            &:nth-child(1) {
+                font-weight: 700;
+                width: 50%;
+            }
+
+            &:nth-child(2) {
+                @include variable(font-family, fontSecondary);
+                font-weight: 700;
+                text-align: right;
+                width: 50%;
+            }
+
+            &:nth-child(3) {
+                font-size: 17px;
+                width: 100%;
+            }
+        }
+    }
 }

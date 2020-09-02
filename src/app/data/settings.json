@@ -49,11 +49,6 @@
             "url": "login"
         },
         {
-            "title": "Norsk",
-            "name": "norwegian",
-            "url": "norwegian"
-        },
-        {
             "title": "English",
             "name": "english",
             "url": "english"

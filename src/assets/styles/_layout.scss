@@ -28,10 +28,14 @@
 
 .header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto auto;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 70px auto auto;
     gap: 0 0;
-    grid-template-areas: "headerLogo headerSubnavigation" "headerNavigation headerNavigation" "breadcrumbs breadcrumbs";
+    grid-template-areas:
+        "headerLogo headerSubnavigation"
+        "headerLogo siteSearch"
+        "headerNavigation headerNavigation"
+        "breadcrumbs breadcrumbs";
     padding: 0;
 
     @media screen and (max-width: 900px) {
@@ -41,32 +45,51 @@
         padding: 0;
     }
 
-    & > * {
+    &__cell {
         align-self: stretch;
         justify-self: stretch;
 
         &:nth-child(1) {
             @include variable(padding-left, paddingStd);
-            background-color: rgba(#514942, 0.3);
+            background-color: rgba(#515151, 0.3);
             grid-area: headerLogo;
+            
+
         }
 
         &:nth-child(2) {
             @include variable(padding-right, paddingStd);
-            background-color: rgba(#514942, 0.3);
+            background-color: rgba(#515151, 0.3);
             grid-area: headerSubnavigation;
         }
 
         &:nth-child(3) {
-            @include variable(padding, paddingStd);
-            background-color: rgba(#514942, 0.175);
-            grid-area: headerNavigation;
-            align-self: center;
+            @include variable(padding-right, paddingStd);
+            background-color: rgba(#515151, 0.3);
+            grid-area: siteSearch;
+
+            form {
+                margin: 5px 0 5px;
+                padding: 0;
+                width: 100%;
+            }
+
+            input {
+                
+                margin: 0;
+            }
         }
 
         &:nth-child(4) {
             @include variable(padding, paddingStd);
-            background-color: rgba(#514942, 0.075);
+            background-color: rgba(#515151, 0.175);
+            grid-area: headerNavigation;
+            align-self: center;
+        }
+
+        &:nth-child(5) {
+            @include variable(padding, paddingStd);
+            background-color: rgba(#515151, 0.075);
             align-self: center;
             grid-area: breadcrumbs;
         }
@@ -123,7 +146,7 @@
     text-align: right;
 
     &__link {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 700;
         margin-left: 20px;
     }
@@ -194,6 +217,7 @@
     grid-template-columns: 90px auto;
     grid-template-rows: 1fr;
     gap: 0 0;
+    height: 100%;
 
     @media screen and (max-width: 1600px) {
         grid-template-columns: 70px auto;
@@ -211,15 +235,22 @@
     &__image {
         background-image: url(../images/logos/artsobservasjoner6.png);
         background-image: url(../images/logos/artsobservasjoner7.png);
+        background-image: url(../images/logos/artsobservasjoner8.png);
         background-position: left center;
         background-repeat: no-repeat;
         background-size: contain;
         height: 128px;
         width: 128px;
 
+        height: 58px;
+        width: 58px;
+
         @media screen and (max-width: 1600px) {
             height: 96px;
             width: 96px;
+
+            height: 58px;
+            width: 58px;
         }
 
         @media screen and (max-width: 900px) {

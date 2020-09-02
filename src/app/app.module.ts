@@ -39,6 +39,7 @@ import { FindingsComponent } from './components/findings/findings.component';
 import { EbwComponent } from './components/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
+import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { ButtonComponent } from './components/shared/button/button.component';
     FindingsComponent,
     EbwComponent,
     CardComponent,
-    ButtonComponent
+    ButtonComponent,
+    SiteSearchComponent
   ],
   imports: [
     BrowserModule,
