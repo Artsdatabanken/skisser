@@ -40,6 +40,7 @@ import { EbwComponent } from './components/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
+import { ValidationComponent } from './components/validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { SiteSearchComponent } from './components/shared/site-search/site-search
     EbwComponent,
     CardComponent,
     ButtonComponent,
-    SiteSearchComponent
+    SiteSearchComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,

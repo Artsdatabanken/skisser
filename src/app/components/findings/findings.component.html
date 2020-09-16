@@ -1,1 +1,33 @@
-<p>findings works!</p>
+<div class="page">
+
+    <header class="page__header">
+
+
+        <div class="cards">
+
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Søk funn'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Dagens funn'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Siste funn'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Siste bilder'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Nye arter for i år'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Funnkatalog'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Statistikk'"></app-card>
+
+        </div>
+
+
+    </header>
+
+    <div class="page__content">
+
+        <br><br>
+        <router-outlet></router-outlet>
+
+    </div>
+
+    <footer class="page__footer">
+
+    </footer>
+
+
+</div>

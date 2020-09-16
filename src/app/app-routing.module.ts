@@ -18,6 +18,7 @@ import { NoDataSpeciesComponent } from './components/statistics/no-data-species/
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { FindingsComponent } from './components/findings/findings.component';
 import { DesignComponent } from './components/design/design.component';
+import { ValidationComponent } from './components/validation/validation.component';
 
 const routes: Routes = [
   {
@@ -252,6 +253,16 @@ const routes: Routes = [
       name: 'findings',
       type: 'std',
       breadcrumb: 'Funn & Observasjoner'
+    }
+  },
+  {
+    path: 'validation',
+    component: ValidationComponent,
+    data: {
+      title: 'Validering',
+      name: 'validation',
+      type: 'std',
+      breadcrumb: 'Validering'
     }
   },
   {

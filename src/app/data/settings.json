@@ -22,6 +22,11 @@
             "url": "report"
         },
         {
+            "title": "Funn & Observasjoner",
+            "name": "findings",
+            "url": "findings"
+        },
+        {
             "title": "Søk",
             "name": "search",
             "url": "search"
@@ -32,10 +37,10 @@
             "url": "statistics"
         },
         {
-            "title": "Funn & Observasjoner",
-            "name": "findings",
-            "url": "findings"
-        }
+            "title": "Validering",
+            "name": "validation",
+            "url": "validation"
+        }          
     ],
     "submenu": [
         {
@@ -47,6 +52,11 @@
             "title": "Logg inn",
             "name": "login",
             "url": "login"
+        },
+        {
+            "title": "Om Artsobservasjoner",
+            "name": "about",
+            "url": "about"
         },
         {
             "title": "English",
