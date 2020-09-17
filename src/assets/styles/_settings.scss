@@ -34,6 +34,8 @@ $vars: (
   clrPrimaryOriginal: #6f968e,
   clrSecondaryOriginal: #a3ccc4,
 
+  clrSecondaryTransparent: transparentize(#a3ccc4, 0.5),
+
   paddingStd: 15px
 
   // clrLight0: #efeceb,
@@ -67,6 +69,8 @@ $vars: (
     
   --clrPrimaryOriginal: #{map-get($vars, clrPrimaryOriginal)};
   --clrSecondaryOriginal: #{map-get($vars, clrSecondaryOriginal)};
+  
+  --clrSecondaryTransparent: #{map-get($vars, clrSecondaryTransparent)};
 
   --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};

@@ -2,15 +2,6 @@
 
     <header class="page__header">
 
-
-        <div class="buttons">
-
-            <app-button [text]="'Se på kart'"></app-button>
-            <app-button [text]="'Se som tabell'"></app-button>
-
-        </div>
-
-
     </header>
 
     <div class="page__content">
@@ -18,6 +9,15 @@
         <!-- <router-outlet></router-outlet> -->
 
         <app-date></app-date>
+
+        <div class="buttons">
+
+            <app-button [text]="'Se i kart'"></app-button>
+            <app-button [text]="'Se som tabell'"></app-button>
+
+            <br><br><br><br>
+
+        </div>
 
         <table class="table table--list table--invisible-header">
             <thead class="table__header">
@@ -65,6 +65,7 @@
                     <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag</td>
                     <td>1 imago/adult lys/lysfelle</td>
                     <td><a routerLink="">Geir Birkeland</a></td>
+                    <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
                 </tr>
 
                 <tr>
@@ -73,6 +74,7 @@
                     <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag </td>
                     <td>2 imago/adult lys/lysfelle</td>
                     <td><a routerLink="">Geir Birkeland</a></td>
+                    <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
                 </tr>
 
                 <tr>
@@ -81,6 +83,7 @@
                     <td>Torsevegen 10 , Vik , Ve</td>
                     <td>1 imago/adult hvilende lys/lysfelle</td>
                     <td><a routerLink="">Jan Ove Sagerøy</a></td>
+                    <td></td>
                 </tr>
 
                 <tr>
@@ -89,6 +92,7 @@
                     <td>Røysebekk-kilen, Sandefjord</td>
                     <td>1 ind. død - kollisjon med vindu</td>
                     <td><a routerLink="">Emil Krokan</a><a routerLink="">Torgeir Krokan</a></td>
+                    <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
                 </tr>
 
 
@@ -98,6 +102,7 @@
                     <td>1 5k næringsøkende</td>
                     <td>Sula/Timrebakkin, Vang</td>
                     <td><a routerLink="">Kenneth Lunna</a></td>
+                    <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
                 </tr>
 
 
@@ -116,6 +121,7 @@
                     <td>...</td>
                     <td>...</td>
                     <td><a routerLink="">...</a></td>
+                    <td>...</td>
                 </tr>
 
             </tbody>
