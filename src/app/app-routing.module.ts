@@ -19,6 +19,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { FindingsComponent } from './components/findings/findings.component';
 import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
+import { SightingsComponent } from './components/sightings/sightings.component';
+import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
 
 const routes: Routes = [
   {
@@ -253,6 +255,26 @@ const routes: Routes = [
       name: 'findings',
       type: 'std',
       breadcrumb: 'Funn & Observasjoner'
+    }
+  },
+  {
+    path: 'sightings',
+    component: SightingsComponent,
+    data: {
+      title: 'Funn & Observasjoner',
+      name: 'sightings',
+      type: 'std',
+      breadcrumb: 'Funn & Observasjoner'
+    }
+  },
+  {
+    path: 'sightings/today-sightings',
+    component: TodaySightingsComponent,
+    data: {
+      title: 'Dagens funn',
+      name: 'today-sightings',
+      type: 'std',
+      breadcrumb: 'Dagens funn'
     }
   },
   {

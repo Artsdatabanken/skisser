@@ -23,13 +23,8 @@
         },
         {
             "title": "Funn & Observasjoner",
-            "name": "findings",
-            "url": "findings"
-        },
-        {
-            "title": "Søk",
-            "name": "search",
-            "url": "search"
+            "name": "sightings",
+            "url": "sightings"
         },
         {
             "title": "Statistikk",

@@ -9,9 +9,7 @@
     margin-bottom: 50px;
 }
 
-// buttons
-
-// buttons
+// cards
 
 .cards {
     display: grid;
@@ -104,6 +102,8 @@
     }
 }
 
+/* link list*/
+
 .link-list {
     font-size: 20px;
     font-weight: 700;
@@ -131,5 +131,175 @@
         @media screen and (max-width: 900px) {
             display: inline;
         }
+    }
+}
+
+/* site search*/
+
+.site-search {
+    &__input {
+        background-image: url(../images/iconSearch.png);
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 28px;
+    }
+}
+
+/*button*/
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & > * {
+        margin: 0 10px;
+    }
+}
+
+.button {
+    @include variable(background-color, clrPrimary);
+    @include variable(border-color, clrPrimary);
+    @include variable(color, clrWhite);
+    @include variable(font-family, fontPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 7px 17px;
+    width: auto;
+
+    &:active {
+    }
+
+    &:focus {
+    }
+
+    &:hover {
+        @include variable(background-color, clrAccent);
+        @include variable(border-color, clrAccent);
+        @include variable(color, clrBlack);
+    }
+
+    &--primary {
+        @include variable(background-color, clrBlack);
+        @include variable(color, clrWhite);
+
+        &:hover {
+            @include variable(background-color, clrWhite);
+            @include variable(color, clrBlack);
+            @include variable(font-family, fontPrimary);
+            border: 2px solid #262626;
+        }
+    }
+
+    &--sm {
+        font-size: 15px;
+        padding: 3px 13px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 14px;
+        }
+    }
+
+    &--md {
+        font-size: 18px;
+        padding: 7px 18px;
+    }
+
+    &--lg {
+        font-size: 24px;
+        padding: 13px 33px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 14px;
+        }
+    }
+}
+
+/*date*/
+
+.date {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 25px auto;
+
+    &__item {
+        @include variable(border-color, clrPrimary);
+        background-repeat: no-repeat;
+        background-size: 8px;
+        border-style: solid;
+        border-width: 2px;
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0 5px;
+        padding: 5px 10px;
+
+        &--yesterday {
+            background-image: url(../images/iconChevronLeft.png);
+            background-position: left 10px center;
+            border-radius: 5px;
+            border-bottom-left-radius: 0;
+            padding-left: 30px;
+        }
+
+        &--tomorrow {
+            background-image: url(../images/iconChevronRight.png);
+            background-position: right 10px center;     
+            border-radius: 5px;
+            border-bottom-right-radius: 0;
+            padding-right: 30px;
+        }
+    }
+}
+
+/*tag*/
+
+.tag {
+    @include variable(background-color, transparent);
+    @include variable(color, clrPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 2px 8px;
+}
+
+/*table*/
+
+.table {
+    border-collapse: collapse;
+    border-spacing: 0 20px;
+    font-size: 18px;
+    width: 100%;
+
+    &__header {
+        .table--invisible-header & {
+            //visibility: hidden;
+        }
+    }
+
+    &__body {
+    }
+
+    &__column-header {
+        @include variable(font-family, fontSecondary);
+        text-align: left;
+    }
+
+    &__row-header {
+        text-align: left;
+        text-transform: capitalize;
+    }
+
+    th,
+    td {
+        // border: 1px solid grey;
+        padding-right: 10px;
     }
 }

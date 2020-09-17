@@ -1,0 +1,131 @@
+<div class="page">
+
+    <header class="page__header">
+
+
+        <div class="buttons">
+
+            <app-button [text]="'Se på kart'"></app-button>
+            <app-button [text]="'Se som tabell'"></app-button>
+
+        </div>
+
+
+    </header>
+
+    <div class="page__content">
+
+        <!-- <router-outlet></router-outlet> -->
+
+        <app-date></app-date>
+
+        <table class="table table--list table--invisible-header">
+            <thead class="table__header">
+                <tr>
+                    <th class="table__column-header">Art</th>
+                    <th class="table__column-header">Artsgruppe</th>
+                    <th class="table__column-header">Sted</th>
+                    <th class="table__column-header">Tilstand</th>
+                    <th class="table__column-header">Observatør</th>
+                    <th class="table__column-header">Bilde</th>
+                </tr>
+            </thead>
+            <tbody class="table__body">
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Rødryggtraktedderkopp</a></th>
+                    <td><span class="tag">Virvelløse dyr</span></td>
+                    <td>Vinkelen, Leite , Bømlo, Ve</td>
+                    <td>1 voksen hvilende lys/lysfelle</td>
+                    <td><a routerLink="">Gunnar Olsen</a></td>
+                    <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                </tr>
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Vanlig hageblomsterflue</a></th>
+                    <td><span class="tag">Virvelløse dyr</span></td>
+                    <td>Filerveien 1 Kråkerøy , Fredrikstad, Vi</td>
+                    <td>1 imago/adult hvilende lys/lysfelle</td>
+                    <td><a routerLink="">Åge Sten Fredriksen</a>, <a routerLink="">Synnøve Fredriksen</a></td>
+                </tr>
+
+
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Skogbarkmåler</a></th>
+                    <td><span class="tag">Virvelløse dyr</span></td>
+                    <td>Gunhildsgate , Stavanger , Ro</td>
+                    <td>Larve/nymfe frittspringende/krypende</td>
+                    <td><a routerLink="">Jan Alsvik </a></td>
+                    <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                </tr>
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Mørk irmåler</a></th>
+                    <td><span class="tag">Virvelløse dyr</span></td>
+                    <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag</td>
+                    <td>1 imago/adult lys/lysfelle</td>
+                    <td><a routerLink="">Geir Birkeland</a></td>
+                </tr>
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Dysstroma</a></th>
+                    <td><span class="tag">Virvelløse dyr</span></td>
+                    <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag </td>
+                    <td>2 imago/adult lys/lysfelle</td>
+                    <td><a routerLink="">Geir Birkeland</a></td>
+                </tr>
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Vinkelskogmåler</a></th>
+                    <td><span class="tag">Virvelløse dyr</span></td>
+                    <td>Torsevegen 10 , Vik , Ve</td>
+                    <td>1 imago/adult hvilende lys/lysfelle</td>
+                    <td><a routerLink="">Jan Ove Sagerøy</a></td>
+                </tr>
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Isfugl</a></th>
+                    <td><span class="tag">Fugl</span></td>
+                    <td>Røysebekk-kilen, Sandefjord</td>
+                    <td>1 ind. død - kollisjon med vindu</td>
+                    <td><a routerLink="">Emil Krokan</a><a routerLink="">Torgeir Krokan</a></td>
+                </tr>
+
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">Havørn</a></th>
+                    <td><span class="tag">Fugl</span></td>
+                    <td>1 5k næringsøkende</td>
+                    <td>Sula/Timrebakkin, Vang</td>
+                    <td><a routerLink="">Kenneth Lunna</a></td>
+                </tr>
+
+
+                <!-- <tr>
+                    <th class="table__row-header"><a routerLink=""></a></th>
+                    <td><span class="tag"></span></td>
+                    <td></td>
+                    <td></td>
+                    <td><a routerLink=""></a></td>
+                </tr> -->
+
+
+                <tr>
+                    <th class="table__row-header"><a routerLink="">...</a></th>
+                    <td><span class="tag">...</span></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a routerLink="">...</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <footer class="page__footer">
+
+    </footer>
+
+
+</div>

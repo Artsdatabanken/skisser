@@ -350,65 +350,65 @@ button {
 
 /*tables*/
 
-table {
-  border-collapse: collapse;
-  font-size: 18px;
-  margin: 50px auto;
-  max-width: 100%;
-  min-width: 50%;
-  overflow-x: auto;
-  width: auto;
+// table {
+//   border-collapse: collapse;
+//   font-size: 18px;
+//   margin: 50px auto;
+//   max-width: 100%;
+//   min-width: 50%;
+//   overflow-x: auto;
+//   width: auto;
 
-  @media screen and (max-width: 900px) {
-    max-width: 90%;
-    width: 90%;
-  }
+//   @media screen and (max-width: 900px) {
+//     max-width: 90%;
+//     width: 90%;
+//   }
 
-  thead {
-    @include variable(background-color, clrAccent);
-  }
+//   thead {
+//     @include variable(background-color, clrAccent);
+//   }
 
-  tr {
-    &:nth-child(even) {
-      td {
-        @include variable(background-color, cleSecondaryLight);
-      }
-    }
-  }
+//   tr {
+//     &:nth-child(even) {
+//       td {
+//         @include variable(background-color, cleSecondaryLight);
+//       }
+//     }
+//   }
 
-  th {
-    @include variable(font-family, fontSecondary);
-    font-size: 22px;
-    font-weight: 700;
+//   th {
+//     @include variable(font-family, fontSecondary);
+//     font-size: 22px;
+//     font-weight: 700;
 
-    &:first-child {
-      text-align: left;
-    }
-  }
+//     &:first-child {
+//       text-align: left;
+//     }
+//   }
 
-  th,
-  td {
-    border: 3px solid #4c4a48;
+//   th,
+//   td {
+//     border: 3px solid #4c4a48;
 
-    @include variable(border-color, clrDark3);
-    border-style: solid;
-    border-width: 2px;
+//     @include variable(border-color, clrDark3);
+//     border-style: solid;
+//     border-width: 2px;
 
-    padding: 15px;
-    vertical-align: middle;
+//     padding: 15px;
+//     vertical-align: middle;
 
-    @media screen and (max-width: 900px) {
-      font-size: 0.9em;
-      font-weight: 600;
-      padding: 7px;
-    }
-  }
+//     @media screen and (max-width: 900px) {
+//       font-size: 0.9em;
+//       font-weight: 600;
+//       padding: 7px;
+//     }
+//   }
 
-  td {
-    font-weight: 600;
+//   td {
+//     font-weight: 600;
 
-    &:first-child {
-      font-weight: 800;
-    }
-  }
-}
+//     &:first-child {
+//       font-weight: 800;
+//     }
+//   }
+// }

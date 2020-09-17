@@ -32,7 +32,6 @@ import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
-// import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
 import { FindingsComponent } from './components/findings/findings.component';
@@ -41,6 +40,10 @@ import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 import { ValidationComponent } from './components/validation/validation.component';
+import { SearchComponent } from './components/search/search.component';
+import { SightingsComponent } from './components/sightings/sightings.component';
+import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
+import { DateComponent } from './components/shared/date/date.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +82,11 @@ import { ValidationComponent } from './components/validation/validation.componen
     CardComponent,
     ButtonComponent,
     SiteSearchComponent,
-    ValidationComponent
+    ValidationComponent,
+    SearchComponent,
+    SightingsComponent,
+    TodaySightingsComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,
