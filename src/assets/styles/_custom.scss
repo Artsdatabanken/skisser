@@ -137,23 +137,6 @@
     }
 }
 
-// table
-
-.table {
-    td {
-        text-align: left;
-    }
-
-    td {
-        &:nth-child(1) {
-            border-right: none;
-        }
-        &:nth-child(2) {
-            border-left: none;
-        }
-    }
-}
-
 $red: #355a53;
 $gray: #d7cfc9;
 $blue: #a3ccc4;

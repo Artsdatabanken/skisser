@@ -287,6 +287,7 @@
     }
 
     &__column-header {
+        @include variable(background-color, clrWhite);
         @include variable(font-family, fontSecondary);
         text-align: left;
     }
@@ -301,6 +302,7 @@
 
         &:nth-child(odd) {
             @include variable(background-color, clrSecondaryTransparent);
+            //@include variable(background-color, clrLight);
             border-radius: 15px;
             border-bottom-right-radius: 0;
         }
@@ -312,11 +314,4 @@
         padding: 15px;
     }
 
-    td {
-        tr:nth-child(odd) & {
-            @include variable(background-color, clrSecondaryTransparent);
-            border-radius: 15px;
-            //border-bottom-right-radius: 0;
-        }
-    }
 }

@@ -302,6 +302,7 @@
 }
 
 .footer {
+    @include variable(background-color, clrLight);
     padding: 45px;
 
     &__grid {
