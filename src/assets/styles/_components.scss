@@ -313,5 +313,64 @@
         // border: 1px solid grey;
         padding: 15px;
     }
+}
 
+/*progress bar*/
+
+.progress-bar {
+    counter-reset: step;
+
+    &__item {
+        list-style-type: none;
+        width: 25%;
+        float: left;
+        font-size: 12px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        color: #7d7d7d;
+
+        &:before {
+            background-color: white;
+            border: 2px solid #7d7d7d;
+            border-radius: 50%;
+            content: counter(step);
+            counter-increment: step;
+            display: block;
+            font-weight: 700;
+            height: 30px;
+            line-height: 28px;
+            margin: 0 auto 10px auto;
+            text-align: center;
+            width: 30px;
+        }
+
+        &:after {
+            background-color: #7d7d7d;
+            background-color: red;
+            content: "";
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            top: 15px;
+            left: -50%;
+            z-index: -1;
+        }
+
+        &:first-child:after {
+            content: none;
+        }
+
+        &--active {
+            color: green;
+        }
+
+        &--active:before {
+            border-color: #55b776;
+        }
+
+        &--active + li:after {
+            background-color: #55b776;
+        }
+    }
 }

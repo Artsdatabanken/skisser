@@ -27,10 +27,15 @@
             "url": "sightings"
         },
         {
-            "title": "Validering",
+            "title": "Kvalitetssikring av data",
             "name": "validation",
             "url": "validation"
-        }          
+        },
+        {
+            "title": "Om Artsobservasjoner",
+            "name": "about",
+            "url": "about"
+        }
     ],
     "submenu": [
         {
@@ -42,11 +47,6 @@
             "title": "Logg inn",
             "name": "login",
             "url": "login"
-        },
-        {
-            "title": "Om Artsobservasjoner",
-            "name": "about",
-            "url": "about"
         },
         {
             "title": "English",

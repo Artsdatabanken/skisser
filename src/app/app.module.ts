@@ -45,6 +45,8 @@ import { SightingsComponent } from './components/sightings/sightings.component';
 import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
+import { LoginComponent } from './components/login/login.component';
+import { EasyReportingComponent } from './components/report/easy-reporting/easy-reporting.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,9 @@ import { PageTitleComponent } from './components/shared/page-title/page-title.co
     SightingsComponent,
     TodaySightingsComponent,
     DateComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    LoginComponent,
+    EasyReportingComponent
   ],
   imports: [
     BrowserModule,

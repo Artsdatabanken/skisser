@@ -21,6 +21,8 @@ import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { SightingsComponent } from './components/sightings/sightings.component';
 import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
+import { LoginComponent } from './components/login/login.component';
+import { EasyReportingComponent } from './components/report/easy-reporting/easy-reporting.component';
 
 const routes: Routes = [
   {
@@ -248,6 +250,16 @@ const routes: Routes = [
     }
   }, 
   {
+    path: 'report/easy-reporting',
+    component: EasyReportingComponent,
+    data: {
+      title: 'Enkel rapportering',
+      name: 'easy-reporting',
+      type: 'std',
+      breadcrumb: 'Enkel rapportering'
+    }
+  }, 
+  {
     path: 'findings',
     component: FindingsComponent,
     data: {
@@ -281,10 +293,20 @@ const routes: Routes = [
     path: 'validation',
     component: ValidationComponent,
     data: {
-      title: 'Validering',
+      title: 'Kvalitetssikring av data',
       name: 'validation',
       type: 'std',
-      breadcrumb: 'Validering'
+      breadcrumb: 'Kvalitetssikring av data'
+    }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Logginn',
+      name: 'login',
+      type: 'page',
+      breadcrumb: 'Logginn'
     }
   },
   {
