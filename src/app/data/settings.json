@@ -27,11 +27,6 @@
             "url": "sightings"
         },
         {
-            "title": "Statistikk",
-            "name": "statistics",
-            "url": "statistics"
-        },
-        {
             "title": "Validering",
             "name": "validation",
             "url": "validation"

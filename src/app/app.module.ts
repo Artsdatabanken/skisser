@@ -44,6 +44,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SightingsComponent } from './components/sightings/sightings.component';
 import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
 import { DateComponent } from './components/shared/date/date.component';
+import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { DateComponent } from './components/shared/date/date.component';
     SearchComponent,
     SightingsComponent,
     TodaySightingsComponent,
-    DateComponent
+    DateComponent,
+    PageTitleComponent
   ],
   imports: [
     BrowserModule,

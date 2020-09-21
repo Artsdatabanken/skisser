@@ -94,13 +94,13 @@ const routes: Routes = [
     }
   },
   {
-    path: 'statistics',
+    path: 'sightings/statistics',
     component: StatisticsComponent,
     data: {
       title: 'Statistikk',
-      name: 'statistics',
+      name: 'sightings/statistics',
       type: 'mega',
-      breadcrumb: 'Statistikk'
+      breadcrumb: 'Funn & Observasjoner / Statistikk'
     },
     // children: [
     //   {
@@ -170,7 +170,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'statistics/overview-numbers',
+    path: 'sightings/statistics/overview-numbers',
     component: OverviewNumbersComponent,
     data: {
       title: 'Oversiktstall',
@@ -180,7 +180,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'statistics/quality-assured-data',
+    path: 'sightings/statistics/quality-assured-data',
     component: QualityAssuredDataComponent,
     data: {
       title: 'Kvalitetssikrede data',
@@ -190,7 +190,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'statistics/red-listed-species',
+    path: 'sightings/statistics/red-listed-species',
     component: RedListedSpeciesComponent,
     data: {
       title: 'Rødlistede arter',
@@ -200,7 +200,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'statistics/alien-species',
+    path: 'sightings/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
       title: 'Fremmede arter',
@@ -210,7 +210,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'statistics/user-statistics',
+    path: 'sightings/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
       title: 'Brukerstatistikk',
@@ -220,7 +220,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'statistics/user-lists',
+    path: 'sightings/statistics/user-lists',
     component: UserListsComponent,
     data: {
       title: 'Mine lister',

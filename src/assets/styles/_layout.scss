@@ -214,22 +214,33 @@
 
 .logo {
     display: grid;
-    grid-template-columns: 90px auto;
+    grid-template-columns: 80px 90px auto;
     grid-template-rows: 1fr;
     gap: 0 0;
     height: 100%;
 
+    @include variable(font-family, fontSecondary);
+    border: none;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 1;
+    text-transform: uppercase;
+
     @media screen and (max-width: 1600px) {
-        grid-template-columns: 70px auto;
+        grid-template-columns: 70px 70px auto;
     }
 
     @media screen and (max-width: 900px) {
-        grid-template-columns: 50px auto;
+        grid-template-columns: auto 50px auto;
     }
 
     & > * {
         justify-self: start;
         align-self: center;
+    }
+
+    &__sup {
+        justify-self: left;
     }
 
     &__image {
@@ -260,12 +271,12 @@
     }
 
     &__link {
-        @include variable(font-family, fontSecondary);
-        border: none;
-        font-size: 35px;
-        font-weight: 300;
-        line-height: 1;
-        text-transform: uppercase;
+        // @include variable(font-family, fontSecondary);
+        // border: none;
+        // font-size: 35px;
+        // font-weight: 300;
+        // line-height: 1;
+        // text-transform: uppercase;
         width: 100%;
 
         @media screen and (max-width: 1600px) {
@@ -389,8 +400,17 @@ main {
     &__header {
     }
 
+    &__intro {
+        font-size: 24px;
+
+        p {
+            margin: 0;
+        }
+    }
+
     &__content {
         grid-area: pageContent;
+        padding: 50px 0;
     }
 
     &__footer {

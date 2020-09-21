@@ -1,28 +1,36 @@
-<div class="page">
+<div class="page page--landing">
 
     <header class="page__header">
 
+    </header>
 
-        <form class="site-search">
+    <div class="page__intro">
+        <p>
+            Finn data om funn og observasjoner.
+        </p>
+        <p>
+            Her kan du finne siste rapporterte observasjoner, søke i funn, se på tall og statistikk med mer.
+        </p>
+    </div>
+
+    <div class="page__content">
+
+        <!-- <form class="site-search">
             <input class="site-search__input" type="text" placeholder="Søk funn" name="Søk funn">
-        </form>
+        </form> -->
 
         <div class="cards">
 
-            <!-- <app-card [type]="'link'" [url]="'findings'" [title]="'Søk funn'"></app-card> -->
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Søk funn'"></app-card>
             <app-card [type]="'link'" [url]="'today-sightings'" [title]="'Dagens funn'"></app-card>
             <app-card [type]="'link'" [url]="'findings'" [title]="'Siste funn'"></app-card>
             <app-card [type]="'link'" [url]="'findings'" [title]="'Siste bilder'"></app-card>
             <app-card [type]="'link'" [url]="'findings'" [title]="'Nye arter for i år'"></app-card>
             <app-card [type]="'link'" [url]="'findings'" [title]="'Funnkatalog'"></app-card>
-            <app-card [type]="'link'" [url]="'findings'" [title]="'Statistikk'"></app-card>
+            <app-card [type]="'link'" [url]="'findings'" [title]="'Kvalitessikring av funn'"></app-card>
+            <app-card [type]="'link'" [url]="'statistics'" [title]="'Statistikk'"></app-card>
 
         </div>
-
-
-    </header>
-
-    <div class="page__content">
 
         <br><br>
         <router-outlet></router-outlet>
