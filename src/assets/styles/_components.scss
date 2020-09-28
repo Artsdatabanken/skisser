@@ -50,10 +50,10 @@
     padding: 20px 45px 20px 20px;
     text-align: left;
 
-    &--active {
-        @include variable(background-color, clrSecondaryOriginal);
-        @include variable(border-color, clrSecondaryOriginal);
-    }
+    // &--active {
+    //     @include variable(background-color, clrSecondaryOriginal);
+    //     @include variable(border-color, clrSecondaryOriginal);
+    // }
 
     &--secondary {
     }
@@ -67,6 +67,7 @@
     // elements
 
     &__heading {
+        color: inherit;
         font-size: 34px;
         font-size: 24px;
         font-weight: 400;

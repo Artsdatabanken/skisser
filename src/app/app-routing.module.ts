@@ -14,15 +14,13 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TouComponent } from './components/about/tou/tou.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ReportComponent } from './components/report/report.component';
-import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { FindingsComponent } from './components/findings/findings.component';
 import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
-import { SightingsComponent } from './components/sightings/sightings.component';
-import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
+import { TodaySightingsComponent } from './components/fas/today-sightings/today-sightings.component';
 import { LoginComponent } from './components/login/login.component';
-import { EasyReportingComponent } from './components/report/easy-reporting/easy-reporting.component';
+import { FasComponent } from './components/fas/fas.component';
+import { ReportingComponent } from './components/report/reporting/reporting.component';
 
 const routes: Routes = [
   {
@@ -52,127 +50,29 @@ const routes: Routes = [
       type: 'page',
       breadcrumb: 'Om Artsobservasjoner'
     },
-    children: [
-      {
-        path: 'tou',
-        component: TouComponent,
-        data: {
-          title: 'Brukervilkår',
-          name: 'tou',
-          type: 'page',
-          breadcrumb: 'Brukervilkår'
-        }
-      }
-    ]
   },
   {
-    path: 'contact',
-    component: ContactComponent,
+    path: 'about/tou',
+    component: TouComponent,
     data: {
-      title: 'Kontakt',
-      name: 'contact',
+      title: 'Brukervilkår',
+      name: 'tou',
       type: 'page',
-      breadcrumb: 'Kontakt'
+      breadcrumb: 'Brukervilkår'
     }
   },
   {
-    path: 'faq',
-    component: FaqComponent,
-    data: {
-      title: 'Ofte stilte spørsmål',
-      name: 'faq',
-      type: 'page',
-      breadcrumb: 'Ofte stilte spørsmål'
-    }
-  },
-  {
-    path: 'dictionary',
-    component: FaqComponent,
-    data: {
-      title: 'Ordliste',
-      name: 'dictionary',
-      type: 'page',
-      breadcrumb: 'Ordliste'
-    }
-  },
-  {
-    path: 'sightings/statistics',
+    path: 'fas/statistics',
     component: StatisticsComponent,
     data: {
       title: 'Statistikk',
-      name: 'sightings/statistics',
+      name: 'fas/statistics',
       type: 'mega',
       breadcrumb: 'Funn & Observasjoner / Statistikk'
     },
-    // children: [
-    //   {
-    //     path: 'overview-numbers',
-    //     component: OverviewNumbersComponent,
-    //     data: {
-    //       title: 'Oversiktstall',
-    //       name: 'overview-numbers',
-    //       type: 'mega'
-    //     }
-    //   },
-    //   {
-    //     path: 'quality-assured-data',
-    //     component: QualityAssuredDataComponent,
-    //     data: {
-    //       title: 'Kvalitetssikrede data',
-    //       name: 'quality-assured-data',
-    //       type: 'mega'
-    //     }
-    //   },
-    //   {
-    //     path: 'red-listed-species',
-    //     component: RedListedSpeciesComponent,
-    //     data: {
-    //       title: 'Rødlistede arter',
-    //       name: 'red-listed-species',
-    //       type: 'mega'
-    //     }
-    //   },
-    //   {
-    //     path: 'alien-species',
-    //     component: AlienSpeciesComponent,
-    //     data: {
-    //       title: 'Fremmede arter',
-    //       name: 'alien-species',
-    //       type: 'mega'
-    //     }
-    //   },
-    //   {
-    //     path: 'no-data-species',
-    //     component: NoDataSpeciesComponent,
-    //     data: {
-    //       title: 'Arter uten nok data',
-    //       name: 'no-data-species',
-    //       type: 'mega'
-    //     }
-    //   },
-    //   {
-    //     path: 'user-statistics',
-    //     component: UserStatisticsComponent,
-    //     data: {
-    //       title: 'Brukerstatistikk',
-    //       name: 'user-statistics',
-    //       type: 'mega'
-    //     }
-    //   },
-    //   {
-    //     path: 'user-lists',
-    //     component: UserListsComponent,
-    //     data: {
-    //       title: 'Mine lister',
-    //       name: 'user-lists',
-    //       type: 'mega'
-    //     }
-    //   },
-    // ],
   },
-
   {
-    path: 'sightings/statistics/overview-numbers',
+    path: 'fas/statistics/overview-numbers',
     component: OverviewNumbersComponent,
     data: {
       title: 'Oversiktstall',
@@ -182,7 +82,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/quality-assured-data',
+    path: 'fas/statistics/quality-assured-data',
     component: QualityAssuredDataComponent,
     data: {
       title: 'Kvalitetssikrede data',
@@ -192,7 +92,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/red-listed-species',
+    path: 'fas/statistics/red-listed-species',
     component: RedListedSpeciesComponent,
     data: {
       title: 'Rødlistede arter',
@@ -202,7 +102,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/alien-species',
+    path: 'fas/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
       title: 'Fremmede arter',
@@ -212,7 +112,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/user-statistics',
+    path: 'fas/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
       title: 'Brukerstatistikk',
@@ -222,7 +122,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/user-lists',
+    path: 'fas/statistics/user-lists',
     component: UserListsComponent,
     data: {
       title: 'Mine lister',
@@ -245,42 +145,32 @@ const routes: Routes = [
     data: {
       title: 'Rapportere',
       name: 'report',
-      type: 'std',
+      type: 'page',
       breadcrumb: 'Rapportere'
     }
-  }, 
+  },
   {
-    path: 'report/easy-reporting',
-    component: EasyReportingComponent,
+    path: 'report/reporting',
+    component: ReportingComponent,
     data: {
-      title: 'Enkel rapportering',
-      name: 'easy-reporting',
+      title: 'Rapportering',
+      name: 'reporting',
       type: 'std',
-      breadcrumb: 'Enkel rapportering'
+      breadcrumb: 'Rapportering'
     }
-  }, 
+  },
   {
-    path: 'findings',
-    component: FindingsComponent,
+    path: 'fas',
+    component: FasComponent,
     data: {
       title: 'Funn & Observasjoner',
-      name: 'findings',
-      type: 'std',
+      name: 'fas',
+      type: 'page',
       breadcrumb: 'Funn & Observasjoner'
     }
   },
   {
-    path: 'sightings',
-    component: SightingsComponent,
-    data: {
-      title: 'Funn & Observasjoner',
-      name: 'sightings',
-      type: 'std',
-      breadcrumb: 'Funn & Observasjoner'
-    }
-  },
-  {
-    path: 'sightings/today-sightings',
+    path: 'fas/today-sightings',
     component: TodaySightingsComponent,
     data: {
       title: 'Dagens funn',
@@ -295,7 +185,7 @@ const routes: Routes = [
     data: {
       title: 'Kvalitetssikring av data',
       name: 'validation',
-      type: 'std',
+      type: 'page',
       breadcrumb: 'Kvalitetssikring av data'
     }
   },

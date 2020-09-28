@@ -34,19 +34,18 @@ import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
-import { FindingsComponent } from './components/findings/findings.component';
 import { EbwComponent } from './components/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { SearchComponent } from './components/search/search.component';
-import { SightingsComponent } from './components/sightings/sightings.component';
-import { TodaySightingsComponent } from './components/sightings/today-sightings/today-sightings.component';
+import { TodaySightingsComponent } from './components/fas/today-sightings/today-sightings.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
-import { EasyReportingComponent } from './components/report/easy-reporting/easy-reporting.component';
+import { FasComponent } from './components/fas/fas.component';
+import { ReportingComponent } from './components/report/reporting/reporting.component';
 
 @NgModule({
   declarations: [
@@ -80,19 +79,18 @@ import { EasyReportingComponent } from './components/report/easy-reporting/easy-
     HamburgerComponent,
     GalleryComponent,
     DesignComponent,
-    FindingsComponent,
     EbwComponent,
     CardComponent,
     ButtonComponent,
     SiteSearchComponent,
     ValidationComponent,
     SearchComponent,
-    SightingsComponent,
     TodaySightingsComponent,
     DateComponent,
     PageTitleComponent,
     LoginComponent,
-    EasyReportingComponent
+    FasComponent,
+    ReportingComponent
   ],
   imports: [
     BrowserModule,
