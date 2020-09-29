@@ -55,13 +55,11 @@
     //     @include variable(border-color, clrSecondaryOriginal);
     // }
 
-    &--secondary {
-    }
-
     &:hover {
         @include variable(background-color, clrPrimary);
         @include variable(border-color, clrPrimary);
         @include variable(color, clrWhite);
+        background-image: url(../images/iconChevronWhiteRight.png);
     }
 
     // elements
@@ -72,10 +70,6 @@
         font-size: 24px;
         font-weight: 400;
         order: 2;
-
-        // .card--active & {
-        //     @include variable(color, clrDark4);
-        // }
     }
 
     &__text {

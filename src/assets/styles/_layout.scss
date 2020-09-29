@@ -431,7 +431,6 @@ main {
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component . ." "router router router router router";
 
         @media screen and (max-width: 1600px) {
-            border: 1px solid red;
             grid-template-columns: 1fr 3fr 3fr 1fr;
             grid-template-areas: ". pageTitle pageTitle ." ". component component ." ". router router .";
         }

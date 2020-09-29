@@ -24,22 +24,21 @@ import { TranslationPipe } from './helpers/translation.pipe';
 import { NavigationService } from './services/navigation.service';
 import { SubnavigationComponent } from './layout/subnavigation/subnavigation.component';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { TouComponent } from './components/about/tou/tou.component';
-import { FaqComponent } from './components/faq/faq.component';
-import { DictionaryComponent } from './components/dictionary/dictionary.component';
+import { FaqComponent } from './components/about/faq/faq.component';
+import { DictionaryComponent } from './components/about/dictionary/dictionary.component';
 import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
-import { EbwComponent } from './components/ebw/ebw.component';
+import { EbwComponent } from './components/fas/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 import { ValidationComponent } from './components/validation/validation.component';
-import { SearchComponent } from './components/search/search.component';
+import { SearchComponent } from './components/fas/search/search.component';
 import { TodaySightingsComponent } from './components/fas/today-sightings/today-sightings.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
@@ -71,7 +70,6 @@ import { ReportingComponent } from './components/report/reporting/reporting.comp
     TrimPipe,
     SubnavigationComponent,
     LanguageSwitcherComponent,
-    ContactComponent,
     TouComponent,
     FaqComponent,
     DictionaryComponent,

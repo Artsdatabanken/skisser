@@ -163,10 +163,10 @@ const routes: Routes = [
     path: 'fas',
     component: FasComponent,
     data: {
-      title: 'Funn & Observasjoner',
+      title: 'Funn og Observasjoner',
       name: 'fas',
       type: 'page',
-      breadcrumb: 'Funn & Observasjoner'
+      breadcrumb: 'Funn og Observasjoner'
     }
   },
   {
