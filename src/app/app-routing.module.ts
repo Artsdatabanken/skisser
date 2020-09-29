@@ -186,7 +186,7 @@ const routes: Routes = [
       title: 'Logginn',
       name: 'login',
       type: 'page',
-      breadcrumb: 'Logginn'
+      breadcrumb: 'Logg inn'
     }
   }, {
     path: 'register',
