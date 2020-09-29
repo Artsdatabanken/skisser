@@ -21,7 +21,23 @@ export class NavigationService {
 
   getSubMenuItems(): Observable<string[]> {
 
-    const navigationLinks: string[] = this.settings.submenu;
+    const navigationLinks: string[] = this.settings.subMenu;
+    // let trimedLinks: string[] = [];
+
+    // this.settings.submenu.forEach(link => {
+    //   link = link.trim();
+    //   trimedLinks.push(link);
+    // })
+
+    // let navigationLinks: string[] = trimedLinks;
+
+    return of(navigationLinks).pipe();
+
+  }
+
+  getTopMenuItems(): Observable<string[]> {
+
+    const navigationLinks: string[] = this.settings.topMenu;
     // let trimedLinks: string[] = [];
 
     // this.settings.submenu.forEach(link => {

@@ -11,7 +11,6 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { TouComponent } from './components/about/tou/tou.component';
 import { ReportComponent } from './components/report/report.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { TodaySightingsComponent } from './components/fas/today-sightings/today-sightings.component';
@@ -21,6 +20,8 @@ import { ReportingComponent } from './components/report/reporting/reporting.comp
 import { RegistrationComponent } from './components/registration/registration.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
+import { SightingsComponent } from './components/fas/sightings/sightings.component';
+import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
 
 const routes: Routes = [
   {
@@ -62,14 +63,6 @@ const routes: Routes = [
     }
   },
   {
-    path: 'gallery',
-    component: GalleryComponent,
-    data: {
-      title: 'Fotogallery',
-      name: 'gallery'
-    }
-  },
-  {
     path: 'report',
     component: ReportComponent,
     data: {
@@ -93,20 +86,30 @@ const routes: Routes = [
     path: 'fas',
     component: FasComponent,
     data: {
-      title: 'Funn & Observasjoner',
+      title: 'Funn og Observasjoner',
       name: 'fas',
       type: 'page',
-      breadcrumb: 'Funn & Observasjoner'
+      breadcrumb: 'Funn og Observasjoner'
     }
   },
   {
-    path: 'fas/today-sightings',
-    component: TodaySightingsComponent,
+    path: 'fas/sightings',
+    component: SightingsComponent,
     data: {
-      title: 'Dagens funn',
-      name: 'today-sightings',
+      title: 'Siste observasjoner',
+      name: 'sightings',
       type: 'std',
-      breadcrumb: 'Dagens funn'
+      breadcrumb: 'Siste observasjoner'
+    }
+  },  
+  {
+    path: 'fas/sightings/sighting-id',
+    component: SightingIdComponent,
+    data: {
+      title: 'Observasjon',
+      name: 'sighting-id',
+      type: 'std',
+      breadcrumb: 'Observasjon'
     }
   },
   {

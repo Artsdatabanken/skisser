@@ -369,3 +369,53 @@
         }
     }
 }
+
+/*gallery*/
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 20px;
+
+    &__item {
+        min-height: 30vh;
+    }
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    &__title {
+        @include variable(font-family, fontSecondary);
+        font-size: 22px;
+        font-weight: 600;
+        order: 2;
+    }
+
+    &__image {
+        background: lightgrey;
+        background-position: center center;
+        background-size: cover;
+        min-height: 25vh;
+        order: 1;
+
+        &--1 {
+            background-image: url(../images/gallery/panda.jpg);
+        }
+        
+        &--2 {
+            background-image: url(../images/gallery/leopard.jpg);
+        }
+
+        &--3 {
+            background-image: url(../images/gallery/frog.jpg);
+        }
+    }
+
+    &__details {
+        font-size: 18px;
+        order: 3;
+    }
+}

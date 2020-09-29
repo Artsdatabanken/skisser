@@ -22,7 +22,6 @@ import { NoDataSpeciesComponent } from './components/statistics/no-data-species/
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
 import { TranslationPipe } from './helpers/translation.pipe';
 import { NavigationService } from './services/navigation.service';
-import { SubnavigationComponent } from './layout/subnavigation/subnavigation.component';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 import { TouComponent } from './components/about/tou/tou.component';
 import { FaqComponent } from './components/about/faq/faq.component';
@@ -30,8 +29,6 @@ import { DictionaryComponent } from './components/about/dictionary/dictionary.co
 import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
-
-import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
 import { EbwComponent } from './components/fas/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
@@ -39,7 +36,6 @@ import { ButtonComponent } from './components/shared/button/button.component';
 import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { SearchComponent } from './components/fas/search/search.component';
-import { TodaySightingsComponent } from './components/fas/today-sightings/today-sightings.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
@@ -48,6 +44,10 @@ import { ReportingComponent } from './components/report/reporting/reporting.comp
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
+import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
+import { SightingsComponent } from './components/fas/sightings/sightings.component';
+import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
 
 @NgModule({
   declarations: [
@@ -71,14 +71,12 @@ import { RegistrationComponent } from './components/registration/registration.co
     BreadcrumbsComponent,
     TranslationPipe,
     TrimPipe,
-    SubnavigationComponent,
     LanguageSwitcherComponent,
     TouComponent,
     FaqComponent,
     DictionaryComponent,
     ReportComponent,
     HamburgerComponent,
-    GalleryComponent,
     DesignComponent,
     EbwComponent,
     CardComponent,
@@ -86,7 +84,6 @@ import { RegistrationComponent } from './components/registration/registration.co
     SiteSearchComponent,
     ValidationComponent,
     SearchComponent,
-    TodaySightingsComponent,
     DateComponent,
     PageTitleComponent,
     LoginComponent,
@@ -94,7 +91,11 @@ import { RegistrationComponent } from './components/registration/registration.co
     ReportingComponent,
     DashboardComponent,
     ManagementComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    TopNavigationComponent,
+    SubNavigationComponent,
+    SightingsComponent,
+    SightingIdComponent,
   ],
   imports: [
     BrowserModule,

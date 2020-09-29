@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubnavigationComponent } from './subnavigation.component';
+import { TopNavigationComponent } from './top-navigation.component';
 
-describe('SubnavigationComponent', () => {
-  let component: SubnavigationComponent;
-  let fixture: ComponentFixture<SubnavigationComponent>;
+describe('TopNavigationComponent', () => {
+  let component: TopNavigationComponent;
+  let fixture: ComponentFixture<TopNavigationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubnavigationComponent ]
+      declarations: [ TopNavigationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubnavigationComponent);
+    fixture = TestBed.createComponent(TopNavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

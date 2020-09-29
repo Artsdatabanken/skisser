@@ -24,7 +24,8 @@
             padding: 50px 15px;
         }
 
-        & > * {    }
+        & > * {
+        }
     }
 }
 
@@ -34,7 +35,7 @@
     grid-template-rows: 1fr 70px auto auto;
     gap: 0 0;
     grid-template-areas:
-        "headerLogo headerSubnavigation"
+        "headerLogo headerTopNavigation"
         "headerLogo siteSearch"
         "headerNavigation headerNavigation"
         "breadcrumbs breadcrumbs";
@@ -60,7 +61,7 @@
         &:nth-child(2) {
             @include variable(padding-right, paddingStd);
             background-color: rgba(#515151, 0.3);
-            grid-area: headerSubnavigation;
+            grid-area: headerTopNavigation;
         }
 
         &:nth-child(3) {
@@ -110,7 +111,7 @@
 
     &__link {
         border-bottom: 3px solid transparent;
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 700;
         line-height: 1.5;
         margin: 0 25px;
@@ -129,11 +130,36 @@
             border-bottom-width: 3px;
         }
 
+        &--secondary {
+            @include variable(background-color, clrPrimary);
+            @include variable(border-color, clrBlack);
+            @include variable(color, clrWhite);
+            border: none;
+            border-radius: 5px;
+            border-bottom-right-radius: 0;
+            font-size: 15px;
+            padding: 3px 21px;
+        }
+
         @media screen and (max-width: 1600px) {
             font-size: 18px;
             font-size: 20px;
             margin: 0 17px;
         }
+    }
+
+    @media screen and (max-width: 900px) {
+        display: none !important;
+    }
+}
+
+.top-navigation {
+    text-align: right;
+
+    &__link {
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: 20px;
     }
 
     @media screen and (max-width: 900px) {

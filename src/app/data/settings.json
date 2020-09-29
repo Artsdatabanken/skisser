@@ -17,32 +17,25 @@
     ],
     "menu": [
         {
-            "title": "Rapportering",
+            "title": "Rapportere",
             "name": "report",
-            "url": "report"
+            "url": "report",
+            "type": "primary"
         },
         {
-            "title": "Funn og Observasjoner",
+            "title": "Funn og observasjoner",
             "name": "fas",
-            "url": "fas"
+            "url": "fas",
+            "type": "primary"
         },
         {
-            "title": "Kvalitetssikring av data",
+            "title": "Kvalitetssikre",
             "name": "validation",
-            "url": "validation"
-        },
-        {
-            "title": "Administrere",
-            "name": "management",
-            "url": "management"
-        },
-        {
-            "title": "Minside",
-            "name": "dashboard",
-            "url": "dashboard"
+            "url": "validation",
+            "type": "primary"
         }
     ],
-    "submenu": [
+    "topMenu": [
         {
             "title": "Registrer deg",
             "name": "register",
@@ -57,6 +50,20 @@
             "title": "English",
             "name": "english",
             "url": "english"
+        }
+    ],
+    "subMenu": [
+        {
+            "title": "Administrere",
+            "name": "management",
+            "url": "management",
+            "type": "secondary"
+        },
+        {
+            "title": "Minside",
+            "name": "dashboard",
+            "url": "dashboard",
+            "type": "secondary"
         }
     ],
     "footerMenu": [
