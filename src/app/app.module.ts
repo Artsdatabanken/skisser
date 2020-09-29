@@ -46,6 +46,9 @@ import { PageTitleComponent } from './components/shared/page-title/page-title.co
 import { LoginComponent } from './components/login/login.component';
 import { FasComponent } from './components/fas/fas.component';
 import { ReportingComponent } from './components/report/reporting/reporting.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ManagementComponent } from './components/management/management.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,10 @@ import { ReportingComponent } from './components/report/reporting/reporting.comp
     PageTitleComponent,
     LoginComponent,
     FasComponent,
-    ReportingComponent
+    ReportingComponent,
+    DashboardComponent,
+    ManagementComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

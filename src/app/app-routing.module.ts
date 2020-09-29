@@ -9,10 +9,7 @@ import { QualityAssuredDataComponent } from './components/statistics/quality-ass
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
-import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { TouComponent } from './components/about/tou/tou.component';
-import { FaqComponent } from './components/faq/faq.component';
 import { ReportComponent } from './components/report/report.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DesignComponent } from './components/design/design.component';
@@ -21,6 +18,9 @@ import { TodaySightingsComponent } from './components/fas/today-sightings/today-
 import { LoginComponent } from './components/login/login.component';
 import { FasComponent } from './components/fas/fas.component';
 import { ReportingComponent } from './components/report/reporting/reporting.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ManagementComponent } from './components/management/management.component';
 
 const routes: Routes = [
   {
@@ -59,6 +59,54 @@ const routes: Routes = [
       name: 'tou',
       type: 'page',
       breadcrumb: 'Brukervilkår'
+    }
+  },
+  {
+    path: 'gallery',
+    component: GalleryComponent,
+    data: {
+      title: 'Fotogallery',
+      name: 'gallery'
+    }
+  },
+  {
+    path: 'report',
+    component: ReportComponent,
+    data: {
+      title: 'Rapportere',
+      name: 'report',
+      type: 'page',
+      breadcrumb: 'Rapportere'
+    }
+  },
+  {
+    path: 'report/reporting',
+    component: ReportingComponent,
+    data: {
+      title: 'Rapportering',
+      name: 'reporting',
+      type: 'std',
+      breadcrumb: 'Rapportering'
+    }
+  },
+  {
+    path: 'fas',
+    component: FasComponent,
+    data: {
+      title: 'Funn & Observasjoner',
+      name: 'fas',
+      type: 'page',
+      breadcrumb: 'Funn & Observasjoner'
+    }
+  },
+  {
+    path: 'fas/today-sightings',
+    component: TodaySightingsComponent,
+    data: {
+      title: 'Dagens funn',
+      name: 'today-sightings',
+      type: 'std',
+      breadcrumb: 'Dagens funn'
     }
   },
   {
@@ -122,64 +170,6 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/statistics/user-lists',
-    component: UserListsComponent,
-    data: {
-      title: 'Mine lister',
-      name: 'user-lists',
-      type: 'std',
-      breadcrumb: 'Statistikk: Mine lister'
-    }
-  },
-  {
-    path: 'gallery',
-    component: GalleryComponent,
-    data: {
-      title: 'Fotogallery',
-      name: 'gallery'
-    }
-  },
-  {
-    path: 'report',
-    component: ReportComponent,
-    data: {
-      title: 'Rapportere',
-      name: 'report',
-      type: 'page',
-      breadcrumb: 'Rapportere'
-    }
-  },
-  {
-    path: 'report/reporting',
-    component: ReportingComponent,
-    data: {
-      title: 'Rapportering',
-      name: 'reporting',
-      type: 'std',
-      breadcrumb: 'Rapportering'
-    }
-  },
-  {
-    path: 'fas',
-    component: FasComponent,
-    data: {
-      title: 'Funn & Observasjoner',
-      name: 'fas',
-      type: 'page',
-      breadcrumb: 'Funn & Observasjoner'
-    }
-  },
-  {
-    path: 'fas/today-sightings',
-    component: TodaySightingsComponent,
-    data: {
-      title: 'Dagens funn',
-      name: 'today-sightings',
-      type: 'std',
-      breadcrumb: 'Dagens funn'
-    }
-  },
-  {
     path: 'validation',
     component: ValidationComponent,
     data: {
@@ -197,6 +187,35 @@ const routes: Routes = [
       name: 'login',
       type: 'page',
       breadcrumb: 'Logginn'
+    }
+  }, {
+    path: 'register',
+    component: RegistrationComponent,
+    data: {
+      title: 'Registrer deg',
+      name: 'registration',
+      type: 'page',
+      breadcrumb: 'Registrer deg'
+    }
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    data: {
+      title: 'Minside',
+      name: 'dashboard',
+      type: 'page',
+      breadcrumb: 'Minside'
+    }
+  },
+  {
+    path: 'management',
+    component: ManagementComponent,
+    data: {
+      title: 'Administrere',
+      name: 'management',
+      type: 'page',
+      breadcrumb: 'Administrere'
     }
   },
   {

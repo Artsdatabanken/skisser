@@ -17,12 +17,12 @@
     ],
     "menu": [
         {
-            "title": "Rapportere",
+            "title": "Rapportering",
             "name": "report",
             "url": "report"
         },
         {
-            "title": "Funn & Observasjoner",
+            "title": "Funn og Observasjoner",
             "name": "fas",
             "url": "fas"
         },
@@ -32,9 +32,14 @@
             "url": "validation"
         },
         {
-            "title": "Om Artsobservasjoner",
-            "name": "about",
-            "url": "about"
+            "title": "Administrere",
+            "name": "management",
+            "url": "management"
+        },
+        {
+            "title": "Minside",
+            "name": "dashboard",
+            "url": "dashboard"
         }
     ],
     "submenu": [
