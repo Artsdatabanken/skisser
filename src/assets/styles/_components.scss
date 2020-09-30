@@ -398,6 +398,9 @@
         background: lightgrey;
         background-position: center center;
         background-size: cover;
+        border-radius: 15px;
+        border-bottom-right-radius: 0;
+        margin-bottom: 15px;
         min-height: 25vh;
         order: 1;
 
@@ -417,5 +420,13 @@
     &__details {
         font-size: 18px;
         order: 3;
+    }
+}
+
+.icon {
+    float: right;
+    
+    img {
+        width: 50%;
     }
 }
