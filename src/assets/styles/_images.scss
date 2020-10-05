@@ -2,8 +2,26 @@
 
 // base
 
+figure {}
+
+figcaption {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
 // custom
 
 .icon-image {
     width: 30px;
+}
+
+// custom
+
+.image {
+   width: 100%;
+
+   img {
+       width: 100%;
+   }
 }

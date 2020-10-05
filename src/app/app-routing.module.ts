@@ -13,7 +13,6 @@ import { TouComponent } from './components/about/tou/tou.component';
 import { ReportComponent } from './components/report/report.component';
 import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
-import { TodaySightingsComponent } from './components/fas/today-sightings/today-sightings.component';
 import { LoginComponent } from './components/login/login.component';
 import { FasComponent } from './components/fas/fas.component';
 import { ReportingComponent } from './components/report/reporting/reporting.component';
@@ -22,6 +21,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
 import { SightingsComponent } from './components/fas/sightings/sightings.component';
 import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
     data: {
       title: 'Forsiden',
       name: 'home',
-      type: 'page'
+      type: 'frontpage'
     }
   },
   {
@@ -39,7 +40,7 @@ const routes: Routes = [
     data: {
       title: 'Forsiden',
       name: 'home',
-      type: 'page'
+      type: 'frontpage'
     }
   },
   {
@@ -83,6 +84,26 @@ const routes: Routes = [
     }
   },
   {
+    path: 'projects',
+    component: ProjectsComponent,
+    data: {
+      title: 'Prosjekter',
+      name: 'projects',
+      type: 'page',
+      breadcrumb: 'Prosjekter'
+    }
+  },
+  {
+    path: 'projects/create',
+    component: CreateProjectComponent,
+    data: {
+      title: 'Opprett prosjekt',
+      name: 'create-project',
+      type: 'page',
+      breadcrumb: 'Opprett prosjekt'
+    }
+  },
+  {
     path: 'fas',
     component: FasComponent,
     data: {
@@ -96,12 +117,12 @@ const routes: Routes = [
     path: 'fas/sightings',
     component: SightingsComponent,
     data: {
-      title: 'Siste observasjoner',
+      title: 'Observasjoner',
       name: 'sightings',
       type: 'std',
-      breadcrumb: 'Siste observasjoner'
+      breadcrumb: 'Observasjoner'
     }
-  },  
+  },
   {
     path: 'fas/sightings/sighting-id',
     component: SightingIdComponent,

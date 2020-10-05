@@ -33,6 +33,12 @@
             "name": "validation",
             "url": "validation",
             "type": "primary"
+        },
+        {
+            "title": "Prosjekter",
+            "name": "projects",
+            "url": "projects",
+            "type": "primary"
         }
     ],
     "topMenu": [

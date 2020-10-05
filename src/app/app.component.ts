@@ -54,7 +54,7 @@ export class AppComponent {
         this.pageType = obj.type;
 
         if (this.pageName === 'home') {
-          this.titleService.setTitle(`Artsobservasjoner`);
+          this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
         }
         else {
           this.titleService.setTitle(`${this.page} - Artsobservasjoner`);

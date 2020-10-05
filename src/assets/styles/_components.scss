@@ -407,7 +407,7 @@
         &--1 {
             background-image: url(../images/gallery/panda.jpg);
         }
-        
+
         &--2 {
             background-image: url(../images/gallery/leopard.jpg);
         }
@@ -425,8 +425,77 @@
 
 .icon {
     float: right;
-    
+
     img {
         width: 50%;
+    }
+}
+
+/*filter*/
+
+.filter-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.filter {
+    border: 2px solid black;
+    list-style: none;
+    margin-right: 10px;
+    padding: 7px;
+    width: auto;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+
+        & > * {
+            justify-self: stretch;
+        }
+    }
+
+    &__label {
+        @include variable(font-family, fontSecondary);
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    &__icon {
+        background-image: url(../images/iconChevronDown.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+    }
+
+    &__box {
+        border: 1px dashed black;
+        visibility: hidden;
+        display: none;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        text-indent: 0;
+    }
+
+    &__item {
+        font-size: 16px;
+    }
+
+    &__pane {
+    }
+
+    &__button {
+        display: inline-block;
+        margin: 10px;
     }
 }

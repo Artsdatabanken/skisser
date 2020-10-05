@@ -13,9 +13,9 @@
         </ng-container>
 
         <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
-            [ngClass]="{'main-grid--page': pageType === 'page', 'main-grid--mega': pageType === 'mega', 'main-grid--std': pageType === 'std'}">
+            [ngClass]="{'main-grid--page': pageType === 'page', 'main-grid--mega': pageType === 'mega', 'main-grid--std': pageType === 'std', 'main-grid--frontpage': pageType === 'frontpage'}">
 
-            <h1 class="page-title" *ngIf="page">{{ page }}</h1>
+            <h1 class="page-title" *ngIf="page !== 'Forsiden'">{{ page }}</h1>
 
             <router-outlet (activate)="onActivate($event)"></router-outlet>
 

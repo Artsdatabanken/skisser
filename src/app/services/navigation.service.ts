@@ -31,6 +31,7 @@ export class NavigationService {
 
     // let navigationLinks: string[] = trimedLinks;
 
+    console.log('submenu', navigationLinks)
     return of(navigationLinks).pipe();
 
   }

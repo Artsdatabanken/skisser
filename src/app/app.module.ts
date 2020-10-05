@@ -48,6 +48,10 @@ import { TopNavigationComponent } from './layout/top-navigation/top-navigation.c
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { SightingsComponent } from './components/fas/sightings/sightings.component';
 import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
+import { FilterComponent } from './components/shared/filter/filter.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ProjectComponent } from './components/projects/project/project.component';
+import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +100,10 @@ import { SightingIdComponent } from './components/fas/sightings/sighting-id/sigh
     SubNavigationComponent,
     SightingsComponent,
     SightingIdComponent,
+    FilterComponent,
+    ProjectsComponent,
+    ProjectComponent,
+    CreateProjectComponent,
   ],
   imports: [
     BrowserModule,

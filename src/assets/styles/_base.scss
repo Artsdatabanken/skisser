@@ -139,6 +139,10 @@ h5 {
 h6 {
 }
 
+h1 + h2 {
+  margin: 20px 0 50px;
+}
+
 h2 + h3 {
   margin: 30px 0 15px;
 }
@@ -247,20 +251,19 @@ ul {
 }
 
 dl {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   margin: 25px 0;
 
-  // dt {
-  //   font-size: 1.2em;
-  //   font-weight: 700;
-  //   margin-top: 30px;
-
-  //   &:first-child {
-  //     margin: 0;
-  //   }
-  // }
+  dt {
+    font-weight: 700;
+    width: 50%;
+  }
 
   dd {
+    width: 50%;
   }
 }
 
