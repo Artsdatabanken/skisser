@@ -13,9 +13,9 @@
         <div class="buttons">
 
             <app-button [text]="'Kartvisning'" (click)="chooseDisplay('map')"></app-button>
+            <app-button [text]="'Forekomstkart'" (click)="chooseDisplay('map')"></app-button>
             <app-button [text]="'Tabellvisning'" (click)="chooseDisplay('table')"></app-button>
             <app-button [text]="'Gallerivisning'" (click)="chooseDisplay('card')"></app-button>
-            <app-button [text]="'Atlas'" (click)="chooseDisplay('card')"></app-button>
 
             <br><br><br><br>
 
@@ -221,15 +221,15 @@
 
                 </li>
 
-
+              
                 <li class="filter">
 
                     <div class="filter__container">
 
-                        <button class="filter__header filter__header--open" aria-label="filtrer etter Filter ">
+                        <button class="filter__header filter__header--open" aria-label="filtrer etter Region ">
 
-                            <span class="filter__label" data-label="Artsgruppe">
-                                Filter
+                            <span class="filter__label" data-label="Region">
+                                Region
                             </span>
 
                             <span class="filter__icon filter__icon--close">
@@ -286,15 +286,14 @@
 
                 </li>
 
-                
                 <li class="filter">
 
                     <div class="filter__container">
 
-                        <button class="filter__header filter__header--open" aria-label="filtrer etter Region ">
+                        <button class="filter__header filter__header--open" aria-label="filtrer etter Filter ">
 
-                            <span class="filter__label" data-label="Region">
-                                Region
+                            <span class="filter__label" data-label="Artsgruppe">
+                                Filter
                             </span>
 
                             <span class="filter__icon filter__icon--close">
