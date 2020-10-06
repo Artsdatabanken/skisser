@@ -107,10 +107,10 @@ const routes: Routes = [
     path: 'fas',
     component: FasComponent,
     data: {
-      title: 'Funn og Observasjoner',
+      title: 'Om Observasjoner',
       name: 'fas',
       type: 'page',
-      breadcrumb: 'Funn og Observasjoner'
+      breadcrumb: 'Om Observasjoner'
     }
   },
   {

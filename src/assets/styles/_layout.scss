@@ -521,19 +521,18 @@ main {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 1px 1px;
-    grid-template-areas: ". .";
+    gap: 0;
+   
 
     &__cell {
-        // border: 1px solid red;
-        align-self: stretch;
-        justify-self: stretch;
+         border: 1px solid red;
+        // align-self: stretch;
+        // justify-self: stretch;
 
-        &--centered {
-            align-self: center;
-            justify-self: center;
-        }
+        // &--centered {
+        //     align-self: center;
+        //     justify-self: center;
+        // }
     }
 }
 
