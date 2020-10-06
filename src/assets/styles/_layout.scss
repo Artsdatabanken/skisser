@@ -525,7 +525,6 @@ main {
    
 
     &__cell {
-         border: 1px solid red;
         // align-self: stretch;
         // justify-self: stretch;
 
@@ -533,6 +532,11 @@ main {
         //     align-self: center;
         //     justify-self: center;
         // }
+
+        &--right {
+            align-self: start;
+            justify-self: end;
+        }
     }
 }
 
