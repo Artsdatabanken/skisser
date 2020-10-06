@@ -522,9 +522,9 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-   
 
     &__cell {
+        //border: 1px solid red;
         // align-self: stretch;
         // justify-self: stretch;
 
@@ -532,6 +532,11 @@ main {
         //     align-self: center;
         //     justify-self: center;
         // }
+
+        &--left {
+            align-self: start;
+            justify-self: start;
+        }
 
         &--right {
             align-self: start;

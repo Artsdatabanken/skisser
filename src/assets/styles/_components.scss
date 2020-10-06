@@ -438,10 +438,11 @@
 
 /*filter*/
 
-.filter-list {
+.filter-list { // convert eo element list together with buttons
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0;
 }
 
 .filter {
@@ -449,6 +450,7 @@
     border-radius: 10px;
     border-bottom-right-radius: 0;
     list-style: none;
+    margin: 0;
     margin-right: 10px;
     padding: 7px 17px;
     width: auto;
