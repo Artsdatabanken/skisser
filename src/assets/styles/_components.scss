@@ -140,82 +140,110 @@
     }
 }
 
-/*button*/
+/* list of elements... buttons... etc*/
 
-.buttons {
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // justify-content: center;
-
-    // & > * {
-    //     margin: 0 10px;
-    // }
-
+.element-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 30px auto;
+
+    & > * {
+        margin: 0 10px 10px 0;
+    }
 }
 
+/*button*/
+
 .button {
-    @include variable(background-color, clrPrimary);
-    @include variable(border-color, clrPrimary);
-    @include variable(color, clrWhite);
+    @include variable(background-color, clrWhite);
+    @include variable(border-color, clrBlack);
+    @include variable(color, clrBlack);
     @include variable(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
-    border-radius: 5px;
-    font-weight: 700;
-    margin: 0 10px;
-    padding: 7px 17px;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    font-size: 17px;
+    font-weight: 600;
+    min-height: 40px;
+    padding: 0 17px;
     width: auto;
 
-    &:active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    // &__container {
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     margin: 0;
+    //     padding: 0;
+    //     width: 100%;
+
+    //     & > * {
+    //         justify-self: stretch;
+    //     }
+    // }
+
+    &__icon {
+        background-image: url(../images/iconChevronDown.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        display: inline-block;
+        height: 20px;
+        width: 30px;
     }
 
-    &:focus {
-    }
-
+    &:active,
+    &:focus,
     &:hover {
         @include variable(background-color, clrAccent);
-        @include variable(border-color, clrAccent);
-        @include variable(color, clrBlack);
+        @include variable(border-color, clrBlack);
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
     }
 
-    &--primary {
-        @include variable(background-color, clrBlack);
-        @include variable(color, clrWhite);
+    // &--primary {
+    //     @include variable(background-color, clrBlack);
+    //     @include variable(color, clrWhite);
 
-        &:hover {
-            @include variable(background-color, clrWhite);
-            @include variable(color, clrBlack);
-            @include variable(font-family, fontPrimary);
-            border: 2px solid #262626;
-        }
-    }
+    //     &:hover {
+    //         @include variable(background-color, clrWhite);
+    //         @include variable(color, clrBlack);
+    //         @include variable(font-family, fontPrimary);
+    //         border: 2px solid #262626;
+    //     }
+    // }
 
-    &--sm {
-        font-size: 15px;
-        padding: 3px 13px;
+    // &--sm {
+    //     font-size: 15px;
+    //     padding: 3px 13px;
 
-        @media screen and (max-width: 1600px) {
-            font-size: 14px;
-        }
-    }
+    //     @media screen and (max-width: 1600px) {
+    //         font-size: 14px;
+    //     }
+    // }
 
-    &--md {
-        font-size: 18px;
-        padding: 7px 18px;
-    }
+    // &--md {
+    //     font-size: 18px;
+    //     padding: 7px 18px;
+    // }
 
-    &--lg {
-        font-size: 24px;
-        padding: 13px 33px;
+    // &--lg {
+    //     font-size: 24px;
+    //     padding: 13px 33px;
 
-        @media screen and (max-width: 1600px) {
-            font-size: 14px;
-        }
-    }
+    //     @media screen and (max-width: 1600px) {
+    //         font-size: 14px;
+    //     }
+    // }
 }
 
 /*date*/
@@ -438,73 +466,66 @@
 
 /*filter*/
 
-.filter-list { // convert eo element list together with buttons
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0;
-}
+// .filter {
+//     border: 2px solid black;
+//     border-radius: 10px;
+//     border-bottom-right-radius: 0;
+//     list-style: none;
+//     // margin: 0;
+//     // margin-right: 10px;
+//     padding: 7px 17px;
+//     width: auto;
 
-.filter {
-    border: 2px solid black;
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
-    list-style: none;
-    margin: 0;
-    margin-right: 10px;
-    padding: 7px 17px;
-    width: auto;
+//     &__header {
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding: 0;
+//         width: 100%;
 
-    &__header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0;
-        width: 100%;
+//         & > * {
+//             justify-self: stretch;
+//         }
+//     }
 
-        & > * {
-            justify-self: stretch;
-        }
-    }
+//     &__label {
+//         @include variable(font-family, fontSecondary);
+//         font-size: 18px;
+//         font-weight: 600;
+//     }
 
-    &__label {
-        @include variable(font-family, fontSecondary);
-        font-size: 18px;
-        font-weight: 600;
-    }
+//     &__icon {
+//         background-image: url(../images/iconChevronDown.png);
+//         background-position: right center;
+//         background-repeat: no-repeat;
+//         background-size: 16px;
+//         display: inline-block;
+//         height: 30px;
+//         width: 30px;
+//     }
 
-    &__icon {
-        background-image: url(../images/iconChevronDown.png);
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-size: 16px;
-        display: inline-block;
-        height: 30px;
-        width: 30px;
-    }
+//     &__box {
+//         border: 1px dashed black;
+//         visibility: hidden;
+//         display: none;
+//     }
 
-    &__box {
-        border: 1px dashed black;
-        visibility: hidden;
-        display: none;
-    }
+//     &__list {
+//         list-style: none;
+//         padding: 0;
+//         text-indent: 0;
+//     }
 
-    &__list {
-        list-style: none;
-        padding: 0;
-        text-indent: 0;
-    }
+//     &__item {
+//         font-size: 16px;
+//     }
 
-    &__item {
-        font-size: 16px;
-    }
+//     &__pane {
+//     }
 
-    &__pane {
-    }
-
-    &__button {
-        display: inline-block;
-        margin: 10px;
-    }
-}
+//     &__button {
+//         display: inline-block;
+//         margin: 10px;
+//     }
+// }
