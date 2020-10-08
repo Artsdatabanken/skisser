@@ -13,8 +13,8 @@ ORIGINAL #ccc2ba
 */
 
 $vars: (
-  fontPrimary: #{"nunito",  Consolas,  monospace},
-  fontSecondary: #{"nunito",  Consolas,  monospace},
+  fontPrimary: #{"averta",  Consolas,  monospace},
+  fontSecondary: #{"averta",  Consolas,  monospace},
   fontAccent: #{"robotomono",  Consolas, monospace},
 
   fontSizeSmall: 16px,
@@ -36,7 +36,8 @@ $vars: (
 
   clrSecondaryTransparent: transparentize(#a3ccc4, 0.7),
 
-  paddingStd: 15px
+  paddingStd: 15px,
+  transparent: transparent
 
   // clrLight0: #efeceb,
   // clrLight1: #ede9e6,
@@ -76,6 +77,7 @@ $vars: (
   --textColor: #{map-get($vars, clrBlack)};
 
   --paddingStd: #{map-get($vars, paddingStd)};
+  --transparent: #{map-get($vars, transparent)};
 }
 
 @mixin variable($property, $varName) {

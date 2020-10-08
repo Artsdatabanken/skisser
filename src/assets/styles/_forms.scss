@@ -57,3 +57,22 @@ form {
     font-size: 14px;
     font-weight: 700;
 }
+
+.menu-search {
+    form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    input {
+        margin-right: 20px;
+        width: 40%;
+    }
+
+    & > form > * {
+        justify-self: center;
+    }
+}

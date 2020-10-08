@@ -12,6 +12,13 @@ export class NavigationService {
 
   constructor() { }
 
+  // getMenuItems(): Observable<string[]> {
+
+  //   const navigationLinks: string[] = this.settings.menu;
+  //   return of(navigationLinks).pipe();
+
+  // }
+
   getMenuItems(): Observable<string[]> {
 
     const navigationLinks: string[] = this.settings.menu;

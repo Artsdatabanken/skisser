@@ -14,7 +14,7 @@ $hamburger-padding-y: 15px !default;
 $hamburger-layer-width: 40px !default;
 $hamburger-layer-height: 4px !default;
 $hamburger-layer-spacing: 6px !default;
-$hamburger-layer-color: #000 !default;
+$hamburger-layer-color: #262626 !default;
 $hamburger-layer-border-radius: 4px !default;
 $hamburger-hover-opacity: 0.7 !default;
 $hamburger-active-layer-color: $hamburger-layer-color !default;
@@ -123,22 +123,21 @@ $hamburger-types: (
 // ==================================================
 
 .hamburger {
-  padding: $hamburger-padding-y $hamburger-padding-x;
-  display: inline-block;
   cursor: pointer;
-
+  display: inline-block;
   transition-property: opacity, filter;
   transition-duration: 0.15s;
   transition-timing-function: linear;
 
   // Normalize (<button>)
-  font: inherit;
-  color: inherit;
-  text-transform: none;
   background-color: transparent;
   border: 0;
+  color: inherit;
+  font: inherit;
   margin: 0;
   overflow: visible;
+  padding: 0;
+  text-transform: none;
 
   &:hover {
     @if $hamburger-hover-use-filter == true {
@@ -166,16 +165,16 @@ $hamburger-types: (
 }
 
 .hamburger__box {
-  width: $hamburger-layer-width;
-  height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
   display: inline-block;
+  height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
   position: relative;
+  width: $hamburger-layer-width;
 }
 
 .hamburger__inner {
   display: block;
-  top: 50%;
   margin-top: $hamburger-layer-height / -2;
+  top: 50%;
 
   &,
   &::before,
@@ -224,7 +223,6 @@ $hamburger-types: (
   }
 
   &.hamburger--is-active {
-
     .hamburger__inner {
       transform: rotate(45deg);
       transition-delay: 0.12s;

@@ -33,67 +33,42 @@
 
 .header {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 70px auto auto;
+    grid-template-columns: 3fr auto;
+    grid-template-rows: 100px auto;
     gap: 0 0;
-    grid-template-areas:
-        "headerLogo headerTopNavigation"
-        "headerLogo siteSearch"
-        "headerNavigation headerNavigation"
-        "breadcrumbs breadcrumbs";
+    grid-template-areas: "headerLogo headerMenu" "headerBreadcrumbs headerBreadcrumbs";
     padding: 0;
 
-    @media screen and (max-width: 900px) {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 100px;
-        grid-template-areas: "headerLogo hamburger . .";
-        padding: 0;
-    }
+    // @media screen and (max-width: 900px) {
+    //     grid-template-columns: 1fr 1fr;
+    //     grid-template-rows: 100px;
+    //     grid-template-areas: "headerLogo hamburger . .";
+    //     padding: 0;
+    // }
 
     &__cell {
         align-self: stretch;
         justify-self: stretch;
 
-        &:nth-child(1) {
+        &--first {
             @include variable(padding-left, paddingStd);
             background-color: rgba(#515151, 0.3);
             grid-area: headerLogo;
         }
 
-        &:nth-child(2) {
-            @include variable(padding-right, paddingStd);
+        &--second {
+            align-self: stretch;
             background-color: rgba(#515151, 0.3);
-            grid-area: headerTopNavigation;
+            grid-area: headerMenu;
+            justify-self: stretch;
         }
 
-        &:nth-child(3) {
-            @include variable(padding-right, paddingStd);
-            background-color: rgba(#515151, 0.3);
-            grid-area: siteSearch;
-
-            form {
-                margin: 5px 0 5px;
-                padding: 0;
-                width: 100%;
-            }
-
-            input {
-                margin: 0;
-            }
-        }
-
-        &:nth-child(4) {
-            @include variable(padding, paddingStd);
-            background-color: rgba(#515151, 0.175);
-            grid-area: headerNavigation;
-            align-self: center;
-        }
-
-        &:nth-child(5) {
+        &--third {
             @include variable(padding, paddingStd);
             background-color: rgba(#515151, 0.075);
             align-self: center;
-            grid-area: breadcrumbs;
+            grid-area: headerBreadcrumbs;
+            justify-self: stretch;
         }
     }
 }
@@ -101,61 +76,213 @@
 // navigation
 
 .hamburger {
-    display: none;
+    @include variable(padding-right, paddingStd);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 
     @media screen and (max-width: 900px) {
+    }
+
+    & > * {
+        align-self: center;
+        justify-self: stretch;
+
+        &:first-child {
+            @include variable(padding-right, paddingStd);
+            font-size: 18px;
+            font-weight: 500;
+            padding-right: 10px;
+        }
+    }
+}
+
+.menu {
+    @include variable(background-color, clrWhite);
+    //overflow-y: scroll;
+    min-height: 100vh;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    //display: none;
+
+    &--open {
         display: block;
-        position: relative;
     }
 }
 
 .navigation {
-    text-align: center;
-    width: 100%;
+    padding: 30px;
+
+    &--secondary {
+        @include variable(background-color, clrSecondaryTransparent);
+        padding-bottom: 100px;
+    }
+
+    &--top {
+        text-align: right;
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &__item {
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    &__section {
+        font-size: 28px;
+        font-size: 31px;
+        font-weight: 300;
+        font-weight: 400;
+        margin-bottom: 15px;
+
+        @media screen and (max-width: 1920px) {
+            font-size: 28px;
+        }
+    }
 
     &__link {
-        border-bottom: 3px solid transparent;
-        font-size: 17px;
-        font-weight: 700;
-        line-height: 1.5;
-        margin: 0 25px;
-        padding: 0;
-        padding-bottom: 3px;
+        @include variable(border-bottom-color, transparent);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        font-size: 20px;
+        font-weight: 400;
+        text-decoration: none;
 
-        &--active {
-            @include variable(border-color, clrBlack);
+        align-self: flex-start;
+        justify-self: stretch;
+
+        @media screen and (max-width: 1920px) {
+            font-size: 19px;
+        }
+
+        &::after,
+        &:after {
+            @include variable(border-bottom-color, clrDark);
             border-bottom-style: solid;
-            border-bottom-width: 3px;
+            border-bottom-width: 2px;
+            content: "";
+            display: block;
+            height: 2px;
+            margin-left: 18px;
+            margin-bottom: 10px;
+            transition: width 0.3s;
+            width: 0;
+        }
+
+        &:hover:after {
+            width: 100%;
+            width: calc(100% - 18px);
+        }
+
+        &::before,
+        &:before {
+            background-image: url(../images/iconChevronRight.png);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            content: "";
+            display: inline-block;
+            margin-top: -7px;
+            margin-right: 5px;
+            vertical-align: middle;
+            height: 14px;
+            width: 8px;
+            // display: none;
         }
 
         &:hover {
-            @include variable(border-color, clrBlack);
-            border-bottom-style: solid;
-            border-bottom-width: 3px;
         }
 
-        &--secondary {
-            @include variable(background-color, clrPrimary);
-            @include variable(border-color, clrBlack);
-            @include variable(color, clrWhite);
-            border: none;
-            border-radius: 5px;
-            border-bottom-right-radius: 0;
-            font-size: 15px;
-            padding: 3px 21px;
+        .navigation--secondary & {
+            font-size: 17px;
         }
 
-        @media screen and (max-width: 1600px) {
-            font-size: 18px;
-            font-size: 20px;
-            margin: 0 17px;
-        }
-    }
+        .navigation--top & {
+            background: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 0 40px;
+            padding: 0;
 
-    @media screen and (max-width: 900px) {
-        display: none !important;
+            &::before,
+            &:before {
+                display: none;
+            }
+
+            &::after,
+            &:after {
+                content: "";
+                margin-left: 0;
+            }
+
+            &:hover:after {
+                width: 100%;
+            }
+        }
     }
 }
+
+// .navigation {
+//     text-align: center;
+//     width: 100%;
+
+//     &__link {
+//         border-bottom: 3px solid transparent;
+//         font-size: 17px;
+//         font-weight: 700;
+//         font-weight: 600;
+//         line-height: 1.5;
+//         margin: 0 25px;
+//         padding: 0;
+//         padding-bottom: 3px;
+
+//         &--active {
+//             @include variable(border-color, clrBlack);
+//             border-bottom-style: solid;
+//             border-bottom-width: 3px;
+//         }
+
+//         &:hover {
+//             @include variable(border-color, clrBlack);
+//             border-bottom-style: solid;
+//             border-bottom-width: 3px;
+//         }
+
+//         &--secondary {
+//             @include variable(background-color, clrPrimary);
+//             @include variable(border-color, clrBlack);
+//             @include variable(color, clrWhite);
+//             border: none;
+//             border-radius: 5px;
+//             border-bottom-right-radius: 0;
+//             font-size: 15px;
+//             padding: 3px 21px;
+//         }
+
+//         @media screen and (max-width: 1600px) {
+//             font-size: 18px;
+//             font-size: 20px;
+//             margin: 0 17px;
+//         }
+//     }
+
+//     @media screen and (max-width: 900px) {
+//         display: none !important;
+//     }
+// }
 
 .top-navigation {
     text-align: right;

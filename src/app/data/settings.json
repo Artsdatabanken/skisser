@@ -17,28 +17,73 @@
     ],
     "menu": [
         {
-            "title": "Rapportere",
-            "name": "report",
-            "url": "report",
-            "type": "primary"
+            "section": "Rapportere",
+            "content": [
+                {
+                    "title": "Rapportere observasjoner",
+                    "name": "report-observation",
+                    "url": "report-observation",
+                    "type": "primary"
+                },
+                {
+                    "title": "Importere observasjoner",
+                    "name": "import-observations",
+                    "url": "import-observations",
+                    "type": "primary"
+                },
+                {
+                    "title": "Rapportere artsovervåking",
+                    "name": "report-species",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
         },
         {
-            "title": "Om observasjoner",
-            "name": "fas",
-            "url": "fas",
-            "type": "primary"
+            "section": "Observasjoner",
+            "content": [
+                {
+                    "title": "Se observasjoner",
+                    "name": "sightings",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Funnkatalog",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Tall og statistikk",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "EurobirdWatch Norge",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
         },
         {
-            "title": "Kvalitetssikre",
-            "name": "validation",
-            "url": "validation",
-            "type": "primary"
-        },
-        {
-            "title": "Prosjekter",
-            "name": "projects",
-            "url": "projects",
-            "type": "primary"
+            "section": "Prosjekter",
+            "content": [
+                {
+                    "title": "Opprett prosjekt",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine prosjekter",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
         }
     ],
     "topMenu": [
@@ -60,16 +105,109 @@
     ],
     "subMenu": [
         {
-            "title": "Administrere",
-            "name": "management",
-            "url": "management",
-            "type": "secondary"
+            "section": "Om tjenesten",
+            "content": [
+                {
+                    "title": "Om artsobservasjoner",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Brukervilkår",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Brukerstøtte",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Aktuelle saker",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Kunngjøringer",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Artsobservasjoner i media",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
         },
         {
-            "title": "Minside",
-            "name": "dashboard",
-            "url": "dashboard",
-            "type": "secondary"
+            "section": "Minside",
+            "content": [
+                {
+                    "title": "Min profil",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine lisenser",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Min feltdagbok / Mine observasjoner",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine lister",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Lagrede søk",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
+        },
+        {
+            "section": "Administrere",
+            "content": [
+                {
+                    "title": "Mine prosjekter",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine lokaliteter",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine samlinger",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Medobservatører",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
         }
     ],
     "footerMenu": [
