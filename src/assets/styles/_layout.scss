@@ -109,7 +109,7 @@
     left: 0;
     right: 0;
     z-index: 10;
-    //display: none;
+    display: none;
 
     &--open {
         display: block;
@@ -131,13 +131,29 @@
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        margin: 0 auto;
+        max-width: 70vw;
+
+        & > * {
+            border: 1px dotted red;
+            justify-self: stretch;
+        }
     }
 
     &__item {
+        border: 1px dotted blue;
         margin-bottom: 40px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
+    }
+
+    $itemColumns: 5;
+
+    @for $i from 1 through $itemColumns {
+        .item-columns--#{$i} {
+            grid-area: column$i;
+        }
     }
 
     &__section {
@@ -210,12 +226,19 @@
         }
 
         .navigation--top & {
-            background: none;
+            @include variable(border-color, clrSecondary);
+            background-position: left 15px center;
+            background-repeat: no-repeat;
+            background-size: 22px;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 7px;
+            border-bottom-right-radius: 0;
             display: inline-block;
             font-size: 16px;
             font-weight: 500;
-            margin: 0 0 0 40px;
-            padding: 0;
+            margin: 0 0 0 30px;
+            padding: 5px 15px 5px 45px;
 
             &::before,
             &:before {
@@ -225,11 +248,24 @@
             &::after,
             &:after {
                 content: "";
-                margin-left: 0;
+                margin: 0;
             }
 
             &:hover:after {
                 width: 100%;
+            }
+
+            &:nth-child(1) {
+                background-image: url(../images/iconUser.png);
+            }
+
+            &:nth-child(2) {
+                background-image: url(../images/iconLock.png);
+            }
+
+            &:nth-child(3) {
+                background: none;
+                padding: 5px 15px;
             }
         }
     }

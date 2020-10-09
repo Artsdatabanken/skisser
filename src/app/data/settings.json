@@ -105,47 +105,6 @@
     ],
     "subMenu": [
         {
-            "section": "Om tjenesten",
-            "content": [
-                {
-                    "title": "Om artsobservasjoner",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Brukervilkår",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Brukerstøtte",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Aktuelle saker",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Kunngjøringer",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Artsobservasjoner i media",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                }
-            ]
-        },
-        {
             "section": "Minside",
             "content": [
                 {
@@ -203,6 +162,47 @@
                 },
                 {
                     "title": "Medobservatører",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                }
+            ]
+        },
+        {
+            "section": "Om tjenesten",
+            "content": [
+                {
+                    "title": "Om artsobservasjoner",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Brukervilkår",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Brukerstøtte",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Aktuelle saker",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Kunngjøringer",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Artsobservasjoner i media",
                     "name": "report",
                     "url": "report",
                     "type": "primary"
