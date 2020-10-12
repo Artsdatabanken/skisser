@@ -53,6 +53,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/projects/project/project.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 import { MenuComponent } from './layout/menu/menu.component';
+import { LoginButtonComponent } from './layout/login-button/login-button.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { MenuComponent } from './layout/menu/menu.component';
     ProjectComponent,
     CreateProjectComponent,
     MenuComponent,
+    LoginButtonComponent,
   ],
   imports: [
     BrowserModule,

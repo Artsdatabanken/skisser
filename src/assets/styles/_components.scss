@@ -456,20 +456,32 @@
     }
 }
 
-.icon {
-    float: right;
+// .icon {
+//     float: right;
 
-    img {
-        width: 50%;
-    }
-}
+//     img {
+//         width: 50%;
+//     }
+// }
 
 .icon--search {
     background-image: url(../images/iconSearch.png);
     background-position: center center;
+
+    height: 40px;
+    width: 40px;
+}
+
+.icon {
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
-    height: 40px;
-    width: 40px;
+
+    &--lock {
+        background-image: url(../images/iconLock.png);
+        height: 20px;
+        padding-right: 5px;
+        width: 20px;
+    }
 }
