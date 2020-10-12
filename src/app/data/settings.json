@@ -52,6 +52,35 @@
             ]
         },
         {
+            "section": "Administrere",
+            "content": [
+                {
+                    "title": "Mine prosjekter",
+                    "name": "management",
+                    "url": "management",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine lokaliteter",
+                    "name": "management",
+                    "url": "management",
+                    "type": "primary"
+                },
+                {
+                    "title": "Mine samlinger",
+                    "name": "management",
+                    "url": "management",
+                    "type": "primary"
+                },
+                {
+                    "title": "Medobservatører",
+                    "name": "management",
+                    "url": "management",
+                    "type": "primary"
+                }
+            ]
+        },
+        {
             "section": "Tall og statistikk",
             "content": [
                 {
@@ -154,35 +183,6 @@
                     "title": "Lagrede søk",
                     "name": "dashboard",
                     "url": "dashboard",
-                    "type": "primary"
-                }
-            ]
-        },
-        {
-            "section": "Administrere",
-            "content": [
-                {
-                    "title": "Mine prosjekter",
-                    "name": "management",
-                    "url": "management",
-                    "type": "primary"
-                },
-                {
-                    "title": "Mine lokaliteter",
-                    "name": "management",
-                    "url": "management",
-                    "type": "primary"
-                },
-                {
-                    "title": "Mine samlinger",
-                    "name": "management",
-                    "url": "management",
-                    "type": "primary"
-                },
-                {
-                    "title": "Medobservatører",
-                    "name": "management",
-                    "url": "management",
                     "type": "primary"
                 }
             ]
