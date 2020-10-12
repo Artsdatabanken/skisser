@@ -317,12 +317,34 @@
 .progressbar {
     position: absolute;
     z-index: 1;
-    
+
+    ul,
+    &__list {
+        counter-reset: step;
+        list-style: none;
+    }
+
     li {
         float: left;
         position: relative;
         text-align: center;
         width: 20%;
+
+        &:before {
+            background: white;
+            border: 2px solid #bebebe;
+            border-radius: 50%;
+            color: #bebebe;
+            content: counter(step);
+            counter-increment: step;
+            height: 30px;
+            display: block;
+            font-weight: 600;
+            line-height: 27px;
+            margin: 0 auto 10px;
+            text-align: center;
+            width: 30px;
+        }
     }
 }
 

@@ -128,7 +128,7 @@
     bottom: 0;
     width: 100%;
     z-index: 100;
-    transform: translateY(calc(-150vh - 100px)); /*change here related your menu height*/
+    transform: translateY(calc(-150vh - 200px)); /*change here related your menu height*/
     //display: none;
 
     &--open {
