@@ -1,0 +1,254 @@
+<div class="page">
+
+    <header class="page__header">
+
+    </header>
+
+    <div class="page__content">
+
+        <!-- <router-outlet></router-outlet> -->
+
+        <!-- <app-date></app-date> -->
+
+        <div class="grid">
+            <div class="grid__cell grid__cell--left">
+
+                <!-- filter-->
+
+                <div class="element-list">
+
+                    <button class="button" aria-label="filtrer etter Artsgruppe ">
+
+                        <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Artsgruppe"> Artsgruppe </span>
+                            <span class="button__icon"> </span>
+
+                        <!-- </div> -->
+
+                    </button>
+
+
+                    <button class="button" aria-label="filtrer etter Dato ">
+
+                        <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Dato"> Dato </span>
+                            <span class="button__icon"> </span>
+
+                        <!-- </div> -->
+
+                    </button>
+
+                    <button class="button" aria-label="filtrer etter Region ">
+
+                        <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Region"> Region </span>
+                            <span class="button__icon"> </span>
+
+                        <!-- </div> -->
+
+                    </button>
+                    
+                    <button class="button" aria-label="filtrer etter Filter ">
+
+                        <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Filter"> Filter </span>
+                            <span class="button__icon"> </span>
+
+                        <!-- </div> -->
+
+                    </button>
+                    
+                    <button class="button" aria-label="filtrer etter Filter ">
+
+                        <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Filter"> Filter </span>
+                            <span class="button__icon"> </span>
+
+                        <!-- </div> -->
+
+                    </button>
+
+                </div>
+
+                
+                <!--filter-->
+            </div>
+            <div class="grid__cell grid__cell--right">
+
+                <!--display-->
+                <div class="element-list">
+
+                    <app-button [text]="'Vis i kart'" (click)="chooseDisplay('map')"></app-button>
+                    <app-button [text]="'Tabellvisning'" (click)="chooseDisplay('table')"></app-button>
+                    <app-button [text]="'Gallerivisning'" (click)="chooseDisplay('card')"></app-button>
+                    <app-button [text]="'Skjermede data*'" (click)="chooseDisplay('card')"></app-button>
+
+                </div>
+
+                <!--display-->
+            </div>
+        </div>
+
+        <!--display-->
+
+        <div *ngIf="display === 'table'">
+
+            <table class="table table--list table--invisible-header">
+                <thead class="table__header">
+                    <tr>
+                        <th class="table__column-header">Art</th>
+                        <th class="table__column-header">Artsgruppe</th>
+                        <th class="table__column-header">Dato</th>
+                        <th class="table__column-header">Sted</th>
+                        <th class="table__column-header">Bilde</th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Rødryggtraktedderkopp</a></th>
+                        <td><span class="tag">Virvelløse dyr</span></td>
+                        <td>29.09.2020</td>
+                        <td>Vinkelen, Leite , Bømlo, Ve</td>
+                        <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                    </tr>
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Vanlig hageblomsterflue</a></th>
+                        <td><span class="tag">Virvelløse dyr</span></td>
+                        <td>22.09.2020</td>
+                        <td>Gunhildsgate , Stavanger , Ro</td>
+                    </tr>
+
+
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Skogbarkmåler</a></th>
+                        <td><span class="tag">Virvelløse dyr</span></td>
+                        <td>21.09.2020</td>
+                        <td>Gunhildsgate , Stavanger , Ro</td>
+                        <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                    </tr>
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Mørk irmåler</a></th>
+                        <td><span class="tag">Virvelløse dyr</span></td>
+                        <td>18.09.2020</td>
+                        <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag</td>
+                        <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                    </tr>
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Dysstroma</a></th>
+                        <td><span class="tag">Virvelløse dyr</span></td>
+                        <td>15.09.2020</td>
+                        <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag </td>
+                        <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                    </tr>
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Vinkelskogmåler</a></th>
+                        <td><span class="tag">Virvelløse dyr</span></td>
+                        <td>14.09.2020</td>
+                        <td>Torsevegen 10 , Vik , Ve</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Isfugl</a></th>
+                        <td><span class="tag">Fugl</span></td>
+                        <td>14.09.2020</td>
+                        <td>Røysebekk-kilen, Sandefjord</td>
+                        <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                    </tr>
+
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">Havørn</a></th>
+                        <td><span class="tag">Fugl</span></td>
+                        <td>12.09.2020</td>
+                        <td>Sula/Timrebakkin, Vang</td>
+                        <td><img class="icon-image" src="/assets/images/iconImage.png" alt=""></td>
+                    </tr>
+
+
+                    <!-- <tr>
+                    <th class="table__row-header"><a routerLink=""></a></th>
+                    <td><span class="tag"></span></td>
+                    <td></td>
+                    <td></td>
+                    <td><a routerLink=""></a></td>
+                </tr> -->
+
+
+                    <tr>
+                        <th class="table__row-header"><a routerLink="">...</a></th>
+                        <td><span class="tag">...</span></td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div *ngIf="display === 'card'">
+
+            <div class="gallery">
+
+                <a class="gallery__item item" [routerLink]="['/sightings/sighting']">
+                    <div class="item__title">Panda</div>
+                    <div class="item__image item__image--1"></div>
+                    <div class="item__details details">
+                        <div class="details__date">20.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>
+                    </div>
+                </a>
+
+                <div class="gallery__item item" [routerLink]="['/sightings/sighting']">
+                    <div class="item__title">Leopard</div>
+                    <div class="item__image item__image--2"></div>
+                    <div class="item__details details">
+                        <div class="details__date">17.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>
+                    </div>
+                </div>
+
+                <div class="gallery__item item" [routerLink]="['/sightings/sighting']"></div>
+                    <div class="item__title">Frog</div>
+                    <div class="item__image item__image--3"></div>
+                    <div class="item__details details">
+                        <div class="details__date">17.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div *ngIf="display === 'map'">
+
+        </div>
+
+        <!--display-->
+
+    </div>
+
+    <footer class="page__footer">
+
+    </footer>
+
+
+</div>

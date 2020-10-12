@@ -65,8 +65,6 @@ export class MenuComponent implements OnInit {
       this.renderer.removeClass(this.document.body, 'active-menu');
     }
 
-    
-    console.log('active status', this.isActive)
   }
 
 }

@@ -54,6 +54,8 @@ import { ProjectComponent } from './components/projects/project/project.componen
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 import { MenuComponent, MenuLinkDirective } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
+import { ObservationsComponent } from './components/observations/observations.component';
+import { SightingComponent } from './components/observations/sighting/sighting.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,9 @@ import { LoginButtonComponent } from './layout/login-button/login-button.compone
     CreateProjectComponent,
     MenuComponent,
     LoginButtonComponent,
-    MenuLinkDirective
+    MenuLinkDirective,
+    ObservationsComponent,
+    SightingComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,7 @@ import { SightingsComponent } from './components/fas/sightings/sightings.compone
 import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
+import { ObservationsComponent } from './components/observations/observations.component';
 
 const routes: Routes = [
   {
@@ -104,31 +105,31 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas',
-    component: FasComponent,
+    path: 'observations',
+    component: ObservationsComponent,
     data: {
-      title: 'Om Observasjoner',
-      name: 'fas',
+      title: 'Observasjoner',
+      name: 'observations',
       type: 'page',
-      breadcrumb: 'Om Observasjoner'
+      breadcrumb: ' Observasjoner'
     }
   },
   {
     path: 'sightings',
     component: SightingsComponent,
     data: {
-      title: 'Observasjoner',
+      title: 'Se, søk og filtrer observasjoner',
       name: 'sightings',
       type: 'std',
-      breadcrumb: 'Observasjoner'
+      breadcrumb: 'Se, søk og filtrer observasjoner'
     }
   },
   {
-    path: 'sightings/sighting-id',
+    path: 'sightings/sighting',
     component: SightingIdComponent,
     data: {
       title: 'Observasjon',
-      name: 'sighting-id',
+      name: 'sighting',
       type: 'std',
       breadcrumb: 'Observasjon'
     }
