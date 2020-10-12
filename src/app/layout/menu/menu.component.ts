@@ -10,15 +10,16 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class MenuLinkDirective {
 
   @HostListener('click') onClick() {
-    console.log('Ive clicked')
-    this.renderer.removeClass(this.document.body, 'mobile');
+    this.renderer.removeClass(this.document.body, 'active-menu');
     this.renderer.removeClass(this.document.getElementById('hamburger'), 'hamburger--is-active');
     this.renderer.removeClass(this.document.getElementById('menu'), 'menu--open');
+    this.host.isActive = false;
   }
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private host: MenuComponent
   ) { }
 }
 
@@ -30,7 +31,7 @@ export class MenuLinkDirective {
 
 export class MenuComponent implements OnInit {
 
-  isActive: boolean = false;
+  public isActive: boolean = false;
   navigationLinks$: Observable<string[]>;
   subNavigationLinks$: Observable<string[]>;
   topNavigationLinks$: Observable<string[]>;
@@ -46,21 +47,26 @@ export class MenuComponent implements OnInit {
     this.navigationLinks$ = this.navigationService.getMenuItems();
     this.subNavigationLinks$ = this.navigationService.getSubMenuItems();
     this.topNavigationLinks$ = this.navigationService.getTopMenuItems();
+
+    console.log('active status start', this.isActive)
   }
 
   ngOnDestroy(): void {
-    this.renderer.removeClass(this.document.body, 'mobile');
+    this.renderer.removeClass(this.document.body, 'active-menu');
   }
 
   toggleMenu(): void {
     this.isActive = !this.isActive;
 
     if (this.isActive) {
-      this.renderer.addClass(this.document.body, 'mobile');
+      this.renderer.addClass(this.document.body, 'active-menu');
     }
     else {
-      this.renderer.removeClass(this.document.body, 'mobile');
+      this.renderer.removeClass(this.document.body, 'active-menu');
     }
+
+    
+    console.log('active status', this.isActive)
   }
 
 }
