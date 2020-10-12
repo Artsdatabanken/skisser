@@ -17,57 +17,57 @@
 
                 <div class="element-list">
 
-                    <button class="button" aria-label="filtrer etter Artsgruppe ">
+                    <button class="button button--dropdown" aria-label="filtrer etter Artsgruppe ">
 
                         <!-- <div class="button__container"> -->
 
-                            <span class="button__label" data-label="Artsgruppe"> Artsgruppe </span>
-                            <span class="button__icon"> </span>
+                        <span class="button__label" data-label="Artsgruppe"> Artsgruppe </span>
+                        <span class="button__icon"> </span>
 
                         <!-- </div> -->
 
                     </button>
 
 
-                    <button class="button" aria-label="filtrer etter Dato ">
+                    <button class="button button--dropdown" aria-label="filtrer etter Dato ">
 
                         <!-- <div class="button__container"> -->
 
-                            <span class="button__label" data-label="Dato"> Dato </span>
-                            <span class="button__icon"> </span>
+                        <span class="button__label" data-label="Dato"> Dato </span>
+                        <span class="button__icon"> </span>
 
                         <!-- </div> -->
 
                     </button>
 
-                    <button class="button" aria-label="filtrer etter Region ">
+                    <button class="button button--dropdown" aria-label="filtrer etter Region ">
 
                         <!-- <div class="button__container"> -->
 
-                            <span class="button__label" data-label="Region"> Region </span>
-                            <span class="button__icon"> </span>
+                        <span class="button__label" data-label="Region"> Region </span>
+                        <span class="button__icon"> </span>
 
                         <!-- </div> -->
 
                     </button>
-                    
-                    <button class="button" aria-label="filtrer etter Filter ">
+
+                    <button class="button button--dropdown" aria-label="filtrer etter Filter ">
 
                         <!-- <div class="button__container"> -->
 
-                            <span class="button__label" data-label="Filter"> Filter </span>
-                            <span class="button__icon"> </span>
+                        <span class="button__label" data-label="Filter"> Filter </span>
+                        <span class="button__icon"> </span>
 
                         <!-- </div> -->
 
                     </button>
-                    
-                    <button class="button" aria-label="filtrer etter Filter ">
+
+                    <button class="button button--dropdown" aria-label="filtrer etter Filter ">
 
                         <!-- <div class="button__container"> -->
 
-                            <span class="button__label" data-label="Filter"> Filter </span>
-                            <span class="button__icon"> </span>
+                        <span class="button__label" data-label="Filter"> Filter </span>
+                        <span class="button__icon"> </span>
 
                         <!-- </div> -->
 
@@ -75,7 +75,7 @@
 
                 </div>
 
-                
+
                 <!--filter-->
             </div>
             <div class="grid__cell grid__cell--right">
@@ -213,7 +213,7 @@
                     </div>
                 </a>
 
-                <div class="gallery__item item" [routerLink]="['/sightings/sighting']">
+                <a class="gallery__item item" [routerLink]="['/sightings/sighting']">
                     <div class="item__title">Leopard</div>
                     <div class="item__image item__image--2"></div>
                     <div class="item__details details">
@@ -221,9 +221,9 @@
                         <div class="details__location">Trondheim</div>
                         <div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="gallery__item item" [routerLink]="['/sightings/sighting']"></div>
+                <a class="gallery__item item" [routerLink]="['/sightings/sighting']">
                     <div class="item__title">Frog</div>
                     <div class="item__image item__image--3"></div>
                     <div class="item__details details">
@@ -231,8 +231,7 @@
                         <div class="details__location">Trondheim</div>
                         <div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>
                     </div>
-                </div>
-
+                </a>
 
             </div>
 

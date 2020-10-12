@@ -14,13 +14,12 @@ import { ReportComponent } from './components/report/report.component';
 import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { LoginComponent } from './components/login/login.component';
-import { FasComponent } from './components/fas/fas.component';
 import { ReportingComponent } from './components/report/reporting/reporting.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
-import { SightingsComponent } from './components/fas/sightings/sightings.component';
-import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
+import { SightingsComponent } from './components/observations/sightings/sightings.component';
+import { SightingComponent } from './components/observations/sighting/sighting.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 import { ObservationsComponent } from './components/observations/observations.component';
@@ -75,16 +74,6 @@ const routes: Routes = [
     }
   },
   {
-    path: 'report/report-observation',
-    component: ReportingComponent,
-    data: {
-      title: 'Rapportere observasjon',
-      name: 'report-observation',
-      type: 'std',
-      breadcrumb: 'Rapportere observasjon'
-    }
-  },
-  {
     path: 'projects',
     component: ProjectsComponent,
     data: {
@@ -115,6 +104,16 @@ const routes: Routes = [
     }
   },
   {
+    path: 'report-observation',
+    component: ReportingComponent,
+    data: {
+      title: 'Rapportere observasjon',
+      name: 'report-observation',
+      type: 'std',
+      breadcrumb: 'Rapportere observasjon'
+    }
+  },
+  {
     path: 'sightings',
     component: SightingsComponent,
     data: {
@@ -126,7 +125,7 @@ const routes: Routes = [
   },
   {
     path: 'sightings/sighting',
-    component: SightingIdComponent,
+    component: SightingComponent,
     data: {
       title: 'Observasjon',
       name: 'sighting',

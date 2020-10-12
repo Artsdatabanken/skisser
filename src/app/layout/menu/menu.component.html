@@ -12,26 +12,13 @@
 
     <nav class="navigation navigation--top">
 
-        <!-- <div class="navigation__container"> -->
-
         <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
             *ngFor="let link of topNavigationLinks$ | async">
             <span class="navigation__label"> {{ link.title }}</span>
         </a>
-
-        <!-- </div> -->
-
     </nav>
 
-    <!-- <div class="menu-search">
-        <form action="">
-            <input type="search" name="search" value="Søk">
-            <button class="styleless icon icon--search"></button>
-        </form>
-    </div> -->
-
-
-    <nav class="navigation navigation--primary">
+    <nav class="navigation navigation--primary" role="navigation">
 
         <div class="navigation__container">
 
@@ -51,7 +38,7 @@
 
     </nav>
 
-    <nav class="navigation navigation--secondary">
+    <nav class="navigation navigation--secondary" role="navigation">
 
         <div class="navigation__container">
 
@@ -74,8 +61,8 @@
     <footer class="menu__footer">
         Medlem av
 
-        <a href="https://artsdatabanken.no/">Artsdatabanken</a>, <a
-            href="https://ecsa.citizen-science.net/">ECSA European Citizen Science Association </a> og Miljødirektoratet
+        <a href="https://artsdatabanken.no/">Artsdatabanken</a>, <a href="https://ecsa.citizen-science.net/">ECSA
+            European Citizen Science Association </a> og Miljødirektoratet
 
     </footer>
 

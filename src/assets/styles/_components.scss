@@ -156,7 +156,7 @@
 /*button*/
 
 .button {
-    @include variable(background-color, clrWhite);
+    //@include variable(background-color, clrWhite);
     @include variable(border-color, clrBlack);
     @include variable(color, clrBlack);
     @include variable(font-family, fontPrimary);
@@ -175,28 +175,32 @@
     justify-content: space-between;
     align-items: center;
 
-    // &__container {
-    //     display: flex;
-    //     flex-direction: row;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     margin: 0;
-    //     padding: 0;
-    //     width: 100%;
+    & > * {
+        // border: 1px solid red;
+    }
 
-    //     & > * {
-    //         justify-self: stretch;
-    //     }
-    // }
+    &__text {
+padding-bottom: 2px;
+    }
 
     &__icon {
-        background-image: url(../images/iconChevronDown.png);
-        background-position: right center;
         background-repeat: no-repeat;
         background-size: 16px;
-        display: inline-block;
-        height: 20px;
-        width: 30px;
+       
+        .button--dropdown & {
+            background-image: url(../images/iconChevronDown.png);
+            background-position: right center;
+            height: 20px;
+            width: 30px;
+        }
+
+        &--lock {
+            background-image: url(../images/iconLock.png);
+            background-size: contain;
+            height: 20px;
+            padding-right: 5px;
+            width: 24px;
+        }
     }
 
     &:active,
@@ -209,41 +213,6 @@
         border-radius: 10px;
         border-bottom-right-radius: 0;
     }
-
-    // &--primary {
-    //     @include variable(background-color, clrBlack);
-    //     @include variable(color, clrWhite);
-
-    //     &:hover {
-    //         @include variable(background-color, clrWhite);
-    //         @include variable(color, clrBlack);
-    //         @include variable(font-family, fontPrimary);
-    //         border: 2px solid #262626;
-    //     }
-    // }
-
-    // &--sm {
-    //     font-size: 15px;
-    //     padding: 3px 13px;
-
-    //     @media screen and (max-width: 1600px) {
-    //         font-size: 14px;
-    //     }
-    // }
-
-    // &--md {
-    //     font-size: 18px;
-    //     padding: 7px 18px;
-    // }
-
-    // &--lg {
-    //     font-size: 24px;
-    //     padding: 13px 33px;
-
-    //     @media screen and (max-width: 1600px) {
-    //         font-size: 14px;
-    //     }
-    // }
 }
 
 /*date*/
@@ -478,10 +447,5 @@
     background-size: cover;
     display: inline-block;
 
-    &--lock {
-        background-image: url(../images/iconLock.png);
-        height: 20px;
-        padding-right: 5px;
-        width: 20px;
-    }
+
 }

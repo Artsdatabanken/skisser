@@ -46,8 +46,7 @@ import { ManagementComponent } from './components/management/management.componen
 import { RegistrationComponent } from './components/registration/registration.component';
 import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
-import { SightingsComponent } from './components/fas/sightings/sightings.component';
-import { SightingIdComponent } from './components/fas/sightings/sighting-id/sighting-id.component';
+import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { FilterComponent } from './components/shared/filter/filter.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/projects/project/project.component';
@@ -103,7 +102,7 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
     TopNavigationComponent,
     SubNavigationComponent,
     SightingsComponent,
-    SightingIdComponent,
+    SightingComponent,
     FilterComponent,
     ProjectsComponent,
     ProjectComponent,
@@ -112,7 +111,6 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
     LoginButtonComponent,
     MenuLinkDirective,
     ObservationsComponent,
-    SightingComponent
   ],
   imports: [
     BrowserModule,

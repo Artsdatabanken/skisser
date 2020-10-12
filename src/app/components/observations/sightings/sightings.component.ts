@@ -12,7 +12,11 @@ export class SightingsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    
+    console.log('display', this.display)
+   }
 
   chooseDisplay(display: string): void {
     this.display = display;
