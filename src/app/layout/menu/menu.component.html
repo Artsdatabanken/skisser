@@ -1,4 +1,4 @@
-<button class="hamburger hamburger--squeeze" [ngClass]="{'hamburger--is-active': isActive}" type="button"
+<button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': isActive}" type="button"
     (click)="toggleMenu()">
     <span class="hamburger__text">
         Meny
@@ -8,22 +8,16 @@
     </span>
 </button>
 
-<div class="menu" [ngClass]="{'menu--open': isActive}">
-
-    <!-- <div class="">
-        <app-language-switcher [cssClass]="'flags--mobile'"></app-language-switcher>
-    </div>
-
-    <br><br> -->
+<div class="menu" id="menu" [ngClass]="{'menu--open': isActive}">
 
     <nav class="navigation navigation--top">
 
         <!-- <div class="navigation__container"> -->
 
-            <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                *ngFor="let link of topNavigationLinks$ | async">
-               <span class="navigation__label"> {{ link.title }}</span>
-            </a>
+        <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+            *ngFor="let link of topNavigationLinks$ | async">
+            <span class="navigation__label"> {{ link.title }}</span>
+        </a>
 
         <!-- </div> -->
 
@@ -35,7 +29,7 @@
             <button class="styleless icon icon--search"></button>
         </form>
     </div> -->
-    
+
 
     <nav class="navigation navigation--primary">
 
@@ -48,8 +42,8 @@
                 </h1>
 
                 <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                    *ngFor="let link of link.content">
-                   <span class="navigation__label"> {{ link.title }}</span>
+                    *ngFor="let link of link.content" menuLink>
+                    <span class="navigation__label"> {{ link.title }}</span>
                 </a>
             </div>
 
@@ -68,13 +62,21 @@
                 </h1>
 
                 <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                    *ngFor="let link of link.content">
-                   <span class="navigation__label"> {{ link.title }}</span>
+                    *ngFor="let link of link.content" menuLink>
+                    <span class="navigation__label"> {{ link.title }}</span>
                 </a>
             </div>
 
         </div>
 
     </nav>
+
+    <footer class="menu__footer">
+        Medlem av
+
+        <a href="https://artsdatabanken.no/">Artsdatabanken</a>, <a
+            href="https://ecsa.citizen-science.net/">ECSA European Citizen Science Association </a> og Miljødirektoratet
+
+    </footer>
 
 </div>

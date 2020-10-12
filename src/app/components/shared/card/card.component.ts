@@ -20,14 +20,14 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('CARD',
-      'type', this.type,
-      'size', this.size,
-      'icon', this.icon,
-      'title', this.title,
-      'text', this.text,
-      'url', this.url
-    )
+    // console.log('CARD',
+    //   'type', this.type,
+    //   'size', this.size,
+    //   'icon', this.icon,
+    //   'title', this.title,
+    //   'text', this.text,
+    //   'url', this.url
+    // )
 
   }
 

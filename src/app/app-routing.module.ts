@@ -74,13 +74,13 @@ const routes: Routes = [
     }
   },
   {
-    path: 'report/reporting',
+    path: 'report/report-observation',
     component: ReportingComponent,
     data: {
-      title: 'Rapportering',
-      name: 'reporting',
+      title: 'Rapportere observasjon',
+      name: 'report-observation',
       type: 'std',
-      breadcrumb: 'Rapportering'
+      breadcrumb: 'Rapportere observasjon'
     }
   },
   {
@@ -114,7 +114,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/sightings',
+    path: 'sightings',
     component: SightingsComponent,
     data: {
       title: 'Observasjoner',
@@ -124,7 +124,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/sightings/sighting-id',
+    path: 'sightings/sighting-id',
     component: SightingIdComponent,
     data: {
       title: 'Observasjon',
@@ -144,7 +144,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'fas/statistics/overview-numbers',
+    path: 'statistics/overview-numbers',
     component: OverviewNumbersComponent,
     data: {
       title: 'Oversiktstall',
@@ -154,7 +154,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/statistics/quality-assured-data',
+    path: 'statistics/quality-assured-data',
     component: QualityAssuredDataComponent,
     data: {
       title: 'Kvalitetssikrede data',
@@ -164,7 +164,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/statistics/red-listed-species',
+    path: 'statistics/red-listed-species',
     component: RedListedSpeciesComponent,
     data: {
       title: 'Rødlistede arter',
@@ -174,7 +174,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/statistics/alien-species',
+    path: 'statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
       title: 'Fremmede arter',
@@ -184,7 +184,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/statistics/user-statistics',
+    path: 'statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
       title: 'Brukerstatistikk',

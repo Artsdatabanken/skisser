@@ -42,22 +42,11 @@
                     "name": "sightings",
                     "url": "report",
                     "type": "primary"
-                }
-            ]
-        },
-        {
-            "section": "Prosjekter",
-            "content": [
-                {
-                    "title": "Opprett prosjekt",
-                    "name": "management",
-                    "url": "management",
-                    "type": "primary"
                 },
                 {
-                    "title": "Mine prosjekter",
-                    "name": "management",
-                    "url": "management",
+                    "title": "Prosjekter",
+                    "name": "projects",
+                    "url": "projects",
                     "type": "primary"
                 }
             ]
@@ -100,7 +89,13 @@
                     "name": "statistics",
                     "url": "statistics",
                     "type": "primary"
-                }               
+                },
+                {
+                    "title": "Brukerstatisktikk",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                }
             ]
         }
     ],
@@ -133,6 +128,12 @@
                 },
                 {
                     "title": "Mine lisenser",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "primary"
+                },
+                {
+                    "title": "Meldinger",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "primary"
