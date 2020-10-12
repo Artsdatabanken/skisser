@@ -4,10 +4,10 @@ import { DOCUMENT } from '@angular/common';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Directive({
-  selector: '[menuLink]'
+  selector: '[closeMenu]'
 })
 
-export class MenuLinkDirective {
+export class CloseMenuDirective {
 
   @HostListener('click') onClick() {
     this.renderer.removeClass(this.document.body, 'active-menu');

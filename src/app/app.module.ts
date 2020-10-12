@@ -49,7 +49,7 @@ import { FilterComponent } from './components/shared/filter/filter.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/projects/project/project.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
-import { MenuComponent, MenuLinkDirective } from './layout/menu/menu.component';
+import { CloseMenuDirective, MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { ObservationsComponent } from './components/observations/observations.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
@@ -107,7 +107,7 @@ import { ReportObservationComponent } from './components/report/report-observati
     CreateProjectComponent,
     MenuComponent,
     LoginButtonComponent,
-    MenuLinkDirective,
+    CloseMenuDirective,
     ObservationsComponent,
     ReportComponent,
     ReportObservationComponent,

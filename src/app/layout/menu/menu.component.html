@@ -29,7 +29,7 @@
                 </h1>
 
                 <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                    *ngFor="let link of link.content" menuLink>
+                    *ngFor="let link of link.content" closeMenu>
                     <span class="navigation__label"> {{ link.title }}</span>
                 </a>
             </div>
@@ -49,7 +49,7 @@
                 </h1>
 
                 <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                    *ngFor="let link of link.content" menuLink>
+                    *ngFor="let link of link.content" closeMenu>
                     <span class="navigation__label"> {{ link.title }}</span>
                 </a>
             </div>
