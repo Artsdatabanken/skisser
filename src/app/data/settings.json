@@ -17,7 +17,7 @@
     ],
     "menu": [
         {
-            "section": "Rapportere",
+            "section": "Observasjoner",
             "content": [
                 {
                     "title": "Rapportere observasjoner",
@@ -36,33 +36,10 @@
                     "name": "report-species",
                     "url": "report",
                     "type": "primary"
-                }
-            ]
-        },
-        {
-            "section": "Observasjoner",
-            "content": [
+                },
                 {
                     "title": "Se observasjoner",
                     "name": "sightings",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Funnkatalog",
-                    "name": "report",
-                    "url": "report",
-                    "type": "primary"
-                },
-                {
-                    "title": "Tall og statistikk",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "EurobirdWatch Norge",
-                    "name": "report",
                     "url": "report",
                     "type": "primary"
                 }
@@ -83,6 +60,47 @@
                     "url": "report",
                     "type": "primary"
                 }
+            ]
+        },
+        {
+            "section": "Tall og statistikk",
+            "content": [
+                {
+                    "title": "Kvalitetssikrede data",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Rødlistede arter",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Fremmede arter",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Arter uten data",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
+                },
+                {
+                    "title": "Funnkatalog",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "EurobirdWatch Norge",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                }               
             ]
         }
     ],

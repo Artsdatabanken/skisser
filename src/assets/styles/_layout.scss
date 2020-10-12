@@ -102,14 +102,17 @@
 
 .menu {
     @include variable(background-color, clrWhite);
-    //overflow-y: scroll;
+    background-color: #f4eae2;
+    // overflow-y: scroll;
     min-height: 100vh;
-    position: fixed;
+    //position: fixed;
+    position: absolute;
     top: 100px;
     left: 0;
     right: 0;
+    bottom: auto;
     z-index: 10;
-    display: none;
+    //display: none;
 
     &--open {
         display: block;
@@ -117,11 +120,10 @@
 }
 
 .navigation {
-    padding: 30px;
+    padding: 60px 30px 45px;
 
     &--secondary {
         @include variable(background-color, clrSecondaryTransparent);
-        padding-bottom: 100px;
     }
 
     &--top {
@@ -131,29 +133,18 @@
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0 30px;
         margin: 0 auto;
         max-width: 70vw;
-
-        & > * {
-            border: 1px dotted red;
-            justify-self: stretch;
-        }
+        padding: 0;
     }
 
     &__item {
-        border: 1px dotted blue;
-        margin-bottom: 40px;
+        // border: 1px dotted blue;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-    }
-
-    $itemColumns: 5;
-
-    @for $i from 1 through $itemColumns {
-        .item-columns--#{$i} {
-            grid-area: column$i;
-        }
+        justify-self: stretch;
     }
 
     &__section {
@@ -161,7 +152,7 @@
         font-size: 31px;
         font-weight: 300;
         font-weight: 400;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
 
         @media screen and (max-width: 1920px) {
             font-size: 28px;
@@ -169,37 +160,16 @@
     }
 
     &__link {
-        @include variable(border-bottom-color, transparent);
+        @include variable(border-bottom-color, clrLight);
         border-bottom-style: solid;
-        border-bottom-width: 2px;
-        font-size: 20px;
-        font-weight: 400;
-        text-decoration: none;
-
-        align-self: flex-start;
+        border-bottom-width: 1px;
+        align-self: stretch;
         justify-self: stretch;
+        padding: 10px 0;
+        text-decoration: none;
 
         @media screen and (max-width: 1920px) {
             font-size: 19px;
-        }
-
-        &::after,
-        &:after {
-            @include variable(border-bottom-color, clrDark);
-            border-bottom-style: solid;
-            border-bottom-width: 2px;
-            content: "";
-            display: block;
-            height: 2px;
-            margin-left: 18px;
-            margin-bottom: 10px;
-            transition: width 0.3s;
-            width: 0;
-        }
-
-        &:hover:after {
-            width: 100%;
-            width: calc(100% - 18px);
         }
 
         &::before,
@@ -211,18 +181,14 @@
             content: "";
             display: inline-block;
             margin-top: -7px;
-            margin-right: 5px;
+            margin-right: 12px;
             vertical-align: middle;
             height: 14px;
             width: 8px;
             // display: none;
         }
-
+        
         &:hover {
-        }
-
-        .navigation--secondary & {
-            font-size: 17px;
         }
 
         .navigation--top & {
@@ -269,82 +235,32 @@
             }
         }
     }
-}
 
-// .navigation {
-//     text-align: center;
-//     width: 100%;
+    &__label {
+        display: inline-block;
+        font-size: 22px;
+        font-weight: 400;
 
-//     &__link {
-//         border-bottom: 3px solid transparent;
-//         font-size: 17px;
-//         font-weight: 700;
-//         font-weight: 600;
-//         line-height: 1.5;
-//         margin: 0 25px;
-//         padding: 0;
-//         padding-bottom: 3px;
+        &::after,
+        &:after {
+            @include variable(border-bottom-color, clrDark);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            content: "";
+            display: block;
+            height: 2px;
+            transition: width 0.3s;
+            width: 0;
+        }
 
-//         &--active {
-//             @include variable(border-color, clrBlack);
-//             border-bottom-style: solid;
-//             border-bottom-width: 3px;
-//         }
+        &:hover:after {
+            width: 100%;
+        }
 
-//         &:hover {
-//             @include variable(border-color, clrBlack);
-//             border-bottom-style: solid;
-//             border-bottom-width: 3px;
-//         }
-
-//         &--secondary {
-//             @include variable(background-color, clrPrimary);
-//             @include variable(border-color, clrBlack);
-//             @include variable(color, clrWhite);
-//             border: none;
-//             border-radius: 5px;
-//             border-bottom-right-radius: 0;
-//             font-size: 15px;
-//             padding: 3px 21px;
-//         }
-
-//         @media screen and (max-width: 1600px) {
-//             font-size: 18px;
-//             font-size: 20px;
-//             margin: 0 17px;
-//         }
-//     }
-
-//     @media screen and (max-width: 900px) {
-//         display: none !important;
-//     }
-// }
-
-.top-navigation {
-    text-align: right;
-
-    &__link {
-        font-size: 14px;
-        font-weight: 700;
-        margin-left: 20px;
-    }
-
-    @media screen and (max-width: 900px) {
-        display: none !important;
-    }
-}
-
-.subnavigation {
-    text-align: right;
-
-    &__link {
-        font-size: 14px;
-        font-weight: 700;
-        margin-left: 20px;
-    }
-
-    @media screen and (max-width: 900px) {
-        display: none !important;
+        .navigation--top & {
+            font-size: 17px;
+            font-weight: 500;
+        }
     }
 }
 

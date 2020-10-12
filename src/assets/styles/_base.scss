@@ -27,6 +27,8 @@ body {
 
   &.mobile {
     position: fixed;
+    position: absolute;
+    overflow-y: hidden;
   }
 }
 

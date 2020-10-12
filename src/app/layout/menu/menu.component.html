@@ -18,21 +18,24 @@
 
     <nav class="navigation navigation--top">
 
-        <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-            *ngFor="let link of topNavigationLinks$ | async">
-            {{ link.title }}
-        </a>
+        <!-- <div class="navigation__container"> -->
+
+            <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+                *ngFor="let link of topNavigationLinks$ | async">
+               <span class="navigation__label"> {{ link.title }}</span>
+            </a>
+
+        <!-- </div> -->
 
     </nav>
 
-    <div class="menu-search">
+    <!-- <div class="menu-search">
         <form action="">
             <input type="search" name="search" value="Søk">
             <button class="styleless icon icon--search"></button>
         </form>
-    </div>
+    </div> -->
     
-    <br>
 
     <nav class="navigation navigation--primary">
 
@@ -46,7 +49,7 @@
 
                 <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
                     *ngFor="let link of link.content">
-                    {{ link.title }}
+                   <span class="navigation__label"> {{ link.title }}</span>
                 </a>
             </div>
 
@@ -66,13 +69,12 @@
 
                 <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
                     *ngFor="let link of link.content">
-                    {{ link.title }}
+                   <span class="navigation__label"> {{ link.title }}</span>
                 </a>
             </div>
 
         </div>
 
     </nav>
-
 
 </div>
