@@ -26,7 +26,6 @@ import { LanguageSwitcherComponent } from './layout/language-switcher/language-s
 import { TouComponent } from './components/about/tou/tou.component';
 import { FaqComponent } from './components/about/faq/faq.component';
 import { DictionaryComponent } from './components/about/dictionary/dictionary.component';
-import { ReportComponent } from './components/report/report.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 import { DesignComponent } from './components/design/design.component';
@@ -40,7 +39,6 @@ import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
 import { FasComponent } from './components/fas/fas.component';
-import { ReportingComponent } from './components/report/reporting/reporting.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -55,6 +53,8 @@ import { MenuComponent, MenuLinkDirective } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { ObservationsComponent } from './components/observations/observations.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
+import { ReportComponent } from './components/report/report.component';
+import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +82,6 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
     TouComponent,
     FaqComponent,
     DictionaryComponent,
-    ReportComponent,
     HamburgerComponent,
     DesignComponent,
     EbwComponent,
@@ -95,7 +94,6 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
     PageTitleComponent,
     LoginComponent,
     FasComponent,
-    ReportingComponent,
     DashboardComponent,
     ManagementComponent,
     RegistrationComponent,
@@ -111,6 +109,8 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
     LoginButtonComponent,
     MenuLinkDirective,
     ObservationsComponent,
+    ReportComponent,
+    ReportObservationComponent,
   ],
   imports: [
     BrowserModule,

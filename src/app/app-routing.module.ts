@@ -10,11 +10,9 @@ import { RedListedSpeciesComponent } from './components/statistics/red-listed-sp
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { TouComponent } from './components/about/tou/tou.component';
-import { ReportComponent } from './components/report/report.component';
 import { DesignComponent } from './components/design/design.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { LoginComponent } from './components/login/login.component';
-import { ReportingComponent } from './components/report/reporting/reporting.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
@@ -23,6 +21,8 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 import { ObservationsComponent } from './components/observations/observations.component';
+import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
+import { ReportComponent } from './components/report/report.component';
 
 const routes: Routes = [
   {
@@ -74,6 +74,16 @@ const routes: Routes = [
     }
   },
   {
+    path: 'report-observation',
+    component: ReportObservationComponent,
+    data: {
+      title: 'Rapportere observasjon',
+      name: 'report',
+      type: 'page',
+      breadcrumb: 'Rapportere observasjon'
+    }
+  },
+  {
     path: 'projects',
     component: ProjectsComponent,
     data: {
@@ -101,16 +111,6 @@ const routes: Routes = [
       name: 'observations',
       type: 'page',
       breadcrumb: ' Observasjoner'
-    }
-  },
-  {
-    path: 'report-observation',
-    component: ReportingComponent,
-    data: {
-      title: 'Rapportere observasjon',
-      name: 'report-observation',
-      type: 'std',
-      breadcrumb: 'Rapportere observasjon'
     }
   },
   {
