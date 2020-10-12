@@ -134,13 +134,13 @@ const routes: Routes = [
     }
   },
   {
-    path: 'fas/statistics',
+    path: 'statistics',
     component: StatisticsComponent,
     data: {
-      title: 'Statistikk',
-      name: 'fas/statistics',
+      title: 'Tall og statistikk',
+      name: 'statistics',
       type: 'mega',
-      breadcrumb: 'Funn & Observasjoner / Statistikk'
+      breadcrumb: 'Tall og statistikk'
     },
   },
   {

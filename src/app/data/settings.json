@@ -38,7 +38,7 @@
                     "type": "primary"
                 },
                 {
-                    "title": "Se observasjoner",
+                    "title": "Se, søk og filtrer observasjoner",
                     "name": "sightings",
                     "url": "report",
                     "type": "primary"
@@ -50,14 +50,14 @@
             "content": [
                 {
                     "title": "Opprett prosjekt",
-                    "name": "report",
-                    "url": "report",
+                    "name": "management",
+                    "url": "management",
                     "type": "primary"
                 },
                 {
                     "title": "Mine prosjekter",
-                    "name": "report",
-                    "url": "report",
+                    "name": "management",
+                    "url": "management",
                     "type": "primary"
                 }
             ]
@@ -85,8 +85,8 @@
                 },
                 {
                     "title": "Arter uten data",
-                    "name": "report",
-                    "url": "report",
+                    "name": "statistics",
+                    "url": "statistics",
                     "type": "primary"
                 },
                 {
@@ -127,32 +127,32 @@
             "content": [
                 {
                     "title": "Min profil",
-                    "name": "report",
-                    "url": "report",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "primary"
                 },
                 {
                     "title": "Mine lisenser",
-                    "name": "report",
-                    "url": "report",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "primary"
                 },
                 {
                     "title": "Min feltdagbok / Mine observasjoner",
-                    "name": "report",
-                    "url": "report",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "primary"
                 },
                 {
                     "title": "Mine lister",
-                    "name": "report",
-                    "url": "report",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "primary"
                 },
                 {
                     "title": "Lagrede søk",
-                    "name": "report",
-                    "url": "report",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "primary"
                 }
             ]
@@ -162,26 +162,26 @@
             "content": [
                 {
                     "title": "Mine prosjekter",
-                    "name": "report",
-                    "url": "report",
+                    "name": "management",
+                    "url": "management",
                     "type": "primary"
                 },
                 {
                     "title": "Mine lokaliteter",
-                    "name": "report",
-                    "url": "report",
+                    "name": "management",
+                    "url": "management",
                     "type": "primary"
                 },
                 {
                     "title": "Mine samlinger",
-                    "name": "report",
-                    "url": "report",
+                    "name": "management",
+                    "url": "management",
                     "type": "primary"
                 },
                 {
                     "title": "Medobservatører",
-                    "name": "report",
-                    "url": "report",
+                    "name": "management",
+                    "url": "management",
                     "type": "primary"
                 }
             ]
@@ -191,38 +191,38 @@
             "content": [
                 {
                     "title": "Om artsobservasjoner",
-                    "name": "report",
-                    "url": "report",
+                    "name": "about",
+                    "url": "about",
                     "type": "primary"
                 },
                 {
                     "title": "Brukervilkår",
-                    "name": "report",
-                    "url": "report",
+                    "name": "about",
+                    "url": "about",
                     "type": "primary"
                 },
                 {
                     "title": "Brukerstøtte",
-                    "name": "report",
-                    "url": "report",
+                    "name": "about",
+                    "url": "about",
                     "type": "primary"
                 },
                 {
                     "title": "Aktuelle saker",
-                    "name": "report",
-                    "url": "report",
+                    "name": "about",
+                    "url": "about",
                     "type": "primary"
                 },
                 {
                     "title": "Kunngjøringer",
-                    "name": "report",
-                    "url": "report",
+                    "name": "about",
+                    "url": "about",
                     "type": "primary"
                 },
                 {
                     "title": "Artsobservasjoner i media",
-                    "name": "report",
-                    "url": "report",
+                    "name": "about",
+                    "url": "about",
                     "type": "primary"
                 }
             ]
