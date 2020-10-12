@@ -315,6 +315,9 @@
 /*progress bar*/
 
 .progressbar {
+    border: 1px solid blue;
+    left: 0;
+    right: 0;
     position: absolute;
     z-index: 1;
 
@@ -325,10 +328,12 @@
     }
 
     li {
+        border: 1px solid red;
         float: left;
+        margin: 0 15px;
         position: relative;
         text-align: center;
-        width: 20%;
+        width: 30%;
 
         &:before {
             background: white;
@@ -337,13 +342,28 @@
             color: #bebebe;
             content: counter(step);
             counter-increment: step;
-            height: 30px;
+            height: 50px;
             display: block;
             font-weight: 600;
-            line-height: 27px;
+            line-height: 47px;
             margin: 0 auto 10px;
             text-align: center;
-            width: 30px;
+            width: 50px;
+        }
+
+        :after {
+            background: #979797;
+            content: "";
+            height: 3px;
+            left: -50%;
+            position: absolute;
+            top: 15px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        :first-child:after {
+            content: none;
         }
     }
 }

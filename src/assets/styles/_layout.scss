@@ -198,6 +198,7 @@
 
     &__link {
         @include variable(border-bottom-color, clrLight);
+        @include variable(border-bottom-color, clrSecondaryOriginal);
         border-bottom-style: solid;
         border-bottom-width: 1px;
         align-self: stretch;
