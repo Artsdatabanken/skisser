@@ -49,6 +49,12 @@
                     "name": "projects",
                     "url": "projects",
                     "type": "primary"
+                },
+                {
+                    "title": "Validere observasjoner",
+                    "name": "report",
+                    "url": "report",
+                    "type": "primary"
                 }
             ]
         },
@@ -78,54 +84,6 @@
                     "title": "Medobservatører",
                     "name": "management",
                     "url": "management",
-                    "type": "primary"
-                }
-            ]
-        },
-        {
-            "section": "Tall og statistikk",
-            "url": "statistics",
-            "content": [
-                {
-                    "title": "Kvalitetssikrede data",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "Rødlistede arter",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "Fremmede arter",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "Arter uten data",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "Funnkatalog",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "EurobirdWatch Norge",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "primary"
-                },
-                {
-                    "title": "Brukerstatisktikk",
-                    "name": "statistics",
-                    "url": "statistics",
                     "type": "primary"
                 }
             ]
@@ -173,15 +131,57 @@
                     "type": "primary"
                 },
                 {
-                    "title": "Mine lister",
+                    "title": "Min statistikk",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "primary"
+                }
+            ]
+        },
+        {
+            "section": "Tall og statistikk",
+            "url": "statistics",
+            "content": [
+                {
+                    "title": "Kvalitetssikrede data",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
                 },
                 {
-                    "title": "Lagrede søk",
-                    "name": "dashboard",
-                    "url": "dashboard",
+                    "title": "Rødlistede arter",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Fremmede arter",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Arter uten data",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Funnkatalog",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "EurobirdWatch Norge",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "primary"
+                },
+                {
+                    "title": "Brukerstatistikk",
+                    "name": "statistics",
+                    "url": "statistics",
                     "type": "primary"
                 }
             ]
@@ -191,7 +191,7 @@
             "url": "about",
             "content": [
                 {
-                    "title": "Om artsobservasjoner",
+                    "title": "Om artsobservasjoner.no",
                     "name": "about",
                     "url": "about",
                     "type": "primary"

@@ -190,10 +190,7 @@
     }
 
     &__item {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-self: stretch;
+     
     }
 
     &__heading {
@@ -224,6 +221,11 @@
     }
 
     &__section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-self: stretch;
+
         @media screen and (max-width: 1024px) {
             display: none;
         }
