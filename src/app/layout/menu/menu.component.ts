@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, Renderer2, Directive, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Inject, Renderer2, Directive, HostListener, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -21,12 +21,13 @@ export class CloseMenuDirective {
     private renderer: Renderer2,
     private host: MenuComponent
   ) { }
+
 }
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
 
 export class MenuComponent implements OnInit {

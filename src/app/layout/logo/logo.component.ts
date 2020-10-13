@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, OnInit, ElementRef, Renderer2, Inject } from '@angular/core';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-logo',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class LogoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private elementRef: ElementRef,
+    private renderer: Renderer2
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  closeMenu(): void {
+    // this.renderer.removeClass(this.document.getElementById('menu'), 'menu--open');
+    // this.renderer.removeClass(this.document.getElementById('hamburger'), 'hamburger--is-active');
   }
 
 }

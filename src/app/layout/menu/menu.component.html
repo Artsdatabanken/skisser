@@ -12,10 +12,11 @@
 
     <nav class="navigation navigation--top">
 
-        <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+        <a class="navigation__link" [class]="" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
             *ngFor="let link of topNavigationLinks$ | async">
             <span class="navigation__label"> {{ link.title }}</span>
         </a>
+
     </nav>
 
     <nav class="navigation navigation--primary" role="navigation">
@@ -24,14 +25,20 @@
 
             <div class="navigation__item" *ngFor="let link of navigationLinks$ | async">
 
-                <h1 class="navigation__section">
-                    {{ link.section }}
+                <h1 class="navigation__heading">
+                    <span class="navigation__heading-text"> {{ link.section }} </span>
+                    <a class="navigation__heading-link" routerLink="/{{ link.url }}" closeMenu>{{ link.section }}</a>
                 </h1>
 
-                <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                    *ngFor="let link of link.content" closeMenu>
-                    <span class="navigation__label"> {{ link.title }}</span>
-                </a>
+                <div class="navigation__section">
+
+                    <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+                        *ngFor="let link of link.content" closeMenu>
+                        <span class="navigation__label"> {{ link.title }}</span>
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
@@ -44,14 +51,20 @@
 
             <div class="navigation__item" *ngFor="let link of subNavigationLinks$ | async">
 
-                <h1 class="navigation__section">
-                    {{ link.section }}
+                <h1 class="navigation__heading">
+                    <span class="navigation__heading-text"> {{ link.section }} </span>
+                    <a class="navigation__heading-link" routerLink="/{{ link.url }}" closeMenu>{{ link.section }}</a>
                 </h1>
 
-                <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                    *ngFor="let link of link.content" closeMenu>
-                    <span class="navigation__label"> {{ link.title }}</span>
-                </a>
+                <div class="navigation__section">
+
+                    <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+                        *ngFor="let link of link.content" closeMenu>
+                        <span class="navigation__label"> {{ link.title }}</span>
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
