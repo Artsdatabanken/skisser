@@ -23,16 +23,17 @@
 
         <div class="navigation__container">
 
-            <div class="navigation__item" *ngFor="let link of navigationLinks$ | async">
+            <div class="navigation__item" *ngFor="let link of navigationLinks$ | async; let i = index">
 
                 <h1 class="navigation__heading">
                     <span class="navigation__heading-text"> {{ link.section }} </span>
                     <a class="navigation__heading-link" routerLink="/{{ link.url }}" closeMenu>{{ link.section }}</a>
                 </h1>
 
-                <div class="navigation__section">
+                <div class="navigation__section" [class]="getCSSClass(link.status)">
 
-                    <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+                    <a class="navigation__link" [class]="getCSSClass(link.type)"
+                        routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
                         *ngFor="let link of link.content" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>
@@ -56,9 +57,10 @@
                     <a class="navigation__heading-link" routerLink="/{{ link.url }}" closeMenu>{{ link.section }}</a>
                 </h1>
 
-                <div class="navigation__section">
+                <div class="navigation__section" [class]="getCSSClass(link.status)">
 
-                    <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+                    <a class="navigation__link" [class]="getCSSClass(link.type)"
+                        routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
                         *ngFor="let link of link.content" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>

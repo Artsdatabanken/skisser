@@ -19,23 +19,12 @@
         {
             "section": "Observasjoner",
             "url": "observations",
+            "status": "primary",
             "content": [
                 {
                     "title": "Rapportere observasjoner",
                     "name": "report-observation",
                     "url": "report-observation",
-                    "type": "primary"
-                },
-                {
-                    "title": "Importere observasjoner",
-                    "name": "import-observations",
-                    "url": "import-observations",
-                    "type": "primary"
-                },
-                {
-                    "title": "Rapportere artsovervåking",
-                    "name": "report-species",
-                    "url": "report",
                     "type": "primary"
                 },
                 {
@@ -45,46 +34,96 @@
                     "type": "primary"
                 },
                 {
-                    "title": "Prosjekter",
+                    "title": "Importere observasjoner",
+                    "name": "import-observations",
+                    "url": "import-observations",
+                    "type": "secondary"
+                },
+                {
+                    "title": "Rapportere artsovervåking",
+                    "name": "report-species",
+                    "url": "report",
+                    "type": "secondary"
+                },
+                {
+                    "title": "Observasjonsprosjekter",
                     "name": "projects",
                     "url": "projects",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Validere observasjoner",
                     "name": "report",
                     "url": "report",
-                    "type": "primary"
+                    "type": "secondary"
                 }
             ]
         },
         {
             "section": "Administrere",
             "url": "management",
+            "status": "secondary",
             "content": [
                 {
                     "title": "Mine prosjekter",
                     "name": "management",
                     "url": "management",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Mine lokaliteter",
                     "name": "management",
                     "url": "management",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Mine samlinger",
                     "name": "management",
                     "url": "management",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Medobservatører",
                     "name": "management",
                     "url": "management",
-                    "type": "primary"
+                    "type": "secondary"
+                }
+            ]
+        },
+        {
+            "section": "Minside",
+            "url": "dashboard",
+            "status": "primary",
+            "content": [
+                {
+                    "title": "Min profil",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "secondary"
+                },
+                {
+                    "title": "Mine lisenser",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "secondary"
+                },
+                {
+                    "title": "Meldinger",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "secondary"
+                },
+                {
+                    "title": "Min feltdagbok / Mine observasjoner",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "secondary"
+                },
+                {
+                    "title": "Min statistikk",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "secondary"
                 }
             ]
         }
@@ -103,128 +142,94 @@
     ],
     "subMenu": [
         {
-            "section": "Minside",
-            "url": "dashboard",
-            "content": [
-                {
-                    "title": "Min profil",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "primary"
-                },
-                {
-                    "title": "Mine lisenser",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "primary"
-                },
-                {
-                    "title": "Meldinger",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "primary"
-                },
-                {
-                    "title": "Min feltdagbok / Mine observasjoner",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "primary"
-                },
-                {
-                    "title": "Min statistikk",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "primary"
-                }
-            ]
-        },
-        {
             "section": "Tall og statistikk",
             "url": "statistics",
+            "status": "secondary",
             "content": [
                 {
                     "title": "Kvalitetssikrede data",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Rødlistede arter",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Fremmede arter",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Arter uten data",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Funnkatalog",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "EurobirdWatch Norge",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Brukerstatistikk",
                     "name": "statistics",
                     "url": "statistics",
-                    "type": "primary"
+                    "type": "secondary"
                 }
             ]
         },
         {
             "section": "Om tjenesten",
             "url": "about",
+            "status": "secondary",
             "content": [
                 {
                     "title": "Om artsobservasjoner.no",
                     "name": "about",
                     "url": "about",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Brukervilkår",
                     "name": "about",
                     "url": "about",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Brukerstøtte",
                     "name": "about",
                     "url": "about",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Aktuelle saker",
                     "name": "about",
                     "url": "about",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Kunngjøringer",
                     "name": "about",
                     "url": "about",
-                    "type": "primary"
+                    "type": "secondary"
                 },
                 {
                     "title": "Artsobservasjoner i media",
                     "name": "about",
                     "url": "about",
-                    "type": "primary"
+                    "type": "secondary"
                 }
             ]
         }

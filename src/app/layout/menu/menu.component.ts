@@ -57,6 +57,7 @@ export class MenuComponent implements OnInit {
   }
 
   toggleMenu(): void {
+
     this.isActive = !this.isActive;
 
     if (this.isActive) {
@@ -64,6 +65,18 @@ export class MenuComponent implements OnInit {
     }
     else {
       this.renderer.removeClass(this.document.body, 'active-menu');
+    }
+
+  }
+
+  getCSSClass(linkStatus: string | null, linkType: string | null): string {
+
+    console.log('status', linkStatus, linkType)
+    if (linkStatus) {
+      return `navigation__section--${linkStatus}`;
+    }
+    else {
+      return `navigation__link--${linkType}`;
     }
 
   }

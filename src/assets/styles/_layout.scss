@@ -123,7 +123,7 @@
 .menu {
     @include variable(background-color, clrWhite);
     background-color: #e8e5e4;
-    height: 150vh;
+    min-height: 150vh;
     overflow: none;
     position: absolute;
     top: 100px;
@@ -132,7 +132,7 @@
     bottom: 0;
     width: 100%;
     z-index: 100;
-    transform: translateY(calc(-150vh - 200px)); /*change here related your menu height*/
+    //transform: translateY(calc(-250vh)); /*change here related your menu height*/
 
     &--open {
         top: 100px;
@@ -148,7 +148,12 @@
 .navigation {
     padding: 45px 30px 60px;
 
+    @media screen and (max-width: 1024px) {
+        padding: 15px;
+    }
+
     // modifiers
+
     &--primary {
         @include variable(background-color, clrWhite);
         background-color: #f4eae2;
@@ -167,11 +172,8 @@
         }
     }
 
-    @media screen and (max-width: 1024px) {
-        padding: 30px;
-    }
-
     // elements
+    
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -192,7 +194,7 @@
 
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
-            grid-gap: 0 20px;
+            grid-gap: 0;
             max-width: 100vw;
         }
     }
@@ -215,7 +217,7 @@
         }
 
         @media screen and (max-width: 1024px) {
-            margin: 10px 0;
+            margin: 15px 0 5px;
         }
     }
 
@@ -237,8 +239,16 @@
         flex-wrap: nowrap;
         justify-self: stretch;
 
-        @media screen and (max-width: 1024px) {
-            display: none;
+        &--primary {
+            @media screen and (max-width: 1024px) {
+                padding: 5px 0 15px;
+            }
+        }
+
+        &--secondary {
+            @media screen and (max-width: 1024px) {
+                display: none !important;
+            }
         }
     }
 
@@ -256,6 +266,21 @@
             font-size: 19px;
         }
 
+        @media screen and (max-width: 1024px) {
+            //display: none;
+        }
+
+        // modifiers
+
+        &--primary {
+            display: block;
+        }
+
+        &--secondary {
+        }
+
+        // pseudo elements
+
         &::before,
         &:before {
             background-image: url(../images/iconChevronRight.png);
@@ -272,8 +297,7 @@
             // display: none;
         }
 
-        &:hover {
-        }
+        // current location
 
         .navigation--top & {
             @include variable(border-color, clrSecondary);
@@ -330,6 +354,10 @@
 
         @media screen and (max-width: 1600px) {
             font-size: 19px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            font-size: 17px;
         }
 
         &::after,
