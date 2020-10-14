@@ -132,12 +132,14 @@
         {
             "title": "Logg inn",
             "name": "login",
-            "url": "login"
+            "url": "login",
+            "type": "tertiary"
         },
         {
             "title": "English",
             "name": "english",
-            "url": "english"
+            "url": "english",
+            "type": "tertiary"
         }
     ],
     "subMenu": [

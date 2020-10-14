@@ -37,7 +37,9 @@ $vars: (
   clrSecondaryTransparent: transparentize(#a3ccc4, 0.7),
 
   paddingStd: 15px,
-  transparent: transparent
+  transparent: transparent,
+  headerHeight: 80px,
+  headerHeightMobile: 75px,
 
   // clrLight0: #efeceb,
   // clrLight1: #ede9e6,
@@ -78,6 +80,10 @@ $vars: (
 
   --paddingStd: #{map-get($vars, paddingStd)};
   --transparent: #{map-get($vars, transparent)};
+
+  
+  --headerHeight: #{map-get($vars, headerHeight)};
+  --headerHeightMobile: #{map-get($vars, headerHeightMobile)};
 }
 
 @mixin variable($property, $varName) {
