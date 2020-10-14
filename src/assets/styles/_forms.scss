@@ -1,27 +1,27 @@
 // ----------FORMS and FORM ELEMENTS
 
 form {
-    @include variable(background-color, clrLight0);
-    border-radius: 5px;
-    padding: 25px;
     width: 100%;
 
     label {
-        @include variable(font-family, fontAccent);
+        @include variable(font-family, fontSecondary);
         display: block;
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 500;
         margin-top: 20px;
         margin-bottom: 5px;
     }
 
     input {
-        @include variable(background-color, clrWhite);
+        @include variable(background-color, clrLight);
         @include variable(border-color, clrPrimary);
+        @include variable(border-color, transparent);
+        @include variable(border-bottom-color, clrPrimary);
         @include variable(font-family, fontPrimary);
         border-style: solid;
         border-width: 2px;
-        border-radius: 5px;
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
         display: block;
         margin-bottom: 15px;
         padding: 10px 12px;
@@ -38,6 +38,25 @@ form {
 
         &:focus {
             padding: 10px 12px;
+        }
+
+        &[type="submit"] {
+            float: right;
+            // @include variable(background-color, clrSecondary);
+            // @include variable(border-color, clrSecondary);
+            // @include variable(font-family, fontSecondary);
+            // border-radius: 10px;
+            // border-bottom-right-radius: 0;
+            // float: right;
+            // font-size: 18px;
+            // font-weight: 500;
+            // padding: 8px 22px 10px 22px;
+            // width: auto;
+
+            // &:hover {
+            //     @include variable(background-color, clrWhite);
+            //     @include variable(border-color, clrSecondary);
+            // }
         }
     }
 

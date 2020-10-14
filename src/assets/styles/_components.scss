@@ -175,12 +175,15 @@
     justify-content: space-between;
     align-items: center;
 
-    & > * {
-        // border: 1px solid red;
+    &--cta {
+        @include variable(background-color, clrSecondary);
+        @include variable(border-color, clrSecondary);
+        @include variable(color, clrBlack);
+        @include variable(font-family, fontPrimary);
     }
 
     &__text {
-        padding-bottom: 2px;
+        padding-bottom: 4px;
     }
 
     &__icon {
