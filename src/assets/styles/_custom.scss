@@ -25,6 +25,8 @@
     @include variable(color, clrWhite);
     @include variable(font-family, fontAccent);
     border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     font-size: 13px;
     font-weight: 500;
     height: 30px;
@@ -32,13 +34,19 @@
     line-height: 28px;
     padding: 0 20px;
     position: absolute;
+    text-align: center;
     text-transform: uppercase;
     top: 0;
-    transform: translateY(-100%);
+    transform: translateY(-110%);
     transition: transform 0.3s;
 
     &:focus {
-        transform: translateY(0%);
+        transform: translateY(0);
+    }
+
+    @media screen and (max-width: 1024px) {
+        left: 20%;
+        right: 20%;
     }
 }
 

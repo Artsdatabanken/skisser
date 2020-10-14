@@ -48,8 +48,6 @@ export class MenuComponent implements OnInit {
     this.navigationLinks$ = this.navigationService.getMenuItems();
     this.subNavigationLinks$ = this.navigationService.getSubMenuItems();
     this.topNavigationLinks$ = this.navigationService.getTopMenuItems();
-
-    console.log('active status start', this.isActive)
   }
 
   ngOnDestroy(): void {
@@ -71,7 +69,6 @@ export class MenuComponent implements OnInit {
 
   getCSSClass(linkStatus: string | null, linkType: string | null): string {
 
-    console.log('status', linkStatus, linkType)
     if (linkStatus) {
       return `navigation__section--${linkStatus}`;
     }
