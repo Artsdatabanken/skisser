@@ -13,7 +13,7 @@
 
     &__main {
         @include variable(background-color, clrWhite);
-        padding: 50px;
+        //padding: 50px;
 
         @media screen and (max-width: 1600px) {
             min-height: 80vh;
@@ -725,14 +725,34 @@ main {
     flex-wrap: nowrap;
 
     &__section {
-        border: 1px solid red;
+        @include variable(background-color, clrWash);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        justify-content: flex-start;
+        margin-bottom: 50px;
+        padding: 30px;
+
+        &--colored {
+            @include variable(background-color, clrAqua1);
+        }
     }
 
     &__cell {
-        border: 1px solid blue;
+        // border: 1px solid red;
+        align-self: center;
+        justify-self: center;
+        padding-right: 50px;
         width: 50%;
+
+        &--colored1 {
+        }
+
+        &--colored {
+            @include variable(background-color, clrAccent);
+            border-radius: 20px;
+            border-bottom-right-radius: 0;
+            padding: 50px;
+        }
     }
 }
