@@ -27,19 +27,14 @@ $vars: (
   clrLight: #e2dcd7,
   clrDark: #514942,
   clrAccent: #e5b445,
-
-  clrPrimary: darken(#6f968e, 20% * 1.25), // #53726c
-  clrSecondary: darken(#a3ccc4, 10% * 1.25), // #7ab5aa
-
-  clrPrimaryOriginal: #6f968e,
-  clrSecondaryOriginal: #a3ccc4,
-
-  clrSecondaryTransparent: transparentize(#a3ccc4, 0.7),
+  
+  clrAqua1: #bedbd6,
+  clrAqua2: #a3ccc4,
+  clrAqua3: #7ab5aa,
+  clrAqua4: #6f968e,
 
   paddingStd: 15px,
   transparent: transparent,
-  headerHeight: 80px,
-  headerHeightMobile: 75px,
 
   // clrLight0: #efeceb,
   // clrLight1: #ede9e6,
@@ -67,23 +62,17 @@ $vars: (
   --clrDark: #{map-get($vars, clrDark)};
   --clrAccent: #{map-get($vars, clrAccent)};
   
-  --clrPrimary: #{map-get($vars, clrPrimary)};
-  --clrSecondary: #{map-get($vars, clrSecondary)};
-    
-  --clrPrimaryOriginal: #{map-get($vars, clrPrimaryOriginal)};
-  --clrSecondaryOriginal: #{map-get($vars, clrSecondaryOriginal)};
+  --clrAqua1: #{map-get($vars, clrAqua1)};
+  --clrAqua2: #{map-get($vars, clrAqua2)};
+  --clrAqua3: #{map-get($vars, clrAqua3)};
+  --clrAqua4: #{map-get($vars, clrAqua4)};
   
-  --clrSecondaryTransparent: #{map-get($vars, clrSecondaryTransparent)};
-
   --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};
 
   --paddingStd: #{map-get($vars, paddingStd)};
   --transparent: #{map-get($vars, transparent)};
 
-  
-  --headerHeight: #{map-get($vars, headerHeight)};
-  --headerHeightMobile: #{map-get($vars, headerHeightMobile)};
 }
 
 @mixin variable($property, $varName) {

@@ -189,7 +189,7 @@
     }
 
     &--secondary {
-        @include variable(background-color, clrSecondaryTransparent);
+        @include variable(background-color, clrAqua1);
     }
 
     &--top {
@@ -282,7 +282,7 @@
 
     &__link {
         @include variable(border-bottom-color, clrLight);
-        @include variable(border-bottom-color, clrSecondaryOriginal);
+        @include variable(border-bottom-color, clrAqua2);
         border-bottom-style: solid;
         border-bottom-width: 1px;
         align-self: stretch;

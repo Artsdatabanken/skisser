@@ -22,7 +22,7 @@
             "status": "primary",
             "content": [
                 {
-                    "title": "Rapportere observasjoner",
+                    "title": "Rapportere observasjon",
                     "name": "report-observation",
                     "url": "report-observation",
                     "type": "primary"
@@ -148,6 +148,12 @@
             "url": "statistics",
             "status": "secondary",
             "content": [
+                {
+                    "title": "Oversiktstall",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "secondary"
+                }, 
                 {
                     "title": "Kvalitetssikrede data",
                     "name": "statistics",
