@@ -182,6 +182,16 @@
         @include variable(font-family, fontPrimary);
     }
 
+    &--xl {
+        display: inline-block;
+        font-size: 36px;
+        padding: 22px 36px;        
+    }
+
+    &--centered {
+        margin: 0 auto;
+    }
+
     &__text {
         padding-bottom: 4px;
     }
@@ -447,7 +457,7 @@
 
     &__heading {
         font-size: 26px;
-        font-weight: 400;
+        font-weight: 400 !important;
         margin-bottom: 10px;
         order: 2;
     }

@@ -144,7 +144,7 @@
     bottom: 0;
     width: 100%;
     z-index: 100;
-    transform: translateY(calc(-500vh)); /*change here related your menu height*/
+    transform: translateY(calc(-1000vh)); /*change here related your menu height*/
 
     &--open {
         top: 80px;
@@ -730,8 +730,7 @@ main {
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
-        margin-bottom: 50px;
-        padding: 30px;
+        padding: 60px 30px;
 
         &--column {
             display: block;
@@ -745,7 +744,6 @@ main {
 
         &--colored2 {
             @include variable(background-color, clrAqua0);
-            padding: 60px 30px;
         }
 
         &--colored3 {
@@ -760,6 +758,10 @@ main {
         justify-self: center;
         padding-right: 50px;
         width: 50%;
+
+        &--centered {
+            text-align: center;
+        }
 
         &--colored1 {
             background-color: transparentize($color: #e5b445, $amount: 0.5);

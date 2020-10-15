@@ -56,6 +56,7 @@ import { SightingComponent } from './components/observations/sighting/sighting.c
 import { ReportComponent } from './components/report/report.component';
 import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
 import { TeaserComponent } from './components/shared/teaser/teaser.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { TeaserComponent } from './components/shared/teaser/teaser.component';
     ReportComponent,
     ReportObservationComponent,
     TeaserComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

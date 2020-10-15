@@ -21,6 +21,7 @@
     "@angular/router": "~10.1.4",
     "hamburgers": "^1.1.3",
     "ng-dynamic-breadcrumb": "^3.0.1",
+    "ol": "^6.4.3",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

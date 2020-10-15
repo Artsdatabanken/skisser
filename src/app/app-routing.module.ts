@@ -23,6 +23,7 @@ import { CreateProjectComponent } from './components/projects/create-project/cre
 import { ObservationsComponent } from './components/observations/observations.component';
 import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
 import { ReportComponent } from './components/report/report.component';
+import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [
   {
@@ -242,6 +243,16 @@ const routes: Routes = [
       breadcrumb: 'Administrere'
     }
   },
+  {
+    path: 'map',
+    component: MapComponent,
+    data: {
+      title: 'MAP',
+      name: 'map',
+      type: 'mega',
+      breadcrumb: 'Map'
+    }
+  }, 
   {
     path: 'design',
     component: DesignComponent,
