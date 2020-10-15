@@ -185,7 +185,7 @@
     &--xl {
         display: inline-block;
         font-size: 36px;
-        padding: 22px 36px;        
+        padding: 22px 36px;
     }
 
     &--centered {
@@ -476,9 +476,19 @@
         }
     }
 
-    &__text {
-        font-size: 18px;
+    &__tag {
+        @include variable(background-color, clrAccent);
+        border-radius: 6px;
+        border-bottom-right-radius: 0;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 5px 0;
         order: 3;
+        padding: 2px 8px;
     }
 
+    &__text {
+        font-size: 18px;
+        order: 4;
+    }
 }

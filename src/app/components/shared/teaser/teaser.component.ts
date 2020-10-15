@@ -13,6 +13,7 @@ export class TeaserComponent implements OnInit {
   @Input() source: string | null;
   @Input() text: string | null;
   @Input() url: string | null;
+  @Input() tag: string | null;
 
   constructor() { }
 
