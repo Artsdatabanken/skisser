@@ -34,16 +34,20 @@ form {
             border: 2px solid #666;
         }
 
-        &:active {
-            padding: 10px 12px;
-        }
-
+        &:active,
         &:focus {
-            padding: 10px 12px;
+            padding: 12px 18px 9px;
+            margin-bottom: 15px;
         }
 
         &[type="submit"] {
+            @include variable(font-family, fontSecondary);
+            //@include variable(font-family, fontAccent);
             float: right;
+            font-size: 24px;
+            font-weight: 500;
+            font-weight: 400;
+            padding: 14px 24px;
             // @include variable(background-color, clrSecondary);
             // @include variable(border-color, clrSecondary);
             // @include variable(font-family, fontSecondary);

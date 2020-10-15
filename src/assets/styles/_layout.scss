@@ -725,17 +725,33 @@ main {
     flex-wrap: nowrap;
 
     &__section {
-        @include variable(background-color, clrWash);
+        //@include variable(background-color, clrWash);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: flex-start;
+        justify-content: center;
         margin-bottom: 50px;
         padding: 30px;
 
+        &--column {
+            display: block;
+        }
+
         &--colored {
             @include variable(background-color, clrAqua1);
+            @include variable(background-color, clrAccent);
+            @include variable(background-color, clrAqua4);
         }
+
+        &--colored2 {
+            @include variable(background-color, clrAqua0);
+            padding: 60px 30px;
+        }
+
+        &--colored3 {
+            background-color: transparentize($color: #e5b445, $amount: 0.7);
+        }
+
     }
 
     &__cell {
@@ -746,6 +762,7 @@ main {
         width: 50%;
 
         &--colored1 {
+            background-color: transparentize($color: #e5b445, $amount: 0.5);
         }
 
         &--colored {

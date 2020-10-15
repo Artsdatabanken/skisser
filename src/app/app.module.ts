@@ -55,6 +55,7 @@ import { ObservationsComponent } from './components/observations/observations.co
 import { SightingComponent } from './components/observations/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
+import { TeaserComponent } from './components/shared/teaser/teaser.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { ReportObservationComponent } from './components/report/report-observati
     ObservationsComponent,
     ReportComponent,
     ReportObservationComponent,
+    TeaserComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,24 +30,15 @@ $vars: (
   clrDark: #514942,
   clrAccent: #e5b445,
   
+  clrAqua0: #deedea,
   clrAqua1: #bedbd6,
   clrAqua2: #a3ccc4,
   clrAqua3: #7ab5aa,
   clrAqua4: #6f968e,
+  clrAqua5: #005249,
 
   paddingStd: 15px,
   transparent: transparent,
-
-  // clrLight0: #efeceb,
-  // clrLight1: #ede9e6,
-  // clrLight2: #e2dcd7,
-  // clrLight3: #d7cfc9,
-  // clrLight4: #ccc2ba,
-
-  // clrDark1: #a19790,
-  // clrDark2: #786f68,
-  // clrDark3: #514942,
-  // clrDark4: #302924,
 
 );
 
@@ -66,10 +57,12 @@ $vars: (
   --clrDark: #{map-get($vars, clrDark)};
   --clrAccent: #{map-get($vars, clrAccent)};
   
+  --clrAqua0: #{map-get($vars, clrAqua0)};
   --clrAqua1: #{map-get($vars, clrAqua1)};
   --clrAqua2: #{map-get($vars, clrAqua2)};
   --clrAqua3: #{map-get($vars, clrAqua3)};
   --clrAqua4: #{map-get($vars, clrAqua4)};
+  --clrAqua5: #{map-get($vars, clrAqua5)};
   
   --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};
@@ -86,24 +79,3 @@ $vars: (
   #{$property}: var(--#{$varName});
 }
 
-
-// color variations
-
-$clrBlack: #{map-get($vars, clrBlack)};
-$clrWhite: #{map-get($vars, clrWhite)};
-$clrLight: #{map-get($vars, clrLight)};
-$clrDark: #{map-get($vars, clrDark)};
-$clrAccent: #{map-get($vars, clrAccent)};
-$clrPrimary: #{map-get($vars, clrPrimary)};
-$clrSecondary: #{map-get($vars, clrSecondary)};
-
-// #00382b#007156#00aa82#00e2ad#1cffc9#55fed7#8dffe4#c6fff1
-
-$baseColor1: rgb(0, 158, 121);
-$contrast: 20%;
-$contrastIncrease: 1.25;
-
-$clrArt1Light: lighten($baseColor1, $contrast);
-$clrArt1Dark: lighten($baseColor1, $contrast);
-$clrArt1Lightest: lighten($baseColor1, $contrast * $contrastIncrease);
-$clrArt1Darkest: lighten($baseColor1, $contrast * $contrastIncrease);

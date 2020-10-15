@@ -41,15 +41,44 @@
 
 
     <!--content-->
-    <div class="frontpage__section">
+    <div class="frontpage__section frontpage__section--column">
+
+        <h1>Siste observasjoner</h1>
         <app-sightings></app-sightings>
     </div>
     <!--content-->
 
+    <!--services-->
+
+    <div class="frontpage__section frontpage__section--colored2">
+        <div class="cards">
+
+            <app-card [type]="'link'" [url]="'/report-observation'" [title]="'Rapportere observasjon'"></app-card>
+            <app-card [type]="'link'" [url]="'/observations'" [title]="'Se, søk og filtrer observasjoner'"></app-card>
+            <app-card [type]="'link'" [url]="'/dashboard'" [title]="'Mine observasjoner'"></app-card>
+            <app-card [type]="'link'" [url]="'/statistics'" [title]="'Fremmede arter'"></app-card>
+
+        </div>
+    </div>
+
+    <!--services-->
+
     <!--extras-->
 
-    <div class="frontpage__section"></div>
+    <div class="frontpage__section frontpage__section--column frontpage__section--colored3">
 
+        <h1>Aktuelle saker</h1>
+
+        <div class="teasers">
+            <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [title]="'Aktuell sak 1'"> </app-teaser>
+            <app-teaser [source]="'animal2'" [url]="'/'" [text]="loremIpsum" [title]="'Aktuell sak 2'"> </app-teaser>
+            <app-teaser [source]="'animal3'" [url]="'/'" [text]="loremIpsum" [title]="'Aktuell sak 3'"> </app-teaser>
+            <app-teaser [source]="'animal6'" [url]="'/'" [text]="loremIpsum" [title]="'Aktuell sak 4'"> </app-teaser>
+        </div>
+
+    </div>
+
+    <!--extras-->
 
     <!--news & articles-->
     <div class="frontpage__section"></div>
