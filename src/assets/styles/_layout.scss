@@ -606,6 +606,7 @@ main {
 
     &__intro {
         font-size: 24px;
+        margin-bottom: 30px;
 
         p {
             margin: 0;
@@ -755,7 +756,7 @@ main {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 30px 30px;
-        margin-top: 30px ;
+        margin-top: 30px;
 
         & > * {
         }
@@ -784,6 +785,14 @@ main {
             & > * {
                 // border: 1px solid fuchsia;
             }
+        }
+
+        &--narrow {
+            padding: 40px 30px 70px;
+        }        
+        
+        &--bottom-xl {
+            padding: 40px 30px 70px;
         }
 
         &--colored {

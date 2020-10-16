@@ -140,7 +140,7 @@ const routes: Routes = [
     data: {
       title: 'Tall og statistikk',
       name: 'statistics',
-      type: 'mega',
+      type: 'page',
       breadcrumb: 'Tall og statistikk'
     },
   },
