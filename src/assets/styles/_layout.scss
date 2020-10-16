@@ -343,7 +343,7 @@
             @include variable(border-color, clrSecondary);
             background-position: left 15px center;
             background-repeat: no-repeat;
-            background-size: 16px;
+            background-size: 15px;
             border-style: solid;
             border-width: 2px;
             border-radius: 10px;
@@ -370,11 +370,13 @@
             }
 
             &:nth-child(1) {
-                background-image: url(../images/iconUser.png);
+                background-image: url(../images/iconLock.png);
             }
 
             &:nth-child(2) {
                 background-image: url(../images/iconLock.png);
+                background: none;
+                padding: 5px 15px;
             }
 
             &:nth-child(3) {
@@ -433,7 +435,7 @@
             background-image: url(../images/iconLock.png);
             background-position: left 15px center;
             background-repeat: no-repeat;
-            background-size: 15px;
+            background-size: 12px;
             border-style: solid;
             border-width: 2px;
             border-radius: 10px;
@@ -785,20 +787,8 @@ main {
         padding: 40px 30px 60px;
 
         &--column {
-            //display: block;
             flex-direction: column;
-
-            & > * {
-                // border: 1px solid fuchsia;
-            }
-        }
-
-        &--narrow {
-            padding: 40px 30px 70px;
-        }
-
-        &--bottom-xl {
-            padding: 40px 30px 70px;
+            padding: 80px 30px 120px;
         }
 
         &--colored {
