@@ -1,8 +1,6 @@
 <div class="page">
 
-    <header class="page__header">
-
-    </header>
+    <header class="page__header">     </header>
 
     <div class="page__content">
 
@@ -15,7 +13,7 @@
 
                 <!-- filter-->
 
-                <div class="element-list">
+                <div class="loop loop--buttons">
 
                     <button class="button button--dropdown" aria-label="filtrer etter Artsgruppe ">
 
@@ -81,7 +79,7 @@
             <div class="grid__cell grid__cell--right">
 
                 <!--display-->
-                <div class="element-list">
+                <div class="loop loop--buttons">
 
                     <app-button [text]="'Vis i kart'" (click)="chooseDisplay('map')"></app-button>
                     <app-button [text]="'Tabellvisning'" (click)="chooseDisplay('table')"></app-button>
@@ -200,7 +198,7 @@
 
         <div *ngIf="display === 'card'">
 
-            <div class="gallery">
+            <div class="loop loop--gallery gallery">
 
                 <a class="gallery__item item" [routerLink]="['/sightings/sighting']">
                     <h1 class="item__title">Panda</h1>

@@ -53,7 +53,7 @@
 
         <h2>Snarveier</h2>
 
-        <div class="cards">
+        <div class="loop loop--cards">
 
             <app-card [type]="'link'" [url]="'/report-observation'" [title]="'Rapportere observasjon'"></app-card>
             <app-card [type]="'link'" [url]="'/observations'" [title]="'Se, søk og filtrer observasjoner'"></app-card>
@@ -72,7 +72,7 @@
 
         <h2>Siste nytt</h2>
 
-        <div class="teasers">
+        <div class="loop loop--teasers">
             <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'04.10.2020'"
                 [title]="'Aktuell etian eilefend laooreet'"> </app-teaser>
             <app-teaser [source]="'animal2'" [url]="'/'" [text]="loremIpsum" [tag]="'Nyhet'" [date]="'22.09.2020'"
@@ -91,14 +91,15 @@
 
     <!--extras-->
 
-    <div class="frontpage__section">
+    <div class="frontpage__section" style="padding: 100px 30px;">
+
         <div class="frontpage__cell">
             <h2 style="margin: 0;">Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?</h2>
         </div>
         <div class="frontpage__cell frontpage__cell--centered frontpage__cell--colored3">
             <a href="" class="button button--cta button--xl button--centered">Bli validator!</a>
         </div>
-
+        
     </div>
 
     <!--extras-->
