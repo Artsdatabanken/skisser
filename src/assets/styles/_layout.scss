@@ -228,13 +228,16 @@
     }
 
     &__item {
+        @media screen and (max-width: 1024px) {
+            margin: 7px 0;
+        }
     }
 
     &__heading {
         font-size: 28px;
         font-size: 32px;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin: 0 0 20px;
 
         @media screen and (max-width: 1920px) {
             font-size: 28px;
@@ -245,7 +248,7 @@
         }
 
         @media screen and (max-width: 1024px) {
-            margin: 15px 0 5px;
+            margin: 0;
         }
     }
 
@@ -305,6 +308,9 @@
         }
 
         &--secondary {
+            @media screen and (max-width: 1024px) {
+                display: none;
+            }
         }
 
         // pseudo elements
@@ -789,8 +795,8 @@ main {
 
         &--narrow {
             padding: 40px 30px 70px;
-        }        
-        
+        }
+
         &--bottom-xl {
             padding: 40px 30px 70px;
         }

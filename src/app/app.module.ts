@@ -27,7 +27,6 @@ import { TouComponent } from './components/about/tou/tou.component';
 import { FaqComponent } from './components/about/faq/faq.component';
 import { DictionaryComponent } from './components/about/dictionary/dictionary.component';
 import { TrimPipe } from './helpers/trim.pipe';
-import { HamburgerComponent } from './layout/hamburger/hamburger.component';
 import { DesignComponent } from './components/design/design.component';
 import { EbwComponent } from './components/fas/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
@@ -84,7 +83,6 @@ import { MapComponent } from './components/map/map.component';
     TouComponent,
     FaqComponent,
     DictionaryComponent,
-    HamburgerComponent,
     DesignComponent,
     EbwComponent,
     CardComponent,

@@ -27,14 +27,14 @@
 
                 <h1 class="navigation__heading">
                     <span class="navigation__heading-text"> {{ link.section }} </span>
-                    <a class="navigation__heading-link" routerLink="/{{ link.url }}" closeMenu>{{ link.section }}</a>
+                    <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}" closeMenu>{{ link.section }}</a>
                 </h1>
 
-                <div class="navigation__section" [class]="getCSSClass(link.status)">
+                <div class="navigation__section" [class]="getCSSClass(link)">
 
-                    <a class="navigation__link" [class]="getCSSClass(link.type)"
+                    <a class="navigation__link" [class]="getCSSClass(link)"
                         routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                        *ngFor="let link of link.content" closeMenu>
+                        *ngFor="let link of link.sectionContent" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>
 
@@ -54,14 +54,14 @@
 
                 <h1 class="navigation__heading">
                     <span class="navigation__heading-text"> {{ link.section }} </span>
-                    <a class="navigation__heading-link" routerLink="/{{ link.url }}" closeMenu>{{ link.section }}</a>
+                    <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}" closeMenu>{{ link.section }}</a>
                 </h1>
 
-                <div class="navigation__section" [class]="getCSSClass(link.status)">
+                <div class="navigation__section" [class]="getCSSClass(link)">
 
-                    <a class="navigation__link" [class]="getCSSClass(link.type)"
+                    <a class="navigation__link" [class]="getCSSClass(link)"
                         routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                        *ngFor="let link of link.content" closeMenu>
+                        *ngFor="let link of link.sectionContent" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>
 

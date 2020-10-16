@@ -67,13 +67,15 @@ export class MenuComponent implements OnInit {
 
   }
 
-  getCSSClass(linkStatus: string | null, linkType: string | null): string {
+  getCSSClass(link: string | null): string {
 
-    if (linkStatus) {
-      return `navigation__section--${linkStatus}`;
+    console.log('LINK', link)
+
+    if (link['sectionType']) {
+      return `navigation__section--${link['sectionType']}`;
     }
-    else {
-      return `navigation__link--${linkType}`;
+    else if (link['type']){
+      return `navigation__link--${link['type']}`;
     }
 
   }

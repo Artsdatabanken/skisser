@@ -18,9 +18,9 @@
     "menu": [
         {
             "section": "Observasjoner",
-            "url": "observations",
-            "status": "primary",
-            "content": [
+            "sectionUrl": "observations",
+            "sectionType": "primary",
+            "sectionContent": [
                 {
                     "title": "Rapportere observasjon",
                     "name": "report-observation",
@@ -55,9 +55,9 @@
         },
         {
             "section": "Administrere",
-            "url": "management",
-            "status": "secondary",
-            "content": [
+            "sectionUrl": "management",
+            "sectionType": "secondary",
+            "sectionContent": [
                 {
                     "title": "Mine prosjekter",
                     "name": "management",
@@ -86,9 +86,9 @@
         },
         {
             "section": "Minside",
-            "url": "dashboard",
-            "status": "primary",
-            "content": [
+            "sectionUrl": "dashboard",
+            "sectionType": "secondary",
+            "sectionContent": [
                 {
                     "title": "Min profil",
                     "name": "dashboard",
@@ -122,26 +122,12 @@
             ]
         }
     ],
-    "topMenu": [
-        {
-            "title": "Logg inn",
-            "name": "login",
-            "url": "login",
-            "type": "tertiary"
-        },
-        {
-            "title": "English",
-            "name": "english",
-            "url": "english",
-            "type": "tertiary"
-        }
-    ],
     "subMenu": [
         {
             "section": "Tall og statistikk",
-            "url": "statistics",
-            "status": "secondary",
-            "content": [
+            "sectionUrl": "statistics",
+            "sectionType": "secondary",
+            "sectionContent": [
                 {
                     "title": "Oversiktstall",
                     "name": "statistics",
@@ -194,9 +180,9 @@
         },
         {
             "section": "Om tjenesten",
-            "url": "about",
-            "status": "secondary",
-            "content": [
+            "sectionUrl": "about",
+            "sectionType": "secondary",
+            "sectionContent": [
                 {
                     "title": "Om artsobservasjoner.no",
                     "name": "about",
@@ -247,6 +233,20 @@
                     "type": "secondary"
                 }
             ]
+        }
+    ],
+    "topMenu": [
+        {
+            "title": "Logg inn",
+            "name": "login",
+            "url": "login",
+            "type": "tertiary"
+        },
+        {
+            "title": "English",
+            "name": "english",
+            "url": "english",
+            "type": "tertiary"
         }
     ],
     "footerMenu": [
