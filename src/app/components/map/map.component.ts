@@ -9,7 +9,7 @@ import OSM from 'ol/source/OSM';
 import XYZ from 'ol/source/XYZ';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
-import OlFeature from 'ol/feature';
+import OlFeature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import { fromLonLat } from 'ol/proj';
 
