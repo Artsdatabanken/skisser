@@ -14,6 +14,7 @@ export class TeaserComponent implements OnInit {
   @Input() text: string | null;
   @Input() url: string | null;
   @Input() tag: string | null;
+  @Input() date: string | Date | null;
 
   constructor() { }
 
