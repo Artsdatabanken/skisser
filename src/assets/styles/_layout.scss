@@ -457,7 +457,7 @@
         cursor: pointer;
 
         &--active {
-            font-weight: 700;
+            font-weight: 500;
         }
     }
 }
@@ -588,10 +588,6 @@
     }
 }
 
-.footer-logo {
-    width: 100px;
-}
-
 // MAIN
 
 main {
@@ -637,6 +633,7 @@ main {
         grid-template-rows: repeat(4, auto);
         grid-template-rows: auto auto 1fr 0;
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." ". router router router .";
+        padding: 50px 0;
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 3fr 3fr 1fr;
@@ -670,6 +667,12 @@ main {
         grid-template-rows: repeat(4, auto);
         grid-template-rows: auto auto 1fr 0;
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
+
+        @media screen and (max-width: 1600px) {
+            grid-template-columns: 1fr 6fr 1fr;
+            grid-template-areas: "pageTitle pageTitle pageTitle" "component component component" "router router router";
+            padding: 60px 30px;
+        }
     }
 
     & > * {

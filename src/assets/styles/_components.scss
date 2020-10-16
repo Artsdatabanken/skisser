@@ -259,13 +259,13 @@
 
 .tag {
     @include variable(background-color, transparent);
-    @include variable(color, clrAqua3);
+    @include variable(color, clrDark);
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
     border-bottom-right-radius: 0;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 500;
     padding: 2px 8px;
 }
 
@@ -300,10 +300,16 @@
         padding: 15px;
 
         &:nth-child(odd) {
-            @include variable(background-color, clrAqua4Transparent);
+            @include variable(background-color, clrAqua0);
             //@include variable(background-color, clrLight);
             border-radius: 15px;
             border-bottom-right-radius: 0;
+        }
+    }
+
+    th {
+        a {
+            font-weight: 500;
         }
     }
 
@@ -375,7 +381,7 @@
 .gallery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px 20px;
+    gap: 30px;
 
     &__item {
         min-height: 30vh;
@@ -383,14 +389,29 @@
 }
 
 .item {
+    @include variable(background-color, clrLight);
+    @include variable(background-color, clrWash);
+    border-radius: 15px;
+    border-bottom-right-radius: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 
     &__title {
         @include variable(font-family, fontSecondary);
-        font-size: 22px;
-        font-weight: 600;
+        font-size: 27px;
+        font-weight: 500 !important;
+        //margin-bottom: 5px;
+        padding: 15px 30px 0;
+        order: 2;
+    }
+
+    &__subtitle {
+        // @include variable(font-family, fontPrimary);
+        font-size: 18px;
+        font-weight: 400 !important;
+        padding: 0 30px 15px;
+        margin: 5px 0 10px !important;
         order: 2;
     }
 
@@ -398,9 +419,12 @@
         background: lightgrey;
         background-position: center center;
         background-size: cover;
+
         border-radius: 15px;
+        border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         margin-bottom: 15px;
+        padding: 0;
         min-height: 25vh;
         order: 1;
 
@@ -418,8 +442,32 @@
     }
 
     &__details {
-        font-size: 18px;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: space-between;
+        @include variable(border-top-color, clrAqua2);
+        border-top-style: solid;
+        border-top-width: 1px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 17px;
+        font-weight: 500;
+        padding: 15px 30px;
         order: 3;
+
+        & > * {
+            //border: 1px solid red;
+            align-self: center;
+
+            &:first-child {
+                justify-self: start;
+            }
+
+            &:last-child {
+                justify-self: end;
+                text-align: right;
+            }
+        }
     }
 }
 
@@ -433,7 +481,7 @@
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0 30px;
+    grid-gap: 0 50px;
 }
 
 .teaser {
