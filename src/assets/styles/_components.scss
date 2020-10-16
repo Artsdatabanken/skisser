@@ -68,7 +68,7 @@
         color: inherit;
         font-size: 34px;
         font-size: 24px;
-        font-weight: 400;
+        font-weight: 400 !important;
         order: 2;
     }
 
@@ -126,17 +126,6 @@
         @media screen and (max-width: 900px) {
             display: inline;
         }
-    }
-}
-
-/* site search*/
-
-.site-search {
-    &__input {
-        background-image: url(../images/iconSearch.png);
-        background-position: right 10px center;
-        background-repeat: no-repeat;
-        background-size: 28px;
     }
 }
 
@@ -460,6 +449,11 @@
         font-weight: 400 !important;
         margin-bottom: 0;
         order: 2;
+
+        &:focus,
+        &:active {
+            order: 2;
+        }
     }
 
     &__image {
@@ -470,14 +464,21 @@
         order: 1;
         height: 30vh;
         width: 100%;
+        transition: opacity 0.5s;
+
+        &:focus,
+        &:active {
+            order: 1;
+        }
 
         &:hover {
             opacity: 0.3;
+            transition: opacity 0.5s;
         }
     }
 
     &__details {
-        margin-bottom: 22px;
+        margin-bottom: 20px;
         order: 3;
 
         & > * {
@@ -505,5 +506,19 @@
     &__text {
         font-size: 18px;
         order: 4;
+    }
+}
+
+// icons
+
+.icon {
+    &--right {
+        float: right;
+    }
+
+    img {
+        height: 30px;
+        object-fit: cover;
+        width: 30px;
     }
 }

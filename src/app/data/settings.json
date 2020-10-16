@@ -40,19 +40,13 @@
                     "type": "secondary"
                 },
                 {
-                    "title": "Rapportere artsovervåking",
-                    "name": "report-species",
-                    "url": "report",
-                    "type": "secondary"
-                },
-                {
                     "title": "Observasjonsprosjekter",
                     "name": "projects",
                     "url": "projects",
                     "type": "secondary"
                 },
                 {
-                    "title": "Validere observasjoner",
+                    "title": "Validere observasjoner***",
                     "name": "report",
                     "url": "report",
                     "type": "secondary"
@@ -153,7 +147,7 @@
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
-                }, 
+                },
                 {
                     "title": "Kvalitetssikrede data",
                     "name": "statistics",
@@ -208,6 +202,18 @@
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
+                },  
+                {
+                    "title": "Kvalitetssikring",
+                    "name": "about",
+                    "url": "about",
+                    "type": "secondary"
+                },  
+                {
+                    "title": "Samarbeid",
+                    "name": "about",
+                    "url": "about",
+                    "type": "secondary"
                 },
                 {
                     "title": "Brukervilkår",
@@ -221,6 +227,7 @@
                     "url": "about",
                     "type": "secondary"
                 },
+                            
                 {
                     "title": "Aktuelle saker",
                     "name": "about",

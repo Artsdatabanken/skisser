@@ -733,13 +733,18 @@ main {
         padding: 60px 30px;
 
         &--column {
-            display: block;
+            //display: block;
+            flex-direction: column;
+
+            & > * {
+                // border: 1px solid fuchsia;
+            }
         }
 
         &--colored {
             @include variable(background-color, clrAqua1);
             @include variable(background-color, clrAccent);
-            @include variable(background-color, clrAqua4);
+            @include variable(background-color, clrAqua2);
         }
 
         &--colored2 {
@@ -749,7 +754,6 @@ main {
         &--colored3 {
             background-color: transparentize($color: #e5b445, $amount: 0.7);
         }
-
     }
 
     &__cell {
@@ -758,6 +762,11 @@ main {
         justify-self: center;
         padding-right: 50px;
         width: 50%;
+
+        &--narrow {
+            align-self: center;
+            width: 40%;
+        }
 
         &--centered {
             text-align: center;

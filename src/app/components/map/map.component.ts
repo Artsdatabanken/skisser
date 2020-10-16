@@ -12,7 +12,9 @@ import TileLayer from 'ol/layer/Tile';
 import OlFeature from 'ol/feature';
 import Point from 'ol/geom/Point';
 import { fromLonLat } from 'ol/proj';
-import MapboxVector from 'ol/layer/MapboxVector';
+
+import { DragPan, MouseWheelZoom, defaults } from 'ol/interaction';
+import { platformModifierKeyOnly } from 'ol/events/condition';
 
 @Component({
   selector: 'app-map',
@@ -24,6 +26,7 @@ export class MapComponent implements OnInit {
 
   map;
   map2;
+  map3;
 
   constructor() { }
 
@@ -90,7 +93,17 @@ export class MapComponent implements OnInit {
       this.getMapIconStyle(c);
     });
 
+    // map 1
     this.map = new Map({
+      interactions: defaults({ dragPan: false, mouseWheelZoom: false }).extend([
+        new DragPan({
+          condition: function (event) {
+            return this.getPointerCount() === 2 || platformModifierKeyOnly(event);
+          },
+        }),
+        new MouseWheelZoom({
+          condition: platformModifierKeyOnly,
+        })]),
       target: 'map',
       layers: [
         new TileLayer({
@@ -121,6 +134,32 @@ export class MapComponent implements OnInit {
         new TileLayer({
           source: new XYZ({
             url: 'https://api.mapbox.com/styles/v1/consthauge/ckgaqup4k3ige19nwb2b71t9e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29uc3RoYXVnZSIsImEiOiJjaWliZjIyNWEwMWN4eDZseml1NTNienJvIn0.xYoNXH-2ryD6j-sB0SwXqw'
+          })
+        }),
+        new VectorLayer({
+          source: new VectorSource({
+            features: countries,
+          })
+        })
+      ],
+      view: new View({
+        center: olProj.fromLonLat([13.194067, 65.837983]),
+        zoom: 5
+      })
+    });
+
+    // map3
+    this.map3 = new Map({
+      target: 'map3',
+      layers: [
+        // new MapboxVector({
+        //   //styleUrl: 'mapbox://styles/consthauge/ckda047ee0qni1il7ij8k4kxr',
+        //   styleUrl: 'mapbox://styles/consthauge/ckde9d5fu4uxl1inxe24c4z1z',
+        //   accessToken: 'pk.eyJ1IjoiY29uc3RoYXVnZSIsImEiOiJjaWliZjIyNWEwMWN4eDZseml1NTNienJvIn0.xYoNXH-2ryD6j-sB0SwXqw',
+        // }),
+        new TileLayer({
+          source: new XYZ({
+            url: 'https://api.mapbox.com/styles/v1/consthauge/ckganv3730gq119pfav13yu87/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29uc3RoYXVnZSIsImEiOiJjaWliZjIyNWEwMWN4eDZseml1NTNienJvIn0.xYoNXH-2ryD6j-sB0SwXqw'
           })
         }),
         new VectorLayer({

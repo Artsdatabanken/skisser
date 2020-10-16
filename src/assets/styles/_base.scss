@@ -127,6 +127,15 @@ h2 {
   h3 + & {
     margin: 30px 0 15px;
   }
+
+  .frontpage & {
+    font-weight: 300;
+    margin: 0 0 30px;
+  }
+
+  .frontpage--column & {
+    margin: 0;
+  }
 }
 
 h3 {

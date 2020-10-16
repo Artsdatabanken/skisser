@@ -9,12 +9,10 @@
 
     <div class="page__content"> -->
 
-
-
     <!--top-->
     <div class="frontpage__section frontpage__section--colored">
 
-        <div class="frontpage__cell">
+        <div class="frontpage__cell frontpage__cell--narrow">
             <div class="form">
                 <form action="">
                     <label for="species">Artsnavn</label>
@@ -32,25 +30,29 @@
                 </form>
             </div>
         </div>
-        <div class="frontpage__cell frontpage__cell--colored">
-            <h1>Rapporter hva du har sett!</h1>
+        <div class="frontpage__cell frontpage__cell--narrow frontpage__cell--colored">
+            <h2 style="margin: 0;">Rapporter hva du har sett!</h2>
         </div>
 
 
     </div>
 
+    <!--top-->
 
     <!--content-->
     <div class="frontpage__section frontpage__section--column">
 
-        <h1>Siste observasjoner</h1>
+        <h2>Siste observasjoner</h2>
         <app-sightings></app-sightings>
     </div>
     <!--content-->
 
     <!--services-->
 
-    <div class="frontpage__section frontpage__section--colored2">
+    <div class="frontpage__section frontpage__section--column frontpage__section--colored2">
+
+        <h2>Snarveier</h2>
+
         <div class="cards">
 
             <app-card [type]="'link'" [url]="'/report-observation'" [title]="'Rapportere observasjon'"></app-card>
@@ -68,14 +70,20 @@
 
     <div class="frontpage__section frontpage__section--column frontpage__section--colored3">
 
-        <h1>Aktuelle saker</h1>
+        <h2>Siste nytt</h2>
 
         <div class="teasers">
-            <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'10.07.2020'" [title]="'Aktuell etian eilefend laooreet'"> </app-teaser>
-            <app-teaser [source]="'animal2'" [url]="'/'" [text]="loremIpsum" [tag]="'Nyhet'" [date]="'11.08.2020'" [title]="'Aktuell nullam accusam sagittis'"> </app-teaser>
-            <app-teaser [source]="'animal3'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'22.09.2020'" [title]="'Aktuell placerat extristique velit tiemole'"> </app-teaser>
-            <app-teaser [source]="'animal6'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'04.10.2020'" [title]="'Aktuell lorem ipsum nullam felsi sed tristique'"> </app-teaser>
+            <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'04.10.2020'"
+                [title]="'Aktuell etian eilefend laooreet'"> </app-teaser>
+            <app-teaser [source]="'animal2'" [url]="'/'" [text]="loremIpsum" [tag]="'Nyhet'" [date]="'22.09.2020'"
+                [title]="'Aktuell nullam accusam sagittis'"> </app-teaser>
+            <app-teaser [source]="'animal3'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'19.08.2020'"
+                [title]="'Aktuell placerat extristique velit tiemole'"> </app-teaser>
+            <app-teaser [source]="'animal6'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'13.07.2020'"
+                [title]="'Aktuell lorem ipsum nullam felsi sed tristique'"> </app-teaser>
         </div>
+
+        <div class="alignright"><a class="forward" href=""><small>Flere nyheter</small></a></div>
 
     </div>
 
@@ -85,7 +93,7 @@
 
     <div class="frontpage__section">
         <div class="frontpage__cell">
-            <h1>Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?</h1>
+            <h2 style="margin: 0;">Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?</h2>
         </div>
         <div class="frontpage__cell frontpage__cell--centered frontpage__cell--colored3">
             <a href="" class="button button--cta button--xl button--centered">Bli validator!</a>
@@ -96,8 +104,10 @@
     <!--extras-->
 
     <!--bottom-->
-    <div class="frontpage__section"></div>
 
+    <!-- <div class="frontpage__section"></div> -->
+
+    <!--bottom-->
 
 
     <!-- </div>
