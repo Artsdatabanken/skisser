@@ -26,7 +26,7 @@
     padding: 20px 45px 20px 20px;
     text-align: left;
 
-    // &---active {
+    // &--active {
     //     @include variable(background-color, clrAqua4Original);
     //     @include variable(border-color, clrAqua4Original);
     // }
@@ -66,7 +66,7 @@
         width: 64px;
         display: none;
 
-        &---sm {
+        &--sm {
             height: 36px;
             width: 36px;
         }
@@ -82,7 +82,7 @@
     margin: 0 0 75px;
     padding: 0;
 
-    &---sm {
+    &--sm {
         font-size: 18px;
         font-weight: 600;
     }
@@ -128,17 +128,17 @@
     justify-content: space-between;
     align-items: center;
 
-    &---cta {
+    &--cta {
         @include variable(background-color, clrAqua2);
         @include variable(border-color, clrAqua2);
         @include variable(color, clrBlack);
         @include variable(font-family, fontPrimary);
     }
 
-    &---dropdown {
+    &--dropdown {
     }
 
-    &---xl {
+    &--xl {
         display: inline-block;
         font-size: 36px;
         font-weight: 400;
@@ -147,7 +147,7 @@
         padding: 0 36px;
     }
 
-    &---centered {
+    &--centered {
         margin: 0 auto;
     }
 
@@ -166,7 +166,7 @@
             width: 30px;
         }
 
-        &---lock {
+        &--lock {
             background-image: url(../images/iconLock.png);
             background-size: contain;
             height: 22px;
@@ -207,7 +207,7 @@
         margin: 0 5px;
         padding: 5px 10px;
 
-        &---yesterday {
+        &--yesterday {
             background-image: url(../images/iconChevronLeft.png);
             background-position: left 10px center;
             border-radius: 5px;
@@ -215,7 +215,7 @@
             padding-left: 30px;
         }
 
-        &---tomorrow {
+        &--tomorrow {
             background-image: url(../images/iconChevronRight.png);
             background-position: right 10px center;
             border-radius: 5px;
@@ -263,15 +263,17 @@
         // border-bottom-width: 2px;
 
         @include variable(border-color, clrAqua3);
+        @include variable(border-color, clrAccent);
         border-style: solid;
         border-width: 2px;
 
         &:nth-child(odd) {
-            @include variable(background-color, clrAqua0);
+            @include variable(background-color, clrShadow);
         }
 
         &:hover {
             @include variable(background-color, clrShadow);
+            @include variable(background-color, clrAqua0);
             // @include variable(border-color, clrAqua0);
             // border-style: solid;
             // border-width: 2px;
@@ -395,15 +397,15 @@
         min-height: 25vh;
         order: 1;
 
-        &---1 {
+        &--1 {
             background-image: url(../images/gallery/panda.jpg);
         }
 
-        &---2 {
+        &--2 {
             background-image: url(../images/gallery/leopard.jpg);
         }
 
-        &---3 {
+        &--3 {
             background-image: url(../images/gallery/frog.jpg);
         }
     }
@@ -513,7 +515,7 @@
 // icons
 
 .icon {
-    &---right {
+    &--right {
         float: right;
     }
 
