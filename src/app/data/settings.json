@@ -50,6 +50,12 @@
                     "name": "report",
                     "url": "report",
                     "type": "secondary"
+                },
+                {
+                    "title": "Mine observasjoner",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "primary"
                 }
             ]
         },

@@ -17,10 +17,6 @@ $vars: (
   fontSecondary: #{"robotocondensed",  Consolas,  monospace},
   fontAccent: #{"robotomono",  Consolas, monospace},
 
-  fontSizeSmall: 16px,
-  fontSizeMedium: 20px,
-  fontSizeLarge: 32px,
-
   clrBlack: #2d2620,
   clrWhite: #f7f6f5, 
   
@@ -29,6 +25,7 @@ $vars: (
   clrLight: #e2dcd7,
   clrDark: #514942,
   clrAccent: #e5b445,
+  clrShadow: transparentize($color: #e5b445, $amount: 0.5),
   
   clrAqua0: #deedea,
   clrAqua1: #bedbd6,
@@ -56,6 +53,7 @@ $vars: (
   --clrLight: #{map-get($vars, clrLight)};
   --clrDark: #{map-get($vars, clrDark)};
   --clrAccent: #{map-get($vars, clrAccent)};
+  --clrShadow: #{map-get($vars, clrShadow)};
   
   --clrAqua0: #{map-get($vars, clrAqua0)};
   --clrAqua1: #{map-get($vars, clrAqua1)};

@@ -98,6 +98,11 @@
 
 .hamburger {
     @include variable(padding-right, paddingStd);
+    // @include variable(border-color, clrBlack);
+    // border-radius: 10px;
+    // border-bottom-right-radius: 0;
+    // border-style: solid;
+    // border-width: 2px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -109,10 +114,11 @@
         padding: 0;
     }
 
-    &:active {
-    }
-
+    &:active,
     &:focus {
+        // @include variable(border-color, clrBlack);
+        // border-style: solid;
+        // border-width: 2px;
     }
 
     & > * {
@@ -814,6 +820,7 @@ main {
 
         &--colored3 {
             background-color: transparentize($color: #e5b445, $amount: 0.7);
+            @include variable(background-color, clrShadow);
         }
     }
 
@@ -835,6 +842,7 @@ main {
 
         &--colored1 {
             background-color: transparentize($color: #e5b445, $amount: 0.5);
+            @include variable(background-color, clrShadow);
         }
 
         &--colored {

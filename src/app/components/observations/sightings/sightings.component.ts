@@ -10,6 +10,7 @@ export class SightingsComponent implements OnInit {
 
   display: string = 'table';
 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,9 +19,9 @@ export class SightingsComponent implements OnInit {
     console.log('display', this.display)
    }
 
-  chooseDisplay(display: string): void {
+  chooseDisplay(display: string, templateRef: any): void {
     this.display = display;
-    console.log('display', display)
+    console.log('display', templateRef)
   }
 
 

@@ -69,8 +69,6 @@ export class MenuComponent implements OnInit {
 
   getCSSClass(link: string | null): string {
 
-    console.log('LINK', link)
-
     if (link['sectionType']) {
       return `navigation__section--${link['sectionType']}`;
     }

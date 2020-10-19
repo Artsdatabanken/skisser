@@ -128,134 +128,6 @@
     font-display: swap;
 }
 
-/*oswald*/
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-ExtraLight.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-ExtraLight.woff") format("woff");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-ExtraLightItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-ExtraLightItalic.woff") format("woff");
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-Light.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-LightItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-LightItalic.woff") format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-Regular.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-RegularItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-RegularItalic.woff") format("woff");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-Medium.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-MediumItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-MediumItalic.woff") format("woff");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-SemiBold.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-SemiBold.woff") format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-SemiBoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-SemiBoldItalic.woff") format("woff");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-Bold.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-BoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-BoldItalic.woff") format("woff");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-Heavy.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-Heavy.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "oswald";
-    src: url("/assets/fonts/oswald/Oswald-HeavyItalic.woff2") format("woff2"),
-        url("/assets/fonts/oswald/Oswald-HeavyItalic.woff") format("woff");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
 // roboto condensed
 
 @font-face {
@@ -440,79 +312,6 @@
     font-display: swap;
 }
 
-/*big shoulders text */
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-Thin.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-Thin.woff") format("woff");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-Light.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-Regular.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-Medium.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-SemiBold.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-SemiBold.woff") format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-Bold.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-ExtraBold.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-ExtraBold.woff") format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "bigshoulderstext";
-    src: url("/assets/fonts/bigshoulders/BigShouldersText-Black.woff2") format("woff2"),
-        url("/assets/fonts/bigshoulders/BigShouldersText-Black.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
 
 /*work sans*/
 
@@ -841,3 +640,65 @@
     font-style: italic;
     font-display: swap;
 }
+
+// red hat
+
+
+
+@font-face {
+    font-family: 'redhattext';
+    src: url('/assets/fonts/redhat/RedHatText-Regular.woff2') format('woff2'),
+        url('/assets/fonts/redhat/RedHatText-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'redhattext';
+    src: url('/assets/fonts/redhat/RedHatText-RegularItalic.woff2') format('woff2'),
+        url('/assets/fonts/redhat/RedHatText-RegularItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'redhattext';
+    src: url('/assets/fonts/redhat/RedHatText-Medium.woff2') format('woff2'),
+        url('/assets/fonts/redhat/RedHatText-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'redhattext';
+    src: url('/assets/fonts/redhat/RedHatText-MediumItalic.woff2') format('woff2'),
+        url('/assets/fonts/redhat/RedHatText-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'redhattext';
+    src: url('/assets/fonts/redhat/RedHatText-Bold.woff2') format('woff2'),
+        url('/assets/fonts/redhat/RedHatText-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'redhattext';
+    src: url('/assets/fonts/redhat/RedHatText-BoldItalic.woff2') format('woff2'),
+        url('/assets/fonts/redhat/RedHatText-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
