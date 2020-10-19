@@ -69,10 +69,16 @@ form {
     textarea {
         @include variable(border-color, clrBlack);
         @include variable(font-family, fontPrimary);
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
         border-width: 2px;
-        min-height: 20vh;
-        padding: 10px 12px;
+        min-height: 25vh;
+        padding: 15px;
         width: 100%;
+
+        &:focus, &:active {
+            padding: 15px;
+        }
     }
 }
 

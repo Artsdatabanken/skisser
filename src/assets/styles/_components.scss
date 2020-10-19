@@ -26,7 +26,7 @@
     padding: 20px 45px 20px 20px;
     text-align: left;
 
-    // &--active {
+    // &---active {
     //     @include variable(background-color, clrAqua4Original);
     //     @include variable(border-color, clrAqua4Original);
     // }
@@ -66,7 +66,7 @@
         width: 64px;
         display: none;
 
-        &--sm {
+        &---sm {
             height: 36px;
             width: 36px;
         }
@@ -82,7 +82,7 @@
     margin: 0 0 75px;
     padding: 0;
 
-    &--sm {
+    &---sm {
         font-size: 18px;
         font-weight: 600;
     }
@@ -128,17 +128,17 @@
     justify-content: space-between;
     align-items: center;
 
-    &--cta {
+    &---cta {
         @include variable(background-color, clrAqua2);
         @include variable(border-color, clrAqua2);
         @include variable(color, clrBlack);
         @include variable(font-family, fontPrimary);
     }
 
-    &--dropdown {
+    &---dropdown {
     }
 
-    &--xl {
+    &---xl {
         display: inline-block;
         font-size: 36px;
         font-weight: 400;
@@ -147,7 +147,7 @@
         padding: 0 36px;
     }
 
-    &--centered {
+    &---centered {
         margin: 0 auto;
     }
 
@@ -166,7 +166,7 @@
             width: 30px;
         }
 
-        &--lock {
+        &---lock {
             background-image: url(../images/iconLock.png);
             background-size: contain;
             height: 22px;
@@ -207,7 +207,7 @@
         margin: 0 5px;
         padding: 5px 10px;
 
-        &--yesterday {
+        &---yesterday {
             background-image: url(../images/iconChevronLeft.png);
             background-position: left 10px center;
             border-radius: 5px;
@@ -215,7 +215,7 @@
             padding-left: 30px;
         }
 
-        &--tomorrow {
+        &---tomorrow {
             background-image: url(../images/iconChevronRight.png);
             background-position: right 10px center;
             border-radius: 5px;
@@ -296,31 +296,36 @@
 /*progress bar*/
 
 .progressbar {
-    border: 1px solid blue;
     left: 0;
     right: 0;
-    position: absolute;
-    z-index: 1;
+    //position: absolute;
+    z-index: 10;
 
     ul,
     &__list {
         counter-reset: step;
         list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
     }
 
     li {
-        border: 1px solid red;
-        float: left;
-        margin: 0 15px;
+        @include variable(font-family, fontSecondary);
+        margin: 0 50px;
         position: relative;
         text-align: center;
-        width: 30%;
+        z-index: 7;
 
         &:before {
-            background: white;
-            border: 2px solid #bebebe;
+            @include variable(background-color, clrAqua5);
+            @include variable(border-color, clrAqua5);
+            @include variable(color, clrWhite);
+            border-style: solid;
+            border-width: 2px;
             border-radius: 50%;
-            color: #bebebe;
             content: counter(step);
             counter-increment: step;
             height: 50px;
@@ -332,18 +337,19 @@
             width: 50px;
         }
 
-        :after {
-            background: #979797;
+        &:after {
+            @include variable(background-color, clrAqua5);
             content: "";
+            display: block;
             height: 3px;
-            left: -50%;
+            left: 100%;
             position: absolute;
-            top: 15px;
-            width: 100%;
-            z-index: -1;
+            top: 25px;
+            width: 100px;
+            z-index: 5;
         }
 
-        :first-child:after {
+        &:last-child:after {
             content: none;
         }
     }
@@ -389,15 +395,15 @@
         min-height: 25vh;
         order: 1;
 
-        &--1 {
+        &---1 {
             background-image: url(../images/gallery/panda.jpg);
         }
 
-        &--2 {
+        &---2 {
             background-image: url(../images/gallery/leopard.jpg);
         }
 
-        &--3 {
+        &---3 {
             background-image: url(../images/gallery/frog.jpg);
         }
     }
@@ -507,7 +513,7 @@
 // icons
 
 .icon {
-    &--right {
+    &---right {
         float: right;
     }
 
@@ -515,5 +521,76 @@
         height: 30px;
         object-fit: cover;
         width: 30px;
+    }
+}
+
+// tabs /accordion
+
+.tabs {
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+}
+
+.tab {
+    overflow: hidden;
+    width: 100%;
+
+    &__label {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @include variable(background-color, clrWhite);
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: 400;
+        padding: 15px 0;
+
+        &:hover {
+            //background: darken(fuchsia, 10%);
+        }
+
+        &::after {
+            background-image: url(../images/iconChevronDown.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: "";
+            margin-left: 15px;
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            transition: all 0.35s;
+        }
+    }
+
+    &__content {
+        @include variable(background-color, clrWash);
+        //max-height: 0;
+        padding: 0;
+        padding: 30px;
+        transition: all 0.35s;
+    }
+}
+
+input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+// :checked
+input:checked {
+    + .tab__label {
+        //background: darken(fuchsia, 10%);
+
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    ~ .tab__content {
+        max-height: 1000vh;
+        padding: 30px;
     }
 }
