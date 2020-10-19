@@ -11,7 +11,6 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { TouComponent } from './components/about/tou/tou.component';
 import { DesignComponent } from './components/design/design.component';
-import { ValidationComponent } from './components/validation/validation.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -192,16 +191,6 @@ const routes: Routes = [
       name: 'user-statistics',
       type: 'std',
       breadcrumb: 'Statistikk: Brukerstatistikk'
-    }
-  },
-  {
-    path: 'validation',
-    component: ValidationComponent,
-    data: {
-      title: 'Kvalitetssikring av data',
-      name: 'validation',
-      type: 'page',
-      breadcrumb: 'Kvalitetssikring av data'
     }
   },
   {

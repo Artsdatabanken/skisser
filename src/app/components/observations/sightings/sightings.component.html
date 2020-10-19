@@ -13,7 +13,7 @@
 
                 <!-- filter-->
 
-                <div class="loop loop--buttons">
+                <div class="loop loop--buttons loop--left">
 
                     <button class="button button--dropdown" aria-label="filtrer etter Artsgruppe ">
 
@@ -79,7 +79,7 @@
             <div class="grid__cell grid__cell--right">
 
                 <!--display-->
-                <div class="loop loop--buttons">
+                <div class="loop loop--buttons loop--right">
 
                     <app-button [text]="'Vis i kart'" (click)="chooseDisplay('map')"></app-button>
                     <app-button [text]="'Tabellvisning'" (click)="chooseDisplay('table')"></app-button>
@@ -91,6 +91,8 @@
             </div>
         </div>
 
+        <br><br>
+
         <!--display-->
 
         <div *ngIf="display === 'table'">
@@ -98,16 +100,16 @@
             <table class="table table--list table--invisible-header">
                 <thead class="table__header">
                     <tr>
-                        <th class="table__column-header">Art</th>
-                        <th class="table__column-header">Artsgruppe</th>
-                        <th class="table__column-header">Dato</th>
-                        <th class="table__column-header">Sted</th>
-                        <th class="table__column-header">Bilde</th>
+                        <th scope="col" class="table__column-header">Art</th>
+                        <th scope="col" class="table__column-header">Artsgruppe</th>
+                        <th scope="col" class="table__column-header">Dato</th>
+                        <th scope="col" class="table__column-header">Sted</th>
+                        <th scope="col" class="table__column-header">Bilde</th>
                     </tr>
                 </thead>
                 <tbody class="table__body">
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Rødryggtraktedderkopp</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Rødryggtraktedderkopp</a></th>
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>29.09.2020</td>
                         <td>Vinkelen, Leite , Bømlo, Ve</td>
@@ -115,7 +117,7 @@
                     </tr>
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Vanlig hageblomsterflue</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Vanlig hageblomsterflue</a></th>
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>22.09.2020</td>
                         <td>Gunhildsgate , Stavanger , Ro</td>
@@ -124,7 +126,7 @@
 
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Skogbarkmåler</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Skogbarkmåler</a></th>
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>21.09.2020</td>
                         <td>Gunhildsgate , Stavanger , Ro</td>
@@ -132,7 +134,7 @@
                     </tr>
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Mørk irmåler</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Mørk irmåler</a></th>
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>18.09.2020</td>
                         <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag</td>
@@ -140,7 +142,7 @@
                     </tr>
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Dysstroma</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Dysstroma</a></th>
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>15.09.2020</td>
                         <td>Villa Lunde, Lundeveien 114, Lunde, Lista , Farsund , Ag </td>
@@ -148,7 +150,7 @@
                     </tr>
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Vinkelskogmåler</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Vinkelskogmåler</a></th>
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>14.09.2020</td>
                         <td>Torsevegen 10 , Vik , Ve</td>
@@ -156,7 +158,7 @@
                     </tr>
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Isfugl</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Isfugl</a></th>
                         <td><span class="">Fugl</span></td>
                         <td>14.09.2020</td>
                         <td>Røysebekk-kilen, Sandefjord</td>
@@ -165,7 +167,7 @@
 
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">Havørn</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">Havørn</a></th>
                         <td><span class="">Fugl</span></td>
                         <td>12.09.2020</td>
                         <td>Sula/Timrebakkin, Vang</td>
@@ -174,7 +176,7 @@
 
 
                     <!-- <tr>
-                    <th class="table__row-header"><a routerLink=""></a></th>
+                    <th scope="row" class="table__row-header"><a routerLink=""></a></th>
                     <td><span class=""></span></td>
                     <td></td>
                     <td></td>
@@ -183,7 +185,7 @@
 
 
                     <tr>
-                        <th class="table__row-header"><a routerLink="">...</a></th>
+                        <th scope="row" class="table__row-header"><a routerLink="">...</a></th>
                         <td><span class="">...</span></td>
                         <td>...</td>
                         <td>...</td>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class SightingsComponent implements OnInit {
 
-  display: string = 'card';
+  display: string = 'table';
 
   constructor() { }
 

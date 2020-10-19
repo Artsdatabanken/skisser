@@ -28,16 +28,12 @@ import { FaqComponent } from './components/about/faq/faq.component';
 import { DictionaryComponent } from './components/about/dictionary/dictionary.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { DesignComponent } from './components/design/design.component';
-import { EbwComponent } from './components/fas/ebw/ebw.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
-import { ValidationComponent } from './components/validation/validation.component';
-import { SearchComponent } from './components/fas/search/search.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
-import { FasComponent } from './components/fas/fas.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagementComponent } from './components/management/management.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -84,16 +80,12 @@ import { MapComponent } from './components/map/map.component';
     FaqComponent,
     DictionaryComponent,
     DesignComponent,
-    EbwComponent,
     CardComponent,
     ButtonComponent,
     SiteSearchComponent,
-    ValidationComponent,
-    SearchComponent,
     DateComponent,
     PageTitleComponent,
     LoginComponent,
-    FasComponent,
     DashboardComponent,
     ManagementComponent,
     RegistrationComponent,

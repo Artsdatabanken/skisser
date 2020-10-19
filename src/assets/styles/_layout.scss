@@ -739,7 +739,19 @@ main {
 
     &--buttons {
         & > * {
-            margin: 0 10px 10px 0;
+            //margin: 0 10px 10px 0;
+        }
+    }
+
+    &--left {
+        & > * {
+            margin-right: 10px;
+        }
+    }
+
+    &--right {
+        & > * {
+            margin-left: 10px;
         }
     }
 
@@ -764,7 +776,6 @@ main {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 30px 30px;
-        margin-top: 30px;
 
         & > * {
         }
