@@ -34,6 +34,12 @@
                     "type": "primary"
                 },
                 {
+                    "title": "Mine observasjoner",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "primary"
+                },
+                {
                     "title": "Importere observasjoner",
                     "name": "import-observations",
                     "url": "import-observations",
@@ -50,12 +56,6 @@
                     "name": "report",
                     "url": "report",
                     "type": "secondary"
-                },
-                {
-                    "title": "Mine observasjoner",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "primary"
                 }
             ]
         },

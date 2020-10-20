@@ -494,15 +494,17 @@
         @include variable(background-color, clrAccent);
         border-radius: 6px;
         border-bottom-right-radius: 0;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
         margin: 5px 0;
-        padding: 2px 8px;
+        padding: 3px 11px 3px;
     }
 
     &__date {
-        font-size: 15px;
-        font-weight: 400;
+        
+        @include variable(font-family, fontSecondary);
+        font-size: 16px;
+        font-weight: 700;
         margin-left: 10px;
     }
 
