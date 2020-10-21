@@ -1,7 +1,7 @@
 <!--layout component-->
 
 <nav class="top-navigation" role="navigation" [attr.aria-label]="ariaLabel">
-    <a class="top-navigation__link" routerLinkActive="top-navigation__link--active"
+    <a class="top-navigation__link" [class]="getCSSClass(link.url)" routerLinkActive="top-navigation__link--active"
         routerLink="{{ link }}" *ngFor="let link of navigationLinks$ | async">
         {{ link.title }}
     </a>

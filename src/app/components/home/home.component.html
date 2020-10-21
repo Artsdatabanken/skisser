@@ -9,29 +9,51 @@
 
     <div class="page__content"> -->
 
+    <!--intro-->
+    <div class="frontpage__section frontpage__section--column">
+
+        <div class="frontpage__cell frontpage__cell--narrow">
+            <h3>Introtekst om Artsobservasjoner. Pellentesque habitant morbi tristique senectus et netus et malesuada
+            </h3>
+        </div>
+
+    </div>
+
+    <!--intro-->
+
     <!--top-->
     <div class="frontpage__section frontpage__section--colored">
 
-        <div class="frontpage__cell frontpage__cell--narrow">
-            <div class="form">
-                <form action="">
+        <div class="frontpage__cell frontpage__cell--narrow frontpage__cell--top">
+            <div>
+                <form class="form" action="">
                     <label for="species">Artsnavn</label>
-                    <input type="text" name="species" id="species" placeholder="Hvithai">
+                    <input type="text" name="species" id="species" placeholder="Carcharodon carcharias - hvithai">
 
 
                     <label for="species">Dato</label>
-                    <input type="text" name="date">
+
+                    <div class="form__grid form__grid--3">
+                        <input type="date" name="date">
+                        <button class="button button--primary">Akkurat nå</button>
+                    </div>
 
                     <label for="species">Sted</label>
-                    <input type="text" name="location">
 
+                    <div class="loop loop--buttons">
+                        <button class="button button--primary">Marker på kart</button>
+                        &nbsp;
+                        <button class="button button--primary">Hent fra GPS</button>
+                    </div>
 
-                    <input type="submit" value="Send inn" class="button button--cta">
+                    <!-- <input type="submit" value="Send inn" class="button button--cta"> -->
                 </form>
             </div>
         </div>
-        <div class="frontpage__cell frontpage__cell--narrow frontpage__cell--colored">
-            <h2 style="margin: 0;">Rapporter hva du har sett!</h2>
+        <div class="frontpage__cell frontpage__cell--auto-width frontpage__cell--colored frontpage__cell--top">
+            <button type="submit" value="Send inn" class="button button--cta button--styleless">
+                <h2 style="margin: 0;">Rapporter hva du har sett!</h2>
+            </button>
         </div>
 
 
@@ -99,7 +121,7 @@
         <div class="frontpage__cell frontpage__cell--centered frontpage__cell--colored3">
             <a href="" class="button button--cta button--xl button--centered">Bli validator!</a>
         </div>
-        
+
     </div>
 
     <!--extras-->

@@ -128,11 +128,25 @@
     justify-content: space-between;
     align-items: center;
 
+    // modifiers
+
+    &--styleless {
+        background: transparent !important;
+        border: none !important;
+        padding: none !important;
+    }
+
+    &--primary {
+        @include variable(background-color, clrAqua5);
+        @include variable(border-color, clrAqua5);
+        @include variable(color, clrWhite);
+        font-weight: 400;
+    }
+
     &--cta {
         @include variable(background-color, clrAqua2);
         @include variable(border-color, clrAqua2);
         @include variable(color, clrBlack);
-        @include variable(font-family, fontPrimary);
     }
 
     &--dropdown {
@@ -150,6 +164,8 @@
     &--centered {
         margin: 0 auto;
     }
+
+    // elements
 
     &__text {
         padding-bottom: 4px;

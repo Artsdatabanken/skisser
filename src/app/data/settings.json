@@ -194,13 +194,13 @@
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
-                },  
+                },
                 {
                     "title": "Kvalitetssikring",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
-                },  
+                },
                 {
                     "title": "Samarbeid",
                     "name": "about",
@@ -219,7 +219,6 @@
                     "url": "about",
                     "type": "secondary"
                 },
-                            
                 {
                     "title": "Aktuelle saker",
                     "name": "about",
@@ -248,6 +247,14 @@
             "url": "login",
             "type": "tertiary"
         },
+        {
+            "title": "Meldinger",
+            "name": "messages",
+            "url": "messages",
+            "type": "tertiary"
+        }
+    ],
+    "extraMenu": [
         {
             "title": "English",
             "name": "english",

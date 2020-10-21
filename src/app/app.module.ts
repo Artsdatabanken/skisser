@@ -52,6 +52,8 @@ import { ReportComponent } from './components/report/report.component';
 import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
 import { TeaserComponent } from './components/shared/teaser/teaser.component';
 import { MapComponent } from './components/map/map.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MessageComponent } from './components/messages/message/message.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +107,8 @@ import { MapComponent } from './components/map/map.component';
     ReportObservationComponent,
     TeaserComponent,
     MapComponent,
+    MessagesComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
