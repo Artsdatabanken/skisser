@@ -121,6 +121,7 @@
     line-height: 40px;
     min-height: 40px;
     padding: 0 18px;
+    text-align: center;
     width: auto;
 
     display: flex;
@@ -141,6 +142,7 @@
         @include variable(border-color, clrAqua5);
         @include variable(color, clrWhite);
         font-weight: 400;
+        text-align: center !important;
     }
 
     &--cta {
@@ -150,6 +152,7 @@
     }
 
     &--dropdown {
+        text-align: left;
     }
 
     &--xl {
@@ -517,7 +520,6 @@
     }
 
     &__date {
-        
         @include variable(font-family, fontSecondary);
         font-size: 16px;
         font-weight: 700;
@@ -597,7 +599,7 @@ input[type="checkbox"] {
     opacity: 0;
     position: absolute;
     z-index: -1;
-  }
+}
 
 // :checked
 input:checked {

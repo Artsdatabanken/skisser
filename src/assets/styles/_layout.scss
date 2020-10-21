@@ -584,7 +584,6 @@
 // footer
 
 .footer {
-    display: none;
     @include variable(background-color, clrLight);
     padding: 45px;
 
@@ -829,6 +828,11 @@ main {
         &--top {
         }
 
+        &--single-column {
+            flex-direction: column;
+            padding: 40px 30px 60px;
+        }
+
         &--column {
             flex-direction: column;
             padding: 80px 30px 120px;
@@ -838,6 +842,10 @@ main {
             @include variable(background-color, clrAqua1);
             @include variable(background-color, clrAccent);
             @include variable(background-color, clrAqua2);
+        }
+
+        &--colored1 {
+            @include variable(background-color, clrWash);
         }
 
         &--colored2 {
@@ -863,10 +871,14 @@ main {
 
         &--narrow {
             align-self: center;
-            width: 30%;
+            width: 36%;
 
             @media screen and (max-width: 1600px) {
                 width: 40%;
+            }
+
+            .frontpage__section--column & {
+                padding: 0;
             }
         }
 

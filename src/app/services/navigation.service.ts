@@ -55,13 +55,6 @@ export class NavigationService {
     const navigationLinks = [ ...menu, ...subMenu];
     const menuSection = navigationLinks.map(i => i.sectionContent);
 
-    console.log('menuSectionUrl', menuSectionUrl);
-    console.log('menu', menu);
-    console.log('subMenu', subMenu);
-    console.log('navigationLinks', navigationLinks);
-    console.log('menu section', menuSection);
-    console.log('menu section', menuSection[0]);
-
     return of(menuSection[0]).pipe();
   
   }

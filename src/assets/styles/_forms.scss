@@ -5,6 +5,7 @@ form {
 
     ::placeholder {
         @include variable(color, clrDark);
+        font-size: 19px;
     }
 
     label {
@@ -41,7 +42,12 @@ form {
         &:active,
         &:focus {
             padding: 12px 18px 9px;
-            margin-bottom: 15px;
+            //margin-bottom: 15px;
+        }
+
+        &[type="date"],
+        &[type="time"] {
+            font-weight: 600;
         }
 
         &[type="submit"] {
@@ -91,8 +97,13 @@ form {
     &__grid {
         display: grid;
 
+        &--4 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
         &--3 {
-            grid-template-columns: 3fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             grid-gap: 10px;
         }
 
