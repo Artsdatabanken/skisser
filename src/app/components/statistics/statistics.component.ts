@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-statistics',
@@ -8,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class StatisticsComponent implements OnInit {
 
-  constructor() { }
+  menuSections$: Observable<string[]>;
 
-  ngOnInit(): void {
+  constructor(private navigationService: NavigationService) { }
+
+  ngOnInit(): void { 
+    this.menuSections$ = this.navigationService.getMenuSectionItems('statistics');
+  }
+
+  getLinkUrl(linkUrl: string): string {
+    return `/${linkUrl}`;
   }
 
 }

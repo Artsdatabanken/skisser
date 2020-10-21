@@ -23,9 +23,6 @@ import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component
 import { TranslationPipe } from './helpers/translation.pipe';
 import { NavigationService } from './services/navigation.service';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
-import { TouComponent } from './components/about/tou/tou.component';
-import { FaqComponent } from './components/about/faq/faq.component';
-import { DictionaryComponent } from './components/about/dictionary/dictionary.component';
 import { TrimPipe } from './helpers/trim.pipe';
 import { DesignComponent } from './components/design/design.component';
 import { CardComponent } from './components/shared/card/card.component';
@@ -54,6 +51,7 @@ import { TeaserComponent } from './components/shared/teaser/teaser.component';
 import { MapComponent } from './components/map/map.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/messages/message/message.component';
+import { SitemapComponent } from './components/sitemap/sitemap.component';
 
 @NgModule({
   declarations: [
@@ -78,9 +76,6 @@ import { MessageComponent } from './components/messages/message/message.componen
     TranslationPipe,
     TrimPipe,
     LanguageSwitcherComponent,
-    TouComponent,
-    FaqComponent,
-    DictionaryComponent,
     DesignComponent,
     CardComponent,
     ButtonComponent,
@@ -109,6 +104,7 @@ import { MessageComponent } from './components/messages/message/message.componen
     MapComponent,
     MessagesComponent,
     MessageComponent,
+    SitemapComponent,
   ],
   imports: [
     BrowserModule,

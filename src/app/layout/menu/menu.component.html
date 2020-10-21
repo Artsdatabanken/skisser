@@ -78,7 +78,7 @@
 
                     <a class="navigation__link navigation__link--special"
                         routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                        *ngFor="let link of extraNavigationLinks$ | async">
+                        *ngFor="let link of extraNavigationLinks$ | async" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>
 
