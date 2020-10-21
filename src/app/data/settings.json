@@ -256,15 +256,21 @@
     ],
     "extraMenu": [
         {
+            "title": "Innholdskart A-å",
+            "name": "sitemap",
+            "url": "sitemap",
+            "type": "tertiary"
+        },
+        {
             "title": "English",
             "name": "english",
             "url": "english",
             "type": "tertiary"
-        }
+        }        
     ],
     "footerMenu": [
         {
-            "title": "Om Artsobservasjoner",
+            "title": "Om tjenesten",
             "name": "about",
             "url": "about"
         }

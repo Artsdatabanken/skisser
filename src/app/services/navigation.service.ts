@@ -58,4 +58,11 @@ export class NavigationService {
 
   }
 
+  getExtraMenuItems(): Observable<string[]> {
+
+    const navigationLinks: string[] = this.settings.extraMenu;
+    return of(navigationLinks).pipe();
+
+  }
+
 }

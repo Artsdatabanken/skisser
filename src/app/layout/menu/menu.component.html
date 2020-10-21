@@ -27,14 +27,14 @@
 
                 <h1 class="navigation__heading">
                     <span class="navigation__heading-text"> {{ link.section }} </span>
-                    <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}" closeMenu>{{ link.section }}</a>
+                    <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}"
+                        closeMenu>{{ link.section }}</a>
                 </h1>
 
                 <div class="navigation__section" [class]="getCSSClass(link)">
 
-                    <a class="navigation__link" [class]="getCSSClass(link)"
-                        routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                        *ngFor="let link of link.sectionContent" closeMenu>
+                    <a class="navigation__link" [class]="getCSSClass(link)" routerLinkActive="navigation__link--active"
+                        routerLink="{{ link.name }}" *ngFor="let link of link.sectionContent" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>
 
@@ -50,24 +50,42 @@
 
         <div class="navigation__container">
 
+            <!--subnavigation-->
             <div class="navigation__item" *ngFor="let link of subNavigationLinks$ | async">
 
                 <h1 class="navigation__heading">
                     <span class="navigation__heading-text"> {{ link.section }} </span>
-                    <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}" closeMenu>{{ link.section }}</a>
+                    <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}"
+                        closeMenu>{{ link.section }}</a>
                 </h1>
 
                 <div class="navigation__section" [class]="getCSSClass(link)">
 
-                    <a class="navigation__link" [class]="getCSSClass(link)"
-                        routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
-                        *ngFor="let link of link.sectionContent" closeMenu>
+                    <a class="navigation__link" [class]="getCSSClass(link)" routerLinkActive="navigation__link--active"
+                        routerLink="{{ link.name }}" *ngFor="let link of link.sectionContent" closeMenu>
                         <span class="navigation__label"> {{ link.title }}</span>
                     </a>
 
                 </div>
 
             </div>
+            <!--subnavigation-->
+
+            <!--extra links-->
+            <div class="navigation__item">
+
+                <div class="navigation__section">
+
+                    <a class="navigation__link navigation__link--special"
+                        routerLinkActive="navigation__link--active" routerLink="{{ link.name }}"
+                        *ngFor="let link of extraNavigationLinks$ | async">
+                        <span class="navigation__label"> {{ link.title }}</span>
+                    </a>
+
+                </div>
+
+            </div>
+            <!--extra links-->
 
         </div>
 
