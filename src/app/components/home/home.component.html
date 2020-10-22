@@ -22,6 +22,8 @@
                     <label for="species">Artsnavn</label>
                     <input type="text" name="species" id="species" placeholder="Carcharodon carcharias - hvithai">
 
+                    <label for="species">Bilde</label>
+                    <input type="file">
 
                     <label for="species">Dato</label>
 
@@ -34,7 +36,7 @@
                     <label for="species">Sted</label>
                     <div class="form__grid form__grid--3">
 
-                        <input type="text" name="Sted">
+                        <input type="text" name="Sted" placeholder="Trondheim">
                         <button class="button button--primary">Marker på kart</button>
                         <button class="button button--primary">Hent fra GPS</button>
 
@@ -59,6 +61,7 @@
 
         <h2>Siste observasjoner</h2>
         <app-sightings></app-sightings>
+
     </div>
     <!--content-->
 
@@ -84,10 +87,11 @@
 
     <div class="frontpage__section frontpage__section--colored1" style="padding: 100px 30px;">
 
-        <div class="frontpage__cell">
-            <h2 style="margin: 0;">Visste du at du kan opprette dine egne prosjekter og la andre rapportere observasjoner på dem?</h2>
+        <div class="frontpage__cell frontpage__cell--narrow">
+            <h2 style="margin: 0;">Visste du at du kan opprette dine egne prosjekter og la andre rapportere
+                observasjoner på dem?</h2>
         </div>
-        <div class="frontpage__cell frontpage__cell--centered frontpage__cell--colored3">
+        <div class="frontpage__cell frontpage__cell--narrow frontpage__cell--centered frontpage__cell--colored3">
             <a href="" class="button button--cta button--xl button--centered">Opprett prosjekt</a>
         </div>
 
@@ -122,10 +126,10 @@
 
     <div class="frontpage__section" style="padding: 100px 30px;">
 
-        <div class="frontpage__cell">
+        <div class="frontpage__cell frontpage__cell--narrow">
             <h2 style="margin: 0;">Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?</h2>
         </div>
-        <div class="frontpage__cell frontpage__cell--centered frontpage__cell--colored3">
+        <div class="frontpage__cell frontpage__cell--narrow frontpage__cell--centered frontpage__cell--colored3">
             <a href="" class="button button--cta button--xl button--centered">Bli validator!</a>
         </div>
 

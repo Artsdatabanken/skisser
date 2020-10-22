@@ -21,7 +21,7 @@
 
         @media screen and (max-width: 900px) {
             display: block;
-            padding: 50px 15px;
+            //padding: 50px 15px;
         }
     }
 }
@@ -29,14 +29,14 @@
 // header
 
 .header {
-    background-color: rgba(#515151, 0.3);
     @include variable(background-color, clrLight);
     display: grid;
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px auto;
     gap: 0 0;
-    grid-template-areas: "headerLogo headerMenu headerLogin" "headerBreadcrumbs headerBreadcrumbs headerBreadcrumbs";
+    grid-template-areas: "headerLogo headerLogin headerMenu" "headerBreadcrumbs headerBreadcrumbs headerBreadcrumbs";
     padding: 0;
+    width: 100%;
 
     @media screen and (max-width: 1024px) {
         grid-template-columns: auto 1fr;
@@ -46,13 +46,14 @@
     }
 
     & > * {
+        // border: 1px solid red;
     }
 
     &__cell {
         align-self: center;
         justify-self: stretch;
 
-        &--first {
+        &--logo {
             grid-area: headerLogo;
             padding-left: 30px;
             padding-right: 30px;
@@ -62,10 +63,21 @@
             }
         }
 
-        &--second {
+        &--top-menu {
+            align-self: center;
+            grid-area: headerLogin;
+            justify-self: center;
+            padding-right: 30px; // 30px -14px fra knappen
+
+            @media screen and (max-width: 1024px) {
+                display: none;
+            }
+        }
+
+        &--menu {
             align-self: center;
             grid-area: headerMenu;
-            justify-self: end;
+            justify-self: center;
             padding-right: 30px;
 
             @media screen and (max-width: 1024px) {
@@ -73,18 +85,7 @@
             }
         }
 
-        &--third {
-            align-self: center;
-            grid-area: headerLogin;
-            justify-self: center;
-            padding-right: 30px;
-
-            @media screen and (max-width: 1024px) {
-                display: none;
-            }
-        }
-
-        &--fourth {
+        &--breadcrumbs {
             @include variable(padding, paddingStd);
             background-color: rgba(#515151, 0.055);
             align-self: center;
@@ -459,8 +460,8 @@
             // border-width: 2px;
             // border-radius: 10px;
             // border-bottom-right-radius: 0;
-            margin-right: 20px;
-            padding: 5px 0 7px 35px;
+            margin-right: 16px;
+            padding: 0;
             text-align: center;
 
             &:hover {
@@ -474,6 +475,7 @@
             background-repeat: no-repeat;
             background-size: 28px;
             font-size: 0;
+            padding: 0;
             height: 44px;
             width: 44px;
         }
@@ -663,7 +665,7 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, auto);
-    grid-template-areas: "pageTitle" "." "component";
+    //grid-template-areas: "pageTitle" "." "component";
 
     &--page {
         grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
@@ -798,6 +800,10 @@ main {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 0 50px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &--gallery {
@@ -806,6 +812,10 @@ main {
         gap: 30px 30px;
 
         & > * {
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
         }
     }
 }
@@ -824,6 +834,10 @@ main {
         flex-wrap: nowrap;
         justify-content: center;
         padding: 40px 30px 60px;
+
+        @media screen and (max-width: 1024px) {
+            flex-wrap: wrap;
+        }
 
         &--top {
         }
@@ -859,7 +873,7 @@ main {
     }
 
     &__cell {
-        // border: 1px solid red;
+        border: 1px solid red;
         align-self: center;
         justify-self: center;
         padding-right: 50px;
@@ -873,12 +887,12 @@ main {
             align-self: center;
             width: 36%;
 
-            @media screen and (max-width: 1600px) {
-                width: 40%;
-            }
-
             .frontpage__section--column & {
                 padding: 0;
+            }
+
+            @media screen and (max-width: 1600px) {
+                width: 40%;
             }
         }
 
@@ -901,6 +915,10 @@ main {
             border-radius: 20px;
             border-bottom-right-radius: 0;
             padding: 50px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            width: 100%;
         }
     }
 }
