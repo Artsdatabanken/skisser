@@ -32,17 +32,18 @@
     @include variable(background-color, clrLight);
     display: grid;
     grid-template-columns: 3fr auto auto;
-    grid-template-rows: 80px auto;
-    gap: 0 0;
-    grid-template-areas: "headerLogo headerLogin headerMenu" "headerBreadcrumbs headerBreadcrumbs headerBreadcrumbs";
-    padding: 0;
+    grid-template-rows: 80px;
+    gap: 0 30px;
+    grid-template-areas: "headerLogo headerLogin headerMenu";
+    padding: 0 30px;
     width: 100%;
 
     @media screen and (max-width: 1024px) {
         grid-template-columns: auto 1fr;
-        grid-template-rows: 70px auto;
-        grid-template-areas: "headerLogo headerMenu" "headerBreadcrumbs headerBreadcrumbs";
-        padding: 0;
+        grid-template-rows: 70px;
+        grid-template-areas: "headerLogo headerMenu";
+        grid-gap: 0;
+        padding: 0 15px;
     }
 
     & > * {
@@ -55,11 +56,8 @@
 
         &--logo {
             grid-area: headerLogo;
-            padding-left: 30px;
-            padding-right: 30px;
 
             @media screen and (max-width: 1024px) {
-                padding-left: 15px;
             }
         }
 
@@ -67,7 +65,6 @@
             align-self: center;
             grid-area: headerLogin;
             justify-self: center;
-            padding-right: 30px; // 30px -14px fra knappen
 
             @media screen and (max-width: 1024px) {
                 display: none;
@@ -77,20 +74,10 @@
         &--menu {
             align-self: center;
             grid-area: headerMenu;
-            justify-self: center;
-            padding-right: 30px;
+            justify-self: end;
 
             @media screen and (max-width: 1024px) {
-                padding-right: 15px;
             }
-        }
-
-        &--breadcrumbs {
-            @include variable(padding, paddingStd);
-            background-color: rgba(#515151, 0.055);
-            align-self: center;
-            grid-area: headerBreadcrumbs;
-            justify-self: stretch;
         }
     }
 }
@@ -113,7 +100,7 @@
     padding: 7px 22px;
 
     @media screen and (max-width: 1024px) {
-        padding: 0;
+        padding: 7px 18px;
     }
 
     &:active,
@@ -134,6 +121,7 @@
             padding-right: 10px;
 
             @media screen and (max-width: 1024px) {
+                font-size: 16px;
                 padding-right: 10px;
             }
         }
@@ -289,6 +277,12 @@
                 display: none !important;
             }
         }
+
+        &--special {
+            @media screen and (max-width: 1024px) {
+                margin-top: 15px;
+            }
+        }
     }
 
     &__link {
@@ -329,6 +323,10 @@
             &::before {
                 content: none !important;
             }
+
+            @media screen and (max-width: 1024px) {
+                padding: 0 0 5px;
+            }
         }
 
         // pseudo elements
@@ -358,7 +356,8 @@
         // current location
 
         .navigation--top & {
-            @include variable(border-color, clrSecondary);
+            @include variable(background-color, clrWhite);
+            @include variable(border-color, clrWhite);
             background-position: left 15px center;
             background-repeat: no-repeat;
             background-size: 15px;
@@ -392,9 +391,9 @@
             }
 
             &:nth-child(2) {
-                background-image: url(../images/iconLock.png);
-                background: none;
-                padding: 5px 15px;
+                background-image: url(../images/iconEnvelope.png);
+                font-size: 0;
+                padding: 5px 15px 5px 45px;
             }
 
             &:nth-child(3) {
@@ -439,6 +438,14 @@
         .navigation--top & {
             font-size: 17px;
             font-weight: 500;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 15px;
+            }
+
+            &:nth-child(2) {
+                background: yellow;
+            }
         }
     }
 }
@@ -483,10 +490,17 @@
 }
 
 .breadcrumbs {
+    @include variable(background-color, clrWash);
     list-style: none;
     font-size: 16px;
     font-weight: 500;
     margin: 0;
+    padding: 15px 30px;
+    width: 100%;
+
+    @media screen and (max-width: 1024px) {
+        padding: 7px 15px;
+    }
 
     &__item {
         display: inline;
