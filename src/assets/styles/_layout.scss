@@ -113,7 +113,8 @@
         justify-self: center;
     }
 
-    &__text {}
+    &__text {
+    }
 
     &__box {
         justify-self: end;
@@ -131,16 +132,16 @@
     //     }
 
     //     & > * {
-    
+
     //         align-self: center;
     //         justify-self: stretch;
-    
+
     //         &:first-child {
     //             @include variable(padding-right, paddingStd);
     //             font-size: 17px;
     //             font-weight: 600;
     //             padding-right: 10px;
-    
+
     //             @media screen and (max-width: 1024px) {
     //                 font-size: 16px;
     //                 padding-right: 10px !important;
@@ -148,7 +149,6 @@
     //         }
     //     }
     // }
-
 }
 
 .menu {
@@ -381,19 +381,21 @@
         .navigation--top & {
             @include variable(background-color, clrWhite);
             @include variable(border-color, clrWhite);
-            // @include variable(background-color, clrAqua0);
-            // @include variable(border-color, clrAqua0);
+            @include variable(background-color, clrAqua5);
+            @include variable(border-color, clrAqua5);
+            @include variable(background-color, clrBlack);
+            @include variable(border-color, clrBlack);
+            @include variable(color, clrWhite);
             background-position: left 15px center;
             background-repeat: no-repeat;
             background-size: 15px;
-            //border: none;
             border-style: solid;
             border-width: 2px;
             border-radius: 10px;
             border-bottom-right-radius: 0;
             display: inline-block;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 400;
             margin: 0 0 0 30px;
             padding: 5px 15px 5px 45px;
 
@@ -414,16 +416,17 @@
 
             &:nth-child(1) {
                 background-image: url(../images/iconLock.png);
+                background-image: url(../images/iconLockWhite.png);
                 background-size: 14px;
             }
 
             &:nth-child(2) {
                 background-image: url(../images/iconEnvelope.png);
+                background-image: url(../images/iconEnvelopeWhite.png);
                 background-size: 18px;
                 font-size: 0;
                 padding: 5px 15px 5px 45px;
             }
-
         }
     }
 
@@ -708,13 +711,18 @@ main {
     &--page {
         grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
         grid-template-rows: repeat(4, auto);
-        grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." ". router router router .";
         padding: 60px 30px;
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 3fr 3fr 1fr;
             grid-template-areas: ". pageTitle pageTitle ." ". component component ." ". router router .";
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "pageTitle" "component" "router";
+            padding: 15px;
         }
     }
 
@@ -776,6 +784,10 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 0;
 
+    @media screen and (max-width: 1024px) {
+        //grid-template-columns: 1fr;
+    }
+
     &__cell {
         //border: 1px solid red;
         // align-self: stretch;
@@ -805,22 +817,31 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
 
+    & > * {
+        
+    }
+
     &--buttons {
-        & > * {
-            //margin: 0 10px 10px 0;
-        }
     }
 
     &--left {
         & > * {
             margin-right: 10px;
+
+            @media screen and (max-width: 1024px) {
+                margin: 0;
+            }
         }
     }
 
     &--right {
         & > * {
             margin-left: 10px;
-        }
+
+            @media screen and (max-width: 1024px) {
+                margin: 0;
+            }
+        }        
     }
 
     &--cards {
@@ -831,6 +852,10 @@ main {
         & > *,
         .card {
             width: 100%;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
         }
     }
 

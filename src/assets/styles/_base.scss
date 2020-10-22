@@ -131,6 +131,10 @@ h2 {
   .frontpage & {
     font-weight: 300;
     margin: 0 0 30px;
+
+    @media screen and (max-width: 1024px) {
+      font-weight: 400;
+    }
   }
 
   .frontpage--column & {

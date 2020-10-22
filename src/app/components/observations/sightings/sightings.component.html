@@ -1,6 +1,6 @@
 <div class="page">
 
-    <header class="page__header">     </header>
+    <header class="page__header"> </header>
 
     <div class="page__content">
 
@@ -15,61 +15,68 @@
 
                 <div class="loop loop--buttons loop--left">
 
-                    <button class="button button--dropdown" aria-label="filtrer etter Artsgruppe ">
-
-                        <!-- <div class="button__container"> -->
-
-                        <span class="button__label" data-label="Artsgruppe"> Artsgruppe </span>
-                        <span class="button__icon"> </span>
-
-                        <!-- </div> -->
-
+                    <button class="button button--dropdown button--display button--filter" aria-label="Flere filtre">Filtre
                     </button>
 
+                    <div class="hidden hidden--mobile">
 
-                    <button class="button button--dropdown" aria-label="filtrer etter Dato ">
+                        <button class="button button--dropdown" aria-label="filtrer etter Artsgruppe ">
 
-                        <!-- <div class="button__container"> -->
+                            <!-- <div class="button__container"> -->
 
-                        <span class="button__label" data-label="Dato"> Dato </span>
-                        <span class="button__icon"> </span>
+                            <span class="button__label" data-label="Artsgruppe"> Artsgruppe </span>
+                            <!--<span class="button__icon"> </span>-->
 
-                        <!-- </div> -->
+                            <!-- </div> -->
 
-                    </button>
+                        </button>
 
-                    <button class="button button--dropdown" aria-label="filtrer etter Region ">
 
-                        <!-- <div class="button__container"> -->
+                        <button class="button button--dropdown" aria-label="filtrer etter Dato ">
 
-                        <span class="button__label" data-label="Region"> Region </span>
-                        <span class="button__icon"> </span>
+                            <!-- <div class="button__container"> -->
 
-                        <!-- </div> -->
+                            <span class="button__label" data-label="Dato"> Dato </span>
+                            <!--<span class="button__icon"> </span>-->
 
-                    </button>
+                            <!-- </div> -->
 
-                    <button class="button button--dropdown" aria-label="filtrer etter Filter ">
+                        </button>
 
-                        <!-- <div class="button__container"> -->
+                        <button class="button button--dropdown" aria-label="filtrer etter Region ">
 
-                        <span class="button__label" data-label="Filter"> Filter </span>
-                        <span class="button__icon"> </span>
+                            <!-- <div class="button__container"> -->
 
-                        <!-- </div> -->
+                            <span class="button__label" data-label="Region"> Region </span>
+                            <!--<span class="button__icon"> </span>-->
 
-                    </button>
+                            <!-- </div> -->
 
-                    <button class="button button--dropdown" aria-label="filtrer etter Filter ">
+                        </button>
 
-                        <!-- <div class="button__container"> -->
+                        <button class="button button--dropdown" aria-label="filtrer etter Filter ">
 
-                        <span class="button__label" data-label="Filter"> Filter </span>
-                        <span class="button__icon"> </span>
+                            <!-- <div class="button__container"> -->
 
-                        <!-- </div> -->
+                            <span class="button__label" data-label="Filter"> Filter </span>
+                            <!--<span class="button__icon"> </span>-->
 
-                    </button>
+                            <!-- </div> -->
+
+                        </button>
+
+                        <button class="button button--dropdown" aria-label="filtrer etter Filter ">
+
+                            <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Filter"> Filter </span>
+                            <!--<span class="button__icon"> </span>-->
+
+                            <!-- </div> -->
+
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -81,9 +88,12 @@
                 <!--display-->
                 <div class="loop loop--buttons loop--right">
 
-                    <app-button [text]="'Vis i kart'"  (click)="chooseDisplay('map')"></app-button>
-                    <app-button [text]="'Tabellvisning'" (click)="chooseDisplay('table')"></app-button>
-                    <app-button [text]="'Gallerivisning'" (click)="chooseDisplay('card')"></app-button>
+                    <app-button [cssClass]="'button--display button--display-1'" [text]="'Vis i kart'"
+                        (click)="chooseDisplay('map')"></app-button>
+                    <app-button [cssClass]="'button--display button--display-2'" [text]="'Tabellvisning'"
+                        (click)="chooseDisplay('table')"></app-button>
+                    <app-button [cssClass]="'button--display button--display-3'" [text]="'Gallerivisning'"
+                        (click)="chooseDisplay('card')"></app-button>
 
                 </div>
 
@@ -154,7 +164,7 @@
                         <td><span class="">Virvelløse dyr</span></td>
                         <td>14.09.2020</td>
                         <td>Torsevegen 10 , Vik , Vestfold</td>
-                        
+
                     </tr>
 
                     <tr>
@@ -215,7 +225,7 @@
                 <a class="gallery__item item" [routerLink]="['/sightings/sighting']">
                     <h1 class="item__title">Leopard</h1>
                     <h2 class="item__subtitle item__category">Panthera pardus | Pantheridae</h2>
-                   
+
                     <div class="item__image item__image--2"></div>
                     <div class="item__details details">
                         <div class="details__date">17.09.2020</div>
