@@ -47,7 +47,7 @@
     }
 
     & > * {
-        // border: 1px solid red;
+        //border: 1px solid blue;
     }
 
     &__cell {
@@ -91,41 +91,64 @@
     border-bottom-right-radius: 0;
     border-style: solid;
     border-width: 2px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    // justify-content: space-between;
+    // align-items: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
     padding: 7px 22px;
 
     @media screen and (max-width: 1024px) {
-        padding: 7px 18px;
-    }
-
-    &:active,
-    &:focus {
-        @include variable(border-color, clrBlack);
-        border-style: solid;
-        border-width: 2px;
+        border: none;
+        padding: 0;
     }
 
     & > * {
         align-self: center;
-        justify-self: stretch;
-
-        &:first-child {
-            @include variable(padding-right, paddingStd);
-            font-size: 17px;
-            font-weight: 600;
-            padding-right: 10px;
-
-            @media screen and (max-width: 1024px) {
-                font-size: 16px;
-                padding-right: 10px;
-            }
-        }
+        justify-self: center;
     }
+
+    &__text {}
+
+    &__box {
+        justify-self: end;
+    }
+
+    // &:active,
+    // &:focus {
+    //     @include variable(border-color, clrBlack);
+    //     border-style: solid;
+    //     border-width: 2px;
+
+    //     @media screen and (max-width: 1024px) {
+    //         border: none;
+    //         padding: 0;
+    //     }
+
+    //     & > * {
+    
+    //         align-self: center;
+    //         justify-self: stretch;
+    
+    //         &:first-child {
+    //             @include variable(padding-right, paddingStd);
+    //             font-size: 17px;
+    //             font-weight: 600;
+    //             padding-right: 10px;
+    
+    //             @media screen and (max-width: 1024px) {
+    //                 font-size: 16px;
+    //                 padding-right: 10px !important;
+    //             }
+    //         }
+    //     }
+    // }
+
 }
 
 .menu {
@@ -358,9 +381,12 @@
         .navigation--top & {
             @include variable(background-color, clrWhite);
             @include variable(border-color, clrWhite);
+            // @include variable(background-color, clrAqua0);
+            // @include variable(border-color, clrAqua0);
             background-position: left 15px center;
             background-repeat: no-repeat;
             background-size: 15px;
+            //border: none;
             border-style: solid;
             border-width: 2px;
             border-radius: 10px;
@@ -388,18 +414,16 @@
 
             &:nth-child(1) {
                 background-image: url(../images/iconLock.png);
+                background-size: 14px;
             }
 
             &:nth-child(2) {
                 background-image: url(../images/iconEnvelope.png);
+                background-size: 18px;
                 font-size: 0;
                 padding: 5px 15px 5px 45px;
             }
 
-            &:nth-child(3) {
-                background: none;
-                padding: 5px 15px;
-            }
         }
     }
 
