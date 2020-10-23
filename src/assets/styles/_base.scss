@@ -5,6 +5,7 @@ html {
 
 body {
   @include variable(background-color, backgroundColor);
+  @include variable(background-color, clrLight);
   @include variable(color, textColor);
   @include variable(font-family, fontPrimary);
 
@@ -133,6 +134,7 @@ h2 {
     margin: 0 0 30px;
 
     @media screen and (max-width: 1024px) {
+      font-size: 36;
       font-weight: 400;
     }
   }

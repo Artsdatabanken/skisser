@@ -8,12 +8,11 @@
     }
 
     &__footer {
-        @include variable(background-color, clrLight2);
+        @include variable(background-color, clrLight);
     }
 
     &__main {
         @include variable(background-color, clrWhite);
-        //padding: 50px;
 
         @media screen and (max-width: 1600px) {
             min-height: 80vh;
@@ -21,7 +20,6 @@
 
         @media screen and (max-width: 900px) {
             display: block;
-            //padding: 50px 15px;
         }
     }
 }
@@ -91,16 +89,8 @@
     border-bottom-right-radius: 0;
     border-style: solid;
     border-width: 2px;
-
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: nowrap;
-    // justify-content: space-between;
-    // align-items: center;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     padding: 7px 22px;
 
     @media screen and (max-width: 1024px) {
@@ -114,57 +104,44 @@
     }
 
     &__text {
+        font-size: 17px;
+        font-weight: 600;
     }
 
     &__box {
         justify-self: end;
     }
 
-    // &:active,
-    // &:focus {
-    //     @include variable(border-color, clrBlack);
-    //     border-style: solid;
-    //     border-width: 2px;
+    &:active,
+    &:focus {
+        @include variable(border-color, clrBlack);
+        border-style: solid;
+        border-width: 2px;
 
-    //     @media screen and (max-width: 1024px) {
-    //         border: none;
-    //         padding: 0;
-    //     }
-
-    //     & > * {
-
-    //         align-self: center;
-    //         justify-self: stretch;
-
-    //         &:first-child {
-    //             @include variable(padding-right, paddingStd);
-    //             font-size: 17px;
-    //             font-weight: 600;
-    //             padding-right: 10px;
-
-    //             @media screen and (max-width: 1024px) {
-    //                 font-size: 16px;
-    //                 padding-right: 10px !important;
-    //             }
-    //         }
-    //     }
-    // }
+        @media screen and (max-width: 1024px) {
+            @include variable(border-color, transparent);
+        }
+    }
 }
 
 .menu {
     @include variable(background-color, clrWhite);
-    background-color: #e8e5e4;
-    min-height: 150vh;
+    @include variable(background-color, clrWash);
+     min-height: 200vh;
     overflow: none;
     position: absolute;
-    // top: 80px;
+    top: -1000vh;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    transform: translateY(calc(-1000vh)); /*change here related your menu height*/
-
+    transform: translateY(-1000vh); /*change here related your menu height*/
+    
+    @media screen and (max-width: 1024px) {
+        min-height: 100vh;
+    }
+ 
     &--open {
         top: 80px;
         transform: translateY(0);
@@ -201,10 +178,7 @@
     // modifiers
 
     &--primary {
-        @include variable(background-color, clrWhite);
-        @include variable(background-color, clrWhite);
-        // background-color: #e8e5e4;
-        background-color: #ede9e6;
+        @include variable(background-color, clrWash);
     }
 
     &--secondary {
@@ -703,9 +677,9 @@ main {
 // grid
 
 .main-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, auto);
+    // display: grid;
+    // grid-template-columns: 1fr;
+    //grid-template-rows: repeat(4, auto);
     //grid-template-areas: "pageTitle" "." "component";
 
     &--page {
@@ -739,9 +713,9 @@ main {
     }
 
     &--frontpage {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, auto);
-        grid-template-areas: "pageTitle" "component" "router" "." "." "." ".";
+        // grid-template-columns: 1fr;
+        // //grid-template-rows: repeat(7, auto);
+        // grid-template-areas: "pageTitle" "component" "router" "." "." "." ".";
 
         // @media screen and (max-width: 1600px) {
         // }
@@ -818,7 +792,6 @@ main {
     flex-wrap: wrap;
 
     & > * {
-        
     }
 
     &--buttons {
@@ -841,7 +814,7 @@ main {
             @media screen and (max-width: 1024px) {
                 margin: 0;
             }
-        }        
+        }
     }
 
     &--cards {
@@ -853,7 +826,7 @@ main {
         .card {
             width: 100%;
         }
-        
+
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
         }
@@ -889,6 +862,17 @@ main {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+
+    &__paragraph {
+        font-size: 42px;
+        font-weight: 300;
+        line-height: 1.3;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 24px;
+            font-weight: 400;
+        }
+    }
 
     &__section {
         //@include variable(background-color, clrWash);
@@ -936,11 +920,15 @@ main {
     }
 
     &__cell {
-        border: 1px solid red;
+        //border: 1px solid red;
         align-self: center;
         justify-self: center;
-        padding-right: 50px;
         width: 50%;
+
+        @media screen and (max-width: 1024px) {
+            display: block;
+            margin-bottom: 15px;
+        }
 
         &--auto-width {
             width: auto;
