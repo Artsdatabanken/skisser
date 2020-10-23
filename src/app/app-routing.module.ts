@@ -47,10 +47,10 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent,
     data: {
-      title: 'Om Artsobservasjoner',
+      title: 'Om tjenesten',
       name: 'about',
       type: 'page',
-      breadcrumb: 'Om Artsobservasjoner'
+      breadcrumb: 'Om tjenesten'
     },
   },
   {

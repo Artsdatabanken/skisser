@@ -9,20 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class SightingsComponent implements OnInit {
 
   display: string = 'table';
-
+  isActive: boolean = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-    
-    console.log('display', this.display)
-   }
-
-  chooseDisplay(display: string, templateRef: any): void {
+  chooseDisplay(display: string): void {
     this.display = display;
-    console.log('display', templateRef)
+    console.log('display')
   }
 
+  getCssClass(keyword: string): string {
+
+    if (this.display === keyword) {
+      return 'button--active';
+    }
+
+  }
 
 }
