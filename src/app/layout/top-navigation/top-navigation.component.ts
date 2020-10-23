@@ -19,4 +19,10 @@ export class TopNavigationComponent implements OnInit {
     this.navigationLinks$ = this.navigationService.getTopMenuItems();
   }
 
+  getCSSClass(link: string | null): string {
+
+    return `top-navigation__link--${link}`;
+
+  }
+
 }

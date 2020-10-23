@@ -9,7 +9,6 @@ import { QualityAssuredDataComponent } from './components/statistics/quality-ass
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
-import { TouComponent } from './components/about/tou/tou.component';
 import { DesignComponent } from './components/design/design.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -23,6 +22,8 @@ import { ObservationsComponent } from './components/observations/observations.co
 import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
 import { ReportComponent } from './components/report/report.component';
 import { MapComponent } from './components/map/map.component';
+import { SitemapComponent } from './components/sitemap/sitemap.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 const routes: Routes = [
   {
@@ -52,16 +53,6 @@ const routes: Routes = [
       type: 'page',
       breadcrumb: 'Om tjenesten'
     },
-  },
-  {
-    path: 'about/tou',
-    component: TouComponent,
-    data: {
-      title: 'Brukervilkår',
-      name: 'tou',
-      type: 'page',
-      breadcrumb: 'Brukervilkår'
-    }
   },
   {
     path: 'report',
@@ -194,15 +185,26 @@ const routes: Routes = [
     }
   },
   {
+    path: 'messages',
+    component: MessagesComponent,
+    data: {
+      title: 'Meldinger',
+      name: 'logmessagesin',
+      type: 'page',
+      breadcrumb: 'Meldinger'
+    }
+  },
+  {
     path: 'login',
     component: LoginComponent,
     data: {
-      title: 'Logginn',
+      title: 'Logg inn',
       name: 'login',
       type: 'page',
       breadcrumb: 'Logg inn'
     }
-  }, {
+  },
+  {
     path: 'register',
     component: RegistrationComponent,
     data: {
@@ -210,16 +212,6 @@ const routes: Routes = [
       name: 'registration',
       type: 'page',
       breadcrumb: 'Registrer deg'
-    }
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    data: {
-      title: 'Minside',
-      name: 'dashboard',
-      type: 'page',
-      breadcrumb: 'Minside'
     }
   },
   {
@@ -233,6 +225,16 @@ const routes: Routes = [
     }
   },
   {
+    path: 'dashboard',
+    component: DashboardComponent,
+    data: {
+      title: 'Minside',
+      name: 'dashboard',
+      type: 'page',
+      breadcrumb: 'Minside'
+    }
+  },
+  {
     path: 'map',
     component: MapComponent,
     data: {
@@ -241,7 +243,17 @@ const routes: Routes = [
       type: 'mega',
       breadcrumb: 'Map'
     }
-  }, 
+  },
+  {
+    path: 'sitemap',
+    component: SitemapComponent,
+    data: {
+      title: 'Innholdskart A-å',
+      name: 'sitemap',
+      type: 'page',
+      breadcrumb: 'Innholdskart A-å'
+    }
+  },
   {
     path: 'design',
     component: DesignComponent,

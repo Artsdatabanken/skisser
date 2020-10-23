@@ -21,7 +21,7 @@
 
         @media screen and (max-width: 900px) {
             display: block;
-            padding: 50px 15px;
+            //padding: 50px 15px;
         }
     }
 }
@@ -29,67 +29,55 @@
 // header
 
 .header {
-    background-color: rgba(#515151, 0.3);
     @include variable(background-color, clrLight);
     display: grid;
     grid-template-columns: 3fr auto auto;
-    grid-template-rows: 80px auto;
-    gap: 0 0;
-    grid-template-areas: "headerLogo headerMenu headerLogin" "headerBreadcrumbs headerBreadcrumbs headerBreadcrumbs";
-    padding: 0;
+    grid-template-rows: 80px;
+    gap: 0 30px;
+    grid-template-areas: "headerLogo headerLogin headerMenu";
+    padding: 0 30px;
+    width: 100%;
 
     @media screen and (max-width: 1024px) {
         grid-template-columns: auto 1fr;
-        grid-template-rows: 70px auto;
-        grid-template-areas: "headerLogo headerMenu" "headerBreadcrumbs headerBreadcrumbs";
-        padding: 0;
+        grid-template-rows: 70px;
+        grid-template-areas: "headerLogo headerMenu";
+        grid-gap: 0;
+        padding: 0 15px;
     }
 
     & > * {
+        //border: 1px solid blue;
     }
 
     &__cell {
         align-self: center;
         justify-self: stretch;
 
-        &--first {
+        &--logo {
             grid-area: headerLogo;
-            padding-left: 30px;
-            padding-right: 30px;
 
             @media screen and (max-width: 1024px) {
-                padding-left: 15px;
             }
         }
 
-        &--second {
-            align-self: center;
-            grid-area: headerMenu;
-            justify-self: end;
-            padding-right: 30px;
-
-            @media screen and (max-width: 1024px) {
-                padding-right: 15px;
-            }
-        }
-
-        &--third {
+        &--top-menu {
             align-self: center;
             grid-area: headerLogin;
             justify-self: center;
-            padding-right: 30px;
 
             @media screen and (max-width: 1024px) {
                 display: none;
             }
         }
 
-        &--fourth {
-            @include variable(padding, paddingStd);
-            background-color: rgba(#515151, 0.055);
+        &--menu {
             align-self: center;
-            grid-area: headerBreadcrumbs;
-            justify-self: stretch;
+            grid-area: headerMenu;
+            justify-self: end;
+
+            @media screen and (max-width: 1024px) {
+            }
         }
     }
 }
@@ -98,44 +86,69 @@
 
 .hamburger {
     @include variable(padding-right, paddingStd);
-    // @include variable(border-color, clrBlack);
-    // border-radius: 10px;
-    // border-bottom-right-radius: 0;
-    // border-style: solid;
-    // border-width: 2px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+    @include variable(border-color, clrBlack);
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-style: solid;
+    border-width: 2px;
+
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    // justify-content: space-between;
+    // align-items: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding: 7px 22px;
 
     @media screen and (max-width: 1024px) {
+        border: none;
         padding: 0;
-    }
-
-    &:active,
-    &:focus {
-        // @include variable(border-color, clrBlack);
-        // border-style: solid;
-        // border-width: 2px;
     }
 
     & > * {
         align-self: center;
-        justify-self: stretch;
-
-        &:first-child {
-            @include variable(padding-right, paddingStd);
-            font-size: 17px;
-            font-weight: 600;
-            padding-right: 10px;
-
-            @media screen and (max-width: 1024px) {
-                padding-right: 10px;
-            }
-        }
+        justify-self: center;
     }
+
+    &__text {
+    }
+
+    &__box {
+        justify-self: end;
+    }
+
+    // &:active,
+    // &:focus {
+    //     @include variable(border-color, clrBlack);
+    //     border-style: solid;
+    //     border-width: 2px;
+
+    //     @media screen and (max-width: 1024px) {
+    //         border: none;
+    //         padding: 0;
+    //     }
+
+    //     & > * {
+
+    //         align-self: center;
+    //         justify-self: stretch;
+
+    //         &:first-child {
+    //             @include variable(padding-right, paddingStd);
+    //             font-size: 17px;
+    //             font-weight: 600;
+    //             padding-right: 10px;
+
+    //             @media screen and (max-width: 1024px) {
+    //                 font-size: 16px;
+    //                 padding-right: 10px !important;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 .menu {
@@ -149,7 +162,7 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
     transform: translateY(calc(-1000vh)); /*change here related your menu height*/
 
     &--open {
@@ -287,6 +300,12 @@
                 display: none !important;
             }
         }
+
+        &--special {
+            @media screen and (max-width: 1024px) {
+                margin-top: 15px;
+            }
+        }
     }
 
     &__link {
@@ -319,6 +338,20 @@
             }
         }
 
+        &--special {
+            border: none;
+            font-weight: 500;
+            padding: 5px 0;
+
+            &::before {
+                content: none !important;
+            }
+
+            @media screen and (max-width: 1024px) {
+                padding: 0 0 5px;
+            }
+        }
+
         // pseudo elements
 
         &::before,
@@ -346,7 +379,13 @@
         // current location
 
         .navigation--top & {
-            @include variable(border-color, clrSecondary);
+            @include variable(background-color, clrWhite);
+            @include variable(border-color, clrWhite);
+            @include variable(background-color, clrAqua5);
+            @include variable(border-color, clrAqua5);
+            @include variable(background-color, clrBlack);
+            @include variable(border-color, clrBlack);
+            @include variable(color, clrWhite);
             background-position: left 15px center;
             background-repeat: no-repeat;
             background-size: 15px;
@@ -356,7 +395,7 @@
             border-bottom-right-radius: 0;
             display: inline-block;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 400;
             margin: 0 0 0 30px;
             padding: 5px 15px 5px 45px;
 
@@ -377,17 +416,16 @@
 
             &:nth-child(1) {
                 background-image: url(../images/iconLock.png);
+                background-image: url(../images/iconLockWhite.png);
+                background-size: 14px;
             }
 
             &:nth-child(2) {
-                background-image: url(../images/iconLock.png);
-                background: none;
-                padding: 5px 15px;
-            }
-
-            &:nth-child(3) {
-                background: none;
-                padding: 5px 15px;
+                background-image: url(../images/iconEnvelope.png);
+                background-image: url(../images/iconEnvelopeWhite.png);
+                background-size: 18px;
+                font-size: 0;
+                padding: 5px 15px 5px 45px;
             }
         }
     }
@@ -427,41 +465,69 @@
         .navigation--top & {
             font-size: 17px;
             font-weight: 500;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 15px;
+            }
+
+            &:nth-child(2) {
+                background: yellow;
+            }
         }
     }
 }
 
 .top-navigation {
     &__link {
+        display: inline-block;
+        vertical-align: middle;
         font-size: 16px;
         font-weight: 500;
 
-        &:first-child {
+        &--login {
             @include variable(border-color, clrSecondary);
-            background-image: url(../images/iconLock.png);
-            background-position: left 15px center;
-            background-repeat: no-repeat;
-            background-size: 12px;
-            border-style: solid;
-            border-width: 2px;
-            border-radius: 10px;
-            border-bottom-right-radius: 0;
-            margin-right: 15px;
-            padding: 5px 15px 7px 35px;
+            // background-image: url(../images/iconLock.png);
+            // background-position: left 15px center;
+            // background-repeat: no-repeat;
+            // background-size: 12px;
+            // border-style: solid;
+            // border-width: 2px;
+            // border-radius: 10px;
+            // border-bottom-right-radius: 0;
+            margin-right: 16px;
+            padding: 0;
             text-align: center;
 
             &:hover {
                 @include variable(background-color, clrSecondary);
             }
         }
+
+        &--messages {
+            background-image: url(../images/iconEnvelope.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 28px;
+            font-size: 0;
+            padding: 0;
+            height: 44px;
+            width: 44px;
+        }
     }
 }
 
 .breadcrumbs {
+    @include variable(background-color, clrWash);
     list-style: none;
     font-size: 16px;
     font-weight: 500;
     margin: 0;
+    padding: 15px 30px;
+    width: 100%;
+
+    @media screen and (max-width: 1024px) {
+        padding: 7px 15px;
+    }
 
     &__item {
         display: inline;
@@ -561,7 +627,6 @@
 // footer
 
 .footer {
-    display: none;
     @include variable(background-color, clrLight);
     padding: 45px;
 
@@ -641,12 +706,11 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, auto);
-    grid-template-areas: "pageTitle" "." "component";
+    //grid-template-areas: "pageTitle" "." "component";
 
     &--page {
         grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
         grid-template-rows: repeat(4, auto);
-        grid-template-rows: auto auto 1fr 0;
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." ". router router router .";
         padding: 60px 30px;
 
@@ -654,12 +718,18 @@ main {
             grid-template-columns: 1fr 3fr 3fr 1fr;
             grid-template-areas: ". pageTitle pageTitle ." ". component component ." ". router router .";
         }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "pageTitle" "component" "router";
+            padding: 15px;
+        }
     }
 
     &--mega {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
-        grid-template-rows: auto auto 1fr 0;
+        grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
 
         @media screen and (max-width: 1600px) {
@@ -680,7 +750,7 @@ main {
     &--std {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
-        grid-template-rows: auto auto 1fr 0;
+        grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
         padding: 60px 30px;
 
@@ -714,6 +784,10 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 0;
 
+    @media screen and (max-width: 1024px) {
+        //grid-template-columns: 1fr;
+    }
+
     &__cell {
         //border: 1px solid red;
         // align-self: stretch;
@@ -743,22 +817,31 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
 
+    & > * {
+        
+    }
+
     &--buttons {
-        & > * {
-            //margin: 0 10px 10px 0;
-        }
     }
 
     &--left {
         & > * {
             margin-right: 10px;
+
+            @media screen and (max-width: 1024px) {
+                margin: 0;
+            }
         }
     }
 
     &--right {
         & > * {
             margin-left: 10px;
-        }
+
+            @media screen and (max-width: 1024px) {
+                margin: 0;
+            }
+        }        
     }
 
     &--cards {
@@ -770,12 +853,20 @@ main {
         .card {
             width: 100%;
         }
+        
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &--teasers {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 0 50px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &--gallery {
@@ -784,6 +875,10 @@ main {
         gap: 30px 30px;
 
         & > * {
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
         }
     }
 }
@@ -803,6 +898,18 @@ main {
         justify-content: center;
         padding: 40px 30px 60px;
 
+        @media screen and (max-width: 1024px) {
+            flex-wrap: wrap;
+        }
+
+        &--top {
+        }
+
+        &--single-column {
+            flex-direction: column;
+            padding: 40px 30px 60px;
+        }
+
         &--column {
             flex-direction: column;
             padding: 80px 30px 120px;
@@ -812,6 +919,10 @@ main {
             @include variable(background-color, clrAqua1);
             @include variable(background-color, clrAccent);
             @include variable(background-color, clrAqua2);
+        }
+
+        &--colored1 {
+            @include variable(background-color, clrWash);
         }
 
         &--colored2 {
@@ -825,15 +936,32 @@ main {
     }
 
     &__cell {
-        // border: 1px solid red;
+        border: 1px solid red;
         align-self: center;
         justify-self: center;
         padding-right: 50px;
         width: 50%;
 
+        &--auto-width {
+            width: auto;
+        }
+
         &--narrow {
             align-self: center;
-            width: 40%;
+            width: 36%;
+
+            .frontpage__section--column & {
+                padding: 0;
+            }
+
+            @media screen and (max-width: 1600px) {
+                width: 40%;
+            }
+        }
+
+        &--top {
+            // align-self: flex-start;
+            // justify-self: flex-start;
         }
 
         &--centered {
@@ -850,6 +978,10 @@ main {
             border-radius: 20px;
             border-bottom-right-radius: 0;
             padding: 50px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            width: 100%;
         }
     }
 }

@@ -36,6 +36,8 @@ export class MenuComponent implements OnInit {
   navigationLinks$: Observable<string[]>;
   subNavigationLinks$: Observable<string[]>;
   topNavigationLinks$: Observable<string[]>;
+  extraNavigationLinks$: Observable<string[]>;
+
   @Input() ariaLabel: string;
 
   constructor(
@@ -48,6 +50,7 @@ export class MenuComponent implements OnInit {
     this.navigationLinks$ = this.navigationService.getMenuItems();
     this.subNavigationLinks$ = this.navigationService.getSubMenuItems();
     this.topNavigationLinks$ = this.navigationService.getTopMenuItems();
+    this.extraNavigationLinks$ = this.navigationService.getExtraMenuItems();
   }
 
   ngOnDestroy(): void {

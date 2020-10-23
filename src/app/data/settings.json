@@ -137,7 +137,7 @@
                 {
                     "title": "Oversiktstall",
                     "name": "statistics",
-                    "url": "statistics",
+                    "url": "overview-numbers",
                     "type": "secondary"
                 },
                 {
@@ -194,13 +194,13 @@
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
-                },  
+                },
                 {
                     "title": "Kvalitetssikring",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
-                },  
+                },
                 {
                     "title": "Samarbeid",
                     "name": "about",
@@ -219,7 +219,6 @@
                     "url": "about",
                     "type": "secondary"
                 },
-                            
                 {
                     "title": "Aktuelle saker",
                     "name": "about",
@@ -249,15 +248,29 @@
             "type": "tertiary"
         },
         {
+            "title": "Meldinger",
+            "name": "messages",
+            "url": "messages",
+            "type": "tertiary"
+        }
+    ],
+    "extraMenu": [
+        {
+            "title": "Innholdskart A-å",
+            "name": "sitemap",
+            "url": "sitemap",
+            "type": "tertiary"
+        },
+        {
             "title": "English",
             "name": "english",
             "url": "english",
             "type": "tertiary"
-        }
+        }        
     ],
     "footerMenu": [
         {
-            "title": "Om Artsobservasjoner",
+            "title": "Om tjenesten",
             "name": "about",
             "url": "about"
         }

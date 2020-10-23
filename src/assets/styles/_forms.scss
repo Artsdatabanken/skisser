@@ -1,19 +1,24 @@
 // ----------FORMS and FORM ELEMENTS
 
-::placeholder {
-    font-size: 1.3em;
-}
-
 form {
     width: 100%;
+
+    ::placeholder {
+        @include variable(color, clrDark);
+        font-size: 19px;
+    }
 
     label {
         @include variable(font-family, fontSecondary);
         display: block;
-        font-size: 17px;
+        font-size: 19px;
         font-weight: 500;
         margin-top: 20px;
         margin-bottom: 5px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 17px;
+        }
     }
 
     input {
@@ -25,7 +30,7 @@ form {
         border-radius: 10px;
         border-bottom-right-radius: 0;
         display: block;
-        margin-bottom: 15px;
+        //margin-bottom: 15px;
         padding: 12px 18px 9px;
         width: 100%;
 
@@ -37,7 +42,12 @@ form {
         &:active,
         &:focus {
             padding: 12px 18px 9px;
-            margin-bottom: 15px;
+            //margin-bottom: 15px;
+        }
+
+        &[type="date"],
+        &[type="time"] {
+            font-weight: 600;
         }
 
         &[type="submit"] {
@@ -76,8 +86,30 @@ form {
         padding: 15px;
         width: 100%;
 
-        &:focus, &:active {
+        &:focus,
+        &:active {
             padding: 15px;
+        }
+    }
+}
+
+.form {
+    &__grid {
+        display: grid;
+
+        &--4 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        &--3 {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        & > * {
+            align-self: stretch;
+            justify-self: stretch;
         }
     }
 }
