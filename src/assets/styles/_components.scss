@@ -657,6 +657,8 @@
 
     &__content {
         @include variable(background-color, clrWash);
+        border-radius: 20px;
+        border-bottom-right-radius: 0;
         //max-height: 0;
         padding: 0;
         padding: 30px;
