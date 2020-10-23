@@ -41,7 +41,7 @@
 
     &__heading {
         @include variable(font-family, fontPrimary);
-        color: inherit;        
+        color: inherit;
         font-size: 24px;
         font-size: 21px;
         font-weight: 400 !important;
@@ -210,6 +210,31 @@
         margin: 0 auto;
     }
 
+    &--map {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        font-size: 0;
+        width: auto;
+    }
+
+    &--map-1 {
+        background-image: url(../images/iconMapMarker.png);
+
+        &:hover {
+            background-image: url(../images/iconMapMarkerDark.png);
+        }
+    }
+
+    &--map-2 {
+        background-image: url(../images/iconMapGps.png);
+        background-size: 24px;
+
+        &:hover {
+            background-image: url(../images/iconMapGpsDark.png);
+        }
+    }
+
     // elements
 
     &__text {
@@ -219,13 +244,6 @@
     &__icon {
         background-repeat: no-repeat;
         background-size: 16px;
-
-        .button--dropdown & {
-            background-image: url(../images/iconChevronDown.png);
-            background-position: right center;
-            height: 20px;
-            width: 30px;
-        }
 
         &--lock {
             background-image: url(../images/iconLock.png);

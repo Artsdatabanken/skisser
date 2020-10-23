@@ -105,6 +105,21 @@ form {
         &--3 {
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 10px;
+
+            @media screen and (max-width: 1024px) {
+                grid-template-columns: 1fr;
+               
+            }
+        }
+
+        &--bss { // big small small
+            grid-template-columns: 3fr 1fr 1fr;
+            grid-gap: 10px;
+
+            // @media screen and (max-width: 1024px) {
+            //     grid-template-columns: 1fr;
+               
+            // }
         }
 
         & > * {

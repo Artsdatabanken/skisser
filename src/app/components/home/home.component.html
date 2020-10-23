@@ -3,14 +3,12 @@
     <!--intro-->
     <div class="frontpage__section frontpage__section--single-column">
 
-        <div class="frontpage__cell">
-            <p class="frontpage__paragraph">
-                <a class="styleless aligncenter" style="display: block;" routerLink="/register">
-                    <div>Bli med og hjelpe oss</div>
-                    <div>å kartlegge norsk natur!</div>
-                </a>
-            </p>
-        </div>
+        <p class="frontpage__paragraph">
+            <a class="styleless aligncenter" style="display: block;" routerLink="/register">
+                <div>Bli med og hjelpe oss</div>
+                <div>å kartlegge norsk natur!</div>
+            </a>
+        </p>
 
     </div>
 
@@ -29,19 +27,17 @@
                     <input type="file">
 
                     <label for="species">Dato</label>
+                    <input type="date" name="date">
 
-                    <div class="form__grid form__grid--3">
-                        <input type="date" name="date">
-                        <input type="time" name="tid">
-                        <button class="button button--primary">Akkurat nå</button>
-                    </div>
+                    <label for="species">Tid</label>
+                    <input type="time" name="tid">
 
                     <label for="species">Sted</label>
-                    <div class="form__grid form__grid--3">
+                    <div class="form__grid form__grid--bss">
 
                         <input type="text" name="Sted" placeholder="Trondheim">
-                        <button class="button button--primary">Marker på kart</button>
-                        <button class="button button--primary">Hent fra GPS</button>
+                        <button class="button button--primary button--map button--map-1">Marker på kart</button>
+                        <button class="button button--primary button--map button--map-2">Hent fra GPS</button>
 
                     </div>
 
@@ -59,7 +55,7 @@
     <!--top-->
 
     <!--content-->
-    <div class="frontpage__section frontpage__section--column">
+    <div class="frontpage__section frontpage__section--column frontpage__section--tall">
 
         <h2 class="frontpage__heading">Siste observasjoner</h2>
         <app-sightings></app-sightings>
@@ -69,7 +65,8 @@
 
     <!--services-->
 
-    <div class="frontpage__section frontpage__section--column frontpage__section--colored2">
+    <div
+        class="frontpage__section frontpage__section--column frontpage__section--narrow frontpage__section--tall frontpage__section--colored2">
 
         <h2 class="frontpage__heading">Snarveier</h2>
 
@@ -88,7 +85,7 @@
 
     <!--extras-->
 
-    <div class="frontpage__section" style="padding: 100px 30px;">
+    <div class="frontpage__section  frontpage__section--extratall">
 
         <div class="frontpage__cell frontpage__cell--narrow">
             <p class="frontpage__paragraph">Visste du at du kan opprette dine egne prosjekter og la andre rapportere
@@ -104,7 +101,7 @@
 
     <!--news & articles-->
 
-    <div class="frontpage__section frontpage__section--column frontpage__section--colored3">
+    <div class="frontpage__section frontpage__section--column frontpage__section--tall frontpage__section--colored3">
 
         <h2 class="frontpage__heading">Siste nytt</h2>
 

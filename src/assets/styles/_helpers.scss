@@ -42,8 +42,21 @@
 }
 
 .hidden {
-    &--mobile {
+  
+    &--desktop {
         display: none;
+
+        @media screen and (max-width: 1024px) {
+            display: block;
+        }
+    }
+
+    &--mobile {
+
+
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
     }
 }
 
