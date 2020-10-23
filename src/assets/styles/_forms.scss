@@ -13,11 +13,10 @@ form {
         display: block;
         font-size: 19px;
         font-weight: 500;
-        margin-top: 20px;
-        margin-bottom: 5px;
+        line-height: 1;
 
         @media screen and (max-width: 1600px) {
-            font-size: 17px;
+            font-size: 18px;
         }
     }
 
@@ -30,7 +29,7 @@ form {
         border-radius: 10px;
         border-bottom-right-radius: 0;
         display: block;
-        //margin-bottom: 15px;
+        margin: 5px 0 25px;
         padding: 12px 18px 9px;
         width: 100%;
 
@@ -42,7 +41,6 @@ form {
         &:active,
         &:focus {
             padding: 12px 18px 9px;
-            //margin-bottom: 15px;
         }
 
         &[type="date"],
@@ -52,27 +50,15 @@ form {
 
         &[type="submit"] {
             @include variable(font-family, fontSecondary);
-            //@include variable(font-family, fontAccent);
             float: right;
             font-size: 24px;
             font-weight: 500;
             font-weight: 400;
             padding: 14px 24px;
-            // @include variable(background-color, clrSecondary);
-            // @include variable(border-color, clrSecondary);
-            // @include variable(font-family, fontSecondary);
-            // border-radius: 10px;
-            // border-bottom-right-radius: 0;
-            // float: right;
-            // font-size: 18px;
-            // font-weight: 500;
-            // padding: 8px 22px 10px 22px;
-            // width: auto;
+        }
 
-            // &:hover {
-            //     @include variable(background-color, clrWhite);
-            //     @include variable(border-color, clrSecondary);
-            // }
+        @media screen and (max-width: 1024px) {
+            margin: 5px 0 20px;
         }
     }
 
@@ -96,6 +82,7 @@ form {
 .form {
     &__grid {
         display: grid;
+        align-items: center;
 
         &--4 {
             grid-template-columns: repeat(4, 1fr);
@@ -108,23 +95,25 @@ form {
 
             @media screen and (max-width: 1024px) {
                 grid-template-columns: 1fr;
-               
             }
         }
 
-        &--bss { // big small small
+        &--bss {
+            // big small small
             grid-template-columns: 3fr 1fr 1fr;
-            grid-gap: 10px;
+            grid-gap: 10px 10px;
+            margin-top: 5px;
 
-            // @media screen and (max-width: 1024px) {
-            //     grid-template-columns: 1fr;
-               
-            // }
+            & > * {
+                align-self: center;
+                justify-self: stretch;
+                margin: 0;
+            }
         }
 
         & > * {
-            align-self: stretch;
-            justify-self: stretch;
+            // align-self: stretch;
+            // justify-self: stretch;
         }
     }
 }

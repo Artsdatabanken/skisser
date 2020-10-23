@@ -923,7 +923,8 @@ main {
         }
 
         &--height-m {
-        
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
         &--height-s {
@@ -954,7 +955,6 @@ main {
     }
 
     &__cell {
-        border: 1px solid red;
         align-self: center;
         justify-self: center;
         padding: 15px;
@@ -962,7 +962,6 @@ main {
 
         @media screen and (max-width: 1024px) {
             display: block;
-            margin-bottom: 30px;
         }
 
         &--auto-width {
@@ -972,10 +971,6 @@ main {
         &--narrow {
             align-self: center;
             width: 36%;
-
-            .frontpage__section--column & {
-                padding: 0;
-            }
 
             @media screen and (max-width: 1600px) {
                 width: 40%;
