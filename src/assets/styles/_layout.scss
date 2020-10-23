@@ -887,7 +887,7 @@ main {
         }
     }
 
-    h2 {
+    h2:not([class]) {
         line-height: 1;
         padding: 0;
     }
@@ -898,34 +898,40 @@ main {
         flex-wrap: nowrap;
         justify-content: center;
 
-        @media screen and (max-width: 1024px) {
-            flex-wrap: wrap;
-            padding: 60px 15px;
-        }
-
-        &--tall {
-            padding: 50px 30px 70px;
-        }
-
-        &--extratall {
-            padding: 70px 30px 90px;
-        }
-
-        &--single-column {
-            flex-direction: column;
-        }
-
         &--column {
             flex-direction: column;
         }
 
-        &--narrow {
-            padding: 40px 10vw 60px;
+        &--width-l {
+            padding-left: 10vw;
+            padding-right: 10vw;
+        }
+
+        &--width-m {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        &--width-s {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        &--height-l {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+
+        &--height-m {
+        
+        }
+
+        &--height-s {
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
         &--colored {
-            @include variable(background-color, clrAqua1);
-            @include variable(background-color, clrAccent);
             @include variable(background-color, clrAqua2);
         }
 
@@ -938,8 +944,12 @@ main {
         }
 
         &--colored3 {
-            background-color: transparentize($color: #e5b445, $amount: 0.7);
             @include variable(background-color, clrShadow);
+        }
+
+        @media screen and (max-width: 1024px) {
+            flex-wrap: wrap;
+            padding: 60px 15px;
         }
     }
 
