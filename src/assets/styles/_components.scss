@@ -40,14 +40,17 @@
     // elements
 
     &__heading {
-        color: inherit;
+        @include variable(font-family, fontPrimary);
+        color: inherit;        
         font-size: 24px;
+        font-size: 21px;
         font-weight: 400 !important;
         order: 2;
 
         @media screen and (max-width: 1024px) {
             font-size: 22px;
-            font-weight: 400 !important;
+            font-size: 19px;
+            font-weight: 500 !important;
         }
     }
 
@@ -440,6 +443,10 @@
         padding: 0 30px 15px;
         margin: 5px 0 10px !important;
         order: 2;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 18px;
+        }
     }
 
     &__image {

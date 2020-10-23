@@ -863,6 +863,18 @@ main {
     flex-direction: column;
     flex-wrap: nowrap;
 
+    &__heading {
+        font-size: 48px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin: 0 0 30px;
+      
+        @media screen and (max-width: 900px) {
+          font-size: 36px;
+          line-height: 1.2;
+        }
+    }
+
     &__paragraph {
         font-size: 42px;
         font-weight: 300;

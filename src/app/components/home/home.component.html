@@ -51,7 +51,7 @@
         </div>
         <div class="frontpage__cell frontpage__cell--auto-width frontpage__cell--colored frontpage__cell--top">
             <button type="submit" value="Send inn" class="button button--cta button--styleless">
-                <h2 style="margin: 0;">Rapporter hva du har sett!</h2>
+                <h2 class="frontpage__heading">Rapporter hva du har sett!</h2>
             </button>
         </div>
 
@@ -61,7 +61,7 @@
     <!--content-->
     <div class="frontpage__section frontpage__section--column">
 
-        <h2>Siste observasjoner</h2>
+        <h2 class="frontpage__heading">Siste observasjoner</h2>
         <app-sightings></app-sightings>
 
     </div>
@@ -71,7 +71,7 @@
 
     <div class="frontpage__section frontpage__section--column frontpage__section--colored2">
 
-        <h2>Snarveier</h2>
+        <h2 class="frontpage__heading">Snarveier</h2>
 
         <div class="loop loop--cards">
 
@@ -106,7 +106,7 @@
 
     <div class="frontpage__section frontpage__section--column frontpage__section--colored3">
 
-        <h2>Siste nytt</h2>
+        <h2 class="frontpage__heading">Siste nytt</h2>
 
         <div class="loop loop--teasers">
             <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'04.10.2020'"
