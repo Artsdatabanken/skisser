@@ -114,10 +114,10 @@
     text-align: center;
     width: auto;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+    // align-items: center;
 
     // modifiers
 
@@ -180,6 +180,11 @@
         padding-right: 45px;
         text-align: left;
 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
         &:hover {
             background-image: url(../images/iconChevronWhiteDown.png);
         }
@@ -229,6 +234,7 @@
     }
 
     &--map {
+    
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 20px;
@@ -262,6 +268,7 @@
 
     &__text {
         padding-bottom: 4px;
+        text-align: center;
     }
 
     &__icon {
@@ -426,9 +433,9 @@
         z-index: 7;
 
         &:before {
-            @include variable(background-color, clrAqua5);
-            @include variable(border-color, clrAqua5);
-            @include variable(color, clrWhite);
+            @include variable(background-color, clrAqua3);
+            @include variable(border-color, clrAqua3);
+            @include variable(color, clrBlack);
             border-style: solid;
             border-width: 2px;
             border-radius: 50%;

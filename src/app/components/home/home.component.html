@@ -1,8 +1,7 @@
 <div class="page page--frontpage frontpage">
 
     <!--intro-->
-    <div
-        class="frontpage__section frontpage__section--column frontpage__section--height-s frontpage__section--width-s">
+    <div class="frontpage__section frontpage__section--column frontpage__section--height-s frontpage__section--width-s">
 
         <p class="frontpage__paragraph">
             <a class="styleless aligncenter" style="display: block;" routerLink="/register">
@@ -22,25 +21,36 @@
         <div class="frontpage__cell">
             <div>
                 <form class="form" action="">
-                    <label for="species">Artsnavn</label>
-                    <input type="text" name="species" id="species" placeholder="Carcharodon carcharias - hvithai">
 
-                    <label for="species">Bilde</label>
-                    <input type="file">
+                    <div class="form__group">
+                        <label for="species">Artsnavn</label>
+                        <input type="text" name="species" id="species" placeholder="Carcharodon carcharias - hvithai">
+                    </div>
 
-                    <label for="species">Dato</label>
-                    <input type="date" name="date">
+                    <div class="form__group">
+                        <label for="species">Bilde</label>
+                        <input type="file">
+                    </div>
 
-                    <label for="species">Tid</label>
-                    <input type="time" name="tid">
+                    <div class="form__group">
+                        <label for="species">Dato</label>
+                        <input type="date" name="date">
+                    </div>
 
-                    <label for="species">Sted</label>
-                    <div class="form__grid form__grid--bss">
+                    <div class="form__group">
+                        <label for="species">Tid</label>
+                        <input type="time" name="tid">
+                    </div>
 
-                        <input type="text" name="Sted" placeholder="Trondheim">
-                        <button class="button button--primary button--map button--map-1">Marker på kart</button>
-                        <button class="button button--primary button--map button--map-2">Hent fra GPS</button>
+                    <div class="form__group">
+                        <label for="species">Sted</label>
+                        <div class="form__grid form__grid--bss">
 
+                            <input type="text" name="Sted" placeholder="Trondheim">
+                            <button class="button button--primary button--map button--map-1">Marker på kart</button>
+                            <button class="button button--primary button--map button--map-2">Hent fra GPS</button>
+
+                        </div>
                     </div>
 
                     <!-- <input type="submit" value="Send inn" class="button button--cta"> -->
@@ -132,9 +142,9 @@
     <div
         class="frontpage__section frontpage__section--column3 frontpage__section--height-l frontpage__section--width-s frontpage__section--colored1">
 
-     <div class="frontpage__cell">
-         <h2 class="frontpage__heading">Hva vi gjør</h2>
-     </div>
+        <div class="frontpage__cell">
+            <h2 class="frontpage__heading">Hva vi gjør</h2>
+        </div>
 
         <div class="frontpage__cell">
             <h3 class="frontpage__subheading">Arter uten nok data</h3>

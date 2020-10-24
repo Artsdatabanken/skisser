@@ -23,19 +23,62 @@
         <br><br>
 
         <form action="">
-            <label for="">Artsnavn</label>
-            <input type="text" value="Art">
+
+            <div class="form__group">
+                <label for="">Artsnavn</label>
+                <div class="form__grid form__grid--2">
+                    <input type="text" value="Art">
+                    <button class="button">Hjelp med artsbestemmelse</button>
+                </div>
+            </div>
+
+            <div class="form__group">
+                <label for="">Bilde, lyd og video</label>
+                <input type="file" value="Bilde">
+            </div>
+
+            <div class="form__group">
+                <label for="">Dato</label>
+                <input type="date" value="Dato">
+            </div>
+
+            <div class="form__group">
+                <label for="">Tid</label>
+                <input type="time" value="Tid">
+            </div>
+
+            <div class="form__group">
+                <label for="">Sted / lokalitet</label>
+                <div class="form__grid form__grid--4">
+                    <input type="text" value="Art">
+                    <button class="button button--primary button--map button--map-1">Marker på kart</button>
+                    <button class="button button--primary button--map button--map-2">Hent fra GPS</button>
+                    <button class="button">Opprett lokalitet</button>
+                </div>
+            </div>
+
+            <div class="form__group"></div>
+
+            <div class="form__group"></div>
+
+            <div class="form__group"></div>
+
+            <div class="form__group"></div>
+
+            <div class="form__group"></div>
+
+            <div class="form__group"></div>
 
 
-            <label for="">Dato</label>
-            <input type="date" value="Dato">
-            
-            <label for="">Tid</label>
-            <input type="time" value="Tid">
 
 
-            <label for="">Sted / lokalitet</label>
-            <input type="text" value="Sted">
+
+
+
+
+
+
+
 
             <!--******************-->
 
@@ -45,36 +88,60 @@
                     <input type="checkbox" id="chck1">
                     <label class="tab__label" for="chck1">Fyll ut mer om observasjonen din</label>
                     <div class="tab__content">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
 
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+                        </p>
 
                         <!--******************-->
 
-                        <label for="">Sted</label>
-                        <input type="text" value="Sted">
+                        <div class="form__group">
+                            <label for="">Felt</label>
+                            <input type="text" value="Felt">
+                        </div>
 
-                        <label for="">Sted</label>
-                        <input type="text" value="Sted">
+                        <div class="form__group">
+                            <label for="">Felt</label>
+                            <input type="text" value="Felt">
+                        </div>
 
-                        
-                        <label for="">Sted</label>
-                        <input type="text" value="Sted">
+                        <div class="form__group">
+                            <label for="">Felt</label>
+                            <input type="text" value="Felt">
+                        </div>
 
-                        
-                        <label for="">Sted</label>
-                        <input type="text" value="Sted">
+                        <div class="form__group">
+                            <label for="">Felt</label>
+                            <input type="text" value="Felt">
+                        </div>
 
-                        
-                        <label for="">Sted</label>
-                        <input type="text" value="Sted">
+                        <div class="form__group">
+                            <label for="">Felt</label>
+                            <input type="text" value="Felt">
+                        </div>
 
-                        
-                        <label for="">Sted</label>
-                        <input type="text" value="Sted">
+                        <div class="form__group">
+                            <label for="">Felt</label>
+                            <input type="text" value="Felt">
+                        </div>
 
-                        
-                        <label for="">Kommentar</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div class="form__group">
+                            <label for="">Kommentar</label>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="">Knytt til prosjekt</label>
+                            <select name="" id="">
+                                <option value="">Prosjekt 1</option>
+                                <option value="">Prosjekt 2</option>
+                                <option value="">Prosjekt 3</option>
+                            </select>
+                        </div>
+
+                        <div class="form__group">
+                            <button class="button button--cta button--md">Lagre</button>
+                        </div>
 
                         <!--******************-->
                     </div>
