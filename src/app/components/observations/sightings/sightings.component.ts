@@ -15,6 +15,10 @@ export class SightingsComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  getObservations() : void {
+    
+  }
+
   chooseDisplay(display: string): void {
     this.display = display;
     console.log('display')

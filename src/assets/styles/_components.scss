@@ -489,6 +489,7 @@
     &__image {
         background: lightgrey;
         background-position: center center;
+        background-repeat: no-repeat;
         background-size: cover;
 
         border-radius: 15px;
@@ -509,6 +510,16 @@
 
         &--3 {
             background-image: url(../images/gallery/frog.jpg);
+        }
+
+        &--5 {
+            background-image: url(../images/gallery/bear.jpg);
+        }
+
+        &--noImg {
+            @include variable(background-color, clrAqua1);
+            background-image: url(../images/iconNoImage.png);
+            background-size: 128px;
         }
     }
 
