@@ -234,7 +234,6 @@
     }
 
     &--map {
-    
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 20px;
@@ -427,10 +426,18 @@
 
     li {
         @include variable(font-family, fontSecondary);
-        margin: 0 50px;
+        margin: 0;
         position: relative;
         text-align: center;
-        z-index: 7;
+        width: 200px;
+        z-index: 10;
+
+        span {
+            display: block;
+            font-size: 18px;
+            margin: auto;
+            padding: 5px;
+        }
 
         &:before {
             @include variable(background-color, clrAqua3);
@@ -455,10 +462,10 @@
             content: "";
             display: block;
             height: 3px;
-            left: 100%;
+            left: 123px;
             position: absolute;
             top: 25px;
-            width: 100px;
+            width: 152px;
             z-index: 5;
         }
 
