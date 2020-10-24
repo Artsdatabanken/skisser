@@ -283,10 +283,11 @@
     }
 
     &__link {
-        @include variable(border-bottom-color, clrLight);
         @include variable(border-bottom-color, clrAqua2);
+        @include variable(border-bottom-color, clrAqua1);
         border-bottom-style: solid;
         border-bottom-width: 1px;
+        border-bottom-width: 2px;
         align-self: stretch;
         justify-self: stretch;
         padding: 10px 0;
@@ -351,6 +352,10 @@
         }
 
         // current location
+
+        .navigation--secondary & {
+            @include variable(border-bottom-color, clrAqua2);
+        }
 
         .navigation--top & {
             @include variable(background-color, clrWhite);
@@ -965,12 +970,14 @@ main {
         }
 
         @media screen and (max-width: 1024px) {
-            display: block;
+            // display: block;
+            grid-template-columns: 1fr;
             padding: 60px 15px;
         }
     }
 
     &__cell {
+        // border: 1px solid red;
         align-self: center;
         justify-self: stretch;
         padding: 15px;

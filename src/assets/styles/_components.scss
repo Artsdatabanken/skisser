@@ -179,6 +179,10 @@
         background-size: 17px;
         padding-right: 45px;
         text-align: left;
+
+        &:hover {
+            background-image: url(../images/iconChevronWhiteDown.png);
+        }
     }
 
     &--display {
@@ -241,7 +245,7 @@
         background-image: url(../images/iconMapMarker.png);
 
         &:hover {
-            background-image: url(../images/iconMapMarkerDark.png);
+            //background-image: url(../images/iconMapMarkerDark.png);
         }
     }
 
@@ -250,7 +254,7 @@
         background-size: 24px;
 
         &:hover {
-            background-image: url(../images/iconMapGpsDark.png);
+            //background-image: url(../images/iconMapGpsDark.png);
         }
     }
 
@@ -277,7 +281,9 @@
     &:focus,
     &:hover {
         @include variable(background-color, clrAccent);
-        @include variable(border-color, clrBlack);
+        @include variable(background-color, clrDark);
+        @include variable(border-color, clrDark);
+        @include variable(color, clrWhite);
         border-style: solid;
         border-width: 2px;
         border-radius: 10px;
