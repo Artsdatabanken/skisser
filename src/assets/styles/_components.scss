@@ -154,8 +154,22 @@
         }
     }
 
-    &--centered {
-        margin: 0 auto;
+    &--mega {
+        @include variable(background-color, clrAccent);
+        @include variable(font-family, fontSecondary);
+        font-size: 44px;
+        font-weight: 300;
+        margin: 0 20px;
+        padding: 36px;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 28px;
+        }
+
+        &:hover {
+            @include variable(background-color, clrAqua0);
+            @include variable(border-color, clrAqua0);
+        }
     }
 
     &--dropdown {

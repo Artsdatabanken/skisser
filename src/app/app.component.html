@@ -4,6 +4,7 @@
 
     <div class="layout__header">
         <app-header></app-header>
+        <app-breadcrumbs class="" *ngIf="pageType !== 'frontpage'"></app-breadcrumbs>
     </div>
 
     <div class="layout__main">
