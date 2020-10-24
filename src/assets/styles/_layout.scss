@@ -136,7 +136,7 @@
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    transform: translateY(-1000vh); /*change here related your menu height*/
+    transform: translateY(-1500vh); /*change here related your menu height*/
 
     @media screen and (max-width: 1024px) {
         min-height: 100vh;
@@ -965,7 +965,7 @@ main {
         }
 
         @media screen and (max-width: 1024px) {
-            flex-wrap: wrap;
+            display: block;
             padding: 60px 15px;
         }
     }
