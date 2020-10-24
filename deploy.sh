@@ -1,5 +1,7 @@
 BRANCH=$1
 FILENAME=skisser.tar.gz
+echo "copying .htaccess"
+cp --verbose .htaccess dist/artsobservasjoner/
 echo "Making archive"
 tar --directory=dist -zcf $FILENAME .
 if [ "${BRANCH}" == "master" ]
