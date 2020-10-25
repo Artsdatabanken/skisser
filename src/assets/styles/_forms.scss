@@ -22,8 +22,8 @@ form {
     }
 
     input {
-        @include variable(background-color, clrLight);
-        @include variable(border-color, clrPrimary);
+        @include variable(background-color, clrWash);
+        @include variable(border-color, clrDark);
         @include variable(font-family, fontPrimary);
         border-style: solid;
         border-width: 2px;
@@ -61,9 +61,14 @@ form {
         @media screen and (max-width: 1024px) {
             margin: 5px 0 20px;
         }
+
+        .form__group--light & {
+            @include variable(background-color, clrWhite);
+        }
     }
 
     textarea {
+        @include variable(background-color, clrWhite);
         @include variable(border-color, clrBlack);
         @include variable(font-family, fontPrimary);
         border-radius: 10px;
@@ -78,11 +83,23 @@ form {
             padding: 15px;
         }
     }
+
+    select {
+        @extend input;
+        @include variable(background-color, clrWhite);
+        font-size: 18px;
+    }
 }
 
 .form {
     &__group {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
+    }
+
+    &__input {
+        &--light {
+            @include variable(background-color, clrWhite);
+        }
     }
 
     &__grid {
@@ -116,6 +133,32 @@ form {
         &--bss {
             // big small small
             grid-template-columns: 3fr 1fr 1fr;
+            grid-gap: 10px 10px;
+            margin-top: 5px;
+
+            & > * {
+                align-self: center;
+                justify-self: stretch;
+                margin: 0;
+            }
+        }
+
+        &--bs {
+            // big small
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 10px 10px;
+            margin-top: 5px;
+
+            & > * {
+                align-self: center;
+                justify-self: stretch;
+                margin: 0;
+            }
+        }
+
+        &--bxxs {
+            // big small
+            grid-template-columns: 3fr 1fr 1fr 2fr;
             grid-gap: 10px 10px;
             margin-top: 5px;
 

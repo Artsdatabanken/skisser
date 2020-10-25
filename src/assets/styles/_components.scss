@@ -135,6 +135,14 @@
         text-align: center !important;
     }
 
+    &--secondary {
+        // @include variable(background-color, clrDark);
+        // @include variable(border-color, clrDark);
+        // @include variable(color, clrWhite);
+        // font-weight: 400;
+        // text-align: center !important;
+    }
+
     &--cta {
         @include variable(background-color, clrAqua2);
         @include variable(border-color, clrAqua2);
