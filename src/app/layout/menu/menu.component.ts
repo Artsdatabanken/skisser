@@ -1,28 +1,5 @@
-import { Component, OnInit, Input, Inject, Renderer2, Directive, HostListener, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { NavigationService } from 'src/app/services/navigation.service';
-
-// @Directive({
-//   selector: '[closeMenu]'
-// })
-
-// export class CloseMenuDirective {
-
-//   @HostListener('click') onClick() {
-//     this.renderer.removeClass(this.document.body, 'active-menu');
-//     this.renderer.removeClass(this.document.getElementById('hamburger'), 'hamburger--is-active');
-//     this.renderer.removeClass(this.document.getElementById('menu'), 'menu--open');
-//     this.host.isActive = false;
-//   }
-
-//   constructor(
-//     @Inject(DOCUMENT) private document: Document,
-//     private renderer: Renderer2,
-//     private host: MenuComponent
-//   ) { }
-
-// }
 
 @Component({
   selector: 'app-menu',
@@ -32,26 +9,15 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class MenuComponent implements OnInit {
 
-  // mainMenu$: Observable<string[]>;
-  // subMenu$: Observable<string[]>;
-  // topMenu$: Observable<string[]>;
-  // extraMenu$: Observable<string[]>;
-  
   public isActive: boolean = false;
   @Input() ariaLabel: string;
 
   constructor(
-    private navigationService: NavigationService,
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2
   ) { }
 
-  ngOnInit(): void {
-    // this.mainMenu$ = this.navigationService.getMenuItems();
-    // this.subMenu$ = this.navigationService.getSubMenuItems();
-    // this.topMenu$ = this.navigationService.getTopMenuItems();
-    // this.extraMenu$ = this.navigationService.getExtraMenuItems();
-  }
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     this.renderer.removeClass(this.document.body, 'active-menu');
@@ -69,16 +35,5 @@ export class MenuComponent implements OnInit {
     }
 
   }
-
-  // getCSSClass(link: string | null): string {
-
-  //   if (link['sectionType']) {
-  //     return `navigation__section--${link['sectionType']}`;
-  //   }
-  //   else if (link['type']){
-  //     return `navigation__link--${link['type']}`;
-  //   }
-
-  // }
 
 }

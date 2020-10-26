@@ -9,8 +9,7 @@
 
             <h1 class="navigation__heading">
                 <span class="navigation__heading-text"> {{ link.section }} </span>
-                <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}"
-                    >{{ link.section }}</a>
+                <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}" closeMenu>{{ link.section }}</a>
             </h1>
 
             <div class="navigation__section" [class]="getCSSClass(link)">
