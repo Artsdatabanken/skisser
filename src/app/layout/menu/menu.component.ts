@@ -33,10 +33,10 @@ export class CloseMenuDirective {
 export class MenuComponent implements OnInit {
 
   public isActive: boolean = false;
-  navigationLinks$: Observable<string[]>;
-  subNavigationLinks$: Observable<string[]>;
-  topNavigationLinks$: Observable<string[]>;
-  extraNavigationLinks$: Observable<string[]>;
+  mainMenu$: Observable<string[]>;
+  subMenu$: Observable<string[]>;
+  topMenu$: Observable<string[]>;
+  extraMenu$: Observable<string[]>;
 
   @Input() ariaLabel: string;
 
@@ -47,10 +47,10 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.navigationLinks$ = this.navigationService.getMenuItems();
-    this.subNavigationLinks$ = this.navigationService.getSubMenuItems();
-    this.topNavigationLinks$ = this.navigationService.getTopMenuItems();
-    this.extraNavigationLinks$ = this.navigationService.getExtraMenuItems();
+    this.mainMenu$ = this.navigationService.getMenuItems();
+    this.subMenu$ = this.navigationService.getSubMenuItems();
+    this.topMenu$ = this.navigationService.getTopMenuItems();
+    this.extraMenu$ = this.navigationService.getExtraMenuItems();
   }
 
   ngOnDestroy(): void {
