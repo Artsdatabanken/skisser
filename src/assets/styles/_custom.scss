@@ -312,7 +312,7 @@ $orange: #514942;
     margin-top: 30px;
     padding: 30px;
     text-align: center;
-    
+
     h3 {
         @include variable(font-family, fontPrimary);
         font-size: 22px;
@@ -322,6 +322,52 @@ $orange: #514942;
 
     button {
         margin: 0 auto;
+    }
+}
+
+.test {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    text-align: center;
+
+    &__cell {
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0 15px;
+
+        span {
+            font-weight: 500;
+            padding-right: 10px;
+        }
+
+        &:nth-child(1) {
+            div {
+                background-image: url(../images/iconValidationYes.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 44px;
+                height: 44px;
+                width: 44px;
+            }
+        }
+
+        &:nth-child(2) {
+            div {
+                background-image: url(../images/iconValidationNo.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 44px;
+                height: 44px;
+                width: 44px;
+            }
+        }
     }
 }
 
