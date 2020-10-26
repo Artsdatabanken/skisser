@@ -22,6 +22,8 @@ figcaption {
    width: 100%;
 
    img {
+       border-radius: 20px;
+       border-bottom-right-radius: 0;
        width: 100%;
    }
 }

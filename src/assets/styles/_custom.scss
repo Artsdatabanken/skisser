@@ -304,3 +304,87 @@ $orange: #514942;
 .ol-attribution {
     display: none;
 }
+
+// validation
+
+.validation {
+    @include variable(background-color, clrAqua1);
+    margin-top: 30px;
+    padding: 30px;
+    text-align: center;
+    
+    h3 {
+        @include variable(font-family, fontPrimary);
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 auto 20px;
+    }
+
+    button {
+        margin: 0 auto;
+    }
+}
+
+// comments
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment {
+    @include variable(background-color, clrAqua0);
+    border-radius: 20px;
+    margin: 30px 0;
+    padding: 30px;
+    width: 70%;
+
+    &:nth-last-child(even) {
+        @include variable(background-color, clrWash);
+        align-self: flex-end;
+        border-bottom-right-radius: 0;
+    }
+
+    &:nth-last-child(odd) {
+        align-self: flex-start;
+        border-bottom-left-radius: 0;
+    }
+
+    &__author {
+        @include variable(font-family, fontSecondary);
+        font-size: 22px;
+
+        & > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    &__metadata {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+}
+
+.rewards {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin: 0 5px 0 10px;
+    height: 40px;
+    width: 40px;
+
+    &--0 {
+        background-image: url(../images/iconGame0.png);
+    }
+
+    &--1 {
+        background-image: url(../images/iconGame1.png);
+    }
+
+    &--3 {
+        background-image: url(../images/iconGame3.png);
+    }
+}

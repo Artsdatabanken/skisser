@@ -828,6 +828,18 @@ main {
         }
     }
 
+    &--center {
+        text-align: center;
+        
+        & > * {
+            margin: 0 10px;
+
+            @media screen and (max-width: 1024px) {
+                margin: 0;
+            }
+        }
+    }
+
     &--cards {
         display: grid;
         grid-template-columns: 1fr 1fr;
