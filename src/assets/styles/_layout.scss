@@ -706,6 +706,10 @@ main {
         }
     }
 
+    &--item {
+        @extend .main-grid--page;
+    }
+
     &--mega {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
@@ -742,7 +746,7 @@ main {
     }
 
     & > * {
-        // border: 1px solid red;
+         border: 1px solid red;
         align-self: stretch;
         justify-self: stretch;
     }

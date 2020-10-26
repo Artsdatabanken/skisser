@@ -14,7 +14,7 @@
                 {
                     "label": "Se, søk og filtrer observasjoner",
                     "name": "sightings",
-                    "url": "report",
+                    "url": "/sightings",
                     "type": "primary"
                 },
                 {

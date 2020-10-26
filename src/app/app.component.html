@@ -17,9 +17,10 @@
             [ngClass]="{'main-grid--page': pageLayout === 'page', 
             'main-grid--mega': pageLayout === 'mega', 
             'main-grid--std': pageLayout === 'std', 
+            'main-grid--page': pageLayout === 'item',
             'main-grid--frontpage': pageLayout === 'frontpage'}">
 
-            <h1 class="page-title" *ngIf="pageTitle !== 'Forsiden'">{{ pageTitle }}</h1>
+            <h1 class="page-title" *ngIf="pageTitle !== 'Forsiden' && pageLayout !== 'item'">{{ pageTitle }}</h1>
 
             <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
 

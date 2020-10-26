@@ -7,6 +7,17 @@
 
 .page-title {
     margin-bottom: 50px;
+
+    .page-subtitle + & {
+        background: yellow;
+        margin: 200px 0 15px;
+    }
+}
+
+.page-subtitle {
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: -45px;
 }
 
 // cards
@@ -340,76 +351,6 @@
             border-bottom-right-radius: 0;
             padding-right: 30px;
         }
-    }
-}
-
-/*table*/
-
-.table {
-    @include variable(border-color, clrAqua3);
-    border-style: solid;
-    border-width: 2px;
-    border-collapse: collapse;
-    font-size: 18px;
-    width: 100%;
-
-    &__header {
-        .table--invisible-header & {
-            //visibility: hidden;
-        }
-    }
-
-    &__body {
-    }
-
-    &__column-header {
-        @include variable(background-color, clrWhite);
-        @include variable(font-family, fontSecondary);
-        text-align: left;
-    }
-
-    &__row-header {
-        //@include variable(font-family, fontSecondary);
-        font-weight: 600;
-        text-align: left;
-        //text-transform: capitalize;
-    }
-
-    tr {
-        // @include variable(border-bottom-color, clrAqua3);
-        // border-bottom-style: solid;
-        // border-bottom-width: 2px;
-
-        @include variable(border-color, clrAqua3);
-        @include variable(border-color, clrAccent);
-        border-style: solid;
-        border-width: 2px;
-
-        &:nth-child(odd) {
-            @include variable(background-color, clrShadow);
-        }
-
-        &:hover {
-            @include variable(background-color, clrShadow);
-            @include variable(background-color, clrAqua0);
-            // @include variable(border-color, clrAqua0);
-            // border-style: solid;
-            // border-width: 2px;
-        }
-    }
-
-    th {
-        a {
-            border: none;
-            // font-weight: 400;
-            // font-size: 1.1em;
-            font-weight: 700;
-        }
-    }
-
-    th,
-    td {
-        padding: 15px;
     }
 }
 

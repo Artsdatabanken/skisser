@@ -49,8 +49,6 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        console.log('label', obj.label)
-
         this.pageTitle = obj.label;
         this.pageName = obj.name;
         this.pageLayout = obj.layout;
