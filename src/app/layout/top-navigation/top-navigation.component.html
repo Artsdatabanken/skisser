@@ -4,7 +4,7 @@
 
     <a class="navigation__link" [class]="getCSSClass(link.type)" routerLinkActive="navigation__link--active"
         routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
-        <span class="navigation__label"> {{ link.title }}</span>
+        <span class="navigation__label"> {{ link.label }}</span>
     </a>
 
 </nav>
