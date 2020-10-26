@@ -3,60 +3,59 @@
 /*lists*/
 
 ol {
-    margin: 50px 0;
-    padding-inline-start: 30px;
-  
-    li {
-    }
+  margin: 50px 0;
+  padding-inline-start: 30px;
+
+  li {
   }
-  
-  ul {
-    list-style-type: square;
-    margin: 20px 0 40px;
-    padding-inline-start: 50px;
+}
+
+ul {
+  list-style-type: square;
+  margin: 20px 0 40px;
+  padding-inline-start: 50px;
+  padding-inline-start: 15px;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
     padding-inline-start: 15px;
-    width: 100%;
-  
-    @media screen and (max-width: 900px) {
-      padding-inline-start: 15px;
-      width: 95%;
-    }
-  
-    li {
-      margin: 0 0 20px;
-  
-      p {
-        margin: 0;
-      }
-    }
-  }
-  
-  dl {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 25px 0;
-  
-    dt {
-      font-weight: 700;
-      width: 50%;
-    }
-  
-    dd {
-      width: 50%;
-    }
+    width: 95%;
   }
 
-  
-  .list {
-      font-size: 18px;
+  li {
+    margin: 0 0 20px;
 
-      li {
-          margin: 0 0 5px;
-      }
-
-      strong    {
-          padding-right: 7px;
-      }
+    p {
+      margin: 0;
+    }
   }
+}
+
+dl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 25px 0;
+
+  dt {
+    font-weight: 700;
+    width: 50%;
+  }
+
+  dd {
+    width: 50%;
+  }
+}
+
+.list {
+  font-size: 18px;
+
+  li {
+    margin: 0 0 5px;
+  }
+
+  strong {
+    padding-right: 10px;
+  }
+}

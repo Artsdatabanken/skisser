@@ -621,6 +621,9 @@
     overflow: hidden;
     width: 100%;
 
+    &-small {
+    }
+
     &__label {
         display: flex;
         justify-content: flex-start;
@@ -630,10 +633,6 @@
         font-size: 24px;
         font-weight: 400;
         padding: 15px 0;
-
-        &:hover {
-            //background: darken(fuchsia, 10%);
-        }
 
         &::after {
             background-image: url(../images/iconChevronDown.png);
@@ -646,6 +645,16 @@
             width: 20px;
             text-align: center;
             transition: all 0.35s;
+
+            .tabs--small & {
+                height: 14px;
+                width: 14px;
+            }
+        }
+
+        .tabs--small & {
+            font-size: 19px;
+            padding: 5px 0;
         }
     }
 
@@ -678,8 +687,8 @@ input:checked {
 
     ~ .tab__content {
         max-height: 1000vh;
-          overflow: hidden;
-          padding: 30px;
-          transition: max-height 0.9s ease-in;
+        overflow: hidden;
+        padding: 30px;
+        transition: max-height 0.9s ease-in;
     }
 }
