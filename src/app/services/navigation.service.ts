@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import Settings from '../data/settings.json';
+import NavigationSettings from '../data/navigationSettings.json';
 
 @Injectable({
   providedIn: 'root'
@@ -8,21 +8,15 @@ import Settings from '../data/settings.json';
 
 export class NavigationService {
 
-  settings: any = Settings;
+  settings: any = NavigationSettings;
 
   constructor() { }
 
-  // getMenuItems(): Observable<string[]> {
-
-  //   const navigationLinks: string[] = this.settings.menu;
-  //   return of(navigationLinks).pipe();
-
-  // }
-
   getMenuItems(): Observable<string[]> {
 
-    const navigationLinks: string[] = this.settings.menu;
-    return of(navigationLinks).pipe();
+    const mainMenu: string[] = this.settings.mainMenu;   
+    
+    return of(mainMenu).pipe();
 
   }
 
@@ -49,14 +43,14 @@ export class NavigationService {
 
   getMenuSectionItems(menuSectionUrl: string): Observable<string[]> {
 
-    const menu: any[] = this.settings.menu.filter(link => link['sectionUrl'] === menuSectionUrl);
+    const menu: any[] = this.settings.mainMenu.filter(link => link['sectionUrl'] === menuSectionUrl);
     const subMenu: any[] = this.settings.subMenu.filter(link => link['sectionUrl'] === menuSectionUrl);
 
-    const navigationLinks = [ ...menu, ...subMenu];
+    const navigationLinks = [...menu, ...subMenu];
     const menuSection = navigationLinks.map(i => i.sectionContent);
 
     return of(menuSection[0]).pipe();
-  
+
   }
 
 }
