@@ -15,10 +15,10 @@ export class ButtonComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('button',
-      'css', this.cssClass,
-      'text', this.text
-    )
+    // console.log('button',
+    //   'css', this.cssClass,
+    //   'text', this.text
+    // )
 
   }
 

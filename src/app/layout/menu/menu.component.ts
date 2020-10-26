@@ -3,26 +3,26 @@ import { Observable } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { NavigationService } from 'src/app/services/navigation.service';
 
-@Directive({
-  selector: '[closeMenu]'
-})
+// @Directive({
+//   selector: '[closeMenu]'
+// })
 
-export class CloseMenuDirective {
+// export class CloseMenuDirective {
 
-  @HostListener('click') onClick() {
-    this.renderer.removeClass(this.document.body, 'active-menu');
-    this.renderer.removeClass(this.document.getElementById('hamburger'), 'hamburger--is-active');
-    this.renderer.removeClass(this.document.getElementById('menu'), 'menu--open');
-    this.host.isActive = false;
-  }
+//   @HostListener('click') onClick() {
+//     this.renderer.removeClass(this.document.body, 'active-menu');
+//     this.renderer.removeClass(this.document.getElementById('hamburger'), 'hamburger--is-active');
+//     this.renderer.removeClass(this.document.getElementById('menu'), 'menu--open');
+//     this.host.isActive = false;
+//   }
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
-    private host: MenuComponent
-  ) { }
+//   constructor(
+//     @Inject(DOCUMENT) private document: Document,
+//     private renderer: Renderer2,
+//     private host: MenuComponent
+//   ) { }
 
-}
+// }
 
 @Component({
   selector: 'app-menu',
@@ -32,12 +32,12 @@ export class CloseMenuDirective {
 
 export class MenuComponent implements OnInit {
 
+  // mainMenu$: Observable<string[]>;
+  // subMenu$: Observable<string[]>;
+  // topMenu$: Observable<string[]>;
+  // extraMenu$: Observable<string[]>;
+  
   public isActive: boolean = false;
-  mainMenu$: Observable<string[]>;
-  subMenu$: Observable<string[]>;
-  topMenu$: Observable<string[]>;
-  extraMenu$: Observable<string[]>;
-
   @Input() ariaLabel: string;
 
   constructor(
@@ -47,10 +47,10 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.mainMenu$ = this.navigationService.getMenuItems();
-    this.subMenu$ = this.navigationService.getSubMenuItems();
-    this.topMenu$ = this.navigationService.getTopMenuItems();
-    this.extraMenu$ = this.navigationService.getExtraMenuItems();
+    // this.mainMenu$ = this.navigationService.getMenuItems();
+    // this.subMenu$ = this.navigationService.getSubMenuItems();
+    // this.topMenu$ = this.navigationService.getTopMenuItems();
+    // this.extraMenu$ = this.navigationService.getExtraMenuItems();
   }
 
   ngOnDestroy(): void {
@@ -70,15 +70,15 @@ export class MenuComponent implements OnInit {
 
   }
 
-  getCSSClass(link: string | null): string {
+  // getCSSClass(link: string | null): string {
 
-    if (link['sectionType']) {
-      return `navigation__section--${link['sectionType']}`;
-    }
-    else if (link['type']){
-      return `navigation__link--${link['type']}`;
-    }
+  //   if (link['sectionType']) {
+  //     return `navigation__section--${link['sectionType']}`;
+  //   }
+  //   else if (link['type']){
+  //     return `navigation__link--${link['type']}`;
+  //   }
 
-  }
+  // }
 
 }

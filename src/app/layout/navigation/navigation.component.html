@@ -1,16 +1,30 @@
 <!--layout component-->
 
-<nav class="navigation" role="navigation" [attr.aria-label]="ariaLabel">
-    <!-- <a class="navigation__link" [routerLink]="'/home'" *ngIf="ariaLabel === 'footerMenu'">Home</a> -->
-    <a class="navigation__link" 
-        routerLinkActive="navigation__link--active" 
-        routerLink="{{ link.url }}"
-        [ngClass]="{'navigation__link--secondary': link.type === 'secondary'}"
-        *ngFor="let link of navigationLinks$ | async">
-        {{ link.title }}
-    </a>
-</nav>
+<nav class="navigation navigation--primary" role="navigation">
 
-<app-sub-navigation></app-sub-navigation>
+    <div class="navigation__container">
+
+        <div class="navigation__item" *ngFor="let link of mainMenu$ | async; let i = index">
+
+            <h1 class="navigation__heading">
+                <span class="navigation__heading-text"> {{ link.section }} </span>
+                <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}"
+                    closeMenu>{{ link.section }}</a>
+            </h1>
+
+            <div class="navigation__section" [class]="getCSSClass(link)">
+
+                <a class="navigation__link" [class]="getCSSClass(link)" routerLinkActive="navigation__link--active"
+                    routerLink="{{ link.name }}" *ngFor="let link of link.sectionContent" closeMenu>
+                    <span class="navigation__label"> {{ link.title }}</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
 
 <!--layout component--> 

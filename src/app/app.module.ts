@@ -41,7 +41,8 @@ import { FilterComponent } from './components/shared/filter/filter.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/projects/project/project.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
-import { CloseMenuDirective, MenuComponent } from './layout/menu/menu.component';
+//import { CloseMenuDirective, MenuComponent } from './layout/menu/menu.component';
+import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { ObservationsComponent } from './components/observations/observations.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
@@ -52,6 +53,8 @@ import { MapComponent } from './components/map/map.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/messages/message/message.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
+import { MenuDirective } from './helpers/menu.directive';
+import { ContributeComponent } from './components/about/contribute/contribute.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +99,7 @@ import { SitemapComponent } from './components/sitemap/sitemap.component';
     CreateProjectComponent,
     MenuComponent,
     LoginButtonComponent,
-    CloseMenuDirective,
+    //CloseMenuDirective,
     ObservationsComponent,
     ReportComponent,
     ReportObservationComponent,
@@ -105,6 +108,8 @@ import { SitemapComponent } from './components/sitemap/sitemap.component';
     MessagesComponent,
     MessageComponent,
     SitemapComponent,
+    MenuDirective,
+    ContributeComponent
   ],
   imports: [
     BrowserModule,

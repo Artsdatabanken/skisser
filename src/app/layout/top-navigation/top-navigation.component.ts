@@ -2,6 +2,7 @@ import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-top-navigation',
@@ -10,19 +11,20 @@ import { NavigationService } from 'src/app/services/navigation.service';
 })
 
 export class TopNavigationComponent implements OnInit {
-  navigationLinks$: Observable<string[]>;
+
+  topMenu$: Observable<string[]>;
   @Input() ariaLabel: string;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(
+    private navigationService: NavigationService
+  ) { }
 
   ngOnInit(): void {
-    this.navigationLinks$ = this.navigationService.getTopMenuItems();
+    this.topMenu$ = this.navigationService.getTopMenuItems();
   }
 
-  getCSSClass(link: string | null): string {
-
-    return `top-navigation__link--${link}`;
-
+  getCSSClass(link: string): string {
+    return this.navigationService.getMenuCSSClass(link);
   }
 
 }

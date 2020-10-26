@@ -53,4 +53,15 @@ export class NavigationService {
 
   }
 
+  getMenuCSSClass(link: string | null): string {
+
+    if (link['sectionType']) {
+      return `navigation__section--${link['sectionType']}`;
+    }
+    else if (link['type']){
+      return `navigation__link--${link['type']}`;
+    }
+
+  }
+
 }

@@ -1,10 +1,12 @@
 <!--layout component-->
 
-<nav class="top-navigation" role="navigation" [attr.aria-label]="ariaLabel">
-    <a class="top-navigation__link" [class]="getCSSClass(link.url)" routerLinkActive="top-navigation__link--active"
-        routerLink="{{ link.url }}" *ngFor="let link of navigationLinks$ | async">
-        {{ link.title }}
+<nav class="navigation navigation--top">
+
+    <a class="navigation__link" [class]="getCSSClass(link.type)" routerLinkActive="navigation__link--active"
+        routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
+        <span class="navigation__label"> {{ link.title }}</span>
     </a>
+
 </nav>
 
 <!--layout component-->

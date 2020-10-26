@@ -10,13 +10,19 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class SubNavigationComponent implements OnInit {
 
-  navigationLinks$: Observable<string[]>;
+  subMenu$: Observable<string[]>;
+  extraMenu$: Observable<string[]>;
   @Input() ariaLabel: string;
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.navigationLinks$ = this.navigationService.getSubMenuItems();
+    this.subMenu$ = this.navigationService.getSubMenuItems();
+    this.extraMenu$ = this.navigationService.getExtraMenuItems();
+  }
+
+  getCSSClass(link: string): string {
+    return this.navigationService.getMenuCSSClass(link);
   }
 
 }

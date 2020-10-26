@@ -24,6 +24,7 @@ import { ReportComponent } from './components/report/report.component';
 import { MapComponent } from './components/map/map.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { ContributeComponent } from './components/about/contribute/contribute.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,16 @@ const routes: Routes = [
       name: 'about',
       type: 'page',
       breadcrumb: 'Om tjenesten'
+    },
+  },
+  {
+    path: 'about/contribute',
+    component: ContributeComponent,
+    data: {
+      title: 'Bidra',
+      name: 'contribute',
+      type: 'page',
+      breadcrumb: 'Bidra'
     },
   },
   {
