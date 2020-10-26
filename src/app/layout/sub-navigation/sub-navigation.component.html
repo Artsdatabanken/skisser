@@ -15,8 +15,8 @@
             <div class="navigation__section" [class]="getCSSClass(link)">
 
                 <a class="navigation__link" [class]="getCSSClass(link)" routerLinkActive="navigation__link--active"
-                    routerLink="{{ link.name }}" *ngFor="let link of link.sectionContent" closeMenu>
-                    <span class="navigation__label"> {{ link.title }}</span>
+                    routerLink="{{ link.url }}" *ngFor="let link of link.sectionContent" closeMenu>
+                    <span class="navigation__label"> {{ link.label }}</span>
                 </a>
 
             </div>
@@ -31,7 +31,7 @@
 
                 <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
                     routerLink="{{ link.name }}" *ngFor="let link of extraMenu$ | async" closeMenu>
-                    <span class="navigation__label"> {{ link.title }}</span>
+                    <span class="navigation__label"> {{ link.label }}</span>
                 </a>
 
             </div>

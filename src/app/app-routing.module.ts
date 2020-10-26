@@ -59,10 +59,10 @@ const routes: Routes = [
     path: 'about/contribute',
     component: ContributeComponent,
     data: {
-      title: 'Bidra',
+      title: 'Hvordan du kan bidra',
       name: 'contribute',
       type: 'page',
-      breadcrumb: 'Bidra'
+      breadcrumb: 'Hvordan du kan bidra'
     },
   },
   {

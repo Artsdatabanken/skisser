@@ -14,7 +14,7 @@
             <app-card [type]="'link'" [url]="'s'" [title]="'EurobirdWatch norge'"></app-card>
             <app-card [type]="'link'" [cssClass]="'card--secondary'" [url]="'user-statistics'" [title]="'Brukerstatistikk'"></app-card> -->
             
-            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [title]="link.title" *ngFor="let link of menuSections$ | async">
+            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [label]="link.label" *ngFor="let link of menuSections$ | async">
             </app-card>
 
         </div>

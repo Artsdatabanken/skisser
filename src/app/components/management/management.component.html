@@ -11,19 +11,9 @@
 
     <div class="page__content">
 
-        <!-- <div class="loop loop--cards">
-
-            <app-card [type]="'link'" [url]="'/management'" [title]="'Mine prosjekter'"></app-card>
-            <app-card [type]="'link'" [url]="'/management'" [title]="'Mine lokaliteter'"></app-card>
-            <app-card [type]="'link'" [url]="'/management'" [title]="'Mine samlinger'"></app-card>
-            <app-card [type]="'link'" [url]="'/management'" [title]="'Medobservatører'"></app-card>
-
-        </div> -->
-
-
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [title]="link.title" *ngFor="let link of menuSections$ | async">
+            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [label]="link.label" *ngFor="let link of menuSections$ | async">
             </app-card>
 
         </div>

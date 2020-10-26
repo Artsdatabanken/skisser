@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
     this.mainMenu$ = this.navigationService.getMenuItems();
   }
 
-  getCSSClass(link: string): string {
+  getLinkType(link: string): string {
     return this.navigationService.getMenuCSSClass(link);
   }
 

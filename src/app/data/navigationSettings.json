@@ -6,37 +6,37 @@
             "sectionType": "primary",
             "sectionContent": [
                 {
-                    "title": "Rapportere observasjon",
+                    "label": "Rapportere observasjon",
                     "name": "report-observation",
                     "url": "report-observation",
                     "type": "primary"
                 },
                 {
-                    "title": "Se, søk og filtrer observasjoner",
+                    "label": "Se, søk og filtrer observasjoner",
                     "name": "sightings",
                     "url": "report",
                     "type": "primary"
                 },
                 {
-                    "title": "Mine observasjoner",
+                    "label": "Mine observasjoner",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "primary"
                 },
                 {
-                    "title": "Importere observasjoner",
+                    "label": "Importere observasjoner",
                     "name": "import-observations",
                     "url": "import-observations",
                     "type": "secondary"
                 },
                 {
-                    "title": "Observasjonsprosjekter",
+                    "label": "Observasjonsprosjekter",
                     "name": "projects",
                     "url": "projects",
                     "type": "secondary"
                 },
                 {
-                    "title": "Validere observasjoner***",
+                    "label": "Validere observasjoner***",
                     "name": "report",
                     "url": "report",
                     "type": "secondary"
@@ -49,25 +49,25 @@
             "sectionType": "secondary",
             "sectionContent": [
                 {
-                    "title": "Mine prosjekter",
+                    "label": "Mine prosjekter",
                     "name": "management",
                     "url": "management",
                     "type": "secondary"
                 },
                 {
-                    "title": "Mine lokaliteter",
+                    "label": "Mine lokaliteter",
                     "name": "management",
                     "url": "management",
                     "type": "secondary"
                 },
                 {
-                    "title": "Mine samlinger",
+                    "label": "Mine samlinger",
                     "name": "management",
                     "url": "management",
                     "type": "secondary"
                 },
                 {
-                    "title": "Medobservatører",
+                    "label": "Medobservatører",
                     "name": "management",
                     "url": "management",
                     "type": "secondary"
@@ -80,31 +80,31 @@
             "sectionType": "secondary",
             "sectionContent": [
                 {
-                    "title": "Min profil",
+                    "label": "Min profil",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "secondary"
                 },
                 {
-                    "title": "Mine lisenser",
+                    "label": "Mine lisenser",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "secondary"
                 },
                 {
-                    "title": "Meldinger",
+                    "label": "Meldinger",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "secondary"
                 },
                 {
-                    "title": "Min feltdagbok / Mine observasjoner",
+                    "label": "Min feltdagbok / Mine observasjoner",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "secondary"
                 },
                 {
-                    "title": "Min statistikk",
+                    "label": "Min statistikk",
                     "name": "dashboard",
                     "url": "dashboard",
                     "type": "secondary"
@@ -119,49 +119,49 @@
             "sectionType": "secondary",
             "sectionContent": [
                 {
-                    "title": "Oversiktstall",
+                    "label": "Oversiktstall",
                     "name": "statistics",
-                    "url": "overview-numbers",
+                    "url": "statistics/overview-numbers",
                     "type": "secondary"
                 },
                 {
-                    "title": "Kvalitetssikrede data",
-                    "name": "statistics",
-                    "url": "statistics",
-                    "type": "secondary"
-                },
-                {
-                    "title": "Rødlistede arter",
+                    "label": "Kvalitetssikrede data",
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
                 },
                 {
-                    "title": "Fremmede arter",
+                    "label": "Rødlistede arter",
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
                 },
                 {
-                    "title": "Arter uten data",
+                    "label": "Fremmede arter",
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
                 },
                 {
-                    "title": "Funnkatalog",
+                    "label": "Arter uten data",
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
                 },
                 {
-                    "title": "EurobirdWatch Norge",
+                    "label": "Funnkatalog",
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
                 },
                 {
-                    "title": "Brukerstatistikk",
+                    "label": "EurobirdWatch Norge",
+                    "name": "statistics",
+                    "url": "statistics",
+                    "type": "secondary"
+                },
+                {
+                    "label": "Brukerstatistikk",
                     "name": "statistics",
                     "url": "statistics",
                     "type": "secondary"
@@ -174,49 +174,55 @@
             "sectionType": "secondary",
             "sectionContent": [
                 {
-                    "title": "Om artsobservasjoner.no",
+                    "label": "Om artsobservasjoner.no",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Kvalitetssikring",
+                    "label": "Kvalitetssikring",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Samarbeid",
+                    "label": "Hvordan du kan bidra",
+                    "name": "contribute",
+                    "url": "about/contribute",
+                    "type": "secondary"
+                },
+                {
+                    "label": "Samarbeid",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Brukervilkår",
+                    "label": "Brukervilkår",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Brukerstøtte",
+                    "label": "Brukerstøtte",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Aktuelle saker",
+                    "label": "Aktuelle saker",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Kunngjøringer",
+                    "label": "Kunngjøringer",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
                 },
                 {
-                    "title": "Artsobservasjoner i media",
+                    "label": "Artsobservasjoner i media",
                     "name": "about",
                     "url": "about",
                     "type": "secondary"
@@ -226,13 +232,13 @@
     ],
     "topMenu": [
         {
-            "title": "Logg inn",
+            "label": "Logg inn",
             "name": "login",
             "url": "login",
             "type": "tertiary"
         },
         {
-            "title": "Meldinger",
+            "label": "Meldinger",
             "name": "messages",
             "url": "messages",
             "type": "tertiary"
@@ -240,13 +246,13 @@
     ],
     "extraMenu": [
         {
-            "title": "Innholdskart A-å",
+            "label": "Innholdskart A-å",
             "name": "sitemap",
             "url": "sitemap",
             "type": "tertiary"
         },
         {
-            "title": "English",
+            "label": "English",
             "name": "english",
             "url": "english",
             "type": "tertiary"
@@ -254,7 +260,7 @@
     ],
     "footerMenu": [
         {
-            "title": "Om tjenesten",
+            "label": "Om tjenesten",
             "name": "about",
             "url": "about"
         }

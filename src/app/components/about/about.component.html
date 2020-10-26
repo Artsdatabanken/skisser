@@ -20,7 +20,7 @@
             <app-card [type]="'link'" [url]="'/about'" [title]="'Kunngjøringer'"></app-card>
             <app-card [type]="'link'" [url]="'/about'" [title]="'Artsobservasjoner i media'"></app-card> -->
 
-            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [title]="link.title" *ngFor="let link of menuSections$ | async">
+            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [label]="link.label" *ngFor="let link of menuSections$ | async">
             </app-card>
             
         </div>

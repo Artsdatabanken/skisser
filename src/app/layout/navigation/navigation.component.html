@@ -12,11 +12,11 @@
                     closeMenu>{{ link.section }}</a>
             </h1>
 
-            <div class="navigation__section" [class]="getCSSClass(link)">
+            <div class="navigation__section" [class]="getLinkType(link)">
 
-                <a class="navigation__link" [class]="getCSSClass(link)" routerLinkActive="navigation__link--active"
-                    routerLink="{{ link.name }}" *ngFor="let link of link.sectionContent" closeMenu>
-                    <span class="navigation__label"> {{ link.title }}</span>
+                <a class="navigation__link" [class]="getLinkType(link)" routerLinkActive="navigation__link--active"
+                    routerLink="/{{ link.url }}" *ngFor="let link of link.sectionContent" closeMenu>
+                    <span class="navigation__label"> {{ link.label }}</span>
                 </a>
 
             </div>

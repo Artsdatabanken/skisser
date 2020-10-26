@@ -14,9 +14,8 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="'create'" [title]="'Alle prosjekter'"></app-card>
-            <app-card [type]="'link'" [url]="'create'" [title]="'Opprett prosjekt'"></app-card>
-            <app-card [type]="'link'" [url]="'report'" [title]="'Mine prosjekter'"></app-card>
+            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [label]="link.label" *ngFor="let link of menuSections$ | async">
+            </app-card>
 
         </div>
 

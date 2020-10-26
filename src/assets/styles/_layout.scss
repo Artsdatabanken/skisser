@@ -689,7 +689,6 @@ main {
     //grid-template-areas: "pageTitle" "." "component";
 
     &--page {
-        border: 1px dashed blue;
         grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." ". router router router .";
@@ -743,7 +742,7 @@ main {
     }
 
     & > * {
-        border: 1px solid red;
+        // border: 1px solid red;
         align-self: stretch;
         justify-self: stretch;
     }
