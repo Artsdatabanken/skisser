@@ -653,10 +653,10 @@
         @include variable(background-color, clrWash);
         border-radius: 20px;
         border-bottom-right-radius: 0;
-        //max-height: 0;
-        padding: 0;
-        padding: 30px;
-        transition: all 0.35s;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.1s ease-out;
     }
 }
 
@@ -678,6 +678,8 @@ input:checked {
 
     ~ .tab__content {
         max-height: 1000vh;
-        padding: 30px;
+          overflow: hidden;
+          padding: 30px;
+          transition: max-height 0.9s ease-in;
     }
 }

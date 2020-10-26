@@ -68,6 +68,10 @@ export class AppComponent {
     this.routerSubscription.unsubscribe();
   }
 
+  getLayoutStyle(layout: string): string {
+    return `main-grid--${layout}`;
+  }
+
   onActivate(event: any) {
 
     this.mainContent.nativeElement.focus();

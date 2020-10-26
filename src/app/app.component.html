@@ -14,11 +14,7 @@
         </ng-container>
 
         <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
-            [ngClass]="{'main-grid--page': pageLayout === 'page', 
-            'main-grid--mega': pageLayout === 'mega', 
-            'main-grid--std': pageLayout === 'std', 
-            'main-grid--page': pageLayout === 'item',
-            'main-grid--frontpage': pageLayout === 'frontpage'}">
+            [class]="getLayoutStyle(pageLayout)">
 
             <h1 class="page-title" *ngIf="pageTitle !== 'Forsiden' && pageLayout !== 'item'">{{ pageTitle }}</h1>
 

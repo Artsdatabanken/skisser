@@ -684,10 +684,8 @@ main {
 
 .main-grid {
     display: grid;
-    // grid-template-columns: 1fr;
-    //grid-template-rows: repeat(4, auto);
-    //grid-template-areas: "pageTitle" "." "component";
-
+    grid-template-columns: 1fr;
+   
     &--page {
         grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
         grid-template-rows: repeat(4, auto);
@@ -723,17 +721,11 @@ main {
     }
 
     &--frontpage {
-        // grid-template-columns: 1fr;
-        // //grid-template-rows: repeat(7, auto);
-        // grid-template-areas: "pageTitle" "component" "router" "." "." "." ".";
-
-        // @media screen and (max-width: 1600px) {
-        // }
+      
     }
 
     &--std {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-        grid-template-rows: repeat(4, auto);
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
         padding: 60px 30px;
@@ -746,7 +738,7 @@ main {
     }
 
     & > * {
-        // border: 1px solid red;
+        //border: 1px solid red;
         align-self: stretch;
         justify-self: stretch;
     }
@@ -830,7 +822,7 @@ main {
 
     &--center {
         text-align: center;
-        
+
         & > * {
             margin: 0 10px;
 
