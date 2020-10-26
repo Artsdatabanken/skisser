@@ -6,7 +6,6 @@ import { DOCUMENT } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { environment } from './../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +16,10 @@ import { environment } from './../environments/environment';
 export class AppComponent {
 
   title = 'Artsobservasjoner';
-  page: string = '';
+  pageTitle: string = '';
   pageName: string = '';
-  pageType: string = '';
+  pageLayout: string = '';
+
   skipLinkPath: string;
   routerSubscription: Subscription;
   windowScrolled: boolean = false;
@@ -49,15 +49,17 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        this.page = obj.title;
+        console.log('label', obj.label)
+
+        this.pageTitle = obj.label;
         this.pageName = obj.name;
-        this.pageType = obj.type;
+        this.pageLayout = obj.layout;
 
         if (this.pageName === 'home') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
         }
         else {
-          this.titleService.setTitle(`${this.page} - Artsobservasjoner`);
+          this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
         }
 
       });

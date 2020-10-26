@@ -4,7 +4,7 @@
 
     <div class="layout__header">
         <app-header></app-header>
-        <app-breadcrumbs class="" *ngIf="pageType !== 'frontpage'"></app-breadcrumbs>
+        <app-breadcrumbs class="" *ngIf="pageLayout !== 'frontpage'"></app-breadcrumbs>
     </div>
 
     <div class="layout__main">
@@ -14,9 +14,12 @@
         </ng-container>
 
         <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
-            [ngClass]="{'main-grid--page': pageType === 'page', 'main-grid--mega': pageType === 'mega', 'main-grid--std': pageType === 'std', 'main-grid--frontpage': pageType === 'frontpage'}">
+            [ngClass]="{'main-grid--page': pageLayout === 'page', 
+            'main-grid--mega': pageLayout === 'mega', 
+            'main-grid--std': pageLayout === 'std', 
+            'main-grid--frontpage': pageLayout === 'frontpage'}">
 
-            <h1 class="page-title" *ngIf="page !== 'Forsiden'">{{ page }}</h1>
+            <h1 class="page-title" *ngIf="pageTitle !== 'Forsiden'">{{ pageTitle }}</h1>
 
             <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
 

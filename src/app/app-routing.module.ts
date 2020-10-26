@@ -26,32 +26,293 @@ import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
 
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: HomeComponent,
+//     data: {
+//       label: 'Forsiden',
+//       name: 'home',
+//       layout: 'frontpage'
+//     }
+//   },
+//   {
+//     path: 'home',
+//     component: HomeComponent,
+//     data: {
+//       label: 'Forsiden',
+//       name: 'home',
+//       layout: 'frontpage'
+//     }
+//   },
+//   {
+//     path: 'about',
+//     component: AboutComponent,
+//     data: {
+//       label: 'Om tjenesten',
+//       name: 'about',
+//       layout: 'page',
+//       breadcrumb: 'Om tjenesten'
+//     },
+//   },
+//   {
+//     path: 'about/contribute',
+//     component: ContributeComponent,
+//     data: {
+//       label: 'Hvordan du kan bidra',
+//       name: 'contribute',
+//       layout: 'page',
+//       breadcrumb: 'Hvordan du kan bidra'
+//     },
+//   },
+//   {
+//     path: 'report',
+//     component: ReportComponent,
+//     data: {
+//       label: 'Rapportere',
+//       name: 'report',
+//       layout: 'page',
+//       breadcrumb: 'Rapportere'
+//     }
+//   },
+//   {
+//     path: 'report-observation',
+//     component: ReportObservationComponent,
+//     data: {
+//       label: 'Rapportere observasjon',
+//       name: 'report',
+//       layout: 'page',
+//       breadcrumb: 'Rapportere observasjon'
+//     }
+//   },
+//   {
+//     path: 'projects',
+//     component: ProjectsComponent,
+//     data: {
+//       label: 'Prosjekter',
+//       name: 'projects',
+//       layout: 'page',
+//       breadcrumb: 'Prosjekter'
+//     }
+//   },
+//   {
+//     path: 'projects/create',
+//     component: CreateProjectComponent,
+//     data: {
+//       label: 'Opprett prosjekt',
+//       name: 'create-project',
+//       layout: 'page',
+//       breadcrumb: 'Opprett prosjekt'
+//     }
+//   },
+//   {
+//     path: 'observations',
+//     component: ObservationsComponent,
+//     data: {
+//       label: 'Observasjoner',
+//       name: 'observations',
+//       layout: 'page',
+//       breadcrumb: ' Observasjoner'
+//     }
+//   },
+//   {
+//     path: 'sightings',
+//     component: SightingsComponent,
+//     data: {
+//       label: 'Se, søk og filtrer observasjoner',
+//       name: 'sightings',
+//       layout: 'std',
+//       breadcrumb: 'Se, søk og filtrer observasjoner'
+//     }
+//   },
+//   {
+//     path: 'sightings/sighting',
+//     component: SightingComponent,
+//     data: {
+//       label: 'Observasjon',
+//       name: 'sighting',
+//       layout: 'std',
+//       breadcrumb: 'Observasjon'
+//     }
+//   },
+//   {
+//     path: 'statistics',
+//     component: StatisticsComponent,
+//     data: {
+//       label: 'Tall og statistikk',
+//       name: 'statistics',
+//       layout: 'page',
+//       breadcrumb: 'Tall og statistikk'
+//     },
+//   },
+//   {
+//     path: 'statistics/overview-numbers',
+//     component: OverviewNumbersComponent,
+//     data: {
+//       label: 'Oversiktstall',
+//       name: 'overview-numbers',
+//       layout: 'std',
+//       breadcrumb: 'Statistikk: Oversiktstall'
+//     }
+//   },
+//   {
+//     path: 'statistics/quality-assured-data',
+//     component: QualityAssuredDataComponent,
+//     data: {
+//       label: 'Kvalitetssikrede data',
+//       name: 'quality-assured-data',
+//       layout: 'std',
+//       breadcrumb: 'Statistikk: Kvalitetssikrede data'
+//     }
+//   },
+//   {
+//     path: 'statistics/red-listed-species',
+//     component: RedListedSpeciesComponent,
+//     data: {
+//       label: 'Rødlistede arter',
+//       name: 'red-listed-species',
+//       layout: 'std',
+//       breadcrumb: 'Statistikk: Rødlistede arter'
+//     }
+//   },
+//   {
+//     path: 'statistics/alien-species',
+//     component: AlienSpeciesComponent,
+//     data: {
+//       label: 'Fremmede arter',
+//       name: 'alien-species',
+//       layout: 'std',
+//       breadcrumb: 'Statistikk: Fremmede arter'
+//     }
+//   },
+//   {
+//     path: 'statistics/user-statistics',
+//     component: UserStatisticsComponent,
+//     data: {
+//       label: 'Brukerstatistikk',
+//       name: 'user-statistics',
+//       layout: 'std',
+//       breadcrumb: 'Statistikk: Brukerstatistikk'
+//     }
+//   },
+//   {
+//     path: 'messages',
+//     component: MessagesComponent,
+//     data: {
+//       label: 'Meldinger',
+//       name: 'logmessagesin',
+//       layout: 'page',
+//       breadcrumb: 'Meldinger'
+//     }
+//   },
+//   {
+//     path: 'login',
+//     component: LoginComponent,
+//     data: {
+//       label: 'Logg inn',
+//       name: 'login',
+//       layout: 'page',
+//       breadcrumb: 'Logg inn'
+//     }
+//   },
+//   {
+//     path: 'register',
+//     component: RegistrationComponent,
+//     data: {
+//       label: 'Registrer deg',
+//       name: 'registration',
+//       layout: 'page',
+//       breadcrumb: 'Registrer deg'
+//     }
+//   },
+//   {
+//     path: 'management',
+//     component: ManagementComponent,
+//     data: {
+//       label: 'Administrere',
+//       name: 'management',
+//       layout: 'page',
+//       breadcrumb: 'Administrere'
+//     }
+//   },
+//   {
+//     path: 'dashboard',
+//     component: DashboardComponent,
+//     data: {
+//       label: 'Minside',
+//       name: 'dashboard',
+//       layout: 'page',
+//       breadcrumb: 'Minside'
+//     }
+//   },
+//   {
+//     path: 'map',
+//     component: MapComponent,
+//     data: {
+//       label: 'MAP',
+//       name: 'map',
+//       layout: 'mega',
+//       breadcrumb: 'Map'
+//     }
+//   },
+//   {
+//     path: 'sitemap',
+//     component: SitemapComponent,
+//     data: {
+//       label: 'Innholdskart A-å',
+//       name: 'sitemap',
+//       layout: 'page',
+//       breadcrumb: 'Innholdskart A-å'
+//     }
+//   },
+//   {
+//     path: 'design',
+//     component: DesignComponent,
+//     data: {
+//       label: 'Designssystem',
+//       name: 'design',
+//       layout: 'std',
+//       breadcrumb: 'Designssystem'
+//     }
+//   },
+//   {
+//     path: '**',
+//     component: PageNotFoundComponent,
+//     data: {
+//       label: 'Not found',
+//       name: 'notfound',
+//       layout: 'page',
+//       breadcrumb: '404'
+//     }
+//   }
+// ];
+
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     data: {
-      title: 'Forsiden',
+      label: 'Forsiden',
       name: 'home',
-      type: 'frontpage'
+      layout: 'frontpage'
     }
   },
   {
     path: 'home',
     component: HomeComponent,
     data: {
-      title: 'Forsiden',
+      label: 'Forsiden',
       name: 'home',
-      type: 'frontpage'
+      layout: 'frontpage'
     }
   },
   {
     path: 'about',
     component: AboutComponent,
     data: {
-      title: 'Om tjenesten',
+      label: 'Om tjenesten',
       name: 'about',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Om tjenesten'
     },
   },
@@ -59,9 +320,9 @@ const routes: Routes = [
     path: 'about/contribute',
     component: ContributeComponent,
     data: {
-      title: 'Hvordan du kan bidra',
+      label: 'Hvordan du kan bidra',
       name: 'contribute',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Hvordan du kan bidra'
     },
   },
@@ -69,9 +330,9 @@ const routes: Routes = [
     path: 'report',
     component: ReportComponent,
     data: {
-      title: 'Rapportere',
+      label: 'Rapportere',
       name: 'report',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Rapportere'
     }
   },
@@ -79,9 +340,9 @@ const routes: Routes = [
     path: 'report-observation',
     component: ReportObservationComponent,
     data: {
-      title: 'Rapportere observasjon',
+      label: 'Rapportere observasjon',
       name: 'report',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Rapportere observasjon'
     }
   },
@@ -89,9 +350,9 @@ const routes: Routes = [
     path: 'projects',
     component: ProjectsComponent,
     data: {
-      title: 'Prosjekter',
+      label: 'Prosjekter',
       name: 'projects',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Prosjekter'
     }
   },
@@ -99,9 +360,9 @@ const routes: Routes = [
     path: 'projects/create',
     component: CreateProjectComponent,
     data: {
-      title: 'Opprett prosjekt',
+      label: 'Opprett prosjekt',
       name: 'create-project',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Opprett prosjekt'
     }
   },
@@ -109,9 +370,9 @@ const routes: Routes = [
     path: 'observations',
     component: ObservationsComponent,
     data: {
-      title: 'Observasjoner',
+      label: 'Observasjoner',
       name: 'observations',
-      type: 'page',
+      layout: 'page',
       breadcrumb: ' Observasjoner'
     }
   },
@@ -119,9 +380,9 @@ const routes: Routes = [
     path: 'sightings',
     component: SightingsComponent,
     data: {
-      title: 'Se, søk og filtrer observasjoner',
+      label: 'Se, søk og filtrer observasjoner',
       name: 'sightings',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Se, søk og filtrer observasjoner'
     }
   },
@@ -129,9 +390,9 @@ const routes: Routes = [
     path: 'sightings/sighting',
     component: SightingComponent,
     data: {
-      title: 'Observasjon',
+      label: 'Observasjon',
       name: 'sighting',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Observasjon'
     }
   },
@@ -139,9 +400,9 @@ const routes: Routes = [
     path: 'statistics',
     component: StatisticsComponent,
     data: {
-      title: 'Tall og statistikk',
+      label: 'Tall og statistikk',
       name: 'statistics',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Tall og statistikk'
     },
   },
@@ -149,9 +410,9 @@ const routes: Routes = [
     path: 'statistics/overview-numbers',
     component: OverviewNumbersComponent,
     data: {
-      title: 'Oversiktstall',
+      label: 'Oversiktstall',
       name: 'overview-numbers',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Statistikk: Oversiktstall'
     }
   },
@@ -159,9 +420,9 @@ const routes: Routes = [
     path: 'statistics/quality-assured-data',
     component: QualityAssuredDataComponent,
     data: {
-      title: 'Kvalitetssikrede data',
+      label: 'Kvalitetssikrede data',
       name: 'quality-assured-data',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Statistikk: Kvalitetssikrede data'
     }
   },
@@ -169,9 +430,9 @@ const routes: Routes = [
     path: 'statistics/red-listed-species',
     component: RedListedSpeciesComponent,
     data: {
-      title: 'Rødlistede arter',
+      label: 'Rødlistede arter',
       name: 'red-listed-species',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Statistikk: Rødlistede arter'
     }
   },
@@ -179,9 +440,9 @@ const routes: Routes = [
     path: 'statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
-      title: 'Fremmede arter',
+      label: 'Fremmede arter',
       name: 'alien-species',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Statistikk: Fremmede arter'
     }
   },
@@ -189,9 +450,9 @@ const routes: Routes = [
     path: 'statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
-      title: 'Brukerstatistikk',
+      label: 'Brukerstatistikk',
       name: 'user-statistics',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Statistikk: Brukerstatistikk'
     }
   },
@@ -199,9 +460,9 @@ const routes: Routes = [
     path: 'messages',
     component: MessagesComponent,
     data: {
-      title: 'Meldinger',
+      label: 'Meldinger',
       name: 'logmessagesin',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Meldinger'
     }
   },
@@ -209,9 +470,9 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: {
-      title: 'Logg inn',
+      label: 'Logg inn',
       name: 'login',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Logg inn'
     }
   },
@@ -219,9 +480,9 @@ const routes: Routes = [
     path: 'register',
     component: RegistrationComponent,
     data: {
-      title: 'Registrer deg',
+      label: 'Registrer deg',
       name: 'registration',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Registrer deg'
     }
   },
@@ -229,9 +490,9 @@ const routes: Routes = [
     path: 'management',
     component: ManagementComponent,
     data: {
-      title: 'Administrere',
+      label: 'Administrere',
       name: 'management',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Administrere'
     }
   },
@@ -239,9 +500,9 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     data: {
-      title: 'Minside',
+      label: 'Minside',
       name: 'dashboard',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Minside'
     }
   },
@@ -249,9 +510,9 @@ const routes: Routes = [
     path: 'map',
     component: MapComponent,
     data: {
-      title: 'MAP',
+      label: 'MAP',
       name: 'map',
-      type: 'mega',
+      layout: 'mega',
       breadcrumb: 'Map'
     }
   },
@@ -259,9 +520,9 @@ const routes: Routes = [
     path: 'sitemap',
     component: SitemapComponent,
     data: {
-      title: 'Innholdskart A-å',
+      label: 'Innholdskart A-å',
       name: 'sitemap',
-      type: 'page',
+      layout: 'page',
       breadcrumb: 'Innholdskart A-å'
     }
   },
@@ -269,9 +530,9 @@ const routes: Routes = [
     path: 'design',
     component: DesignComponent,
     data: {
-      title: 'Designssystem',
+      label: 'Designssystem',
       name: 'design',
-      type: 'std',
+      layout: 'std',
       breadcrumb: 'Designssystem'
     }
   },
@@ -279,14 +540,13 @@ const routes: Routes = [
     path: '**',
     component: PageNotFoundComponent,
     data: {
-      title: 'Not found',
+      label: 'Not found',
       name: 'notfound',
-      type: 'page',
+      layout: 'page',
       breadcrumb: '404'
     }
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
