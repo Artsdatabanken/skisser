@@ -50,8 +50,14 @@ dl {
 
 .list {
   font-size: 18px;
+  list-style: none;
+  padding: 0;
+  width: 100%;
 
   li {
+    @include variable(border-bottom-color, clrAccent);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
     margin: 0 0 5px;
   }
 

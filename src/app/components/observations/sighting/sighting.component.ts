@@ -68,24 +68,8 @@ export class SightingComponent implements OnInit {
 
     // gjør om til JSON
     const norway = this.getCoordinates(59.9166, 10.7500);
-    const southKorea = this.getCoordinates(37.55, 126.9833);
-    const italy = this.getCoordinates(41.19, 12.4833);
-    const uk = this.getCoordinates(51.509865, -0.118092);
-    const argentina = this.getCoordinates(-34.5833, -58.666667);
-    const croatia = this.getCoordinates(45.8, 16.000000);
-    const portugal = this.getCoordinates(38.7166, -9.1333);
-    const france = this.getCoordinates(48.86666666666667, 2.333333);
-    const poland = this.getCoordinates(52.25, 21.00);
-    const hungary = this.getCoordinates(47.5, 19.0833);
-    const germany = this.getCoordinates(52.5166, 13.4000);
-    const switzerland = this.getCoordinates(46.9166, 7.466667);
-    const paraguay = this.getCoordinates(-25.2666, -57.666667);
-    const brazil = this.getCoordinates(-15.783333333333333, -47.916667);
-    const greece = this.getCoordinates(37.9833, 23.7333);
-    const spain = this.getCoordinates(40.2085, -3.713);
-    const sweden = this.getCoordinates(62.1983366, 17.5671981);
-
-    countries.push(norway, southKorea, greece, argentina, croatia, italy, uk, brazil, france, spain, paraguay, switzerland, germany, hungary, poland, portugal, sweden);
+   
+    countries.push(norway);
 
     countries.forEach(c => {
       this.getMapIconStyle(c);
@@ -102,7 +86,7 @@ export class SightingComponent implements OnInit {
         new MouseWheelZoom({
           condition: platformModifierKeyOnly,
         })]),
-      target: 'map',
+      target: 'observationMap',
       layers: [
         new TileLayer({
           source: new OSM()
@@ -116,7 +100,7 @@ export class SightingComponent implements OnInit {
       ],
       view: new View({
         center: olProj.fromLonLat([13.194067, 65.837983]),
-        zoom: 5
+        zoom: 4
       })
     });
 
