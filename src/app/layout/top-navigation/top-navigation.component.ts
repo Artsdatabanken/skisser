@@ -2,7 +2,6 @@ import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
-import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-top-navigation',
@@ -23,8 +22,14 @@ export class TopNavigationComponent implements OnInit {
     this.topMenu$ = this.navigationService.getTopMenuItems();
   }
 
-  getCSSClass(link: string): string {
-    return this.navigationService.getMenuCSSClass(link);
+ getLinkStyle(link: string): string {
+     return this.navigationService.getMenuCSSClass(link);
+  }
+
+  getCSSClass(link: string | null): string {
+
+    return `top-navigation__link--${link['name']}`;
+
   }
 
 }
