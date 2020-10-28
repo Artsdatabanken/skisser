@@ -12,9 +12,9 @@
                     closeMenu>{{ link.section }}</a>
             </h1>
 
-            <div class="navigation__section" [class]="getLinkType(link)">
+            <div class="navigation__section" [class]="getLinkStyle(link)">
 
-                <a class="navigation__link" [class]="getLinkType(link)" routerLinkActive="navigation__link--active"
+                <a class="navigation__link" [class]="getLinkStyle(link)" routerLinkActive="navigation__link--active"
                     routerLink="/{{ link.url }}" *ngFor="let link of link.sectionContent" closeMenu>
                     <span class="navigation__label"> {{ link.label }}</span>
                 </a>

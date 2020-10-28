@@ -1,6 +1,7 @@
 <!--layout component-->
 
-<nav class="navigation navigation--top">
+<!--mobil-->
+<nav class="navigation navigation--top" *ngIf="location === 'menu'">
 
     <a class="navigation__link" [class]="getLinkStyle(link)" routerLinkActive="navigation__link--active"
         routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
@@ -8,8 +9,10 @@
     </a>
 
 </nav>
+<!--mobil-->
 
-<nav class="top-navigation">
+<!--desktop-->
+<nav class="top-navigation" *ngIf="location === 'header'">
 
     <a class="top-navigation__link" [class]="getCSSClass(link)" routerLinkActive="top-navigation__link--active"
         routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
@@ -17,7 +20,6 @@
     </a>
 
 </nav>
-
-
+<!--desktop-->
 
 <!--layout component-->

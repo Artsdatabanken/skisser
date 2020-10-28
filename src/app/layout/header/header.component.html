@@ -2,7 +2,22 @@
 
 <header class="header" role="banner">
     <app-logo class="header__cell header__cell--first header__cell--logo"></app-logo>
-    <app-top-navigation class="header__cell header__cell--second header__cell--top-menu"></app-top-navigation>
+    <app-top-navigation [location]="'header'" class="header__cell header__cell--second header__cell--top-menu">
+    </app-top-navigation>
+
+    <!-- <div class="header__cell header__cell--second header__cell--top-menu">
+
+        <nav class="top-navigation">
+        
+            <a class="top-navigation__link" [class]="getCSSClass(link)" routerLinkActive="top-navigation__link--active"
+                routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
+                <span class="top-navigation__label"> {{ link.label }}</span>
+            </a>
+
+        </nav>
+
+    </div> -->
+
     <app-menu class="header__cell header__cell--third header__cell--menu"></app-menu>
 </header>
 

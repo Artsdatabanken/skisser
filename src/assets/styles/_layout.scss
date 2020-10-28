@@ -65,7 +65,7 @@
             justify-self: center;
 
             @media screen and (max-width: 1024px) {
-                display: none !important;
+                display: none;
             }
         }
 
@@ -457,11 +457,7 @@
     }
 }
 
-.top-navigation { 
-    
-    @media screen and (max-width: 1024px) {
-    display: none !important;
-}
+.top-navigation {
 
     &__link {
         display: inline-block;
@@ -472,7 +468,7 @@
 
         &--login {
             @include variable(border-color, clrSecondary);
-           /*  background-image: url(../images/iconLock.png);
+            /*  background-image: url(../images/iconLock.png);
             background-position: left center;
             background-repeat: no-repeat;
             background-size: 12px; */

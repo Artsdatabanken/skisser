@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
 })
 
 export class MenuComponent implements OnInit {
-
+ 
   public isActive: boolean = false;
   @Input() ariaLabel: string;
 

@@ -34,12 +34,6 @@
                     "name": "projects",
                     "url": "projects",
                     "type": "secondary"
-                },
-                {
-                    "label": "Validere observasjoner***",
-                    "name": "report",
-                    "url": "report",
-                    "type": "secondary"
                 }
             ]
         },
