@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sightings',
@@ -10,10 +10,15 @@ export class SightingsComponent implements OnInit {
 
   isActive: boolean = false;
   display: string = 'card';
+  @Input() location: string | null;
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    if (this.location === 'frontpage') {
+      this.display = 'map';
+    }
+  }
 
   getObservations() : void {
     
@@ -21,8 +26,9 @@ export class SightingsComponent implements OnInit {
 
   chooseDisplay(display: string): void {
     this.display = display;
-    console.log('display')
   }
+
+
 
   getCssClass(keyword: string): string {
 

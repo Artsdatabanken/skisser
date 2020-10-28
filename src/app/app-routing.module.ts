@@ -28,6 +28,21 @@ import { ContributeComponent } from './components/about/contribute/contribute.co
 
 // TODO: Dynamic routes from json
 
+/* {
+  path: '',
+  component: HomeComponent,
+  data: {
+    linkName: '',
+    linkLayout: '',
+    linkType: '',
+    menu: '',
+    menuSection: '',
+    menuSectionUrl: '',
+    menuSectionType: '',
+    metaTitle: '',
+    metaDescription: ''
+  }
+}, */
 
 const routes: Routes = [
   {
@@ -36,7 +51,16 @@ const routes: Routes = [
     data: {
       label: 'Forsiden',
       name: 'home',
-      layout: 'frontpage'
+      layout: 'frontpage',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
   {
@@ -45,69 +69,25 @@ const routes: Routes = [
     data: {
       label: 'Forsiden',
       name: 'home',
-      layout: 'frontpage'
+      layout: 'frontpage',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
-  {
-    path: 'about',
-    component: AboutComponent,
-    data: {
-      label: 'Om tjenesten',
-      name: 'about',
-      layout: 'page',
-      breadcrumb: 'Om tjenesten'
-    },
-  },
-  {
-    path: 'about/contribute',
-    component: ContributeComponent,
-    data: {
-      label: 'Hvordan du kan bidra',
-      name: 'contribute',
-      layout: 'page',
-      breadcrumb: 'Hvordan du kan bidra'
-    },
-  },
-  {
-    path: 'report',
-    component: ReportComponent,
-    data: {
-      label: 'Rapportere',
-      name: 'report',
-      layout: 'page',
-      breadcrumb: 'Rapportere'
-    }
-  },
-  {
-    path: 'report-observation',
-    component: ReportObservationComponent,
-    data: {
-      label: 'Rapportere observasjon',
-      name: 'report',
-      layout: 'page',
-      breadcrumb: 'Rapportere observasjon'
-    }
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent,
-    data: {
-      label: 'Prosjekter',
-      name: 'projects',
-      layout: 'page',
-      breadcrumb: 'Prosjekter'
-    }
-  },
-  {
-    path: 'projects/create',
-    component: CreateProjectComponent,
-    data: {
-      label: 'Opprett prosjekt',
-      name: 'create-project',
-      layout: 'page',
-      breadcrumb: 'Opprett prosjekt'
-    }
-  },
+
+  //--------------------------------------------------MAIN MENU
+
+  //------------------------------section observations / observasjoner
+
+  //----------landing page
+
   {
     path: 'observations',
     component: ObservationsComponent,
@@ -115,7 +95,58 @@ const routes: Routes = [
       label: 'Observasjoner',
       name: 'observations',
       layout: 'page',
-      breadcrumb: ' Observasjoner'
+      breadcrumb: ' Observasjoner',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: 'primary-menu',
+      menuSection: 'Observasjoner',
+      menuSectionUrl: '/observations',
+      menuSectionType: 'primary',
+      metaTitle: '',
+      metaDescription: ''
+    }
+  },
+
+  //--------------------section children
+
+  // {
+  //   path: 'report',
+  //   component: ReportComponent,
+  //   data: {
+  //     label: 'Rapportere',
+  //     name: 'report',
+  //     layout: 'page',
+  //     breadcrumb: 'Rapportere',
+  //     linkName: '',
+  //     linkLayout: '',
+  //     linkType: '',
+  //     menu: '',
+  //     menuSection: '',
+  //     menuSectionUrl: '',
+  //     menuSectionType: '',
+  //     metaTitle: '',
+  //     metaDescription: ''
+  //   }
+  // },
+  {
+    path: 'report-observation',
+    component: ReportObservationComponent,
+    data: {
+      label: 'Rapportere observasjon',
+      name: 'report',
+      layout: 'page',
+      breadcrumb: 'Rapportere observasjon',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: 'Rapportere observasjon',
+      metaDescription: ''
     }
   },
   {
@@ -125,7 +156,16 @@ const routes: Routes = [
       label: 'Se, søk og filtrer observasjoner',
       name: 'sightings',
       layout: 'std',
-      breadcrumb: 'Se, søk og filtrer observasjoner'
+      breadcrumb: 'Se, søk og filtrer observasjoner',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
   {
@@ -135,8 +175,125 @@ const routes: Routes = [
       label: 'Observasjon',
       name: 'sighting',
       layout: 'item',
-      breadcrumb: 'Observasjon'
+      breadcrumb: 'Observasjon',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+    data: {
+      label: 'Prosjekter',
+      name: 'projects',
+      layout: 'page',
+      breadcrumb: 'Prosjekter',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    }
+  },
+
+  //------------------------------section management / administrere
+
+  {
+    path: 'management',
+    component: ManagementComponent,
+    data: {
+      label: 'Administrere',
+      name: 'management',
+      layout: 'page',
+      breadcrumb: 'Administrere',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    }
+  },
+
+  //------------------------------section dashboard / minside
+
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    data: {
+      label: 'Minside',
+      name: 'dashboard',
+      layout: 'page',
+      breadcrumb: 'Minside',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    }
+  },
+
+  //--------------------------------------------------SUB MENU
+
+  //----------landing page
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: {
+      label: 'Om tjenesten',
+      name: 'about',
+      layout: 'page',
+      breadcrumb: 'Om tjenesten',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    },
+  },
+  {
+    path: 'about/contribute',
+    component: ContributeComponent,
+    data: {
+      label: 'Hvordan du kan bidra',
+      name: 'contribute',
+      layout: 'page',
+      breadcrumb: 'Hvordan du kan bidra',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    },
   },
   {
     path: 'statistics',
@@ -145,7 +302,17 @@ const routes: Routes = [
       label: 'Tall og statistikk',
       name: 'statistics',
       layout: 'page',
-      breadcrumb: 'Tall og statistikk'
+      breadcrumb: 'Tall og statistikk',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     },
   },
   {
@@ -155,49 +322,21 @@ const routes: Routes = [
       label: 'Oversiktstall',
       name: 'overview-numbers',
       layout: 'std',
-      breadcrumb: 'Statistikk: Oversiktstall'
+      breadcrumb: 'Statistikk: Oversiktstall',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
-  {
-    path: 'statistics/quality-assured-data',
-    component: QualityAssuredDataComponent,
-    data: {
-      label: 'Kvalitetssikrede data',
-      name: 'quality-assured-data',
-      layout: 'std',
-      breadcrumb: 'Statistikk: Kvalitetssikrede data'
-    }
-  },
-  {
-    path: 'statistics/red-listed-species',
-    component: RedListedSpeciesComponent,
-    data: {
-      label: 'Rødlistede arter',
-      name: 'red-listed-species',
-      layout: 'std',
-      breadcrumb: 'Statistikk: Rødlistede arter'
-    }
-  },
-  {
-    path: 'statistics/alien-species',
-    component: AlienSpeciesComponent,
-    data: {
-      label: 'Fremmede arter',
-      name: 'alien-species',
-      layout: 'std',
-      breadcrumb: 'Statistikk: Fremmede arter'
-    }
-  },
-  {
-    path: 'statistics/user-statistics',
-    component: UserStatisticsComponent,
-    data: {
-      label: 'Brukerstatistikk',
-      name: 'user-statistics',
-      layout: 'std',
-      breadcrumb: 'Statistikk: Brukerstatistikk'
-    }
-  },
+
+  //--------------------------------------------------TOP MENU
   {
     path: 'messages',
     component: MessagesComponent,
@@ -205,7 +344,17 @@ const routes: Routes = [
       label: 'Meldinger',
       name: 'logmessagesin',
       layout: 'page',
-      breadcrumb: 'Meldinger'
+      breadcrumb: 'Meldinger',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
   {
@@ -215,7 +364,17 @@ const routes: Routes = [
       label: 'Logg inn',
       name: 'login',
       layout: 'page',
-      breadcrumb: 'Logg inn'
+      breadcrumb: 'Logg inn',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
   {
@@ -225,39 +384,21 @@ const routes: Routes = [
       label: 'Registrer deg',
       name: 'registration',
       layout: 'page',
-      breadcrumb: 'Registrer deg'
+      breadcrumb: 'Registrer deg',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
-  {
-    path: 'management',
-    component: ManagementComponent,
-    data: {
-      label: 'Administrere',
-      name: 'management',
-      layout: 'page',
-      breadcrumb: 'Administrere'
-    }
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    data: {
-      label: 'Minside',
-      name: 'dashboard',
-      layout: 'page',
-      breadcrumb: 'Minside'
-    }
-  },
-  {
-    path: 'map',
-    component: MapComponent,
-    data: {
-      label: 'MAP',
-      name: 'map',
-      layout: 'mega',
-      breadcrumb: 'Map'
-    }
-  },
+  //--------------------------------------------------EXTRA MENU
+
   {
     path: 'sitemap',
     component: SitemapComponent,
@@ -265,9 +406,42 @@ const routes: Routes = [
       label: 'Innholdskart A-å',
       name: 'sitemap',
       layout: 'page',
-      breadcrumb: 'Innholdskart A-å'
+      breadcrumb: 'Innholdskart A-å',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
+
+  //--------------------------------------------------for testing purposes
+  {
+    path: 'map',
+    component: MapComponent,
+    data: {
+      label: 'MAP',
+      name: 'map',
+      layout: 'mega',
+      breadcrumb: 'Map',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    }
+  },
+
   {
     path: 'design',
     component: DesignComponent,
@@ -275,9 +449,22 @@ const routes: Routes = [
       label: 'Designssystem',
       name: 'design',
       layout: 'std',
-      breadcrumb: 'Designssystem'
+      breadcrumb: 'Designssystem',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   },
+
+  //--------------------------------------------------WILDCARD
+
   {
     path: '**',
     component: PageNotFoundComponent,
@@ -285,10 +472,21 @@ const routes: Routes = [
       label: 'Not found',
       name: 'notfound',
       layout: 'page',
-      breadcrumb: '404'
+      breadcrumb: '404',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      linkHierarchy: 'parent',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
     }
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

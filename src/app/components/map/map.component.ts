@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import VectorLayer from 'ol/layer/Vector';
@@ -7,6 +7,7 @@ import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 import OSM from 'ol/source/OSM';
 import XYZ from 'ol/source/XYZ';
+import { defaults as defaultControls } from 'ol/control';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
 import OlFeature from 'ol/Feature';
@@ -15,6 +16,31 @@ import { fromLonLat } from 'ol/proj';
 
 import { DragPan, MouseWheelZoom, defaults } from 'ol/interaction';
 import { platformModifierKeyOnly } from 'ol/events/condition';
+
+
+// export class MyControl extends defaultControls. {
+//   constructor() {
+//     super({});
+
+//     let button = document.createElement('button');
+//     button.type = 'button';
+//     button.className = 'ol-control';
+//     button.innerHTML = 'N';
+//     let element = document.createElement('div');
+//     element.className = 'ol-feature ol-control';
+//     element.appendChild(button);
+//     defaults.Control.call(this, {
+//       element: element
+//     });
+//     button.addEventListener('click', () => this.click());
+//   }
+
+//   click() {
+//     console.log('click');
+//     //console.log(this.getMap());
+//   }
+
+// }
 
 @Component({
   selector: 'app-map',
@@ -32,7 +58,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.createMap();
-  }
+   }
 
   getCoordinates(lat: number, long: number): OlFeature {
 
@@ -92,6 +118,11 @@ export class MapComponent implements OnInit {
     countries.forEach(c => {
       this.getMapIconStyle(c);
     });
+
+    // custom control
+
+
+
 
     // map 1
     this.map = new Map({
