@@ -18,6 +18,12 @@
                     "type": "primary"
                 },
                 {
+                    "label": "Sjekklisterapportering",
+                    "name": "dashboard",
+                    "url": "dashboard",
+                    "type": "primary"
+                },
+                {
                     "label": "Mine observasjoner",
                     "name": "dashboard",
                     "url": "dashboard",
@@ -240,7 +246,7 @@
     ],
     "extraMenu": [
         {
-            "label": "Innholdskart A-å",
+            "label": "Innholdskart A-Å",
             "name": "sitemap",
             "url": "sitemap",
             "type": "tertiary"

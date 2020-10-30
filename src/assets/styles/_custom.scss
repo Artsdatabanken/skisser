@@ -464,3 +464,35 @@ $orange: #514942;
         background-image: url(../images/iconGame3.png);
     }
 }
+
+// numbers
+
+.numbers {
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-gap: 20px;
+    text-align: center;
+
+    &__box {
+        @include variable(background-color, clrAqua1);
+        border-radius: 20px;
+        border-bottom-right-radius: 0;
+        padding: 60px 60px;
+    }
+
+    &__item {
+        @include variable(font-family, fontSecondary);
+        font-size: 62px;
+        font-weight: 700;
+    }
+
+    &__text {
+        font-size: 24px;
+        font-weight: 300;
+        font-weight: 400;
+    }
+}
