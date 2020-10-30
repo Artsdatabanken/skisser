@@ -18,7 +18,7 @@ script:
 after_success:
   - ./deploy.sh $BRANCH
 
-before_insall:
+before_install:
   - sudo apt-get install -y sshpass
 
 after-failure:
