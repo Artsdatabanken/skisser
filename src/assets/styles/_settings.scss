@@ -17,22 +17,16 @@ $vars: (
   fontSecondary: #{"robotocondensed",  Consolas,  monospace},
   fontAccent: #{"robotomono",  Consolas, monospace},
 
-  clrBlack: #2d2620,
-  clrWhite: #f7f6f5, 
-  
-  clrWash: #ede9e6,
+  clrBlack: #33332e,
+  clrWhite: #ffffff, 
+  clrPrimary: #355C7D,
+  clrWash: #f3f8ea,
 
-  clrLight: #e2dcd7,
-  clrDark: #514942,
-  clrAccent: #e5b445,
-  clrShadow: transparentize($color: #e5b445, $amount: 0.7),
-  
-  clrAqua0: #deedea,
-  clrAqua1: #bedbd6,
-  clrAqua2: #a3ccc4,
-  clrAqua3: #7ab5aa,
-  clrAqua4: #6f968e,
-  clrAqua5: #005249,
+  paletteColor0: #D3E2B6,
+  paletteColor1: #C3DBB4,
+  paletteColor2: #AACCB1,
+  paletteColor3: #87BDB1,
+  paletteColor4: #68B3AF,
 
   paddingStd: 15px,
   transparent: transparent,
@@ -47,25 +41,17 @@ $vars: (
 
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
-  
+  --clrPrimary: #{map-get($vars, clrPrimary)};
   --clrWash: #{map-get($vars, clrWash)};
-
-  --clrLight: #{map-get($vars, clrLight)};
-  --clrDark: #{map-get($vars, clrDark)};
-  --clrAccent: #{map-get($vars, clrAccent)};
-  --clrShadow: #{map-get($vars, clrShadow)};
+   
+  --paletteColor0: #{map-get($vars, paletteColor0)};
+  --paletteColor1: #{map-get($vars, paletteColor1)};
+  --paletteColor2: #{map-get($vars, paletteColor2)};
+  --paletteColor3: #{map-get($vars, paletteColor3)};
+  --paletteColor4: #{map-get($vars, paletteColor4)};
   
-  --clrAqua0: #{map-get($vars, clrAqua0)};
-  --clrAqua1: #{map-get($vars, clrAqua1)};
-  --clrAqua2: #{map-get($vars, clrAqua2)};
-  --clrAqua3: #{map-get($vars, clrAqua3)};
-  --clrAqua4: #{map-get($vars, clrAqua4)};
-  --clrAqua5: #{map-get($vars, clrAqua5)};
-  
-  --backgroundColor: #{map-get($vars, clrWhite)};
+  --backgroundColor: #{map-get($vars, paletteColor0)};
   --textColor: #{map-get($vars, clrBlack)};
-
-  --clrPrimary: #{map-get($vars, clrDark)};
 
   --paddingStd: #{map-get($vars, paddingStd)};
   --transparent: #{map-get($vars, transparent)};

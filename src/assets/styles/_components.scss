@@ -42,8 +42,8 @@
     // }
 
     &:hover {
-        @include variable(background-color, clrAqua2);
-        @include variable(border-color, clrAqua2);
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
         @include variable(color, clrBlack);
         background-image: url(../images/iconChevronRight.png);
     }
@@ -110,8 +110,8 @@
 
 .button {
     //@include variable(background-color, clrWhite);
-    @include variable(border-color, clrBlack);
-    @include variable(color, clrBlack);
+    @include variable(border-color, clrPrimary);
+    @include variable(color, clrPrimary);
     @include variable(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
@@ -155,8 +155,8 @@
     }
 
     &--cta {
-        @include variable(background-color, clrAqua2);
-        @include variable(border-color, clrAqua2);
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
         @include variable(color, clrBlack);
     }
 
@@ -198,14 +198,14 @@
         }
 
         &:hover {
-            @include variable(background-color, clrAqua0);
-            @include variable(border-color, clrAqua0);
+            @include variable(background-color, clrPrimary);
+            @include variable(border-color, clrPrimary);
         }
     }
 
     &--ad {
         @include variable(background-color, clrAccent);
-        @include variable(border-color, clrAqua0);
+        @include variable(border-color, clrPrimary);
         font-size: 36px;
         font-weight: 400;
         padding: 22px 48px;
@@ -325,9 +325,9 @@
     &:active,
     &:focus,
     &:hover {
-        @include variable(background-color, clrAccent);
-        @include variable(background-color, clrDark);
-        @include variable(border-color, clrDark);
+        @include variable(background-color, clrPrimary);
+        @include variable(background-color, clrPrimary);
+        @include variable(border-color, clrPrimary);
         @include variable(color, clrWhite);
         border-style: solid;
         border-width: 2px;

@@ -8,7 +8,7 @@
     }
 
     &__footer {
-        @include variable(background-color, clrLight);
+        @include variable(background-color, paletteColor0);
     }
 
     &__main {
@@ -27,7 +27,7 @@
 // header
 
 .header {
-    @include variable(background-color, clrLight);
+    @include variable(background-color, clrWash);
     display: grid;
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px;
@@ -126,7 +126,6 @@
 }
 
 .menu {
-    @include variable(background-color, clrWhite);
     @include variable(background-color, clrWash);
     min-height: 200vh;
     overflow: none;
@@ -195,7 +194,7 @@
     }
 
     &--secondary {
-        @include variable(background-color, clrAqua1);
+        @include variable(background-color, paletteColor0);
     }
 
     &--top {
@@ -296,8 +295,7 @@
     }
 
     &__link {
-        @include variable(border-bottom-color, clrAqua2);
-        @include variable(border-bottom-color, clrAqua1);
+        @include variable(border-bottom-color, paletteColor0);
         border-bottom-style: solid;
         border-bottom-width: 1px;
         border-bottom-width: 2px;
@@ -367,14 +365,10 @@
         // current location
 
         .navigation--secondary & {
-            @include variable(border-bottom-color, clrAqua2);
+            @include variable(border-bottom-color, paletteColor1);
         }
 
         .navigation--top & {
-            @include variable(background-color, clrWhite);
-            @include variable(border-color, clrWhite);
-            @include variable(background-color, clrAqua5);
-            @include variable(border-color, clrAqua5);
             @include variable(background-color, clrBlack);
             @include variable(border-color, clrBlack);
             @include variable(color, clrWhite);
@@ -497,7 +491,7 @@
         &--messages {
             background-image: url(../images/iconEnvelope.png);
             background-size: 18px;
-            padding: 0 0 0 25px;
+            padding: 0 0 0 28px;
         }
     }
 }
