@@ -13,8 +13,8 @@
                 },
                 {
                     "label": "Sjekklisterapportering",
-                    "name": "dashboard",
-                    "url": "dashboard",
+                    "name": "report",
+                    "url": "report",
                     "type": "primary"
                 },
                 {
@@ -57,7 +57,7 @@
             ]
         },        
         {
-            "section": "Min side",
+            "section": "Min data",
             "sectionUrl": "dashboard",
             "sectionType": "secondary",
             "sectionContent": [
@@ -75,20 +75,20 @@
                 },
                 {
                     "label": "Mine prosjekter",
-                    "name": "management",
-                    "url": "management",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "secondary"
                 },
                 {
                     "label": "Mine lokaliteter",
-                    "name": "management",
-                    "url": "management",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "secondary"
                 },
                 {
                     "label": "Medobservatører",
-                    "name": "management",
-                    "url": "management",
+                    "name": "dashboard",
+                    "url": "dashboard",
                     "type": "secondary"
                 }
             ]
@@ -114,12 +114,6 @@
                     "label": "Hvordan du kan bidra",
                     "name": "contribute",
                     "url": "about/contribute",
-                    "type": "secondary"
-                },
-                {
-                    "label": "Samarbeid",
-                    "name": "about",
-                    "url": "about",
                     "type": "secondary"
                 },
                 {
@@ -154,13 +148,7 @@
             "type": "tertiary"
         },
         {
-            "label": "Logg inn",
-            "name": "login",
-            "url": "login",
-            "type": "tertiary"
-        },
-        {
-            "label": "Min profil",
+            "label": "Min side",
             "name": "dashboard",
             "url": "dashboard",
             "type": "secondary"
@@ -184,7 +172,14 @@
         {
             "label": "Om tjenesten",
             "name": "about",
-            "url": "about"
+            "url": "about",
+            "type" : ""
+        },
+        {
+            "label": "Logg inn",
+            "name": "login",
+            "url": "login",
+            "type": "tertiary"
         }
     ]
 }
