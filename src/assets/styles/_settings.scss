@@ -17,16 +17,15 @@ $vars: (
   fontSecondary: #{"robotocondensed",  Consolas,  monospace},
   fontAccent: #{"robotomono",  Consolas, monospace},
 
-  clrBlack: #33332e,
+  clrBlack: #333333,
   clrWhite: #ffffff, 
-  clrPrimary: #355C7D,
-  clrWash: #f3f8ea,
+  clrPrimary: #587973,
 
-  paletteColor0: #D3E2B6,
-  paletteColor1: #C3DBB4,
-  paletteColor2: #AACCB1,
-  paletteColor3: #87BDB1,
-  paletteColor4: #68B3AF,
+  paletteColor0: #f5f5f5,
+  paletteColor1: #dddddd,
+  paletteColor2: #cccccc,
+  paletteColor3: #bbbbbb,
+  paletteColor4: #555555,
 
   paddingStd: 15px,
   transparent: transparent,
@@ -41,8 +40,7 @@ $vars: (
 
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
-  --clrPrimary: #{map-get($vars, clrPrimary)};
-  --clrWash: #{map-get($vars, clrWash)};
+  --clrPrimary: #{map-get($vars, clrBlack)};
    
   --paletteColor0: #{map-get($vars, paletteColor0)};
   --paletteColor1: #{map-get($vars, paletteColor1)};

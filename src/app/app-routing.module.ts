@@ -92,10 +92,10 @@ const routes: Routes = [
     path: 'observations',
     component: ObservationsComponent,
     data: {
-      label: 'Observasjoner',
+      label: 'Observasjonsdata',
       name: 'observations',
       layout: 'page',
-      breadcrumb: ' Observasjoner',
+      breadcrumb: 'Observasjoner',
       linkName: '',
       linkLayout: '',
       linkType: '',
@@ -111,25 +111,25 @@ const routes: Routes = [
 
   //--------------------section children
 
-  // {
-  //   path: 'report',
-  //   component: ReportComponent,
-  //   data: {
-  //     label: 'Rapportere',
-  //     name: 'report',
-  //     layout: 'page',
-  //     breadcrumb: 'Rapportere',
-  //     linkName: '',
-  //     linkLayout: '',
-  //     linkType: '',
-  //     menu: '',
-  //     menuSection: '',
-  //     menuSectionUrl: '',
-  //     menuSectionType: '',
-  //     metaTitle: '',
-  //     metaDescription: ''
-  //   }
-  // },
+  {
+    path: 'report',
+    component: ReportComponent,
+    data: {
+      label: 'Rapportere observasjoner',
+      name: 'report',
+      layout: 'page',
+      breadcrumb: 'Rapportere',
+      linkName: '',
+      linkLayout: '',
+      linkType: '',
+      menu: '',
+      menuSection: '',
+      menuSectionUrl: '',
+      menuSectionType: '',
+      metaTitle: '',
+      metaDescription: ''
+    }
+  },
   {
     path: 'report-observation',
     component: ReportObservationComponent,
