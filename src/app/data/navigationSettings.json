@@ -55,19 +55,12 @@
                     "type": "secondary"
                 }
             ]
-        },
-        
+        },        
         {
-            "section": "Minside",
+            "section": "Min side",
             "sectionUrl": "dashboard",
             "sectionType": "secondary",
             "sectionContent": [
-                {
-                    "label": "Min profil",
-                    "name": "dashboard",
-                    "url": "dashboard",
-                    "type": "secondary"
-                },
                 {
                     "label": "Mine observasjoner",
                     "name": "dashboard",
@@ -99,9 +92,7 @@
                     "type": "secondary"
                 }
             ]
-        }
-    ],
-    "subMenu": [
+        },
         {
             "section": "Om tjenesten",
             "sectionUrl": "about",
@@ -152,6 +143,9 @@
             ]
         }
     ],
+    "subMenu": [
+      
+    ],
     "topMenu": [
         {
             "label": "Meldinger",
@@ -164,6 +158,12 @@
             "name": "login",
             "url": "login",
             "type": "tertiary"
+        },
+        {
+            "label": "Min profil",
+            "name": "dashboard",
+            "url": "dashboard",
+            "type": "secondary"
         }
     ],
     "extraMenu": [
