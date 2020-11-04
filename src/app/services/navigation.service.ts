@@ -71,64 +71,59 @@ export class NavigationService {
     const filteredData: any = this.routes.filter(i => i.data.menuType === 'mainMenu');
     let mainMenu: any[] = [];
 
-    // const menu: {} = filteredData.reduce((acc, curr, index) => {
-    //   // console.log('currentValue', curr);
-    //   // console.log('accumulator', acc);
+    const result = {};
 
-    //   acc[curr.data.menuSectionId] = [...acc[curr.data.menuSectionId] || [], curr];
+    let temp = []
 
-    //   return acc;
-    // }, {});
+    // for (let { data } of filteredData) {
 
-    const menu = filteredData.reduce((acc, curr) => {
-     
-      console.log('currentValue', curr);
-      console.log('accumulator', acc);
-
-      //acc[curr.data.menuSectionId] = [...acc[curr.data.menuSectionId] || [], curr];
-
-      
-      //acc[curr.data.menuSectionId] = [...acc[curr.data.menuSectionId] || [], curr];
-
-
-      acc = {
-        menuSection: curr.data.menuSectionId,
-        menuContent: curr
-      };
-
-     mainMenu = [...new Set(mainMenu.map(i => i))];
-
-
-      return acc;
-    }, {});
-
-
-    // console.log('menu', menu);
-
-    //--------------
-
-    // const menuKeys = Object.keys(filteredData);
-    // const menuValues = Object.values(filteredData);
-
-
-    // // console.log('menuKeys', menuKeys);
-    // // console.log('menuValues', menuValues);
-    // // console.log('entries', Object.entries(filteredData));
-
-    // const result = menuValues.reduce((result, field, index) => {
-
-    //   result = {
-    //     menuSection: menuKeys[index],
-    //     menuContent: field
+    //   if (!result[data.menuSectionId]) {
+    //     result[data.menuSectionId] = [];
     //   };
 
-    //   mainMenu.push(result)
+    //   result[data.menuSectionId].push({ 'menuSection': data.menuSection, data });
 
-    //   return result;
-    // }, {});
+    // }
+
+    for (let item of filteredData) {
+
+      // // if (!result[item.data.menuSectionId]) {
+      // //   result[item.data.menuSectionId] = [];
+      // // };
+
+      // // result[item.data.menuSectionId].push({ 'menuSection': item.data.menuSection, 'menuSectionContent': item.data });
+
+      // if (result['menuSection'] !== item.data.menuSectionId) {
+      //   result['menuSection'] = '';
+      // };
+
+      // console.log('test', result['menuSection'] !== item.data.menuSectionId)
+
+      // result = {
+      //   menuSection: item.data.menuSectionId,
+      //   menuSectionContent: item
+      // }
 
 
-    // console.log('result', result);
+
+      if (!result[item.data.menuSectionId]) {
+        result[item.data.menuSectionId] = [];
+      };
+
+      result[item.data.menuSectionId].push({ 'menuSection': item.data.menuSection, 'menuSectionContent': item.data });
+      temp.push(result)
+    }
+
+   
+
+
+
+    console.log('temp', temp);
+
+
+    console.log('result', result);
+
+    mainMenu = Object.entries(result);
     console.log('mainmenu', mainMenu);
 
     return mainMenu;
