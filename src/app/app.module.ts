@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -72,7 +72,7 @@ import { ImportObservationsComponent } from './components/report/import-observat
 import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
-import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
+import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 
 @NgModule({
   declarations: [
@@ -145,7 +145,7 @@ import { UserProfileComponent } from './components/user/user-profile/user-profil
     SurveyProjectComponent,
     EventProjectComponent,
     ProfileComponent,
-    UserProfileComponent
+    FellowObserversComponent
   ],
   imports: [
     BrowserModule,

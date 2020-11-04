@@ -25,7 +25,7 @@ export class AppComponent {
   windowScrolled: boolean = false;
 
   @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
- 
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private router: Router,
@@ -35,6 +35,8 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
+
+    this.getRoutes();
 
     this.routerSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
@@ -112,6 +114,14 @@ export class AppComponent {
         window.scrollTo(0, currentScroll - (currentScroll / 8));
       }
     })();
+  }
+
+  getRoutes() {
+
+    // this.routes.forEach(route => {
+    //   console.log('route', route);
+    // })
+
   }
 
 }

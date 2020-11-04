@@ -10,13 +10,17 @@ import { Observable } from 'rxjs';
 
 export class NavigationComponent implements OnInit {
 
-  mainMenu$: Observable<string[]>;
+  //mainMenu$: Observable<string[]>;
+  mainMenu: {};
+
   @Input() ariaLabel: string;
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.mainMenu$ = this.navigationService.getMenuItems();
+    //this.mainMenu$ = this.navigationService.getMenuItems();
+   
+    this.mainMenu = this.navigationService.getMainMenu();
   }
 
   getLinkStyle(link: string): string {

@@ -4,7 +4,49 @@
 
     <div class="navigation__container">
 
-        <div class="navigation__item" *ngFor="let link of mainMenu$ | async; let i = index">
+        <div class="navigation__item" *ngFor="let link of mainMenu">
+
+        
+            {{ link }}
+            
+            <!-- <h1 class="navigation__heading">
+                <span class="navigation__heading-text"> {{ link.data.menuSection }} </span>
+                <a class="navigation__heading-link" routerLink="/{{ link.data.menuSectionUrl }}"
+                    closeMenu>{{ link.data.menuSection }}</a>
+            </h1> -->
+
+            <!-- <div class="navigation__section" [class]="getLinkStyle(link)">
+
+                <a class="navigation__link" [class]="getLinkStyle(link)" routerLinkActive="navigation__link--active"
+                    routerLink="/{{ link.path }}" closeMenu>
+                    <span class="navigation__label"> {{ link.data.metaTitle }}</span>
+                </a>
+
+            </div> -->
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- <div class="navigation__item" *ngFor="let link of mainMenu$ | async; let i = index">
 
             <h1 class="navigation__heading">
                 <span class="navigation__heading-text"> {{ link.section }} </span>
@@ -21,7 +63,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
     </div>
 
