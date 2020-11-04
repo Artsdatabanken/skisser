@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import NavigationSettings from '../data/navigationSettings.json';
 import { routes } from '../app-routing.module';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -66,71 +67,36 @@ export class NavigationService {
 
   }
 
+  getMenuSection(menuSectionUrl: string): void {
+    const menu: any[] = this.routes.filter(i => i.data.menuSectionUrl === menuSectionUrl);
+  }
+
   getMainMenu(): any {
 
     const filteredData: any = this.routes.filter(i => i.data.menuType === 'mainMenu');
-    let mainMenu: any[] = [];
+    const sections = [...new Set(filteredData.map(i => i.data.menuSectionId))];
 
-    const result = {};
+    let mainMenu = [];
 
-    let temp = []
+    let group = filteredData.reduce((acc, curr) => {
 
-    // for (let { data } of filteredData) {
+      // console.log('curr', curr);
+      // console.log('acc', acc);
 
-    //   if (!result[data.menuSectionId]) {
-    //     result[data.menuSectionId] = [];
-    //   };
+      acc[curr.data.menuSectionId] = [...acc[curr.data.menuSectionId] || [], curr];
 
-    //   result[data.menuSectionId].push({ 'menuSection': data.menuSection, data });
+      let section = {menuSection: curr.data.menuSectionId};
+      
 
-    // }
+      mainMenu.push({section})  
 
-    for (let item of filteredData) {
-
-      // // if (!result[item.data.menuSectionId]) {
-      // //   result[item.data.menuSectionId] = [];
-      // // };
-
-      // // result[item.data.menuSectionId].push({ 'menuSection': item.data.menuSection, 'menuSectionContent': item.data });
-
-      // if (result['menuSection'] !== item.data.menuSectionId) {
-      //   result['menuSection'] = '';
-      // };
-
-      // console.log('test', result['menuSection'] !== item.data.menuSectionId)
-
-      // result = {
-      //   menuSection: item.data.menuSectionId,
-      //   menuSectionContent: item
-      // }
+      console.log('acc', acc)
+      return acc;
+    }, {});
 
 
-
-      if (!result[item.data.menuSectionId]) {
-        result[item.data.menuSectionId] = [];
-      };
-
-      result[item.data.menuSectionId].push({ 'menuSection': item.data.menuSection, 'menuSectionContent': item.data });
-      temp.push(result)
-    }
-
-   
-
-
-
-    console.log('temp', temp);
-
-
-    console.log('result', result);
-
-    mainMenu = Object.entries(result);
-    console.log('mainmenu', mainMenu);
-
-    return mainMenu;
-  }
-
-  getMenuSection(menuSectionUrl: string): void {
-    const menu: any[] = this.routes.filter(i => i.data.menuSectionUrl === menuSectionUrl);
+    console.log("group", group);
+    console.log("mainMenu", mainMenu);
   }
 
 }
