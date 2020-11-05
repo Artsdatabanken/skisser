@@ -6,23 +6,21 @@
 
         <div class="navigation__item" *ngFor="let link of mainMenu">
 
-        
-            {{ link }}
-            
-            <!-- <h1 class="navigation__heading">
-                <span class="navigation__heading-text"> {{ link.data.menuSection }} </span>
-                <a class="navigation__heading-link" routerLink="/{{ link.data.menuSectionUrl }}"
-                    closeMenu>{{ link.data.menuSection }}</a>
-            </h1> -->
+            <h1 class="navigation__heading">
+                <span class="navigation__heading-text"> {{ link.data.linkText }} </span>
+                <a class="navigation__heading-link" routerLink="/{{ link.path }}" closeMenu>{{ link.data.linkText }}</a>
+            </h1>
 
-            <!-- <div class="navigation__section" [class]="getLinkStyle(link)">
+            <div class="navigation__section" [class]="getLinkStyle(link.data.menuSection, 'section')">
 
-                <a class="navigation__link" [class]="getLinkStyle(link)" routerLinkActive="navigation__link--active"
-                    routerLink="/{{ link.path }}" closeMenu>
-                    <span class="navigation__label"> {{ link.data.metaTitle }}</span>
+                <a class="navigation__link" [class]="getLinkStyle(link.data.linkRank, 'link')"
+                    routerLinkActive="navigation__link--active" routerLink="../{{ link.path }}"
+                    *ngFor="let link of link.children" closeMenu>
+
+                    <span class="navigation__label"> {{ link.data.linkText }}</span>
                 </a>
 
-            </div> -->
+            </div>
 
         </div>
 
@@ -69,4 +67,4 @@
 
 </nav>
 
-<!--layout component--> 
+<!--layout component-->

@@ -13,17 +13,12 @@
 
         <div class="loop loop--cards"> 
 
-            <!-- <app-card [type]="'link'" [url]="'/about'" [title]="'Om artsobservasjoner.no'"></app-card>
-            <app-card [type]="'link'" [url]="'/about'" [title]="'Brukervilkår'"></app-card>
-            <app-card [type]="'link'" [url]="'/about'" [title]="'Brukerstøtte'"></app-card>
-            <app-card [type]="'link'" [url]="'/about'" [title]="'Aktuelle saker'"></app-card>
-            <app-card [type]="'link'" [url]="'/about'" [title]="'Kunngjøringer'"></app-card>
-            <app-card [type]="'link'" [url]="'/about'" [title]="'Artsobservasjoner i media'"></app-card> -->
-
             <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [label]="link.label" *ngFor="let link of menuSections$ | async">
             </app-card>
             
         </div>
+
+        <router-outlet></router-outlet>
 
     </div>
 

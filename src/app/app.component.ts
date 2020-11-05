@@ -17,7 +17,7 @@ export class AppComponent {
 
   title = 'Artsobservasjoner';
   pageTitle: string = '';
-  pageName: string = '';
+  pageId: string = '';
   pageLayout: string = '';
 
   skipLinkPath: string;
@@ -51,11 +51,11 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        this.pageTitle = obj.label;
-        this.pageName = obj.name;
-        this.pageLayout = obj.layout;
+        this.pageTitle = obj.linkText;
+        this.pageId = obj.linkId;
+        this.pageLayout = obj.linkLayout;
 
-        if (this.pageName === 'home') {
+        if (this.pageId === 'home') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
         }
         else {

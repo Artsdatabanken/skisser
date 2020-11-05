@@ -46,12 +46,8 @@ const homeRoutes: Routes = [
       linkId: 'frontpage',
       linkLayout: 'frontpage',
       linkRank: '',
-      linkType: '',
       menuType: '',
       menuSection: '',
-      menuSectionId: '',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Artsobservasjoner',
       metaDescription: ''
     }
@@ -64,12 +60,8 @@ const homeRoutes: Routes = [
       linkId: 'frontpage',
       linkLayout: 'frontpage',
       linkRank: '',
-      linkType: '',
       menuType: '',
       menuSection: '',
-      menuSectionId: '',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Artsobservasjoner',
       metaDescription: ''
     }
@@ -81,110 +73,88 @@ const reportRoutes: Routes = [
     path: 'report',
     component: ReportComponent,
     data: {
-      linkText: 'rapportere observasjoner',
+      linkText: 'Rapportere observasjoner',
       linkId: 'report',
       linkLayout: 'page',
       linkRank: 'primary',
-      linkType: 'landing',
       menuType: 'mainMenu',
-      menuSection: 'Rapportere observasjoner',
-      menuSectionId: 'report',
-      menuSectionUrl: '/report',
-      menuSectionRank: 'primary',
+      menuSection: 'primary',
       metaTitle: 'Rapportere observasjoner',
       metaDescription: ''
-    }
+    },
+    children: [
+      {
+        path: 'add-observation',
+        component: AddObservationComponent,
+        data: {
+          linkText: 'Legg til observasjon',
+          linkId: 'add-observation',
+          linkLayout: 'page',
+          linkRank: 'primary',
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Legg til observasjoner',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'checklist-observation',
+        component: ChecklistComponent,
+        data: {
+          linkText: 'Sjekkliste observasjoner',
+          linkId: 'checklist-observation',
+          linkLayout: 'page',
+          linkRank: 'primary',
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Sjekkliste observasjoner',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'import-observations',
+        component: ImportObservationsComponent,
+        data: {
+          linkText: 'Importere observasjoner',
+          linkId: 'import-observations',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Importere observasjoner',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'event-project',
+        component: EventProjectComponent,
+        data: {
+          linkText: 'Arrangementer',
+          linkId: 'event-project',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Arrangementer',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'survey-project',
+        component: EventProjectComponent,
+        data: {
+          linkText: 'kartleggingsprosjekter',
+          linkId: 'survey-project',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Kartleggingsprosjekter',
+          metaDescription: ''
+        }
+      }
+    ]
   },
-  {
-    path: 'report/add-observation',
-    component: AddObservationComponent,
-    data: {
-      linkText: 'Legg til observasjon',
-      linkId: 'add-observation',
-      linkLayout: 'page',
-      linkRank: 'primary',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Rapportere observasjoner',
-      menuSectionId: 'report',
-      menuSectionUrl: '/report',
-      menuSectionRank: 'primary',
-      metaTitle: 'Legg til observasjoner',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'report/checklist-observation',
-    component: ChecklistComponent,
-    data: {
-      linkText: 'Sjekkliste observasjoner',
-      linkId: 'checklist-observation',
-      linkLayout: 'page',
-      linkRank: 'primary',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Rapportere observasjoner',
-      menuSectionId: 'report',
-      menuSectionUrl: '/report',
-      menuSectionRank: 'primary',
-      metaTitle: 'Sjekkliste observasjoner',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'report/import-observations',
-    component: ImportObservationsComponent,
-    data: {
-      linkText: 'Importere observasjoner',
-      linkId: 'import-observations',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Rapportere observasjoner',
-      menuSectionId: 'report',
-      menuSectionUrl: '/report',
-      menuSectionRank: 'primary',
-      metaTitle: 'Importere observasjoner',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'report/event-project',
-    component: EventProjectComponent,
-    data: {
-      linkText: 'Arrangementer',
-      linkId: 'event-project',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Rapportere observasjoner',
-      menuSectionId: 'report',
-      menuSectionUrl: '/report',
-      menuSectionRank: 'primary',
-      metaTitle: 'Arrangementer',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'report/survey-project',
-    component: EventProjectComponent,
-    data: {
-      linkText: 'kartleggingsprosjekter',
-      linkId: 'survey-project',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Rapportere observasjoner',
-      menuSectionId: 'report',
-      menuSectionUrl: '/report',
-      menuSectionRank: 'primary',
-      metaTitle: 'Kartleggingsprosjekter',
-      metaDescription: ''
-    }
-  }
 ];
 
 const observationRoutes: Routes = [
@@ -196,159 +166,129 @@ const observationRoutes: Routes = [
       linkId: 'observations',
       linkLayout: 'page',
       linkRank: 'primary',
-      linkType: 'landing',
       menuType: 'mainMenu',
-      menuSection: 'Observasjonsdata',
-      menuSectionId: 'observations',
-      menuSectionUrl: '/observations',
-      menuSectionRank: 'primary',
+      menuSection: 'primary',
       metaTitle: 'Observasjonsdata',
       metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/sightings',
-    component: SightingsComponent,
-    data: {
-      linkText: 'Se, søk og filtrer observasjoner',
-      linkId: 'sightings',
-      linkLayout: 'page',
-      linkRank: 'primary',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Observasjonsdata',
-      menuSectionId: 'observations',
-      menuSectionUrl: '/observations',
-      menuSectionRank: 'primary',
-      metaTitle: 'Se, søk og filtrer observasjoner',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/sightings/sighting',
-    component: SightingComponent,
-    data: {
-      linkText: 'Observasjon',
-      linkId: 'sighting',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'submenu',
-      menuSection: 'Observasjonsdata',
-      menuSectionUrl: '/observations',
-      menuSectionId: 'observations',
-      menuSectionRank: 'primary',
-      metaTitle: 'Observasjon',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/statistics',
-    component: StatisticsComponent,
-    data: {
-      linkText: 'Tall og statistikk',
-      linkId: 'statistics',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: 'landing',
-      menuType: 'mainMenu',
-      menuSection: 'Observasjonsdata',
-      menuSectionId: 'observations',
-      menuSectionUrl: '/observations',
-      menuSectionRank: 'primary',
-      metaTitle: 'Tall og statistikk',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/statistics/quality-checked-data',
-    component: QualityAssuredDataComponent,
-    data: {
-      linkText: 'Kvalitetssikrede data',
-      linkId: 'quality-assured-data',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'submenu',
-      menuSection: 'Tall og statistikk',
-      menuSectionId: 'statistics',
-      menuSectionUrl: '/statistics',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Kvalitetssikrede data',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/statistics/red-listed-species',
-    component: RedListedSpeciesComponent,
-    data: {
-      linkText: 'Rødlistede arter',
-      linkId: 'red-listed-species',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'submenu',
-      menuSection: 'Tall og statistikk',
-      menuSectionId: 'statistics',
-      menuSectionUrl: '/statistics',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Rødlistede arter',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/statistics/alien-species',
-    component: AlienSpeciesComponent,
-    data: {
-      linkText: 'Fremmede arter',
-      linkId: 'alien-species',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'submenu',
-      menuSection: 'Tall og statistikk',
-      menuSectionId: 'statistics',
-      menuSectionUrl: '/statistics',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Fremmede arter',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/statistics/species-with-no-data',
-    component: SpeciesWithNoDataComponent,
-    data: {
-      linkText: 'Arter uten data',
-      linkId: 'species-with-no-data',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'submenu',
-      menuSection: 'Tall og statistikk',
-      menuSectionId: 'statistics',
-      menuSectionUrl: '/statistics',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Arter uten data',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'observations/statistics/user-statistics',
-    component: UserStatisticsComponent,
-    data: {
-      linkText: 'Brukerstatistikk',
-      linkId: 'user-statistics',
-      linkLayout: 'page',
-      linkRank: 'secondary',
-      linkType: '',
-      menuType: 'submenu',     
-      menuSection: 'Tall og statistikk',
-      menuSectionId: 'statistics',
-      menuSectionUrl: '/statistics',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Brukerstatistikk',
-      metaDescription: ''
-    }
+    },
+    children: [
+      {
+        path: 'sightings',
+        component: SightingsComponent,
+        data: {
+          linkText: 'Se, søk og filtrer observasjoner',
+          linkId: 'sightings',
+          linkLayout: 'page',
+          linkRank: 'primary',
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Se, søk og filtrer observasjoner',
+          metaDescription: ''
+        },
+        children: [
+          {
+            path: 'sighting',
+            component: SightingComponent,
+            data: {
+              linkText: 'Observasjon',
+              linkId: 'sighting',
+              linkLayout: 'page',
+              linkRank: 'secondary',
+              menuType: '',
+              menuSection: 'primary',
+              metaTitle: 'Observasjon',
+              metaDescription: ''
+            }
+          }
+        ]
+      },
+      {
+        path: 'statistics',
+        component: StatisticsComponent,
+        data: {
+          linkText: 'Tall og statistikk',
+          linkId: 'statistics',
+          linkLayout: 'page',
+          linkRank: 'secondary',         
+          menuType: 'mainMenu',
+          menuSection: 'primary',
+          metaTitle: 'Tall og statistikk',
+          metaDescription: ''
+        },
+        children: [
+          {
+            path: 'quality-checked-data',
+            component: QualityAssuredDataComponent,
+            data: {
+              linkText: 'Kvalitetssikrede data',
+              linkId: 'quality-assured-data',
+              linkLayout: 'page',
+              linkRank: 'secondary',
+              menuType: 'submenu',
+              menuSection: 'secondary',
+              metaTitle: 'Kvalitetssikrede data',
+              metaDescription: ''
+            }
+          },
+          {
+            path: 'red-listed-species',
+            component: RedListedSpeciesComponent,
+            data: {
+              linkText: 'Rødlistede arter',
+              linkId: 'red-listed-species',
+              linkLayout: 'page',
+              linkRank: 'secondary',
+              menuType: 'submenu',
+              menuSection: 'secondary',
+              metaTitle: 'Rødlistede arter',
+              metaDescription: ''
+            }
+          },
+          {
+            path: 'alien-species',
+            component: AlienSpeciesComponent,
+            data: {
+              linkText: 'Fremmede arter',
+              linkId: 'alien-species',
+              linkLayout: 'page',
+              linkRank: 'secondary',
+              menuType: 'submenu',
+              menuSection: 'secondary',
+              metaTitle: 'Fremmede arter',
+              metaDescription: ''
+            }
+          },
+          {
+            path: 'species-with-no-data',
+            component: SpeciesWithNoDataComponent,
+            data: {
+              linkText: 'Arter uten data',
+              linkId: 'species-with-no-data',
+              linkLayout: 'page',
+              linkRank: 'secondary',
+              menuType: 'submenu',
+              menuSection: 'secondary',
+              metaTitle: 'Arter uten data',
+              metaDescription: ''
+            }
+          },
+          {
+            path: 'user-statistics',
+            component: UserStatisticsComponent,
+            data: {
+              linkText: 'Brukerstatistikk',
+              linkId: 'user-statistics',
+              linkLayout: 'page',
+              linkRank: 'secondary',
+              menuType: 'submenu',
+              menuSection: 'secondary',
+              metaTitle: 'Brukerstatistikk',
+              metaDescription: ''
+            }
+          }
+        ]
+      }
+    ]
   }
 ];
 
@@ -360,107 +300,85 @@ const userDataRoutes: Routes = [
       linkText: 'Min data',
       linkId: 'my-data',
       linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
+      linkRank: 'primary',
       menuType: 'mainMenu',
-      menuSection: 'Min data',
-      menuSectionId: 'my-data',
-      menuSectionUrl: '/my-data',
-      menuSectionRank: 'secondary',
+      menuSection: 'primary',
       metaTitle: 'Min data',
       metaDescription: ''
-    }
-  },
-  {
-    path: 'my-data/my-observations',
-    component: MyObservationsComponent,
-    data: {
-      linkText: 'Mine observasjoner',
-      linkId: 'my-observations',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Min data',
-      menuSectionId: 'my-data',
-      menuSectionUrl: '/my-data',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Mine observasjoner',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'my-data/my-statistics',
-    component: MyStatisticsComponent,
-    data: {
-      linkText: 'Min statistikk',
-      linkId: 'my-statistics',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Min data',
-      menuSectionId: 'my-data',
-      menuSectionUrl: '/my-data',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Min statistikk',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'my-data/my-projects',
-    component: MyProjectsComponent,
-    data: {
-      linkText: 'Mine prosjekter',
-      linkId: 'my-projects',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Min data',
-      menuSectionId: 'my-data',
-      menuSectionUrl: '/my-data',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Mine prosjekter',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'my-data/my-locations',
-    component: MyLocationsComponent,
-    data: {
-      linkText: 'Mine lokaliteter',
-      linkId: 'my-locations',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Min data',
-      menuSectionId: 'my-data',
-      menuSectionUrl: '/my-data',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Mine lokaliteter',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'my-data/fellow-observers',
-    component: FellowObserversComponent,
-    data: {
-      linkText: 'Medobservatører',
-      linkId: 'fellow-observers',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Min data',
-      menuSectionId: 'my-data',
-      menuSectionUrl: '/my-data',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Medobservatører',
-      metaDescription: ''
-    }
-  },
+    },
+    children: [
+      {
+        path: 'my-observations',
+        component: MyObservationsComponent,
+        data: {
+          linkText: 'Mine observasjoner',
+          linkId: 'my-observations',
+          linkLayout: 'page',
+          linkRank: 'primary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Mine observasjoner',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'my-statistics',
+        component: MyStatisticsComponent,
+        data: {
+          linkText: 'Min statistikk',
+          linkId: 'my-statistics',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Min statistikk',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'my-projects',
+        component: MyProjectsComponent,
+        data: {
+          linkText: 'Mine prosjekter',
+          linkId: 'my-projects',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Mine prosjekter',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'my-locations',
+        component: MyLocationsComponent,
+        data: {
+          linkText: 'Mine lokaliteter',
+          linkId: 'my-locations',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Mine lokaliteter',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'fellow-observers',
+        component: FellowObserversComponent,
+        data: {
+          linkText: 'Medobservatører',
+          linkId: 'fellow-observers',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Medobservatører',
+          metaDescription: ''
+        }
+      }
+    ]
+  }
 ];
 
 const aboutRoutes: Routes = [
@@ -471,125 +389,99 @@ const aboutRoutes: Routes = [
       linkText: 'Om tjenesten',
       linkId: 'about',
       linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
+      linkRank: 'secondary',
       menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
+      menuSection: 'secondary',
       metaTitle: 'Om tjenesten',
       metaDescription: ''
-    }
-  },
-  {
-    path: 'about/about-site',
-    component: AboutSiteComponent,
-    data: { 
-      linkText: 'Om artsobservasjoner.no',
-      linkId: 'about-site',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Om artsobservasjoner.no',
-      metaDescription: ''
-    }
-  },
+    },
+    children: [
+      {
+        path: 'about-site',
+        component: AboutSiteComponent,
+        data: {
+          linkText: 'Om artsobservasjoner.no',
+          linkId: 'about-site',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Om artsobservasjoner.no',
+          metaDescription: ''
+        }
+      },
 
-  {
-    path: 'about/quality-assurance',
-    component: QualityAssuranceComponent,
-    data: {      
-      linkText: 'Kvalitetssikring',
-      linkId: 'quality-assurance',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Kvalitetssikring',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'about/contribute',
-    component: ContributeComponent,
-    data: {
-      linkText: 'Hvordan du kan bidra',
-      linkId: 'contribute',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Hvordan du kan bidra',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'about/tos',
-    component: TosComponent,
-    data: {
-      linkText: 'Brukervilkår',
-      linkId: 'tos',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Brukervilkår',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'about/support',
-    component: SupportComponent,
-    data: {
-      linkText: 'Brukerstøtte',
-      linkId: 'support',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Brukerstøtte',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'about/latest-news',
-    component: LatestNewsComponent,
-    data: {
-      linkText: 'Aktuelle saker',
-      linkId: 'latest-news',
-      linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
-      menuType: 'mainMenu',
-      menuSection: 'Om tjenesten',
-      menuSectionId: 'about',
-      menuSectionUrl: '/about',
-      menuSectionRank: 'secondary',
-      metaTitle: 'Aktuelle saker / siste nytt',
-      metaDescription: ''
-    }
+      {
+        path: 'quality-assurance',
+        component: QualityAssuranceComponent,
+        data: {
+          linkText: 'Kvalitetssikring',
+          linkId: 'quality-assurance',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Kvalitetssikring',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'about/contribute',
+        component: ContributeComponent,
+        data: {
+          linkText: 'Hvordan du kan bidra',
+          linkId: 'contribute',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Hvordan du kan bidra',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'tos',
+        component: TosComponent,
+        data: {
+          linkText: 'Brukervilkår',
+          linkId: 'tos',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Brukervilkår',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'support',
+        component: SupportComponent,
+        data: {
+          linkText: 'Brukerstøtte',
+          linkId: 'support',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Brukerstøtte',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'latest-news',
+        component: LatestNewsComponent,
+        data: {
+          linkText: 'Aktuelle saker',
+          linkId: 'latest-news',
+          linkLayout: 'page',
+          linkRank: 'secondary',
+          menuType: 'mainMenu',
+          menuSection: 'secondary',
+          metaTitle: 'Aktuelle saker / siste nytt',
+          metaDescription: ''
+        }
+      }
+    ]
   }
 ];
 
@@ -602,12 +494,8 @@ const userRoutes: Routes = [
       linkId: 'messages',
       linkLayout: 'page',
       linkRank: '',
-      linkType: '',
       menuType: 'topMenu',
       menuSection: '',
-      menuSectionId: 'user',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Meldinger',
       metaDescription: ''
     }
@@ -620,30 +508,22 @@ const userRoutes: Routes = [
       linkId: 'login',
       linkLayout: 'page',
       linkRank: '',
-      linkType: '',
       menuType: 'topMenu',
       menuSection: '',
-      menuSectionId: 'user',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Logg inn',
       metaDescription: ''
     }
   },
   {
-    path: 'user/profile',
+    path: 'user-profile',
     component: ProfileComponent,
     data: {
       linkText: 'Min side',
       linkId: 'user-profile',
       linkLayout: 'page',
       linkRank: 'primary',
-      linkType: '',
       menuType: 'topMenu',
       menuSection: '',
-      menuSectionId: 'user',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Min side',
       metaDescription: ''
     }
@@ -655,13 +535,9 @@ const userRoutes: Routes = [
       linkText: 'Registrer deg',
       linkId: 'register',
       linkLayout: 'page',
-      linkRank: '',
-      linkType: '',
+      linkRank: 'secondary',
       menuType: '',
       menuSection: '',
-      menuSectionId: 'user',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Registrer deg',
       metaDescription: ''
     }
@@ -677,12 +553,8 @@ const extraRoutes: Routes = [
       linkId: 'sitemap',
       linkLayout: 'page',
       linkRank: '',
-      linkType: '',
       menuType: 'extra',
       menuSection: '',
-      menuSectionId: '',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Innholdskart A-Å',
       metaDescription: ''
     }
@@ -698,12 +570,8 @@ const testRoutes: Routes = [  // for testing purposes
       linkId: 'map',
       linkLayout: 'page',
       linkRank: '',
-      linkType: '',
       menuType: '',
       menuSection: '',
-      menuSectionId: '',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Map',
       metaDescription: ''
     }
@@ -716,12 +584,8 @@ const testRoutes: Routes = [  // for testing purposes
       linkId: 'design-system',
       linkLayout: 'page',
       linkRank: '',
-      linkType: '',
       menuType: '',
       menuSection: '',
-      menuSectionId: '',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: 'Designssystem',
       metaDescription: ''
     }
@@ -737,12 +601,8 @@ const wildcardRoutes: Routes = [
       linkId: 'not-found',
       linkLayout: 'page',
       linkRank: '',
-      linkType: '',
       menuType: '',
       menuSection: '',
-      menuSectionId: '',
-      menuSectionUrl: '',
-      menuSectionRank: '',
       metaTitle: '404',
       metaDescription: ''
     }

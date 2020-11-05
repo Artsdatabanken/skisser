@@ -56,47 +56,31 @@ export class NavigationService {
 
   }
 
-  getMenuCSSClass(link: string | null): string {
+  getMenuCSSClass(style: string | null, type: string | null): string {
 
-    if (link['sectionType']) {
-      return `navigation__section--${link['sectionType']}`;
+    console.log('style', style)
+    console.log('type', type)
+
+    if (type === 'section') {
+      return `navigation__section--${style}`;
     }
-    else if (link['type']) {
-      return `navigation__link--${link['type']}`;
+    else if (type === 'link') {
+      return `navigation__link--${style}`;
     }
+    
+  }
+
+  getMainMenu(): any[] {
+
+    const filteredRoutes: any = this.routes.filter(i => i.data.menuType === 'mainMenu');
+    console.log('routes', filteredRoutes)
+
+    return this.routes.filter(i => i.data.menuType === 'mainMenu');
 
   }
 
   getMenuSection(menuSectionUrl: string): void {
     const menu: any[] = this.routes.filter(i => i.data.menuSectionUrl === menuSectionUrl);
-  }
-
-  getMainMenu(): any {
-
-    const filteredData: any = this.routes.filter(i => i.data.menuType === 'mainMenu');
-    const sections = [...new Set(filteredData.map(i => i.data.menuSectionId))];
-
-    let mainMenu = [];
-
-    let group = filteredData.reduce((acc, curr) => {
-
-      // console.log('curr', curr);
-      // console.log('acc', acc);
-
-      acc[curr.data.menuSectionId] = [...acc[curr.data.menuSectionId] || [], curr];
-
-      let section = {menuSection: curr.data.menuSectionId};
-      
-
-      mainMenu.push({section})  
-
-      console.log('acc', acc)
-      return acc;
-    }, {});
-
-
-    console.log("group", group);
-    console.log("mainMenu", mainMenu);
   }
 
 }
