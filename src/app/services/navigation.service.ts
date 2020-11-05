@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import NavigationSettings from '../data/navigationSettings.json';
 import { routes } from '../app-routing.module';
 import { filter } from 'rxjs/operators';
+import { AboutComponent } from '../components/about/about.component';
 
 @Injectable({
   providedIn: 'root'
@@ -69,18 +70,36 @@ export class NavigationService {
 
   getMainMenu(): any[] {
 
-    const filteredRoutes: any = this.routes.filter(i => i.data.menuType === 'mainMenu');
-    console.log('routes', filteredRoutes)
+    const filteredRoutes: any = this.routes.filter(i => i.data.menu === 'mainMenu');
 
-    return this.routes.filter(i => i.data.menuType === 'mainMenu');
+    console.log('routes', filteredRoutes);
+
+    ///////////////////////////
+
+
+
+
+
+
+
+
+    ///////////////////////////
+
+    return this.routes.filter(i => i.data.menu === 'mainMenu');
 
   }
 
   getSubMenu(parent: string): any[] {
 
     const menu: any[] = this.routes.filter(i => i.data.linkId === parent);
+
+    console.log('menu', menu)
+
     return menu[0].children;
 
   }
 
 }
+
+
+
