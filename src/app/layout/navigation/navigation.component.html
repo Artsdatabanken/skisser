@@ -11,9 +11,9 @@
                 <a class="navigation__heading-link" routerLink="/{{ link.path }}" closeMenu>{{ link.data.linkText }}</a>
             </h1>
 
-            <div class="navigation__section" [class]="getLinkStyle(link.data.menuSection, 'section')">
+            <div class="navigation__section" [class]="getStyle(link.data.menuSection, 'section')">
 
-                <a class="navigation__link" [class]="getLinkStyle(link.data.linkRank, 'link')"
+                <a class="navigation__link" [class]="getStyle(link.data.linkRank, 'link')"
                     routerLinkActive="navigation__link--active" routerLink="../{{ link.path }}"
                     *ngFor="let link of link.children" closeMenu>
 
@@ -52,9 +52,9 @@
                     closeMenu>{{ link.section }}</a>
             </h1>
 
-            <div class="navigation__section" [class]="getLinkStyle(link)">
+            <div class="navigation__section" [class]="getStyle(link)">
 
-                <a class="navigation__link" [class]="getLinkStyle(link)" routerLinkActive="navigation__link--active"
+                <a class="navigation__link" [class]="getStyle(link)" routerLinkActive="navigation__link--active"
                     routerLink="/{{ link.url }}" *ngFor="let link of link.sectionContent" closeMenu>
                     <span class="navigation__label"> {{ link.label }}</span>
                 </a>

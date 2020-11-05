@@ -32,7 +32,6 @@ import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ManagementComponent } from './components/management/management.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
@@ -105,7 +104,6 @@ import { FellowObserversComponent } from './components/my-data/fellow-observers/
     PageTitleComponent,
     LoginComponent,
     DashboardComponent,
-    ManagementComponent,
     RegistrationComponent,
     TopNavigationComponent,
     SubNavigationComponent,

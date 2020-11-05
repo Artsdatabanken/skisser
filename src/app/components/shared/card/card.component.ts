@@ -12,7 +12,6 @@ export class CardComponent implements OnInit {
   @Input() cssClass: string | null;
   @Input() size: string | null;
   @Input() icon: string | null;
-  @Input() label: string;
   @Input() text: string | null;
   @Input() url: string | null;
 

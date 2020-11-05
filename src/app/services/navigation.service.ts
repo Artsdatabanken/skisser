@@ -58,16 +58,13 @@ export class NavigationService {
 
   getMenuCSSClass(style: string | null, type: string | null): string {
 
-    console.log('style', style)
-    console.log('type', type)
-
     if (type === 'section') {
       return `navigation__section--${style}`;
     }
     else if (type === 'link') {
       return `navigation__link--${style}`;
     }
-    
+
   }
 
   getMainMenu(): any[] {
@@ -79,8 +76,11 @@ export class NavigationService {
 
   }
 
-  getMenuSection(menuSectionUrl: string): void {
-    const menu: any[] = this.routes.filter(i => i.data.menuSectionUrl === menuSectionUrl);
+  getSubMenu(parent: string): any[] {
+
+    const menu: any[] = this.routes.filter(i => i.data.linkId === parent);
+    return menu[0].children;
+
   }
 
 }

@@ -209,7 +209,7 @@ const observationRoutes: Routes = [
           linkText: 'Tall og statistikk',
           linkId: 'statistics',
           linkLayout: 'page',
-          linkRank: 'secondary',         
+          linkRank: 'secondary',
           menuType: 'mainMenu',
           menuSection: 'primary',
           metaTitle: 'Tall og statistikk',
@@ -426,7 +426,7 @@ const aboutRoutes: Routes = [
         }
       },
       {
-        path: 'about/contribute',
+        path: 'contribute',
         component: ContributeComponent,
         data: {
           linkText: 'Hvordan du kan bidra',
@@ -612,7 +612,7 @@ const wildcardRoutes: Routes = [
 export const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationRoutes, ...userDataRoutes, ...aboutRoutes, ...userRoutes, ...wildcardRoutes, ...extraRoutes, ...testRoutes];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 
