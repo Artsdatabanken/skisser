@@ -10,16 +10,12 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class StatisticsComponent implements OnInit {
 
-  menuSections$: Observable<string[]>;
+  submenu: any[];
 
   constructor(private navigationService: NavigationService) { }
 
-  ngOnInit(): void { 
-    this.menuSections$ = this.navigationService.getMenuSectionItems('statistics');
-  }
-
-  getLinkUrl(linkUrl: string): string {
-    return `/${linkUrl}`;
+  ngOnInit(): void {
+    this.submenu = this.navigationService.getSubMenu('statistics');
   }
 
 }
