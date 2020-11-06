@@ -497,7 +497,7 @@ $orange: #514942;
     }
 }
 
-// league
+// league / user statistics
 
 .league {
     display: grid;
@@ -532,7 +532,7 @@ $orange: #514942;
         @include variable(color, clrWhite);
         @include variable(font-family, fontSecondary);
         @include variable(font-family, fontAccent);
-        background: #117864;
+        background: #0e6251;
         border-radius: 50px;
         font-size: 42px;
         font-weight: 700;
@@ -664,6 +664,27 @@ $orange: #514942;
     }
 }
 
+.badge {
+    background: #d5f5e3;
+    border-radius: 50px;
+    display: block;
+    font-weight: 700;
+    height: 50px;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    width: 50px;
+
+    &--xl {
+        border-radius: 50%;
+        font-size: 60px;
+        height: 140px;
+        line-height: 130px;
+        margin: 10px auto;
+        width: 140px;;
+    }
+}
+
 .league-table {
     border: 1px solid #d5f5e3;
     border-collapse: collapse;
@@ -715,5 +736,18 @@ $orange: #514942;
         }
         &:nth-child(2) {
         }
+    }
+}
+
+.stats {
+    text-align: center;
+
+    &__number {
+        @include variable(font-family, fontSecondary);
+        font-size: 42px;
+        font-weight: 700;
+    }
+
+    &__text {
     }
 }

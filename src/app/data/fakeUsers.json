@@ -1,13 +1,13 @@
 [
     {
         "id": 1,
-        "name": "Leanne Graham",
+        "name": "Gorm Den Gamle",
         "username": "Bret",
         "email": "Sincere@april.biz",
         "address": {
             "street": "Kulas Light",
             "suite": "Apt. 556",
-            "city": "Gwenborough",
+            "city": "Hitra",
             "zipcode": "92998",
             "geo": {
                 "lat": "-37.3159",
@@ -24,13 +24,13 @@
     },
     {
         "id": 2,
-        "name": "Ervin Howell",
+        "name": "Brynhild Buðladóttir",
         "username": "Antonette",
         "email": "Shanna@melissa.tv",
         "address": {
             "street": "Victor Plains",
             "suite": "Suite 879",
-            "city": "Wisokyburgh",
+            "city": "Trondheim",
             "zipcode": "90566",
             "geo": {
                 "lat": "-43.9509",
@@ -47,13 +47,13 @@
     },
     {
         "id": 3,
-        "name": "Clementine Bauch",
+        "name": "Hervor Heidrek",
         "username": "Samantha",
         "email": "Nathan@yesenia.net",
         "address": {
             "street": "Douglas Extension",
             "suite": "Suite 847",
-            "city": "McKenziehaven",
+            "city": "Longyearbyen",
             "zipcode": "59590",
             "geo": {
                 "lat": "-68.6102",
@@ -70,13 +70,13 @@
     },
     {
         "id": 4,
-        "name": "Patricia Lebsack",
+        "name": "Johannes Johannesen",
         "username": "Karianne",
         "email": "Julianne.OConner@kory.org",
         "address": {
             "street": "Hoeger Mall",
             "suite": "Apt. 692",
-            "city": "South Elvis",
+            "city": "Nordkapp",
             "zipcode": "53919",
             "geo": {
                 "lat": "29.4572",
@@ -93,13 +93,13 @@
     },
     {
         "id": 5,
-        "name": "Chelsey Dietrich",
+        "name": "Ladgerda Nordmann",
         "username": "Kamren",
         "email": "Lucio_Hettinger@annie.ca",
         "address": {
             "street": "Skiles Walks",
             "suite": "Suite 351",
-            "city": "Roscoeview",
+            "city": "Moss",
             "zipcode": "33263",
             "geo": {
                 "lat": "-31.8129",
@@ -116,13 +116,13 @@
     },
     {
         "id": 6,
-        "name": "Mrs. Dennis Schulist",
+        "name": "Freydis Eiríksdóttir",
         "username": "Leopoldo_Corkery",
         "email": "Karley_Dach@jasper.info",
         "address": {
             "street": "Norberto Crossing",
             "suite": "Apt. 950",
-            "city": "South Christy",
+            "city": "Larvik",
             "zipcode": "23505",
             "geo": {
                 "lat": "-71.4197",
@@ -130,22 +130,17 @@
             }
         },
         "phone": "1-477-935-8478 x6430",
-        "website": "ola.org",
-        "company": {
-            "name": "Considine-Lockman",
-            "catchPhrase": "Synchronised bottom-line interface",
-            "bs": "e-enable innovative applications"
-        }
+        "website": "ola.org"
     },
     {
         "id": 7,
-        "name": "Kurtis Weissnat",
+        "name": "Freyja Njord",
         "username": "Elwyn.Skiles",
         "email": "Telly.Hoeger@billy.biz",
         "address": {
             "street": "Rex Trail",
             "suite": "Suite 280",
-            "city": "Howemouth",
+            "city": "Førde",
             "zipcode": "58804",
             "geo": {
                 "lat": "24.8918",
@@ -153,22 +148,17 @@
             }
         },
         "phone": "210.067.6132",
-        "website": "elvis.io",
-        "company": {
-            "name": "Johns Group",
-            "catchPhrase": "Configurable multimedia task-force",
-            "bs": "generate enterprise e-tailers"
-        }
+        "website": "elvis.io"
     },
     {
         "id": 8,
-        "name": "Nicholas Runolfsdottir V",
+        "name": "Sigrid Den Stolte",
         "username": "Maxime_Nienow",
         "email": "Sherwood@rosamond.me",
         "address": {
             "street": "Ellsworth Summit",
             "suite": "Suite 729",
-            "city": "Aliyaview",
+            "city": "Tromsø",
             "zipcode": "45169",
             "geo": {
                 "lat": "-14.3990",
@@ -176,22 +166,17 @@
             }
         },
         "phone": "586.493.6943 x140",
-        "website": "jacynthe.com",
-        "company": {
-            "name": "Abernathy Group",
-            "catchPhrase": "Implemented secondary concept",
-            "bs": "e-enable extensible e-tailers"
-        }
+        "website": "jacynthe.com"
     },
     {
         "id": 9,
-        "name": "Glenna Reichert",
+        "name": "Ragnar Lodbrok",
         "username": "Delphine",
         "email": "Chaim_McDermott@dana.io",
         "address": {
             "street": "Dayna Park",
             "suite": "Suite 449",
-            "city": "Bartholomebury",
+            "city": "Hammerfest",
             "zipcode": "76495",
             "geo": {
                 "lat": "24.6463",
@@ -199,22 +184,18 @@
             }
         },
         "phone": "(775)976-6794 x41206",
-        "website": "conrad.com",
-        "company": {
-            "name": "Yost and Sons",
-            "catchPhrase": "Switchable contextually-based project",
-            "bs": "aggregate real-time technologies"
-        }
+        "website": "conrad.com"
+    
     },
     {
         "id": 10,
-        "name": "Clementina DuBuque",
+        "name": "Olga av Kiev",
         "username": "Moriah.Stanton",
         "email": "Rey.Padberg@karina.biz",
         "address": {
             "street": "Kattie Turnpike",
             "suite": "Suite 198",
-            "city": "Lebsackbury",
+            "city": "Kiev",
             "zipcode": "31428",
             "geo": {
                 "lat": "-38.2386",
@@ -222,11 +203,7 @@
             }
         },
         "phone": "024-648-3804",
-        "website": "ambrose.net",
-        "company": {
-            "name": "Hoeger LLC",
-            "catchPhrase": "Centralized empowering task-force",
-            "bs": "target end-to-end models"
-        }
+        "website": "ambrose.net"
+
     }
 ]

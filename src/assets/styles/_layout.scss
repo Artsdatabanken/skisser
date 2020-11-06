@@ -791,25 +791,23 @@ main {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 20px 20px;
+    }
+
+    
+    &--3 {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px 20px;
 
         & > * {
             // border: 1px solid red;
+            align-self: center;
         }
     }
 
     // elements
 
     &__cell {
-        //border: 1px solid red;
-        // align-self: stretch;
-        // justify-self: stretch;
-
-        // &--centered {
-        //     align-self: center;
-        //     justify-self: center;
-        // }
-
-        &--left {
+         &--left {
             align-self: start;
             justify-self: start;
         }
