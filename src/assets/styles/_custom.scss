@@ -473,7 +473,7 @@ $orange: #514942;
     // flex-wrap: wrap;
     // justify-content: space-between;
     display: grid;
-    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     text-align: center;
 
@@ -494,5 +494,197 @@ $orange: #514942;
         font-size: 24px;
         font-weight: 300;
         font-weight: 400;
+    }
+}
+
+// league
+
+.league {
+    list-style: none;
+    padding: 0;
+
+    // li {
+    //     border: 1px solid black;
+    //     display: grid;
+    //     grid-template-columns: 1fr 1fr;
+    //     grid-template-rows: 1fr;
+    //     //grid-template-areas: "";
+
+    //     &:first-child {
+    //         &:before {
+    //             background-image: url(../images/gallery/prize1.png);
+    //             background-position: center center;
+    //             background-repeat: no-repeat;
+    //             background-size: contain;
+    //             content: "";
+    //             display: block;
+    //             height: 120px;
+    //             width: 120px;
+    //         }
+    //     }
+
+    //     span {
+    //         border: 1px solid red;
+
+    //         &:nth-child(1) {
+    //             @include variable(font-family, fontSecondary);
+    //             font-size: 28px;
+    //         }
+
+    //         &:nth-child(3) {
+    //         }
+
+    //         &:nth-child(2) {
+    //             @include variable(font-family, fontSecondary);
+    //             font-weight: 700;
+    //         }
+    //     }
+    // }
+
+    &__position {
+    }
+
+    &__item {
+        @include variable(background-color, paletteColor1);
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto 50px;
+        padding: 40px 20px;
+        text-align: center;
+        width: 25vw;
+
+        &:before {
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+            content: "";
+            display: block;
+            margin: 0 auto 10px;
+            padding: 10px;
+        }
+
+        &--first {
+            &:before {
+                background-color: #d1f2eb;
+                background-image: url(../images/gallery/prize1.png);
+                background-size: 80px;
+                height: 150px;
+                width: 150px;
+            }
+        }
+
+        &--second {
+            &:before {
+                background-color: #d4efdf;
+                background-image: url(../images/gallery/prize2.png);
+                background-size: 50px;
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        &--third {
+            &:before {
+                background-color: #eafaf1;
+                background-image: url(../images/gallery/prize3.png);
+                background-size: 50px;
+                height: 80px;
+                width: 80px;
+            }
+        }
+
+        span {
+            border: 1px solid red;
+            display: block;
+        }
+    }
+
+    &__detail {
+        &--1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        &--2 {
+            font-weight: 400;
+        }
+
+        &--3 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+}
+
+.award {
+    @include variable(background-color, paletteColor1);
+    background: #d5f5e3;
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+
+    &__title {
+        @include variable(font-family, fontSecondary);
+        @include variable(font-family, fontPrimary);
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__icon {
+        background-color: #a3e4d7;
+        background-image: url(../images/gallery/prize0.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 110px;
+        border-radius: 100%;
+        display: block;
+        margin: 20px auto;
+        height: 180px;
+        padding: 10px;
+        width: 180px;
+        position: relative;
+        z-index: 5;
+
+        &--first {
+            background-image: url(../images/gallery/art1.png);
+        }
+
+        &--second {
+            background-image: url(../images/gallery/art2.png);
+        }
+
+        &--third {
+            background-image: url(../images/gallery/art3.png);
+        }
+
+        &--fourth {
+            background-image: url(../images/gallery/art4.png);
+        }
+
+        &:after {
+            background-color: #117864;
+            background-image: url(../images/gallery/prize0white.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 45px;
+            border-radius: 100%;
+            content: '';
+            display: block;
+            margin: 20px auto;
+            height: 70px;
+            padding: 10px;
+            width: 70px;
+
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            z-index: 10;
+        }
+    }
+
+    &__winner {
+        @include variable(font-family, fontSecondary);
+        font-size: 27px;
+        font-weight: 500;
     }
 }

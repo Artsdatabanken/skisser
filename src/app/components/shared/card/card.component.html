@@ -4,7 +4,11 @@
 
 <ng-container *ngIf="type === 'link'">
 
-    <a class="card" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="card--active">
+    <!-- <a class="card" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="card--active">
+        <span class="card__heading">{{ text }}</span>
+    </a> -->
+
+    <a class="card" [ngClass]="cssClass" routerLink="/{{ url }}" routerLinkActive="card--active">
         <span class="card__heading">{{ text }}</span>
     </a>
 

@@ -36,30 +36,130 @@
     </li>
 
 
-    <!-- <li>
-         <span>Jørn R Gustad</span> <span> Averøy</span> <span> 4 263</span></li>
-    <li>
-         <span>John Sandve</span> <span> Nesoddtangen</span> <span> 3 774</span></li>
-    <li>
-         <span>Per Kristian Slagsvold</span> <span> Larvik</span> <span> 3 565</span></li>
-    <li>
-         <span>Rune Zakariassen</span> <span> Lommedalen</span> <span> 3 498</span></li>
-    <li>
-         <span>Norman Hagen</span> <span> Skien</span> <span> 3 484</span></li>
-    <li>
-         <span>Kåre Homble</span> <span> Nannestad</span> <span> 3 445</span></li>
-    <li> 
-        <span>Jostein Bærø Engdal</span> <span> Sætre</span> <span> 3 398</span></li>
-    <li> 
-        <span>Tove Hafnor Dahl</span> <span> Bjorbekk</span> <span> 3 363</span></li>
-    <li> 
-        <span>Turid Nakling Kristiansen<span> Nøtterøy</span> <span> 3 297</span></li>
-    <li> 
-        <span>Anders Breili</span> <span> Lillehammer</span> <span> 3 234</span></li>
-    <li>
-         <span>Arild Omberg</span> <span> Risør</span> <span> 3 220</span></li>
-    <li>
-         <span>Jostein Austevik</span> <span> Sandnes</span> <span> 3 174</span></li>
-    <li>
-         <span>Inger Kristoffersen</span> <span> Sandefjord</span> <span> 3 065</span></li> -->
+
 </ol>
+
+<div class="page">
+
+    <header class="page__header"></header>
+
+    <div class="page__content">
+
+        <!---->
+
+        <h2>Oktoberliga</h2>
+
+        <p>Vinnere av flest observasjoner i Oktober</p>
+
+        <div class="grid grid--2x4">
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Virvelløse dyr</div>
+                    <div class="award__icon award__icon--first"></div>
+                    <div class="award__winner">Svein Tjugeskjegg</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Pattedyr</div>
+                    <div class="award__icon award__icon--second"></div>
+                    <div class="award__winner">Sigurd Jorsalfar</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Karplanter</div>
+                    <div class="award__icon award__icon--third"></div>
+                    <div class="award__winner">Leiv Eriksson</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Småkryp</div>
+                    <div class="award__icon award__icon--fourth"></div>
+                    <div class="award__winner">Harald Hårfagre</div>
+                </div>
+
+            </div>
+
+            
+        </div>
+
+
+        <!---->
+
+
+        <h2>Observatører</h2>
+
+        <p>Flest observasjoner totalt</p>
+
+        Filtrer på artsgruppe
+
+        <select name="" id="speciesGroup">
+            <option value="All">Alle</option>
+            <option value="">Karplanter</option>
+            <option value="">Moser</option>
+            <option value="">Lav</option>
+            <option value="">Sopp</option>
+            <option value="">Alger</option>
+            <option value="">Virvelløse dyr</option>
+            <option value="">Fugler</option>
+            <option value="">Amfibier og reptiler</option>
+            <option value="">Pattedyr</option>
+            <option value="">Flaggermus</option>
+            <option value="">Fisk</option>
+        </select>
+
+        <div class="league league--primary">
+
+            <div class="league__item" [class]="getRank(i)"
+                *ngFor="let user of fakeUsers$ | async | slice:0:3; let i = index">
+
+                <div class="league__position" [class]="i"></div>
+
+                <h1 class="league__detail league__detail--1">{{ user.name }}</h1>
+                <div class="league__detail league__detail--2"> {{ user.address.city }}</div>
+                <div class="league__detail league__detail--3">{{ user.address.zipcode }}</div>
+
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <ul class="league">
+
+            <li *ngFor="let user of fakeUsers$ | async | slice:4">
+
+                <span>{{ user.name }}</span>
+                <span> {{ user.address.zipcode }}</span>
+                <span>{{ user.address.city }}</span>
+
+            </li>
+
+        </ul>
+
+
+        <!---->
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+
+</div>

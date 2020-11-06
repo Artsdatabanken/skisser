@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import NavigationSettings from '../data/navigationSettings.json';
 import { routes } from '../app-routing.module';
-import { filter } from 'rxjs/operators';
-import { AboutComponent } from '../components/about/about.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,46 +13,46 @@ export class NavigationService {
 
   constructor() { }
 
-  getMenuItems(): Observable<string[]> {
+  // getMenuItems(): Observable<string[]> {
 
-    const mainMenu: string[] = this.settings.mainMenu;
+  //   const mainMenu: string[] = this.settings.mainMenu;
 
-    return of(mainMenu).pipe();
+  //   return of(mainMenu).pipe();
 
-  }
+  // }
 
-  getSubMenuItems(): Observable<string[]> {
+  // getSubMenuItems(): Observable<string[]> {
 
-    const navigationLinks: string[] = this.settings.subMenu;
-    return of(navigationLinks).pipe();
+  //   const navigationLinks: string[] = this.settings.subMenu;
+  //   return of(navigationLinks).pipe();
 
-  }
+  // }
 
-  getTopMenuItems(): Observable<string[]> {
+  // getTopMenuItems(): Observable<string[]> {
 
-    const navigationLinks: string[] = this.settings.topMenu;
-    return of(navigationLinks).pipe();
+  //   const navigationLinks: string[] = this.settings.topMenu;
+  //   return of(navigationLinks).pipe();
 
-  }
+  // }
 
-  getExtraMenuItems(): Observable<string[]> {
+  // getExtraMenuItems(): Observable<string[]> {
 
-    const navigationLinks: string[] = this.settings.extraMenu;
-    return of(navigationLinks).pipe();
+  //   const navigationLinks: string[] = this.settings.extraMenu;
+  //   return of(navigationLinks).pipe();
 
-  }
+  // }
 
-  getMenuSectionItems(menuSectionUrl: string): Observable<string[]> {
+  // getMenuSectionItems(menuSectionUrl: string): Observable<string[]> {
 
-    const menu: any[] = this.settings.mainMenu.filter(link => link['sectionUrl'] === menuSectionUrl);
-    const subMenu: any[] = this.settings.subMenu.filter(link => link['sectionUrl'] === menuSectionUrl);
+  //   const menu: any[] = this.settings.mainMenu.filter(link => link['sectionUrl'] === menuSectionUrl);
+  //   const subMenu: any[] = this.settings.subMenu.filter(link => link['sectionUrl'] === menuSectionUrl);
 
-    const navigationLinks = [...menu, ...subMenu];
-    const menuSection = navigationLinks.map(i => i.sectionContent);
+  //   const navigationLinks = [...menu, ...subMenu];
+  //   const menuSection = navigationLinks.map(i => i.sectionContent);
 
-    return of(menuSection[0]).pipe();
+  //   return of(menuSection[0]).pipe();
 
-  }
+  // }
 
   getStyle(style: string | null, classification: string | null): string {
 
@@ -104,7 +101,7 @@ export class NavigationService {
       output.push(handleItem(item));
     });
 
-    console.log('output', output);
+    //console.log('output', output);
 
 
     return output;
@@ -123,13 +120,13 @@ export class NavigationService {
 
   getSubMenu(parent: string): any[] {
 
-    const menu: any[] = this.routes.filter(i => {
+    const subMenu: any[] = this.routes.filter(i => {
       return i.data.parent === parent;
     });
 
-    console.log('menu', menu)
+    console.log('subMenu', subMenu)
 
-    return menu;
+    return subMenu;
 
   }
 
