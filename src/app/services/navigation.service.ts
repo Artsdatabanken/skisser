@@ -127,11 +127,15 @@ export class NavigationService {
       return i.data.parent === parent;
     });
 
-    // console.log('parent', parent)
     console.log('menu', menu)
 
     return menu;
 
+  }
+
+  getExtraMenu(): any[] {
+    console.log('extra', this.routes.filter(i => i.data.menu === 'extraMenu'))
+    return this.routes.filter(i => i.data.menu === 'extraMenu');
   }
 
 }

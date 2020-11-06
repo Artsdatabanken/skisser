@@ -72,6 +72,7 @@ import { SurveyProjectComponent } from './components/report/survey-project/surve
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
+import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +144,8 @@ import { FellowObserversComponent } from './components/my-data/fellow-observers/
     SurveyProjectComponent,
     EventProjectComponent,
     ProfileComponent,
-    FellowObserversComponent
+    FellowObserversComponent,
+    ExtraNavigationComponent
   ],
   imports: [
     BrowserModule,

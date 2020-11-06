@@ -46,7 +46,7 @@ const homeRoutes: Routes = [
       id: 'frontpage',
       layout: 'frontpage',
       rank: '',
-      parent: '', 
+      parent: '',
       menu: '',
       metaTitle: 'Artsobservasjoner',
       metaDescription: ''
@@ -60,7 +60,7 @@ const homeRoutes: Routes = [
       id: 'frontpage',
       layout: 'frontpage',
       rank: '',
-      parent: '', 
+      parent: '',
       menu: '',
       metaTitle: 'Artsobservasjoner',
       metaDescription: ''
@@ -165,7 +165,7 @@ const observationRoutes: Routes = [
       id: 'observations',
       layout: 'page',
       rank: 'primary',
-      parent: '', 
+      parent: '',
       menu: 'mainMenu',
       metaTitle: 'Observasjonsdata',
       metaDescription: ''
@@ -301,7 +301,7 @@ const userDataRoutes: Routes = [
     }
   },
   {
-    path: 'my-observations',
+    path: 'my-data/my-observations',
     component: MyObservationsComponent,
     data: {
       text: 'Mine observasjoner',
@@ -315,7 +315,7 @@ const userDataRoutes: Routes = [
     }
   },
   {
-    path: 'my-statistics',
+    path: 'my-data/my-statistics',
     component: MyStatisticsComponent,
     data: {
       text: 'Min statistikk',
@@ -329,7 +329,7 @@ const userDataRoutes: Routes = [
     }
   },
   {
-    path: 'my-projects',
+    path: 'my-data/my-projects',
     component: MyProjectsComponent,
     data: {
       text: 'Mine prosjekter',
@@ -343,7 +343,7 @@ const userDataRoutes: Routes = [
     }
   },
   {
-    path: 'my-locations',
+    path: 'my-data/my-locations',
     component: MyLocationsComponent,
     data: {
       text: 'Mine lokaliteter',
@@ -357,7 +357,7 @@ const userDataRoutes: Routes = [
     }
   },
   {
-    path: 'fellow-observers',
+    path: 'my-data/fellow-observers',
     component: FellowObserversComponent,
     data: {
       text: 'Medobservatører',
@@ -389,7 +389,7 @@ const aboutRoutes: Routes = [
   },
   {
     path: 'about/about-site',
-    component: AboutSiteComponent,    
+    component: AboutSiteComponent,
     data: {
       text: 'Om artsobservasjoner.no',
       id: 'about-site',
@@ -458,22 +458,20 @@ const aboutRoutes: Routes = [
       metaDescription: ''
     }
   },
-  {
-    path: 'about/latest-news',
-    component: LatestNewsComponent,
-    data: {
-      text: 'Aktuelle saker',
-      id: 'latest-news',
-      layout: 'page',
-      rank: 'secondary',
-      parent: 'about',
-      menu: 'mainMenu',
-      metaTitle: 'Aktuelle saker / siste nytt',
-      metaDescription: ''
-    }
-  }
-
-
+  // {
+  //   path: 'about/latest-news',
+  //   component: LatestNewsComponent,
+  //   data: {
+  //     text: 'Aktuelle saker',
+  //     id: 'latest-news',
+  //     layout: 'page',
+  //     rank: 'secondary',
+  //     parent: 'about',
+  //     menu: 'mainMenu',
+  //     metaTitle: 'Aktuelle saker / siste nytt',
+  //     metaDescription: ''
+  //   }
+  //}
 ];
 
 const userRoutes: Routes = [
@@ -537,6 +535,20 @@ const userRoutes: Routes = [
 
 const extraRoutes: Routes = [
   {
+    path: 'about/latest-news',
+    component: LatestNewsComponent,
+    data: {
+      text: 'Aktuelle saker',
+      id: 'latest-news',
+      layout: 'page',
+      rank: 'secondary',
+      parent: 'about',
+      menu: 'extraMenu',
+      metaTitle: 'Aktuelle saker / siste nytt',
+      metaDescription: ''
+    }
+  },
+  {
     path: 'sitemap',
     component: SitemapComponent,
     data: {
@@ -545,8 +557,22 @@ const extraRoutes: Routes = [
       layout: 'page',
       rank: '',
       parent: '',
-      menu: 'extra',
+      menu: 'extraMenu',
       metaTitle: 'Innholdskart A-Å',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'english',
+    component: SitemapComponent,
+    data: {
+      text: 'English',
+      id: 'english',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: 'extraMenu',
+      metaTitle: 'English',
       metaDescription: ''
     }
   }

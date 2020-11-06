@@ -1,14 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
-  selector: 'app-sub-navigation',
-  templateUrl: './sub-navigation.component.html',
-  styleUrls: ['./sub-navigation.component.scss']
+  selector: 'app-extra-navigation',
+  templateUrl: './extra-navigation.component.html',
+  styleUrls: ['./extra-navigation.component.scss']
 })
 
-export class SubNavigationComponent implements OnInit {
+export class ExtraNavigationComponent implements OnInit {
 
   extraMenu: any[];
 
