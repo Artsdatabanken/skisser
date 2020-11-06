@@ -144,7 +144,7 @@ const reportRoutes: Routes = [
     path: 'report/survey-project',
     component: EventProjectComponent,
     data: {
-      text: 'kartleggingsprosjekter',
+      text: 'Kartleggingsprosjekter',
       id: 'survey-project',
       layout: 'page',
       rank: 'secondary',
@@ -172,7 +172,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'sightings',
+    path: 'observations/sightings',
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
@@ -186,7 +186,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'sighting',
+    path: 'observations/sightings/sighting',
     component: SightingComponent,
     data: {
       text: 'Observasjon',
@@ -200,7 +200,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'statistics',
+    path: 'observations/statistics',
     component: StatisticsComponent,
     data: {
       text: 'Tall og statistikk',
@@ -214,7 +214,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'quality-checked-data',
+    path: 'observations/statistics/quality-checked-data',
     component: QualityAssuredDataComponent,
     data: {
       text: 'Kvalitetssikrede data',
@@ -228,7 +228,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'red-listed-species',
+    path: 'observations/statistics/red-listed-species',
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',
@@ -242,7 +242,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'alien-species',
+    path: 'observations/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',
@@ -256,7 +256,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'species-with-no-data',
+    path: 'observations/statistics/species-with-no-data',
     component: SpeciesWithNoDataComponent,
     data: {
       text: 'Arter uten data',
@@ -270,7 +270,7 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'user-statistics',
+    path: 'observations/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',
@@ -388,9 +388,8 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'about-site',
-    component: AboutSiteComponent,
-    outlet: 'child',
+    path: 'about/about-site',
+    component: AboutSiteComponent,    
     data: {
       text: 'Om artsobservasjoner.no',
       id: 'about-site',
@@ -404,7 +403,7 @@ const aboutRoutes: Routes = [
   },
 
   {
-    path: 'quality-assurance',
+    path: 'about/quality-assurance',
     component: QualityAssuranceComponent,
     data: {
       text: 'Kvalitetssikring',
@@ -418,7 +417,7 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'contribute',
+    path: 'about/contribute',
     component: ContributeComponent,
     data: {
       text: 'Hvordan du kan bidra',
@@ -432,7 +431,7 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'tos',
+    path: 'about/tos',
     component: TosComponent,
     data: {
       text: 'Brukervilkår',
@@ -446,7 +445,7 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'support',
+    path: 'about/support',
     component: SupportComponent,
     data: {
       text: 'Brukerstøtte',
@@ -460,7 +459,7 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'latest-news',
+    path: 'about/latest-news',
     component: LatestNewsComponent,
     data: {
       text: 'Aktuelle saker',

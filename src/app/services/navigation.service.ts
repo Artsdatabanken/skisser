@@ -114,12 +114,8 @@ export class NavigationService {
   getTopMenu(): any[] {
 
     let topMenu: any[] = this.routes.filter(i => i.data.menu === 'topMenu');
-    
-    console.log('topMenu', topMenu)
 
     topMenu = topMenu.filter(i => i.data.rank === 'primary');
-
-    console.log('topMenu', topMenu)
 
     return topMenu;
 
@@ -127,11 +123,14 @@ export class NavigationService {
 
   getSubMenu(parent: string): any[] {
 
-    const menu: any[] = this.routes.filter(i => i.data.id === parent);
+    const menu: any[] = this.routes.filter(i => {
+      return i.data.parent === parent;
+    });
 
+    // console.log('parent', parent)
     console.log('menu', menu)
 
-    return menu[0].children;
+    return menu;
 
   }
 

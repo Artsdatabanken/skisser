@@ -10,12 +10,12 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class AboutComponent implements OnInit {
 
-  submenu: any[];
+  subMenu: any[];
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.submenu = this.navigationService.getSubMenu('about');
+    this.subMenu = this.navigationService.getSubMenu('about');
   }
 
 }

@@ -9,12 +9,12 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class ObservationsComponent implements OnInit {
 
-  submenu: any[];
+  subMenu: any[];
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.submenu = this.navigationService.getSubMenu('observations');
+    this.subMenu = this.navigationService.getSubMenu('observations');
   }
 
 }
