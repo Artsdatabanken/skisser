@@ -35,12 +35,12 @@ body {
 /**/
 
 *:focus {
-  @include variable(outline-color, clrBlack);
-  outline-style: solid;
-  outline-offset: 3px;
-  outline-width: 3px;
-  margin: 0;
-  padding: 0;
+  // @include variable(outline-color, clrBlack);
+  // outline-style: solid;
+  // outline-offset: 3px;
+  // outline-width: 3px;
+  // margin: 0;
+  // padding: 0;
 }
 
 /*links*/

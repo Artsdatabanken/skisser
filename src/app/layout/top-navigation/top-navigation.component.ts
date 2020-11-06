@@ -11,22 +11,25 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class TopNavigationComponent implements OnInit {
 
-  topMenu$: Observable<string[]>;
+  //topMenu$: Observable<string[]>;
+  topMenu: any[];
+
   @Input() ariaLabel: string;
   @Input() location: string;
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.topMenu$ = this.navigationService.getTopMenuItems();
+    //this.topMenu$ = this.navigationService.getTopMenuItems();
+    this.topMenu = this.navigationService.getTopMenu();
   }
 
-  getLinkStyle(link: string): string {
-    return this.navigationService.getMenuCSSClass(link);
-  }
+  // getStyle(style: string): string {
+  //   return this.navigationService.getStyle(style, null);
+  // }
 
-  getCSSClass(link: string | null): string {
-    return `top-navigation__link--${link['name']}`;
+  getStyle(id: string): string {
+    return `top-navigation__link--${id}`;
   }
 
 }

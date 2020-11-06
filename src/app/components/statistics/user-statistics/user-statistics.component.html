@@ -1,4 +1,4 @@
-<ol class="liga">
+<!-- <ol class="liga">
     <li>
         <span>Dag Holtan</span>
         <span> 5 377</span>
@@ -36,30 +36,197 @@
     </li>
 
 
-    <!-- <li>
-         <span>Jørn R Gustad</span> <span> Averøy</span> <span> 4 263</span></li>
-    <li>
-         <span>John Sandve</span> <span> Nesoddtangen</span> <span> 3 774</span></li>
-    <li>
-         <span>Per Kristian Slagsvold</span> <span> Larvik</span> <span> 3 565</span></li>
-    <li>
-         <span>Rune Zakariassen</span> <span> Lommedalen</span> <span> 3 498</span></li>
-    <li>
-         <span>Norman Hagen</span> <span> Skien</span> <span> 3 484</span></li>
-    <li>
-         <span>Kåre Homble</span> <span> Nannestad</span> <span> 3 445</span></li>
-    <li> 
-        <span>Jostein Bærø Engdal</span> <span> Sætre</span> <span> 3 398</span></li>
-    <li> 
-        <span>Tove Hafnor Dahl</span> <span> Bjorbekk</span> <span> 3 363</span></li>
-    <li> 
-        <span>Turid Nakling Kristiansen<span> Nøtterøy</span> <span> 3 297</span></li>
-    <li> 
-        <span>Anders Breili</span> <span> Lillehammer</span> <span> 3 234</span></li>
-    <li>
-         <span>Arild Omberg</span> <span> Risør</span> <span> 3 220</span></li>
-    <li>
-         <span>Jostein Austevik</span> <span> Sandnes</span> <span> 3 174</span></li>
-    <li>
-         <span>Inger Kristoffersen</span> <span> Sandefjord</span> <span> 3 065</span></li> -->
-</ol>
+
+</ol> -->
+
+<div class="page">
+
+    <header class="page__header"></header>
+
+    <div class="page__content">
+
+        <!---->
+
+        <h2>Oktoberliga</h2>
+
+        <p>Brukere med flest observasjoner i Oktober</p>
+
+        <div>
+            <label for="speciesGroup">Filtrer på måned &nbsp; &nbsp;</label>
+
+            <select name="" id="speciesGroup">
+                <option value="All">Siste måned</option>
+                <option value="">September</option>
+                <option value="">August</option>
+                <option value="">Juli</option>
+                <option value="">Juni</option>
+                <option value="">Mai</option>
+                <option value="">April</option>
+                <option value="">Mars</option>
+                <option value="">Februar</option>
+                <option value="">Januar</option>
+                <option value="">Desember</option>
+                <option value="">November</option>
+            </select>
+
+            <br><br>
+            
+        </div>
+
+        <div class="grid grid--2x4">
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Virvelløse dyr</div>
+                    <div class="award__icon award__icon--first"></div>
+                    <div class="award__winner">Svein Tjugeskjegg</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Pattedyr</div>
+                    <div class="award__icon award__icon--second"></div>
+                    <div class="award__winner">Sigurd Jorsalfar</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Karplanter</div>
+                    <div class="award__icon award__icon--third"></div>
+                    <div class="award__winner">Leiv Eriksson</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Småkryp</div>
+                    <div class="award__icon award__icon--fourth"></div>
+                    <div class="award__winner">Harald Hårfagre</div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!---->
+
+
+        <h2>Observatører</h2>
+
+        <p>Flest observasjoner totalt gjennom tidene.</p>
+
+        <div>
+            <label for="speciesGroup">Filtrer på artsgruppe &nbsp; &nbsp;</label>
+
+            <select name="" id="speciesGroup">
+                <option value="All">Alle</option>
+                <option value="">Karplanter</option>
+                <option value="">Moser</option>
+                <option value="">Lav</option>
+                <option value="">Sopp</option>
+                <option value="">Alger</option>
+                <option value="">Virvelløse dyr</option>
+                <option value="">Fugler</option>
+                <option value="">Amfibier og reptiler</option>
+                <option value="">Pattedyr</option>
+                <option value="">Flaggermus</option>
+                <option value="">Fisk</option>
+            </select>
+
+            <br><br><br><br>
+        </div>
+
+        <div class="league league--primary">
+
+            <div class="league__item" [class]="getRank(i)"
+                *ngFor="let user of fakeUsers$ | async | slice:0:3; let i = index">
+
+                <div class="league__counter" [class]="getRank3(i)">{{ i + 1}}</div>
+                <div class="league__icon" [class]="getRank2(i)"></div>
+                <h1 class="league__winner">{{ user.name }}</h1>
+                <div class="league__detail league__detail--2"> {{ user.address.city }}</div>
+                <br>
+                <div class="league__detail league__detail--3">{{ user.address.zipcode }}</div>
+
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <table class="league-table">
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+
+            <tr *ngFor="let user of fakeUsers$ | async | slice:4; let i = index">
+
+                <td><span>{{ i + 4}}</span></td>
+                <td>
+                    <span>{{ user.name }}</span>
+                    <span>{{ user.address.city }}</span>
+                </td>
+                <td> {{ user.address.zipcode }}</td>
+
+            </tr>
+
+        </table>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="grid grid--3">
+
+            <div class="grid__cell">
+
+                <div class="stats">
+                    <div class="stats__number">23 000 000</div>
+                    <div class="stats__text">total observasjoner</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="stats">
+                    <div class="stats__text">Du er på</div>
+                    <div class="stats__number"><span class="badge badge--xl">374</span></div>
+                    <div class="stats__text">plass</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="stats">
+                    <div class="stats__number">5897</div>
+                    <div class="stats__text">aktive brukere</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!---->
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+
+</div>

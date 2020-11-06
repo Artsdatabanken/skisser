@@ -17,7 +17,7 @@ export class AppComponent {
 
   title = 'Artsobservasjoner';
   pageTitle: string = '';
-  pageName: string = '';
+  pageId: string = '';
   pageLayout: string = '';
 
   skipLinkPath: string;
@@ -25,7 +25,7 @@ export class AppComponent {
   windowScrolled: boolean = false;
 
   @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
- 
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private router: Router,
@@ -35,6 +35,8 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
+
+    this.getRoutes();
 
     this.routerSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
@@ -49,11 +51,11 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        this.pageTitle = obj.label;
-        this.pageName = obj.name;
+        this.pageTitle = obj.text;
+        this.pageId = obj.id;
         this.pageLayout = obj.layout;
 
-        if (this.pageName === 'home') {
+        if (this.pageId === 'home') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
         }
         else {
@@ -112,6 +114,14 @@ export class AppComponent {
         window.scrollTo(0, currentScroll - (currentScroll / 8));
       }
     })();
+  }
+
+  getRoutes() {
+
+    // this.routes.forEach(route => {
+    //   console.log('route', route);
+    // })
+
   }
 
 }

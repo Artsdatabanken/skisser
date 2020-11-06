@@ -13,7 +13,7 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="getLinkUrl(link.url)" [label]="link.label" *ngFor="let link of menuSections$ | async">
+            <app-card [type]="'link'" [url]="link.path" [text]="link.data.linkText" *ngFor="let link of submenu">
             </app-card>
 
         </div>

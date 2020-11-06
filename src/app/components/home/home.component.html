@@ -79,10 +79,10 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="'/report-observation'" [label]="'Rapportere observasjon'"></app-card>
-            <app-card [type]="'link'" [url]="'/observations'" [label]="'Se, søk og filtrer observasjoner'"></app-card>
-            <app-card [type]="'link'" [url]="'/dashboard'" [label]="'Mine observasjoner'"></app-card>
-            <app-card [type]="'link'" [url]="'/statistics'" [label]="'Kvalitetssikret artsdata'"></app-card>
+            <app-card [type]="'link'" [url]="'/report/add-observation'" [text]="'Legg til observasjon'"></app-card>
+            <app-card [type]="'link'" [url]="'/observations'" [text]="'Se, søk og filtrer observasjoner'"></app-card>
+            <app-card [type]="'link'" [url]="'/my-data/my-observations'" [text]="'Mine observasjoner'"></app-card>
+            <app-card [type]="'link'" [url]="'/observations/statistics/quality-assured-data'" [text]="'Kvalitetssikret artsdata'"></app-card>
 
         </div>
 

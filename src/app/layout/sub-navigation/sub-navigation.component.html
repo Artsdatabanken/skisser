@@ -1,37 +1,17 @@
 <!--layout component-->
 
-<nav class="navigation navigation--secondary" role="navigation">
+<nav class="navigation navigation--special" role="navigation">
 
     <div class="navigation__container">
-
-        <!--subnavigation-->
-        <div class="navigation__item" *ngFor="let link of subMenu$ | async">
-
-            <h1 class="navigation__heading">
-                <span class="navigation__heading-text"> {{ link.section }} </span>
-                <a class="navigation__heading-link" routerLink="/{{ link.sectionUrl }}" closeMenu>{{ link.section }}</a>
-            </h1>
-
-            <div class="navigation__section" [class]="getCSSClass(link)">
-
-                <a class="navigation__link" [class]="getCSSClass(link)" routerLinkActive="navigation__link--active"
-                    routerLink="{{ link.url }}" *ngFor="let link of link.sectionContent" closeMenu>
-                    <span class="navigation__label"> {{ link.label }}</span>
-                </a>
-
-            </div>
-
-        </div>
-        <!--subnavigation-->
 
         <!--extra links-->
         <div class="navigation__item">
 
-            <div class="navigation__section  navigation__section--special">
+            <div class="navigation__section navigation__section--special">
 
                 <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
-                    routerLink="{{ link.name }}" *ngFor="let link of extraMenu$ | async" closeMenu>
-                    <span class="navigation__label"> {{ link.label }}</span>
+                    routerLink="{{ link.path }}" *ngFor="let link of extraMenu" closeMenu>
+                    <span class="navigation__label"> {{ link.data.text }}</span>
                 </a>
 
             </div>
