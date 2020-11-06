@@ -208,26 +208,6 @@ const routes: Routes = [
 
   //------------------------------section management / administrere
 
-  {
-    path: 'management',
-    component: ManagementComponent,
-    data: {
-      label: 'Administrere',
-      name: 'management',
-      layout: 'page',
-      breadcrumb: 'Administrere',
-      linkName: '',
-      linkLayout: '',
-      linkType: '',
-      menu: '',
-      menuSection: '',
-      menuSectionUrl: '',
-      menuSectionType: '',
-      metaTitle: '',
-      metaDescription: ''
-    }
-  },
-
   //------------------------------section dashboard / minside
 
   {
