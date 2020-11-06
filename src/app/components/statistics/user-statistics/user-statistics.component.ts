@@ -37,4 +37,34 @@ export class UserStatisticsComponent implements OnInit {
 
   }
 
+  getRank2(index: number): string {
+
+    switch (index) {
+      case 0:
+        return 'league__icon--first';
+      case 1:
+        return 'league__icon--second';
+      case 2:
+        return 'league__icon--third';
+      default:
+        return '';
+    }
+
+  }
+
+  getRank3(index: number): string {
+
+    switch (index) {
+      case 0:
+        return 'league__counter--first';
+      case 1:
+        return 'league__counter--second';
+      case 2:
+        return 'league__counter--third';
+      default:
+        return '';
+    }
+
+  }
+
 }

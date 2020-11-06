@@ -1,4 +1,4 @@
-<ol class="liga">
+<!-- <ol class="liga">
     <li>
         <span>Dag Holtan</span>
         <span> 5 377</span>
@@ -37,7 +37,7 @@
 
 
 
-</ol>
+</ol> -->
 
 <div class="page">
 
@@ -49,7 +49,7 @@
 
         <h2>Oktoberliga</h2>
 
-        <p>Vinnere av flest observasjoner i Oktober</p>
+        <p>Brukere med flest observasjoner i Oktober</p>
 
         <div class="grid grid--2x4">
 
@@ -93,7 +93,7 @@
 
             </div>
 
-            
+
         </div>
 
 
@@ -102,34 +102,39 @@
 
         <h2>Observatører</h2>
 
-        <p>Flest observasjoner totalt</p>
+        <p>Flest observasjoner totalt gjennom tidene.</p>
 
-        Filtrer på artsgruppe
+        <div>
+            <label for="speciesGroup">Filtrer på artsgruppe &nbsp; &nbsp;</label>
 
-        <select name="" id="speciesGroup">
-            <option value="All">Alle</option>
-            <option value="">Karplanter</option>
-            <option value="">Moser</option>
-            <option value="">Lav</option>
-            <option value="">Sopp</option>
-            <option value="">Alger</option>
-            <option value="">Virvelløse dyr</option>
-            <option value="">Fugler</option>
-            <option value="">Amfibier og reptiler</option>
-            <option value="">Pattedyr</option>
-            <option value="">Flaggermus</option>
-            <option value="">Fisk</option>
-        </select>
+            <select name="" id="speciesGroup">
+                <option value="All">Alle</option>
+                <option value="">Karplanter</option>
+                <option value="">Moser</option>
+                <option value="">Lav</option>
+                <option value="">Sopp</option>
+                <option value="">Alger</option>
+                <option value="">Virvelløse dyr</option>
+                <option value="">Fugler</option>
+                <option value="">Amfibier og reptiler</option>
+                <option value="">Pattedyr</option>
+                <option value="">Flaggermus</option>
+                <option value="">Fisk</option>
+            </select>
+
+            <br><br><br><br>
+        </div>
 
         <div class="league league--primary">
 
             <div class="league__item" [class]="getRank(i)"
                 *ngFor="let user of fakeUsers$ | async | slice:0:3; let i = index">
 
-                <div class="league__position" [class]="i"></div>
-
-                <h1 class="league__detail league__detail--1">{{ user.name }}</h1>
+                <div class="league__counter" [class]="getRank3(i)">{{ i + 1}}</div>
+                <div class="league__icon" [class]="getRank2(i)"></div>
+                <h1 class="league__winner">{{ user.name }}</h1>
                 <div class="league__detail league__detail--2"> {{ user.address.city }}</div>
+                <br>
                 <div class="league__detail league__detail--3">{{ user.address.zipcode }}</div>
 
             </div>
@@ -139,20 +144,25 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
 
-        <ul class="league">
+        <table class="league-table">
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
 
-            <li *ngFor="let user of fakeUsers$ | async | slice:4">
+            <tr *ngFor="let user of fakeUsers$ | async | slice:4; let i = index">
 
-                <span>{{ user.name }}</span>
-                <span> {{ user.address.zipcode }}</span>
-                <span>{{ user.address.city }}</span>
+                <td><span>{{ i + 4}}</span></td>
+                <td>
+                    <span>{{ user.name }}</span>
+                    <span>{{ user.address.city }}</span>
+                </td>
+                <td> {{ user.address.zipcode }}</td>
 
-            </li>
+            </tr>
 
-        </ul>
+        </table>
 
 
         <!---->

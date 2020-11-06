@@ -87,8 +87,31 @@ form {
     select {
         @extend input;
         @include variable(background-color, clrWhite);
+        @include variable(font-family, fontPrimary);
         font-size: 18px;
+        font-weight: 500;
+        padding: 5px;
+
+        &:focus, &:active {
+            border: none;
+            outline: none !important;
+            margin: 5px;
+            padding: 5px;
+        }
     }
+}
+
+select {
+    @extend input;
+    @include variable(background-color, clrWhite);
+    @include variable(border-color, clrBlack);
+    @include variable(font-family, fontPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 9px;
 }
 
 .form {
