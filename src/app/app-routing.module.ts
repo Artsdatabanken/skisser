@@ -13,7 +13,6 @@ import { DesignComponent } from './components/design/design.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ManagementComponent } from './components/management/management.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
 import { ProjectsComponent } from './components/projects/projects.component';
