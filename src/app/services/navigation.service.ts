@@ -57,12 +57,12 @@ export class NavigationService {
 
   }
 
-  getMenuCSSClass(style: string | null, type: string | null): string {
+  getStyle(style: string | null, classification: string | null): string {
 
-    if (type === 'section') {
+    if (classification === 'section') {
       return `navigation__section--${style}`;
     }
-    else if (type === 'link') {
+    else if (classification === 'link') {
       return `navigation__link--${style}`;
     }
 
@@ -70,28 +70,62 @@ export class NavigationService {
 
   getMainMenu(): any[] {
 
-    const filteredRoutes: any = this.routes.filter(i => i.data.menu === 'mainMenu');
+    // finner alle routes som er en del an hovedmenyen (mainMenu)
+    const filteredRoutes: any[] = this.routes.filter(i => i.data.menu === 'mainMenu');
 
-    console.log('routes', filteredRoutes);
+    // finner parents (topLevel)
+    const parents: any[] = filteredRoutes.filter(i => i.data.parent === '');
 
-    ///////////////////////////
+    // sluttresultatet
+
+    const output: any[] = [];
+
+    // funksjonen tar en item og finner alle barn av den
+
+    function handleItem(item: any): object {
+
+      const menuItem: object = {
+        title: item.data.text,
+        id: item.path,
+        path: item.path
+      };
+
+      const children: any[] = filteredRoutes.filter(i => i.data.parent === item.path);
+
+      menuItem['children'] = children.map(handleItem);
+
+      return menuItem;
+
+    }
+
+    parents.forEach(item => {
+      output.push(handleItem(item));
+    });
+
+    console.log('output', output);
 
 
+    return output;
 
+  }
 
+  getTopMenu(): any[] {
 
+    let topMenu: any[] = this.routes.filter(i => i.data.menu === 'topMenu');
+    
+    console.log('topMenu', topMenu)
 
+    topMenu = topMenu.filter(i => i.data.rank === 'primary');
 
+    console.log('topMenu', topMenu)
 
-    ///////////////////////////
-
-    return this.routes.filter(i => i.data.menu === 'mainMenu');
+    return topMenu;
 
   }
 
   getSubMenu(parent: string): any[] {
 
-    const menu: any[] = this.routes.filter(i => i.data.linkId === parent);
+    const menu: any[] = this.routes.filter(i => i.data.id === parent);
 
     console.log('menu', menu)
 

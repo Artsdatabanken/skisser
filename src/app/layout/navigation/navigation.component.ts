@@ -24,7 +24,7 @@ export class NavigationComponent implements OnInit {
   }
 
   getStyle(style: string | null, type: string | null): string {
-    return this.navigationService.getMenuCSSClass(style, type);
+    return this.navigationService.getStyle(style, type);
   }
 
 }

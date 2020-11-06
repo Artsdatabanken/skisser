@@ -165,7 +165,8 @@ const observationRoutes: Routes = [
       id: 'observations',
       layout: 'page',
       rank: 'primary',
-      parent: '', menu: 'mainMenu',
+      parent: '', 
+      menu: 'mainMenu',
       metaTitle: 'Observasjonsdata',
       metaDescription: ''
     }
@@ -484,7 +485,7 @@ const userRoutes: Routes = [
       text: 'Meldinger',
       id: 'messages',
       layout: 'page',
-      rank: '',
+      rank: 'primary',
       parent: '',
       menu: 'topMenu',
       metaTitle: 'Meldinger',
@@ -512,7 +513,7 @@ const userRoutes: Routes = [
       text: 'Min side',
       id: 'user-profile',
       layout: 'page',
-      rank: '',
+      rank: 'primary',
       parent: '',
       menu: 'topMenu',
       metaTitle: 'Min side',

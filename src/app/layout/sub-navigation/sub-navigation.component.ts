@@ -21,8 +21,8 @@ export class SubNavigationComponent implements OnInit {
     this.extraMenu$ = this.navigationService.getExtraMenuItems();
   }
 
-  getCSSClass(link: string): string {
-    return this.navigationService.getMenuCSSClass(link);
+  getCSSClass(style: string): string {
+    return this.navigationService.getStyle(style, null);
   }
 
 }
