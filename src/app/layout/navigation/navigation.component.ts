@@ -21,6 +21,8 @@ export class NavigationComponent implements OnInit {
     //this.mainMenu$ = this.navigationService.getMenuItems();
    
     this.mainMenu = this.navigationService.getMainMenu();
+
+    console.log('mainMenu', this.mainMenu)
   }
 
   getStyle(style: string | null, type: string | null): string {

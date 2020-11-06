@@ -85,9 +85,11 @@ export class NavigationService {
     function handleItem(item: any): object {
 
       const menuItem: object = {
+        path: item.path,
         title: item.data.text,
         id: item.path,
-        path: item.path
+        layout: item.data.layout,
+        rank: item.data.rank
       };
 
       const children: any[] = filteredRoutes.filter(i => i.data.parent === item.path);

@@ -51,9 +51,9 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        this.pageTitle = obj.linkText;
-        this.pageId = obj.linkId;
-        this.pageLayout = obj.linkLayout;
+        this.pageTitle = obj.text;
+        this.pageId = obj.id;
+        this.pageLayout = obj.layout;
 
         if (this.pageId === 'home') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
