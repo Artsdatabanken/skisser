@@ -22,6 +22,8 @@
         </ul> -->
 
         <nav class="breadcrumbs">
+            <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/home">Forsiden</a>
+
             <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/{{item.breadcrumb.path}}"
                 *ngFor="let item of breadcrumbs">{{item.breadcrumb.data.text}}</a>
         </nav>
