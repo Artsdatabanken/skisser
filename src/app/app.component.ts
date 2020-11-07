@@ -3,9 +3,10 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,8 @@ export class AppComponent {
   pageTitle: string = '';
   pageId: string = '';
   pageLayout: string = '';
+
+  mainMenu: any[];
 
   skipLinkPath: string;
   routerSubscription: Subscription;

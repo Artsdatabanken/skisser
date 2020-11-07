@@ -1,6 +1,16 @@
 import { Injectable } from '@angular/core';
 import NavigationSettings from '../data/navigationSettings.json';
-import { routes } from '../app-routing.module';
+import { Route, Router } from '@angular/router';
+
+export class MenuItem {
+  path: string;
+  title: string;
+  id: string;
+  children: any[];
+  parent: any;
+  layout: string;
+  rank: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +19,8 @@ import { routes } from '../app-routing.module';
 export class NavigationService {
 
   settings: any = NavigationSettings;
-  routes = routes;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   // getMenuItems(): Observable<string[]> {
 
@@ -54,6 +63,10 @@ export class NavigationService {
 
   // }
 
+  // getRoutes(): Route[] {
+  //   //return this.routes;
+  // }
+
   getStyle(style: string | null, classification: string | null): string {
 
     if (classification === 'section') {
@@ -65,17 +78,28 @@ export class NavigationService {
 
   }
 
-  getMainMenu(): any[] {
+  getRoutes(): any[] {
+    return this.router.config.filter(route => route.data);
+  }
+
+  private getMenuItems(menu: string): any[] {
+    return this.router.config.filter(route => route.data.menu === menu); // only add a menu item for routes that belong to a particular menu
+  }
+
+  getMainMenu(): Route[] {
+
+    const menuItems: Route[] = this.getMenuItems('mainMenu');
 
     // finner alle routes som er en del an hovedmenyen (mainMenu)
-    const filteredRoutes: any[] = this.routes.filter(i => i.data.menu === 'mainMenu');
+    //const filteredRoutes: any[] = this.routes.filter(i => i.data.menu === 'mainMenu');
 
     // finner parents (topLevel)
-    const parents: any[] = filteredRoutes.filter(i => i.data.parent === '');
+    //const parents: any[] = filteredRoutes.filter(i => i.data.parent === '');
+    const parents: any[] = menuItems.filter(i => i.data.parent === '');
 
     // sluttresultatet
 
-    const output: any[] = [];
+    const output: Route[] = [];
 
     // funksjonen tar en item og finner alle barn av den
 
@@ -89,7 +113,7 @@ export class NavigationService {
         rank: item.data.rank
       };
 
-      const children: any[] = filteredRoutes.filter(i => i.data.parent === item.path);
+      const children: Route[] = menuItems.filter(i => i.data.parent === item.path);
 
       menuItem['children'] = children.map(handleItem);
 
@@ -101,38 +125,37 @@ export class NavigationService {
       output.push(handleItem(item));
     });
 
-    //console.log('output', output);
-
-
+    console.log('mainMenu SERVICE', output)
     return output;
 
   }
 
   getTopMenu(): any[] {
 
-    let topMenu: any[] = this.routes.filter(i => i.data.menu === 'topMenu');
-
+    let topMenu: any[] = this.getMenuItems('topMenu');
     topMenu = topMenu.filter(i => i.data.rank === 'primary');
-
     return topMenu;
 
   }
 
   getSubMenu(parent: string): any[] {
 
-    const subMenu: any[] = this.routes.filter(i => {
+    const menuItems = this.getRoutes();
+
+    // const subMenu: any[] = this.routes.filter(i => {
+    //   return i.data.parent === parent;
+    // });
+
+    const subMenu: any[] = menuItems.filter(i => {
       return i.data.parent === parent;
     });
-
-    console.log('subMenu', subMenu)
 
     return subMenu;
 
   }
 
   getExtraMenu(): any[] {
-    console.log('extra', this.routes.filter(i => i.data.menu === 'extraMenu'))
-    return this.routes.filter(i => i.data.menu === 'extraMenu');
+    return this.getMenuItems('extraMenu');;
   }
 
 }

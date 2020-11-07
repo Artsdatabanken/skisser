@@ -16,8 +16,6 @@ export class UserService {
 
     const users: string[] = this.settings;
 
-    console.log('users', users)
-
     return of(users).pipe();
 
   }

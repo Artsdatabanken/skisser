@@ -70,10 +70,10 @@
             </select>
 
             <br><br>
-            
+
         </div>
 
-        <div class="grid grid--2x4">
+        <div class="grid grid--2">
 
             <div class="grid__cell">
 
@@ -116,6 +116,61 @@
             </div>
 
 
+        </div>
+
+        <br>
+
+        <div class="grid grid--2" *ngIf="toggle">
+
+        
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Virvelløse dyr</div>
+                    <div class="award__icon award__icon--fifth"></div>
+                    <div class="award__winner">Harald Blåtann</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Flaggermus</div>
+                    <div class="award__icon award__icon--sixth"></div>
+                    <div class="award__winner">Bjørn Jernside</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Alger</div>
+                    <div class="award__icon award__icon--seventh"></div>
+                    <div class="award__winner">Erik Raude</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="award">
+                    <div class="award__title">Fugler</div>
+                    <div class="award__icon award__icon--eighth"></div>
+                    <div class="award__winner">Olav Tryggvason</div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <br>
+
+        <div class="aligncenter">
+            <button class="button" (click)="toggleWinners()">Se flere</button>
         </div>
 
 
@@ -171,9 +226,10 @@
             <tr>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
 
-            <tr *ngFor="let user of fakeUsers$ | async | slice:4; let i = index">
+            <tr *ngFor="let user of fakeUsers$ | async | slice:3; let i = index">
 
                 <td><span>{{ i + 4}}</span></td>
                 <td>

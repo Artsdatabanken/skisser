@@ -36,6 +36,7 @@ import { ImportObservationsComponent } from './components/report/import-observat
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 const homeRoutes: Routes = [
   {
@@ -579,31 +580,73 @@ const extraRoutes: Routes = [
 ];
 
 const testRoutes: Routes = [  // for testing purposes
-
   {
     path: 'map',
     component: MapComponent,
     data: {
-      id: 'map',
-      layout: 'page',
+      text: 'Kart',
+      id: '',
+      layout: 'mega',
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'Map',
+      metaTitle: 'Artsobservasjoner',
       metaDescription: ''
     }
   },
-
   {
     path: 'design',
     component: DesignComponent,
     data: {
-      id: 'design-system',
+      text: 'Designmanual',
+      id: '',
       layout: 'page',
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'Designssystem',
+      metaTitle: 'Artsobservasjoner',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+    data: {
+      text: 'Projects',
+      id: '',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metaTitle: 'Prosjekter',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'projects/create-project',
+    component: ProjectsComponent,
+    data: {
+      text: 'Opprett prosjekt',
+      id: '',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metaTitle: 'Opprett prosjekt',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'projects/project',
+    component: ProjectsComponent,
+    data: {
+      text: 'Project',
+      id: '',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metaTitle: 'Prosjekt',
       metaDescription: ''
     }
   },
@@ -618,18 +661,18 @@ const wildcardRoutes: Routes = [
       id: 'not-found',
       layout: 'page',
       rank: '',
+      parent: '',
       menu: '',
-
       metaTitle: '404',
       metaDescription: ''
     }
   }
 ];
 
-export const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationRoutes, ...userDataRoutes, ...aboutRoutes, ...userRoutes, ...wildcardRoutes, ...extraRoutes, ...testRoutes];
+const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationRoutes, ...userDataRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 

@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserStatisticsComponent implements OnInit {
 
   fakeUsers$: Observable<any[]>;
+  toggle: boolean = false;
 
   constructor(private userService: UserService) { }
 
@@ -65,6 +66,10 @@ export class UserStatisticsComponent implements OnInit {
         return '';
     }
 
+  }
+
+  toggleWinners(): void {
+    this.toggle = !this.toggle;
   }
 
 }

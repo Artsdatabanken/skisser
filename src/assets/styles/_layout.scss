@@ -183,7 +183,6 @@
         //padding: 0;
 
         @media screen and (min-width: 1024px) {
-        
         }
     }
 
@@ -257,6 +256,28 @@
     }
 
     &__heading-link {
+        &::before,
+        &:before {
+            background-image: url(../images/iconChevronRight.png);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            content: "";
+            display: inline-block;
+            margin-top: -7px;
+            margin-right: 12px;
+            vertical-align: middle;
+            height: 14px;
+            width: 8px;
+            // display: none;
+
+            @media screen and (max-width: 1024px) {
+                margin-right: 9px;
+                height: 11px;
+                width: 6px;
+            }
+        }
+
         @media screen and (min-width: 1201px) {
             display: none;
         }
@@ -787,19 +808,34 @@ main {
 
     // modifiers
 
+    &--2 {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 20px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
     &--2x4 {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 20px 20px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
     }
 
-    
     &--3 {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px 20px;
 
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+
         & > * {
-            // border: 1px solid red;
             align-self: center;
         }
     }
@@ -807,7 +843,7 @@ main {
     // elements
 
     &__cell {
-         &--left {
+        &--left {
             align-self: start;
             justify-self: start;
         }

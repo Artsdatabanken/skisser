@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service.js';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -10,19 +9,14 @@ import { Observable } from 'rxjs';
 
 export class NavigationComponent implements OnInit {
 
-  //mainMenu$: Observable<string[]>;
   mainMenu: {};
 
   @Input() ariaLabel: string;
 
   constructor(private navigationService: NavigationService) { }
 
-  ngOnInit(): void {
-    //this.mainMenu$ = this.navigationService.getMenuItems();
-   
+  ngOnInit(): void {   
     this.mainMenu = this.navigationService.getMainMenu();
-
-    console.log('mainMenu', this.mainMenu)
   }
 
   getStyle(style: string | null, type: string | null): string {
