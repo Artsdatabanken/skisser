@@ -79,6 +79,9 @@ export class NavigationService {
   }
 
   getRoutes(): any[] {
+
+    
+    console.log('getRoutes', this.router.config.filter(route => route.data))
     return this.router.config.filter(route => route.data);
   }
 
@@ -90,19 +93,13 @@ export class NavigationService {
 
     const menuItems: Route[] = this.getMenuItems('mainMenu');
 
-    // finner alle routes som er en del an hovedmenyen (mainMenu)
-    //const filteredRoutes: any[] = this.routes.filter(i => i.data.menu === 'mainMenu');
-
     // finner parents (topLevel)
-    //const parents: any[] = filteredRoutes.filter(i => i.data.parent === '');
     const parents: any[] = menuItems.filter(i => i.data.parent === '');
 
     // sluttresultatet
-
     const output: Route[] = [];
 
     // funksjonen tar en item og finner alle barn av den
-
     function handleItem(item: any): object {
 
       const menuItem: object = {
@@ -125,7 +122,7 @@ export class NavigationService {
       output.push(handleItem(item));
     });
 
-    console.log('mainMenu SERVICE', output)
+    // console.log('mainMenu SERVICE', output)
     return output;
 
   }

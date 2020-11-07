@@ -2,6 +2,7 @@
 
     <div class="subsub">
 
+        <!-- 
         <ul class="breadcrumbs" aria-label="Breadcrumbs">
 
             <li class="breadcrumbs__item" *ngIf="!isHome">
@@ -18,18 +19,13 @@
                 <span class="separator" *ngIf="i !== breadcrumbs.length - 1"> </span>
             </li>
 
-        </ul>
+        </ul> -->
 
-        <div>
-            <small>
-                <span>Innlogget som </span>
+        <nav class="breadcrumbs">
+            <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/{{item.breadcrumb.path}}"
+                *ngFor="let item of breadcrumbs">{{item.breadcrumb.data.text}}</a>
+        </nav>
 
-                <a href="" class="role">Ole Olesen</a>
-                &nbsp;
-                <span>Bytt rolle</span>
-
-            </small>
-        </div>
 
     </div>
 

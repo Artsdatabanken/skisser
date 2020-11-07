@@ -6,7 +6,6 @@ import { DOCUMENT } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'app-root',
@@ -38,8 +37,6 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-
-    this.getRoutes();
 
     this.routerSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),

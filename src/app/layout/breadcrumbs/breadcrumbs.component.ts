@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Breadcrumb } from '../../models/breadcrumb';
 import { Router, ActivatedRoute, NavigationEnd, Route } from '@angular/router';
-import { filter, distinctUntilChanged } from 'rxjs/operators';
+import { filter, distinctUntilChanged, map, mergeMap } from 'rxjs/operators';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -12,7 +12,9 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class BreadcrumbsComponent implements OnInit {
 
-  public breadcrumbs: Breadcrumb[];
+  // public breadcrumbs: Breadcrumb[];
+
+  breadcrumbs: object[] = [];
   isHome: boolean;
   routes: Route[] = [];
 
@@ -21,20 +23,59 @@ export class BreadcrumbsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private navigationService: NavigationService
   ) {
-    this.breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
+    //this.breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
   }
 
   ngOnInit(): void {
 
-    //this.routes = this.navigationService.getRoutes();
+    this.routes = this.navigationService.getRoutes();
+
+    // this.router.events.pipe(
+    //   filter((event: any) => event instanceof NavigationEnd),
+    //   distinctUntilChanged(),
+    // ).subscribe(() => {
+    //   this.breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
+    // });
+
 
     this.router.events.pipe(
-      filter((event: any) => event instanceof NavigationEnd),
-      distinctUntilChanged(),
-    ).subscribe(() => {
-      this.breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
-    });
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map(route => {
+        while (route.firstChild) { route = route.firstChild; }
+        return route;
+      }),
+      mergeMap(route => route.data)).subscribe(obj => {
 
+        console.log('obj', obj)
+
+        const actualObject = this.routes.find(route => route.data.id === obj.id);
+        const actualPath: string[] = actualObject.path.split('/');
+
+        let breadcrumbs: object[] = [];
+
+        actualPath.forEach(i => {
+
+          const obj = this.routes.find(route => route.data.id === i);
+          const path = obj.path;
+          const text = obj.data.text
+
+          breadcrumbs.push({
+            breadcrumb: this.routes.find(route => route.data.id === i),
+            link: `<a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/${path}">${text}</a>`
+          });
+
+        })
+
+        this.breadcrumbs = breadcrumbs;
+        
+        console.log('breadcrumbs', breadcrumbs)
+
+        console.log('this.breadcrumbs', this.breadcrumbs)
+      });
+
+      
+      console.log('this.breadcrumbs', this.breadcrumbs)
   }
 
   buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
@@ -51,11 +92,11 @@ export class BreadcrumbsComponent implements OnInit {
     const lastRoutePart = path.split('/').pop();
     const isDynamicRoute = lastRoutePart.startsWith(':');
 
-    if ( isDynamicRoute && !!route.snapshot ) {
+    if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart.split(':')[1];
       path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
       label = route.snapshot.params[paramName];
-    } 
+    }
 
 
     // console.log('label 2', label)
@@ -86,4 +127,5 @@ export class BreadcrumbsComponent implements OnInit {
     return newBreadcrumbs;
 
   }
+
 }
