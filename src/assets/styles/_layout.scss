@@ -585,6 +585,8 @@
         }
 
         &:last-child {
+            pointer-events: none;
+            
             &:after {
                 content: none;
             }

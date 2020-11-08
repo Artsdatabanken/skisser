@@ -43,40 +43,65 @@ export class BreadcrumbsComponent implements OnInit {
       map(() => this.activatedRoute),
       map(route => {
         while (route.firstChild) { route = route.firstChild; }
+
+        console.log('route', route)
         return route;
       }),
       mergeMap(route => route.data)).subscribe(obj => {
 
-        console.log('obj', obj)
+        // TODO refactor
 
         const actualObject = this.routes.find(route => route.data.id === obj.id);
-        const actualPath: string[] = actualObject.path.split('/');
+        const actualObjectPath: string[] = actualObject.path.split('/');
 
         let breadcrumbs: object[] = [];
 
-        actualPath.forEach(i => {
+        actualObjectPath.forEach(i => {
 
-          const obj = this.routes.find(route => route.data.id === i);
-          const path = obj.path;
-          const text = obj.data.text
+          const path = actualObject.path;
+          const text = actualObject.data.text
 
-          breadcrumbs.push({
-            breadcrumb: this.routes.find(route => route.data.id === i),
-            link: `<a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/${path}">${text}</a>`
-          });
+          breadcrumbs.push({ breadcrumb: this.routes.find(route => route.data.id === i) });
 
         })
 
         this.breadcrumbs = breadcrumbs;
-        
-        console.log('breadcrumbs', breadcrumbs)
 
-        console.log('this.breadcrumbs', this.breadcrumbs)
       });
 
-      
-      console.log('this.breadcrumbs', this.breadcrumbs)
   }
+
+  buildBreadcrumbs2(route: ActivatedRoute, url: string = ''): any[] {
+
+    let text = route.routeConfig && route.routeConfig.data ? route.routeConfig.data.text : "";
+    let path = route.routeConfig && route.routeConfig.data ? route.routeConfig.path : "";
+    let parent = route.routeConfig && route.routeConfig.data ? route.routeConfig.data.parent : "";
+
+    // console.log('label', label)
+    // console.log('path', path)
+    // console.log('parent', parent)
+
+    const actualObject = this.routes.find(r => r.data.id === route.routeConfig.data.id);
+    
+    const actualObjectPath: string[] = actualObject.path.split('/');
+
+    let breadcrumbs: object[] = [];
+
+    actualObjectPath.forEach(i => {
+
+      const path = actualObject.path;
+      const text = actualObject.data.text
+
+      breadcrumbs.push({ breadcrumb: this.routes.find(route => route.data.id === i) });
+
+    })
+
+    this.breadcrumbs = breadcrumbs;
+
+    return breadcrumbs;
+
+  }
+
 
   buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
 
