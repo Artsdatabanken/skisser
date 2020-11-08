@@ -79,9 +79,6 @@ export class NavigationService {
   }
 
   getRoutes(): any[] {
-
-    
-    console.log('getRoutes', this.router.config.filter(route => route.data))
     return this.router.config.filter(route => route.data);
   }
 
