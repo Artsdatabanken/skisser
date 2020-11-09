@@ -43,33 +43,49 @@
 
         <!---->
 
-        <h2>Oktoberliga</h2>
+        <!--MÅNED-->
+        <h2>Månedsliga <strong>oktober</strong></h2>
 
-        <p>Brukere med flest observasjoner per artsgruppe i oktober</p>
+        <p>Brukere med flest observasjoner per artsgruppe i <strong>oktober</strong> i <strong>hele Norge</strong>.</p>
 
-        <div>
-            <label for="speciesGroup">Se vinnere i andre måned &nbsp; &nbsp;</label>
 
-            <select name="" id="speciesGroup">
-                <option value="All">Siste måned</option>
-                <option value="">September</option>
-                <option value="">August</option>
-                <option value="">Juli</option>
-                <option value="">Juni</option>
-                <option value="">Mai</option>
-                <option value="">April</option>
-                <option value="">Mars</option>
-                <option value="">Februar</option>
-                <option value="">Januar</option>
-                <option value="">Desember</option>
-                <option value="">November</option>
-            </select>
+        <label for="speciesGroup">Filtrer &nbsp; &nbsp;</label>
 
-            <br><br>
+        <select name="" id="speciesGroup">
+            <option value="All">Siste måned</option>
+            <option value="">September</option>
+            <option value="">August</option>
+            <option value="">Juli</option>
+            <option value="">Juni</option>
+            <option value="">Mai</option>
+            <option value="">April</option>
+            <option value="">Mars</option>
+            <option value="">Februar</option>
+            <option value="">Januar</option>
+            <option value="">Desember</option>
+            <option value="">November</option>
+        </select>
 
-        </div>
+        &nbsp; &nbsp;
+        
+        <select name="" id="region">
+            <option value="All">Hele Norge</option>
+            <option value="">Agder</option>
+            <option value="">Innlandet</option>
+            <option value="">Møre og Romsdal</option>
+            <option value="">Nordland</option>
+            <option value="">Oslo</option>
+            <option value="">Rogaland</option>
+            <option value="">Troms og Finnmark</option>
+            <option value="">Trøndelag</option>
+            <option value="">Vestfold og Telemark</option>
+            <option value="">Vestland</option>
+            <option value="">Viken</option>
+        </select>
 
-        <div class="grid grid--2">
+        <br><br>
+
+        <div class="grid grid--4">
 
             <div class="grid__cell">
 
@@ -110,15 +126,6 @@
                 </div>
 
             </div>
-
-
-        </div>
-
-        <br>
-
-        <div class="grid grid--2" *ngIf="toggle">
-
-
 
             <div class="grid__cell">
 
@@ -164,18 +171,15 @@
         </div>
 
         <br>
+        <br>
 
-        <div class="aligncenter">
-            <button class="button" (click)="toggleWinners()">Se flere</button>
-        </div>
-
+        <!--MÅNED-->
 
         <!---->
 
-
         <h2>Observatører</h2>
 
-        <p>Flest observasjoner på tvers av arter gjennom tidene.</p>
+        <p>Flest observasjoner gjennom tidene.</p>
 
         <div>
             <label for="speciesGroup">Filtrer på artsgruppe &nbsp; &nbsp;</label>
