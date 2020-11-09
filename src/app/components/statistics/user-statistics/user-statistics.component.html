@@ -41,7 +41,44 @@
 
 <div class="page">
 
-    <header class="page__header"></header>
+    <header class="page__header">
+
+        <!---->
+
+        <div class="grid grid--3">
+
+            <div class="grid__cell">
+
+                <div class="stats">
+                    <div class="stats__number">23 000 000</div>
+                    <div class="stats__text">total observasjoner</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="stats">
+                    <div class="stats__text">Du er på</div>
+                    <div class="stats__number"><span class="badge badge--xl">374</span></div>
+                    <div class="stats__text">plass på flest rapporterte observasjoner</div>
+                </div>
+
+            </div>
+
+            <div class="grid__cell">
+
+                <div class="stats">
+                    <div class="stats__number">5897</div>
+                    <div class="stats__text">aktive brukere</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!---->
+
+    </header>
 
     <div class="page__content">
 
@@ -49,10 +86,10 @@
 
         <h2>Oktoberliga</h2>
 
-        <p>Brukere med flest observasjoner i Oktober</p>
+        <p>Brukere med flest observasjoner per artsgruppe i oktober</p>
 
         <div>
-            <label for="speciesGroup">Filtrer på måned &nbsp; &nbsp;</label>
+            <label for="speciesGroup">Se vinnere i andre måned &nbsp; &nbsp;</label>
 
             <select name="" id="speciesGroup">
                 <option value="All">Siste måned</option>
@@ -122,7 +159,7 @@
 
         <div class="grid grid--2" *ngIf="toggle">
 
-        
+
 
             <div class="grid__cell">
 
@@ -179,7 +216,7 @@
 
         <h2>Observatører</h2>
 
-        <p>Flest observasjoner totalt gjennom tidene.</p>
+        <p>Flest observasjoner på tvers av arter gjennom tidene.</p>
 
         <div>
             <label for="speciesGroup">Filtrer på artsgruppe &nbsp; &nbsp;</label>
@@ -222,24 +259,28 @@
         <br>
         <br>
 
-        <table class="league-table">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
+        <table>
+            <caption>Brukere med flest observasjoner på tvers av artsgrupper gjennom tidene</caption>
+            <thead>
+                <tr>
+                    <th>Posisjon</th>
+                    <th>Navn</th>
+                    <th class="td-number">Antall observasjoner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of fakeUsers$ | async | slice:3; let i = index">
 
-            <tr *ngFor="let user of fakeUsers$ | async | slice:3; let i = index">
+                    <td><span class="badge">{{ i + 4}}</span></td>
+                    <td>
+                        <strong style="font-size: 22px;">{{ user.name }}</strong>
+                        <br>
+                        <span>{{ user.address.city }}</span>
+                    </td>
+                    <td class="td-number"> {{ user.address.zipcode }}</td>
 
-                <td><span>{{ i + 4}}</span></td>
-                <td>
-                    <span>{{ user.name }}</span>
-                    <span>{{ user.address.city }}</span>
-                </td>
-                <td> {{ user.address.zipcode }}</td>
-
-            </tr>
-
+                </tr>
+            </tbody>
         </table>
 
         <br>

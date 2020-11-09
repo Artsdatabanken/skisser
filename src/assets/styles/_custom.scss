@@ -545,7 +545,7 @@ $orange: #514942;
     &__counter {
         @include variable(color, clrWhite);
         @include variable(font-family, fontSecondary);
-        @include variable(font-family, fontAccent);
+        //@include variable(font-family, fontAccent);
         background: #0e6251;
         border-radius: 50px;
         font-size: 42px;
@@ -721,13 +721,14 @@ $orange: #514942;
 }
 
 .badge {
+    @include variable(font-family, fontSecondary);
     background: #d5f5e3;
     border-radius: 50px;
     display: block;
     font-weight: 700;
     height: 50px;
-    margin: 0 auto;
-    padding: 5px;
+    line-height: 50px;
+    margin: 0;
     text-align: center;
     width: 50px;
 
@@ -737,68 +738,69 @@ $orange: #514942;
         height: 140px;
         line-height: 130px;
         margin: 10px auto;
+        padding: 5px;
         width: 140px;
     }
 }
 
-.league-table {
-    border: 1px solid #d5f5e3;
-    border-collapse: collapse;
-    margin: 0 auto;
-    width: 100%;
+// .league-table {
+//     border: 1px solid #d5f5e3;
+//     border-collapse: collapse;
+//     margin: 0 auto;
+//     width: 100%;
 
-    @media screen and (max-width: 1024px) {
-        width: 90%;
-    }
+//     @media screen and (max-width: 1024px) {
+//         width: 90%;
+//     }
 
-    td {
-        border-bottom: 1px solid #d5f5e3;
-        font-size: 19px;
-        padding: 12px 17px;
+//     td {
+//         border-bottom: 1px solid #d5f5e3;
+//         font-size: 19px;
+//         padding: 12px 17px;
 
-        &:first-child {
-            width: 10%;
+//         &:first-child {
+//             width: 10%;
 
-            span {
-                background: #d5f5e3;
-                border-radius: 50px;
-                display: block;
-                font-weight: 700;
-                height: 50px;
-                padding: 5px;
-                text-align: center;
-                width: 50px;
-            }
-        }
+//             span {
+//                 background: #d5f5e3;
+//                 border-radius: 50px;
+//                 display: block;
+//                 font-weight: 700;
+//                 height: 50px;
+//                 padding: 5px;
+//                 text-align: center;
+//                 width: 50px;
+//             }
+//         }
 
-        &:last-child {
-            text-align: right;
-            font-size: 24px;
-            font-weight: 700;
-        }
+//         &:last-child {
+//             text-align: right;
+//             font-size: 24px;
+//             font-weight: 700;
+//         }
 
-        span {
-            display: block;
+//         span {
+//             display: block;
 
-            &:first-child {
-                font-size: 24px;
-                font-weight: 700;
-            }
-        }
-    }
+//             &:first-child {
+//                 font-size: 24px;
+//                 font-weight: 700;
+//             }
+//         }
+//     }
 
-    tr {
-        &:nth-child(1) {
-            background: pink;
-            td {
-                background: pink;
-                font-size: 30px;
-            }
-        }
-        &:nth-child(2) {
-        }
-    }
-}
+//     tr {
+//         &:nth-child(1) {
+//             background: pink;
+//             td {
+//                 background: pink;
+//                 font-size: 30px;
+//             }
+//         }
+//         &:nth-child(2) {
+//         }
+//     }
+// }
 
 .stats {
     text-align: center;
