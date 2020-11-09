@@ -12,9 +12,10 @@ $vars: (
   clrBlack: #333333,
   clrWhite: #ffffff, 
   clrPrimary: #587973,
+  clrAccent: #a3e4d7,
 
-  paletteColor0: #ebebeb,
-  paletteColor1: #dddddd,
+  paletteColor0: #ededed,
+  paletteColor1: #e3e3e3,
   paletteColor2: #cccccc,
   paletteColor3: #bbbbbb,
   paletteColor4: #555555,
@@ -33,6 +34,7 @@ $vars: (
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
   --clrPrimary: #{map-get($vars, clrBlack)};
+  --clrAccent: #{map-get($vars, transparent)};
    
   --paletteColor0: #{map-get($vars, paletteColor0)};
   --paletteColor1: #{map-get($vars, paletteColor1)};
