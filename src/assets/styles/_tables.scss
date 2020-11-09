@@ -1,101 +1,34 @@
 // ----------TABLES
 
 table {
-    font-size: 17px;
+    border-collapse: collapse;
+    font-size: 19px;
+    width: 100%;
 
     th {
-    
-        
+        @include variable(border-bottom-color, paletteColor1);
+        @include variable(font-family, fontSecondary);
+        border-bottom: 2px solid #48c9b0;
+        font-weight: 700;
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        border-bottom: 2px solid #d1f2eb;
+        padding: 10px;
     }
 }
 
 /*table*/
 
-.table {
-    @include variable(border-color, clrAqua3);
-    border-style: solid;
-    border-width: 2px;
-    border-collapse: collapse;
-    font-size: 18px;
-    width: 100%;
+// helpers
 
-    &__header {
-        .table--invisible-header & {
-            //visibility: hidden;
-        }
-    }
-
-    &__body {
-    }
-
-    &__column-header {
-        @include variable(background-color, clrWhite);
-        @include variable(font-family, fontSecondary);
-        text-align: left;
-    }
-
-    &__row-header {
-        //@include variable(font-family, fontSecondary);
-        font-weight: 600;
-        text-align: left;
-        //text-transform: capitalize;
-    }
-
-    tr {
-        // @include variable(border-bottom-color, clrAqua3);
-        // border-bottom-style: solid;
-        // border-bottom-width: 2px;
-
-        @include variable(border-color, clrAqua3);
-        @include variable(border-color, clrAccent);
-        border-style: solid;
-        border-width: 2px;
-
-        &:nth-child(odd) {
-            @include variable(background-color, clrShadow);
-        }
-
-        &:hover {
-            @include variable(background-color, clrShadow);
-            @include variable(background-color, clrAqua0);
-            // @include variable(border-color, clrAqua0);
-            // border-style: solid;
-            // border-width: 2px;
-        }
-    }
-
-    th {
-        a {
-            border: none;
-            // font-weight: 400;
-            // font-size: 1.1em;
-            font-weight: 700;
-        }
-    }
-
-    th,
-    td {
-        padding: 15px;
-    }
+.td-number {
+    text-align: right;
 }
 
-.table-styleless {
-    border-collapse: collapse;
-    width: 100%;
-
-    th {
-        min-width: 30%;
-        text-align: left;
-        width: 30%;
-        width: max-content;
-    }
-
-    th,
-    td {
-        // @include variable(border-color, clrDark);
-        // border-style: solid;
-        // border-width: 2px;
-        // padding: 7px;
-        padding-right: 10px;
-    }
+.tr-shadow {
+    @include variable(background-color, paletteColor1);
+    background: #e8f8f5;
 }

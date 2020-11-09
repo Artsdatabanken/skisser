@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -10,12 +9,12 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class ProjectsComponent implements OnInit {
 
-  menuSections$: Observable<string[]>;
+  menuSections: string[];
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void { 
-    this.menuSections$ = this.navigationService.getMenuSectionItems('projects');
+    this.menuSections = this.navigationService.getSubMenu('projects');
   }
 
   getLinkUrl(linkUrl: string): string {

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -31,8 +31,6 @@ import { SiteSearchComponent } from './components/shared/site-search/site-search
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ManagementComponent } from './components/management/management.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
@@ -47,7 +45,6 @@ import { LoginButtonComponent } from './layout/login-button/login-button.compone
 import { ObservationsComponent } from './components/observations/observations.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
-import { ReportObservationComponent } from './components/report/report-observation/report-observation.component';
 import { TeaserComponent } from './components/shared/teaser/teaser.component';
 import { MapComponent } from './components/map/map.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -55,6 +52,26 @@ import { MessageComponent } from './components/messages/message/message.componen
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MenuDirective } from './helpers/menu.directive';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
+import { AboutSiteComponent } from './components/about/about-site/about-site.component';
+import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
+import { TosComponent } from './components/about/tos/tos.component';
+import { SupportComponent } from './components/about/support/support.component';
+import { LatestNewsComponent } from './components/about/latest-news/latest-news.component';
+import { MyDataComponent } from './components/my-data/my-data.component';
+import { MyObservationsComponent } from './components/my-data/my-observations/my-observations.component';
+import { MyProjectsComponent } from './components/my-data/my-projects/my-projects.component';
+import { MyLocationsComponent } from './components/my-data/my-locations/my-locations.component';
+import { MyObserversComponent } from './components/my-data/my-observers/my-observers.component';
+import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
+import { SpeciesWithNoDataComponent } from './components/statistics/species-with-no-data/species-with-no-data.component';
+import { AddObservationComponent } from './components/report/add-observation/add-observation.component';
+import { ChecklistComponent } from './components/report/checklist/checklist.component';
+import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
+import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
+import { EventProjectComponent } from './components/report/event-project/event-project.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
+import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 
 @NgModule({
   declarations: [
@@ -86,8 +103,6 @@ import { ContributeComponent } from './components/about/contribute/contribute.co
     DateComponent,
     PageTitleComponent,
     LoginComponent,
-    DashboardComponent,
-    ManagementComponent,
     RegistrationComponent,
     TopNavigationComponent,
     SubNavigationComponent,
@@ -102,14 +117,33 @@ import { ContributeComponent } from './components/about/contribute/contribute.co
     //CloseMenuDirective,
     ObservationsComponent,
     ReportComponent,
-    ReportObservationComponent,
     TeaserComponent,
     MapComponent,
     MessagesComponent,
     MessageComponent,
     SitemapComponent,
     MenuDirective,
-    ContributeComponent
+    ContributeComponent,
+    AboutSiteComponent,
+    QualityAssuranceComponent,
+    TosComponent,
+    SupportComponent,
+    LatestNewsComponent,
+    MyDataComponent,
+    MyObservationsComponent,
+    MyProjectsComponent,
+    MyLocationsComponent,
+    MyObserversComponent,
+    MyStatisticsComponent,
+    SpeciesWithNoDataComponent,
+    AddObservationComponent,
+    ChecklistComponent,
+    ImportObservationsComponent,
+    SurveyProjectComponent,
+    EventProjectComponent,
+    ProfileComponent,
+    FellowObserversComponent,
+    ExtraNavigationComponent
   ],
   imports: [
     BrowserModule,

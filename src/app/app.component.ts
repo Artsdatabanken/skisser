@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -17,15 +17,17 @@ export class AppComponent {
 
   title = 'Artsobservasjoner';
   pageTitle: string = '';
-  pageName: string = '';
+  pageId: string = '';
   pageLayout: string = '';
+
+  mainMenu: any[];
 
   skipLinkPath: string;
   routerSubscription: Subscription;
   windowScrolled: boolean = false;
 
   @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
- 
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private router: Router,
@@ -49,11 +51,11 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        this.pageTitle = obj.label;
-        this.pageName = obj.name;
+        this.pageTitle = obj.text;
+        this.pageId = obj.id;
         this.pageLayout = obj.layout;
 
-        if (this.pageName === 'home') {
+        if (this.pageId === 'home') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
         }
         else {
@@ -112,6 +114,14 @@ export class AppComponent {
         window.scrollTo(0, currentScroll - (currentScroll / 8));
       }
     })();
+  }
+
+  getRoutes() {
+
+    // this.routes.forEach(route => {
+    //   console.log('route', route);
+    // })
+
   }
 
 }

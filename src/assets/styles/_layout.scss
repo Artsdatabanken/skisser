@@ -8,7 +8,7 @@
     }
 
     &__footer {
-        @include variable(background-color, clrLight);
+        @include variable(background-color, paletteColor0);
     }
 
     &__main {
@@ -27,7 +27,7 @@
 // header
 
 .header {
-    @include variable(background-color, clrLight);
+    @include variable(background-color, paletteColor0);
     display: grid;
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px;
@@ -36,16 +36,12 @@
     padding: 0 30px;
     width: 100%;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
         grid-template-columns: auto 1fr;
         grid-template-rows: 70px;
         grid-template-areas: "headerLogo headerMainMenu";
         grid-gap: 0;
         padding: 0 15px;
-    }
-
-    & > * {
-        // border: 1px solid blue;
     }
 
     &__cell {
@@ -64,7 +60,7 @@
             grid-area: headerTopMenu;
             justify-self: center;
 
-            @media screen and (max-width: 1024px) {
+            @media screen and (max-width: 1023px) {
                 display: none;
             }
         }
@@ -85,8 +81,8 @@
 .hamburger {
     @include variable(padding-right, paddingStd);
     @include variable(border-color, clrBlack);
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
+    border-radius: 50px;
+    // border-bottom-right-radius: 0;
     border-style: solid;
     border-width: 2px;
     display: grid;
@@ -126,10 +122,10 @@
 }
 
 .menu {
-    @include variable(background-color, clrWhite);
-    @include variable(background-color, clrWash);
-    min-height: 200vh;
-    overflow: none;
+    @include variable(background-color, paletteColor0);
+    //min-height: 200vh;
+
+    // overflow: none;
     position: absolute;
     top: -1000vh;
     left: 0;
@@ -141,6 +137,7 @@
 
     @media screen and (max-width: 1024px) {
         min-height: 100vh;
+        padding: 30px 15px;
     }
 
     &--open {
@@ -152,57 +149,40 @@
         }
     }
 
-    &__grid {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 30px auto;
-
-        & > * {
-            margin: 0 15px;
-        }
-    }
-
     &__footer {
-        font-weight: 400;
-        padding: 30px;
-
-        @media screen and (max-width: 1024px) {
-            line-height: 1.7;
-            padding: 30px 15px;
-
-            a {
-                display: inline-block;
-            }
-
-            display: none;
-        }
     }
 }
 
 .navigation {
-    padding: 45px 30px 60px;
+    padding: 60px 30px 0;
+
+    @media screen and (max-width: 1200px) {
+        padding: 45px 30px 0;
+    }
 
     @media screen and (max-width: 1024px) {
-        padding: 15px;
+        padding: 20px 0;
     }
 
     // modifiers
 
     &--primary {
-        @include variable(background-color, clrWash);
-    }
-
-    &--secondary {
-        @include variable(background-color, clrAqua1);
+        @include variable(background-color, paletteColor0);
     }
 
     &--top {
+        padding: 0 0 20px;
         text-align: right;
 
-        @media screen and (min-width: 1025px) {
+        @media screen and (min-width: 1024px) {
             display: none;
+        }
+    }
+
+    &--special {
+        //padding: 0;
+
+        @media screen and (min-width: 1024px) {
         }
     }
 
@@ -210,33 +190,36 @@
 
     &__container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 0 5em;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0 50px;
         margin: 0 auto;
-        max-width: 70vw;
+        max-width: 100vw;
         padding: 0;
 
         @media screen and (max-width: 1921px) {
             grid-gap: 0 50px;
-            max-width: 90vw;
         }
 
         @media screen and (max-width: 1600px) {
-            grid-gap: 0 50px;
-            max-width: 100vw;
+            grid-gap: 60px 30px;
+        }
+
+        @media screen and (max-width: 1366px) {
+            grid-gap: 0 30px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            grid-template-columns: 1fr;
+            grid-gap: 20px 0;
         }
 
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
-            grid-gap: 0;
-            max-width: 100vw;
+            grid-gap: 40px 0;
         }
     }
 
     &__item {
-        @media screen and (max-width: 1024px) {
-            margin: 7px 0;
-        }
     }
 
     &__heading {
@@ -253,21 +236,55 @@
             font-size: 26px;
         }
 
+        @media screen and (max-width: 1200px) {
+            margin: 30px 0 10px;
+        }
+
         @media screen and (max-width: 1024px) {
-            margin: 0;
+            margin: 0 0 5px;
         }
     }
 
     &__heading-text {
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
+
         @media screen and (max-width: 1024px) {
             display: none;
         }
     }
 
     &__heading-link {
-        @media screen and (min-width: 1025px) {
+        &::before,
+        &:before {
+            background-image: url(../images/iconChevronRight.png);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            content: "";
+            display: inline-block;
+            margin-top: -7px;
+            margin-right: 12px;
+            vertical-align: middle;
+            height: 14px;
+            width: 8px;
+            // display: none;
+
+            @media screen and (max-width: 1024px) {
+                margin-right: 9px;
+                height: 11px;
+                width: 6px;
+            }
+        }
+
+        @media screen and (min-width: 1201px) {
             display: none;
         }
+
+        // @media screen and (min-width: 1025px) {
+        //     display: none;
+        // }
     }
 
     &__section {
@@ -277,6 +294,10 @@
         justify-self: stretch;
 
         &--primary {
+            @media screen and (max-width: 1200px) {
+                padding: 0 0 30px;
+            }
+
             @media screen and (max-width: 1024px) {
                 padding: 5px 0 15px;
             }
@@ -296,10 +317,8 @@
     }
 
     &__link {
-        @include variable(border-bottom-color, clrAqua2);
-        @include variable(border-bottom-color, clrAqua1);
+        @include variable(border-bottom-color, paletteColor1);
         border-bottom-style: solid;
-        border-bottom-width: 1px;
         border-bottom-width: 2px;
         align-self: stretch;
         justify-self: stretch;
@@ -310,10 +329,6 @@
             font-size: 19px;
         }
 
-        @media screen and (max-width: 1024px) {
-            //display: none;
-        }
-
         // modifiers
 
         &--primary {
@@ -321,6 +336,10 @@
         }
 
         &--secondary {
+            @media screen and (max-width: 1200px) {
+                display: none;
+            }
+
             @media screen and (max-width: 1024px) {
                 display: none;
             }
@@ -329,7 +348,7 @@
         &--special {
             border: none;
             font-weight: 500;
-            padding: 5px 0;
+            padding: 0 0 5px;
 
             &::before {
                 content: none !important;
@@ -366,30 +385,22 @@
 
         // current location
 
-        .navigation--secondary & {
-            @include variable(border-bottom-color, clrAqua2);
-        }
-
         .navigation--top & {
-            @include variable(background-color, clrWhite);
-            @include variable(border-color, clrWhite);
-            @include variable(background-color, clrAqua5);
-            @include variable(border-color, clrAqua5);
             @include variable(background-color, clrBlack);
             @include variable(border-color, clrBlack);
             @include variable(color, clrWhite);
-            background-position: left 15px center;
+            background-position: left 20px center;
             background-repeat: no-repeat;
             background-size: 15px;
             border-style: solid;
             border-width: 2px;
-            border-radius: 10px;
-            border-bottom-right-radius: 0;
+            border-radius: 50px;
+            // border-bottom-right-radius: 0;
             display: inline-block;
             font-size: 16px;
             font-weight: 400;
             margin: 0 0 0 30px;
-            padding: 5px 15px 5px 45px;
+            padding: 5px 20px 5px 45px;
 
             &::before,
             &:before {
@@ -417,7 +428,14 @@
                 background-image: url(../images/iconEnvelopeWhite.png);
                 background-size: 18px;
                 font-size: 0;
-                padding: 5px 15px 5px 45px;
+                padding-left: 47px;
+            }
+
+            &:nth-child(2) {
+                background-image: url(../images/iconUserWhite.png);
+                background-size: 16px;
+                font-size: 0;
+                padding-left: 47px;
             }
         }
     }
@@ -440,9 +458,9 @@
 
         &::after,
         &:after {
-            @include variable(border-bottom-color, clrDark);
+            @include variable(border-bottom-color, paletteColor4);
             border-bottom-style: solid;
-            border-bottom-width: 2px;
+            border-bottom-width: 3px;
             content: "";
             display: block;
             height: 2px;
@@ -460,10 +478,6 @@
 
             @media screen and (max-width: 1024px) {
                 font-size: 15px;
-            }
-
-            &:nth-child(2) {
-                background: yellow;
             }
         }
     }
@@ -487,7 +501,7 @@
         &--login {
             background-image: url(../images/iconLock.png);
             background-size: 13px;
-            padding: 0 30px 0 20px;
+            padding: 0 0 0 20px;
 
             &:hover {
                 @include variable(background-color, clrSecondary);
@@ -497,35 +511,94 @@
         &--messages {
             background-image: url(../images/iconEnvelope.png);
             background-size: 18px;
-            padding: 0 0 0 25px;
+            padding: 0 30px 0 28px;
+        }
+
+        &--user-profile {
+            background-image: url(../images/iconUser.png);
+            background-size: 18px;
+            padding: 0 30px 0 28px;
         }
     }
 }
 
+.subsub {
+    @include variable(background-color, paletteColor1);
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    & > * {
+        align-self: center;
+    }
+}
+
+// breadcrumbs
+
 .breadcrumbs {
-    @include variable(background-color, clrWash);
-    list-style: none;
-    font-size: 16px;
-    font-weight: 500;
+    @include variable(background-color, paletteColor1);
     margin: 0;
     padding: 15px 30px;
-    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 
     @media screen and (max-width: 1024px) {
         padding: 7px 15px;
     }
 
-    &__item {
-        display: inline;
-    }
+    a {
+        align-self: center;
+        justify-self: stretch;
+        @include variable(border-bottom-color, transparent);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        font-size: 16px;
+        font-weight: 400;
+        margin-right: 40px;
+        padding-right: 0;
+        position: relative;
+        transition: border 0.3s;
 
-    &__link {
-        cursor: pointer;
+        &:after {
+            background-image: url(../images/separator.png);
+            background-image: url(../images/iconChevronRight.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 5px;
+            content: "";
+            display: inline-block;
 
-        &--active {
-            font-weight: 500;
+            //height: 30px;
+            width: 10px;
+
+            position: absolute;
+            top: 0;
+            right: -25px;
+            bottom: 0;
+            left: auto;
+        }
+
+        &:last-child {
+            pointer-events: none;
+            
+            &:after {
+                content: none;
+            }
+        }
+
+        &:hover {
+            @include variable(border-bottom-color, clrBlack);
         }
     }
+}
+
+.breadcrumb {
 }
 
 // logo
@@ -666,6 +739,7 @@ main {
 .page {
     grid-area: pageContent;
 
+    // elements
     &__header {
     }
 
@@ -684,6 +758,7 @@ main {
 
     &__footer {
     }
+
 }
 
 // grid
@@ -742,6 +817,24 @@ main {
         }
     }
 
+    &--text {
+        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." ". router router router .";
+        padding: 60px 30px;
+
+        @media screen and (max-width: 1600px) {
+            grid-template-columns: 1fr 3fr 3fr 1fr;
+            grid-template-areas: ". pageTitle pageTitle ." ". component component ." ". router router .";
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "pageTitle" "component" "router";
+            padding: 45px 15px;
+        }
+    }
+
     & > * {
         //border: 1px solid red;
         align-self: stretch;
@@ -770,16 +863,43 @@ main {
         //grid-template-columns: 1fr;
     }
 
+    // modifiers
+
+    &--2 {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 20px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--2x4 {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px 20px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--3 {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px 20px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+
+        & > * {
+            align-self: center;
+        }
+    }
+
+    // elements
+
     &__cell {
-        //border: 1px solid red;
-        // align-self: stretch;
-        // justify-self: stretch;
-
-        // &--centered {
-        //     align-self: center;
-        //     justify-self: center;
-        // }
-
         &--left {
             align-self: start;
             justify-self: start;
@@ -803,6 +923,9 @@ main {
     }
 
     &--buttons {
+        & > * {
+            margin-bottom: 10px;
+        }
     }
 
     &--left {
@@ -992,19 +1115,19 @@ main {
         }
 
         &--colored {
-            @include variable(background-color, clrAqua2);
+            @include variable(background-color, paletteColor0);
         }
 
         &--colored1 {
-            @include variable(background-color, clrWash);
+            @include variable(background-color, paletteColor1);
         }
 
         &--colored2 {
-            @include variable(background-color, clrAqua0);
+            @include variable(background-color, paletteColor0);
         }
 
         &--colored3 {
-            @include variable(background-color, clrShadow);
+            @include variable(background-color, paletteColor1);
         }
 
         @media screen and (max-width: 1024px) {

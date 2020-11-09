@@ -3,9 +3,9 @@
 <!--mobil-->
 <nav class="navigation navigation--top" *ngIf="location === 'menu'">
 
-    <a class="navigation__link" [class]="getLinkStyle(link)" routerLinkActive="navigation__link--active"
-        routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
-        <span class="navigation__label"> {{ link.label }}</span>
+    <a class="navigation__link" [class]="getStyle(link.data.id)" routerLinkActive="navigation__link--active"
+        routerLink="{{ link.path }}" *ngFor="let link of topMenu">
+        <span class="navigation__label"> {{ link.data.text }}</span>
     </a>
 
 </nav>
@@ -14,9 +14,9 @@
 <!--desktop-->
 <nav class="top-navigation" *ngIf="location === 'header'">
 
-    <a class="top-navigation__link" [class]="getCSSClass(link)" routerLinkActive="top-navigation__link--active"
-        routerLink="{{ link.name }}" *ngFor="let link of topMenu$ | async">
-        <span class="top-navigation__label"> {{ link.label }}</span>
+    <a class="top-navigation__link" [class]="getStyle(link.data.id)" routerLinkActive="top-navigation__link--active"
+        routerLink="{{ link.path }}" *ngFor="let link of topMenu">
+        <span class="top-navigation__label"> {{ link.data.text }}</span>
     </a>
 
 </nav>
