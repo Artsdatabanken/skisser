@@ -447,8 +447,6 @@
 .item {
     @include customVar(background-color, paletteColor0);
     border-radius: 10px;
-    // border-radius: 15px;
-    // border-bottom-right-radius: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -457,14 +455,14 @@
         @include customVar(font-family, fontSecondary);
         font-size: 27px;
         font-weight: 500 !important;
-        padding: 15px 30px 0;
+        padding: 10px 30px 0;
         order: 2;
     }
 
     &__subtitle {
         font-size: 18px;
         font-weight: 400 !important;
-        padding: 0 30px 15px;
+        padding: 0 30px 10px;
         margin: 5px 0 10px !important;
         order: 2;
 
@@ -482,7 +480,7 @@
         border-bottom-right-radius: 0;
         margin-bottom: 15px;
         padding: 0;
-        min-height: 30vh;
+        min-height: 25vh;
         order: 1;
 
         &--1 {
@@ -504,7 +502,31 @@
         &--noImg {
             @include customVar(background-color, paletteColor1);
             background-image: url(../images/iconNoImage.png);
-            background-size: 128px;
+            background-size: 98px;
+        }
+    }
+
+    &__copyright {
+        font-size: 14px;
+        display: inline-block;
+        font-weight: 600;
+        height: 20px;
+        line-height: 20px;
+        margin-bottom: 15px;
+        order: 3;
+        vertical-align: bottom;
+
+        &::before {
+            background-image: url(../images/iconCamera.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: "";
+            display: inline-block;
+            height: 20px;
+            margin-right: 4px;
+            vertical-align: top;
+            width: 16px;
         }
     }
 
@@ -514,20 +536,29 @@
         border-top-width: 2px;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "one one" "two three";
         font-size: 17px;
         font-weight: 500;
-        padding: 15px 30px;
+        padding: 15px 30px 30px;
         order: 3;
 
         & > * {
-            //border: 1px solid red;
+            //border: 1px solid green;
             align-self: center;
 
-            &:first-child {
+            &:nth-child(1) {
+                grid-area: one;
+                justify-self: stretch;
+            }
+
+            &:nth-child(2) {
+                grid-area: two;
                 justify-self: start;
             }
 
-            &:last-child {
+            &:nth-child(3) {
+                grid-area: three;
                 justify-self: end;
                 text-align: right;
             }

@@ -52,7 +52,8 @@ import { MessageComponent } from './components/messages/message/message.componen
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MenuDirective } from './helpers/menu.directive';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
-import { AboutSiteComponent } from './components/about/about-site/about-site.component';
+// import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
+import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
 import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
 import { TosComponent } from './components/about/tos/tos.component';
 import { SupportComponent } from './components/about/support/support.component';
@@ -74,6 +75,7 @@ import { FellowObserversComponent } from './components/my-data/fellow-observers/
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 import { CategoryRedlistedComponent } from './components/shared/non-dummy/category-redlisted/category-redlisted.component';
 import { CategoryAlienComponent } from './components/shared/non-dummy/category-alien/category-alien.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -126,7 +128,7 @@ import { CategoryAlienComponent } from './components/shared/non-dummy/category-a
     SitemapComponent,
     MenuDirective,
     ContributeComponent,
-    AboutSiteComponent,
+    ArtsObsComponent,
     QualityAssuranceComponent,
     TosComponent,
     SupportComponent,

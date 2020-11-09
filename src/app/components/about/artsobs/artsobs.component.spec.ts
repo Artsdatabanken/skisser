@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutSiteComponent } from './about-site.component';
+import { ArtsObsComponent } from './artsobs.component';
 
-describe('AboutSiteComponent', () => {
-  let component: AboutSiteComponent;
-  let fixture: ComponentFixture<AboutSiteComponent>;
+describe('ArtsObsComponent', () => {
+  let component: ArtsObsComponent;
+  let fixture: ComponentFixture<ArtsObsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AboutSiteComponent ]
+      declarations: [ ArtsObsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AboutSiteComponent);
+    fixture = TestBed.createComponent(ArtsObsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

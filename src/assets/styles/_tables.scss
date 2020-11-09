@@ -19,8 +19,8 @@ table {
         padding: 10px;
         text-align: left;
 
-        &[scope=col] {
-            background: yellow  ;
+        &[scope=row] {
+            border-bottom: 2px solid #d1f2eb;
         }
     }
 

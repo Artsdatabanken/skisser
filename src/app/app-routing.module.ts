@@ -19,7 +19,7 @@ import { MapComponent } from './components/map/map.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
-import { AboutSiteComponent } from './components/about/about-site/about-site.component';
+import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
 import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
 import { TosComponent } from './components/about/tos/tos.component';
 import { SupportComponent } from './components/about/support/support.component';
@@ -389,12 +389,12 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'about/about-site',
-    component: AboutSiteComponent,
+    path: 'about/artsobs',
+    component: ArtsObsComponent,
     data: {
       text: 'Om artsobservasjoner.no',
-      id: 'about-site',
-      layout: 'page',
+      id: 'artsobs',
+      layout: 'text',
       rank: 'secondary',
       parent: 'about',
       menu: 'mainMenu',
@@ -409,7 +409,7 @@ const aboutRoutes: Routes = [
     data: {
       text: 'Kvalitetssikring',
       id: 'quality-assurance',
-      layout: 'page',
+      layout: 'text',
       rank: 'secondary',
       parent: 'about',
       menu: 'mainMenu',
@@ -423,7 +423,7 @@ const aboutRoutes: Routes = [
     data: {
       text: 'Hvordan du kan bidra',
       id: 'contribute',
-      layout: 'page',
+      layout: 'text',
       rank: 'secondary',
       parent: 'about',
       menu: 'mainMenu',
@@ -437,7 +437,7 @@ const aboutRoutes: Routes = [
     data: {
       text: 'Brukervilkår',
       id: 'tos',
-      layout: 'page',
+      layout: 'text',
       rank: 'secondary',
       parent: 'about',
       menu: 'mainMenu',
@@ -451,7 +451,7 @@ const aboutRoutes: Routes = [
     data: {
       text: 'Brukerstøtte',
       id: 'support',
-      layout: 'page',
+      layout: 'text',
       rank: 'secondary',
       parent: 'about',
       menu: 'mainMenu',

@@ -111,8 +111,9 @@ h1 {
 
 h2 {
   @include customVar(font-family, fontSecondary);
+  // @include customVar(font-family, fontPrimary);
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.2;
   margin: 70px 0 20px;
 

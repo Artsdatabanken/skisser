@@ -745,9 +745,13 @@ main {
 
     &__intro {
         font-size: 24px;
+        font-size: 25px;
+        font-size: 700;
         margin-bottom: 30px;
 
         p {
+            font-size: inherit;
+            font-weight: 600 !important;
             margin: 0;
         }
     }
@@ -818,7 +822,7 @@ main {
     }
 
     &--text {
-        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." ". router router router .";
         padding: 60px 30px;
