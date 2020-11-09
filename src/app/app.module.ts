@@ -72,6 +72,8 @@ import { EventProjectComponent } from './components/report/event-project/event-p
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
+import { CategoryRedlistedComponent } from './components/shared/non-dummy/category-redlisted/category-redlisted.component';
+import { CategoryAlienComponent } from './components/shared/non-dummy/category-alien/category-alien.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +145,9 @@ import { ExtraNavigationComponent } from './layout/extra-navigation/extra-naviga
     EventProjectComponent,
     ProfileComponent,
     FellowObserversComponent,
-    ExtraNavigationComponent
+    ExtraNavigationComponent,
+    CategoryRedlistedComponent,
+    CategoryAlienComponent
   ],
   imports: [
     BrowserModule,
