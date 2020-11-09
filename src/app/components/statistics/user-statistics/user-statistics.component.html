@@ -223,12 +223,7 @@
         <br>
 
         <table class="league-table">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-
+          
             <tr *ngFor="let user of fakeUsers$ | async | slice:3; let i = index">
 
                 <td><span>{{ i + 4}}</span></td>
