@@ -4,10 +4,10 @@ html {
 }
 
 body {
-  @include variable(background-color, backgroundColor);
-  @include variable(background-color, clrLight);
-  @include variable(color, textColor);
-  @include variable(font-family, fontPrimary);
+  @include customVar(background-color, backgroundColor);
+  @include customVar(background-color, clrLight);
+  @include customVar(color, textColor);
+  @include customVar(font-family, fontPrimary);
 
   font-size: 20px;
   font-style: normal;
@@ -35,7 +35,7 @@ body {
 /**/
 
 *:focus {
-  // @include variable(outline-color, clrBlack);
+  // @include customVar(outline-color, clrBlack);
   // outline-style: solid;
   // outline-offset: 3px;
   // outline-width: 3px;
@@ -46,7 +46,7 @@ body {
 /*links*/
 
 a {
-  @include variable(color, clrBlack);
+  @include customVar(color, clrBlack);
   display: inline-block;
   text-decoration: none !important;
 
@@ -56,8 +56,8 @@ a {
 }
 
 a:not([class]) {
-  @include variable(color, clrBlack);
-  @include variable(border-color, clrBlack);
+  @include customVar(color, clrBlack);
+  @include customVar(border-color, clrBlack);
   border-bottom-style: solid;
   border-bottom-width: 2px;
   display: inline-block;
@@ -84,8 +84,8 @@ h3,
 h4,
 h5,
 h6 {
-  @include variable(font-family, fontSecondary);
-  @include variable(color, clrBlack);
+  @include customVar(font-family, fontSecondary);
+  @include customVar(color, clrBlack);
   font-weight: 500;
   font-kerning: normal;
   -webkit-font-feature-settings: normal;
@@ -110,7 +110,7 @@ h1 {
 }
 
 h2 {
-  @include variable(font-family, fontSecondary);
+  @include customVar(font-family, fontSecondary);
   font-size: 48px;
   font-weight: 500;
   line-height: 1.2;
@@ -196,9 +196,9 @@ strong {
 }
 
 mark {
-  @include variable(background-color, --clrBlack);
-  @include variable(color, --clrWhite);
-  @include variable(font-family, --fontPrimary);
+  @include customVar(background-color, --clrBlack);
+  @include customVar(color, --clrWhite);
+  @include customVar(font-family, --fontPrimary);
   border-radius: 7px;
   font-size: 17px;
   font-weight: 700;
@@ -235,9 +235,9 @@ abbr[title] {
 /*quotes*/
 
 blockquote {
-  @include variable(background-color, clrAccent);
-  @include variable(background-color, clrShadow);
-  @include variable(font-family, fontAccent);
+  @include customVar(background-color, clrAccent);
+  @include customVar(background-color, clrShadow);
+  @include customVar(font-family, fontAccent);
   // border-radius: 15px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -256,7 +256,7 @@ blockquote {
     margin: 0;
 
     &:before {
-      @include variable(font-family, fontAccent);
+      @include customVar(font-family, fontAccent);
       content: "\201D";
       display: block;
       float: right;

@@ -1,7 +1,7 @@
 // ----------HELPERS
 
 .emphasized {
-  @include variable(font-family, fontAccent);
+  @include customVar(font-family, fontAccent);
   display: block;
   font-size: 62px;
   font-weight: 900;

@@ -4,12 +4,12 @@ form {
     width: 100%;
 
     ::placeholder {
-        @include variable(color, clrDark);
+        @include customVar(color, clrDark);
         font-size: 19px;
     }
 
     label {
-        @include variable(font-family, fontSecondary);
+        @include customVar(font-family, fontSecondary);
         display: block;
         font-size: 19px;
         font-weight: 500;
@@ -22,9 +22,9 @@ form {
     }
 
     input {
-        @include variable(background-color, clrWash);
-        @include variable(border-color, clrDark);
-        @include variable(font-family, fontPrimary);
+        @include customVar(background-color, clrWash);
+        @include customVar(border-color, clrDark);
+        @include customVar(font-family, fontPrimary);
         border-style: solid;
         border-width: 2px;
         border-radius: 10px;
@@ -35,7 +35,7 @@ form {
         width: 100%;
 
         &:disabled {
-            @include variable(border-color, clrAccent);
+            @include customVar(border-color, clrAccent);
             border: 2px solid #666;
         }
 
@@ -50,7 +50,7 @@ form {
         }
 
         &[type="submit"] {
-            @include variable(font-family, fontSecondary);
+            @include customVar(font-family, fontSecondary);
             float: right;
             font-size: 24px;
             font-weight: 500;
@@ -63,14 +63,14 @@ form {
         }
 
         .form__group--light & {
-            @include variable(background-color, clrWhite);
+            @include customVar(background-color, clrWhite);
         }
     }
 
     textarea {
-        @include variable(background-color, clrWhite);
-        @include variable(border-color, clrBlack);
-        @include variable(font-family, fontPrimary);
+        @include customVar(background-color, clrWhite);
+        @include customVar(border-color, clrBlack);
+        @include customVar(font-family, fontPrimary);
         border-radius: 10px;
         border-bottom-right-radius: 0;
         border-width: 2px;
@@ -86,8 +86,8 @@ form {
 
     select {
         @extend input;
-        @include variable(background-color, clrWhite);
-        @include variable(font-family, fontPrimary);
+        @include customVar(background-color, clrWhite);
+        @include customVar(font-family, fontPrimary);
         font-size: 18px;
         font-weight: 500;
         padding: 5px;
@@ -103,9 +103,9 @@ form {
 
 select {
     @extend input;
-    @include variable(background-color, clrWhite);
-    @include variable(border-color, clrBlack);
-    @include variable(font-family, fontPrimary);
+    @include customVar(background-color, clrWhite);
+    @include customVar(border-color, clrBlack);
+    @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
     border-radius: 50px;
@@ -121,7 +121,7 @@ select {
 
     &__input {
         &--light {
-            @include variable(background-color, clrWhite);
+            @include customVar(background-color, clrWhite);
         }
     }
 
@@ -200,7 +200,7 @@ select {
 }
 
 .error-message {
-    //@include variable(color, #ff0000);
+    //@include customVar(color, #ff0000);
     color: red;
     font-size: 14px;
     font-weight: 700;

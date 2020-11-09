@@ -55,7 +55,7 @@ dl {
   width: 100%;
 
   li {
-    @include variable(border-bottom-color, clrAccent);
+    @include customVar(border-bottom-color, clrAccent);
     border-bottom-style: solid;
     border-bottom-width: 2px;
     margin: 0 0 5px;
@@ -63,5 +63,30 @@ dl {
 
   strong {
     padding-right: 10px;
+  }
+}
+
+// custom lists
+
+.species-categories {
+  @include customVar(background-color, paletteColor0);
+  border-radius: 15px;
+  font-size: 17px;
+  padding: 30px 20px;
+  min-width: fit-content;
+  width: fit-content;
+
+  display: grid;
+  grid-template-columns: 50px 2fr;
+  grid-gap: 5px;
+
+  
+  dt {
+    @include customVar(font-family, fontSecondary);
+    width: 100%;
+  }
+
+  dd {
+    width: 100%;
   }
 }

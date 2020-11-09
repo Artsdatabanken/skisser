@@ -23,8 +23,8 @@
 // cards
 
 .card {
-    @include variable(background-color, transparent);
-    @include variable(color, clrBlack);
+    @include customVar(background-color, transparent);
+    @include customVar(color, clrBlack);
     background-image: url(../images/iconChevronRight.png);
     background-position: right 30px center;
     background-repeat: no-repeat;
@@ -37,21 +37,21 @@
     text-align: left;
 
     // &--active {
-    //     @include variable(background-color, clrAqua4Original);
-    //     @include variable(border-color, clrAqua4Original);
+    //     @include customVar(background-color, clrAqua4Original);
+    //     @include customVar(border-color, clrAqua4Original);
     // }
 
     &:hover {
-        @include variable(background-color, clrBlack);
-        @include variable(border-color, clrBlack);
-        @include variable(color, clrWhite);
+        @include customVar(background-color, clrBlack);
+        @include customVar(border-color, clrBlack);
+        @include customVar(color, clrWhite);
         background-image: url(../images/iconChevronRight.png);
     }
 
     // elements
 
     &__heading {
-        @include variable(font-family, fontPrimary);
+        @include customVar(font-family, fontPrimary);
         color: inherit;
         font-size: 24px;
         font-size: 21px;
@@ -93,11 +93,11 @@
     }
 
     a {
-        @include variable(border-color, clrAqua4);
+        @include customVar(border-color, clrAqua4);
         line-height: 1.5;
 
         &:hover {
-            @include variable(border-color, clrAqua3);
+            @include customVar(border-color, clrAqua3);
         }
 
         @media screen and (max-width: 900px) {
@@ -109,10 +109,10 @@
 /*button*/
 
 .button {
-    @include variable(background-color, transparent);
-    @include variable(border-color, clrBlack);
-    @include variable(color, clrBlack);
-    @include variable(font-family, fontPrimary);
+    @include customVar(background-color, transparent);
+    @include customVar(border-color, clrBlack);
+    @include customVar(color, clrBlack);
+    @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
     border-radius: 50px;
@@ -139,25 +139,25 @@
     }
 
     &--primary {
-        @include variable(background-color, clrAqua5);
-        @include variable(border-color, clrAqua5);
-        @include variable(color, clrWhite);
+        @include customVar(background-color, clrAqua5);
+        @include customVar(border-color, clrAqua5);
+        @include customVar(color, clrWhite);
         font-weight: 400;
         text-align: center !important;
     }
 
     &--secondary {
-        // @include variable(background-color, clrDark);
-        // @include variable(border-color, clrDark);
-        // @include variable(color, clrWhite);
+        // @include customVar(background-color, clrDark);
+        // @include customVar(border-color, clrDark);
+        // @include customVar(color, clrWhite);
         // font-weight: 400;
         // text-align: center !important;
     }
 
     &--cta {
-        @include variable(background-color, clrPrimary);
-        @include variable(border-color, clrPrimary);
-        @include variable(color, clrBlack);
+        @include customVar(background-color, clrPrimary);
+        @include customVar(border-color, clrPrimary);
+        @include customVar(color, clrBlack);
     }
 
     &--xl {
@@ -186,8 +186,8 @@
     }
 
     &--mega {
-        @include variable(background-color, clrAccent);
-        @include variable(font-family, fontSecondary);
+        @include customVar(background-color, clrAccent);
+        @include customVar(font-family, fontSecondary);
         font-size: 44px;
         font-weight: 300;
         margin: 0 20px;
@@ -198,14 +198,14 @@
         }
 
         &:hover {
-            @include variable(background-color, clrPrimary);
-            @include variable(border-color, clrPrimary);
+            @include customVar(background-color, clrPrimary);
+            @include customVar(border-color, clrPrimary);
         }
     }
 
     &--ad {
-        @include variable(background-color, clrAccent);
-        @include variable(border-color, clrPrimary);
+        @include customVar(background-color, clrAccent);
+        @include customVar(border-color, clrPrimary);
         font-size: 36px;
         font-weight: 400;
         padding: 22px 48px;
@@ -325,10 +325,10 @@
     &:active,
     &:focus,
     &:hover {
-        @include variable(background-color, clrPrimary);
-        @include variable(background-color, clrPrimary);
-        @include variable(border-color, clrPrimary);
-        @include variable(color, clrWhite);
+        @include customVar(background-color, clrPrimary);
+        @include customVar(background-color, clrPrimary);
+        @include customVar(border-color, clrPrimary);
+        @include customVar(color, clrWhite);
         border-style: solid;
         border-width: 2px;
     }
@@ -344,7 +344,7 @@
     margin: 25px auto;
 
     &__item {
-        @include variable(border-color, clrAqua3);
+        @include customVar(border-color, clrAqua3);
         background-repeat: no-repeat;
         background-size: 8px;
         border-style: solid;
@@ -392,7 +392,7 @@
     }
 
     li {
-        @include variable(font-family, fontSecondary);
+        @include customVar(font-family, fontSecondary);
         margin: 0;
         position: relative;
         text-align: center;
@@ -407,9 +407,9 @@
         }
 
         &:before {
-            @include variable(background-color, clrAqua3);
-            @include variable(border-color, clrAqua3);
-            @include variable(color, clrBlack);
+            @include customVar(background-color, clrAqua3);
+            @include customVar(border-color, clrAqua3);
+            @include customVar(color, clrBlack);
             border-style: solid;
             border-width: 2px;
             border-radius: 50%;
@@ -425,7 +425,7 @@
         }
 
         &:after {
-            @include variable(background-color, clrAqua5);
+            @include customVar(background-color, clrAqua5);
             content: "";
             display: block;
             height: 3px;
@@ -445,7 +445,7 @@
 /*items / gallery*/
 
 .item {
-    @include variable(background-color, paletteColor0);
+    @include customVar(background-color, paletteColor0);
     border-radius: 10px;
     // border-radius: 15px;
     // border-bottom-right-radius: 0;
@@ -454,7 +454,7 @@
     flex-wrap: nowrap;
 
     &__title {
-        @include variable(font-family, fontSecondary);
+        @include customVar(font-family, fontSecondary);
         font-size: 27px;
         font-weight: 500 !important;
         padding: 15px 30px 0;
@@ -502,14 +502,14 @@
         }
 
         &--noImg {
-            @include variable(background-color, paletteColor1);
+            @include customVar(background-color, paletteColor1);
             background-image: url(../images/iconNoImage.png);
             background-size: 128px;
         }
     }
 
     &__details {
-        @include variable(border-top-color, paletteColor1);
+        @include customVar(border-top-color, paletteColor1);
         border-top-style: solid;
         border-top-width: 2px;
         display: grid;
@@ -590,7 +590,7 @@
     }
 
     &__tag {
-        @include variable(background-color, clrAccent);
+        @include customVar(background-color, clrAccent);
         border-radius: 6px;
         border-bottom-right-radius: 0;
         font-size: 14px;
@@ -600,7 +600,7 @@
     }
 
     &__date {
-        @include variable(font-family, fontSecondary);
+        @include customVar(font-family, fontSecondary);
         font-size: 16px;
         font-weight: 700;
         margin-left: 10px;
@@ -646,7 +646,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        @include variable(background-color, clrWhite);
+        @include customVar(background-color, clrWhite);
         cursor: pointer;
         font-size: 24px;
         font-weight: 400;
@@ -677,7 +677,7 @@
     }
 
     &__content {
-        @include variable(background-color, clrWash);
+        @include customVar(background-color, clrWash);
         border-radius: 20px;
         border-bottom-right-radius: 0;
 
