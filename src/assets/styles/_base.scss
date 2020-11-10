@@ -85,8 +85,6 @@ h4,
 h5,
 h6 {
   @include customVar(font-family, fontSecondary);
-  @include customVar(font-family, fontSecondary);
-  @include customVar(font-family, fontAccent);
   @include customVar(color, clrBlack);
   font-weight: 500;
   font-kerning: normal;
@@ -124,10 +122,9 @@ h1 {
 
 h2 {
   @include customVar(font-family, fontSecondary);
-  @include customVar(font-family, fontAccent);
   font-size: 48px;
   font-size: 36px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.2;
   margin: 70px 0 20px;
 
