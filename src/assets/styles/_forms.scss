@@ -27,11 +27,11 @@ form {
         @include customVar(font-family, fontPrimary);
         border-style: solid;
         border-width: 2px;
-        border-radius: 10px;
-        border-bottom-right-radius: 0;
+        border-radius: 50px;
         display: block;
+        font-size: 18px;
         //margin: 5px 0 25px;
-        padding: 12px 18px 9px;
+        padding: 12px 24px 9px;
         width: 100%;
 
         &:disabled {
