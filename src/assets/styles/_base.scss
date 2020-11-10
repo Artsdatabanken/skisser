@@ -85,6 +85,8 @@ h4,
 h5,
 h6 {
   @include customVar(font-family, fontSecondary);
+  @include customVar(font-family, fontSecondary);
+  @include customVar(font-family, fontAccent);
   @include customVar(color, clrBlack);
   font-weight: 500;
   font-kerning: normal;
@@ -98,8 +100,19 @@ h1 {
   font-size: 62px;
   font-weight: 300;
   line-height: 1.2;
+  // word-break: break-all;
+  // word-wrap: break-word;
 
-  @media screen and (max-width: 900px) {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  @media screen and (max-width: 1024px) {
     font-size: 40px;
     line-height: 1.25;
   }
@@ -111,8 +124,9 @@ h1 {
 
 h2 {
   @include customVar(font-family, fontSecondary);
-  // @include customVar(font-family, fontPrimary);
+  @include customVar(font-family, fontAccent);
   font-size: 48px;
+  font-size: 36px;
   font-weight: 300;
   line-height: 1.2;
   margin: 70px 0 20px;
@@ -129,7 +143,6 @@ h2 {
   h3 + & {
     margin: 30px 0 15px;
   }
-
 }
 
 h3 {
@@ -232,7 +245,6 @@ abbr[title] {
   // }
 }
 
-
 /*quotes*/
 
 blockquote {
@@ -299,4 +311,3 @@ q {
     padding-left: 2px;
   }
 }
-

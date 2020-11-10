@@ -785,17 +785,17 @@ $orange: #514942;
         border-radius: 100%;
         margin: 0 auto 20px;
         text-align: center;
-        height: 90px;
-        width: 90px;
+        height: 120px;
+        width: 120px;
 
         &--1 {
             background-image: url(../images/iconAdAddWhite.png);
-            background-size: 60px;
+            background-size: 70px;
         }
 
         &--2 {
             background-image: url(../images/iconAdSearchWhite.png);
-            background-size: 40px;
+            background-size: 50px;
         }
 
         .ad:hover & {

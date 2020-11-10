@@ -6,8 +6,8 @@
 
 $vars: (
   fontPrimary: #{"averta",  Consolas,  monospace},
-  fontSecondary: #{"robotocondensed",  Consolas,  monospace},
-  fontAccent: #{"robotomono",  Consolas, monospace},
+  fontSecondary: #{"breton",  Consolas,  monospace},
+  fontAccent: #{"breton",  Consolas, monospace},
 
   clrBlack: #333333,
   clrWhite: #ffffff, 
@@ -25,7 +25,6 @@ $vars: (
   transparent: transparent,
 
 );
-
 
 :root {
   --fontPrimary: #{map-get($vars, fontPrimary)};

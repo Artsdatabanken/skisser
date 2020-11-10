@@ -1,133 +1,5 @@
 // ----------FONTS
 
-// nunito
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-ExtraLight.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-ExtraLight.woff") format("woff");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-ExtraLightItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-ExtraLightItalic.woff") format("woff");
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Light.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-LightItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-LightItalic.woff") format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Regular.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-RegularItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-RegularItalic.woff") format("woff");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-ExtraBold.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-ExtraBold.woff") format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-ExtraBoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-ExtraBoldItalic.woff") format("woff");
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-SemiBold.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-SemiBold.woff") format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-SemiBoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-SemiBoldItalic.woff") format("woff");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Bold.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-BoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-BoldItalic.woff") format("woff");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-Black.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-Black.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nunito";
-    src: url("/assets/fonts/nunito/Nunito-BlackItalic.woff2") format("woff2"),
-        url("/assets/fonts/nunito/Nunito-BlackItalic.woff") format("woff");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
 // roboto condensed
 
 @font-face {
@@ -312,172 +184,7 @@
     font-display: swap;
 }
 
-
-/*work sans*/
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Thin.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-Thin.woff") format("woff");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-ThinItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-ThinItalic.woff") format("woff");
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-ExtraLight.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-ExtraLight.woff") format("woff");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-ExtraLightItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-ExtraLightItalic.woff") format("woff");
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Light.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-LightItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-LightItalic.woff") format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Regular.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-RegularItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-RegularItalic.woff") format("woff");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Medium.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-MediumItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-MediumItalic.woff") format("woff");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-SemiBold.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-SemiBold.woff") format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-SemiBoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-SemiBoldItalic.woff") format("woff");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Bold.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-BoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-BoldItalic.woff") format("woff");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-ExtraBold.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-ExtraBold.woff") format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-ExtraBoldItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-ExtraBoldItalic.woff") format("woff");
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-Black.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-Black.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "worksans";
-    src: url("/assets/fonts/WorkSans-BlackItalic.woff2") format("woff2"),
-        url("/assets/fonts/WorkSans-BlackItalic.woff") format("woff");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-/*avertastd*/
+// avertastd
 
 @font-face {
     font-family: "averta";
@@ -641,64 +348,212 @@
     font-display: swap;
 }
 
-// red hat
-
-
+// breton
 
 @font-face {
-    font-family: 'redhattext';
-    src: url('/assets/fonts/redhat/RedHatText-Regular.woff2') format('woff2'),
-        url('/assets/fonts/redhat/RedHatText-Regular.woff') format('woff');
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-hair.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-hair.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-hairitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-hairitalic.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+} 
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-ultralight.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-ultralight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-ultralightitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-ultralightitalic.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-light.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-lightitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-lightitalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-book.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-book.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'redhattext';
-    src: url('/assets/fonts/redhat/RedHatText-RegularItalic.woff2') format('woff2'),
-        url('/assets/fonts/redhat/RedHatText-RegularItalic.woff') format('woff');
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-bookitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-bookitalic.woff") format("woff");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'redhattext';
-    src: url('/assets/fonts/redhat/RedHatText-Medium.woff2') format('woff2'),
-        url('/assets/fonts/redhat/RedHatText-Medium.woff') format('woff');
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-regular.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-regular.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'redhattext';
-    src: url('/assets/fonts/redhat/RedHatText-MediumItalic.woff2') format('woff2'),
-        url('/assets/fonts/redhat/RedHatText-MediumItalic.woff') format('woff');
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-regularitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-regularitalic.woff") format("woff");
     font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-medium.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-medium.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-mediumitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-mediumitalic.woff") format("woff");
+    font-weight: 600;
     font-style: italic;
     font-display: swap;
 }
 
 
 @font-face {
-    font-family: 'redhattext';
-    src: url('/assets/fonts/redhat/RedHatText-Bold.woff2') format('woff2'),
-        url('/assets/fonts/redhat/RedHatText-Bold.woff') format('woff');
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-semibold.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-semibold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'redhattext';
-    src: url('/assets/fonts/redhat/RedHatText-BoldItalic.woff2') format('woff2'),
-        url('/assets/fonts/redhat/RedHatText-BoldItalic.woff') format('woff');
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-semibolditalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-semibolditalic.woff") format("woff");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-bold.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-bold.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-bolditalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-bolditalic.woff") format("woff");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-extrabold.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-extrabold.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-extrabolditalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-extrabolditalic.woff") format("woff");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-black.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "breton";
+    src: url("/assets/fonts/breton/breton-blackitalic.woff2") format("woff2"),
+        url("/assets/fonts/breton/breton-blackitalic.woff") format("woff");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+} */
+
+// weeklyfree
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-Light.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
 
 
 
