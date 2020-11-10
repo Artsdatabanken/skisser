@@ -203,14 +203,6 @@
         }
     }
 
-    &--ad {
-        @include customVar(background-color, clrAccent);
-        @include customVar(border-color, clrPrimary);
-        font-size: 36px;
-        font-weight: 400;
-        padding: 22px 48px;
-    }
-
     &--dropdown {
         background-image: url(../images/iconChevronDown.png);
         background-position: right 15px center;
@@ -320,6 +312,7 @@
             padding-right: 5px;
             width: 17px;
         }
+
     }
 
     &:active,

@@ -760,3 +760,47 @@ $orange: #514942;
     &__text {
     }
 }
+
+// ad
+
+.ad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &__text {
+        @include customVar(font-family, fontSecondary);
+        font-size: 36px;
+        font-size: 30px;
+        font-weight: 400;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    &__icon {
+        background-color: #1abc9c;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        margin: 0 auto 20px;
+        text-align: center;
+        height: 90px;
+        width: 90px;
+
+        &--1 {
+            background-image: url(../images/iconAdAddWhite.png);
+            background-size: 60px;
+        }
+
+        &--2 {
+            background-image: url(../images/iconAdSearchWhite.png);
+            background-size: 40px;
+        }
+
+        .ad:hover & {
+            background-color: #000;
+            transition: background-color 0.5s;
+        }
+    }
+}

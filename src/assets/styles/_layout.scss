@@ -586,7 +586,7 @@
 
         &:last-child {
             pointer-events: none;
-            
+
             &:after {
                 content: none;
             }
@@ -762,7 +762,6 @@ main {
 
     &__footer {
     }
-
 }
 
 // grid
@@ -1169,7 +1168,21 @@ main {
         }
 
         &--centered {
+            align-self: center;
+            justify-self: center;
             text-align: center;
+        }
+
+        &--left {
+            justify-self: flex-start;
+            margin-right: 50px;
+            min-width: 25vw;
+        }
+
+        &--right {
+            justify-self: flex-end;
+            margin-left: 50px;
+            min-width: 25vw;
         }
 
         &--colored1 {
