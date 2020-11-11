@@ -20,8 +20,6 @@ export class AppComponent {
   pageId: string = '';
   pageLayout: string = '';
 
-  mainMenu: any[];
-
   skipLinkPath: string;
   routerSubscription: Subscription;
   windowScrolled: boolean = false;
@@ -114,14 +112,6 @@ export class AppComponent {
         window.scrollTo(0, currentScroll - (currentScroll / 8));
       }
     })();
-  }
-
-  getRoutes() {
-
-    // this.routes.forEach(route => {
-    //   console.log('route', route);
-    // })
-
   }
 
 }
