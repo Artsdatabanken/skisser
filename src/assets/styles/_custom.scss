@@ -765,10 +765,12 @@ $orange: #514942;
 // ad
 
 .ad {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: block;
     text-align: center;
+
+    &:focus {
+        display: block;
+    }
 
     &__text {
         @include customVar(font-family, fontSecondary);
@@ -780,28 +782,31 @@ $orange: #514942;
     }
 
     &__icon {
-        background-color: #1abc9c;
+        //background-color: #17a589;
         background-position: center center;
         background-repeat: no-repeat;
         border-radius: 100%;
         margin: 0 auto 20px;
+        margin: 0 auto;
         text-align: center;
         height: 120px;
         width: 120px;
 
         &--1 {
             background-image: url(../images/iconAdAddWhite.png);
-            background-size: 70px;
+            background-image: url(../images/iconAdAdd.png);
+            background-size: 100px;
         }
 
         &--2 {
             background-image: url(../images/iconAdSearchWhite.png);
-            background-size: 50px;
+            background-image: url(../images/iconAdSearch.png);
+            background-size: 70px;
         }
 
         .ad:hover & {
-            background-color: #000;
-            transition: background-color 0.5s;
+            // background-color: #000;
+            // transition: background-color 0.5s;
         }
     }
 }

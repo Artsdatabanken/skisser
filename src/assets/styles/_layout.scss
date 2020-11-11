@@ -421,7 +421,7 @@
             &:nth-child(1) {
                 background-image: url(../images/iconLock.png);
                 background-image: url(../images/iconLockWhite.png);
-                background-size: 14px;
+                background-size: 12px;
             }
 
             &:nth-child(2) {
@@ -434,7 +434,7 @@
 
             &:nth-child(2) {
                 background-image: url(../images/iconUserWhite.png);
-                background-size: 16px;
+                background-size: 13px;
                 font-size: 0;
                 padding-left: 47px;
             }
@@ -1078,10 +1078,9 @@ main {
 
             a {
                 font-size: 18px;
-                font-weight: 400;
 
                 &:not([class]) {
-                    font-weight: 500;
+                    font-weight: 600;
                 }
             }
 
@@ -1131,20 +1130,24 @@ main {
             padding-bottom: 50px;
         }
 
-        &--colored {
+        // &--colored {
+        //     @include customVar(background-color, paletteColor0);
+        // }
+
+        // &--colored1 {
+        //     @include customVar(background-color, paletteColor1);
+        // }
+
+        // &--colored2 {
+        //     @include customVar(background-color, paletteColor0);
+        // }
+
+        // &--colored3 {
+        //     @include customVar(background-color, paletteColor1);
+        // }
+
+        &:nth-child(even) {
             @include customVar(background-color, paletteColor0);
-        }
-
-        &--colored1 {
-            @include customVar(background-color, paletteColor1);
-        }
-
-        &--colored2 {
-            @include customVar(background-color, paletteColor0);
-        }
-
-        &--colored3 {
-            @include customVar(background-color, paletteColor1);
         }
 
         @media screen and (max-width: 1024px) {

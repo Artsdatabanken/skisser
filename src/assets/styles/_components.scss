@@ -120,8 +120,8 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 40px;
-    min-height: 38px;
-    padding: 0 18px;
+    min-height: 40px;
+    padding: 0 22px;
     text-align: center;
     width: auto;
 
@@ -139,10 +139,9 @@
     }
 
     &--primary {
-        @include customVar(background-color, clrAqua5);
-        @include customVar(border-color, clrAqua5);
+        @include customVar(background-color, clrPrimary);
+        @include customVar(border-color, clrPrimary);
         @include customVar(color, clrWhite);
-        font-weight: 400;
         text-align: center !important;
     }
 
