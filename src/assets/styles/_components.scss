@@ -55,7 +55,7 @@
         color: inherit;
         font-size: 24px;
         font-size: 21px;
-        font-weight: 400 !important;
+        font-weight: 500 !important;
         order: 2;
 
         @media screen and (max-width: 1024px) {
@@ -120,7 +120,7 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 40px;
-    min-height: 40px;
+    min-height: 38px;
     padding: 0 18px;
     text-align: center;
     width: auto;
@@ -157,16 +157,16 @@
     &--cta {
         @include customVar(background-color, clrPrimary);
         @include customVar(border-color, clrPrimary);
-        @include customVar(color, clrBlack);
+        @include customVar(color, clrWhite);
     }
 
     &--xl {
         display: inline-block;
-        font-size: 36px;
+        font-size: 32px;
         font-weight: 400;
-        line-height: 67px;
-        min-height: 76px;
-        padding: 0 36px;
+        //line-height: 67px;
+        //min-height: 76px;
+        padding: 17px 46px;
 
         @media screen and (max-width: 1024px) {
             font-size: 28px;
@@ -312,7 +312,6 @@
             padding-right: 5px;
             width: 17px;
         }
-
     }
 
     &:active,
@@ -456,7 +455,7 @@
         font-size: 18px;
         font-weight: 400 !important;
         padding: 0 30px 10px;
-        margin: 5px 0 10px !important;
+        margin: 5px 0 15px !important;
         order: 2;
 
         @media screen and (max-width: 1024px) {
@@ -488,6 +487,10 @@
             background-image: url(../images/gallery/frog.jpg);
         }
 
+        &--4{
+            background-image: url(../images/gallery/leopard2.jpg);
+        }
+
         &--5 {
             background-image: url(../images/gallery/bear.jpg);
         }
@@ -497,17 +500,35 @@
             background-image: url(../images/iconNoImage.png);
             background-size: 98px;
         }
+
+        &--noImg1 {
+            @include customVar(background-color, clrWash);
+            background-image: url(../images/gallery/artPa.png);
+            background-size: 128px;
+        }
+
+        &--noImg2 {
+            @include customVar(background-color, clrWash);
+            background-image: url(../images/gallery/artP.png);
+            background-size: 68px;
+        }
+
+        &--noImg3 {
+            @include customVar(background-color, clrWash);
+            background-image: url(../images/gallery/artAR.png);
+            background-size: 128px;
+        }
     }
 
     &__copyright {
         font-size: 14px;
-        display: inline-block;
         font-weight: 600;
         height: 20px;
         line-height: 20px;
-        margin-bottom: 15px;
+        margin: 15px 0 5px;
         order: 3;
-        vertical-align: bottom;
+        padding-left: 22px;
+        position: relative;
 
         &::before {
             background-image: url(../images/iconCamera.png);
@@ -516,10 +537,14 @@
             background-size: contain;
             content: "";
             display: inline-block;
+            display: block;
+            line-height: 1;
             height: 20px;
             margin-right: 4px;
-            vertical-align: top;
             width: 16px;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
     }
 
@@ -532,7 +557,7 @@
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "one one" "two three";
         font-size: 17px;
-        font-weight: 500;
+        font-weight: 700;
         padding: 15px 30px 30px;
         order: 3;
 
@@ -604,7 +629,9 @@
     }
 
     &__details {
-        margin-bottom: 20px;
+        line-height: 1;
+        margin: 10px 0 20px;
+        padding: 0;
         order: 3;
 
         & > * {
@@ -614,20 +641,25 @@
     }
 
     &__tag {
-        @include customVar(background-color, clrAccent);
-        border-radius: 6px;
-        border-bottom-right-radius: 0;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 5px 0;
-        padding: 3px 11px 3px;
+        font-size: 16px;
+        font-weight: 800;
+
+        &:after {
+            @include customVar(background-color, clrBlack);
+            content: "";
+            display: inline-block;
+            margin: 0 8px;
+            height: 2px;
+            width: 45px;
+            position: relative;
+            top: -3px;
+        }
     }
 
     &__date {
-        @include customVar(font-family, fontSecondary);
+        //@include customVar(font-family, fontSecondary);
         font-size: 16px;
-        font-weight: 700;
-        margin-left: 10px;
+        font-weight: 800;
     }
 
     &__text {

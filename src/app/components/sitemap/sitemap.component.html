@@ -1,1 +1,24 @@
-<p>sitemap works!</p>
+<div class="page page--landing">
+
+    <header class="page__header"></header>
+
+
+    <div class="page__intro">
+        <p>
+            Tekst.
+        </p>
+    </div>
+
+    <div class="page__content">
+
+        <div *ngFor="let link of menuItems">
+            {{link.data.text}}
+        </div>
+
+
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>

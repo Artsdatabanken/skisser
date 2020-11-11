@@ -348,8 +348,8 @@
 
         &--special {
             border: none;
-            font-weight: 500;
-            padding: 0 0 5px;
+            font-weight: 600;
+            padding: 0 0 7px;
 
             &::before {
                 content: none !important;
@@ -446,7 +446,7 @@
         font-size: 20px;
 
         @media screen and (max-width: 1921px) {
-            font-size: 19px;
+            font-size: 18px;
         }
 
         @media screen and (max-width: 1600px) {
@@ -459,12 +459,11 @@
 
         &::after,
         &:after {
-            @include customVar(border-bottom-color, paletteColor4);
-            border-bottom-style: solid;
-            border-bottom-width: 3px;
+            @include customVar(background-color, clrBlack);
             content: "";
             display: block;
-            height: 2px;
+            height: 3px;
+            margin-top: -3px;
             transition: width 0.3s;
             width: 0;
         }
@@ -495,7 +494,7 @@
         background-repeat: no-repeat;
         display: inline-block;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
         margin: 0;
         vertical-align: middle;
 
@@ -724,7 +723,7 @@
 
     a {
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 600;
     }
 }
 
@@ -747,12 +746,13 @@ main {
     &__intro {
         font-size: 24px;
         font-size: 25px;
-        font-size: 700;
+        font-size: 800;
         margin-bottom: 30px;
 
         p {
             font-size: inherit;
-            font-weight: 600 !important;
+            font-weight: 700 !important;
+            line-height: 1.5;
             margin: 0;
         }
     }

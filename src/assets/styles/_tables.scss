@@ -2,7 +2,7 @@
 
 table {
     border-collapse: collapse;
-    font-size: 19px;
+    font-size: 18px;
     width: 100%;
 
     caption {
@@ -15,6 +15,7 @@ table {
         @include customVar(border-bottom-color, paletteColor1);
         @include customVar(font-family, fontSecondary);
         border-bottom: 2px solid #48c9b0;
+        font-size: 20px;
         font-weight: 700;
         padding: 10px;
         text-align: left;
