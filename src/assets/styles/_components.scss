@@ -438,6 +438,7 @@
 
 .item {
     @include customVar(background-color, paletteColor0);
+    background-color: #e9f7ef;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -550,6 +551,7 @@
 
     &__details {
         @include customVar(border-top-color, paletteColor1);
+        border-top-color: #D1F2EB;
         border-top-style: solid;
         border-top-width: 2px;
         display: grid;
