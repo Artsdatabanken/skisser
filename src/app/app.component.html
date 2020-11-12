@@ -5,6 +5,7 @@
     <div class="layout__header">
         <app-header></app-header>
         <!-- <app-breadcrumbs class="" *ngIf="pageLayout !== 'frontpage'"></app-breadcrumbs> -->
+        <app-subheader></app-subheader>
     </div>
 
     <div class="layout__main">
@@ -21,7 +22,6 @@
             <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
 
             <router-outlet></router-outlet>
-            <router-outlet name="child"></router-outlet>
 
         </main>
 

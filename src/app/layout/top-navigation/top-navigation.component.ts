@@ -13,6 +13,7 @@ export class TopNavigationComponent implements OnInit {
 
   //topMenu$: Observable<string[]>;
   topMenu: any[];
+  showTopmenu: boolean = false;
 
   @Input() ariaLabel: string;
   @Input() location: string;
@@ -30,6 +31,10 @@ export class TopNavigationComponent implements OnInit {
 
   getStyle(id: string): string {
     return `top-navigation__link--${id}`;
+  }
+
+  toggle(): void {
+    this.showTopmenu = !this.showTopmenu;
   }
 
 }

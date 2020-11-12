@@ -12,8 +12,6 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class BreadcrumbsComponent implements OnInit {
 
-  // public breadcrumbs: Breadcrumb[];
-
   breadcrumbs: any[] = [];
   isHome: boolean;
   routes: Route[] = [];
@@ -54,7 +52,6 @@ export class BreadcrumbsComponent implements OnInit {
         this.breadcrumbs = breadcrumbs;
 
       });
-
 
   }
 

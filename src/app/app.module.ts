@@ -76,6 +76,8 @@ import { ExtraNavigationComponent } from './layout/extra-navigation/extra-naviga
 import { CategoryRedlistedComponent } from './components/shared/non-dummy/category-redlisted/category-redlisted.component';
 import { CategoryAlienComponent } from './components/shared/non-dummy/category-alien/category-alien.component';
 import { from } from 'rxjs';
+import { SubheaderComponent } from './layout/subheader/subheader.component';
+import { SessionComponent } from './components/session/session.component';
 
 @NgModule({
   declarations: [
@@ -149,7 +151,9 @@ import { from } from 'rxjs';
     FellowObserversComponent,
     ExtraNavigationComponent,
     CategoryRedlistedComponent,
-    CategoryAlienComponent
+    CategoryAlienComponent,
+    SubheaderComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

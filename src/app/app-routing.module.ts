@@ -38,6 +38,13 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
+/*
+
+DOCUMENTATION:
+* Husk at siste segment i path (url) må være lik id-property under data
+
+*/
+
 const homeRoutes: Routes = [
   {
     path: '',
@@ -53,20 +60,20 @@ const homeRoutes: Routes = [
       metaDescription: ''
     }
   },
-  {
-    path: 'home',
-    component: HomeComponent,
-    data: {
-      text: '',
-      id: 'frontpage',
-      layout: 'frontpage',
-      rank: '',
-      parent: '',
-      menu: '',
-      metaTitle: 'Artsobservasjoner',
-      metaDescription: ''
-    }
-  },
+  // {
+  //   path: '',
+  //   component: HomeComponent,
+  //   data: {
+  //     text: '',
+  //     id: 'frontpage',
+  //     layout: 'frontpage',
+  //     rank: '',
+  //     parent: '',
+  //     menu: '',
+  //     metaTitle: 'Artsobservasjoner',
+  //     metaDescription: ''
+  //   }
+  // },
 ];
 
 const reportRoutes: Routes = [
@@ -219,7 +226,7 @@ const observationRoutes: Routes = [
     component: QualityAssuredDataComponent,
     data: {
       text: 'Kvalitetssikrede data',
-      id: 'quality-assured-data',
+      id: 'quality-checked-data',
       layout: 'text',
       rank: 'secondary',
       parent: 'statistics',
