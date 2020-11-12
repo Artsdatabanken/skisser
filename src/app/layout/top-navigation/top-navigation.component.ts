@@ -35,6 +35,8 @@ export class TopNavigationComponent implements OnInit {
 
   toggle(): void {
     this.showTopmenu = !this.showTopmenu;
+
+    console.log('show', this.showTopmenu)
   }
 
 }

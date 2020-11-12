@@ -14,16 +14,34 @@
 <!--desktop-->
 <nav class="top-navigation" *ngIf="location === 'header'">
 
-    <a class="top-navigation__link" [class]="getStyle(link.data.id)" routerLinkActive="top-navigation__link--active"
+    <!-- <a class="top-navigation__link" [class]="getStyle(link.data.id)" routerLinkActive="top-navigation__link--active"
         routerLink="{{ link.path }}" *ngFor="let link of topMenu">
         <span class="top-navigation__label"> {{ link.data.text }}</span>
-    </a>
-
-
+    </a> -->
 
     <button class="xx" (click)="toggle()">Min side</button>
 
+    {{ showTopMenu }}
+
+    <div class="account" *ngIf="showTopMenu === true">
+        <button class="button button--sm">Logg inn</button>
+        <div class="account__container">
+            <ul>
+                <li>Min profil</li>
+                <li>Innlogget som <strong>privat bruker</strong>. <button class="button button--xxs button--styleless">Bytte rolle?</button></li>
+                <li>Innlogget som <strong>Navn Navnesen</strong>. Logg ut?</li>
+            </ul>
+        </div>
+    </div>
+
+    
 </nav>
 <!--desktop-->
+
+
+<!--my account-->
+
+
+<!--my account-->
 
 <!--layout component-->

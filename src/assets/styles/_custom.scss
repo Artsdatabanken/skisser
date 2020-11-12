@@ -810,3 +810,27 @@ $orange: #514942;
         }
     }
 }
+
+// account
+
+.account {
+    background: beige;
+    font-size: 16px;
+    padding: 30px;
+    position: relative;
+    top: 180px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    li {
+        margin: 0;
+        padding: 0;
+
+        &:last-child {
+            border-top: 2px solid lightgrey;
+        }
+    }
+}
