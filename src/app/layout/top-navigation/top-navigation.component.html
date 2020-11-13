@@ -24,7 +24,7 @@
 
         <span *ngIf="!isLoggedIn">Logg inn</span>
         <span *ngIf="isLoggedIn">Min side</span>
-        
+
         <!-- <span *ngIf="!isLoggedIn; else minside">Logg inn</span> -->
         <!-- <ng-container #minside>Min side</ng-container> -->
 
@@ -77,7 +77,10 @@
         <hr *ngIf="isLoggedIn">
 
         <div class="dashboard-pane__item dashboard-pane__item--tall" *ngIf="isLoggedIn">
-            Innlogget som <strong>Navn Navnesen</strong>. <button class="" (click)="logout()">Logge
+            Innlogget som <strong>Navn Navnesen</strong>.
+            <br>
+            <br>
+            <button class="button button--xs" (click)="logout()">Logge
                 ut?</button>
         </div>
 
