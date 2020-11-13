@@ -522,20 +522,28 @@
 
         &--user-profile {
             background-image: url(../images/iconUser.png);
+            background-position: left 15px center;
             background-size: 18px;
-            padding: 0 30px 0 28px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 0 15px 0 28px;
+            text-align: center;
 
             // when button
             @include customVar(font-family, fontPrimary);
             border: none;
-            border: 1px solid black;
-            padding: 5px 30px 5px 28px;
+            padding: 15px 30px 15px 28px;
             height: 100%;
             width: 100%;
+
+            &:focus {
+                border: none;
+                outline: 0;
+            }
         }
 
         &--active {
-            background-color: #d1f2eb;
+            @include customVar(background-color, paletteColor1);
         }
     }
 
@@ -545,39 +553,74 @@
 
 .dashboard-pane {
     background: #d1f2eb;
-    font-size: 16px;
+    @include customVar(background-color, paletteColor1);
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    font-size: 17px;
     //padding: 30px;
+    padding: 15px 0;
+    transform: translateY(-1500vh); /*change here related your menu height*/
     position: absolute;
-    top: 35px;
-    left: -10vw;
+    top: 46px;
+    left: -13vw;
+    right: 0;
 
     &--open {
-        background: fuchsia;
         display: block;
+        transform: translateY(0);
     }
 
-    div {
+    &__item {
         margin: 0;
-        padding: 7px 30px;
+        padding: 1px 30px;
 
-        &:first-child {
-            border-bottom: 2px solid #a3e4d7;
-            padding: 15px 30px;
+        &--first {
+            font-size: 16px;
         }
 
-        &:last-child {
-            border-top: 2px solid #a3e4d7;
+        &--tall {
             padding: 15px 30px;
         }
+    }
+
+    form > div {
+        margin: 5px 0 15px;
+    }
+
+    input {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 9px 12px;
+
+        &:focus {
+            outline: none;
+            padding: 9px 12px;
+        }
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    ::placeholder {
+        font-size: inherit;
     }
 
     a {
+        color: inherit;
         border-color: transparent;
+        font-weight: 700;
+    }
+
+    strong {
         font-weight: 600;
     }
 
     button[class] {
-        width: 100%;
+        //width: 100%;
     }
 
     button:not([class]) {
@@ -585,9 +628,21 @@
         background: transparent;
         border-color: transparent;
         font-size: inherit;
-        font-weight: 600;
+        font-weight: 700;
         margin: 0;
         padding: 0;
+    }
+
+    hr {
+        @include customVar(background-color, paletteColor2);
+        background-position: center center;
+        background-repeat: repeat-x;
+        background-size: 2px;
+        border: 0;
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        width: 100%;
     }
 }
 

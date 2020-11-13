@@ -102,6 +102,10 @@ form {
     }
 }
 
+button {
+    @include customVar(color, clrBlack);
+}
+
 select {
     @extend input;
     @include customVar(background-color, clrWhite);

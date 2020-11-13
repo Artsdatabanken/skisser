@@ -196,6 +196,19 @@
         }
     }
 
+    &--xs {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+        min-height: initial;
+        padding: 9px 22px;
+        width: auto;
+        
+        @media screen and (max-width: 1024px) {
+            font-size: 28px;
+        }
+    }
+
     &--xxs {
         font-size: 14px;
         font-weight: 700;

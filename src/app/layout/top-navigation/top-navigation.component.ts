@@ -14,6 +14,7 @@ export class TopNavigationComponent implements OnInit {
   //topMenu$: Observable<string[]>;
   topMenu: any[];
   showDashboardPane: boolean = false;
+  isLoggedIn: boolean = false;
 
   @Input() ariaLabel: string;
   @Input() location: string;
@@ -37,6 +38,16 @@ export class TopNavigationComponent implements OnInit {
     this.showDashboardPane = !this.showDashboardPane;
 
     console.log('show', this.showDashboardPane)
+  }
+
+  // fake login
+
+  login(): boolean {
+    return this.isLoggedIn = true
+  }
+
+  logout(): boolean {
+    return this.isLoggedIn = false;
   }
 
 }
