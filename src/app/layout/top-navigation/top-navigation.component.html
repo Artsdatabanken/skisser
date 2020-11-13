@@ -19,27 +19,40 @@
         <span class="top-navigation__label"> {{ link.data.text }}</span>
     </a> -->
 
-    <button class="xx" (click)="toggle()">Min side</button>
+    <button class="top-navigation__link top-navigation__link--user-profile"
+        [ngClass]="{'top-navigation__link--active': showDashboardPane}" (click)="toggleDashboard()">Min
+        side</button>
 
-    {{ showTopMenu }}
+    <div class="dashboard-pane" [ngClass]="{'dashboard-pane--open': showDashboardPane}">
 
-    <div class="account" *ngIf="showTopMenu === true">
-        <button class="button button--sm">Logg inn</button>
-        <div class="account__container">
-            <ul>
-                <li>Min profil</li>
-                <li>Innlogget som <strong>privat bruker</strong>. <button class="button button--xxs button--styleless">Bytte rolle?</button></li>
-                <li>Innlogget som <strong>Navn Navnesen</strong>. Logg ut?</li>
-            </ul>
+        <div>
+            <button class="button button--sm button--primary">Logg inn</button>
+            <br><br>
+            Ny bruker? <a routerLink="/register">Registrer deg nå</a>
         </div>
+
+        <div><a class="top-navigation__link" routerLink="/user-profile">Min profil</a></div>
+
+        <div><a class="top-navigation__link top-navigation__link--messages" routerLink="/messages">Meldinger</a></div>
+
+        <div>
+            Innlogget som <strong>privat bruker</strong>. <button class="">Bytte rolle?</button>
+        </div>
+
+        <div>
+            Innlogget som <strong>Navn Navnesen</strong>. <button class="">Logge
+                ut?</button>
+        </div>
+
+
     </div>
 
-    
 </nav>
 <!--desktop-->
 
 
 <!--my account-->
+
 
 
 <!--my account-->

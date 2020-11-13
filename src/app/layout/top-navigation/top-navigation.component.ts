@@ -13,7 +13,7 @@ export class TopNavigationComponent implements OnInit {
 
   //topMenu$: Observable<string[]>;
   topMenu: any[];
-  showTopmenu: boolean = false;
+  showDashboardPane: boolean = false;
 
   @Input() ariaLabel: string;
   @Input() location: string;
@@ -33,10 +33,10 @@ export class TopNavigationComponent implements OnInit {
     return `top-navigation__link--${id}`;
   }
 
-  toggle(): void {
-    this.showTopmenu = !this.showTopmenu;
+  toggleDashboard(): void {
+    this.showDashboardPane = !this.showDashboardPane;
 
-    console.log('show', this.showTopmenu)
+    console.log('show', this.showDashboardPane)
   }
 
 }

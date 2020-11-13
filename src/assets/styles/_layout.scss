@@ -58,7 +58,9 @@
         &--top-menu {
             align-self: center;
             grid-area: headerTopMenu;
-            justify-self: center;
+            justify-self: flex-end;
+
+            align-self: center;
 
             @media screen and (max-width: 1023px) {
                 display: none;
@@ -484,15 +486,19 @@
 }
 
 .top-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
     margin-right: 30px;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
 
     &__link {
         background-position: left center;
         background-repeat: no-repeat;
-        display: inline-block;
+        //display: inline-block;
         font-size: 16px;
         font-weight: 600;
         margin: 0;
@@ -518,11 +524,71 @@
             background-image: url(../images/iconUser.png);
             background-size: 18px;
             padding: 0 30px 0 28px;
+
+            // when button
+            @include customVar(font-family, fontPrimary);
+            border: none;
+            border: 1px solid black;
+            padding: 5px 30px 5px 28px;
+            height: 100%;
+            width: 100%;
+        }
+
+        &--active {
+            background-color: #d1f2eb;
         }
     }
 
-    ///////@extend
+    ///////
     position: relative;
+}
+
+.dashboard-pane {
+    background: #d1f2eb;
+    font-size: 16px;
+    //padding: 30px;
+    position: absolute;
+    top: 35px;
+    left: -10vw;
+
+    &--open {
+        background: fuchsia;
+        display: block;
+    }
+
+    div {
+        margin: 0;
+        padding: 7px 30px;
+
+        &:first-child {
+            border-bottom: 2px solid #a3e4d7;
+            padding: 15px 30px;
+        }
+
+        &:last-child {
+            border-top: 2px solid #a3e4d7;
+            padding: 15px 30px;
+        }
+    }
+
+    a {
+        border-color: transparent;
+        font-weight: 600;
+    }
+
+    button[class] {
+        width: 100%;
+    }
+
+    button:not([class]) {
+        @include customVar(font-family, fontPrimary);
+        background: transparent;
+        border-color: transparent;
+        font-size: inherit;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 // subheader

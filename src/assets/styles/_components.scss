@@ -139,8 +139,8 @@
     }
 
     &--primary {
-        @include customVar(background-color, clrPrimary);
-        @include customVar(border-color, clrPrimary);
+        @include customVar(background-color, clrBlack);
+        @include customVar(border-color, clrBlack);
         @include customVar(color, clrWhite);
         text-align: center !important;
     }
@@ -179,6 +179,18 @@
         min-height: 76px;
         padding: 0 36px;
 
+        @media screen and (max-width: 1024px) {
+            font-size: 28px;
+        }
+    }
+
+    &--sm {
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 36px;
+        min-height: 36px;
+        padding: 0 22px;
+        
         @media screen and (max-width: 1024px) {
             font-size: 28px;
         }
