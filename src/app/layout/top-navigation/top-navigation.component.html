@@ -70,16 +70,11 @@
         <br *ngIf="isLoggedIn">
         <hr *ngIf="isLoggedIn">
 
-        <div class="dashboard-pane__item  dashboard-pane__item--tall" *ngIf="isLoggedIn">
-            Innlogget som <strong>privat bruker</strong>. <button class="">Bytte rolle?</button>
-        </div>
-
-        <hr *ngIf="isLoggedIn">
-
         <div class="dashboard-pane__item dashboard-pane__item--tall" *ngIf="isLoggedIn">
-            Innlogget som <strong>Navn Navnesen</strong>.
+            Innlogget som <strong>Navn Navnesen</strong> med rollen som <strong>privat bruker</strong>.
             <br>
             <br>
+            <button class="">Bytte rolle?</button>&nbsp;&nbsp;
             <button class="button button--xs" (click)="logout()">Logge
                 ut?</button>
         </div>
