@@ -617,16 +617,18 @@
 
     a {
         color: inherit;
-        border-color: transparent;
+        //border-color: transparent;
         font-weight: 700;
     }
 
     strong {
-        font-weight: 600;
+        font-weight: 700;
     }
 
     button[class] {
         //width: 100%;
+        margin: 0 auto;
+        text-align: center;
     }
 
     button:not([class]) {

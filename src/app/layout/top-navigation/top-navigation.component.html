@@ -12,7 +12,7 @@
 <!--mobil-->
 
 <!--desktop-->
-<nav class="top-navigation" *ngIf="location === 'header'">
+<nav class="top-navigation" *ngIf="location === 'header'" (clickElsewhere)="closeDashboard()">
 
     <!-- <a class="top-navigation__link" [class]="getStyle(link.data.id)" routerLinkActive="top-navigation__link--active"
         routerLink="{{ link.path }}" *ngFor="let link of topMenu">
@@ -20,7 +20,7 @@
     </a> -->
 
     <button class="top-navigation__link top-navigation__link--user-profile"
-        [ngClass]="{'top-navigation__link--active': showDashboardPane}" (click)="toggleDashboard()">
+        [ngClass]="{'top-navigation__link--active': showDashboardPane}" (click)="toggleDashboard()" #toggleDashboardButton>
 
         <span *ngIf="!isLoggedIn">Logg inn</span>
         <span *ngIf="isLoggedIn">Min side</span>
@@ -30,7 +30,7 @@
 
     </button>
 
-    <div class="dashboard-pane" [ngClass]="{'dashboard-pane--open': showDashboardPane}">
+    <div class="dashboard-pane" [ngClass]="{'dashboard-pane--open': showDashboardPane}" #dashboard>
 
         <div class="dashboard-pane__item dashboard-pane__item--tall dashboard-pane__item--first" *ngIf="!isLoggedIn">
             <!-- <button class="button button--sm button--primary" (click)="login()">Logg inn</button>
@@ -43,7 +43,7 @@
                 <label for="">Passord</label>
                 <input type="password" placeholder="Angi passord">
 
-                <div style="font-size: 14px;">Glemt brukernavn eller passord?</div>
+                <div style="font-size: 14px; margin-top: 5px; text-align: center;">Glemt brukernavn eller passord?</div>
 
                 <button class="button button--xs button--primary" (click)="login()">Logg inn</button>
             </form>
@@ -53,7 +53,7 @@
         <hr *ngIf="!isLoggedIn">
 
         <div class="dashboard-pane__item dashboard-pane__item--tall" *ngIf="!isLoggedIn">
-            Ny bruker? <a routerLink="/register">Registrer deg nå</a>
+            Ny bruker? &nbsp;<a routerLink="/register">Registrer deg nå</a>
         </div>
 
         <div class="dashboard-pane__item" *ngIf="isLoggedIn">
@@ -74,9 +74,11 @@
             Innlogget som <strong>Navn Navnesen</strong> med rollen som <strong>privat bruker</strong>.
             <br>
             <br>
-            <button class="">Bytte rolle?</button>&nbsp;&nbsp;
-            <button class="button button--xs" (click)="logout()">Logge
-                ut?</button>
+            <div class="aligncenter">
+                <button class="button button--xs">Bytte rolle?</button>&nbsp;&nbsp;
+                <button class="button button--xs button--cta" (click)="logout()">Logge
+                    ut?</button>
+            </div>
         </div>
 
 

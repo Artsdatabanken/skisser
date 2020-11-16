@@ -32,7 +32,7 @@ import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
+import { TopNavigationComponent, ClickElsewhereDirective } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { FilterComponent } from './components/shared/filter/filter.component';
@@ -75,7 +75,6 @@ import { FellowObserversComponent } from './components/my-data/fellow-observers/
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 import { CategoryRedlistedComponent } from './components/shared/non-dummy/category-redlisted/category-redlisted.component';
 import { CategoryAlienComponent } from './components/shared/non-dummy/category-alien/category-alien.component';
-import { from } from 'rxjs';
 import { SubheaderComponent } from './layout/subheader/subheader.component';
 import { SessionComponent } from './components/session/session.component';
 
@@ -153,7 +152,8 @@ import { SessionComponent } from './components/session/session.component';
     CategoryRedlistedComponent,
     CategoryAlienComponent,
     SubheaderComponent,
-    SessionComponent
+    SessionComponent,
+    ClickElsewhereDirective
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,27 @@
-import { Input } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
+
+@Directive({ selector: '[clickElsewhere]' })
+export class ClickElsewhereDirective {
+
+  @Output() clickElsewhere = new EventEmitter<MouseEvent>();
+
+  constructor(private elementRef: ElementRef) { }
+
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(event: MouseEvent): void {
+
+    const targetElement = event.target as HTMLElement;
+
+    console.log('targetElement', targetElement)
+
+    // Check if the click was outside the element
+    if (targetElement && !this.elementRef.nativeElement.contains(targetElement)) {
+      this.clickElsewhere.emit(event);
+    }
+  }
+}
 
 @Component({
   selector: 'app-top-navigation',
@@ -19,16 +39,13 @@ export class TopNavigationComponent implements OnInit {
   @Input() ariaLabel: string;
   @Input() location: string;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(
+    private navigationService: NavigationService
+  ) { }
 
   ngOnInit(): void {
-    //this.topMenu$ = this.navigationService.getTopMenuItems();
     this.topMenu = this.navigationService.getTopMenu();
   }
-
-  // getStyle(style: string): string {
-  //   return this.navigationService.getStyle(style, null);
-  // }
 
   getStyle(id: string): string {
     return `top-navigation__link--${id}`;
@@ -37,17 +54,23 @@ export class TopNavigationComponent implements OnInit {
   toggleDashboard(): void {
     this.showDashboardPane = !this.showDashboardPane;
 
-    console.log('show', this.showDashboardPane)
+    //console.log('show', this.showDashboardPane)
   }
 
   // fake login
 
   login(): boolean {
+    this.showDashboardPane = true;
     return this.isLoggedIn = true
   }
 
   logout(): boolean {
     return this.isLoggedIn = false;
+  }
+
+  closeDashboard(): void {
+    console.log('cerrado')
+    this.showDashboardPane = false;
   }
 
 }
