@@ -36,8 +36,6 @@
             <!-- <button class="button button--sm button--primary" (click)="login()">Logg inn</button>
             <br><br> -->
 
-
-
             <form action="">
                 <label for="">E-post</label>
                 <input type="text" placeholder="Angi e-post">
@@ -45,12 +43,10 @@
                 <label for="">Passord</label>
                 <input type="password" placeholder="Angi passord">
 
-                <div class=""><small>Glemt brukernavn eller passord?</small></div>
+                <div style="font-size: 14px;">Glemt brukernavn eller passord?</div>
 
                 <button class="button button--xs button--primary" (click)="login()">Logg inn</button>
             </form>
-
-
 
         </div>
 
@@ -60,12 +56,16 @@
             Ny bruker? <a routerLink="/register">Registrer deg nå</a>
         </div>
 
-        <div class="dashboard-pane__item" *ngIf="isLoggedIn"><a class="top-navigation__link"
-                routerLink="/user-profile">Min profil</a>
+        <div class="dashboard-pane__item" *ngIf="isLoggedIn">
+            <a class="top-navigation__link" routerLink="/user-profile">Min profil</a>
         </div>
 
-        <div class="dashboard-pane__item" *ngIf="isLoggedIn"><a class="top-navigation__link"
-                routerLink="/messages">Meldinger &nbsp;<span style="color: red; font-weight: 700;">4</span></a></div>
+        <div class="dashboard-pane__item dashboard-pane__item--messages" *ngIf="isLoggedIn">
+            <a class="top-navigation__link top-navigation__link--messages" routerLink="/messages">
+                Meldinger
+            </a>
+            <span style="color: red; font-weight: 700;">4 </span>
+        </div>
 
         <br *ngIf="isLoggedIn">
         <hr *ngIf="isLoggedIn">
