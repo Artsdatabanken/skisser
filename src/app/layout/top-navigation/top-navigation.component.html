@@ -12,29 +12,20 @@
 <!--mobil-->
 
 <!--desktop-->
-<nav class="top-navigation" *ngIf="location === 'header'" (clickElsewhere)="closeDashboard()">
-
-    <!-- <a class="top-navigation__link" [class]="getStyle(link.data.id)" routerLinkActive="top-navigation__link--active"
-        routerLink="{{ link.path }}" *ngFor="let link of topMenu">
-        <span class="top-navigation__label"> {{ link.data.text }}</span>
-    </a> -->
+<nav class="top-navigation" *ngIf="location === 'header'">
 
     <button class="top-navigation__link top-navigation__link--user-profile"
-        [ngClass]="{'top-navigation__link--active': showDashboardPane}" (click)="toggleDashboard()" #toggleDashboardButton>
+        [ngClass]="{'top-navigation__link--active': showDashboardPane}" (click)="toggleDashboard()"
+        #toggleDashboardButton>
 
         <span *ngIf="!isLoggedIn">Logg inn</span>
         <span *ngIf="isLoggedIn">Min side</span>
-
-        <!-- <span *ngIf="!isLoggedIn; else minside">Logg inn</span> -->
-        <!-- <ng-container #minside>Min side</ng-container> -->
 
     </button>
 
     <div class="dashboard-pane" [ngClass]="{'dashboard-pane--open': showDashboardPane}" #dashboard>
 
         <div class="dashboard-pane__item dashboard-pane__item--tall dashboard-pane__item--first" *ngIf="!isLoggedIn">
-            <!-- <button class="button button--sm button--primary" (click)="login()">Logg inn</button>
-            <br><br> -->
 
             <form action="">
                 <label for="">E-post</label>
@@ -57,11 +48,11 @@
         </div>
 
         <div class="dashboard-pane__item" *ngIf="isLoggedIn">
-            <a class="top-navigation__link" routerLink="/user-profile">Min profil</a>
+            <a class="top-navigation__link" routerLink="/user-profile" detectClick>Min profil</a>
         </div>
 
         <div class="dashboard-pane__item dashboard-pane__item--messages" *ngIf="isLoggedIn">
-            <a class="top-navigation__link top-navigation__link--messages" routerLink="/messages">
+            <a class="top-navigation__link top-navigation__link--messages" routerLink="/messages" detectClick>
                 Meldinger
             </a>
             <span style="color: red; font-weight: 700;">4 </span>
@@ -71,11 +62,20 @@
         <hr *ngIf="isLoggedIn">
 
         <div class="dashboard-pane__item dashboard-pane__item--tall" *ngIf="isLoggedIn">
-            Innlogget som <strong>Navn Navnesen</strong> med rollen som <strong>privat bruker</strong>.
+            Innlogget som <strong>Navn Navnesen</strong> med rolle som <strong>privat bruker</strong>.
             <br>
             <br>
             <div class="aligncenter">
-                <button class="button button--xs">Bytte rolle?</button>&nbsp;&nbsp;
+                <!-- <button class="button button--xs">Bytte rolle?</button>&nbsp;&nbsp; -->
+                <select name="" id="changeRole">
+                    <option value="">Bytte rolle?</option>
+                    <option value="">Rolle 1</option>
+                    <option value="">Rolle 2</option>
+                    <option value="">Rolle 4</option>
+                    <option value="">Rolle 5</option>
+                    <option value="">Rolle 6</option>
+                </select>
+                &nbsp;&nbsp;
                 <button class="button button--xs button--cta" (click)="logout()">Logge
                     ut?</button>
             </div>

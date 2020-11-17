@@ -604,6 +604,22 @@
         }
     }
 
+    select {
+        background: transparent;
+        padding: 7px 12px 5px;
+
+        &:focus {
+            outline: none;
+            padding: 7px 12px 5px;
+        }
+
+        option {
+            @include customVar(font-family, fontPrimary);
+            max-height: calc(1.2em + 24px);
+            height: calc(1.2em + 24px);
+        }
+    }
+
     label {
         font-size: 14px;
         font-weight: 600;

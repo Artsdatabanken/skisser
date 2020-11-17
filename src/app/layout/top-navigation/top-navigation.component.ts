@@ -1,4 +1,5 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Directive, ElementRef, EventEmitter, HostListener, Inject, Input, Output, Renderer2 } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service';
 
@@ -21,6 +22,19 @@ export class ClickElsewhereDirective {
       this.clickElsewhere.emit(event);
     }
   }
+}
+
+@Directive({ selector: '[detectClick]' }) // TODO: CREATE A MORE GENERIC DIRECTIVE FOR REUSE
+export class DetectClickDirective {
+
+  @HostListener('click') onClick() {
+    this.host.showDashboardPane = false;
+  }
+
+  constructor(
+    private host: TopNavigationComponent
+  ) { }
+
 }
 
 @Component({
@@ -65,6 +79,7 @@ export class TopNavigationComponent implements OnInit {
   }
 
   logout(): boolean {
+    this.showDashboardPane = false;
     return this.isLoggedIn = false;
   }
 
