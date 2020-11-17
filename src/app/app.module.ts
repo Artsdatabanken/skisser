@@ -32,14 +32,13 @@ import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { TopNavigationComponent, ClickElsewhereDirective, DetectClickDirective } from './layout/top-navigation/top-navigation.component';
+import { TopNavigationComponent, ClickElsewhereDirective } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { FilterComponent } from './components/shared/filter/filter.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/projects/project/project.component';
 import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
-//import { CloseMenuDirective, MenuComponent } from './layout/menu/menu.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { ObservationsComponent } from './components/observations/observations.component';
@@ -52,7 +51,6 @@ import { MessageComponent } from './components/messages/message/message.componen
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MenuDirective } from './helpers/menu.directive';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
-// import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
 import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
 import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
 import { TosComponent } from './components/about/tos/tos.component';
@@ -77,6 +75,7 @@ import { CategoryRedlistedComponent } from './components/shared/non-dummy/catego
 import { CategoryAlienComponent } from './components/shared/non-dummy/category-alien/category-alien.component';
 import { SubheaderComponent } from './layout/subheader/subheader.component';
 import { SessionComponent } from './components/session/session.component';
+import { ClosePaneDirective } from './helpers/close-pane.directive';
 
 @NgModule({
   declarations: [
@@ -119,7 +118,6 @@ import { SessionComponent } from './components/session/session.component';
     CreateProjectComponent,
     MenuComponent,
     LoginButtonComponent,
-    //CloseMenuDirective,
     ObservationsComponent,
     ReportComponent,
     TeaserComponent,
@@ -154,7 +152,7 @@ import { SessionComponent } from './components/session/session.component';
     SubheaderComponent,
     SessionComponent,
     ClickElsewhereDirective,
-    DetectClickDirective
+    ClosePaneDirective
   ],
   imports: [
     BrowserModule,

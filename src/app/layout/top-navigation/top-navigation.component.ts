@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Directive, ElementRef, EventEmitter, HostListener, Inject, Input, Output, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service';
 
@@ -24,19 +23,6 @@ export class ClickElsewhereDirective {
   }
 }
 
-@Directive({ selector: '[detectClick]' }) // TODO: CREATE A MORE GENERIC DIRECTIVE FOR REUSE
-export class DetectClickDirective {
-
-  @HostListener('click') onClick() {
-    this.host.showDashboardPane = false;
-  }
-
-  constructor(
-    private host: TopNavigationComponent
-  ) { }
-
-}
-
 @Component({
   selector: 'app-top-navigation',
   templateUrl: './top-navigation.component.html',
@@ -45,9 +31,8 @@ export class DetectClickDirective {
 
 export class TopNavigationComponent implements OnInit {
 
-  //topMenu$: Observable<string[]>;
   topMenu: any[];
-  showDashboardPane: boolean = false;
+  // showDashboardPane: boolean = false;
   isLoggedIn: boolean = false;
 
   @Input() ariaLabel: string;
@@ -66,26 +51,26 @@ export class TopNavigationComponent implements OnInit {
   }
 
   toggleDashboard(): void {
-    this.showDashboardPane = !this.showDashboardPane;
+    // this.showDashboardPane = !this.showDashboardPane;
 
-    //console.log('show', this.showDashboardPane)
+    // console.log('show', this.showDashboardPane)
   }
 
   // fake login
 
   login(): boolean {
-    this.showDashboardPane = true;
+    // this.showDashboardPane = true;
     return this.isLoggedIn = true
   }
 
   logout(): boolean {
-    this.showDashboardPane = false;
+    // this.showDashboardPane = false;
     return this.isLoggedIn = false;
   }
 
   closeDashboard(): void {
     console.log('cerrado')
-    this.showDashboardPane = false;
+    // this.showDashboardPane = false;
   }
 
 }

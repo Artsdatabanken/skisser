@@ -489,7 +489,7 @@
     // display: flex;
     // justify-content: space-between;
     // align-items: center;
-    margin-right: 30px;
+    //margin-right: 30px;
 
     position: relative;
     height: 100%;
@@ -522,6 +522,7 @@
         }
 
         &--user-profile {
+            border: 1px solid red;
             background-image: url(../images/iconUser.png);
             background-position: left 15px center;
             background-size: 18px;
@@ -548,8 +549,143 @@
         }
     }
 
+    &__toggle {
+        &--active {
+            @include customVar(background-color, paletteColor1);
+        }
+    }
+
     ///////
-    position: relative;
+    //position: relative;
+}
+
+.dashboard-parent {
+    overflow: hidden;
+}
+
+.dashboard {
+    //overflow: hidden;
+    //position: relative;
+    width: 100%;
+
+    &__label {
+        border: 1px solid red;
+        background: cyan;
+        background-image: url(../images/iconUser.png);
+        background-position: left 15px center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        height: 150px;
+        padding: 15px 15px 15px 40px;
+        text-align: center;
+        width: 100%;
+
+        &:focus {
+            border: none;
+            outline: 0;
+        }
+    }
+
+    &__content {
+        border: 1px solid blue;
+        @include customVar(background-color, paletteColor1);
+        font-size: 16px;
+        padding: 15px 0;
+        position: absolute;
+        top: 35px;
+        left: -15vw;
+        right: 0;
+        //width: 100%;
+        //max-height: 0;
+        // overflow: hidden;
+        // transition: max-height 0.1s ease-out;
+        //transform: translateY(-1500vh); /*change here related your menu height*/
+
+        input[type="text"],
+        input[type="password"] {
+            background: transparent;
+            padding: 9px 20px;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        ::placeholder {
+            color: #555;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        button {
+            font-size: 15px;
+            margin-top: 10px;
+            padding: 9px 20px;
+        }
+
+        a {
+            font-weight: 700;
+        }
+    }
+
+    input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    // :checked
+    input:checked {
+        + .dashboard__label {
+            @include customVar(background-color, paletteColor1);
+            padding: 15px 15px 15px 40px;
+            border: 1px solid red;
+            //position: relative;
+        }
+
+        ~ .dashboard__content {
+            //max-height: 1000vh;
+            // position: absolute;
+            // top: 33px;
+            // left: -13vw;
+            // right: 0;
+
+            transform: translateY(0);
+            transition: max-height 0.9s ease-in;
+        }
+    }
+}
+
+.dashboard-toggle {
+    @include customVar(font-family, fontPrimary);
+    background-image: url(../images/iconUser.png);
+    background-position: left 15px center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 20px 15px 45px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+    &:focus {
+        border: none;
+        outline: 0;
+    }
+
+    &--active {
+        
+    @include customVar(background-color, paletteColor1);
+    }
 }
 
 .dashboard-pane {
@@ -563,7 +699,7 @@
     transform: translateY(-1500vh); /*change here related your menu height*/
     position: absolute;
     top: 46px;
-    left: -13vw;
+    left: -20vw;
     right: 0;
 
     &--open {
@@ -594,6 +730,7 @@
     }
 
     input {
+        @include customVar(background-color, paletteColor1);
         font-size: 14px;
         font-weight: 600;
         padding: 9px 12px;

@@ -132,6 +132,10 @@
 
     // modifiers
 
+    &--wide {
+        width: 100%;
+    }
+
     &--styleless {
         background: transparent !important;
         border: none !important;
@@ -188,7 +192,7 @@
         font-size: 15px;
         font-weight: 500;
         line-height: 36px;
-        min-height: 36px;
+        min-height: 34px;
         padding: 0 22px;
         
         @media screen and (max-width: 1024px) {
