@@ -9,9 +9,9 @@ import { UtilitiesService } from '../services/utilities.service';
 export class ClosePaneDirective {
 
     @HostListener('click') onClick() {
-     this.utilitiesService.closeDashboard();
+        this.utilitiesService.closeDashboard();
     }
 
-    constructor(        private utilitiesService: UtilitiesService    ) { }
+    constructor(private utilitiesService: UtilitiesService) { }
 
 }

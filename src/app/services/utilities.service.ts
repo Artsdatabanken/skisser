@@ -12,7 +12,6 @@ export class UtilitiesService {
 
   constructor() { 
     this.showDashboardPane = false;
-    console.log('service', this.showDashboardPane)
   }
 
   toggleDashboard(): void {
