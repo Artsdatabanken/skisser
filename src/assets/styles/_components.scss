@@ -194,7 +194,7 @@
         line-height: 36px;
         min-height: 34px;
         padding: 0 22px;
-        
+
         @media screen and (max-width: 1024px) {
             font-size: 28px;
         }
@@ -207,7 +207,7 @@
         min-height: initial;
         padding: 9px 22px 7px;
         width: auto;
-        
+
         @media screen and (max-width: 1024px) {
             font-size: 28px;
         }
@@ -529,7 +529,7 @@
             background-image: url(../images/gallery/frog.jpg);
         }
 
-        &--4{
+        &--4 {
             background-image: url(../images/gallery/leopard2.jpg);
         }
 
@@ -592,7 +592,7 @@
 
     &__details {
         @include customVar(border-top-color, paletteColor1);
-        border-top-color: #D1F2EB;
+        border-top-color: #d1f2eb;
         border-top-style: solid;
         border-top-width: 2px;
         display: grid;
@@ -728,8 +728,6 @@
 // tabs /accordion
 
 .tabs {
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
     overflow: hidden;
 }
 
@@ -741,15 +739,17 @@
     }
 
     &__label {
-        background: pink;
+        @include customVar(background-color, clrWhite);
+        @include customVar(background-color, clrWash);
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        @include customVar(background-color, clrWhite);
+        border-radius: 50px;
         cursor: pointer;
-        font-size: 24px;
-        font-weight: 400;
-        padding: 15px 0;
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 0 10px;
+        padding: 15px 40px;
 
         &::after {
             background-image: url(../images/iconChevronDown.png);
@@ -763,23 +763,29 @@
             text-align: center;
             transition: all 0.35s;
 
-            .tabs--small & {
-                height: 14px;
-                width: 14px;
-            }
+            // .tabs--small & {
+            //     height: 14px;
+            //     width: 14px;
+            // }
         }
 
         .tabs--small & {
-            font-size: 19px;
-            padding: 5px 0;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 10px 20px;
+
+            &:after {
+                content: "";
+                height: 15px;
+                width: 15px;
+            }
         }
     }
 
     &__content {
         @include customVar(background-color, clrWash);
-        border-radius: 20px;
-        border-bottom-right-radius: 0;
-
+        background-color: #eafaf1;
+        font-size: 18px;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.1s ease-out;
@@ -795,7 +801,9 @@ input[type="checkbox"] {
 // :checked
 input:checked {
     + .tab__label {
-        //background: darken(fuchsia, 10%);
+        // border-bottom-left-radius: 0;
+        // border-bottom-right-radius: 0;
+        // margin-bottom: 0;
 
         &::after {
             transform: rotate(180deg);
@@ -803,6 +811,8 @@ input:checked {
     }
 
     ~ .tab__content {
+        
+        margin-bottom: 40px;
         max-height: 1000vh;
         overflow: hidden;
         padding: 30px;
