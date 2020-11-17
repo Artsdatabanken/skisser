@@ -76,6 +76,7 @@ import { CategoryAlienComponent } from './components/shared/non-dummy/category-a
 import { SubheaderComponent } from './layout/subheader/subheader.component';
 import { SessionComponent } from './components/session/session.component';
 import { ClosePaneDirective } from './helpers/close-pane.directive';
+import { UtilitiesService } from './services/utilities.service';
 
 @NgModule({
   declarations: [

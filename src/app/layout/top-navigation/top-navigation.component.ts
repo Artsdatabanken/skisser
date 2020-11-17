@@ -1,6 +1,8 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Directive({ selector: '[clickElsewhere]' })
 export class ClickElsewhereDirective {
@@ -32,39 +34,54 @@ export class ClickElsewhereDirective {
 export class TopNavigationComponent implements OnInit {
 
   topMenu: any[];
-  // showDashboardPane: boolean = false;
+  showDashboardPane: boolean;
   isLoggedIn: boolean = false;
+  subscription: Subscription;
 
   @Input() ariaLabel: string;
   @Input() location: string;
 
   constructor(
-    private navigationService: NavigationService
-  ) { }
+    private navigationService: NavigationService,
+    private utilitiesService: UtilitiesService
+  ) {
+    // this.showDashboardPane = utilitiesService.showDashboardPane;
+    // this.subscription = utilitiesService.dashboardVisibility.subscribe((value) => { 
+    //   this.showDashboardPane = value; 
+    // });
+
+  }
 
   ngOnInit(): void {
     this.topMenu = this.navigationService.getTopMenu();
+
+    this.showDashboardPane = this.utilitiesService.showDashboardPane;
+    this.subscription = this.utilitiesService.dashboardVisibility.subscribe((value) => { 
+      this.showDashboardPane = value; 
+    });
   }
+
+  ngOnDestroy() {
+     this.subscription.unsubscribe();
+   }
 
   getStyle(id: string): string {
     return `top-navigation__link--${id}`;
   }
 
   toggleDashboard(): void {
-    // this.showDashboardPane = !this.showDashboardPane;
-
-    // console.log('show', this.showDashboardPane)
+    this.utilitiesService.toggleDashboard();
+    console.log('showDashboardPane', this.showDashboardPane)
   }
 
   // fake login
 
   login(): boolean {
-    // this.showDashboardPane = true;
     return this.isLoggedIn = true
   }
 
-  logout(): boolean {
-    // this.showDashboardPane = false;
+  logout(): boolean { 
+    this.utilitiesService.closeDashboard();
     return this.isLoggedIn = false;
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +15,8 @@ export class MenuComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private utilitiesService: UtilitiesService
   ) { }
 
   ngOnInit(): void { }
@@ -25,6 +27,7 @@ export class MenuComponent implements OnInit {
 
   toggleMenu(): void {
 
+    this.utilitiesService.closeDashboard(); // close dashboard
     this.isActive = !this.isActive;
 
     if (this.isActive) {
