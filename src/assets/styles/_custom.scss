@@ -785,13 +785,14 @@ $orange: #514942;
         //background-color: #17a589;
         background-position: center center;
         background-repeat: no-repeat;
-        border-radius: 100%;
+        // border-radius: 100%;
         margin: 0 auto 20px;
         margin: 0 auto;
         text-align: center;
         height: 120px;
         width: 120px;
 
+ 
         &--1 {
             background-image: url(../images/iconAdAddWhite.png);
             background-image: url(../images/iconAdAdd.png);
@@ -802,6 +803,7 @@ $orange: #514942;
             background-image: url(../images/iconAdSearchWhite.png);
             background-image: url(../images/iconAdSearch.png);
             background-size: 70px;
+    
         }
 
         .ad:hover & {

@@ -37,11 +37,14 @@ import { EventProjectComponent } from './components/report/event-project/event-p
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 
 /*
 
 DOCUMENTATION:
 * Husk at siste segment i path (url) må være lik id-property under data
+
+TODO: legg til property order
 
 */
 
@@ -218,6 +221,20 @@ const observationRoutes: Routes = [
       parent: 'observations',
       menu: 'mainMenu',
       metaTitle: 'Tall og statistikk',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'observations/statistics/overview',
+    component: OverviewNumbersComponent,
+    data: {
+      text: 'Oversiktstall',
+      id: 'overview',
+      layout: 'text',
+      rank: 'secondary',
+      parent: 'statistics',
+      menu: '',
+      metaTitle: 'Oversiktstall',
       metaDescription: ''
     }
   },
