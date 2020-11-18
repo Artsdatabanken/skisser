@@ -585,6 +585,7 @@
 
     &--active {
         @include customVar(background-color, paletteColor1);
+        background-color: #EAFAF1;
     }
 
     @media screen and (max-width: 1200px) {
@@ -601,6 +602,7 @@
 .dashboard-pane {
     background: #d1f2eb;
     @include customVar(background-color, paletteColor1);
+    background: #EAFAF1;
     border-radius: 10px;
     border-top-right-radius: 0;
     font-size: 16px;
