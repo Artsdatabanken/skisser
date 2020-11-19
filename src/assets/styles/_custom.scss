@@ -801,10 +801,12 @@ $orange: #514942;
         font-weight: 700;
         margin-bottom: 20px;
 
+        // current location
         .stats--xl & {
             font-size: 72px;
         }
 
+        // pseudoelement
         &::after {
             @include customVar(background-color, clrBlack);
             content: '';
@@ -813,10 +815,17 @@ $orange: #514942;
             margin: 0 auto ;
             width: 85px;
         }
+
+
+        // modifier
+        &--main {
+            &::after {
+                content: none;
+            }
+        }
     }
 
     &__text {
-
         .stats--xl & {
             font-size: 27px;
             font-weight: 600;
