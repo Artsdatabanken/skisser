@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { UtilitiesService } from 'src/app/services/utilities.service';
+import { Subscription } from 'rxjs';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,28 +10,37 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 })
 
 export class MenuComponent implements OnInit {
- 
-  public isActive: boolean = false;
+
+  activeMenu: boolean;
+  subscription: Subscription;
   @Input() ariaLabel: string;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private utilitiesService: UtilitiesService
-  ) { }
+    private menuService: MenuService
+  ) {
+
+    this.activeMenu = this.menuService.activeMenu;
+    this.subscription = this.menuService.menuVisibility.subscribe((value) => {
+      this.activeMenu = value;
+    });
+
+  }
 
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
     this.renderer.removeClass(this.document.body, 'active-menu');
+    this.subscription.unsubscribe();
   }
 
   toggleMenu(): void {
 
-    this.utilitiesService.closeDashboard(); // close dashboard
-    this.isActive = !this.isActive;
+    this.menuService.toggleMenu(); 
+    this.menuService.closeDashboard(); // close dashboard
 
-    if (this.isActive) {
+    if (this.menuService.activeMenu) {
       this.renderer.addClass(this.document.body, 'active-menu');
     }
     else {

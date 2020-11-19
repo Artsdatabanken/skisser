@@ -1,5 +1,5 @@
 import { Directive, HostListener } from '@angular/core';
-import { UtilitiesService } from '../services/utilities.service';
+import { MenuService } from '../services/menu.service';
 
 
 @Directive({
@@ -9,9 +9,9 @@ import { UtilitiesService } from '../services/utilities.service';
 export class ClosePaneDirective {
 
     @HostListener('click') onClick() {
-        this.utilitiesService.closeDashboard();
+        this.menuService.closeDashboard();
     }
 
-    constructor(private utilitiesService: UtilitiesService) { }
+    constructor(private menuService: MenuService) { }
 
 }

@@ -1,8 +1,8 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { MenuService } from 'src/app/services/menu.service';
 import { NavigationService } from 'src/app/services/navigation.service';
-import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Directive({ selector: '[clickElsewhere]' })
 export class ClickElsewhereDirective {
@@ -43,22 +43,17 @@ export class TopNavigationComponent implements OnInit {
 
   constructor(
     private navigationService: NavigationService,
-    private utilitiesService: UtilitiesService
+    private menuService: MenuService
   ) {
-    // this.showDashboardPane = utilitiesService.showDashboardPane;
-    // this.subscription = utilitiesService.dashboardVisibility.subscribe((value) => { 
-    //   this.showDashboardPane = value; 
-    // });
+    this.showDashboardPane = this.menuService.showDashboardPane;
+    this.subscription = this.menuService.dashboardVisibility.subscribe((value) => { 
+      this.showDashboardPane = value; 
+    });
 
   }
 
   ngOnInit(): void {
-    this.topMenu = this.navigationService.getTopMenu();
-
-    this.showDashboardPane = this.utilitiesService.showDashboardPane;
-    this.subscription = this.utilitiesService.dashboardVisibility.subscribe((value) => { 
-      this.showDashboardPane = value; 
-    });
+    this.topMenu = this.navigationService.getTopMenu();   
   }
 
   ngOnDestroy() {
@@ -70,7 +65,7 @@ export class TopNavigationComponent implements OnInit {
   }
 
   toggleDashboard(): void {
-    this.utilitiesService.toggleDashboard();
+    this.menuService.toggleDashboard();
     console.log('showDashboardPane', this.showDashboardPane)
   }
 
@@ -81,7 +76,7 @@ export class TopNavigationComponent implements OnInit {
   }
 
   logout(): boolean { 
-    this.utilitiesService.closeDashboard();
+    this.menuService.closeDashboard();
     return this.isLoggedIn = false;
   }
 
