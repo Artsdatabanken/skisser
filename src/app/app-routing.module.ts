@@ -300,7 +300,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Brukerstatistikk',
       id: 'user-statistics',
-      layout: 'page',
+      layout: 'wide',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',

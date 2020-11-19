@@ -585,7 +585,7 @@
 
     &--active {
         @include customVar(background-color, paletteColor1);
-        background-color: #EAFAF1;
+        background-color: #d5f5e3;
     }
 
     @media screen and (max-width: 1200px) {
@@ -600,9 +600,8 @@
 }
 
 .dashboard-pane {
-    background: #d1f2eb;
     @include customVar(background-color, paletteColor1);
-    background: #EAFAF1;
+    background-color: #d5f5e3;
     border-radius: 10px;
     border-top-right-radius: 0;
     font-size: 16px;
@@ -644,6 +643,9 @@
 
     input {
         @include customVar(background-color, paletteColor1);
+        @include customVar(background-color, transparent);
+        background-color: #e8f6f3;
+        border-color: #48c9b0;
         font-size: 14px;
         font-weight: 600;
         padding: 9px 12px;
@@ -709,9 +711,7 @@
 
     hr {
         @include customVar(background-color, paletteColor2);
-        background-position: center center;
-        background-repeat: repeat-x;
-        background-size: 2px;
+        background-color: #a3e4d7;
         border: 0;
         display: block;
         height: 2px;
@@ -1030,6 +1030,19 @@ main {
             grid-template-columns: 1fr;
             grid-template-areas: "pageTitle" "component" "router";
             padding: 45px 15px;
+        }
+    }
+
+    &--wide {
+        grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
+        padding: 60px 30px;
+
+        @media screen and (max-width: 1600px) {
+            grid-template-columns: 1fr 12fr 1fr;
+            grid-template-areas: ". pageTitle ." ". component ." ". router .";
+            padding: 60px 30px;
         }
     }
 

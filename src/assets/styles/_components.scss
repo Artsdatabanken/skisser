@@ -483,7 +483,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
     &__title {
         @include customVar(font-family, fontSecondary);
@@ -541,7 +541,7 @@
             @include customVar(background-color, paletteColor1);
             @include customVar(background-color, clrWash);
             background-image: url(../images/iconNoImage.png);
-            background-size: 98px;
+            background-size: 84px;
         }
 
         &--noImg1 {
