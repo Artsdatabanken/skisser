@@ -25,13 +25,24 @@ export class UserStatisticsComponent implements OnInit {
 
     const rank: number = index;
 
+    // switch (rank) {
+    //   case 0:
+    //     return 'league__item--first';
+    //   case 1:
+    //     return 'league__item--second';
+    //   case 2:
+    //     return 'league__item--third';
+    //   default:
+    //     return '';
+    // }
+
     switch (rank) {
       case 0:
-        return 'league__item--first';
+        return 'league league--first';
       case 1:
-        return 'league__item--second';
+        return 'league league--second';
       case 2:
-        return 'league__item--third';
+        return 'league league--third';
       default:
         return '';
     }

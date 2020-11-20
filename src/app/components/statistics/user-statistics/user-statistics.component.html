@@ -35,7 +35,7 @@
 
         <!--MÅNED-->
 
-        <h2>Månedsliga <strong>oktober</strong></h2>
+        <!-- <h2>Månedsliga <strong>oktober</strong></h2>
 
         <p>Brukere med flest observasjoner per artsgruppe i <strong>oktober</strong> i <strong>hele Norge</strong>.</p>
 
@@ -176,13 +176,10 @@
             </div>
 
 
-        </div>
+        </div> -->
 
 
         <!--MÅNED-->
-
-        <br>
-        <br>
 
         <!--toppobservatører-->
 
@@ -190,6 +187,8 @@
 
         <p>
             Observatører med flest observasjoner gjennom tidene.
+            <br>
+            <small>*** Forklare om datagrunnlaget her.</small>
             <br>
             <small>*** Statistikken oppdateres en gang i måned.</small>
         </p>
@@ -241,17 +240,10 @@
 
             </div>
 
-            <div class="filter">
-                &nbsp;&nbsp;&nbsp;
-                <label for="">Søk observatør</label>
-                <input class="search" type="text" value="" placeholder="Angi navn">
-
-            </div>
-
         </div>
 
         <br><br><br><br>
-
+<!-- 
         <div class="league league--primary">
 
             <div class="league__item" [class]="getRank(i)"
@@ -266,12 +258,7 @@
 
             </div>
 
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
+        </div> -->
 
         <table>
             <caption>Brukere med flest observasjoner på tvers av artsgrupper gjennom tidene</caption>
@@ -283,9 +270,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of fakeUsers$ | async | slice:3; let i = index">
+                <tr *ngFor="let user of fakeUsers$ | async; let i = index" [class]="getRank(i)">
 
-                    <td><span class="badge">{{ i + 4}}</span></td>
+                    <td><span class="badge">{{ i + 1}}</span></td>
                     <td>
                         <strong style="font-size: 1.2em">{{ user.name }}</strong>
                         <br>

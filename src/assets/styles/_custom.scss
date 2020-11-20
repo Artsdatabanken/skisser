@@ -500,152 +500,152 @@ $orange: #514942;
 // league / user statistics
 
 .league {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0 100px;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // gap: 0 100px;
 
-    padding: 0;
-    position: relative;
-    z-index: 5;
+    // padding: 0;
+    // position: relative;
+    // z-index: 5;
 
-    @media screen and (max-width: 1600px) {
-        gap: 0 50px;
-    }
+    // @media screen and (max-width: 1600px) {
+    //     gap: 0 50px;
+    // }
 
-    @media screen and (max-width: 1024px) {
-        grid-template-columns: 1fr;
-    }
+    // @media screen and (max-width: 1024px) {
+    //     grid-template-columns: 1fr;
+    // }
 
     // elements
 
-    &__item {
-        @include customVar(background-color, paletteColor1);
-        background: #e8f8f5;
-        border-radius: 15px;
-        margin: 0 auto 50px;
-        padding: 40px 20px;
-        text-align: center;
-        width: 100%;
-        position: relative;
-        z-index: 5;
-        align-self: center;
+    //     &__item {
+    //         @include customVar(background-color, paletteColor1);
+    //         background: #e8f8f5;
+    //         border-radius: 15px;
+    //         margin: 0 auto 50px;
+    //         padding: 40px 20px;
+    //         text-align: center;
+    //         width: 100%;
+    //         position: relative;
+    //         z-index: 5;
+    //         align-self: center;
 
-        @media screen and (max-width: 1024px) {
-            margin: 0 auto 30px;
-            padding: 30px 10px;
-            width: 80vw;
-        }
-    }
+    //         @media screen and (max-width: 1024px) {
+    //             margin: 0 auto 30px;
+    //             padding: 30px 10px;
+    //             width: 80vw;
+    //         }
+    //     }
 
-    &__winner {
-        font-size: 32px;
-        font-weight: 700;
+    //     &__winner {
+    //         font-size: 32px;
+    //         font-weight: 700;
 
-        @media screen and (max-width: 1600px) {
-            font-size: 26px;
-        }
+    //         @media screen and (max-width: 1600px) {
+    //             font-size: 26px;
+    //         }
 
-        @media screen and (max-width: 1024px) {
-            font-size: 26px;
-        }
-    }
+    //         @media screen and (max-width: 1024px) {
+    //             font-size: 26px;
+    //         }
+    //     }
 
-    &__counter {
-        @include customVar(color, clrWhite);
-        @include customVar(font-family, fontSecondary);
-        //@include customVar(font-family, fontAccent);
-        background: #0e6251;
-        border-radius: 50px;
-        font-size: 42px;
-        font-weight: 700;
-        height: 90px;
-        line-height: 88px;
-        padding: 0;
-        width: 90px;
-        position: absolute;
-        left: -50px;
-        top: calc(50% - 45px);
+    //     &__counter {
+    //         @include customVar(color, clrWhite);
+    //         @include customVar(font-family, fontSecondary);
+    //         //@include customVar(font-family, fontAccent);
+    //         background: #0e6251;
+    //         border-radius: 50px;
+    //         font-size: 42px;
+    //         font-weight: 700;
+    //         height: 90px;
+    //         line-height: 88px;
+    //         padding: 0;
+    //         width: 90px;
+    //         position: absolute;
+    //         left: -50px;
+    //         top: calc(50% - 45px);
 
-        @media screen and (max-width: 1600px) {
-            font-size: 32px;
-            height: 70px;
-            left: -20px;
-            line-height: 68px;
-            width: 70px;
-        }
+    //         @media screen and (max-width: 1600px) {
+    //             font-size: 32px;
+    //             height: 70px;
+    //             left: -20px;
+    //             line-height: 68px;
+    //             width: 70px;
+    //         }
 
-        @media screen and (max-width: 1024px) {
-            font-size: 22px;
-            height: 60px;
-            left: -20px;
-            line-height: 58px;
-            width: 60px;
-        }
-    }
+    //         @media screen and (max-width: 1024px) {
+    //             font-size: 22px;
+    //             height: 60px;
+    //             left: -20px;
+    //             line-height: 58px;
+    //             width: 60px;
+    //         }
+    //     }
 
-    &__icon {
-        background-position: center center;
-        background-repeat: no-repeat;
-        border-radius: 100%;
-        display: block;
-        margin: 0 auto 10px;
-        padding: 10px;
+    //     &__icon {
+    //         background-position: center center;
+    //         background-repeat: no-repeat;
+    //         border-radius: 100%;
+    //         display: block;
+    //         margin: 0 auto 10px;
+    //         padding: 10px;
 
-        &--first {
-            background-color: #d5f5e3;
-            background-image: url(../images/gallery/prize1.png);
-            background-size: 65px;
-            height: 130px;
-            width: 130px;
+    //         &--first {
+    //             background-color: #d5f5e3;
+    //             background-image: url(../images/gallery/prize1.png);
+    //             background-size: 65px;
+    //             height: 130px;
+    //             width: 130px;
 
-            @media screen and (max-width: 1024px) {
-                background-size: 50px;
-                height: 100px;
-                width: 100px;
-            }
-        }
+    //             @media screen and (max-width: 1024px) {
+    //                 background-size: 50px;
+    //                 height: 100px;
+    //                 width: 100px;
+    //             }
+    //         }
 
-        &--second {
-            background-color: #d5f5e3;
-            background-image: url(../images/gallery/prize2.png);
-            background-size: 50px;
-            height: 100px;
-            width: 100px;
+    //         &--second {
+    //             background-color: #d5f5e3;
+    //             background-image: url(../images/gallery/prize2.png);
+    //             background-size: 50px;
+    //             height: 100px;
+    //             width: 100px;
 
-            @media screen and (max-width: 1024px) {
-                background-size: 40px;
-                height: 90px;
-                width: 90px;
-            }
-        }
+    //             @media screen and (max-width: 1024px) {
+    //                 background-size: 40px;
+    //                 height: 90px;
+    //                 width: 90px;
+    //             }
+    //         }
 
-        &--third {
-            background-color: #d5f5e3;
-            background-image: url(../images/gallery/prize3.png);
-            background-size: 45px;
-            height: 80px;
-            width: 80px;
+    //         &--third {
+    //             background-color: #d5f5e3;
+    //             background-image: url(../images/gallery/prize3.png);
+    //             background-size: 45px;
+    //             height: 80px;
+    //             width: 80px;
 
-            @media screen and (max-width: 1024px) {
-                background-size: 35px;
-                height: 70px;
-                width: 70px;
-            }
-        }
-    }
+    //             @media screen and (max-width: 1024px) {
+    //                 background-size: 35px;
+    //                 height: 70px;
+    //                 width: 70px;
+    //             }
+    //         }
+    //     }
 
-    &__detail {
-        &--2 {
-            font-size: 17px;
-            font-weight: 400;
-            font-weight: 500;
-        }
+    //     &__detail {
+    //         &--2 {
+    //             font-size: 17px;
+    //             font-weight: 400;
+    //             font-weight: 500;
+    //         }
 
-        &--3 {
-            font-size: 22px;
-            font-weight: 700;
-        }
-    }
+    //         &--3 {
+    //             font-size: 22px;
+    //             font-weight: 700;
+    //         }
+    //     }
 }
 
 .award {
