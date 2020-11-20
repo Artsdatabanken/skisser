@@ -6,9 +6,9 @@
 
         <!--start-->
 
-        <!-- <ul class="link-list">
-            <li><a href="">Artsobservasjoner i tall</a></li>
-            <li><a href="">Antall observasjoner per artsgruppe</a></li>
+        <ul class="link-list">
+            <li><a routerLink="/observations/statistics/overview/one">Artsobservasjoner i tall</a></li>
+            <li><a routerLink="/observations/statistics/overview/two">Antall observasjoner per artsgruppe</a></li>
             <li><a href="">Antall arter rapportert per artsgruppe</a></li>
             <li><a href="">Antall bilder per artsgruppe</a></li>
             <li><a href="">Antall data akkumulert fra Artsobs og Artskart samlet over tid</a></li>
@@ -16,7 +16,16 @@
             <li><a href="">Antall observasjoner per fylke</a></li>
             <li><a href="">Rapporteringsoversikt per artsgruppe totalt og per år</a></li>
             <li><a href="">Månedlige observasjoner per artsgruppe totalt og per år</a></li>
-        </ul> -->
+        </ul>
+
+        <!--TODO-->
+
+        <p> Husk å gjøre om siden til SPA med table of contents</p>
+        <!--TODO-->
+
+
+
+        <router-outlet></router-outlet>
 
 
         <div class="section">
@@ -199,6 +208,8 @@
 
         <div class="section">
             <h2>Rapporteringsoversikt per artsgruppe totalt og per år</h2>
+
+            Vise https://admin.artsobservasjoner.no/UserAdmin/Stats.aspx
         </div>
 
         <div class="section">

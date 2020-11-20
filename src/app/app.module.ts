@@ -77,6 +77,8 @@ import { SubheaderComponent } from './layout/subheader/subheader.component';
 import { SessionComponent } from './components/session/session.component';
 import { ClosePaneDirective } from './helpers/close-pane.directive';
 import { UtilitiesService } from './services/utilities.service';
+import { OneComponent } from './components/statistics/overview/one/one.component';
+import { TwoComponent } from './components/statistics/overview/two/two.component';
 
 @NgModule({
   declarations: [
@@ -153,7 +155,9 @@ import { UtilitiesService } from './services/utilities.service';
     SubheaderComponent,
     SessionComponent,
     ClickElsewhereDirective,
-    ClosePaneDirective
+    ClosePaneDirective,
+    OneComponent,
+    TwoComponent
   ],
   imports: [
     BrowserModule,

@@ -38,6 +38,8 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
+import { OneComponent } from './components/statistics/overview/one/one.component';
+import { TwoComponent } from './components/statistics/overview/two/two.component';
 
 /*
 
@@ -236,7 +238,37 @@ const observationRoutes: Routes = [
       menu: '',
       metaTitle: 'Oversiktstall',
       metaDescription: ''
-    }
+    },
+    children: [
+      {
+        path: 'one',
+        component: OneComponent,
+        data: {
+          text: 'Antall observasjoner per artsgruppe (one)',
+          id: 'one',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall observasjoner per artsgruppe (one)',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'two',
+        component: TwoComponent,
+        data: {
+          text: 'Antall arter rapportert per artsgruppe (two)',
+          id: 'one',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall arter rapportert per artsgruppe (two)',
+          metaDescription: ''
+        }
+      },
+    ]
   },
   {
     path: 'observations/statistics/quality-checked-data',
