@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
 
   @Input() type: string; // if button, , this. anchor link or div
   @Input() cssClass: string | null;
-  @Input() size: string | null;
+  @Input() size: string;
   @Input() icon: string | null;
   @Input() text: string | null;
   @Input() url: string | null;
