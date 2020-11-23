@@ -38,8 +38,18 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
-import { OneComponent } from './components/statistics/overview/one/one.component';
-import { TwoComponent } from './components/statistics/overview/two/two.component';
+import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
+import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
+import { OverviewChild9Component } from './components/statistics/overview/overview-child9/overview-child9.component';
+import { OverviewChild8Component } from './components/statistics/overview/overview-child8/overview-child8.component';
+import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
+import { OverviewChild4Component } from './components/statistics/overview/overview-child4/overview-child4.component';
+import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
+import { OverviewChild6Component } from './components/statistics/overview/overview-child6/overview-child6.component';
+import { OverviewChild7Component } from './components/statistics/overview/overview-child7/overview-child7.component';
+import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
+import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
+import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
 
 /*
 
@@ -241,33 +251,159 @@ const observationRoutes: Routes = [
     },
     children: [
       {
-        path: 'one',
-        component: OneComponent,
+        path: 'overview-1',
+        component: OverviewChild1Component,
         data: {
-          text: 'Antall observasjoner per artsgruppe (one)',
-          id: 'one',
+          text: 'Antall observasjoner per artsgruppe',
+          id: 'overview-1',
           layout: 'page',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall observasjoner per artsgruppe (one)',
+          metaTitle: 'Antall observasjoner per artsgruppe',
           metaDescription: ''
         }
       },
       {
-        path: 'two',
-        component: TwoComponent,
+        path: 'overview-2',
+        component: OverviewChild2Component,
         data: {
-          text: 'Antall arter rapportert per artsgruppe (two)',
-          id: 'one',
+          text: 'Antall arter rapportert per artsgruppe',
+          id: 'overview-2',
           layout: 'page',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall arter rapportert per artsgruppe (two)',
+          metaTitle: 'Antall arter rapportert per artsgruppe',
           metaDescription: ''
         }
       },
+      {
+        path: 'overview-3',
+        component: OverviewChild3Component,
+        data: {
+          text: 'Antall bilder per artsgruppe',
+          id: 'overview-3',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall bilder per artsgruppe',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-4',
+        component: OverviewChild4Component,
+        data: {
+          text: 'Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
+          id: 'overview-4',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-5',
+        component: OverviewChild5Component,
+        data: {
+          text: 'Antall kvalitetssikrede observasjoner per artsgruppe',
+          id: 'overview-5',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall kvalitetssikrede observasjoner per artsgruppe',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-6',
+        component: OverviewChild6Component,
+        data: {
+          text: 'Antall rapporterte observasjoner etter rapporteringsmåte',
+          id: 'overview-6',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall rapporterte observasjoner etter rapporteringsmåte',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-7',
+        component: OverviewChild7Component,
+        data: {
+          text: 'Antall observasjoner per fylke',
+          id: 'overview-7',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall observasjoner per fylke',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-8',
+        component: OverviewChild8Component,
+        data: {
+          text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
+          id: 'overview-8',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Rapporteringsoversikt per artsgruppe totalt og per år',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-9',
+        component: OverviewChild9Component,
+        data: {
+          text: 'Månedlige rapporteringer per artsgruppe totalt og per år',
+          id: 'overview-9',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Månedlige rapporteringer per artsgruppe totalt og per år',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-10',
+        component: OverviewChild10Component,
+        data: {
+          text: 'Månedlige observasjoner per artsgruppe totalt og per år',
+          id: 'overview-10',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Månedlige observasjoner per artsgruppe totalt og per år',
+          metaDescription: ''
+        }
+      },
+      {
+        path: 'overview-11',
+        component: OverviewChild11Component,
+        data: {
+          text: 'Antall aktive brukere',
+          id: 'overview-11',
+          layout: 'page',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Antall aktive brukere',
+          metaDescription: ''
+        }
+      }
     ]
   },
   {

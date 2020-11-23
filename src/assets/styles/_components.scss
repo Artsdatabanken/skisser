@@ -74,38 +74,6 @@
     }
 }
 
-/* link list*/
-
-.link-list {
-    font-size: 20px;
-    font-weight: 700;
-    list-style: none;
-    margin: 0 0 75px;
-    padding: 0;
-
-    &--sm {
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    li {
-        margin: 0 0 10px;
-    }
-
-    a {
-        @include customVar(border-color, clrAqua4);
-        line-height: 1.5;
-
-        &:hover {
-            @include customVar(border-color, clrAqua3);
-        }
-
-        @media screen and (max-width: 900px) {
-            display: inline;
-        }
-    }
-}
-
 /*button*/
 
 .button {

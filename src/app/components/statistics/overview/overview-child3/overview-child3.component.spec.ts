@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OneComponent } from './one.component';
+import { OverviewChild3Component } from './overview-child3.component';
 
-describe('OneComponent', () => {
-  let component: OneComponent;
-  let fixture: ComponentFixture<OneComponent>;
+describe('OverviewChild3Component', () => {
+  let component: OverviewChild3Component;
+  let fixture: ComponentFixture<OverviewChild3Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OneComponent ]
+      declarations: [ OverviewChild3Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OneComponent);
+    fixture = TestBed.createComponent(OverviewChild3Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

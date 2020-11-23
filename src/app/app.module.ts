@@ -76,9 +76,18 @@ import { CategoryAlienComponent } from './components/shared/non-dummy/category-a
 import { SubheaderComponent } from './layout/subheader/subheader.component';
 import { SessionComponent } from './components/session/session.component';
 import { ClosePaneDirective } from './helpers/close-pane.directive';
-import { UtilitiesService } from './services/utilities.service';
-import { OneComponent } from './components/statistics/overview/one/one.component';
-import { TwoComponent } from './components/statistics/overview/two/two.component';
+import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
+import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
+import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
+import { OverviewChild4Component } from './components/statistics/overview/overview-child4/overview-child4.component';
+import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
+import { OverviewChild6Component } from './components/statistics/overview/overview-child6/overview-child6.component';
+import { OverviewChild7Component } from './components/statistics/overview/overview-child7/overview-child7.component';
+import { OverviewChild8Component } from './components/statistics/overview/overview-child8/overview-child8.component';
+import { OverviewChild9Component } from './components/statistics/overview/overview-child9/overview-child9.component';
+import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
+import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
+import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
 
 @NgModule({
   declarations: [
@@ -156,8 +165,18 @@ import { TwoComponent } from './components/statistics/overview/two/two.component
     SessionComponent,
     ClickElsewhereDirective,
     ClosePaneDirective,
-    OneComponent,
-    TwoComponent
+    OverviewChild1Component,
+    OverviewChild2Component,
+    OverviewChild3Component,
+    OverviewChild4Component,
+    OverviewChild5Component,
+    OverviewChild6Component,
+    OverviewChild7Component,
+    OverviewChild8Component,
+    OverviewChild9Component,
+    OverviewChild10Component,
+    OverviewChild11Component,
+    OverviewChild12Component,
   ],
   imports: [
     BrowserModule,

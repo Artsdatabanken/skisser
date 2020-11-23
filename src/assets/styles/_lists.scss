@@ -80,7 +80,6 @@ dl {
   grid-template-columns: 50px 2fr;
   grid-gap: 5px;
 
-  
   dt {
     @include customVar(font-family, fontSecondary);
     width: 100%;
@@ -88,5 +87,39 @@ dl {
 
   dd {
     width: 100%;
+  }
+}
+
+.link-list {
+  font-size: 19px;
+  font-weight: 600;
+  list-style: none;
+  margin: 0 0 75px;
+  padding: 0;
+
+  &--sm {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  li {
+    margin: 0 0 20px;
+  }
+
+  a {
+    @include customVar(border-color, clrAqua4);
+    border-bottom-color: #a3e4d7;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    line-height: 1.5;
+    transition: border 0.5s;
+
+    &:hover {
+      @include customVar(border-color, clrAqua3);
+    }
+
+    @media screen and (max-width: 900px) {
+      display: inline;
+    }
   }
 }
