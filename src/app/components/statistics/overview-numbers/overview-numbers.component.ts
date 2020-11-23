@@ -15,8 +15,6 @@ export class OverviewNumbersComponent implements OnInit {
     this.children = this.route.routeConfig.children;
   }
 
-  ngOnInit(): void {
-    console.log('children', this.children)
-  }
+  ngOnInit(): void { }
 
 }
