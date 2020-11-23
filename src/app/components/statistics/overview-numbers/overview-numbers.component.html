@@ -16,7 +16,7 @@
             <li><a routerLink="/observations/statistics/overview/overview-9">Månedlige observasjoner per artsgruppe totalt og per år</a></li>
         </ul> -->
 
-        <ul class="link-list">
+        <ul class="link-list link-list--sm">
             <li class="link-list__item" *ngFor="let child of children"><a class="link-list__link"
                     routerLink="/observations/statistics/overview/{{child.path}}"
                     routerLinkActive="link-list__link--active">{{ child.data.text }}</a></li>

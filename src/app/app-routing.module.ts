@@ -242,7 +242,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Oversiktstall',
       id: 'overview',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',

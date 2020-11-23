@@ -66,7 +66,9 @@ dl {
   }
 }
 
-// custom lists
+//-------------------- custom lists
+
+// species categories
 
 .species-categories {
   @include customVar(background-color, paletteColor0);
@@ -77,12 +79,84 @@ dl {
   width: fit-content;
 
   display: grid;
-  grid-template-columns: 50px 2fr;
-  grid-gap: 5px;
+  grid-template-columns: 40px 2fr;
+  grid-gap: 5px 10px;
 
-  dt {
+  &__cat {
+    @include customVar(background-color, clrBlack);
+    @include customVar(color, clrWhite);
     @include customVar(font-family, fontSecondary);
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 2px;
+    text-align: center;
     width: 100%;
+  }
+
+  &__cat {
+    // alien
+    &--se {
+      background: #7e57c2;
+    }
+
+    &--hi {
+      background: #673ab7;
+    }
+
+    &--ph {
+      background: #5e35b1;
+    }
+
+    &--lo {
+      background: #512da8;
+    }
+
+    &--nk {
+      background: #4527a0;
+    }
+
+    &--nr {
+      background: #311b92;
+    }
+
+    // redlisted
+
+    &--re {
+      background: #ce93d8;
+    }
+
+    &--cr {
+      background: #ba68c8;
+    }
+
+    &--en {
+      background: #ab47bc;
+    }
+
+    &--vu {
+      background: #9c27b0;
+    }
+
+    &--nt {
+      background: #8e24aa;
+    }
+
+    &--dd {
+      background: #7b1fa2;
+    }
+
+    &--lc {
+      background: #6a1b9a;
+    }
+
+    &--na {
+      background: #4a148c;
+    }
+
+    &--ne {
+      background: #311b92;
+    }
   }
 
   dd {
@@ -90,36 +164,52 @@ dl {
   }
 }
 
+// link list 
+
 .link-list {
-  font-size: 19px;
-  font-weight: 600;
   list-style: none;
   margin: 0 0 75px;
   padding: 0;
 
   &--sm {
-    font-size: 18px;
-    font-weight: 600;
+
   }
 
-  li {
+  &__item {
     margin: 0 0 20px;
   }
 
-  a {
+  &__link {
     @include customVar(border-color, clrAqua4);
     border-bottom-color: #a3e4d7;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+    font-size: 19px;
+    font-weight: 600;
     line-height: 1.5;
     transition: border 0.5s;
 
     &:hover {
-      @include customVar(border-color, clrAqua3);
+      @include customVar(border-color, clrBlack);
     }
 
-    @media screen and (max-width: 900px) {
-      display: inline;
+    &--active {
+      @include customVar(border-bottom-color, clrBlack);
+      font-weight: 700;
+
+      &::before {
+        @include customVar(background-color, clrBlack);
+        content: "";
+        border-radius: 100%;
+        display: inline-block;
+        margin-right: 10px;
+        height: 0.7em;
+        width: 0.7em;
+      }
+    }
+
+    .link-list--sm & {
+      font-size: 17px;
     }
   }
 }
