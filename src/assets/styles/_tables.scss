@@ -2,7 +2,7 @@
 
 table {
     border-collapse: collapse;
-    font-size: 18px;
+    font-size: 17px;
     margin: 0 auto;
     width: 100%;
 
@@ -21,8 +21,11 @@ table {
         padding: 10px;
         text-align: left;
 
-        &[scope=row] {
+        &[scope="row"] {
+            @include customVar(font-family, fontPrimary);
             border-bottom: 2px solid #d1f2eb;
+            font-size: 17px;
+            font-weight: 700;
         }
     }
 
@@ -42,6 +45,20 @@ table {
 }
 
 .tbl-number {
+    text-align: right;
+
+    th,
+    td {
+        text-align: right;
+    }
+
+    th[scope] {
+        text-align: initial;
+    }
+}
+
+.th-number,
+.td-number {
     text-align: right;
 }
 

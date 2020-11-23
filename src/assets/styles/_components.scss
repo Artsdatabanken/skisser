@@ -505,6 +505,10 @@
             background-image: url(../images/gallery/bear.jpg);
         }
 
+        &--8 {
+            background-image: url(../images/gallery/walrus.jpg);
+        }
+
         &--noImg {
             @include customVar(background-color, paletteColor1);
             @include customVar(background-color, clrWash);
