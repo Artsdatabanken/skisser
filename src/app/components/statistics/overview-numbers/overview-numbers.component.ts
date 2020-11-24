@@ -17,7 +17,7 @@ export class GetDropdownItemDirective {
   }
 
   constructor(private elemRef: ElementRef) {
-    this.elem = elemRef.nativeElement;
+    this.elem = this.elemRef.nativeElement.innerHTML;
   }
 
 }
