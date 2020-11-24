@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.co
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageComponent } from './components/shared/page/page.component';
-import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
+import { GetDropdownItemDirective, OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
@@ -179,6 +179,7 @@ import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
     OverviewChild10Component,
     OverviewChild11Component,
     OverviewChild12Component,
+    GetDropdownItemDirective
   ],
   imports: [
     BrowserModule,

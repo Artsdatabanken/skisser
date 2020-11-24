@@ -21,14 +21,13 @@
 
         <div class="dropdown">
 
-            <button class="dropdown__button" (click)="toggleDropdown()">Oversiktstall</button>
+            <button class="dropdown__button" (click)="toggleDropdown()">Oversiktstall</button> // change text value when choosing stats
 
             <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}">
 
-
                 <a *ngFor="let child of children" class="dropdown__link"
                     routerLink="/observations/statistics/overview/{{child.path}}"
-                    routerLinkActive="dropdown__link--active" closeDropdown>
+                    routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
                     {{ child.data.text }}
                 </a>
 

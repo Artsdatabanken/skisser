@@ -1,7 +1,27 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+
+
+@Directive({
+  selector: '[getDropdownItem]'
+})
+
+export class GetDropdownItemDirective {
+
+  elem: any;
+
+  @HostListener('click') onClick() {
+    console.log('clicked on', this.elem)
+  }
+
+  constructor(private elemRef: ElementRef) {
+    this.elem = elemRef.nativeElement;
+  }
+
+}
+
 
 @Component({
   selector: 'app-overview-numbers',
@@ -16,6 +36,8 @@ export class OverviewNumbersComponent implements OnInit {
 
   activeDropdown: boolean;
   subscription: Subscription;
+
+  chosen: string;
 
   constructor(
     private route: ActivatedRoute,

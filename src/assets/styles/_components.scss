@@ -803,6 +803,9 @@
     position: relative;
 
     &__button {
+        @extend .button;
+        @extend .button--md;
+        @extend .button--cta;
     }
 
     &__pane {
