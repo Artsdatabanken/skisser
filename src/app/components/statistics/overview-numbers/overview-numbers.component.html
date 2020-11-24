@@ -1,20 +1,17 @@
 <div class="page">
 
-    <div class="page__header"></div>
+    <header class="page__header">
+        <h1 class="page-title">{{ pageTitle }}</h1>
+    </header>
+
+    <div class="page__intro">
+        <p>
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nec
+            mollis ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+    </div>
 
     <div class="page__content">
-
-        <!-- <ul class="link-list">
-            <li><a routerLink="/observations/statistics/overview/overview-1">Artsobservasjoner i tall</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-2">Antall observasjoner per artsgruppe</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-3">Antall arter rapportert per artsgruppe</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-4">Antall bilder per artsgruppe</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-5">Antall data akkumulert fra Artsobs og Artskart samlet over tid</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-6">Antall validerte (kvalitetssikrede) observasjoner per artsgruppe</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-7">Antall observasjoner per fylke</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-8">Rapporteringsoversikt per artsgruppe totalt og per år</a></li>
-            <li><a routerLink="/observations/statistics/overview/overview-9">Månedlige observasjoner per artsgruppe totalt og per år</a></li>
-        </ul> -->
 
         <ul class="link-list link-list--sm">
             <li class="link-list__item" *ngFor="let child of children"><a class="link-list__link"
@@ -22,9 +19,16 @@
                     routerLinkActive="link-list__link--active">{{ child.data.text }}</a></li>
         </ul>
 
+        <select name="overviewStats" id="overviewStats">
+            <option value="{{ child.data.text }}" *ngFor="let child of children">{{ child.data.text }}</option>
+        </select>
+
+        <br>
+        <br>
+        <br>
+        <br>
 
         <router-outlet></router-outlet>
-
 
     </div>
 

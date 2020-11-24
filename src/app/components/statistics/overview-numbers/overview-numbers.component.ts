@@ -9,9 +9,11 @@ import { ActivatedRoute, Routes } from '@angular/router';
 
 export class OverviewNumbersComponent implements OnInit {
 
+  pageTitle: string;
   children: any[] = [];
 
   constructor(private route: ActivatedRoute) {
+    this.pageTitle = this.route.routeConfig.data.text;
     this.children = this.route.routeConfig.children;
   }
 

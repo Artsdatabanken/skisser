@@ -242,7 +242,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Oversiktstall',
       id: 'overview',
-      layout: 'page',
+      layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
@@ -256,7 +256,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall observasjoner per artsgruppe',
           id: 'overview-1',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -270,7 +270,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall arter rapportert per artsgruppe',
           id: 'overview-2',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -284,7 +284,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall bilder per artsgruppe',
           id: 'overview-3',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -298,7 +298,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
           id: 'overview-4',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -312,7 +312,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall kvalitetssikrede observasjoner per artsgruppe',
           id: 'overview-5',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -326,7 +326,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall rapporterte observasjoner etter rapporteringsmåte',
           id: 'overview-6',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -340,7 +340,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall observasjoner per fylke',
           id: 'overview-7',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -354,7 +354,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
           id: 'overview-8',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -368,7 +368,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Månedlige rapporteringer per artsgruppe totalt og per år',
           id: 'overview-9',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -382,7 +382,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Månedlige observasjoner per artsgruppe totalt og per år',
           id: 'overview-10',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
@@ -396,7 +396,7 @@ const observationRoutes: Routes = [
         data: {
           text: 'Antall aktive brukere',
           id: 'overview-11',
-          layout: 'page',
+          layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',

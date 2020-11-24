@@ -957,6 +957,12 @@ main {
     }
 }
 
+.child {
+    h2 {
+        margin-bottom: 50px;
+    }
+}
+
 // grid
 
 .main-grid {
@@ -981,6 +987,10 @@ main {
     }
 
     &--item {
+        @extend .main-grid--page;
+    }
+
+    &--spa {
         @extend .main-grid--page;
     }
 
