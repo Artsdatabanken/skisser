@@ -88,6 +88,7 @@ import { OverviewChild9Component } from './components/statistics/overview/overvi
 import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
+import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -165,6 +166,7 @@ import { OverviewChild12Component } from './components/statistics/overview/overv
     SessionComponent,
     ClickElsewhereDirective,
     ClosePaneDirective,
+    CloseDropdownDirective,
     OverviewChild1Component,
     OverviewChild2Component,
     OverviewChild3Component,

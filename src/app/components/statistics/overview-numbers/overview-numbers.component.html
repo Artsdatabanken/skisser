@@ -11,17 +11,33 @@
         </p>
     </div>
 
-    <div class="page__content">
+    <div class="page__content" style="min-height: 75vh;">
 
-        <ul class="link-list link-list--sm">
+        <!-- <ul class="link-list link-list--sm">
             <li class="link-list__item" *ngFor="let child of children"><a class="link-list__link"
                     routerLink="/observations/statistics/overview/{{child.path}}"
                     routerLinkActive="link-list__link--active">{{ child.data.text }}</a></li>
-        </ul>
+        </ul> -->
 
-        <select name="overviewStats" id="overviewStats">
-            <option value="{{ child.data.text }}" *ngFor="let child of children">{{ child.data.text }}</option>
-        </select>
+        <div class="dropdown">
+
+            <button class="dropdown__button" (click)="toggleDropdown()">Oversiktstall</button>
+
+            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}">
+
+
+                <a *ngFor="let child of children" class="dropdown__link"
+                    routerLink="/observations/statistics/overview/{{child.path}}"
+                    routerLinkActive="dropdown__link--active" closeDropdown>
+                    {{ child.data.text }}
+                </a>
+
+
+            </div>
+
+        </div>
+
+
 
         <br>
         <br>

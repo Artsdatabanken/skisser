@@ -1057,6 +1057,7 @@ main {
     }
 
     & > * {
+        // border: 1px solid red;
         align-self: stretch;
         justify-self: stretch;
     }
