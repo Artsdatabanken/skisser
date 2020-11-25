@@ -103,17 +103,17 @@
 
 // infographics
 .infographics {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px 100px;
+    margin: 0 auto;
 
     & > * {
+        align-self: stretch;
+        justify-content: stretch;
     }
 
-    &__item {
+    &__figure {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -123,36 +123,49 @@
         margin: 5px;
         padding: 25px;
         text-align: center;
-        width: calc(50% - 10px);
-
+       
         @media screen and (max-width: 1600px) {
-        }
-
-        .infographics--boxes & {
-            @include customVar(background-color, clrLight2);
-        }
-
-        .infographics--4 & {
-            width: calc(25% - 10px);
         }
     }
 
     &__image {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 100px;
+        background-color: #d1f2eb;
+        border-radius: 100%;
         display: block;
         margin: 0 auto;
         width: auto;
+        height: 110px;
+        width: 110px;
 
-        .infographics--4 & {
-            width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+        }
+    }
+
+    &__img {
+        width: 60px;
+
+        &--sm {
+            width: 50px;
+        }
+
+        &--lg {
+            width: 70px;
         }
     }
 
     &__text {
         font-size: 30px;
         font-weight: 800;
+
+        b {
+            @include customVar(font-family, fontSecondary);
+            font-size: 77px;
+        }
     }
 }
 
@@ -811,13 +824,12 @@ $orange: #514942;
         // pseudoelement
         &::after {
             @include customVar(background-color, clrBlack);
-            content: '';
+            content: "";
             display: block;
             height: 4px;
-            margin: 0 auto ;
+            margin: 0 auto;
             width: 85px;
         }
-
 
         // modifier
         &--main {

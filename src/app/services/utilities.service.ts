@@ -11,6 +11,7 @@ export class UtilitiesService {
 
   showDropdownPane: boolean;
   dropdownVisibility: Subject<boolean> = new Subject<boolean>();
+  dropdownLinkText: Subject<string> = new Subject<string>();
 
   constructor() {
     this.showDropdownPane = false;
@@ -26,7 +27,11 @@ export class UtilitiesService {
     this.dropdownVisibility.next(this.showDropdownPane); // propagate the new state
   }
 
-  //-----------------------------------------------------------------------------------------------------------
+  getText(dropdownLinkText: string): void {
+    this.dropdownLinkText.next(dropdownLinkText); // propagate the new state
+  }
+
+  //-----------------------------------------------------------------------------------------------------------***
 
   sendClickEvent(): void {
     this.subject.next();

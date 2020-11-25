@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.co
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageComponent } from './components/shared/page/page.component';
-import { GetDropdownItemDirective, OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
+import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
@@ -89,6 +89,7 @@ import { OverviewChild10Component } from './components/statistics/overview/overv
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
 import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
+import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
 
 @NgModule({
   declarations: [

@@ -21,7 +21,7 @@
 
         <div class="dropdown">
 
-            <button class="dropdown__button" (click)="toggleDropdown()">Oversiktstall</button> // change text value when choosing stats
+            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}" (click)="toggleDropdown()">{{ dropDownText }}</button> 
 
             <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}">
 
@@ -36,14 +36,67 @@
 
         </div>
 
-
-
-        <br>
-        <br>
         <br>
         <br>
 
         <router-outlet></router-outlet>
+
+
+        <div class="infographics">
+
+            <figure class="infographics__figure">
+
+                <div class="infographics__image">
+
+                    <img src="/assets/images/gallery/statsBinoculars.png" alt=""
+                        class="infographics__img infographics__img--sm">
+
+                </div>
+
+                <figcaption class="infographics__text"><b class="emphasized">2 300 000</b> observasjoner publisert
+                </figcaption>
+
+            </figure>
+
+            <figure class="infographics__figure">
+
+
+                <div class="infographics__image">
+                    <img src="/assets/images/gallery/statsLeaf.png" alt="" class="infographics__img">
+                </div>
+
+                <figcaption class="infographics__text"><b class="emphasized">23 000</b> arter rapportert
+                </figcaption>
+
+            </figure>
+
+            <figure class="infographics__figure">
+
+                <div class="infographics__image">
+
+                    <img src="/assets/images/gallery/statsPeople.png" alt=""
+                        class="infographics__img  infographics__img--lg">
+
+                </div>
+
+                <figcaption class="infographics__text"><b class="emphasized">14 000</b> registrerte brukere
+                </figcaption>
+
+            </figure>
+
+            <figure class="infographics__figure">
+
+                <div class="infographics__image">
+                    <img src="/assets/images/gallery/statsCamera.png" alt="" class="infographics__img">
+                </div>
+
+                <figcaption class="infographics__text"><b class="emphasized">300 000</b> bilder lagt inn
+                </figcaption>
+
+            </figure>
+
+        </div>
+
 
     </div>
 
