@@ -17,7 +17,7 @@ export class OverviewNumbersComponent implements OnInit {
   activeDropdown: boolean;
   subscription: Subscription;
 
-  dropDownText: string = 'Oversiktstall';
+  dropDownText: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +26,7 @@ export class OverviewNumbersComponent implements OnInit {
 
     this.pageTitle = this.route.routeConfig.data.text;
     this.children = this.route.routeConfig.children;
+    this.dropDownText = this.utilitiesService.defaultDropdownText;
 
     this.subscription = this.utilitiesService.dropdownVisibility.subscribe((value) => {
       this.activeDropdown = value;

@@ -21,7 +21,8 @@
 
         <div class="dropdown">
 
-            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}" (click)="toggleDropdown()">{{ dropDownText }}</button> 
+            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
+                (click)="toggleDropdown()">{{ dropDownText }}</button>
 
             <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}">
 
@@ -36,13 +37,14 @@
 
         </div>
 
-        <br>
-        <br>
 
         <router-outlet></router-outlet>
 
+        <br><br>
 
         <div class="infographics">
+
+
 
             <figure class="infographics__figure">
 
@@ -99,6 +101,8 @@
 
 
     </div>
+
+    <br><br>
 
     <div class="page__footer"></div>
 </div>

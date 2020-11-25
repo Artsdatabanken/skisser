@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -12,9 +13,11 @@ export class UtilitiesService {
   showDropdownPane: boolean;
   dropdownVisibility: Subject<boolean> = new Subject<boolean>();
   dropdownLinkText: Subject<string> = new Subject<string>();
+  defaultDropdownText: string;
 
   constructor() {
     this.showDropdownPane = false;
+    this.defaultDropdownText = 'Oversiktstall';
   }
 
   toggleDropdown(): void {
@@ -27,7 +30,7 @@ export class UtilitiesService {
     this.dropdownVisibility.next(this.showDropdownPane); // propagate the new state
   }
 
-  getText(dropdownLinkText: string): void {
+  propagateDropdownLinkText(dropdownLinkText: string): void {
     this.dropdownLinkText.next(dropdownLinkText); // propagate the new state
   }
 

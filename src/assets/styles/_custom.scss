@@ -108,6 +108,10 @@
     grid-gap: 50px 100px;
     margin: 0 auto;
 
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr;
+    }
+
     & > * {
         align-self: stretch;
         justify-content: stretch;
@@ -123,7 +127,7 @@
         margin: 5px;
         padding: 25px;
         text-align: center;
-       
+
         @media screen and (max-width: 1600px) {
         }
     }
@@ -159,12 +163,13 @@
     }
 
     &__text {
-        font-size: 30px;
-        font-weight: 800;
+        font-size: 27px;
+        font-weight: 500;
 
         b {
             @include customVar(font-family, fontSecondary);
             font-size: 77px;
+            font-weight: 800;
         }
     }
 }
