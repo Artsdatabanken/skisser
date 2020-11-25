@@ -856,7 +856,7 @@ $dropdownRadius: 10px;
     }
 
     &__link {
-        @include customVar(background-color, paletteColor2);
+        @include customVar(background-color, paletteColor1);
         // border-top-style: solid;
         // border-top-width: 2px;
         cursor: pointer;
