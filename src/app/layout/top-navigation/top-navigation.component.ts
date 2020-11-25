@@ -1,29 +1,8 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
 import { NavigationService } from 'src/app/services/navigation.service';
-
-@Directive({ selector: '[clickElsewhere]' })
-export class ClickElsewhereDirective {
-
-  @Output() clickElsewhere = new EventEmitter<MouseEvent>();
-
-  constructor(private elementRef: ElementRef) { }
-
-  @HostListener('document:click', ['$event'])
-  public onDocumentClick(event: MouseEvent): void {
-
-    const targetElement = event.target as HTMLElement;
-
-    console.log('targetElement', targetElement)
-
-    // Check if the click was outside the element
-    if (targetElement && !this.elementRef.nativeElement.contains(targetElement)) {
-      this.clickElsewhere.emit(event);
-    }
-  }
-}
 
 @Component({
   selector: 'app-top-navigation',
@@ -46,19 +25,19 @@ export class TopNavigationComponent implements OnInit {
     private menuService: MenuService
   ) {
     this.showDashboardPane = this.menuService.showDashboardPane;
-    this.subscription = this.menuService.dashboardVisibility.subscribe((value) => { 
-      this.showDashboardPane = value; 
+    this.subscription = this.menuService.dashboardVisibility.subscribe((value) => {
+      this.showDashboardPane = value;
     });
 
   }
 
   ngOnInit(): void {
-    this.topMenu = this.navigationService.getTopMenu();   
+    this.topMenu = this.navigationService.getTopMenu();
   }
 
   ngOnDestroy() {
-     this.subscription.unsubscribe();
-   }
+    this.subscription.unsubscribe();
+  }
 
   getStyle(id: string): string {
     return `top-navigation__link--${id}`;
@@ -75,7 +54,7 @@ export class TopNavigationComponent implements OnInit {
     return this.isLoggedIn = true
   }
 
-  logout(): boolean { 
+  logout(): boolean {
     this.menuService.closeDashboard();
     return this.isLoggedIn = false;
   }

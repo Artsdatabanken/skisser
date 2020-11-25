@@ -646,7 +646,6 @@
     select {
         @include customVar(background-color, transparent);
         @include customVar(border-color, clrBlack);
-        background-color: #e8f6f3;
         font-size: 14px;
         font-weight: 600;
         height: 40px;
@@ -660,6 +659,12 @@
             outline: none;
             margin: 0;
             padding: 0 20px;
+        }
+
+        &:hover {
+            @include customVar(background-color, clrBlack);
+            @include customVar(border-color, clrBlack);
+            @include customVar(color, clrWhite);
         }
     }
 

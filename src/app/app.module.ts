@@ -32,7 +32,7 @@ import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { TopNavigationComponent, ClickElsewhereDirective } from './layout/top-navigation/top-navigation.component';
+import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { FilterComponent } from './components/shared/filter/filter.component';
@@ -90,6 +90,7 @@ import { OverviewChild11Component } from './components/statistics/overview/overv
 import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
 import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
 import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
+import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
 
 @NgModule({
   declarations: [
