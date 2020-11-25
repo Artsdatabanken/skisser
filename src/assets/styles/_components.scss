@@ -799,6 +799,8 @@
 
 // dropdown
 
+$dropdownRadius: 10px;
+
 .dropdown {
     position: relative;
 
@@ -810,6 +812,7 @@
         background-repeat: no-repeat;
         background-size: 20px;
         border: none;
+        border-radius: $dropdownRadius;
         display: block;
         font-size: 18px;
         font-weight: 600;
@@ -820,6 +823,8 @@
 
         &--active {
             background-image: url(../images/iconChevronUp.png);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         &:focus,
@@ -836,7 +841,8 @@
 
     &__pane {
         @include customVar(background-color, paletteColor0);
-        //background-color: #e8f8f5;
+        border-bottom-left-radius: $dropdownRadius;
+        border-bottom-right-radius: $dropdownRadius;
         transform: translateY(-1500vh);
         top: auto;
         left: 0;
@@ -881,6 +887,9 @@
 
         &:last-child {
             @include customVar(border-bottom-color, transparent);
+
+            border-bottom-left-radius: $dropdownRadius;
+            border-bottom-right-radius: $dropdownRadius;
         }
 
         @media screen and (max-width: 1200px) {
