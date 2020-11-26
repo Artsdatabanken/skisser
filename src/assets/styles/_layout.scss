@@ -36,14 +36,6 @@
     padding: 0 30px;
     width: 100%;
 
-    // @media screen and (max-width: 1023px) {
-    //     grid-template-columns: auto 1fr;
-    //     grid-template-rows: 70px;
-    //     grid-template-areas: "headerLogo headerMainMenu";
-    //     grid-gap: 0;
-    //     padding: 0 15px;
-    // }
-
     @media screen and (max-width: 1023px) {
         grid-template-columns: 4fr 50px 2fr;
         grid-template-rows: 70px;
@@ -53,7 +45,6 @@
     }
 
     &__cell {
-        // border: 1px solid fuchsia;
         align-self: stretch;
         justify-self: stretch;
 
@@ -82,6 +73,7 @@
             @media screen and (max-width: 1024px) {
             }
         }
+
     }
 }
 
@@ -284,7 +276,7 @@
             vertical-align: middle;
             height: 14px;
             width: 8px;
-            // display: none;
+            //display: none;
 
             @media screen and (max-width: 1024px) {
                 margin-right: 9px;
@@ -293,9 +285,9 @@
             }
         }
 
-        @media screen and (min-width: 1201px) {
-            display: none;
-        }
+        // @media screen and (min-width: 1201px) {
+        //     display: none;
+        // }
 
         // @media screen and (min-width: 1025px) {
         //     display: none;
@@ -498,83 +490,39 @@
 }
 
 .top-navigation {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
-    //margin-right: 30px;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-gap: 0 30px;
 
     position: relative;
     height: 100%;
     width: 100%;
 
-    &__link {
-        background-position: left center;
-        background-repeat: no-repeat;
-        font-size: 16px;
-        font-weight: 600;
-        margin: 0;
-        vertical-align: middle;
-
-        &--login {
-            background-image: url(../images/iconLock.png);
-            background-size: 13px;
-            padding: 0 0 0 20px;
-
-            &:hover {
-                @include customVar(background-color, clrSecondary);
-            }
-        }
-
-        &--messages {
-            background-image: url(../images/iconEnvelope.png);
-            background-position: right center;
-            background-size: 18px;
-            margin-right: 7px;
-            padding: 0 30px 0 0;
-        }
-
-        &--user-profile {
-            border: 1px solid red;
-            background-image: url(../images/iconUser.png);
-            background-position: left 15px center;
-            background-size: 18px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            padding: 0 15px 0 28px;
-            text-align: center;
-
-            &:focus {
-                border: none;
-                outline: 0;
-            }
-        }
-
-        &--active {
-            @include customVar(background-color, paletteColor1);
-        }
-    }
-
-    &__toggle {
-        &--active {
-            @include customVar(background-color, paletteColor1);
-        }
+    & > * {
+        //border: 1px solid blue;
+        align-self: center;
+        justify-self: center;
     }
 }
 
 // dashboard / minside
 
+.dashboard {
+}
+
 .dashboard-toggle {
     @include customVar(font-family, fontPrimary);
-    background-image: url(../images/iconUser.png);
+    background-image: url(../images/iconLock.png);
     background-position: left 15px center;
     background-repeat: no-repeat;
-    background-size: 18px;
+    background-size: auto 16px;
     border: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    padding: 15px 20px 15px 45px;
+    padding: 15px 20px 15px 38px;
     text-align: center;
     height: 100%;
     width: 100%;
@@ -584,14 +532,17 @@
         outline: 0;
     }
 
-    &--active {
+    &--open {
         @include customVar(background-color, paletteColor1);
         background-color: #e9f7ef;
     }
 
+    &--active {
+        background-image: url(../images/iconLockOpen.png);
+    }
+
     @media screen and (max-width: 1200px) {
         background-position: center center;
-        background-size: 15px;
         padding: 15px;
 
         span {
@@ -726,20 +677,20 @@
 
 .subheader {
     //@include customVar(background-color, paletteColor1);
-    background: #f7f7f7;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 30px;
+    // background: #f7f7f7;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+    // padding: 10px 30px;
 
-    @media screen and (max-width: 1024px) {
-        padding: 7px 15px;
-    }
+    // @media screen and (max-width: 1024px) {
+    //     padding: 7px 15px;
+    // }
 
-    & > * {
-        align-self: center;
-        justify-self: stretch;
-    }
+    // & > * {
+    //     align-self: center;
+    //     justify-self: stretch;
+    // }
 }
 
 // breadcrumbs

@@ -24,7 +24,7 @@
             <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
                 (click)="toggleDropdown()">{{ dropDownText }}</button>
 
-            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}">
+            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}" [attr.aria-expanded]="activeDropdown">
 
                 <a *ngFor="let child of children" class="dropdown__link"
                     routerLink="/observations/statistics/overview/{{child.path}}"
@@ -42,7 +42,7 @@
 
         <br><br>
 
-        <div class="infographics">
+        <!-- <div class="infographics">
 
 
 
@@ -97,7 +97,7 @@
 
             </figure>
 
-        </div>
+        </div> -->
 
 
     </div>

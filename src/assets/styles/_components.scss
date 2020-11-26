@@ -548,12 +548,11 @@
         line-height: 20px;
         margin: 15px 0 5px;
         order: 3;
-        padding-left: 25px;
+        padding-left: 18px;
         position: relative;
 
         &::before {
-            background-image: url(../images/iconCamera.png);
-            background-image: url(../images/iconEye.png);
+            background-image: url(../images/iconUser.png);
             background-position: center center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -561,11 +560,11 @@
             display: inline-block;
             display: block;
             line-height: 1;
-            height: 19px;
-            width: 20px;
+            height: 12px;
+            width: 15px;
             position: absolute;
             left: 0;
-            top: -1px;
+            top: 2px;
         }
     }
 
@@ -794,6 +793,41 @@
             padding: 30px;
             transition: max-height 0.9s ease-in;
         }
+    }
+}
+
+// icon link
+
+.icon-link {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 15px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+
+    padding-left: 25px;
+    padding: 12px 0 12px 30px;
+
+    &--login {
+        background-image: url(../images/iconLock.png);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: auto 16px;
+    }
+
+    &--add {
+        background-image: url(../images/iconEye.png);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: auto 15px;
+    }
+
+    &--obs {
+        background-image: url(../images/iconEye.png);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: auto 15px;
     }
 }
 

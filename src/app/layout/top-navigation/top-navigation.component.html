@@ -14,35 +14,29 @@
 <!--desktop-->
 <nav class="top-navigation" *ngIf="location === 'header'">
 
-    <!-- <button class="dashboard-toggle" id="dashboardToggleButton"
-        [ngClass]="{'dashboard-toggle--active': showDashboardPane}" (click)="showDashboardPane = !showDashboardPane"
-        #toggleDashboardButton>
-
-        <span *ngIf="!isLoggedIn">Logg inn</span>
-        <span *ngIf="isLoggedIn">Min side</span>
-
-    </button> -->
-
     <button class="dashboard-toggle" id="dashboardToggleButton"
-        [ngClass]="{'dashboard-toggle--active': showDashboardPane}" (click)="toggleDashboard()" arial-label="Åpne og lukke innloggingsmenyen">
+        [ngClass]="{'dashboard-toggle--open': showDashboardPane, 'dashboard-toggle--active': isLoggedIn}"
+        (click)="toggleDashboard()" arial-label="Åpne og lukke innloggingsmenyen">
 
         <span *ngIf="!isLoggedIn">Logg inn</span>
         <span *ngIf="isLoggedIn">Min side</span>
 
     </button>
 
-    <div class="dashboard-pane" id="dashboardPane" [ngClass]="{'dashboard-pane--open': showDashboardPane}" [attr.arial-expanded]="showDashboardPane">
+    <div class="dashboard-pane" id="dashboardPane"
+        [ngClass]="{'dashboard-pane--open': showDashboardPane}" [attr.arial-expanded]="showDashboardPane">
 
         <div class="dashboard-pane__item dashboard-pane__item--tall dashboard-pane__item--first" *ngIf="!isLoggedIn">
 
             <form action="">
-                <label for="">E-post</label>
-                <input type="text" placeholder="Angi e-post">
+                <label for="usermail">E-post</label>
+                <input type="text" id="usermail" placeholder="Angi e-post">
                 <br>
-                <label for="">Passord</label>
-                <input type="password" placeholder="Angi passord">
+                <label for="userpassword">Passord</label>
+                <input type="password" id="userpassword" placeholder="Angi passord">
 
-                <div style="font-size: 14px; margin: 10px 0 15px; text-align: center;">Glemt brukernavn eller passord?
+                <div style="font-size: 14px; margin: 10px 0 15px; text-align: center;">Glemt brukernavn eller
+                    passord?
                 </div>
 
                 <button style="float: right;" class="button button--sm button--primary button--centered"
@@ -89,8 +83,8 @@
                 &nbsp;&nbsp;
                 <input type="submit" class="" value="Logge ut?" (click)="logout()">
             </div>
-        </div>
 
+        </div>
 
     </div>
 

@@ -2,10 +2,11 @@
 
 <header class="header" role="banner">
     <app-logo class="header__cell header__cell--first header__cell--logo"></app-logo>
-    <app-top-navigation [location]="'header'" class="header__cell header__cell--second header__cell--top-menu"
+    <!-- <app-shortcuts class="header__cell header__cell--second header__cell--shortcuts"></app-shortcuts> -->
+    <app-top-navigation [location]="'header'" class="header__cell header__cell--third header__cell--top-menu"
         *ngIf="!activeMenu">
     </app-top-navigation>
-    <app-menu class="header__cell header__cell--third header__cell--menu"></app-menu>
+    <app-menu class="header__cell header__cell--fourth header__cell--menu"></app-menu>
 </header>
 
 <!--layout component-->

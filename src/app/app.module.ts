@@ -91,6 +91,7 @@ import { OverviewChild12Component } from './components/statistics/overview/overv
 import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
 import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
 import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
+import { ShortcutsComponent } from './components/shared/shortcuts/shortcuts.component';
 
 @NgModule({
   declarations: [
@@ -181,7 +182,8 @@ import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
     OverviewChild10Component,
     OverviewChild11Component,
     OverviewChild12Component,
-    GetDropdownItemDirective
+    GetDropdownItemDirective,
+    ShortcutsComponent
   ],
   imports: [
     BrowserModule,
