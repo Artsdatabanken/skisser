@@ -24,13 +24,14 @@
     </button> -->
 
     <button class="dashboard-toggle" id="dashboardToggleButton"
-        [ngClass]="{'dashboard-toggle--active': showDashboardPane}" (click)="toggleDashboard()" #toggleDashboardButton>
+        [ngClass]="{'dashboard-toggle--active': showDashboardPane}" (click)="toggleDashboard()" arial-label="Åpne og lukke innloggingsmenyen">
 
         <span *ngIf="!isLoggedIn">Logg inn</span>
         <span *ngIf="isLoggedIn">Min side</span>
+
     </button>
 
-    <div class="dashboard-pane" id="dashboardPane" [ngClass]="{'dashboard-pane--open': showDashboardPane}" #dashboard>
+    <div class="dashboard-pane" id="dashboardPane" [ngClass]="{'dashboard-pane--open': showDashboardPane}" [attr.arial-expanded]="showDashboardPane">
 
         <div class="dashboard-pane__item dashboard-pane__item--tall dashboard-pane__item--first" *ngIf="!isLoggedIn">
 

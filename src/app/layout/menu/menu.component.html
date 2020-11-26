@@ -1,14 +1,14 @@
-<button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}" type="button"
-    (click)="toggleMenu()">
+<button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
+    type="button" (click)="toggleMenu()" arial-label="Åpne og lukke meny">
     <span class="hamburger__text">
         Meny
     </span>
-    <span class="hamburger__box">
+    <span class="hamburger__box" aria-hidden="true">
         <span class="hamburger__inner"></span>
     </span>
 </button>
 
-<div class="menu" id="menu" [ngClass]="{'menu--open': activeMenu}">
+<div class="menu" id="menu" [ngClass]="{'menu--open': activeMenu}" [attr.aria-expanded]="activeMenu">
 
     <!-- <div class="menu__grid">
         <a class="button button--primary button--md" routerLink="/report-observation">Rapportere observasjon</a>
@@ -17,7 +17,7 @@
 
     <!-- <app-top-navigation [location]="'menu'"></app-top-navigation> -->
     <app-navigation></app-navigation>
-   
+
     <footer class="menu__footer">
         <app-extra-navigation></app-extra-navigation>
     </footer>
