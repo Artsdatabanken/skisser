@@ -10,8 +10,10 @@
 
     <div class="layout__main">
 
-        <ng-container *ngIf="page" aria-live="assertive">
-            <span [attr.aria-label]="page"></span>
+        <app-shortcuts></app-shortcuts>
+
+        <ng-container *ngIf="pageTitle" aria-live="assertive">
+            <span [attr.aria-label]="pageTitle"></span>
         </ng-container>
 
         <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
