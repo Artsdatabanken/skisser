@@ -32,14 +32,14 @@
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px;
     gap: 0 30px;
-    grid-template-areas: "headerLogo headerTopMenu headerMainMenu";
+    grid-template-areas: "headerLogo headerDashboard headerMainMenu";
     padding: 0 30px;
     width: 100%;
 
     @media screen and (max-width: 1023px) {
         grid-template-columns: 4fr 50px 2fr;
         grid-template-rows: 70px;
-        grid-template-areas: "headerLogo headerTopMenu headerMainMenu";
+        grid-template-areas: "headerLogo headerDashboard headerMainMenu";
         grid-gap: 0;
         padding: 0 15px;
     }
@@ -55,9 +55,9 @@
             }
         }
 
-        &--top-menu {
+        &--dashboard {
             align-self: center;
-            grid-area: headerTopMenu;
+            grid-area: headerDashboard;
             justify-self: end;
 
             // @media screen and (max-width: 1023px) {
@@ -73,7 +73,6 @@
             @media screen and (max-width: 1024px) {
             }
         }
-
     }
 }
 
@@ -489,25 +488,16 @@
     }
 }
 
-.top-navigation {
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    grid-gap: 0 30px;
+// dashboard / minside
 
+.dashboard {
     position: relative;
-    height: 100%;
-    width: 100%;
 
     & > * {
         //border: 1px solid blue;
         align-self: center;
         justify-self: center;
     }
-}
-
-// dashboard / minside
-
-.dashboard {
 }
 
 .dashboard-toggle {
@@ -522,6 +512,7 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
+    margin: 0;
     padding: 15px 20px 15px 38px;
     text-align: center;
     height: 100%;

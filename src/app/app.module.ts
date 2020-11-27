@@ -92,6 +92,7 @@ import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
 import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
 import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
 import { ShortcutsComponent } from './components/shared/shortcuts/shortcuts.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -183,7 +184,8 @@ import { ShortcutsComponent } from './components/shared/shortcuts/shortcuts.comp
     OverviewChild11Component,
     OverviewChild12Component,
     GetDropdownItemDirective,
-    ShortcutsComponent
+    ShortcutsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
