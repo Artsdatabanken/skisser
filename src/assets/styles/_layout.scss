@@ -516,7 +516,7 @@
     padding: 15px 20px 15px 38px;
     text-align: center;
     height: 100%;
-    width: 100%;
+    width: 130px;
 
     &:focus {
         border: none;
@@ -529,7 +529,7 @@
     }
 
     &--active {
-        background-image: url(../images/iconLockOpen.png);
+        //background-image: url(../images/iconLockOpen.png);
     }
 
     @media screen and (max-width: 1200px) {
