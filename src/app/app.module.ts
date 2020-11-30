@@ -93,6 +93,7 @@ import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive'
 import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
 
 @NgModule({
   declarations: [
@@ -185,7 +186,8 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
     OverviewChild12Component,
     GetDropdownItemDirective,
     ShortcutsComponent,
-    DashboardComponent
+    DashboardComponent,
+    ArtsobsNumbersComponent
   ],
   imports: [
     BrowserModule,
