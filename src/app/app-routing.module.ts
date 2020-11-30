@@ -65,7 +65,7 @@ const homeRoutes: Routes = [
     path: '',
     component: HomeComponent,
     data: {
-      text: '',
+      text: 'Artsobservasjoner',
       id: 'frontpage',
       layout: 'frontpage',
       rank: '',

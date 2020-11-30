@@ -51,11 +51,11 @@ body {
 
 a {
   @include customVar(color, clrBlack);
-  display: inline-block;
+  //display: inline-block;
   text-decoration: none !important;
 
   &:focus {
-    display: inline-block;
+    //display: inline-block;
   }
 }
 

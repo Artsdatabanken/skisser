@@ -91,7 +91,7 @@ import { OverviewChild12Component } from './components/statistics/overview/overv
 import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
 import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
 import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
-import { ShortcutsComponent } from './components/shared/shortcuts/shortcuts.component';
+import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 
 @NgModule({

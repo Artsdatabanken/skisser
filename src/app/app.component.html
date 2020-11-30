@@ -10,7 +10,7 @@
 
     <div class="layout__main">
 
-        <app-shortcuts></app-shortcuts>
+        <app-shortcuts [location]="pageId" *ngIf="pageTitle !== 'Artsobservasjoner'"></app-shortcuts>
 
         <ng-container *ngIf="pageTitle" aria-live="assertive">
             <span [attr.aria-label]="pageTitle"></span>
@@ -19,7 +19,7 @@
         <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
             [class]="getLayoutStyle(pageLayout)">
 
-            <h1 class="page-title" *ngIf="pageTitle !== 'Forsiden' && pageLayout !== 'item' && pageLayout !== 'spa'">{{ pageTitle }}</h1>
+            <h1 class="page-title" *ngIf="pageTitle !== 'Artsobservasjoner' && pageLayout !== 'item' && pageLayout !== 'spa'">{{ pageTitle }}</h1>
 
             <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
 

@@ -53,7 +53,9 @@ export class AppComponent {
         this.pageId = obj.id;
         this.pageLayout = obj.layout;
 
-        if (this.pageId === 'home') {
+        console.log('Page details =================', this.pageTitle, this.pageId, this.pageLayout);
+
+        if (this.pageId === 'frontpage') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
         }
         else {

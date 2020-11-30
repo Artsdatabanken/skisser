@@ -646,23 +646,53 @@ $graphColor6: #3c1434;
 // shortcuts
 
 .shortcuts {
+    position: fixed;
+    top: calc(50vh - 200px);
+    right: 25px;
+
     &__link {
         background-color: #d1f2eb;
         border-radius: 100%;
         display: block;
-        font-size: 0;
-        margin: 0 auto 20px;
+        margin: 10px auto;
         text-align: center;
         height: 80px;
-        line-height: 80px;
         width: 80px;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-gap: 0;
+
+        & > * {
+            margin: 0 auto;
+            align-self: center;
+            justify-self: center;
+        }
+
+        &:focus,
+        &:hover {
+            background-color: #76d7c4;
+        }
     }
 
     &__text {
-        font-size: 0;
+        align-self: end; // important
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 1px;
     }
 
     &__icon {
+        align-self: start; // important
         margin: 0 auto;
+        padding: 0;
+        width: 30px;
+
+        img {
+            margin: 0 auto;
+            padding: 0;
+            width: 30px;
+        }
     }
 }
