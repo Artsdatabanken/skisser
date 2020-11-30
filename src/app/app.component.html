@@ -10,7 +10,7 @@
 
     <div class="layout__main">
 
-        <app-shortcuts [location]="pageId" *ngIf="pageTitle !== 'Artsobservasjoner'" style="position: relative; border: 5px solid blue; height: 100%;"></app-shortcuts>
+        <app-shortcuts [location]="pageId" *ngIf="pageTitle !== 'Artsobservasjoner'"></app-shortcuts>
 
         <ng-container *ngIf="pageTitle" aria-live="assertive">
             <span [attr.aria-label]="pageTitle"></span>
