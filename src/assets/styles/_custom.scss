@@ -646,9 +646,16 @@ $graphColor6: #3c1434;
 // shortcuts
 
 .shortcuts {
+    // border: 1px solid red;
+    // background: black;
+    height: auto;
+    margin: auto;
     position: fixed;
-    top: calc(50vh - 200px);
+    //top: calc(50vh - 105px);
     right: 25px;
+    // bottom: 0;
+    // left: auto;
+    transform: translateY(50%);
 
     &__link {
         background-color: #d1f2eb;
