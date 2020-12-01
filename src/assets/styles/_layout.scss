@@ -31,16 +31,18 @@
     display: grid;
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px;
-    gap: 0 30px;
     grid-template-areas: "headerLogo headerDashboard headerMainMenu";
+    gap: 0 30px;
+
     padding: 0 30px;
     width: 100%;
 
     @media screen and (max-width: 1023px) {
-        grid-template-columns: 4fr 50px 2fr;
+        border: 1px solid fuchsia;
+        grid-template-columns: 3fr 1fr;
         grid-template-rows: 70px;
-        grid-template-areas: "headerLogo headerDashboard headerMainMenu";
-        grid-gap: 0;
+        grid-template-areas: "headerLogo headerMainMenu";
+        grid-gap: 0 0;
         padding: 0 15px;
     }
 
@@ -60,9 +62,9 @@
             grid-area: headerDashboard;
             justify-self: end;
 
-            // @media screen and (max-width: 1023px) {
-            //     display: none;
-            // }
+            @media screen and (max-width: 1023px) {
+                display: none;
+            }
         }
 
         &--menu {
@@ -494,7 +496,6 @@
     position: relative;
 
     & > * {
-        //border: 1px solid blue;
         align-self: center;
         justify-self: center;
     }
@@ -534,10 +535,13 @@
 
     @media screen and (max-width: 1200px) {
         background-position: center center;
-        padding: 15px;
+        background-size: contain;
+        padding: 0;
+        width: 50px;
 
         span {
-            display: none;
+            //display: none;
+            font-size: 0;
         }
     }
 }
@@ -772,9 +776,6 @@
         width: 58px;
 
         @media screen and (max-width: 1600px) {
-            height: 96px;
-            width: 96px;
-
             height: 48px;
             width: 48px;
         }
@@ -810,7 +811,6 @@
 
         @media screen and (max-width: 1024px) {
             font-size: 16px;
-            font-weight: 500;
         }
 
         &:hover {
@@ -880,16 +880,20 @@ main {
     }
 
     &__intro {
-        font-size: 24px;
         font-size: 25px;
-        font-size: 800;
+        font-weight: 800;
         margin-bottom: 30px;
 
         p {
             font-size: inherit;
-            font-weight: 700 !important;
+            font-weight: inherit;
             line-height: 1.5;
             margin: 0;
+        }
+
+        @media screen and (max-width: 1200px) {
+            font-size: 22px;
+            font-weight: 700;
         }
     }
 

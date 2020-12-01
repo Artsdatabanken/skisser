@@ -657,16 +657,17 @@ $graphColor6: #3c1434;
 // shortcuts
 
 .shortcuts {
-    // border: 1px solid red;
-    // background: black;
+    display: none;
+    
     height: auto;
     margin: auto;
     position: fixed;
-    //top: calc(50vh - 105px);
     right: 25px;
-    // bottom: 0;
-    // left: auto;
-    transform: translateY(50%);
+    //transform: translateY(50%);
+
+    @media screen and (max-width: 1024px) {
+        //transform: translateY(10px);
+    }
 
     &__link {
         background-color: #d1f2eb;
@@ -682,15 +683,22 @@ $graphColor6: #3c1434;
         align-items: center;
         grid-gap: 0;
 
+        &:focus,
+        &:hover {
+            background-color: #76d7c4;
+        }
+
+        @media screen and (max-width: 1024px) {
+            height: 50px;
+            width: 50px;
+        }
+
+        // children
+
         & > * {
             margin: 0 auto;
             align-self: center;
             justify-self: center;
-        }
-
-        &:focus,
-        &:hover {
-            background-color: #76d7c4;
         }
     }
 
@@ -699,6 +707,10 @@ $graphColor6: #3c1434;
         font-size: 14px;
         font-weight: 700;
         margin-bottom: 1px;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 11px;
+        }
     }
 
     &__icon {
@@ -707,10 +719,18 @@ $graphColor6: #3c1434;
         padding: 0;
         width: 30px;
 
+        @media screen and (max-width: 1024px) {
+            width: 18px;
+        }
+
         img {
             margin: 0 auto;
             padding: 0;
             width: 30px;
+
+            @media screen and (max-width: 1024px) {
+                width: 10px;
+            }
         }
     }
 }
