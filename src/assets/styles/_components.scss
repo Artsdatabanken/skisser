@@ -856,10 +856,11 @@ $dropdownRadius: 10px;
         background-size: 20px;
         border: none;
         border-radius: $dropdownRadius;
+        cursor: pointer;
         display: block;
         font-size: 18px;
         font-weight: 600;
-        padding: 15px 30px;
+        padding: 30px;
         text-align: left;
         width: 100%;
         transition: background-image 0.3s;
@@ -876,8 +877,14 @@ $dropdownRadius: 10px;
             outline: 0;
         }
 
+        @media screen and (max-width: 1600px) {
+            padding: 20px 30px;
+        }
+
         @media screen and (max-width: 1200px) {
             background-position: right 15px center;
+            background-size: 15px;
+            font-size: 16px;
             padding: 20px 15px;
         }
     }
@@ -900,23 +907,12 @@ $dropdownRadius: 10px;
 
     &__link {
         @include customVar(background-color, paletteColor1);
-        // border-top-style: solid;
-        // border-top-width: 2px;
         cursor: pointer;
         display: block;
         font-size: 16px;
         font-weight: 600;
         margin-top: 2px;
         padding: 15px 30px;
-
-        &:hover,
-        &:focus,
-        &:active,
-        &--active {
-            @include customVar(background-color, paletteColor1);
-            display: block;
-            width: 100%;
-        }
 
         &:hover,
         &:focus,
@@ -936,6 +932,7 @@ $dropdownRadius: 10px;
         }
 
         @media screen and (max-width: 1200px) {
+            font-size: 14px;
             padding: 15px;
         }
     }
