@@ -709,21 +709,9 @@
 // subheader
 
 .subheader {
-    //@include customVar(background-color, paletteColor1);
-    // background: #f7f7f7;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
-    // padding: 10px 30px;
-
-    // @media screen and (max-width: 1024px) {
-    //     padding: 7px 15px;
-    // }
-
-    // & > * {
-    //     align-self: center;
-    //     justify-self: stretch;
-    // }
+    @media screen and (min-width: 1201px) {
+        display: none;
+    }
 }
 
 // breadcrumbs

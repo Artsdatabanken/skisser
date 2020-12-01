@@ -104,9 +104,8 @@
 // infographics
 
 .infographics {
-    background-color: #e9f7ef;
-
-    @include customVar(background-color, paletteColor0);
+    background-color: #f8f8f8;
+    //@include customVar(background-color, paletteColor0);
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -119,6 +118,8 @@
     text-align: center;
 
     @media screen and (max-width: 1600px) {
+        background-color: #e9f7ef;
+        @include customVar(background-color, paletteColor0);
         border-radius: 0;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -658,7 +659,7 @@ $graphColor6: #3c1434;
 
 .shortcuts {
     display: none;
-    
+
     height: auto;
     margin: auto;
     position: fixed;
