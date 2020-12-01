@@ -858,7 +858,7 @@ $dropdownRadius: 10px;
         border-radius: $dropdownRadius;
         cursor: pointer;
         display: block;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
         padding: 30px;
         text-align: left;
@@ -885,6 +885,7 @@ $dropdownRadius: 10px;
             background-position: right 15px center;
             background-size: 15px;
             font-size: 16px;
+            line-height: 1.2;
             padding: 20px 15px;
         }
     }
@@ -933,7 +934,9 @@ $dropdownRadius: 10px;
 
         @media screen and (max-width: 1200px) {
             font-size: 14px;
-            padding: 15px;
+            font-weight: 500;
+            line-height: 1.2;
+            padding: 15px 30px 15px 15px;
         }
     }
 }

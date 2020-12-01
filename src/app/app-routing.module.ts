@@ -240,13 +240,13 @@ const observationRoutes: Routes = [
     path: 'observations/statistics/overview',
     component: OverviewNumbersComponent,
     data: {
-      text: 'Oversiktstall',
+      text: 'Artsstatistikk',
       id: 'overview',
       layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Oversiktstall',
+      metaTitle: 'Artsstatistikk',
       metaDescription: ''
     },
     children: [
