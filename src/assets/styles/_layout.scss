@@ -38,7 +38,6 @@
     width: 100%;
 
     @media screen and (max-width: 1023px) {
-        border: 1px solid fuchsia;
         grid-template-columns: 3fr 1fr;
         grid-template-rows: 70px;
         grid-template-areas: "headerLogo headerMainMenu";
@@ -502,6 +501,7 @@
 }
 
 .dashboard-toggle {
+    @include customVar(background-color, transparent);
     @include customVar(font-family, fontPrimary);
     background-image: url(../images/iconLock.png);
     background-position: left 15px center;
@@ -534,15 +534,18 @@
     }
 
     @media screen and (max-width: 1200px) {
-        background-position: center center;
-        background-size: contain;
-        padding: 0;
-        width: 50px;
+        /*
+        We cand use this since dashboard in the header is hidden on mobile screen resolutions, otherwise use the location selector .dashboard--subheader & {} for mobile styles
+        */
 
-        span {
-            //display: none;
-            font-size: 0;
-        }
+        //@include customVar(background-color, clrWhite);
+        background-color: #e9f7ef;
+        background-size: auto 14px;
+        border-radius: 0;
+        font-size: 14px;
+        padding: 12px 15px 10px 35px;
+        text-align: left;
+        width: 100%;
     }
 }
 
@@ -552,9 +555,8 @@
     border-radius: 10px;
     border-top-right-radius: 0;
     font-size: 16px;
-    //padding: 30px;
     padding: 15px 0;
-    transform: translateY(-1500vh); /*change here related your menu height*/
+    transform: translateY(-1500vh);
     position: absolute;
     top: 46px;
     left: -20vw;
@@ -566,9 +568,31 @@
         transform: translateY(0);
     }
 
+    @media screen and (max-width: 1200px) {
+        /*
+        We cand use this since dashboard in the header is hidden on mobile screen resolutions, otherwise use the location selector .dashboard--subheader & {} for mobile styles
+        */
+        border-radius: 0;
+        top: 37px;
+        left: 0;
+        right: 0;
+        z-index: 20000000;
+    }
+
+    // elements
+
     &__item {
+        border: 1px solid red;
         margin: 0;
         padding: 1px 30px;
+
+        @media screen and (max-width: 1200px) {
+            /*
+            We cand use this since dashboard in the header is hidden on mobile screen resolutions, otherwise use the location selector .dashboard--subheader & {} for mobile styles
+            */
+
+            padding: 1px 15px;
+        }
 
         &--first {
             font-size: 16px;
@@ -576,6 +600,14 @@
 
         &--tall {
             padding: 15px 30px;
+
+            @media screen and (max-width: 1200px) {
+                /*
+                We cand use this since dashboard in the header is hidden on mobile screen resolutions, otherwise use the location selector .dashboard--subheader & {} for mobile styles
+                */
+
+                padding: 15px;
+            }
         }
 
         &--messages {
@@ -584,6 +616,7 @@
         }
     }
 
+    // children
     form > div {
         margin: 5px 0 15px;
     }
