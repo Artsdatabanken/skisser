@@ -896,49 +896,6 @@ main {
     min-height: 75vh;
 }
 
-// page
-
-.page {
-    grid-area: pageContent;
-
-    // elements
-    &__header {
-    }
-
-    &__intro {
-        font-size: 25px;
-        font-weight: 800;
-        margin-bottom: 30px;
-
-        p {
-            font-size: inherit;
-            font-weight: inherit;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        @media screen and (max-width: 1200px) {
-            font-size: 22px;
-            font-weight: 700;
-        }
-    }
-
-    &__content {
-        grid-area: pageContent;
-    }
-
-    &__footer {
-    }
-}
-
-.child {
-    h2 {
-        margin-bottom: 50px;
-    }
-}
-
-// grid
-
 .main-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1048,6 +1005,49 @@ main {
         grid-area: component;
     }
 }
+
+// page
+
+.page {
+    grid-area: pageContent;
+
+    // elements
+    &__header {
+    }
+
+    &__intro {
+        font-size: 25px;
+        font-weight: 800;
+        margin-bottom: 30px;
+
+        p {
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 1200px) {
+            font-size: 22px;
+            font-weight: 700;
+        }
+    }
+
+    &__content {
+        grid-area: pageContent;
+    }
+
+    &__footer {
+    }
+}
+
+.child {
+    h2 {
+        margin-bottom: 50px;
+    }
+}
+
+// grid
 
 .grid {
     display: grid;
