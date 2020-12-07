@@ -41,3 +41,4 @@ export class ArtsobsNumbersComponent implements OnInit {
   }
 
 }
+ 
