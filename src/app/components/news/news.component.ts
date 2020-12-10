@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, NewsItem } from 'src/app/services/data.service';
+import { NewsItem } from 'src/app/models/newsItem';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-news',

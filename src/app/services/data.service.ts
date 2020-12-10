@@ -1,17 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Sanitizer } from '@angular/core';
-import { SecurityContext } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, publishReplay, refCount } from 'rxjs/operators';
+import { NewsItem } from '../models/newsItem';
 import { User } from '../models/user';
-
-export interface NewsItem {
-  title: string;
-  date: Date;
-  content: string;
-  excerpt: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +15,7 @@ export class DataService {
   apiUrl: string = 'https://reqres.in/api/users?page=2';
   wordpressApi: string = 'http://localhost:10004/wp-json/wp/v2/posts';
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   getStatsData(): Observable<any> {
     return this.http.get(this.configUrl1).pipe(
