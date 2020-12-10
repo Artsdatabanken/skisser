@@ -91,6 +91,9 @@ import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
+import { NewsComponent } from './components/news/news.component';
+import { NewsItemComponent } from './components/news/news-item/news-item.component';
+import { TruncatePipe } from './helpers/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -180,7 +183,10 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
     GetDropdownItemDirective,
     ShortcutsComponent,
     DashboardComponent,
-    ArtsobsNumbersComponent
+    ArtsobsNumbersComponent,
+    NewsComponent,
+    NewsItemComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

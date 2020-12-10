@@ -1,8 +1,17 @@
 import { HttpClient } from '@angular/common/http';
+import { Sanitizer } from '@angular/core';
+import { SecurityContext } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, publishReplay, refCount } from 'rxjs/operators';
 import { User } from '../models/user';
+
+export interface NewsItem {
+  title: string;
+  date: Date;
+  content: string;
+  excerpt: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +21,11 @@ export class DataService {
 
   configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
   apiUrl: string = 'https://reqres.in/api/users?page=2';
+  wordpressApi: string = 'http://localhost:10004/wp-json/wp/v2/posts';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getStatsData(): Observable<any> {
     return this.http.get(this.configUrl1).pipe(
@@ -45,6 +57,34 @@ export class DataService {
 
 
         return users;
+      })
+    );
+
+  }
+
+  getNews(): Observable<NewsItem[]> {
+
+    return this.http.get(this.wordpressApi).pipe(
+      map((res: any[]) => {
+        console.log('response', res);
+        console.log('typeof res', typeof res);
+
+        const news: NewsItem[] = [];
+
+        res.forEach(post => {
+
+          const newsItem: NewsItem = {
+            title: post.title.rendered,
+            date: post.date,
+            content: post.content.rendered,
+            excerpt: post.excerpt.rendered
+          }
+
+          news.push(newsItem);
+
+        });
+
+        return news;
       })
     );
 

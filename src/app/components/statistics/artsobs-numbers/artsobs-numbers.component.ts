@@ -20,17 +20,18 @@ export class ArtsobsNumbersComponent implements OnInit {
 
     //this.fakeData$ = this.dataService.getStatsData();
 
-    this.dataService.getUsers().subscribe(res => {
-      console.log('results', res)
-      this.users = res;
-    });
+    this.dataService.getUsers().subscribe(
+      res => {
+        console.log('results', res)
+        this.users = res;
+      });
 
     this.dataService.getStatsData()
       .subscribe(
         data => {
           this.fakeData = data;
           console.log('type', typeof this.fakeData)
-          console.log('type',  this.fakeData)
+          console.log('type', this.fakeData)
         },
         error => {
           if (error instanceof HttpErrorResponse) {
@@ -48,4 +49,3 @@ export class ArtsobsNumbersComponent implements OnInit {
   }
 
 }
- 

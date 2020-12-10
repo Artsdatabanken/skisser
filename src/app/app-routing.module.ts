@@ -48,6 +48,7 @@ import { OverviewChild6Component } from './components/statistics/overview/overvi
 import { OverviewChild7Component } from './components/statistics/overview/overview-child7/overview-child7.component';
 import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
+import { NewsComponent } from './components/news/news.component';
 
 /*
 
@@ -769,6 +770,23 @@ const extraRoutes: Routes = [
   }
 ];
 
+const newsRoutes: Routes = [
+  {
+    path: 'news',
+    component: NewsComponent,
+    data: {
+      text: 'News',
+      id: 'news',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metaTitle: 'News',
+      metaDescription: ''
+    }
+  }
+];
+
 const testRoutes: Routes = [  // for testing purposes
   {
     path: 'map',
@@ -817,7 +835,7 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationRoutes, ...userDataRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationRoutes, ...userDataRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...newsRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

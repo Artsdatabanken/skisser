@@ -1,0 +1,22 @@
+<div class="page page--landing">
+
+    <header class="page__header"></header>
+
+    <div class="page__intro">
+
+        <p>Ingress og annen nødvendig tekst</p>
+
+    </div>
+
+    <div class="page__content">
+
+        <div class="loop loop--teasers">
+            <app-teaser [source]="'animal1'" [url]="'/'" [text]="item.excerpt" [tag]="'Aktuelt'" [date]="item.date"
+                [title]="item.title" *ngFor="let item of news"> </app-teaser>
+        </div>
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>

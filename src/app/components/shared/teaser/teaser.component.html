@@ -6,9 +6,9 @@
     <img class="teaser__image" src='assets/images/gallery/{{ source }}.jpg' alt="">
     <div class="teaser__details">
         <div class="teaser__tag">{{ tag }}</div>
-        <div class="teaser__date">{{ date }}</div>
+        <div class="teaser__date">{{ date | date: 'dd.MM.yyyy'}}</div>
     </div>
-    <p class="teaser__text">{{ text }}</p>
+    <p class="teaser__text" [innerHtml]="text | truncate"></p>
 </a>
 
 
