@@ -8,7 +8,7 @@
         <div class="teaser__tag">{{ tag }}</div>
         <div class="teaser__date">{{ date | date: 'dd.MM.yyyy'}}</div>
     </div>
-    <p class="teaser__text" [innerHtml]="text | truncate"></p>
+    <p class="teaser__text" [innerHtml]="text | truncateText: 150"></p>
 </a>
 
 

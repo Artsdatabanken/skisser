@@ -49,6 +49,7 @@ import { OverviewChild7Component } from './components/statistics/overview/overvi
 import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { NewsComponent } from './components/news/news.component';
+import { NewsItemComponent } from './components/news/news-item/news-item.component';
 
 /*
 
@@ -777,14 +778,28 @@ const newsRoutes: Routes = [
     data: {
       text: 'News',
       id: 'news',
-      layout: 'page',
+      layout: 'std',
       rank: '',
       parent: '',
       menu: '',
       metaTitle: 'News',
       metaDescription: ''
     }
-  }
+  },
+  {
+    path: 'news/:postId',
+    component: NewsItemComponent,
+    data: {
+      text: 'News Item',
+      id: 'news',
+      layout: 'std',
+      rank: '',
+      parent: '',
+      menu: '',
+      metaTitle: 'News Item',
+      metaDescription: ''
+    }
+  },
 ];
 
 const testRoutes: Routes = [  // for testing purposes

@@ -93,7 +93,7 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
-import { TruncatePipe } from './helpers/truncate.pipe';
+import { TruncateTextPipe } from './helpers/truncate-text.pipe';
 
 @NgModule({
   declarations: [
@@ -186,7 +186,7 @@ import { TruncatePipe } from './helpers/truncate.pipe';
     ArtsobsNumbersComponent,
     NewsComponent,
     NewsItemComponent,
-    TruncatePipe
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,

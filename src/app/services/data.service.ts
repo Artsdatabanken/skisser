@@ -13,7 +13,7 @@ export class DataService {
 
   configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
   apiUrl: string = 'https://reqres.in/api/users?page=2';
-  wordpressApi: string = 'http://localhost:10004/wp-json/wp/v2/posts';
+  wordpressApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
 
   constructor(private http: HttpClient) { }
 
@@ -57,13 +57,13 @@ export class DataService {
     return this.http.get(this.wordpressApi).pipe(
       map((res: any[]) => {
         console.log('response', res);
-        console.log('typeof res', typeof res);
 
         const news: NewsItem[] = [];
 
         res.forEach(post => {
 
           const newsItem: NewsItem = {
+            url: post.id,
             title: post.title.rendered,
             date: post.date,
             content: post.content.rendered,
