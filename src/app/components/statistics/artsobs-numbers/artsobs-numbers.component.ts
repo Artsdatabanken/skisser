@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -11,12 +12,18 @@ import { DataService } from 'src/app/services/data.service';
 export class ArtsobsNumbersComponent implements OnInit {
 
   fakeData: any[] = [];
+  users: User[];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
 
     //this.fakeData$ = this.dataService.getStatsData();
+
+    this.dataService.getUsers().subscribe(res => {
+      console.log('results', res)
+      this.users = res;
+    });
 
     this.dataService.getStatsData()
       .subscribe(

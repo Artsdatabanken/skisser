@@ -36,7 +36,6 @@ import { ImportObservationsComponent } from './components/report/import-observat
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
-import { ProjectsComponent } from './components/projects/projects.component';
 import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
@@ -798,49 +797,7 @@ const testRoutes: Routes = [  // for testing purposes
       metaTitle: 'Artsobservasjoner',
       metaDescription: ''
     }
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent,
-    data: {
-      text: 'Projects',
-      id: '',
-      layout: 'page',
-      rank: '',
-      parent: '',
-      menu: '',
-      metaTitle: 'Prosjekter',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'projects/create-project',
-    component: ProjectsComponent,
-    data: {
-      text: 'Opprett prosjekt',
-      id: '',
-      layout: 'page',
-      rank: '',
-      parent: '',
-      menu: '',
-      metaTitle: 'Opprett prosjekt',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'projects/project',
-    component: ProjectsComponent,
-    data: {
-      text: 'Project',
-      id: '',
-      layout: 'page',
-      rank: '',
-      parent: '',
-      menu: '',
-      metaTitle: 'Prosjekt',
-      metaDescription: ''
-    }
-  },
+  }
 ];
 
 const wildcardRoutes: Routes = [

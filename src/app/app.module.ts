@@ -33,13 +33,9 @@ import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { TopNavigationComponent } from './layout/top-navigation/top-navigation.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { FilterComponent } from './components/shared/filter/filter.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { ProjectComponent } from './components/projects/project/project.component';
-import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { ObservationsComponent } from './components/observations/observations.component';
@@ -127,14 +123,10 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
     PageTitleComponent,
     LoginComponent,
     RegistrationComponent,
-    TopNavigationComponent,
     SubNavigationComponent,
     SightingsComponent,
     SightingComponent,
     FilterComponent,
-    ProjectsComponent,
-    ProjectComponent,
-    CreateProjectComponent,
     MenuComponent,
     LoginButtonComponent,
     ObservationsComponent,
