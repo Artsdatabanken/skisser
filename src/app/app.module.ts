@@ -94,6 +94,7 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './helpers/truncate-text.pipe';
+import { AboutItemComponent } from './components/about/about-item/about-item.component';
 
 @NgModule({
   declarations: [
@@ -186,7 +187,8 @@ import { TruncateTextPipe } from './helpers/truncate-text.pipe';
     ArtsobsNumbersComponent,
     NewsComponent,
     NewsItemComponent,
-    TruncateTextPipe
+    TruncateTextPipe,
+    AboutItemComponent
   ],
   imports: [
     BrowserModule,

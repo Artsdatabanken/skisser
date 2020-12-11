@@ -1,21 +1,25 @@
-<div class="page page--landing">
+<div class="bg"></div>
 
-    <header class="page__header">
-        <h1 [innerHtml]="post.title"></h1>
+<div class="page article">
+
+    <header class="article__header">
+        <h1 class="article__title" [innerHtml]="post.title"></h1>
     </header>
 
-    <div class="page__intro">
+    <div class="article__intro">
 
-        <p></p>
-
-    </div>
-
-    <div class="page__content">
-
-      <div [innerHtml]="post.content"></div>
+        <figure class="featured-image article__image">
+            <img class="featured-image__img" src="{{ post.imgUrl }}" alt="">
+        </figure>
 
     </div>
 
-    <footer class="page__footer"></footer>
+    <div class="article__content">
+
+        <div class="article__body" [innerHtml]="post.content"></div>
+
+    </div>
+
+    <footer class="article__footer"></footer>
 
 </div>

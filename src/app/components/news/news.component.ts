@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 export class NewsComponent implements OnInit {
 
   news: NewsItem[];
+  articles: any[];
 
   constructor(private dataService: DataService) { }
 

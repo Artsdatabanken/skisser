@@ -50,6 +50,7 @@ import { OverviewChild10Component } from './components/statistics/overview/overv
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
+import { AboutItemComponent } from './components/about/about-item/about-item.component';
 
 /*
 
@@ -574,6 +575,20 @@ const aboutRoutes: Routes = [
       id: 'about',
       layout: 'page',
       rank: 'primary',
+      parent: '',
+      menu: 'mainMenu',
+      metaTitle: 'Om tjenesten',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'about/:pageSlug',
+    component: AboutItemComponent,
+    data: {
+      text: 'Om tjenesten',
+      id: 'about',
+      layout: 'text',
+      rank: 'secondary',
       parent: '',
       menu: 'mainMenu',
       metaTitle: 'Om tjenesten',

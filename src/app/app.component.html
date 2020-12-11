@@ -21,6 +21,7 @@
             [class]="getLayoutStyle(pageLayout)">
 
             <h1 class="page-title" *ngIf="getAllowedLayoutStyle(pageLayout)">{{ pageTitle }}</h1>
+            <!-- TODO: <app-page-title [pageLayout]="pageLayout"></app-page-title> -->
 
             <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
 
@@ -37,3 +38,5 @@
             (click)="scrollToTop()"></button> -->
 
     </div>
+
+</div>

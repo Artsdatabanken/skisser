@@ -976,6 +976,9 @@ main {
 
     &--article {
         @extend .main-grid--text;
+        border: 1px solid red;
+        grid-template-areas: ". component ." ". router .";
+        padding: 0;
     }
 
     &--wide {
@@ -992,7 +995,7 @@ main {
     }
 
     & > * {
-        // border: 1px solid red;
+        // border: 1px solid blue;
         align-self: stretch;
         justify-self: stretch;
     }
@@ -1049,6 +1052,23 @@ main {
     h2 {
         margin-bottom: 50px;
     }
+}
+
+// article
+
+.article {
+    position: relative;
+    z-index: 2;
+}
+
+.bg {
+    @include customVar(background-color, paletteColor1);
+    min-height: 50vh;
+    position: relative;
+    top: 100px;
+    left: 0;
+    right: 0;
+    z-index: 0;
 }
 
 // grid

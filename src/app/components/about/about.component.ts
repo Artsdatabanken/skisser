@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutItem } from 'src/app/models/aboutItem';
+import { DataService } from 'src/app/services/data.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -10,11 +12,25 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class AboutComponent implements OnInit {
 
   subMenu: any[];
+  aboutItems: AboutItem[];
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(
+    private navigationService: NavigationService,
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
     this.subMenu = this.navigationService.getSubMenu('about');
+
+    this.dataService.getAboutItems().subscribe(
+      res => {
+        this.aboutItems = res;
+      },
+      error => {
+        console.log('error', error);
+      }
+    )
+
   }
 
 }
