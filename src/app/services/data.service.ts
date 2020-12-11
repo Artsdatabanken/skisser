@@ -14,10 +14,12 @@ export class DataService {
 
   configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
   apiUrl: string = 'https://reqres.in/api/users?page=2';
+
   wordpressPostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
-  wpPostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
-  singlePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
+  wpPostsApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
+  wpSinglePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
   wpPagesApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages';
+  wpSinglePageApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages/';
 
   constructor(private http: HttpClient) { }
 
@@ -58,7 +60,7 @@ export class DataService {
 
   getNews(): Observable<NewsItem[]> {
 
-    return this.http.get(this.wpPostApi).pipe(
+    return this.http.get(this.wpPostsApi).pipe(
       map((res: any[]) => {
         console.log('posts', res);
 
@@ -93,7 +95,7 @@ export class DataService {
   }
 
   getNewsItemById(postId: number): Observable<NewsItem> {
-    return this.http.get(this.singlePostApi + postId + '?_embed').pipe(
+    return this.http.get(this.wpSinglePostApi + postId + '?_embed').pipe(
       map((post: any) => {
 
         console.log('post', post)
@@ -103,7 +105,7 @@ export class DataService {
         if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
           featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
         }
-        
+
         const newsItem: NewsItem = {
           url: post.id,
           title: post.title.rendered,
@@ -149,6 +151,35 @@ export class DataService {
       })
     );
 
+  }
+
+  getAboutItemById(pageId: number): Observable<AboutItem> {
+    return this.http.get(this.wpPagesApi + '/' + pageId).pipe(
+      map((page: any) => {
+
+        console.log('page', page)
+
+        let content: string;
+        if (page.content.rendered === '') {
+          content = 'N/A';
+        }
+        else {
+          content = page.content.rendered;
+        }
+
+        const aboutItem: AboutItem = {
+          url: page.id,
+          slug: page.slug,
+          order: page.menu_order,
+          title: page.title.rendered,
+          date: page.date,
+          content: content,
+          excerpt: page.excerpt.rendered,
+        }
+
+        return aboutItem;
+      })
+    )
   }
 
 }

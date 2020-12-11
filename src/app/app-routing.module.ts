@@ -582,16 +582,16 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'about/:pageSlug',
+    path: 'about/:pageId',
     component: AboutItemComponent,
     data: {
-      text: 'Om tjenesten',
+      text: 'About Item',
       id: 'about',
       layout: 'text',
       rank: 'secondary',
       parent: '',
       menu: 'mainMenu',
-      metaTitle: 'Om tjenesten',
+      metaTitle: 'About Item',
       metaDescription: ''
     }
   },

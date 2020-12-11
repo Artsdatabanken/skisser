@@ -4,6 +4,6 @@ export interface AboutItem {
     order: number;
     title: string;
     date: Date;
-    content: string;
+    content?: string | null;
     excerpt: string;
 }

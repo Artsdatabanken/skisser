@@ -33,4 +33,8 @@ export class AboutComponent implements OnInit {
 
   }
 
+  getAboutItemUrl(slug: string): string {
+    return `about/${slug}`;
+  }
+
 }
