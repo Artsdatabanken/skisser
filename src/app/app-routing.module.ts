@@ -792,7 +792,7 @@ const newsRoutes: Routes = [
     data: {
       text: 'News Item',
       id: 'news',
-      layout: 'std',
+      layout: 'article',
       rank: '',
       parent: '',
       menu: '',

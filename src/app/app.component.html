@@ -20,7 +20,7 @@
         <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
             [class]="getLayoutStyle(pageLayout)">
 
-            <h1 class="page-title" *ngIf="pageTitle !== 'Artsobservasjoner' && pageLayout !== 'item' && pageLayout !== 'spa'">{{ pageTitle }}</h1>
+            <h1 class="page-title" *ngIf="getAllowedLayoutStyle(pageLayout)">{{ pageTitle }}</h1>
 
             <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
 

@@ -5,4 +5,5 @@ export interface NewsItem {
     content: string;
     excerpt: string;
     //tags: string | string[] | null;
+    imgUrl: string | null;
   }

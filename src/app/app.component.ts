@@ -24,6 +24,9 @@ export class AppComponent {
   routerSubscription: Subscription;
   windowScrolled: boolean = false;
 
+  layoutTypes: string[] = [];
+  layoutTypesForbidden: string[] = ['article', 'frontpage', 'item', 'spa'];
+
   @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
 
   constructor(
@@ -72,6 +75,12 @@ export class AppComponent {
 
   getLayoutStyle(layout: string): string {
     return `main-grid--${layout}`;
+  }
+
+  getAllowedLayoutStyle(pageLayout: string): boolean {
+    if (!this.layoutTypesForbidden.includes(pageLayout)) {
+      return true;
+    }
   }
 
   onActivate(event: any) {

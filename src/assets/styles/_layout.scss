@@ -974,6 +974,10 @@ main {
         }
     }
 
+    &--article {
+        @extend .main-grid--text;
+    }
+
     &--wide {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);

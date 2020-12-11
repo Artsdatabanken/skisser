@@ -11,7 +11,7 @@
     <div class="page__content">
 
         <div class="loop loop--teasers">
-            <app-teaser [source]="'animal1'" [url]="item.url" [text]="item.excerpt" [tag]="'Aktuelt'" [date]="item.date"
+            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.excerpt" [tag]="'Aktuelt'" [date]="item.date"
                 [title]="item.title" *ngFor="let item of news"> </app-teaser>
         </div>
 

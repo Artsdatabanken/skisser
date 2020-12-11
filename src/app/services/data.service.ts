@@ -14,6 +14,8 @@ export class DataService {
   configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
   apiUrl: string = 'https://reqres.in/api/users?page=2';
   wordpressApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
+  wpApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
+  singlePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
 
   constructor(private http: HttpClient) { }
 
@@ -54,7 +56,7 @@ export class DataService {
 
   getNews(): Observable<NewsItem[]> {
 
-    return this.http.get(this.wordpressApi).pipe(
+    return this.http.get(this.wpApi).pipe(
       map((res: any[]) => {
         console.log('response', res);
 
@@ -62,12 +64,20 @@ export class DataService {
 
         res.forEach(post => {
 
+          let featuredImageUrl: string;
+
+          if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
+            console.log('yes it does')
+            featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
+          }
+
           const newsItem: NewsItem = {
             url: post.id,
             title: post.title.rendered,
             date: post.date,
             content: post.content.rendered,
-            excerpt: post.excerpt.rendered
+            excerpt: post.excerpt.rendered,
+            imgUrl: featuredImageUrl
           }
 
           news.push(newsItem);
@@ -78,6 +88,26 @@ export class DataService {
       })
     );
 
+  }
+
+  getNewsItemById(postId: number): Observable<NewsItem> {
+    return this.http.get(this.singlePostApi + postId).pipe(
+      map((post: any) => {
+
+        console.log('post', post)
+        
+        const newsItem: NewsItem = {
+          url: post.id,
+          title: post.title.rendered,
+          date: post.date,
+          content: post.content.rendered,
+          excerpt: post.excerpt.rendered,
+          imgUrl: null
+        }
+
+        return newsItem;
+      })
+    )
   }
 
 }
