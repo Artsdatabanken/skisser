@@ -743,14 +743,14 @@ const userRoutes: Routes = [
 
 const extraRoutes: Routes = [
   {
-    path: 'about/latest-news',
-    component: LatestNewsComponent,
+    path: 'news',
+    component: NewsComponent,
     data: {
       text: 'Aktuelle saker',
-      id: 'latest-news',
-      layout: 'page',
+      id: 'news',
+      layout: 'std',
       rank: 'secondary',
-      parent: 'about',
+      parent: '',
       menu: 'extraMenu',
       metaTitle: 'Aktuelle saker / siste nytt',
       metaDescription: ''
@@ -791,13 +791,13 @@ const newsRoutes: Routes = [
     path: 'news',
     component: NewsComponent,
     data: {
-      text: 'News',
+      text: 'Aktuelle saker',
       id: 'news',
       layout: 'std',
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'News',
+      metaTitle: 'Aktuelle saker',
       metaDescription: ''
     }
   },
