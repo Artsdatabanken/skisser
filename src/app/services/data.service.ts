@@ -125,7 +125,6 @@ export class DataService {
       map((post: any) => {
 
         console.log('post', post)
-        console.log('media', post._embedded['wp:featuredmedia'][0])
 
         let featuredImage: FeaturedImage;
         let featuredImageUrl: string;

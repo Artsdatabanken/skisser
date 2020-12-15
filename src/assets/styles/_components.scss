@@ -343,39 +343,43 @@
 /*date*/
 
 .date {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin: 25px auto;
+    @include customVar(font-family, fontSecondary);
+    font-weight: 700;
+    margin-bottom: 25px;
 
-    &__item {
-        @include customVar(border-color, clrAqua3);
-        background-repeat: no-repeat;
-        background-size: 8px;
-        border-style: solid;
-        border-width: 2px;
-        font-size: 15px;
-        font-weight: 700;
-        margin: 0 5px;
-        padding: 5px 10px;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    // justify-content: center;
+    // margin: 25px auto;
 
-        &--yesterday {
-            background-image: url(../images/iconChevronLeft.png);
-            background-position: left 10px center;
-            border-radius: 5px;
-            border-bottom-left-radius: 0;
-            padding-left: 30px;
-        }
+    // &__item {
+    //     @include customVar(border-color, clrAqua3);
+    //     background-repeat: no-repeat;
+    //     background-size: 8px;
+    //     border-style: solid;
+    //     border-width: 2px;
+    //     font-size: 15px;
+    //     font-weight: 700;
+    //     margin: 0 5px;
+    //     padding: 5px 10px;
 
-        &--tomorrow {
-            background-image: url(../images/iconChevronRight.png);
-            background-position: right 10px center;
-            border-radius: 5px;
-            border-bottom-right-radius: 0;
-            padding-right: 30px;
-        }
-    }
+    //     &--yesterday {
+    //         background-image: url(../images/iconChevronLeft.png);
+    //         background-position: left 10px center;
+    //         border-radius: 5px;
+    //         border-bottom-left-radius: 0;
+    //         padding-left: 30px;
+    //     }
+
+    //     &--tomorrow {
+    //         background-image: url(../images/iconChevronRight.png);
+    //         background-position: right 10px center;
+    //         border-radius: 5px;
+    //         border-bottom-right-radius: 0;
+    //         padding-right: 30px;
+    //     }
+    // }
 }
 
 /*progress bar*/
