@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from 'src/app/models/article';
+import { ArticleImage } from 'src/app/models/articleImage';
 import { NewsItem } from 'src/app/models/newsItem';
 import { DataService } from 'src/app/services/data.service';
 
@@ -11,7 +13,7 @@ import { DataService } from 'src/app/services/data.service';
 export class NewsComponent implements OnInit {
 
   news: NewsItem[];
-  articles: any[];
+  articles: Article[];
 
   constructor(private dataService: DataService) { }
 
@@ -26,6 +28,19 @@ export class NewsComponent implements OnInit {
       }
     )
 
+    this.dataService.getNews2().subscribe(
+      (res: any) => {
+        this.articles = res;
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
+
+  }
+
+  getArticleImage(sourceUrl: string): string {
+    return `http://localhost:1337${sourceUrl}`;
   }
 
 }

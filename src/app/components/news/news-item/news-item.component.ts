@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Article } from 'src/app/models/article';
+import { ArticleImage } from 'src/app/models/articleImage';
 import { FeaturedImage } from 'src/app/models/featuredImage';
 import { NewsItem } from 'src/app/models/newsItem';
 import { DataService } from 'src/app/services/data.service';
@@ -13,10 +15,18 @@ import { DataService } from 'src/app/services/data.service';
 
 export class NewsItemComponent implements OnInit {
 
+  pageTitle: string;
+
+  // wordpress
   postId: number;
   post: NewsItem;
-  pageTitle: string;
   featuredImage: FeaturedImage;
+
+  // strapi
+  articleId: number;
+  article: Article;
+  image: ArticleImage;
+  imageUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +34,7 @@ export class NewsItemComponent implements OnInit {
     private titleService: Title
   ) {
     this.postId = this.route.snapshot.params["postId"];
+    this.articleId = this.route.snapshot.params["postId"];
   }
 
   ngOnInit(): void {
@@ -33,7 +44,14 @@ export class NewsItemComponent implements OnInit {
       this.pageTitle = post.title;
       this.featuredImage = post.featuredImage;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
+    });
 
+    this.dataService.getNewsItemById2(this.articleId).subscribe(article => {
+      this.article = article;
+      this.pageTitle = article.title;
+      this.image = article.image;
+      this.imageUrl = `http://localhost:1337${article.image.sourceUrl}`;
+      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
     });
 
   }

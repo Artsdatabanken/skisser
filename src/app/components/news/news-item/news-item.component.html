@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" *ngIf="post">
 
     <header class="page__header">
         <h1 class="page__title" [innerHtml]="pageTitle"></h1>
@@ -18,6 +18,34 @@
         <div class="date">{{ post.date | date: 'dd.MM.yyyy'}}</div>
 
         <div class="page__body" [innerHtml]="post.content"></div>
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>
+
+<div class="page" *ngIf="article">
+
+    <header class="page__header">
+        <h1 class="page__title" [innerHtml]="pageTitle"></h1>
+    </header>
+
+    <div class="page__intro">
+
+        <figure class="featured-image page__image" *ngIf="image">
+            <img class="featured-image__img" src="{{ imageUrl }}" alt="{{ image.alternativeText }}">
+            <figcaption [innerHtml]="image.caption"></figcaption>
+        </figure>
+
+    </div>
+
+    <div class="page__content" *ngIf="article">
+
+        <div class="date">{{ article.created | date: 'dd.MM.yyyy'}}</div>
+
+        <div class="page__body" [innerHtml]="article.body"></div>
+        <div class="page__body">{{ article.body }}</div>
 
     </div>
 

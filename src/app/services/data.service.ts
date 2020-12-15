@@ -7,6 +7,8 @@ import { NewsItem } from '../models/newsItem';
 import { User } from '../models/user';
 import { environment } from '../../environments/environment';
 import { FeaturedImage } from '../models/featuredImage';
+import { Article } from '../models/article';
+import { ArticleImage } from '../models/articleImage';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,7 @@ export class DataService {
   environmentWpApi: string;
   wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
   wpPagesApi: string = 'wp-json/wp/v2/pages';
+  strapiApi: string = 'http://localhost:1337/articles';
 
   constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
 
@@ -66,6 +69,98 @@ export class DataService {
       })
     );
 
+  }
+
+  getNews2(): Observable<Article[]> {
+
+    return this.http.get(this.strapiApi).pipe(
+      map((res: any[]) => {
+
+        console.log('strapi', res);
+
+        const articles: Article[] = [];
+
+        res.forEach(data => {
+
+          let articleImage: ArticleImage;
+
+          if (data.hasOwnProperty('Image')) {
+            articleImage = {
+              id: data['Image'].id,
+              alternativeText: data['Image']['alternativeText'],
+              caption: data['Image']['caption'],
+              sourceUrl: data['Image']['url']
+            }
+          }
+          else {
+            articleImage = null;
+          }
+
+          const article: Article = {
+            id: data.id,
+            url: data.id,
+            title: data.Title,
+            subtitle: data.Subtitle,
+            excerpt: data.Excerpt,
+            ingress: data.Ingress,
+            created: data.created_at,
+            published: data.published_at,
+            updated: data.updated_at,
+            body: data.Body,
+            image: articleImage
+          }
+
+          console.log('article', article);
+
+          articles.push(article);
+
+        });
+
+        return articles;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getNewsItemById2(articleId: number): Observable<Article> {
+    return this.http.get(this.strapiApi + '/' + articleId).pipe(
+      map((data: any) => {
+
+        let articleImage: ArticleImage;
+
+        if (data.hasOwnProperty('Image')) {
+          articleImage = {
+            id: data['Image'].id,
+            alternativeText: data['Image']['alternativeText'],
+            caption: data['Image']['caption'],
+            sourceUrl: data['Image']['url']
+          }
+        }
+        else {
+          articleImage = null;
+        }
+
+        const article: Article = {
+          id: data.id,
+          url: data.id,
+          title: data.Title,
+          subtitle: data.Subtitle,
+          excerpt: data.Excerpt,
+          ingress: data.Ingress,
+          created: data.created_at,
+          published: data.published_at,
+          updated: data.updated_at,
+          body: data.Body,
+          image: articleImage
+        }
+
+        console.log('article', article);
+
+        return article;
+      })
+    )
   }
 
   getNews(): Observable<NewsItem[]> {
