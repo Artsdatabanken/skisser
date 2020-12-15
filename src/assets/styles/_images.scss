@@ -33,8 +33,9 @@ figcaption {
 
 .featured-image {
     &__img {
-        border-radius: 10px;
+        border-radius: 100%;
         margin: 0 auto;
-        min-height: 20vh;
+        height: 300px;
+        width: 300px;
     }
 }

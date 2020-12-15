@@ -6,7 +6,7 @@
 
     <div class="page__intro">
 
-        <figure class="featured-image page__image">
+        <figure class="featured-image page__image" *ngIf="post.imgUrl">
             <img class="featured-image__img" src="{{ post.imgUrl }}" alt="">
         </figure>
 

@@ -15,7 +15,11 @@ export class DataService {
   configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
   apiUrl: string = 'https://reqres.in/api/users?page=2';
 
+  // bouvet
   wordpressPostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
+  wordpressSinglePostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts/';
+
+  // home
   wpPostsApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
   wpSinglePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
   wpPagesApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages';
@@ -60,7 +64,7 @@ export class DataService {
 
   getNews(): Observable<NewsItem[]> {
 
-    return this.http.get(this.wpPostsApi).pipe(
+    return this.http.get(this.wordpressPostApi).pipe(
       map((res: any[]) => {
         console.log('posts', res);
 
@@ -89,21 +93,27 @@ export class DataService {
         });
 
         return news;
-      })
+      }),
+      publishReplay(1), // Cache the latest emitted
+      refCount() // Keep alive as long as there are subscribers
     );
 
   }
 
   getNewsItemById(postId: number): Observable<NewsItem> {
-    return this.http.get(this.wpSinglePostApi + postId + '?_embed').pipe(
+    return this.http.get(this.wordpressSinglePostApi + postId + '?_embed').pipe(
       map((post: any) => {
 
         console.log('post', post)
+        console.log('media', post._embedded['wp:featuredmedia'][0])
 
         let featuredImageUrl: string;
 
         if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
           featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
+        }
+        else {
+          featuredImageUrl = '';
         }
 
         const newsItem: NewsItem = {
