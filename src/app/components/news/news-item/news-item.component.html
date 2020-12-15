@@ -6,13 +6,14 @@
 
     <div class="page__intro">
 
-        <figure class="featured-image page__image" *ngIf="post.imgUrl">
-            <img class="featured-image__img" src="{{ post.imgUrl }}" alt="">
+        <figure class="featured-image page__image" *ngIf="featuredImage">
+            <img class="featured-image__img" src="{{ featuredImage.sourceUrl }}" alt="{{ featuredImage.altText }}">
+            <figcaption [innerHtml]="featuredImage.caption"></figcaption>
         </figure>
 
     </div>
 
-    <div class="page__content">
+    <div class="page__content" *ngIf="post">
 
         <div class="date">{{ post.date | date: 'dd.MM.yyyy'}}</div>
 

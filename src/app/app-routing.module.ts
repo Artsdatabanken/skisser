@@ -73,7 +73,8 @@ const homeRoutes: Routes = [
       parent: '',
       menu: '',
       metaTitle: 'Artsobservasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   // {
@@ -104,7 +105,8 @@ const reportRoutes: Routes = [
       parent: '',
       menu: 'mainMenu',
       metaTitle: 'Rapportere observasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
 
@@ -119,7 +121,8 @@ const reportRoutes: Routes = [
       parent: 'report',
       menu: 'mainMenu',
       metaTitle: 'Legg til observasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -133,7 +136,8 @@ const reportRoutes: Routes = [
       parent: 'report',
       menu: 'mainMenu',
       metaTitle: 'Sjekkliste observasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -147,7 +151,8 @@ const reportRoutes: Routes = [
       parent: 'report',
       menu: 'mainMenu',
       metaTitle: 'Importere observasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -161,7 +166,8 @@ const reportRoutes: Routes = [
       parent: 'report',
       menu: 'mainMenu',
       metaTitle: 'Arrangementer',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -175,7 +181,8 @@ const reportRoutes: Routes = [
       parent: 'report',
       menu: 'mainMenu',
       metaTitle: 'Kartleggingsprosjekter',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   }
 ];
@@ -192,7 +199,8 @@ const observationRoutes: Routes = [
       parent: '',
       menu: 'mainMenu',
       metaTitle: 'Observasjonsdata',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -206,7 +214,8 @@ const observationRoutes: Routes = [
       parent: 'observations',
       menu: 'mainMenu',
       metaTitle: 'Se, søk og filtrer observasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -220,7 +229,8 @@ const observationRoutes: Routes = [
       parent: '',
       menu: '',
       metaTitle: 'Observasjon',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -234,7 +244,8 @@ const observationRoutes: Routes = [
       parent: 'observations',
       menu: 'mainMenu',
       metaTitle: 'Tall og statistikk',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -248,7 +259,8 @@ const observationRoutes: Routes = [
       parent: 'statistics',
       menu: '',
       metaTitle: 'Artsstatistikk',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     },
     children: [
       {
@@ -262,7 +274,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall observasjoner per artsgruppe',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -276,7 +289,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall arter rapportert per artsgruppe',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -290,7 +304,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall bilder per artsgruppe',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -304,7 +319,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -318,7 +334,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall kvalitetssikrede observasjoner per artsgruppe',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -332,7 +349,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall rapporterte observasjoner etter rapporteringsmåte',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -346,7 +364,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall observasjoner per fylke',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -360,7 +379,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Rapporteringsoversikt per artsgruppe totalt og per år',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -374,7 +394,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Månedlige rapporteringer per artsgruppe totalt og per år',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -388,7 +409,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Månedlige observasjoner per artsgruppe totalt og per år',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       },
       {
@@ -402,7 +424,8 @@ const observationRoutes: Routes = [
           parent: 'overview',
           menu: '',
           metaTitle: 'Antall aktive brukere',
-          metaDescription: ''
+          metaDescription: '',      
+          hidden: false
         }
       }
     ]
@@ -491,7 +514,8 @@ const userDataRoutes: Routes = [
       parent: '',
       menu: 'mainMenu',
       metaTitle: 'Min data',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -505,7 +529,8 @@ const userDataRoutes: Routes = [
       parent: 'my-data',
       menu: 'mainMenu',
       metaTitle: 'Mine observasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -519,7 +544,8 @@ const userDataRoutes: Routes = [
       parent: 'my-data',
       menu: 'mainMenu',
       metaTitle: 'Min statistikk',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -533,7 +559,8 @@ const userDataRoutes: Routes = [
       parent: 'my-data',
       menu: 'mainMenu',
       metaTitle: 'Mine prosjekter',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -547,7 +574,8 @@ const userDataRoutes: Routes = [
       parent: 'my-data',
       menu: 'mainMenu',
       metaTitle: 'Mine lokaliteter',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -561,7 +589,8 @@ const userDataRoutes: Routes = [
       parent: 'my-data',
       menu: 'mainMenu',
       metaTitle: 'Medobservatører',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   }
 ];
@@ -578,7 +607,8 @@ const aboutRoutes: Routes = [
       parent: '',
       menu: 'mainMenu',
       metaTitle: 'Om tjenesten',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   },
   {
@@ -588,11 +618,12 @@ const aboutRoutes: Routes = [
       text: 'About Item',
       id: 'about',
       layout: 'text',
-      rank: 'secondary',
+      rank: '',
       parent: '',
       menu: 'mainMenu',
       metaTitle: 'About Item',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: true
     }
   },
   {
@@ -606,10 +637,10 @@ const aboutRoutes: Routes = [
       parent: 'about',
       menu: 'mainMenu',
       metaTitle: 'Om artsobservasjoner.no',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   },
-
   {
     path: 'about/quality-assurance',
     component: QualityAssuranceComponent,
@@ -621,7 +652,8 @@ const aboutRoutes: Routes = [
       parent: 'about',
       menu: 'mainMenu',
       metaTitle: 'Kvalitetssikring',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   },
   {
@@ -635,7 +667,8 @@ const aboutRoutes: Routes = [
       parent: 'about',
       menu: 'mainMenu',
       metaTitle: 'Hvordan du kan bidra',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   },
   {
@@ -649,7 +682,8 @@ const aboutRoutes: Routes = [
       parent: 'about',
       menu: 'mainMenu',
       metaTitle: 'Brukervilkår',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   },
   {
@@ -663,7 +697,8 @@ const aboutRoutes: Routes = [
       parent: 'about',
       menu: 'mainMenu',
       metaTitle: 'Brukerstøtte',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   }
 ];
@@ -680,7 +715,8 @@ const userRoutes: Routes = [
       parent: '',
       menu: 'topMenu',
       metaTitle: 'Meldinger',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -694,7 +730,8 @@ const userRoutes: Routes = [
       parent: '',
       menu: 'topMenu',
       metaTitle: 'Logg inn',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -708,7 +745,8 @@ const userRoutes: Routes = [
       parent: '',
       menu: 'topMenu',
       metaTitle: 'Min side',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -722,7 +760,8 @@ const userRoutes: Routes = [
       parent: '',
       menu: 'topMenu',
       metaTitle: 'Registrer deg',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
 ];
@@ -739,7 +778,8 @@ const extraRoutes: Routes = [
       parent: '',
       menu: 'extraMenu',
       metaTitle: 'Aktuelle saker / siste nytt',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -753,7 +793,8 @@ const extraRoutes: Routes = [
       parent: '',
       menu: 'extraMenu',
       metaTitle: 'Innholdskart A-Å',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -767,7 +808,8 @@ const extraRoutes: Routes = [
       parent: '',
       menu: 'extraMenu',
       metaTitle: 'English',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   }
 ];
@@ -784,7 +826,8 @@ const newsRoutes: Routes = [
       parent: '',
       menu: '',
       metaTitle: 'Aktuelle saker',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -798,7 +841,8 @@ const newsRoutes: Routes = [
       parent: '',
       menu: '',
       metaTitle: 'News Item',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
 ];
@@ -815,7 +859,8 @@ const testRoutes: Routes = [  // for testing purposes
       parent: '',
       menu: '',
       metaTitle: 'Artsobservasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   },
   {
@@ -829,7 +874,8 @@ const testRoutes: Routes = [  // for testing purposes
       parent: '',
       menu: '',
       metaTitle: 'Artsobservasjoner',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   }
 ];
@@ -846,7 +892,8 @@ const wildcardRoutes: Routes = [
       parent: '',
       menu: '',
       metaTitle: '404',
-      metaDescription: ''
+      metaDescription: '',      
+      hidden: false
     }
   }
 ];

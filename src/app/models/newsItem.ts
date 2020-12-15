@@ -1,3 +1,5 @@
+import { FeaturedImage } from './featuredImage';
+
 export interface NewsItem {
     url: string;
     title: string;
@@ -6,4 +8,5 @@ export interface NewsItem {
     excerpt: string;
     //tags: string | string[] | null;
     imgUrl: string | null;
+    featuredImage: FeaturedImage
   }

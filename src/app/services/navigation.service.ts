@@ -88,7 +88,7 @@ export class NavigationService {
 
   getMainMenu(): Route[] {
 
-    const menuItems: Route[] = this.getMenuItems('mainMenu');
+    const menuItems: Route[] = this.getMenuItems('mainMenu').filter(mi => mi.data.hidden === false);
 
     // finner parents (topLevel)
     const parents: any[] = menuItems.filter(i => i.data.parent === '');
@@ -104,7 +104,8 @@ export class NavigationService {
         title: item.data.text,
         id: item.path,
         layout: item.data.layout,
-        rank: item.data.rank
+        rank: item.data.rank,
+        hidden: item.data.hidden
       };
 
       const children: Route[] = menuItems.filter(i => i.data.parent === item.path);

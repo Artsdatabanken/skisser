@@ -5,6 +5,8 @@ import { map, publishReplay, refCount } from 'rxjs/operators';
 import { AboutItem } from '../models/aboutItem';
 import { NewsItem } from '../models/newsItem';
 import { User } from '../models/user';
+import { environment } from '../../environments/environment';
+import { FeaturedImage } from '../models/featuredImage';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +17,21 @@ export class DataService {
   configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
   apiUrl: string = 'https://reqres.in/api/users?page=2';
 
-  // bouvet
-  wordpressPostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
-  wordpressSinglePostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts/';
+  // // bouvet
+  // wordpressPostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
+  // wordpressSinglePostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts/';
 
-  // home
-  wpPostsApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
-  wpSinglePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
-  wpPagesApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages';
-  wpSinglePageApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages/';
+  // // home
+  // wpPostsApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
+  // wpSinglePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
+  // wpPagesApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages';
+  // wpSinglePageApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages/';
 
-  constructor(private http: HttpClient) { }
+  environmentWpApi: string;
+  wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
+  wpPagesApi: string = 'wp-json/wp/v2/pages';
+
+  constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
 
   getStatsData(): Observable<any> {
     return this.http.get(this.configUrl1).pipe(
@@ -64,7 +70,7 @@ export class DataService {
 
   getNews(): Observable<NewsItem[]> {
 
-    return this.http.get(this.wordpressPostApi).pipe(
+    return this.http.get(this.environmentWpApi + this.wpPostsApi + '?_embed').pipe(
       map((res: any[]) => {
         console.log('posts', res);
 
@@ -72,11 +78,24 @@ export class DataService {
 
         res.forEach(post => {
 
+          let featuredImage: FeaturedImage;
           let featuredImageUrl: string;
 
           if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
-            console.log('yes it does')
+
             featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
+            featuredImage = {
+              id: post._embedded['wp:featuredmedia'][0]['id'],
+              altText: post._embedded['wp:featuredmedia'][0]['alt_text'],
+              caption: post._embedded['wp:featuredmedia'][0]['caption'],
+              title: post._embedded['wp:featuredmedia'][0]['title'],
+              slug: post._embedded['wp:featuredmedia'][0]['slug'],
+              sourceUrl: post._embedded['wp:featuredmedia'][0]['source_url'],
+            }
+          }
+          else {
+            featuredImageUrl = '';
+            featuredImage = null;
           }
 
           const newsItem: NewsItem = {
@@ -85,7 +104,8 @@ export class DataService {
             date: post.date,
             content: post.content.rendered,
             excerpt: post.excerpt.rendered,
-            imgUrl: featuredImageUrl
+            imgUrl: featuredImageUrl,
+            featuredImage: featuredImage
           }
 
           news.push(newsItem);
@@ -101,19 +121,30 @@ export class DataService {
   }
 
   getNewsItemById(postId: number): Observable<NewsItem> {
-    return this.http.get(this.wordpressSinglePostApi + postId + '?_embed').pipe(
+    return this.http.get(this.environmentWpApi + this.wpPostsApi + '/' + postId + '?_embed').pipe(
       map((post: any) => {
 
         console.log('post', post)
         console.log('media', post._embedded['wp:featuredmedia'][0])
 
+        let featuredImage: FeaturedImage;
         let featuredImageUrl: string;
 
         if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
+
           featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
+          featuredImage = {
+            id: post._embedded['wp:featuredmedia'][0]['id'],
+            altText: post._embedded['wp:featuredmedia'][0]['alt_text'],
+            caption: post._embedded['wp:featuredmedia'][0]['caption'].rendered,
+            title: post._embedded['wp:featuredmedia'][0]['title'],
+            slug: post._embedded['wp:featuredmedia'][0]['slug'],
+            sourceUrl: post._embedded['wp:featuredmedia'][0]['source_url'],
+          }
         }
         else {
           featuredImageUrl = '';
+          featuredImage = null;
         }
 
         const newsItem: NewsItem = {
@@ -122,7 +153,8 @@ export class DataService {
           date: post.date,
           content: post.content.rendered,
           excerpt: post.excerpt.rendered,
-          imgUrl: featuredImageUrl
+          imgUrl: featuredImageUrl,
+          featuredImage: featuredImage
         }
 
         return newsItem;
@@ -132,7 +164,7 @@ export class DataService {
 
   getAboutItems(): Observable<AboutItem[]> {
 
-    return this.http.get(this.wpPagesApi).pipe(
+    return this.http.get(this.environmentWpApi + this.wpPagesApi).pipe(
       map((res: any[]) => {
 
         console.log('AboutItems', res);
@@ -164,12 +196,13 @@ export class DataService {
   }
 
   getAboutItemById(pageId: number): Observable<AboutItem> {
-    return this.http.get(this.wpPagesApi + '/' + pageId).pipe(
+    return this.http.get(this.environmentWpApi + this.wpPagesApi + '/' + pageId).pipe(
       map((page: any) => {
 
         console.log('page', page)
 
         let content: string;
+
         if (page.content.rendered === '') {
           content = 'N/A';
         }
