@@ -665,21 +665,7 @@ const aboutRoutes: Routes = [
       metaTitle: 'Brukerstøtte',
       metaDescription: ''
     }
-  },
-  // {
-  //   path: 'about/latest-news',
-  //   component: LatestNewsComponent,
-  //   data: {
-  //     text: 'Aktuelle saker',
-  //     id: 'latest-news',
-  //     layout: 'page',
-  //     rank: 'secondary',
-  //     parent: 'about',
-  //     menu: 'mainMenu',
-  //     metaTitle: 'Aktuelle saker / siste nytt',
-  //     metaDescription: ''
-  //   }
-  //}
+  }
 ];
 
 const userRoutes: Routes = [
@@ -791,13 +777,13 @@ const newsRoutes: Routes = [
     path: 'news',
     component: NewsComponent,
     data: {
-      text: 'News',
+      text: 'Aktuelle saker',
       id: 'news',
       layout: 'std',
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'News',
+      metaTitle: 'Aktuelle saker',
       metaDescription: ''
     }
   },
