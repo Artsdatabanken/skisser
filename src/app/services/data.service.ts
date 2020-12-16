@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 import { FeaturedImage } from '../models/featuredImage';
 import { Article } from '../models/article';
 import { ArticleImage } from '../models/articleImage';
+import GhostContentAPI from '@tryghost/content-api'
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,12 @@ export class DataService {
   wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
   wpPagesApi: string = 'wp-json/wp/v2/pages';
   strapiApi: string = 'http://localhost:1337/articles';
+
+  ghostApi: any = new GhostContentAPI({
+    url: 'http://localhost:2368',
+    key: 'e5bc51f27f703fab9a3acfc663',
+    version: "v3"
+  });
 
   constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
 
@@ -71,16 +78,19 @@ export class DataService {
 
   }
 
-  getNews2(): Observable<Article[]> {
+  // strapi
+
+  getNews2(langCode: string | null = 'en'): Observable<Article[]> {
 
     return this.http.get(this.strapiApi).pipe(
       map((res: any[]) => {
 
         console.log('strapi', res);
 
+        const filteredRes = res.filter(i => i.LANGUAGE === langCode);
         const articles: Article[] = [];
 
-        res.forEach(data => {
+        filteredRes.forEach(data => {
 
           let articleImage: ArticleImage;
 
@@ -109,8 +119,6 @@ export class DataService {
             body: data.Body,
             image: articleImage
           }
-
-          console.log('article', article);
 
           articles.push(article);
 
@@ -156,18 +164,19 @@ export class DataService {
           image: articleImage
         }
 
-        console.log('article', article);
-
         return article;
       })
     )
   }
 
+  // wordpress
+
   getNews(): Observable<NewsItem[]> {
 
     return this.http.get(this.environmentWpApi + this.wpPostsApi + '?_embed').pipe(
       map((res: any[]) => {
-        console.log('posts', res);
+        
+        console.log('wordpress', res);
 
         const news: NewsItem[] = [];
 
@@ -256,14 +265,14 @@ export class DataService {
     )
   }
 
-  getAboutItems(): Observable<AboutItem[]> {
+  getAboutfilteredRes(): Observable<AboutItem[]> {
 
     return this.http.get(this.environmentWpApi + this.wpPagesApi).pipe(
       map((res: any[]) => {
 
-        console.log('AboutItems', res);
+        console.log('AboutfilteredRes', res);
 
-        const aboutItems: AboutItem[] = [];
+        const aboutfilteredRes: AboutItem[] = [];
 
         res.forEach(page => {
 
@@ -277,13 +286,13 @@ export class DataService {
             excerpt: page.excerpt.rendered
           }
 
-          aboutItems.push(aboutItem);
+          aboutfilteredRes.push(aboutItem);
 
         });
 
-        console.log('about', aboutItems)
+        console.log('about', aboutfilteredRes)
 
-        return aboutItems.sort((a, b) => (a.order > b.order) ? 1 : -1);
+        return aboutfilteredRes.sort((a, b) => (a.order > b.order) ? 1 : -1);
       })
     );
 
@@ -318,5 +327,21 @@ export class DataService {
       })
     )
   }
+
+  // ghost
+
+  // getGhost(): Observable<any> {
+  //   return this.ghostApi.posts.browse({
+  //     //filter: 'tag:fiction+tag:-fables'
+  //   })
+  //     .then((posts) => {
+  //       posts.forEach((post) => {
+  //         console.log('ghost', post.title);
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }
 
 }
