@@ -23,7 +23,7 @@
                     routerLinkActive="link-list__link--active">{{ child.data.text }}</a></li>
         </ul> -->
 
-        <div class="dropdown" clickElsewhere>
+        <div class="dropdown" (clickElsewhere)="closeDropdown()">
 
             <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
                 (click)="toggleDropdown()">{{ dropDownText }}</button>

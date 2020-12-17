@@ -346,40 +346,6 @@
     @include customVar(font-family, fontSecondary);
     font-weight: 700;
     margin-bottom: 25px;
-
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: nowrap;
-    // justify-content: center;
-    // margin: 25px auto;
-
-    // &__item {
-    //     @include customVar(border-color, clrAqua3);
-    //     background-repeat: no-repeat;
-    //     background-size: 8px;
-    //     border-style: solid;
-    //     border-width: 2px;
-    //     font-size: 15px;
-    //     font-weight: 700;
-    //     margin: 0 5px;
-    //     padding: 5px 10px;
-
-    //     &--yesterday {
-    //         background-image: url(../images/iconChevronLeft.png);
-    //         background-position: left 10px center;
-    //         border-radius: 5px;
-    //         border-bottom-left-radius: 0;
-    //         padding-left: 30px;
-    //     }
-
-    //     &--tomorrow {
-    //         background-image: url(../images/iconChevronRight.png);
-    //         background-position: right 10px center;
-    //         border-radius: 5px;
-    //         border-bottom-right-radius: 0;
-    //         padding-right: 30px;
-    //     }
-    // }
 }
 
 /*progress bar*/
@@ -457,7 +423,6 @@
 .item {
     @include customVar(background-color, paletteColor0);
     background-color: #e9f7ef;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -489,9 +454,6 @@
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-radius: 10px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
         margin-bottom: 15px;
         padding: 0;
         min-height: 25vh;
@@ -640,9 +602,6 @@
     }
 
     &__image {
-        // border-radius: 15px;
-        // border-bottom-right-radius: 0;
-        border-radius: 10px;
         margin-bottom: 30px;
         object-fit: cover;
         order: 1;
@@ -734,7 +693,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        border-radius: 50px;
         cursor: pointer;
         font-size: 22px;
         font-weight: 500;
@@ -845,8 +803,6 @@
 
 // dropdown
 
-$dropdownRadius: 10px;
-
 .dropdown {
     position: relative;
 
@@ -859,7 +815,6 @@ $dropdownRadius: 10px;
         background-repeat: no-repeat;
         background-size: 20px;
         border: none;
-        border-radius: $dropdownRadius;
         cursor: pointer;
         display: block;
         font-size: 20px;
@@ -896,8 +851,6 @@ $dropdownRadius: 10px;
 
     &__pane {
         @include customVar(background-color, paletteColor0);
-        border-bottom-left-radius: $dropdownRadius;
-        border-bottom-right-radius: $dropdownRadius;
         transform: translateY(-1500vh);
         top: auto;
         left: 0;
@@ -931,9 +884,6 @@ $dropdownRadius: 10px;
 
         &:last-child {
             @include customVar(border-bottom-color, transparent);
-
-            border-bottom-left-radius: $dropdownRadius;
-            border-bottom-right-radius: $dropdownRadius;
         }
 
         @media screen and (max-width: 1200px) {

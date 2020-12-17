@@ -10,17 +10,21 @@
 
     <div class="page__content">
 
-        <h2>Fra WordPress</h2>
-        <div class="loop loop--teasers">
+        <h2>Fra WordPress Non Observable</h2>
+        <div class="loop loop--teasers" *ngIf="news; else message">
             <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.excerpt" [tag]="'Aktuelt'" [date]="item.date"
                 [title]="item.title" *ngFor="let item of news"> </app-teaser>
         </div>
 
         <h2>Fra Strapi</h2>
-        <div class="loop loop--teasers">
+        <div class="loop loop--teasers" *ngIf="articles; else message">
             <app-teaser [source]="getArticleImage(article.image.sourceUrl)" [url]="article.url" [text]="article.excerpt" [tag]="'Aktuelt'" [date]="article.created"
                 [title]="article.title" *ngFor="let article of articles"> </app-teaser>
         </div>
+
+        <ng-template #message>
+            <p class="message">{{ errorMessage }}</p>
+        </ng-template>
 
     </div>
 

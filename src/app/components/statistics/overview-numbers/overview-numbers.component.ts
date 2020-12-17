@@ -48,4 +48,8 @@ export class OverviewNumbersComponent implements OnInit {
     this.utilitiesService.toggleDropdown();
   }
 
+  closeDropdown(): void {
+    this.utilitiesService.closeDropdown();
+  }
+
 }
