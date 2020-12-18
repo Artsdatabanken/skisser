@@ -59,7 +59,8 @@ export class DashboardComponent implements OnInit {
   }
 
   closeDashboard(): boolean {
-    this.menuService.closeDashboard();    
+    this.menuService.closeDashboard();  
+    // this.showDashboardPane = false;  
     return this.isLoggedIn = false;
   }
 

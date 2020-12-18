@@ -1,8 +1,8 @@
 <!--layout component-->
 
-<div class="dashboard" [ngClass]="{'dashboard--subheader': location === 'subheader'}" clickElsewhere>
+<div class="dashboard" [ngClass]="{'dashboard--subheader': location === 'subheader'}"
+    clickElsewhere>
 
-    
     <button class="dashboard-toggle" id="dashboardToggleButton"
         [ngClass]="{'dashboard-toggle--open': showDashboardPane, 'dashboard-toggle--active': isLoggedIn}"
         (click)="toggleDashboard()" arial-label="Åpne og lukke innloggingsmenyen">
@@ -12,8 +12,8 @@
 
     </button>
 
-    <div class="dashboard-pane" id="dashboardPane"
-        [ngClass]="{'dashboard-pane--open': showDashboardPane}" [attr.arial-expanded]="showDashboardPane">
+    <div class="dashboard-pane" id="dashboardPane" [ngClass]="{'dashboard-pane--open': showDashboardPane}"
+        [attr.arial-expanded]="showDashboardPane">
 
         <div class="dashboard-pane__item dashboard-pane__item--tall dashboard-pane__item--first" *ngIf="!isLoggedIn">
 

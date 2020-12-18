@@ -13,15 +13,7 @@
 
     <div class="page__content" style="min-height: 90vh;">
 
-        <!-- <div style="position: relative;"> -->
-            <app-artsobs-numbers></app-artsobs-numbers>
-        <!-- </div> -->
-
-        <!-- <ul class="link-list link-list--sm">
-            <li class="link-list__item" *ngFor="let child of children"><a class="link-list__link"
-                    routerLink="/observations/statistics/overview/{{child.path}}"
-                    routerLinkActive="link-list__link--active">{{ child.data.text }}</a></li>
-        </ul> -->
+        <app-artsobs-numbers></app-artsobs-numbers>
 
         <div class="dropdown" (clickElsewhere)="closeDropdown()">
 
@@ -37,11 +29,9 @@
                     {{ child.data.text }}
                 </a>
 
-
             </div>
 
         </div>
-
 
         <router-outlet></router-outlet>
 

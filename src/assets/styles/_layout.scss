@@ -509,8 +509,6 @@
     background-repeat: no-repeat;
     background-size: auto 16px;
     border: none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -542,7 +540,6 @@
         //@include customVar(background-color, clrWhite);
         background-color: #e9f7ef;
         background-size: auto 14px;
-        border-radius: 0;
         font-size: 14px;
         padding: 12px 15px 10px 35px;
         text-align: left;
@@ -553,8 +550,6 @@
 .dashboard-pane {
     @include customVar(background-color, paletteColor1);
     background-color: #e9f7ef;
-    border-radius: 10px;
-    border-top-right-radius: 0;
     font-size: 16px;
     padding: 15px 0;
     transform: translateY(-1500vh);
@@ -573,7 +568,6 @@
         /*
         We cand use this since dashboard in the header is hidden on mobile screen resolutions, otherwise use the location selector .dashboard--subheader & {} for mobile styles
         */
-        border-radius: 0;
         top: 37px;
         left: 0;
         right: 0;
@@ -583,7 +577,6 @@
     // elements
 
     &__item {
-        border: 1px solid red;
         margin: 0;
         padding: 1px 30px;
 

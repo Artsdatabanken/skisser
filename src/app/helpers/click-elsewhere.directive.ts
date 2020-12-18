@@ -10,15 +10,16 @@ export class ClickElsewhereDirective {
     @HostListener('document:click', ['$event'])
     public onDocumentClick(event: MouseEvent): void {
 
-        const targetElement = event.target as HTMLElement;
+        const targetElement: HTMLElement = event.target as HTMLElement;
 
+        console.log('event', event)
         console.log('targetElement', targetElement)
         console.log('test', !this.elementRef.nativeElement.contains(targetElement))
-        console.log('test 2', targetElement && !this.elementRef.nativeElement.contains(targetElement))
 
-        // Check if the click was outside the element
+        // check if the click was outside the element
         if (targetElement && !this.elementRef.nativeElement.contains(targetElement)) {
             this.clickElsewhere.emit(event);
         }
+
     }
 }

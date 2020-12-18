@@ -56,7 +56,7 @@ export class AppComponent {
         this.pageId = obj.id;
         this.pageLayout = obj.layout;
 
-        console.log('Page details =================', this.pageTitle, this.pageId, this.pageLayout);
+        // console.log('PAGE DETAILS =================', this.pageTitle, this.pageId, this.pageLayout);
 
         if (this.pageId === 'frontpage') {
           this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
