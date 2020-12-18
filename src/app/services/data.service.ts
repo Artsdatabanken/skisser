@@ -1,24 +1,19 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, publishReplay, refCount } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import { AboutItem } from '../models/aboutItem';
 import { NewsItem } from '../models/newsItem';
-import { User } from '../models/user';
 import { environment } from '../../environments/environment';
 import { FeaturedImage } from '../models/featuredImage';
 import { Article } from '../models/article';
 import { ArticleImage } from '../models/articleImage';
-import GhostContentAPI from '@tryghost/content-api'
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
-
-  configUrl1: string = 'https://artsobs-stats.free.beeceptor.com';
-  apiUrl: string = 'https://reqres.in/api/users?page=2';
 
   // // bouvet
   // wordpressPostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
@@ -30,53 +25,14 @@ export class DataService {
   // wpPagesApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages';
   // wpSinglePageApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages/';
 
+  errorMessage: string;
+
   environmentWpApi: string;
   wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
   wpPagesApi: string = 'wp-json/wp/v2/pages';
   strapiApi: string = 'http://localhost:1337/articles';
 
-  ghostApi: any = new GhostContentAPI({
-    url: 'http://localhost:2368',
-    key: 'e5bc51f27f703fab9a3acfc663',
-    version: "v3"
-  });
-
   constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
-
-  getStatsData(): Observable<any> {
-    return this.http.get(this.configUrl1).pipe(
-      publishReplay(1), // Cache the latest emitted
-      refCount() // Keep alive as long as there are subscribers
-    );
-  }
-
-  getUsers(): Observable<User[]> {
-
-    return this.http.get(this.apiUrl).pipe(
-
-      map((res: any) => {
-
-        const users: User[] = [];
-
-        console.log('res', res)
-
-        res.data.forEach((u: any) => {
-
-          const user: User = {
-            firstName: u.first_name,
-            lastName: u.last_name
-          };
-
-          users.push(user);
-
-        });
-
-
-        return users;
-      })
-    );
-
-  }
 
   // strapi
 
@@ -175,7 +131,7 @@ export class DataService {
 
     return this.http.get(this.environmentWpApi + this.wpPostsApi + '?_embed').pipe(
       map((res: any[]) => {
-        
+
         console.log('wordpress', res);
 
         const news: NewsItem[] = [];
@@ -219,7 +175,18 @@ export class DataService {
         return news;
       }),
       publishReplay(1), // Cache the latest emitted
-      refCount() // Keep alive as long as there are subscribers
+      refCount(), // Keep alive as long as there are subscribers
+      catchError(error => {
+        
+        if (error.error instanceof ErrorEvent) {
+          this.errorMessage = `Error: ${error.error.message}`;
+        } 
+        else {
+          this.errorMessage = this.getServerErrorMessage(error);
+        }
+
+        return throwError(this.errorMessage);
+      })
     );
 
   }
@@ -261,16 +228,29 @@ export class DataService {
         }
 
         return newsItem;
+      }),
+      publishReplay(1), // Cache the latest emitted
+      refCount(), // Keep alive as long as there are subscribers
+      catchError(error => {
+        
+        if (error.error instanceof ErrorEvent) {
+          this.errorMessage = `Error: ${error.error.message}`;
+        } 
+        else {
+          this.errorMessage = this.getServerErrorMessage(error);
+        }
+
+        return throwError(this.errorMessage);
       })
     )
   }
 
-  getAboutfilteredRes(): Observable<AboutItem[]> {
+  getAboutItems(): Observable<AboutItem[]> {
 
     return this.http.get(this.environmentWpApi + this.wpPagesApi).pipe(
       map((res: any[]) => {
 
-        console.log('AboutfilteredRes', res);
+        console.log('About items', res);
 
         const aboutfilteredRes: AboutItem[] = [];
 
@@ -328,20 +308,22 @@ export class DataService {
     )
   }
 
-  // ghost
+  private getServerErrorMessage(error: HttpErrorResponse): string {
+    switch (error.status) {
+      case 404: {
+        return `Not Found: ${error.message}`;
+      }
+      case 403: {
+        return `Access Denied: ${error.message}`;
+      }
+      case 500: {
+        return `Internal Server Error: ${error.message}`;
+      }
+      default: {
+        return `Unknown Server Error: ${error.message}`;
+      }
 
-  // getGhost(): Observable<any> {
-  //   return this.ghostApi.posts.browse({
-  //     //filter: 'tag:fiction+tag:-fables'
-  //   })
-  //     .then((posts) => {
-  //       posts.forEach((post) => {
-  //         console.log('ghost', post.title);
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }
+    }
+  }
 
 }

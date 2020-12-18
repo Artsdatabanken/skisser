@@ -24,9 +24,6 @@
     @include customVar(background-color, clrBlack);
     @include customVar(color, clrWhite);
     @include customVar(font-family, fontAccent);
-    border-radius: 5px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     font-size: 13px;
     font-weight: 500;
     height: 30px;
@@ -106,7 +103,6 @@
 .infographics {
     background-color: #f8f8f8;
     //@include customVar(background-color, paletteColor0);
-    border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 0;
@@ -120,9 +116,6 @@
     @media screen and (max-width: 1600px) {
         background-color: #e9f7ef;
         @include customVar(background-color, paletteColor0);
-        border-radius: 0;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
         display: grid;
         grid-template-columns: 1fr;
         margin: 0;
@@ -335,13 +328,10 @@ $graphColor6: #3c1434;
 
 .ol-zoom {
     & > * {
-        @include customVar(background-color, clrAqua5);
+        @include customVar(background-color, clrBlack);
         @include customVar(color, clrWhite);
         @include customVar(font-family, fontAccent);
         border: none;
-        border-radius: 5px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
         display: block;
         font-size: 30px;
         margin: 5px 0;
