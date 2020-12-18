@@ -80,7 +80,7 @@ export class DataService {
 
   // strapi
 
-  getNews2(langCode: string | null = 'en'): Observable<Article[]> {
+  getNews2(langCode: string | null = 'no'): Observable<Article[]> {
 
     return this.http.get(this.strapiApi).pipe(
       map((res: any[]) => {
