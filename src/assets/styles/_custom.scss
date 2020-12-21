@@ -380,11 +380,17 @@
         font-size: 20px;
         font-weight: 700;
         margin-top: 50px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+
+        & + .sitemap__parent {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     }
 
     &__child {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 5px;
     }
 }
