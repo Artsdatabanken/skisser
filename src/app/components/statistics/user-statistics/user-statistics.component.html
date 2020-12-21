@@ -272,7 +272,7 @@
             <tbody>
                 <tr *ngFor="let user of fakeUsers$ | async; let i = index" [class]="getRank(i)">
 
-                    <td><span class="badge">{{ i + 1}}</span></td>
+                    <td><span class="badge">{{ i + 1 }}</span></td>
                     <td>
                         <strong style="font-size: 1.2em">{{ user.name }}</strong>
                         <br>

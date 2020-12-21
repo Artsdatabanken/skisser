@@ -11,11 +11,12 @@
 
     <div class="page__content">
 
-        <div *ngFor="let link of menuItems">
-            {{link.data.text}}
-        </div>
+        <nav class="sitemap" *ngFor="let link of menuItems">
+            <!-- {{link.data.text}} -->
 
-
+            <a class="sitemap__parent" routerLink="/{{ link.path }}" *ngIf="link.data.parent === ''">{{ link.data.text }}</a>
+            <a class="sitemap__child" routerLink="/{{ link.path }}" *ngIf="link.data.parent !== ''">{{ link.data.text }}</a>
+        </nav>
 
     </div>
 

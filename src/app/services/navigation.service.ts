@@ -63,10 +63,6 @@ export class NavigationService {
 
   // }
 
-  // getRoutes(): Route[] {
-  //   //return this.routes;
-  // }
-
   getStyle(style: string | null, classification: string | null): string {
 
     if (classification === 'section') {
@@ -79,16 +75,29 @@ export class NavigationService {
   }
 
   getRoutes(): any[] {
+
+    let routes: any[] = this.router.config.filter(route => route.data);
+
+    routes = routes.filter(r => {
+
+      console.log('r', r)
+      return r.data.menu === 'mainMenu';
+    });
+
+    console.log('routes', routes)
     return this.router.config.filter(route => route.data);
   }
 
   private getMenuItems(menu: string): any[] {
-    return this.router.config.filter(route => route.data.menu === menu); // only add a menu item for routes that belong to a particular menu
+    let menuItems: any[] = this.router.config.filter(route => route.data.menu === menu); // only add a menu item for routes that belong to a particular menu
+    menuItems = menuItems.filter(mi => mi.data.hidden === false);
+    //return this.router.config.filter(route => route.data.menu === menu); 
+    return menuItems;
   }
 
   getMainMenu(): Route[] {
 
-    const menuItems: Route[] = this.getMenuItems('mainMenu').filter(mi => mi.data.hidden === false);
+    const menuItems: Route[] = this.getMenuItems('mainMenu');
 
     // finner parents (topLevel)
     const parents: any[] = menuItems.filter(i => i.data.parent === '');
@@ -151,6 +160,15 @@ export class NavigationService {
 
   getExtraMenu(): any[] {
     return this.getMenuItems('extraMenu');;
+  }
+
+  getSitemap(): any[] {
+
+    const mainMenu = this.getMenuItems('mainMenu');
+    const extraMenu = this.getMenuItems('extraMenu');
+
+    return [...mainMenu, ...extraMenu];
+
   }
 
 }

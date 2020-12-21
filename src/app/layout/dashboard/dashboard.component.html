@@ -1,11 +1,10 @@
 <!--layout component-->
 
-<div class="dashboard" [ngClass]="{'dashboard--subheader': location === 'subheader'}"
-    clickElsewhere>
+<div class="dashboard" [ngClass]="{'dashboard--subheader': location === 'subheader'}">
 
     <button class="dashboard-toggle" id="dashboardToggleButton"
         [ngClass]="{'dashboard-toggle--open': showDashboardPane, 'dashboard-toggle--active': isLoggedIn}"
-        (click)="toggleDashboard()" arial-label="Åpne og lukke innloggingsmenyen">
+        (click)="toggleDashboard()" arial-label="Åpne og lukke innloggingsmenyen" clickElsewhere>
 
         <span *ngIf="!isLoggedIn">Logg inn</span>
         <span *ngIf="isLoggedIn">Min side</span>

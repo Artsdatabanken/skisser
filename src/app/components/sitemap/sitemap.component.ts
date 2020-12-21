@@ -14,7 +14,9 @@ export class SitemapComponent implements OnInit {
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.menuItems = this.navigationService.getRoutes();
+    this.menuItems = this.navigationService.getSitemap();
+
+    
   }
 
 }
