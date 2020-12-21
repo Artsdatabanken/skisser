@@ -374,6 +374,11 @@
     a {
         border-bottom: 2px solid #82e0aa;
         align-self: flex-start;
+        transition: border 0.3s;
+
+        &:hover {
+            border-bottom: 2px solid black;
+        }
     }
 
     &__parent {

@@ -51,6 +51,7 @@ import { OverviewChild11Component } from './components/statistics/overview/overv
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { AboutItemComponent } from './components/about/about-item/about-item.component';
+import { UserMenuComponent } from './components/user/user-menu/user-menu.component';
 
 /*
 
@@ -705,16 +706,31 @@ const aboutRoutes: Routes = [
 
 const userRoutes: Routes = [
   {
-    path: 'messages',
-    component: MessagesComponent,
+    path: 'user',
+    component: UserMenuComponent,
     data: {
-      text: 'Meldinger',
-      id: 'messages',
+      text: 'Brukermeny',
+      id: 'userMenu',
       layout: 'page',
-      rank: 'primary',
+      rank: '',
       parent: '',
-      menu: 'topMenu',
-      metaTitle: 'Meldinger',
+      menu: 'userMenu',
+      metaTitle: 'Brukermeny',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent,
+    data: {
+      text: 'Registrer deg',
+      id: 'register',
+      layout: 'page',
+      rank: '',
+      parent: 'userMenu',
+      menu: 'userMenu',
+      metaTitle: 'Registrer deg',
       metaDescription: '',
       hidden: false
     }
@@ -727,8 +743,8 @@ const userRoutes: Routes = [
       id: 'login',
       layout: 'page',
       rank: '',
-      parent: '',
-      menu: 'topMenu',
+      parent: 'userMenu',
+      menu: 'userMenu',
       metaTitle: 'Logg inn',
       metaDescription: '',
       hidden: false
@@ -742,28 +758,28 @@ const userRoutes: Routes = [
       id: 'user-profile',
       layout: 'page',
       rank: 'primary',
-      parent: '',
-      menu: 'topMenu',
+      parent: 'userMenu',
+      menu: 'userMenu',
       metaTitle: 'Min side',
       metaDescription: '',
       hidden: false
     }
   },
   {
-    path: 'register',
-    component: RegistrationComponent,
+    path: 'messages',
+    component: MessagesComponent,
     data: {
-      text: 'Registrer deg',
-      id: 'register',
+      text: 'Meldinger',
+      id: 'messages',
       layout: 'page',
-      rank: '',
-      parent: '',
-      menu: 'topMenu',
-      metaTitle: 'Registrer deg',
+      rank: 'primary',
+      parent: 'userMenu',
+      menu: 'userMenu',
+      metaTitle: 'Meldinger',
       metaDescription: '',
       hidden: false
     }
-  },
+  }, 
 ];
 
 const extraRoutes: Routes = [

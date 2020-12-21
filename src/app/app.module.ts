@@ -95,6 +95,7 @@ import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './helpers/truncate-text.pipe';
 import { AboutItemComponent } from './components/about/about-item/about-item.component';
+import { UserMenuComponent } from './components/user/user-menu/user-menu.component';
 
 @NgModule({
   declarations: [
@@ -188,7 +189,8 @@ import { AboutItemComponent } from './components/about/about-item/about-item.com
     NewsComponent,
     NewsItemComponent,
     TruncateTextPipe,
-    AboutItemComponent
+    AboutItemComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,

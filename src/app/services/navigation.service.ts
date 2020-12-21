@@ -165,9 +165,10 @@ export class NavigationService {
   getSitemap(): any[] {
 
     const mainMenu = this.getMenuItems('mainMenu');
+    const userMenu = this.getMenuItems('userMenu');
     const extraMenu = this.getMenuItems('extraMenu');
 
-    return [...mainMenu, ...extraMenu];
+    return [...mainMenu, ...userMenu, ...extraMenu];
 
   }
 
