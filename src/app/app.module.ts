@@ -96,6 +96,8 @@ import { NewsItemComponent } from './components/news/news-item/news-item.compone
 import { TruncateTextPipe } from './helpers/truncate-text.pipe';
 import { AboutItemComponent } from './components/about/about-item/about-item.component';
 import { UserMenuComponent } from './components/user/user-menu/user-menu.component';
+import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
+import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 
 @NgModule({
   declarations: [
@@ -190,7 +192,9 @@ import { UserMenuComponent } from './components/user/user-menu/user-menu.compone
     NewsItemComponent,
     TruncateTextPipe,
     AboutItemComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    OverviewStatsComponent,
+    OverviewStatsItemComponent
   ],
   imports: [
     BrowserModule,

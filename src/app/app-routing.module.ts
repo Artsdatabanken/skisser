@@ -52,6 +52,8 @@ import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { AboutItemComponent } from './components/about/about-item/about-item.component';
 import { UserMenuComponent } from './components/user/user-menu/user-menu.component';
+import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
+import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 
 /*
 
@@ -251,19 +253,34 @@ const observationRoutes: Routes = [
   },
   {
     path: 'observations/statistics/overview',
-    component: OverviewNumbersComponent,
+    component: OverviewStatsComponent,
     data: {
-      text: 'Artsstatistikk',
+      text: 'Oversikt statistikk',
       id: 'overview',
       layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Artsstatistikk',
+      metaTitle: 'Oversikt statistikk',
       metaDescription: '',
       hidden: false
     },
     children: [
+      {
+        path: 'observations/statistics/overview/:id',
+        component: OverviewStatsItemComponent,
+        data: {
+          text: 'Oversikt stats item',
+          id: 'overviewStatsItem',
+          layout: 'spa',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metaTitle: 'Oversikt stats item',
+          metaDescription: '',
+          hidden: true
+        }
+      },
       {
         path: 'overview-1',
         component: OverviewChild1Component,
