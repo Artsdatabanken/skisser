@@ -11,7 +11,9 @@ export class SightingsComponent implements OnInit {
 
   isActive: boolean = false;
   display: string = 'card';
+
   @Input() location: string | null;
+  @Input() take: number | null = 0;
 
   // fakeData
   marineMammals: any[];
@@ -45,7 +47,9 @@ export class SightingsComponent implements OnInit {
   getSightings(): void {
     this.dataService.getSightings().subscribe(mm => {
       console.log('mm', mm)
-      this.marineMammals = mm;
+
+      // or send this.take as a parameter so we don't get stuff from the server unnecessarily
+      this.take === 0 ? this.marineMammals = mm : this.marineMammals = mm.slice(0, this.take);
     })
   }
 
