@@ -235,43 +235,53 @@
 // ad
 
 .ad {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    
+    background-color: #76d7c4;
+    border-radius: 50px;
+    padding: 50px;
     text-align: center;
 
+    &:hover {
+        background-color: #d4efdf;
+    }
+
     &:focus {
-        display: block;
+        background-color: #d4efdf;
     }
 
     &__text {
+        @include customVar(color, clrBlack);
         @include customVar(font-family, fontSecondary);
+        color: black;
         font-size: 36px;
-        font-size: 30px;
-        font-weight: 400;
         font-weight: 500;
-        text-transform: uppercase;
     }
 
     &__icon {
-        //background-color: #17a589;
+        background-color: #a3e4d7;
         background-position: center center;
         background-repeat: no-repeat;
-        // border-radius: 100%;
-        margin: 0 auto 20px;
-        margin: 0 auto;
+        background-size: 27px;
+        border-radius: 50px;
+        margin: 0;
+        margin-right: 15px;
         text-align: center;
-        height: 120px;
-        width: 120px;
+        height: 60px;
+        width: 60px;
 
         &--1 {
-            background-image: url(../images/iconAdAddWhite.png);
-            background-image: url(../images/iconBinoculars.png);
-            background-size: 70px;
+            background-image: url(../images/iconPlus.png);
         }
 
         &--2 {
-            background-image: url(../images/iconAdSearchWhite.png);
-            background-image: url(../images/iconBinoculars.png);
-            background-size: 70px;
+            background-image: url(../images/iconSearch.png);
+            background-image: url(../images/iconEye.png);
+            background-size: 37px;
         }
 
         .ad:hover & {

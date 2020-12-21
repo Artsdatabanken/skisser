@@ -177,10 +177,10 @@ export class DataService {
       publishReplay(1), // Cache the latest emitted
       refCount(), // Keep alive as long as there are subscribers
       catchError(error => {
-        
+
         if (error.error instanceof ErrorEvent) {
           this.errorMessage = `Error: ${error.error.message}`;
-        } 
+        }
         else {
           this.errorMessage = this.getServerErrorMessage(error);
         }
@@ -232,10 +232,10 @@ export class DataService {
       publishReplay(1), // Cache the latest emitted
       refCount(), // Keep alive as long as there are subscribers
       catchError(error => {
-        
+
         if (error.error instanceof ErrorEvent) {
           this.errorMessage = `Error: ${error.error.message}`;
-        } 
+        }
         else {
           this.errorMessage = this.getServerErrorMessage(error);
         }
@@ -324,6 +324,33 @@ export class DataService {
       }
 
     }
+  }
+
+  getSightings(): Observable<any[]> {
+
+    return this.http.get('http://hotline.whalemuseum.org/api.json').pipe(
+      map((res: any[]) => {
+
+        console.log('sightings', res);
+
+        return res;
+        
+      }),
+      publishReplay(1), // Cache the latest emitted
+      refCount(), // Keep alive as long as there are subscribers
+      catchError(error => {
+
+        if (error.error instanceof ErrorEvent) {
+          this.errorMessage = `Error: ${error.error.message}`;
+        }
+        else {
+          this.errorMessage = this.getServerErrorMessage(error);
+        }
+
+        return throwError(this.errorMessage);
+      })
+    );
+
   }
 
 }

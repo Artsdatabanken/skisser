@@ -45,7 +45,7 @@
         @include customVar(background-color, clrBlack);
         @include customVar(border-color, clrBlack);
         @include customVar(color, clrWhite);
-        background-image: url(../images/iconChevronRight.png);
+        background-image: url(../images/iconChevronWhiteRight.png);
     }
 
     @media screen and (max-width: 1024px) {

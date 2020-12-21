@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/article';
 import { NewsItem } from 'src/app/models/newsItem';
 import { DataService } from 'src/app/services/data.service';
@@ -15,13 +15,24 @@ export class NewsComponent implements OnInit {
   articles: Article[];
   errorMessage: string;
 
+  @Input() take: number | string | null = 0;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
 
+    console.log('TAKE:', this.take)
+
     this.dataService.getNews().subscribe(
       (res: any) => {
-        this.news = res;
+
+        if (this.take === 0) {
+          this.news = res;
+        }
+        else {
+          this.news = res.slice(0, this.take);
+        }
+        
       },
       error => {
         console.log('error', error);

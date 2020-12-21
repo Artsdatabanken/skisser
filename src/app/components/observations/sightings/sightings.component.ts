@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-sightings',
@@ -12,23 +13,26 @@ export class SightingsComponent implements OnInit {
   display: string = 'card';
   @Input() location: string | null;
 
-  constructor() { }
+  // fakeData
+  marineMammals: any[];
 
-  ngOnInit(): void { 
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {
     if (this.location === 'frontpage') {
       this.display = 'map';
     }
+
+    this.getSightings();
   }
 
-  getObservations() : void {
-    
+  getObservations(): void {
+
   }
 
   chooseDisplay(display: string): void {
     this.display = display;
   }
-
-
 
   getCssClass(keyword: string): string {
 
@@ -36,6 +40,13 @@ export class SightingsComponent implements OnInit {
       return 'button--active';
     }
 
+  }
+
+  getSightings(): void {
+    this.dataService.getSightings().subscribe(mm => {
+      console.log('mm', mm)
+      this.marineMammals = mm;
+    })
   }
 
 }

@@ -153,7 +153,7 @@
 
         <h2 class="frontpage__heading">Siste nytt</h2>
 
-        <div class="loop loop--teasers">
+        <!-- <div class="loop loop--teasers">
             <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'04.10.2020'"
                 [title]="'Aktuell etian eilefend laooreet'"> </app-teaser>
             <app-teaser [source]="'animal2'" [url]="'/'" [text]="loremIpsum" [tag]="'Nyhet'" [date]="'22.09.2020'"
@@ -162,11 +162,13 @@
                 [title]="'Aktuell placerat extristique velit tiemole'"> </app-teaser>
             <app-teaser [source]="'animal6'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'13.07.2020'"
                 [title]="'Aktuell lorem ipsum nullam felsi sed tristique'"> </app-teaser>
-        </div>
+        </div> -->
+
+        <app-news [take]="'4'"></app-news>
 
         <div class="centered aligncenter">
             <br><br>
-            <a class="button" href="">Flere nyheter</a>
+            <a class="button button--primary" routerLink="/news">Flere nyheter og aktuelle saker</a>
         </div>
 
     </div>
