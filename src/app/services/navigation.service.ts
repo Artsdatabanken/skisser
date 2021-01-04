@@ -80,11 +80,11 @@ export class NavigationService {
 
     routes = routes.filter(r => {
 
-      console.log('r', r)
+      //console.log('r', r)
       return r.data.menu === 'mainMenu';
     });
 
-    console.log('routes', routes)
+    //console.log('routes', routes)
     return this.router.config.filter(route => route.data);
   }
 

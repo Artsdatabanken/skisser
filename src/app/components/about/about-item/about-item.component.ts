@@ -35,6 +35,8 @@ export class AboutItemComponent implements OnInit {
       
     });
 
+    console.log('dfjhgsdjfgd', this.aboutItemId)
+
   }
 
 }

@@ -1,0 +1,30 @@
+<div class="page page--landing">
+
+    <header class="page__header">
+        <h1 class="page-title" [innerHtml]="pageTitle"></h1>
+    </header>
+
+    <div class="page__intro">
+
+    </div>
+
+    <div class="page__content" *ngIf="aboutPage">
+
+        <div [innerHtml]="aboutPage.intro"></div>
+
+        <div *ngIf="aboutPage.content">
+            
+            <div *ngFor="let content of aboutPage.content">
+                <h2 [innerHtml]="content.Heading"></h2>
+                <div [innerHtml]="content.Body"></div>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>

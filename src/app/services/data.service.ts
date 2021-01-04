@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
+import { catchError, map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { AboutItem } from '../models/aboutItem';
 import { NewsItem } from '../models/newsItem';
 import { environment } from '../../environments/environment';
@@ -334,10 +334,38 @@ export class DataService {
         //console.log('sightings', res);
 
         return res;
-        
+
       }),
       publishReplay(1), // Cache the latest emitted
       refCount(), // Keep alive as long as there are subscribers
+      catchError(error => {
+
+        if (error.error instanceof ErrorEvent) {
+          this.errorMessage = `Error: ${error.error.message}`;
+        }
+        else {
+          this.errorMessage = this.getServerErrorMessage(error);
+        }
+
+        return throwError(this.errorMessage);
+      })
+    );
+
+  }
+
+  getAboutPages(id: number): Observable<any> {
+
+    return this.http.get('https://artsdatabanken.no/api/Content/' + id).pipe(
+      tap(t => console.log('t', t)),
+      map(res => {
+
+        console.log('about page', res);
+
+        return res;
+
+      }),
+      publishReplay(1), 
+      refCount(), 
       catchError(error => {
 
         if (error.error instanceof ErrorEvent) {

@@ -25,7 +25,10 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="getAboutItemUrl(item.url)" [text]="item.title" *ngFor="let item of aboutItems">
+            <!-- <app-card [type]="'link'" [url]="getAboutItemUrl(item.url)" [text]="item.title" *ngFor="let item of aboutItems">
+            </app-card> -->
+
+            <app-card [type]="'link'" [url]="getAboutItemUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
             </app-card>
 
             <app-card [type]="'link'" [url]="'news'" [text]="'Aktuelle saker'"></app-card>

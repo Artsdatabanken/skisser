@@ -98,6 +98,7 @@ import { OverviewStatsComponent } from './components/statistics/overview-stats/o
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
+import { AboutPageComponent } from './components/about/about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -194,7 +195,8 @@ import { SightingsMapComponent } from './components/observations/sightings-map/s
     OverviewStatsComponent,
     OverviewStatsItemComponent,
     UserProfileComponent,
-    SightingsMapComponent
+    SightingsMapComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,

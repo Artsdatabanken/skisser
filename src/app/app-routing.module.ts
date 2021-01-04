@@ -51,6 +51,7 @@ import { AboutItemComponent } from './components/about/about-item/about-item.com
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AboutPageComponent } from './components/about/about-page/about-page.component';
 
 /*
 
@@ -614,7 +615,7 @@ const aboutRoutes: Routes = [
   },
   {
     path: 'about/:pageId',
-    component: AboutItemComponent,
+    component: AboutPageComponent, // AboutItemComponent,
     data: {
       text: 'About Item',
       id: 'about',
