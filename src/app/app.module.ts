@@ -97,6 +97,7 @@ import { AboutItemComponent } from './components/about/about-item/about-item.com
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 
 @NgModule({
   declarations: [
@@ -192,7 +193,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AboutItemComponent,
     OverviewStatsComponent,
     OverviewStatsItemComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    SightingsMapComponent
   ],
   imports: [
     BrowserModule,

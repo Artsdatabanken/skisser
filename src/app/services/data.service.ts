@@ -326,12 +326,12 @@ export class DataService {
     }
   }
 
-  getSightings(): Observable<any[]> {
+  getMammalSightings(): Observable<any[]> {
 
     return this.http.get('http://hotline.whalemuseum.org/api.json').pipe(
       map((res: any[]) => {
 
-        console.log('sightings', res);
+        //console.log('sightings', res);
 
         return res;
         

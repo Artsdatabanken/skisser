@@ -241,8 +241,8 @@
     align-items: center;
 
     background-color: #76d7c4;
-    border-radius: 50px;
-    padding: 50px;
+    border-radius: 100px;
+    padding: 50px 100px;
     text-align: center;
 
     &:hover {
@@ -269,18 +269,20 @@
         border-radius: 50px;
         margin: 0;
         margin-right: 15px;
+        padding: 0;
         text-align: center;
         height: 60px;
         width: 60px;
 
         &--1 {
             background-image: url(../images/iconPlus.png);
+            background-size: 23px;
         }
 
         &--2 {
             background-image: url(../images/iconSearch.png);
             background-image: url(../images/iconEye.png);
-            background-size: 37px;
+            background-size: 33px;
         }
 
         .ad:hover & {

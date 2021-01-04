@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class SightingsComponent implements OnInit {
 
   isActive: boolean = false;
-  display: string = 'card';
+  display: string = 'map';
 
   @Input() location: string | null;
   @Input() take: number | null = 0;
@@ -45,8 +45,8 @@ export class SightingsComponent implements OnInit {
   }
 
   getSightings(): void {
-    this.dataService.getSightings().subscribe(mm => {
-      console.log('mm', mm)
+    this.dataService.getMammalSightings().subscribe(mm => {
+      //console.log('mm', mm)
 
       // or send this.take as a parameter so we don't get stuff from the server unnecessarily
       this.take === 0 ? this.marineMammals = mm : this.marineMammals = mm.slice(0, this.take);

@@ -563,7 +563,7 @@
 .logo {
     @include customVar(font-family, fontSecondary);
     border: none;
-    font-size: 35px;
+    font-size: 26px;
     font-weight: 300;
     height: 100%;
     line-height: 1;
@@ -582,8 +582,8 @@
         background-size: contain;
         margin-right: 10px;
 
-        height: 58px;
-        width: 58px;
+        height: 50px;
+        width: 50px;
 
         @media screen and (max-width: 1600px) {
             height: 48px;
