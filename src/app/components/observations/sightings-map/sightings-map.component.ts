@@ -15,7 +15,6 @@ import { fromLonLat } from 'ol/proj';
 import { DragPan, MouseWheelZoom, defaults } from 'ol/interaction';
 import { platformModifierKeyOnly } from 'ol/events/condition';
 import { DataService } from 'src/app/services/data.service';
-import { map } from 'rxjs/operators';
 
 
 @Component({

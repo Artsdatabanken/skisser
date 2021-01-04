@@ -119,10 +119,7 @@ export class MapComponent implements OnInit {
     });
 
     // custom control
-
-
-
-
+    
     // map 1
     this.map = new Map({
       interactions: defaults({ dragPan: false, mouseWheelZoom: false }).extend([

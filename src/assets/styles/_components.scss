@@ -134,6 +134,7 @@
         @include customVar(background-color, clrPrimary);
         @include customVar(border-color, clrPrimary);
         @include customVar(color, clrWhite);
+        padding: 12px 22px;
     }
 
     &--xl {
