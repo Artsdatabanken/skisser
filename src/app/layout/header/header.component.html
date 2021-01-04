@@ -2,11 +2,8 @@
 
 <header class="header" role="banner">
     <app-logo class="header__cell header__cell--first header__cell--logo"></app-logo>
-    <!-- <app-top-navigation [location]="'header'" class="header__cell header__cell--second header__cell--top-menu"
-        *ngIf="!activeMenu">
-    </app-top-navigation> -->
-    <app-dashboard class="header__cell header__cell--second header__cell--dashboard" *ngIf="!activeMenu">
-    </app-dashboard>
+    <app-login-button class="header__cell header__cell--second header__cell--dashboard">
+    </app-login-button>
     <app-menu class="header__cell header__cell--third header__cell--menu"></app-menu>
 </header>
 

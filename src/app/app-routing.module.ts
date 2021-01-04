@@ -23,7 +23,6 @@ import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
 import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
 import { TosComponent } from './components/about/tos/tos.component';
 import { SupportComponent } from './components/about/support/support.component';
-import { LatestNewsComponent } from './components/about/latest-news/latest-news.component';
 import { MyDataComponent } from './components/my-data/my-data.component';
 import { MyObservationsComponent } from './components/my-data/my-observations/my-observations.component';
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
@@ -34,9 +33,7 @@ import { AddObservationComponent } from './components/report/add-observation/add
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
 import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
-import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
-import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
 import { OverviewChild9Component } from './components/statistics/overview/overview-child9/overview-child9.component';
@@ -51,9 +48,9 @@ import { OverviewChild11Component } from './components/statistics/overview/overv
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { AboutItemComponent } from './components/about/about-item/about-item.component';
-import { UserMenuComponent } from './components/user/user-menu/user-menu.component';
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 /*
 
@@ -79,21 +76,7 @@ const homeRoutes: Routes = [
       metaDescription: '',
       hidden: false
     }
-  },
-  // {
-  //   path: '',
-  //   component: HomeComponent,
-  //   data: {
-  //     text: '',
-  //     id: 'frontpage',
-  //     layout: 'frontpage',
-  //     rank: '',
-  //     parent: '',
-  //     menu: '',
-  //     metaTitle: 'Artsobservasjoner',
-  //     metaDescription: ''
-  //   }
-  // },
+  }
 ];
 
 const reportRoutes: Routes = [
@@ -723,21 +706,6 @@ const aboutRoutes: Routes = [
 
 const userRoutes: Routes = [
   {
-    path: 'user',
-    component: UserMenuComponent,
-    data: {
-      text: 'Brukermeny',
-      id: 'userMenu',
-      layout: 'page',
-      rank: '',
-      parent: '',
-      menu: 'userMenu',
-      metaTitle: 'Brukermeny',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
     path: 'register',
     component: RegistrationComponent,
     data: {
@@ -768,11 +736,11 @@ const userRoutes: Routes = [
     }
   },
   {
-    path: 'user-profile',
-    component: ProfileComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     data: {
       text: 'Min side',
-      id: 'user-profile',
+      id: 'dashboard',
       layout: 'page',
       rank: 'primary',
       parent: 'userMenu',
@@ -796,7 +764,7 @@ const userRoutes: Routes = [
       metaDescription: '',
       hidden: false
     }
-  }, 
+  },
 ];
 
 const extraRoutes: Routes = [

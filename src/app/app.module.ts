@@ -65,7 +65,6 @@ import { ChecklistComponent } from './components/report/checklist/checklist.comp
 import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
-import { ProfileComponent } from './components/user/profile/profile.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 import { CategoryRedlistedComponent } from './components/shared/non-dummy/category-redlisted/category-redlisted.component';
@@ -89,15 +88,15 @@ import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
 import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
 import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
-import { DashboardComponent } from './layout/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './helpers/truncate-text.pipe';
 import { AboutItemComponent } from './components/about/about-item/about-item.component';
-import { UserMenuComponent } from './components/user/user-menu/user-menu.component';
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -162,7 +161,6 @@ import { OverviewStatsItemComponent } from './components/statistics/overview-sta
     ImportObservationsComponent,
     SurveyProjectComponent,
     EventProjectComponent,
-    ProfileComponent,
     FellowObserversComponent,
     ExtraNavigationComponent,
     CategoryRedlistedComponent,
@@ -192,9 +190,9 @@ import { OverviewStatsItemComponent } from './components/statistics/overview-sta
     NewsItemComponent,
     TruncateTextPipe,
     AboutItemComponent,
-    UserMenuComponent,
     OverviewStatsComponent,
-    OverviewStatsItemComponent
+    OverviewStatsItemComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
