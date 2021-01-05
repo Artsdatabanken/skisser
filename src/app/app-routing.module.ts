@@ -47,7 +47,6 @@ import { OverviewChild10Component } from './components/statistics/overview/overv
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
-import { AboutItemComponent } from './components/about/about-item/about-item.component';
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
