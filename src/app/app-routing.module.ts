@@ -882,7 +882,7 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationRoutes, ...userDataRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...observationRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
