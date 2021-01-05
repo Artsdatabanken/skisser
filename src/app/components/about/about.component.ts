@@ -20,24 +20,7 @@ export class AboutComponent implements OnInit {
   aboutPages: AboutPage[] = [];
   ids: string[] = ['201123', '201730', '286637'];
 
-  /*
-  aboutArtsObs = '201123';
-  supportId = '201730';
-  termsOfUseId = '286637'; //'201723';
-
-  deviatingReportsId = '231165';
-  fundamentalsId = '201711';
-  getStartedId = '201930';
-  manualId = '201834';
-  guidanceId = '201752';
-  faqId = '201906';
-  partnersId = '222005';
-  systemRequirementsId = '201749';
-  glossaryId = '201815';
-
-  */
-
-  constructor(
+  constructor (
     private navigationService: NavigationService,
     private dataService: DataService,
     private http: HttpClient
@@ -69,6 +52,7 @@ export class AboutComponent implements OnInit {
       console.log('id', id)
       return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).subscribe(res => {
         console.log('res', res)
+      
         this.aboutPages.push({
           id: res.Id,
           url: res.Url.replace('/Pages/', ''),
@@ -78,7 +62,11 @@ export class AboutComponent implements OnInit {
           title: res.Title,
           languages: null
         });
+
+        this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.heading.localeCompare(b.heading));
+
         console.log('about pages', this.aboutPages)
+
       });
     });
   }
