@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   login(): void {
-    this.isLoggedIn = !this.isLoggedIn;
+    this.isLoggedIn = true;
     this.loginStatus.next(this.isLoggedIn);
   }
 

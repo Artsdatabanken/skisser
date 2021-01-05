@@ -841,7 +841,7 @@ main {
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0;
 
     @media screen and (max-width: 1024px) {

@@ -19,14 +19,24 @@ export class LoginButtonComponent implements OnInit {
 
     this.isLoggedIn = this.loginService.isLoggedIn;
     this.subscription = this.loginService.loginStatus.subscribe((value) => {
+
       this.isLoggedIn = value;
+      this.operateOnLogin(this.isLoggedIn);
+
     });
 
+    this.operateOnLogin(this.isLoggedIn);
+   
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-    if (this.isLoggedIn) {
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  operateOnLogin(login: boolean): void {
+    if (login) {
       this.linkText = 'Min side';
       this.url = '/dashboard'
     }
@@ -34,11 +44,6 @@ export class LoginButtonComponent implements OnInit {
       this.linkText = 'Logg inn';
       this.url = '/login';
     }
-
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
 }

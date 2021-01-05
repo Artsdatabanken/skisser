@@ -6,72 +6,46 @@
 
         <!-- if logged off -->
 
-        <div class="dashboard-pane" *ngIf="!isLoggedIn">
+        <div class="grid grid--2">
 
-            <p>
-                Velkommen til Artsobservasjoner. Logg deg inn med brukernavn og passord.
-            </p>
+            <div class="dashboard-pane" *ngIf="!isLoggedIn">
 
-            <form action="">
-                <label for="usermail">E-post</label>
-                <input type="text" id="usermail" placeholder="Angi e-post">
+                <p>
+                    Velkommen til Artsobservasjoner. Logg deg inn med brukernavn og passord.
+                </p>
 
-                <label for="userpassword">Passord</label>
-                <input type="password" id="userpassword" placeholder="Angi passord">
+                <form action="">
+                    <label for="usermail">E-post</label>
+                    <input type="text" id="usermail" placeholder="Angi e-post">
 
-                <div style="font-size: 14px; margin: 10px 0 15px; text-align: center;">Glemt brukernavn eller
-                    passord?
-                </div>
+                    <label for="userpassword">Passord</label>
+                    <input type="password" id="userpassword" placeholder="Angi passord">
 
-                <button type="submit" class="button button--sm button--primary button--centered" (click)="login()">Logg
-                    inn</button>
-                <br><br>
-            </form>
+                    <div style="font-size: 14px; margin: 10px 0 15px; text-align: center;">Glemt brukernavn eller
+                        passord?
+                    </div>
 
-            <hr>
+                    <button type="submit" class="button button--sm button--primary button--centered"
+                        (click)="login()">Logg
+                        inn</button>
+                    <br><br>
+                </form>            
 
-            <br><br>
-
-            Ny bruker? &nbsp;<a routerLink="/register" closePane>Registrer deg nå</a>
-
-        </div>
-
-        <!-- if logged in -->
-
-        <div class="dashboard-pane" *ngIf="isLoggedIn">
-
-           <p>Profilinformasjon ++++</p>
-           <p>Må redigere til minside </p>
-
-            <a class="top-navigation__link top-navigation__link--messages" routerLink="/messages">
-                Meldinger
-            </a>
-            <span style="color: red; font-weight: 700;">4 </span>
-
-            <br><br>
-
-            <hr>
-
-            <br><br>
-
-            Innlogget som <strong>Navn Navnesen</strong> med rolle som <strong>privat bruker</strong>.
-            <br>
-            <br>
-            <div class="aligncenter">
-
-                <select name="" id="changeRole">
-                    <option value="">Bytte rolle?</option>
-                    <option value="">Rolle 1</option>
-                    <option value="">Rolle 2</option>
-                    <option value="">Rolle 4</option>
-                    <option value="">Rolle 5</option>
-                    <option value="">Rolle 6</option>
-                </select>
-                &nbsp;&nbsp;
-                <input type="submit" class="" value="Logge ut?" (click)="logout()">
             </div>
 
         </div>
+
+        <div>
+
+            <br>
+            <hr>
+            <br>
+
+            Ny bruker? &nbsp;<a routerLink="/register">Registrer deg nå</a>
+
+        </div>
+
+        <!-- if logged off -->
 
     </div>
 
