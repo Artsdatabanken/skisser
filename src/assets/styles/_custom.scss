@@ -24,6 +24,7 @@
     @include customVar(background-color, clrBlack);
     @include customVar(color, clrWhite);
     @include customVar(font-family, fontAccent);
+    border-radius: 0;
     font-size: 13px;
     font-weight: 500;
     height: 30px;

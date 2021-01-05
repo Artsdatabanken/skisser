@@ -82,8 +82,9 @@
 .hamburger {
     @include customVar(padding-right, paddingStd);
     @include customVar(border-color, clrBlack);
+    background-color: #abebc6;
+    border-color: #abebc6;
     border-radius: 50px;
-    // border-bottom-right-radius: 0;
     border-style: solid;
     border-width: 2px;
     display: grid;
@@ -94,6 +95,23 @@
         border: none;
         padding: 0;
     }
+
+     // active & focus
+
+     &:active,
+     &:focus {
+         @include customVar(border-color, clrBlack);
+         border-style: solid;
+         border-width: 2px;
+         outline: none;
+ 
+         @media screen and (max-width: 1024px) {
+             @include customVar(background-color, transparent);
+             @include customVar(border-color, transparent);
+         }
+     }
+     
+    // childs & elements
 
     & > * {
         align-self: center;
@@ -114,17 +132,6 @@
         justify-self: end;
     }
 
-    &:active,
-    &:focus {
-        @include customVar(border-color, clrBlack);
-        border-style: solid;
-        border-width: 2px;
-        outline: none;
-
-        @media screen and (max-width: 1024px) {
-            @include customVar(border-color, transparent);
-        }
-    }
 }
 
 .menu {

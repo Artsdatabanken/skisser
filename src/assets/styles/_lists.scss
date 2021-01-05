@@ -72,7 +72,6 @@ dl {
 
 .species-categories {
   @include customVar(background-color, paletteColor0);
-  border-radius: 15px;
   font-size: 17px;
   padding: 30px 20px;
   min-width: fit-content;
@@ -86,9 +85,9 @@ dl {
     @include customVar(background-color, clrBlack);
     @include customVar(color, clrWhite);
     @include customVar(font-family, fontSecondary);
-    border-radius: 3px;
+    //border-radius: 3px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
     padding: 2px;
     text-align: center;
     width: 100%;
@@ -160,6 +159,7 @@ dl {
   }
 
   dd {
+    font-weight: 500;
     width: 100%;
   }
 }

@@ -1,6 +1,6 @@
 <button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
-    type="button" (click)="toggleMenu()" arial-label="Åpne og lukke meny">
-    <span class="hamburger__text">
+    type="button" (click)="toggleMenu()" arial-label="Vis navigasjonsmeny">
+    <span class="hamburger__text" aria-hidden="true">
         Meny
     </span>
     <span class="hamburger__box" aria-hidden="true">
