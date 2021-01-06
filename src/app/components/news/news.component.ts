@@ -32,7 +32,7 @@ export class NewsComponent implements OnInit {
     //     else {
     //       this.news = res.slice(0, this.take);
     //     }
-        
+
     //   },
     //   error => {
     //     console.log('error', error);
@@ -52,8 +52,12 @@ export class NewsComponent implements OnInit {
 
     this.dataService.getNews().subscribe(
       (res: any) => {
-        this.news = res;
-        console.log('this news', this.news)
+        if (this.take === 0) {
+          this.news = res;
+        }
+        else {
+          this.news = res.slice(0, this.take);
+        }
       },
       error => {
         console.log('error', error);
