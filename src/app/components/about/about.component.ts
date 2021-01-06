@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
   aboutPages: AboutPage[] = [];
   ids: string[] = ['201123', '201730', '286637'];
 
-  constructor (
+  constructor(
     private navigationService: NavigationService,
     private dataService: DataService,
     private http: HttpClient
@@ -51,8 +51,9 @@ export class AboutComponent implements OnInit {
     this.ids.forEach(id => {
       console.log('id', id)
       return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).subscribe(res => {
-        console.log('res', res)
-      
+
+        //console.log('res', res)
+
         this.aboutPages.push({
           id: res.Id,
           url: res.Url.replace('/Pages/', ''),

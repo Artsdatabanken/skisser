@@ -23,30 +23,41 @@ export class NewsComponent implements OnInit {
 
     console.log('TAKE:', this.take)
 
+    // this.dataService.getNews().subscribe(
+    //   (res: any) => {
+
+    //     if (this.take === 0) {
+    //       this.news = res;
+    //     }
+    //     else {
+    //       this.news = res.slice(0, this.take);
+    //     }
+        
+    //   },
+    //   error => {
+    //     console.log('error', error);
+    //     this.errorMessage = 'WP Det har skjedd en feil. Vennligst prøv igjen senere.';
+    //   }
+    // );
+
+    // this.dataService.getNews2().subscribe(
+    //   (res: any) => {
+    //     this.articles = res;
+    //   },
+    //   error => {
+    //     console.log('error', error);
+    //     this.errorMessage = 'Strapi Det har skjedd en feil. Vennligst prøv igjen senere.';
+    //   }
+    // );
+
     this.dataService.getNews().subscribe(
       (res: any) => {
-
-        if (this.take === 0) {
-          this.news = res;
-        }
-        else {
-          this.news = res.slice(0, this.take);
-        }
-        
+        this.news = res;
+        console.log('this news', this.news)
       },
       error => {
         console.log('error', error);
-        this.errorMessage = 'WP Det har skjedd en feil. Vennligst prøv igjen senere.';
-      }
-    );
-
-    this.dataService.getNews2().subscribe(
-      (res: any) => {
-        this.articles = res;
-      },
-      error => {
-        console.log('error', error);
-        this.errorMessage = 'Strapi Det har skjedd en feil. Vennligst prøv igjen senere.';
+        this.errorMessage = 'Old news not working';
       }
     );
 

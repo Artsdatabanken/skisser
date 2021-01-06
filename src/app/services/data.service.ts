@@ -31,282 +31,12 @@ export class DataService {
   wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
   wpPagesApi: string = 'wp-json/wp/v2/pages';
   strapiApi: string = 'http://localhost:1337/articles';
+  oldNews: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
+  oldNewsItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
 
   constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
 
-  // strapi
-
-  getNews2(langCode: string | null = 'no'): Observable<Article[]> {
-
-    return this.http.get(this.strapiApi).pipe(
-      map((res: any[]) => {
-
-        console.log('strapi', res);
-
-        const filteredRes = res.filter(i => i.LANGUAGE === langCode);
-        const articles: Article[] = [];
-
-        filteredRes.forEach(data => {
-
-          let articleImage: ArticleImage;
-
-          if (data.hasOwnProperty('Image')) {
-            articleImage = {
-              id: data['Image'].id,
-              alternativeText: data['Image']['alternativeText'],
-              caption: data['Image']['caption'],
-              sourceUrl: data['Image']['url']
-            }
-          }
-          else {
-            articleImage = null;
-          }
-
-          const article: Article = {
-            id: data.id,
-            url: data.id,
-            title: data.Title,
-            subtitle: data.Subtitle,
-            excerpt: data.Excerpt,
-            ingress: data.Ingress,
-            created: data.created_at,
-            published: data.published_at,
-            updated: data.updated_at,
-            body: data.Body,
-            image: articleImage
-          }
-
-          articles.push(article);
-
-        });
-
-        return articles;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  getNewsItemById2(articleId: number): Observable<Article> {
-    return this.http.get(this.strapiApi + '/' + articleId).pipe(
-      map((data: any) => {
-
-        let articleImage: ArticleImage;
-
-        if (data.hasOwnProperty('Image')) {
-          articleImage = {
-            id: data['Image'].id,
-            alternativeText: data['Image']['alternativeText'],
-            caption: data['Image']['caption'],
-            sourceUrl: data['Image']['url']
-          }
-        }
-        else {
-          articleImage = null;
-        }
-
-        const article: Article = {
-          id: data.id,
-          url: data.id,
-          title: data.Title,
-          subtitle: data.Subtitle,
-          excerpt: data.Excerpt,
-          ingress: data.Ingress,
-          created: data.created_at,
-          published: data.published_at,
-          updated: data.updated_at,
-          body: data.Body,
-          image: articleImage
-        }
-
-        return article;
-      })
-    )
-  }
-
-  // wordpress
-
-  getNews(): Observable<NewsItem[]> {
-
-    return this.http.get(this.environmentWpApi + this.wpPostsApi + '?_embed').pipe(
-      map((res: any[]) => {
-
-        console.log('wordpress', res);
-
-        const news: NewsItem[] = [];
-
-        res.forEach(post => {
-
-          let featuredImage: FeaturedImage;
-          let featuredImageUrl: string;
-
-          if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
-
-            featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
-            featuredImage = {
-              id: post._embedded['wp:featuredmedia'][0]['id'],
-              altText: post._embedded['wp:featuredmedia'][0]['alt_text'],
-              caption: post._embedded['wp:featuredmedia'][0]['caption'],
-              title: post._embedded['wp:featuredmedia'][0]['title'],
-              slug: post._embedded['wp:featuredmedia'][0]['slug'],
-              sourceUrl: post._embedded['wp:featuredmedia'][0]['source_url'],
-            }
-          }
-          else {
-            featuredImageUrl = '';
-            featuredImage = null;
-          }
-
-          const newsItem: NewsItem = {
-            url: post.id,
-            title: post.title.rendered,
-            date: post.date,
-            content: post.content.rendered,
-            excerpt: post.excerpt.rendered,
-            imgUrl: featuredImageUrl,
-            featuredImage: featuredImage
-          }
-
-          news.push(newsItem);
-
-        });
-
-        return news;
-      }),
-      publishReplay(1), // Cache the latest emitted
-      refCount(), // Keep alive as long as there are subscribers
-      catchError(error => {
-
-        if (error.error instanceof ErrorEvent) {
-          this.errorMessage = `Error: ${error.error.message}`;
-        }
-        else {
-          this.errorMessage = this.getServerErrorMessage(error);
-        }
-
-        return throwError(this.errorMessage);
-      })
-    );
-
-  }
-
-  getNewsItemById(postId: number): Observable<NewsItem> {
-    return this.http.get(this.environmentWpApi + this.wpPostsApi + '/' + postId + '?_embed').pipe(
-      map((post: any) => {
-
-        console.log('post', post)
-
-        let featuredImage: FeaturedImage;
-        let featuredImageUrl: string;
-
-        if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
-
-          featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
-          featuredImage = {
-            id: post._embedded['wp:featuredmedia'][0]['id'],
-            altText: post._embedded['wp:featuredmedia'][0]['alt_text'],
-            caption: post._embedded['wp:featuredmedia'][0]['caption'].rendered,
-            title: post._embedded['wp:featuredmedia'][0]['title'],
-            slug: post._embedded['wp:featuredmedia'][0]['slug'],
-            sourceUrl: post._embedded['wp:featuredmedia'][0]['source_url'],
-          }
-        }
-        else {
-          featuredImageUrl = '';
-          featuredImage = null;
-        }
-
-        const newsItem: NewsItem = {
-          url: post.id,
-          title: post.title.rendered,
-          date: post.date,
-          content: post.content.rendered,
-          excerpt: post.excerpt.rendered,
-          imgUrl: featuredImageUrl,
-          featuredImage: featuredImage
-        }
-
-        return newsItem;
-      }),
-      publishReplay(1), // Cache the latest emitted
-      refCount(), // Keep alive as long as there are subscribers
-      catchError(error => {
-
-        if (error.error instanceof ErrorEvent) {
-          this.errorMessage = `Error: ${error.error.message}`;
-        }
-        else {
-          this.errorMessage = this.getServerErrorMessage(error);
-        }
-
-        return throwError(this.errorMessage);
-      })
-    )
-  }
-
-  getAboutItems(): Observable<AboutItem[]> {
-
-    return this.http.get(this.environmentWpApi + this.wpPagesApi).pipe(
-      map((res: any[]) => {
-
-        console.log('About items', res);
-
-        const aboutfilteredRes: AboutItem[] = [];
-
-        res.forEach(page => {
-
-          const aboutItem: AboutItem = {
-            url: page.id,
-            slug: page.slug,
-            order: page.menu_order,
-            title: page.title.rendered,
-            date: page.date,
-            content: page.content.rendered,
-            excerpt: page.excerpt.rendered
-          }
-
-          aboutfilteredRes.push(aboutItem);
-
-        });
-
-        console.log('about', aboutfilteredRes)
-
-        return aboutfilteredRes.sort((a, b) => (a.order > b.order) ? 1 : -1);
-      })
-    );
-
-  }
-
-  getAboutItemById(pageId: number): Observable<AboutItem> {
-    return this.http.get(this.environmentWpApi + this.wpPagesApi + '/' + pageId).pipe(
-      map((page: any) => {
-
-        console.log('page', page)
-
-        let content: string;
-
-        if (page.content.rendered === '') {
-          content = 'N/A';
-        }
-        else {
-          content = page.content.rendered;
-        }
-
-        const aboutItem: AboutItem = {
-          url: page.id,
-          slug: page.slug,
-          order: page.menu_order,
-          title: page.title.rendered,
-          date: page.date,
-          content: content,
-          excerpt: page.excerpt.rendered,
-        }
-
-        return aboutItem;
-      })
-    )
-  }
+  // original news data (kunngjøringer)
 
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
@@ -325,6 +55,378 @@ export class DataService {
 
     }
   }
+
+  private getTime(date?: Date) {
+    return date != null ? new Date(date).getTime() : 0;
+  }
+
+  getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
+
+    return this.http.get(this.oldNews).pipe(
+      map((res: any[]) => {
+
+        console.log('res', res)
+
+        ///const filteredRes = res.filter(i => i.LANGUAGE === langCode);
+        const filteredRes = res;
+        const news: NewsItem[] = [];
+
+        filteredRes.forEach(data => {
+
+          // let articleImage: ArticleImage;
+
+          // if (data.hasOwnProperty('Image')) {
+          //   articleImage = {
+          //     id: data['Image'].id,
+          //     alternativeText: data['Image']['alternativeText'],
+          //     caption: data['Image']['caption'],
+          //     sourceUrl: data['Image']['url']
+          //   }
+          // }
+          // else {
+          //   articleImage = null;
+          // }
+
+          const newsItem: NewsItem = {
+            id: data.Id.replace('Nodes/', ''),
+            url: data.Id.replace('Nodes/', ''),
+            title: data.Name,
+            heading: data.Heading,
+            intro: data.Intro,
+            created: data.Created,
+            updated: data.Changed,
+            published: data.Published,
+            body: data.Body,
+            imgUrl: null,
+            image: null // articleImage
+          }
+
+          console.log('newsItem', newsItem);
+
+          news.push(newsItem);
+
+        });
+
+        return news.sort((a: NewsItem, b: NewsItem) => this.getTime(b.created) - this.getTime(a.created));
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getNewsItemById(id: number): Observable<NewsItem> {
+
+    return this.http.get(this.oldNewsItem + '/' + id).pipe(
+      map((data: any) => {
+
+        // let articleImage: ArticleImage;
+
+        // if (data.hasOwnProperty('Image')) {
+        //   articleImage = {
+        //     id: data['Image'].id,
+        //     alternativeText: data['Image']['alternativeText'],
+        //     caption: data['Image']['caption'],
+        //     sourceUrl: data['Image']['url']
+        //   }
+        // }
+        // else {
+        //   articleImage = null;
+        // }
+
+        const newsItem: NewsItem = {
+          id: data.Id.replace('Nodes/', ''),
+          url: data.Id.replace('Nodes/', ''),
+          title: data.Name,
+          heading: data.Heading,
+          intro: data.Intro,
+          created: data.Created,
+          updated: data.Changed,
+          published: data.Published,
+          body: data.Body,
+          imgUrl: null,
+          image: null // articleImage
+        }
+
+        return newsItem;
+      })
+    )
+  }
+
+  // strapi
+
+  // getNews2(langCode: string | null = 'no'): Observable<Article[]> {
+
+  //   return this.http.get(this.strapiApi).pipe(
+  //     map((res: any[]) => {
+
+  //       console.log('strapi', res);
+
+  //       const filteredRes = res.filter(i => i.LANGUAGE === langCode);
+  //       const articles: Article[] = [];
+
+  //       filteredRes.forEach(data => {
+
+  //         let articleImage: ArticleImage;
+
+  //         if (data.hasOwnProperty('Image')) {
+  //           articleImage = {
+  //             id: data['Image'].id,
+  //             alternativeText: data['Image']['alternativeText'],
+  //             caption: data['Image']['caption'],
+  //             sourceUrl: data['Image']['url']
+  //           }
+  //         }
+  //         else {
+  //           articleImage = null;
+  //         }
+
+  //         const article: Article = {
+  //           id: data.id,
+  //           url: data.id,
+  //           title: data.Title,
+  //           subtitle: data.Subtitle,
+  //           excerpt: data.Excerpt,
+  //           ingress: data.Ingress,
+  //           created: data.created_at,
+  //           published: data.published_at,
+  //           updated: data.updated_at,
+  //           body: data.Body,
+  //           image: articleImage
+  //         }
+
+  //         articles.push(article);
+
+  //       });
+
+  //       return articles;
+  //     }),
+  //     publishReplay(1),
+  //     refCount()
+  //   );
+
+  // }
+
+  // getNewsItemById2(articleId: number): Observable<Article> {
+  //   return this.http.get(this.strapiApi + '/' + articleId).pipe(
+  //     map((data: any) => {
+
+  //       let articleImage: ArticleImage;
+
+  //       if (data.hasOwnProperty('Image')) {
+  //         articleImage = {
+  //           id: data['Image'].id,
+  //           alternativeText: data['Image']['alternativeText'],
+  //           caption: data['Image']['caption'],
+  //           sourceUrl: data['Image']['url']
+  //         }
+  //       }
+  //       else {
+  //         articleImage = null;
+  //       }
+
+  //       const article: Article = {
+  //         id: data.id,
+  //         url: data.id,
+  //         title: data.Title,
+  //         subtitle: data.Subtitle,
+  //         excerpt: data.Excerpt,
+  //         ingress: data.Ingress,
+  //         created: data.created_at,
+  //         published: data.published_at,
+  //         updated: data.updated_at,
+  //         body: data.Body,
+  //         image: articleImage
+  //       }
+
+  //       return article;
+  //     })
+  //   )
+  // }
+
+  // wordpress
+
+  // getNews1(): Observable<NewsItem[]> {
+
+  //   return this.http.get(this.environmentWpApi + this.wpPostsApi + '?_embed').pipe(
+  //     map((res: any[]) => {
+
+  //       console.log('wordpress', res);
+
+  //       const news: NewsItem[] = [];
+
+  //       res.forEach(post => {
+
+  //         let featuredImage: FeaturedImage;
+  //         let featuredImageUrl: string;
+
+  //         if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
+
+  //           featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
+  //           featuredImage = {
+  //             id: post._embedded['wp:featuredmedia'][0]['id'],
+  //             altText: post._embedded['wp:featuredmedia'][0]['alt_text'],
+  //             caption: post._embedded['wp:featuredmedia'][0]['caption'],
+  //             title: post._embedded['wp:featuredmedia'][0]['title'],
+  //             slug: post._embedded['wp:featuredmedia'][0]['slug'],
+  //             sourceUrl: post._embedded['wp:featuredmedia'][0]['source_url'],
+  //           }
+  //         }
+  //         else {
+  //           featuredImageUrl = '';
+  //           featuredImage = null;
+  //         }
+
+  //         const newsItem: NewsItem = {
+  //           url: post.id,
+  //           title: post.title.rendered,
+  //           date: post.date,
+  //           content: post.content.rendered,
+  //           excerpt: post.excerpt.rendered,
+  //           imgUrl: featuredImageUrl,
+  //           featuredImage: featuredImage
+  //         }
+
+  //         news.push(newsItem);
+
+  //       });
+
+  //       return news;
+  //     }),
+  //     publishReplay(1), // Cache the latest emitted
+  //     refCount(), // Keep alive as long as there are subscribers
+  //     catchError(error => {
+
+  //       if (error.error instanceof ErrorEvent) {
+  //         this.errorMessage = `Error: ${error.error.message}`;
+  //       }
+  //       else {
+  //         this.errorMessage = this.getServerErrorMessage(error);
+  //       }
+
+  //       return throwError(this.errorMessage);
+  //     })
+  //   );
+
+  // }
+
+  // getNewsItemById1(postId: number): Observable<NewsItem> {
+  //   return this.http.get(this.environmentWpApi + this.wpPostsApi + '/' + postId + '?_embed').pipe(
+  //     map((post: any) => {
+
+  //       console.log('post', post)
+
+  //       let featuredImage: FeaturedImage;
+  //       let featuredImageUrl: string;
+
+  //       if (post._embedded.hasOwnProperty('wp:featuredmedia')) {
+
+  //         featuredImageUrl = post._embedded['wp:featuredmedia'][0]['source_url'];
+  //         featuredImage = {
+  //           id: post._embedded['wp:featuredmedia'][0]['id'],
+  //           altText: post._embedded['wp:featuredmedia'][0]['alt_text'],
+  //           caption: post._embedded['wp:featuredmedia'][0]['caption'].rendered,
+  //           title: post._embedded['wp:featuredmedia'][0]['title'],
+  //           slug: post._embedded['wp:featuredmedia'][0]['slug'],
+  //           sourceUrl: post._embedded['wp:featuredmedia'][0]['source_url'],
+  //         }
+  //       }
+  //       else {
+  //         featuredImageUrl = '';
+  //         featuredImage = null;
+  //       }
+
+  //       const newsItem: NewsItem = {
+  //         url: post.id,
+  //         title: post.title.rendered,
+  //         date: post.date,
+  //         content: post.content.rendered,
+  //         excerpt: post.excerpt.rendered,
+  //         imgUrl: featuredImageUrl,
+  //         featuredImage: featuredImage
+  //       }
+
+  //       return newsItem;
+  //     }),
+  //     publishReplay(1), // Cache the latest emitted
+  //     refCount(), // Keep alive as long as there are subscribers
+  //     catchError(error => {
+
+  //       if (error.error instanceof ErrorEvent) {
+  //         this.errorMessage = `Error: ${error.error.message}`;
+  //       }
+  //       else {
+  //         this.errorMessage = this.getServerErrorMessage(error);
+  //       }
+
+  //       return throwError(this.errorMessage);
+  //     })
+  //   )
+  // }
+
+  // getAboutItems(): Observable<AboutItem[]> {
+
+  //   return this.http.get(this.environmentWpApi + this.wpPagesApi).pipe(
+  //     map((res: any[]) => {
+
+  //       console.log('About items', res);
+
+  //       const aboutfilteredRes: AboutItem[] = [];
+
+  //       res.forEach(page => {
+
+  //         const aboutItem: AboutItem = {
+  //           url: page.id,
+  //           slug: page.slug,
+  //           order: page.menu_order,
+  //           title: page.title.rendered,
+  //           date: page.date,
+  //           content: page.content.rendered,
+  //           excerpt: page.excerpt.rendered
+  //         }
+
+  //         aboutfilteredRes.push(aboutItem);
+
+  //       });
+
+  //       console.log('about', aboutfilteredRes)
+
+  //       return aboutfilteredRes.sort((a, b) => (a.order > b.order) ? 1 : -1);
+  //     })
+  //   );
+
+  // }
+
+  // getAboutItemById(pageId: number): Observable<AboutItem> {
+  //   return this.http.get(this.environmentWpApi + this.wpPagesApi + '/' + pageId).pipe(
+  //     map((page: any) => {
+
+  //       console.log('page', page)
+
+  //       let content: string;
+
+  //       if (page.content.rendered === '') {
+  //         content = 'N/A';
+  //       }
+  //       else {
+  //         content = page.content.rendered;
+  //       }
+
+  //       const aboutItem: AboutItem = {
+  //         url: page.id,
+  //         slug: page.slug,
+  //         order: page.menu_order,
+  //         title: page.title.rendered,
+  //         date: page.date,
+  //         content: content,
+  //         excerpt: page.excerpt.rendered,
+  //       }
+
+  //       return aboutItem;
+  //     })
+  //   )
+  // }
 
   getMammalSightings(): Observable<any[]> {
 
@@ -364,8 +466,8 @@ export class DataService {
         return res;
 
       }),
-      publishReplay(1), 
-      refCount(), 
+      publishReplay(1),
+      refCount(),
       catchError(error => {
 
         if (error.error instanceof ErrorEvent) {

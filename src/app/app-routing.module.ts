@@ -784,7 +784,7 @@ const extraRoutes: Routes = [
     }
   },
   {
-    path: 'news/:postId',
+    path: 'news/:id',
     component: NewsItemComponent,
     data: {
       text: 'News Item',

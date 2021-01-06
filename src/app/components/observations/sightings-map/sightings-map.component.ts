@@ -73,7 +73,7 @@ export class SightingsMapComponent implements OnInit {
     this.mammalsCoordinates.push(sightingCoords);
     
     this.mammalsCoordinates.forEach(ms => {
-      console.log('ms', ms)
+      //console.log('ms', ms)
       this.getMapIconStyle(ms);
     })
 
@@ -100,8 +100,6 @@ export class SightingsMapComponent implements OnInit {
   }
 
   createMap() {
-
- 
 
     // custom control
 

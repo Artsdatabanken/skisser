@@ -1,12 +1,15 @@
 import { FeaturedImage } from './featuredImage';
 
 export interface NewsItem {
-    url: string;
-    title: string;
-    date: Date;
-    content: string;
-    excerpt: string;
-    //tags: string | string[] | null;
-    imgUrl: string | null;
-    featuredImage: FeaturedImage
-  }
+  id: string;
+  url: string;
+  heading: string | null;
+  title: string;
+  created: Date;
+  updated: Date;
+  published: Date;
+  body: string;
+  intro: string;
+  imgUrl: string | null;
+  image: FeaturedImage | null;
+}
