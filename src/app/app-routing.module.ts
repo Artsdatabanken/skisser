@@ -51,6 +51,7 @@ import { OverviewStatsComponent } from './components/statistics/overview-stats/o
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
+import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 
 /*
 
@@ -238,13 +239,13 @@ const observationRoutes: Routes = [
     path: 'observations/statistics/overview',
     component: OverviewStatsComponent,
     data: {
-      text: 'Oversikt statistikk',
+      text: 'Volumstatistikk',
       id: 'overview',
       layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Oversikt statistikk',
+      metaTitle: 'Volumstatistikk',
       metaDescription: '',
       hidden: false
     },
@@ -474,16 +475,16 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/species-with-no-data',
-    component: SpeciesWithNoDataComponent,
+    path: 'observations/statistics/knowledge-gap',
+    component: KnowledgeGapComponent,
     data: {
-      text: 'Arter uten data',
+      text: 'Kunnskapshull',
       id: 'species-with-no-data',
       layout: 'text',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Arter uten data',
+      metaTitle: 'Kunnskapshull',
       metaDescription: ''
     }
   },

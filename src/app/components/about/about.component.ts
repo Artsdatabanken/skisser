@@ -18,7 +18,8 @@ export class AboutComponent implements OnInit {
   errorMessage: string;
   data: any;
   aboutPages: AboutPage[] = [];
-  ids: string[] = ['201123', '201730', '286637'];
+  //ids: string[] = ['201123', '201730', '286637'];
+  ids: string[] = ['303933', '303934', '303935', '303936'];
 
   constructor(
     private navigationService: NavigationService,

@@ -36,8 +36,6 @@ export class DataService {
 
   constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
 
-  // original news data (kunngjøringer)
-
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
       case 404: {
@@ -59,6 +57,8 @@ export class DataService {
   private getTime(date?: Date) {
     return date != null ? new Date(date).getTime() : 0;
   }
+
+  //----------------------------------------------------------------------------****
 
   getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
 
@@ -87,6 +87,19 @@ export class DataService {
           //   articleImage = null;
           // }
 
+          //console.log('data content', data.Content)
+          
+          if (data.Content !== undefined) {
+
+
+            console.log('data content ??????????', data.Content)
+
+            data.Content.forEach(element => {
+              this.getNewsItemImages(element.replace('Nodes/', ''));
+            });
+
+          }
+
           const newsItem: NewsItem = {
             id: data.Id.replace('Nodes/', ''),
             url: data.Id.replace('Nodes/', ''),
@@ -101,8 +114,6 @@ export class DataService {
             image: null // articleImage
           }
 
-          console.log('newsItem', newsItem);
-
           news.push(newsItem);
 
         });
@@ -116,24 +127,31 @@ export class DataService {
 
   }
 
+  getNewsItemImages(id: number): Observable<FeaturedImage> {
+    return this.http.get<any>(this.oldNewsItem + id).pipe(
+      map((data: any) => {
+
+        console.log('img', data)
+        
+        const img: FeaturedImage = {
+          id: data.Id.replace('Nodes/', ''),
+          altText: data.Name,
+          caption: data.Body,
+          title: data.Name,
+          sourceUrl: ''
+        }
+
+        return img;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
   getNewsItemById(id: number): Observable<NewsItem> {
 
     return this.http.get(this.oldNewsItem + '/' + id).pipe(
       map((data: any) => {
-
-        // let articleImage: ArticleImage;
-
-        // if (data.hasOwnProperty('Image')) {
-        //   articleImage = {
-        //     id: data['Image'].id,
-        //     alternativeText: data['Image']['alternativeText'],
-        //     caption: data['Image']['caption'],
-        //     sourceUrl: data['Image']['url']
-        //   }
-        // }
-        // else {
-        //   articleImage = null;
-        // }
 
         const newsItem: NewsItem = {
           id: data.Id.replace('Nodes/', ''),
@@ -150,8 +168,10 @@ export class DataService {
         }
 
         return newsItem;
-      })
-    )
+      }),
+      publishReplay(1),
+      refCount()
+    );
   }
 
   // strapi

@@ -27,15 +27,15 @@ export class AboutItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dataService.getAboutItemById(this.aboutItemId).subscribe(page => {
+    // this.dataService.getAboutItemById(this.aboutItemId).subscribe(page => {
     
-      this.aboutItem = page;
-      this.pageTitle = page.title;
-      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
+    //   this.aboutItem = page;
+    //   this.pageTitle = page.title;
+    //   this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
       
-    });
+    // });
 
-    console.log('dfjhgsdjfgd', this.aboutItemId)
+    //console.log('dfjhgsdjfgd', this.aboutItemId)
 
   }
 

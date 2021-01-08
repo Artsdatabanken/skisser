@@ -99,6 +99,7 @@ import { OverviewStatsItemComponent } from './components/statistics/overview-sta
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
+import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 
 @NgModule({
   declarations: [
@@ -196,7 +197,8 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
     OverviewStatsItemComponent,
     UserProfileComponent,
     SightingsMapComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    KnowledgeGapComponent
   ],
   imports: [
     BrowserModule,
