@@ -136,9 +136,6 @@
 
 .menu {
     @include customVar(background-color, paletteColor0);
-    //min-height: 200vh;
-
-    // overflow: none;
     position: absolute;
     top: -1000vh;
     left: 0;

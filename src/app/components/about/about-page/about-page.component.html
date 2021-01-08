@@ -12,8 +12,14 @@
 
         <div [innerHtml]="aboutPage.intro"></div>
 
+        <div *ngIf="aboutPage.body">
+
+            <div [innerHtml]="aboutPage.body"></div>
+
+        </div>
+
         <div *ngIf="aboutPage.content">
-            
+
             <div *ngFor="let content of aboutPage.content">
                 <h2 [innerHtml]="content.Heading"></h2>
                 <div [innerHtml]="content.Body"></div>
@@ -21,7 +27,7 @@
 
         </div>
 
-        
+
 
     </div>
 

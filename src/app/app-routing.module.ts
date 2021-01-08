@@ -628,81 +628,81 @@ const aboutRoutes: Routes = [
       hidden: true
     }
   },
-  {
-    path: 'about/artsobs',
-    component: ArtsObsComponent,
-    data: {
-      text: 'Om artsobservasjoner.no',
-      id: 'artsobs',
-      layout: 'text',
-      rank: 'secondary',
-      parent: 'about',
-      menu: 'mainMenu',
-      metaTitle: 'Om artsobservasjoner.no',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'about/quality-assurance',
-    component: QualityAssuranceComponent,
-    data: {
-      text: 'Kvalitetssikring',
-      id: 'quality-assurance',
-      layout: 'text',
-      rank: 'secondary',
-      parent: 'about',
-      menu: 'mainMenu',
-      metaTitle: 'Kvalitetssikring',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'about/contribute',
-    component: ContributeComponent,
-    data: {
-      text: 'Hvordan du kan bidra',
-      id: 'contribute',
-      layout: 'text',
-      rank: 'secondary',
-      parent: 'about',
-      menu: 'mainMenu',
-      metaTitle: 'Hvordan du kan bidra',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'about/tos',
-    component: TosComponent,
-    data: {
-      text: 'Brukervilkår',
-      id: 'tos',
-      layout: 'text',
-      rank: 'secondary',
-      parent: 'about',
-      menu: 'mainMenu',
-      metaTitle: 'Brukervilkår',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'about/support',
-    component: SupportComponent,
-    data: {
-      text: 'Brukerstøtte',
-      id: 'support',
-      layout: 'text',
-      rank: 'secondary',
-      parent: 'about',
-      menu: 'mainMenu',
-      metaTitle: 'Brukerstøtte',
-      metaDescription: '',
-      hidden: false
-    }
-  }
+  // {
+  //   path: 'about/artsobs',
+  //   component: ArtsObsComponent,
+  //   data: {
+  //     text: 'Om artsobservasjoner.no',
+  //     id: 'artsobs',
+  //     layout: 'text',
+  //     rank: 'secondary',
+  //     parent: 'about',
+  //     menu: 'mainMenu',
+  //     metaTitle: 'Om artsobservasjoner.no',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'about/quality-assurance',
+  //   component: QualityAssuranceComponent,
+  //   data: {
+  //     text: 'Kvalitetssikring',
+  //     id: 'quality-assurance',
+  //     layout: 'text',
+  //     rank: 'secondary',
+  //     parent: 'about',
+  //     menu: 'mainMenu',
+  //     metaTitle: 'Kvalitetssikring',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'about/contribute',
+  //   component: ContributeComponent,
+  //   data: {
+  //     text: 'Hvordan du kan bidra',
+  //     id: 'contribute',
+  //     layout: 'text',
+  //     rank: 'secondary',
+  //     parent: 'about',
+  //     menu: 'mainMenu',
+  //     metaTitle: 'Hvordan du kan bidra',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'about/tos',
+  //   component: TosComponent,
+  //   data: {
+  //     text: 'Brukervilkår',
+  //     id: 'tos',
+  //     layout: 'text',
+  //     rank: 'secondary',
+  //     parent: 'about',
+  //     menu: 'mainMenu',
+  //     metaTitle: 'Brukervilkår',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'about/support',
+  //   component: SupportComponent,
+  //   data: {
+  //     text: 'Brukerstøtte',
+  //     id: 'support',
+  //     layout: 'text',
+  //     rank: 'secondary',
+  //     parent: 'about',
+  //     menu: 'mainMenu',
+  //     metaTitle: 'Brukerstøtte',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // }
 ];
 
 const userRoutes: Routes = [

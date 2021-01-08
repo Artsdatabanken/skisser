@@ -2,8 +2,10 @@ export interface AboutPage {
     id: number | string;
     url: string;
     heading: string;
-    intro: string;
-    content: any[] | any;
     title: string;
-    languages: string | string[];
+    intro: string;
+    body: string | null;
+    content: any[] | any | null;
+    languages: string | undefined;
+    order?: number | undefined;
 }

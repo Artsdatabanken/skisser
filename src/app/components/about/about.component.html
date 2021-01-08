@@ -11,24 +11,9 @@
 
     <div class="page__content">
 
-        <!-- <div class="loop loop--cards">
-
-            <app-card [type]="'link'" [url]="link.path" [text]="link.data.text" *ngFor="let link of subMenu">
-            </app-card>
-
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br> -->
-
         <div class="loop loop--cards">
 
-            <!-- <app-card [type]="'link'" [url]="getAboutItemUrl(item.url)" [text]="item.title" *ngFor="let item of aboutItems">
-            </app-card> -->
-
-            <app-card [type]="'link'" [url]="getAboutItemUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
+            <app-card [type]="'link'" [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
             </app-card>
 
             <app-card [type]="'link'" [url]="'news'" [text]="'Aktuelle saker'"></app-card>

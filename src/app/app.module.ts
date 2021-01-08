@@ -93,7 +93,6 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './helpers/truncate-text.pipe';
-import { AboutItemComponent } from './components/about/about-item/about-item.component';
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -192,7 +191,6 @@ import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/kno
     NewsComponent,
     NewsItemComponent,
     TruncateTextPipe,
-    AboutItemComponent,
     OverviewStatsComponent,
     OverviewStatsItemComponent,
     UserProfileComponent,

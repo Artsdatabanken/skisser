@@ -1,18 +1,9 @@
 {
-    "startPage": "home",
-    "year": "2020",
     "googleAnalyticsKey": "",
-    "categories": [
-        {
-            "label": "General",
-            "value": "general"
-        },
-        {
-            "label": "Uncategorized",
-            "value": "uncategorized"
-        }
-    ],
-    "tags": [
-        "All"
+    "drupalIds": [
+        "303933",
+        "303934",
+        "303935",
+        "303936"
     ]
 }

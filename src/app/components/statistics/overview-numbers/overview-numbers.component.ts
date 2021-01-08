@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UtilitiesService } from 'src/app/services/utilities.service';

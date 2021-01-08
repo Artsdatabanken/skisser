@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AboutPage } from 'src/app/models/aboutPage';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-about-page',
@@ -34,16 +33,17 @@ export class AboutPageComponent implements OnInit {
         url: res.Url.replace('/Pages/', ''),
         heading: res.Heading,
         intro: res.Intro,
+        body: res.Body,
         content: res.Content,
         title: res.Title,
-        languages: null
+        languages: res.Languages[0]
       };
+
+      console.log('sdjhfgsdf', res)
+      console.log('sdjhfgsdf', this.aboutPage)
 
       this.pageTitle = res.Heading;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
-
-      console.log('res', res)
-      console.log('about page', this.aboutPage)
 
     });
 
