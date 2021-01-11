@@ -5,8 +5,8 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 
 ## Installation
 1. Etter kloning, åpne terminalvindu og naviger til mappa der løsningen er klonet i
-2. npm install // installerer dependencies
-3. ng serve // kjører løsningen lokalt
+2. Kjør npm install // installerer dependencies
+3. Kjør ng serve // kjører løsningen lokalt
 4. Gå på nettleseren din og åpne http://localhost:4200
 
 
