@@ -21,7 +21,7 @@ export class AboutPageComponent implements OnInit {
     private titleService: Title,
     private http: HttpClient
   ) {
-    this.aboutPageId = this.route.snapshot.params["pageId"];
+    this.aboutPageId = this.route.snapshot.params["id"];
   }
 
   ngOnInit(): void {
@@ -39,8 +39,8 @@ export class AboutPageComponent implements OnInit {
         languages: res.Languages[0]
       };
 
-      console.log('sdjhfgsdf', res)
-      console.log('sdjhfgsdf', this.aboutPage)
+      console.log('RES', res)
+      console.log('about page id', this.aboutPageId)
 
       this.pageTitle = res.Heading;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);

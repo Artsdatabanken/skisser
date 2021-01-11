@@ -614,7 +614,7 @@ const aboutRoutes: Routes = [
     }
   },
   {
-    path: 'about/:pageId',
+    path: 'about/:id',
     component: AboutPageComponent, // AboutItemComponent,
     data: {
       text: 'About Item',

@@ -50,8 +50,6 @@ export class SubNavigationComponent implements OnInit {
 
         this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
 
-        console.log('subnavigation', this.aboutPages)
-
       });
 
     });
