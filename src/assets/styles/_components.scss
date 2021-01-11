@@ -675,7 +675,7 @@
     }
 }
 
-// tabs /accordion
+// tabs
 
 .tabs {
     overflow: hidden;
@@ -763,6 +763,44 @@
             overflow: hidden;
             padding: 30px;
             transition: max-height 0.9s ease-in;
+        }
+    }
+}
+
+// accordion
+
+.accordion {
+    &__header {
+        margin: 0 0 1px;
+    }
+
+    &__button {
+        @include customVar(font-family, fontSecondary);
+        background-color: #d5f5e3;
+        background-image: url(../images/iconChevronDown.png);
+        background-position: right 30px center;
+        background-repeat: no-repeat;
+        background-size: 17px;
+        border: none;
+        font-size: 20px;
+        font-weight: 400;
+        padding: 15px 30px;
+        text-align: left;
+        width: 100%;
+
+        &--active {
+            background-image: url(../images/iconChevronUp.png);
+        }
+    }
+
+    &__panel {
+        background: pink;
+        display: none;
+        font-size: 18px;
+        padding: 30px;
+
+        &--expanded {
+            display: block;
         }
     }
 }

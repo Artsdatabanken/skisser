@@ -99,6 +99,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
+import { RefreshPageDirective } from './helpers/refresh-page.directive';
+import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
 
 @NgModule({
   declarations: [
@@ -196,7 +198,9 @@ import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/kno
     UserProfileComponent,
     SightingsMapComponent,
     AboutPageComponent,
-    KnowledgeGapComponent
+    KnowledgeGapComponent,
+    RefreshPageDirective,
+    NavigateToPageDirective
   ],
   imports: [
     BrowserModule,

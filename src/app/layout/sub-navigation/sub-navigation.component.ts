@@ -1,4 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
+import { ActionSequence } from 'protractor';
+import { Subscription } from 'rxjs';
 import Settings from 'src/app/data/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
@@ -11,22 +15,25 @@ import { DataService } from 'src/app/services/data.service';
 
 export class SubNavigationComponent implements OnInit {
 
+  subscription: Subscription;
   @Input() ariaLabel: string;
 
   ids: string[] = Settings.drupalIds;
   aboutPages: AboutPage[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(
+    private dataService: DataService   
+  ) { }
 
   ngOnInit(): void {
     this.getAboutPages();
-  }
+  } 
 
   getAboutPages(): void {
 
     this.ids.forEach(id => {
 
-      this.dataService.getAboutPagesById(+id).subscribe(res => {
+      this.subscription = this.dataService.getAboutPagesById(+id).subscribe(res => {
 
         let aboutPage: AboutPage;
 
@@ -56,4 +63,7 @@ export class SubNavigationComponent implements OnInit {
 
   }
 
+  ngOndestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

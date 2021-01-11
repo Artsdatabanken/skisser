@@ -5,12 +5,10 @@
     </header>
 
     <div class="page__intro">
-
+        <div *ngIf="aboutPage.intro" [innerHtml]="aboutPage.intro"></div>
     </div>
 
     <div class="page__content" *ngIf="aboutPage">
-
-        <div [innerHtml]="aboutPage.intro"></div>
 
         <div *ngIf="aboutPage.body">
 
@@ -18,14 +16,43 @@
 
         </div>
 
+        <!--ACCORDION-->
+
         <div *ngIf="aboutPage.content">
+
+            <div class="accordion" *ngFor="let content of aboutPage.content">
+
+                <h2 class="accordion__header">
+
+                    <button class="accordion__button" [ngClass]="{ 'accordion__button--active': isExpanded }"
+                        id="{{ getAccordionHeaderId(content.id) }}" [attr.aria-expanded]="isExpanded"
+                        [attr.aria-controls]="getAccordionPanelId(content.id)" [innerHtml]="content.heading"
+                        (click)="toggleAccordion(content.id, accordionItem.id)" #accordionItem>
+                    </button>
+
+                </h2>
+
+                <div class="accordion__panel" [ngClass]="{accordion__panel--expanded}" role="region" id="{{ getAccordionPanelId(content.id) }}"
+                    [attr.aria-labelledby]="getAccordionHeaderId(content.id)"
+                    [innerHtml]="content.body">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--ACCORDION-->
+
+        <!-- <div *ngIf="aboutPage.content">
 
             <div *ngFor="let content of aboutPage.content">
                 <h2 [innerHtml]="content.Heading"></h2>
                 <div [innerHtml]="content.Body"></div>
+
             </div>
 
-        </div>
+        </div> -->
+
 
 
 

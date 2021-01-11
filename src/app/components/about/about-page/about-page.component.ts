@@ -12,6 +12,10 @@ import { AboutPage } from 'src/app/models/aboutPage';
 
 export class AboutPageComponent implements OnInit {
 
+  isExpanded: boolean = false;
+
+  // ----------***
+
   aboutPageId: number;
   aboutPage: AboutPage;
   pageTitle: string;
@@ -28,25 +32,67 @@ export class AboutPageComponent implements OnInit {
 
     this.http.get<any>('https://artsdatabanken.no/api/Content/' + this.aboutPageId).subscribe(res => {
 
+      let contentPages: AboutPage[] = [];
+      let page: AboutPage;
+
+      res.Content.forEach(element => {
+
+        page = {
+          id: element.Id.replace('Nodes/', ''),
+          url: element.Url.replace('/Pages/', ''),
+          heading: element.Heading,
+          intro: element.Intro,
+          body: element.Body,
+          title: element.Title,
+          languages: element.Languages[0]
+        }
+
+        contentPages.push(page);
+
+      });
+
       this.aboutPage = {
         id: res.Id,
         url: res.Url.replace('/Pages/', ''),
         heading: res.Heading,
         intro: res.Intro,
         body: res.Body,
-        content: res.Content,
+        content: contentPages,
         title: res.Title,
         languages: res.Languages[0]
       };
 
       console.log('RES', res)
-      console.log('about page id', this.aboutPageId)
 
       this.pageTitle = res.Heading;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
 
     });
 
+  }
+
+  getAccordionHeaderId(id: number): string {
+    return `accordion-header-${id}`;
+
+    /*
+      Functions with a return value on the other hand can be called, and Angular will evaluate the expression and convert it to a string.
+    */
+  }
+
+  getAccordionPanelId(id: number): string {
+    return `accordion-panel-${id}`;
+  }
+
+  toggleAccordion(id: number, accordionItemId: string): void {
+    const accordionId: number = +accordionItemId.replace('accordion-header-', '');
+
+    console.log('toggle', id)
+    console.log('accordionId', accordionId)
+    console.log('match', id === accordionId);
+
+    //id === accordionId ? this.isExpanded = true : this.isExpanded = false; 
+
+    this.isExpanded = !this.isExpanded;
   }
 
 }

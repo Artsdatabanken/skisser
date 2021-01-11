@@ -615,13 +615,13 @@ const aboutRoutes: Routes = [
   },
   {
     path: 'about/:id',
-    component: AboutPageComponent, // AboutItemComponent,
+    component: AboutPageComponent,
     data: {
       text: 'About Item',
       id: 'about',
       layout: 'text',
       rank: '',
-      parent: '',
+      parent: 'about',
       menu: 'mainMenu',
       metaTitle: 'About Item',
       metaDescription: '',

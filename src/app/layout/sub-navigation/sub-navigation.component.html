@@ -2,32 +2,32 @@
 
 <!-- <nav class="navigation" role="navigation"> -->
 
-    <!--about pages for menu-->
+<!--about pages for menu-->
 
-    <!-- <div class="navigation__container"> -->
+<!-- <div class="navigation__container"> -->
 
-        <div class="navigation__item">
+<div class="navigation__item">
 
-            <h1 class="navigation__heading">
-                <a class="navigation__heading-link" routerLink="/about" closeMenu>Om tjenesten</a>
-            </h1>
+    <h1 class="navigation__heading">
+        <a class="navigation__heading-link" routerLink="/about" closeMenu>Om tjenesten</a>
+    </h1>
 
-            <div class="navigation__section">
+    <div class="navigation__section">
 
-                <a class="navigation__link" routerLinkActive="navigation__link--active"
-                    routerLink="/about/{{ child.url }}" *ngFor="let child of aboutPages" closeMenu>
+        <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="/about/{{ child.url }}"
+            *ngFor="let child of aboutPages" closeMenu>
 
-                    <span class="navigation__label"> {{ child.heading }}</span>
+            <span class="navigation__label"> {{ child.heading }}</span>
 
-                </a>
+        </a>
 
-            </div>
+    </div>
 
-        </div>
+</div>
 
-    <!-- </div> -->
+<!-- </div> -->
 
-    <!--about pages for menu-->
+<!--about pages for menu-->
 
 <!-- </nav> -->
 

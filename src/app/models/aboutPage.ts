@@ -3,9 +3,10 @@ export interface AboutPage {
     url: string;
     heading: string;
     title: string;
-    intro: string;
+    intro?: string | null | undefined;
     body: string | null;
-    content: any[] | any | null;
+    content?: AboutPage[] | null;
     languages: string | undefined;
     order?: number | undefined;
+    expanded?: boolean;
 }
