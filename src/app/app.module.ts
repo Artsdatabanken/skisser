@@ -101,6 +101,7 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { RefreshPageDirective } from './helpers/refresh-page.directive';
 import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
+import { AccordionPanelComponent } from './components/shared/accordion-panel/accordion-panel.component';
 
 @NgModule({
   declarations: [
@@ -200,7 +201,8 @@ import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
     AboutPageComponent,
     KnowledgeGapComponent,
     RefreshPageDirective,
-    NavigateToPageDirective
+    NavigateToPageDirective,
+    AccordionPanelComponent
   ],
   imports: [
     BrowserModule,

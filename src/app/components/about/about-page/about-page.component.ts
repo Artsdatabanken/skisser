@@ -72,11 +72,9 @@ export class AboutPageComponent implements OnInit {
   }
 
   getAccordionHeaderId(id: number): string {
-    return `accordion-header-${id}`;
+    return `accordion-header-${id}`; 
 
-    /*
-      Functions with a return value on the other hand can be called, and Angular will evaluate the expression and convert it to a string.
-    */
+    /* Functions that return values are allowed in the template */
   }
 
   getAccordionPanelId(id: number): string {
@@ -84,11 +82,11 @@ export class AboutPageComponent implements OnInit {
   }
 
   toggleAccordion(id: number, accordionItemId: string): void {
-    const accordionId: number = +accordionItemId.replace('accordion-header-', '');
+    const accordionId: number = +accordionItemId.replace('accordion-panel-', '');
 
     console.log('toggle', id)
-    console.log('accordionId', accordionId)
-    console.log('match', id === accordionId);
+    console.log('accordionId', accordionItemId)
+    console.log('match', id == +accordionItemId.replace('accordion-panel-', ''));
 
     //id === accordionId ? this.isExpanded = true : this.isExpanded = false; 
 

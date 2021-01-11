@@ -5,7 +5,7 @@
     </header>
 
     <div class="page__intro">
-        <div *ngIf="aboutPage.intro" [innerHtml]="aboutPage.intro"></div>
+        <div *ngIf="aboutPage" [innerHtml]="aboutPage.intro"> </div>
     </div>
 
     <div class="page__content" *ngIf="aboutPage">
@@ -27,14 +27,14 @@
                     <button class="accordion__button" [ngClass]="{ 'accordion__button--active': isExpanded }"
                         id="{{ getAccordionHeaderId(content.id) }}" [attr.aria-expanded]="isExpanded"
                         [attr.aria-controls]="getAccordionPanelId(content.id)" [innerHtml]="content.heading"
-                        (click)="toggleAccordion(content.id, accordionItem.id)" #accordionItem>
+                        (click)="toggleAccordion(content.id, accordionItem.id)">
                     </button>
 
                 </h2>
 
-                <div class="accordion__panel" [ngClass]="{accordion__panel--expanded}" role="region" id="{{ getAccordionPanelId(content.id) }}"
-                    [attr.aria-labelledby]="getAccordionHeaderId(content.id)"
-                    [innerHtml]="content.body">
+                <div class="accordion__panel" [ngClass]="{'accordion__panel--expanded': isExpanded}" role="region"
+                    id="{{ getAccordionPanelId(content.id) }}" [attr.aria-labelledby]="getAccordionHeaderId(content.id)"
+                    [innerHtml]="content.body" #accordionItem>
                 </div>
 
             </div>
