@@ -12,7 +12,6 @@ import { LogoComponent } from './layout/logo/logo.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { PageComponent } from './components/shared/page/page.component';
 import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
@@ -28,7 +27,6 @@ import { TrimPipe } from './helpers/trim.pipe';
 import { DesignComponent } from './components/design/design.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
-import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
@@ -101,8 +99,8 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { RefreshPageDirective } from './helpers/refresh-page.directive';
 import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
-import { AccordionPanelComponent } from './components/shared/accordion-panel/accordion-panel.component';
 import { AccordionComponent } from './components/shared/accordion/accordion.component';
+import { AccordionItemComponent } from './components/shared/accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +113,6 @@ import { AccordionComponent } from './components/shared/accordion/accordion.comp
     PageNotFoundComponent,
     HomeComponent,
     AboutComponent,
-    PageComponent,
     OverviewNumbersComponent,
     QualityAssuredDataComponent,
     RedListedSpeciesComponent,
@@ -130,7 +127,6 @@ import { AccordionComponent } from './components/shared/accordion/accordion.comp
     DesignComponent,
     CardComponent,
     ButtonComponent,
-    SiteSearchComponent,
     DateComponent,
     PageTitleComponent,
     LoginComponent,
@@ -203,8 +199,8 @@ import { AccordionComponent } from './components/shared/accordion/accordion.comp
     KnowledgeGapComponent,
     RefreshPageDirective,
     NavigateToPageDirective,
-    AccordionPanelComponent,
-    AccordionComponent
+    AccordionComponent,
+    AccordionItemComponent
   ],
   imports: [
     BrowserModule,

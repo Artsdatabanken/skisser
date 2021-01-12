@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, ContentChildren, QueryList } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AccordionPanelComponent } from '../accordion-panel/accordion-panel.component';
+import { AccordionItemComponent } from '../accordion-item/accordion-item.component';
 
 @Component({
   selector: 'app-accordion',
@@ -10,7 +10,7 @@ import { AccordionPanelComponent } from '../accordion-panel/accordion-panel.comp
 
 export class AccordionComponent implements AfterContentInit {
 
-  @ContentChildren(AccordionPanelComponent) panels: QueryList<AccordionPanelComponent>;
+  @ContentChildren(AccordionItemComponent) panels: QueryList<AccordionItemComponent>;
   subscription: Subscription;
 
   ngAfterContentInit(): void {
@@ -18,31 +18,33 @@ export class AccordionComponent implements AfterContentInit {
     //this.panels.toArray()[0].opened = true;  // open the first panel PS: denne lager bug med AfterViewInit og ChangeDetectionCheck
 
     this.panels.toArray().forEach((panel: any) => {
-      
+
       this.subscription = panel.toggle.subscribe(() => {
-        //this.openPanel(panel);  
         this.togglePanel(panel);
       });
 
     });
   }
 
-  openPanel(panel: AccordionPanelComponent): void {
+  openPanel(panel: AccordionItemComponent): void {
 
     this.panels.toArray().forEach(p => p.opened = false); // close all panels
     panel.opened = true; // open the selected panel    
 
   }
 
-  togglePanel(panel: AccordionPanelComponent): void {
-    panel.opened = !panel.opened; 
-    //this.panels.toArray().filter(p => p !== panel).forEach(p => p.opened = false); // close all panels that aren't our panel
+  togglePanel(panel: AccordionItemComponent): void {
+    panel.opened = !panel.opened;
+
+    if (panel.shouldCloseOtherItems) {
+      this.panels.toArray().filter(p => p !== panel).forEach(p => p.opened = false); // close all panels that aren't our panel
+    }
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    //this.subscription.unsubscribe(); // results in a bug, must fix
   }
 
 }
 
-// (panel: QueryList<AccordionPanelComponent>)
+// (panel: QueryList<AccordionItemComponent>)

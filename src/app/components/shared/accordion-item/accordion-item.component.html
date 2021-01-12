@@ -1,0 +1,21 @@
+<!--shareable component-->
+
+<div class="accordion">
+
+    <h2 class="accordion__header">
+  
+      <button class="accordion__button" [ngClass]="{ 'accordion__button--active': opened }" id="{{ headerId }}"
+        [attr.aria-expanded]="opened" [attr.aria-controls]="panelId" (click)="toggle.emit()" (keydown.enter)="toggle(emit)">
+        {{ heading }}
+      </button>
+  
+    </h2>
+  
+    <div class="accordion__body" [ngClass]="{'accordion__body--expanded': opened}" id="{{ panelId }}"
+      [attr.aria-labelledby]="headerId" *ngIf="opened">
+      <ng-content></ng-content>
+    </div>
+  
+  </div>
+  
+  <!--shareable component-->

@@ -16,57 +16,18 @@
 
         </div>
 
+        <br>
 
-        <!--NEW ACCORDION-->
+        <!--ACCORDION if parent page has children in the form of attachments-->
 
         <app-accordion *ngIf="aboutPage.content">
-            <app-accordion-panel *ngFor="let content of aboutPage.content" [heading]="content.heading"
-                [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)">
+            <app-accordion-item *ngFor="let content of aboutPage.content" [heading]="content.heading"
+                [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)" [shouldCloseOtherItems]="true">
                 <div [innerHtml]="content.body"></div>
-            </app-accordion-panel>
+            </app-accordion-item>
         </app-accordion>
 
-        <!--NEW ACCORDION-->
-
         <!--ACCORDION-->
-
-        <!-- <div *ngIf="aboutPage.content">
-
-            <div class="accordion" *ngFor="let content of aboutPage.content">
-
-                <h2 class="accordion__header">
-
-                    <button class="accordion__button" [ngClass]="{ 'accordion__button--active': isExpanded }"
-                        id="{{ getAccordionHeaderId(content.id) }}" [attr.aria-expanded]="isExpanded"
-                        [attr.aria-controls]="getAccordionPanelId(content.id)" [innerHtml]="content.heading"
-                        (click)="toggleAccordion(content.id, accordionItem.id)">
-                    </button>
-
-                </h2>
-
-                <div class="accordion__panel" [ngClass]="{'accordion__panel--expanded': isExpanded}" role="region"
-                    id="{{ getAccordionPanelId(content.id) }}" [attr.aria-labelledby]="getAccordionHeaderId(content.id)"
-                    [innerHtml]="content.body" #accordionItem>
-                </div>
-
-            </div>
-
-        </div> -->
-
-        <!--ACCORDION-->
-
-        <!-- <div *ngIf="aboutPage.content">
-
-            <div *ngFor="let content of aboutPage.content">
-                <h2 [innerHtml]="content.Heading"></h2>
-                <div [innerHtml]="content.Body"></div>
-
-            </div>
-
-        </div> -->
-
-
-
 
     </div>
 
