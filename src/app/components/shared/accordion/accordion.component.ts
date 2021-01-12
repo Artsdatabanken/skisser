@@ -15,12 +15,13 @@ export class AccordionComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
 
-    this.panels.toArray()[0].opened = true;  // open the first panel
+    //this.panels.toArray()[0].opened = true;  // open the first panel PS: denne lager bug med AfterViewInit og ChangeDetectionCheck
 
     this.panels.toArray().forEach((panel: any) => {
       
       this.subscription = panel.toggle.subscribe(() => {
-        this.openPanel(panel);  
+        //this.openPanel(panel);  
+        this.togglePanel(panel);
       });
 
     });
@@ -31,6 +32,11 @@ export class AccordionComponent implements AfterContentInit {
     this.panels.toArray().forEach(p => p.opened = false); // close all panels
     panel.opened = true; // open the selected panel    
 
+  }
+
+  togglePanel(panel: AccordionPanelComponent): void {
+    panel.opened = !panel.opened; 
+    //this.panels.toArray().filter(p => p !== panel).forEach(p => p.opened = false); // close all panels that aren't our panel
   }
 
   ngOnDestroy(): void {
