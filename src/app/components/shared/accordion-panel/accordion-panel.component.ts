@@ -9,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class AccordionPanelComponent implements OnInit {
 
-  @Input() opened = false;
-  @Input() title: string;
-  @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
+  @Input() opened: boolean = false;
+  @Input() headerId: string;
+  @Input() panelId: string;
+  @Input() heading: string;
   
+  @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

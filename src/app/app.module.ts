@@ -102,6 +102,7 @@ import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/kno
 import { RefreshPageDirective } from './helpers/refresh-page.directive';
 import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
 import { AccordionPanelComponent } from './components/shared/accordion-panel/accordion-panel.component';
+import { AccordionComponent } from './components/shared/accordion/accordion.component';
 
 @NgModule({
   declarations: [
@@ -202,7 +203,8 @@ import { AccordionPanelComponent } from './components/shared/accordion-panel/acc
     KnowledgeGapComponent,
     RefreshPageDirective,
     NavigateToPageDirective,
-    AccordionPanelComponent
+    AccordionPanelComponent,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,

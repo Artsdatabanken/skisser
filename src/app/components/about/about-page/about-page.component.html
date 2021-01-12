@@ -16,9 +16,32 @@
 
         </div>
 
+
+        <!--NEW ACCORDION-->
+
+        <app-accordion *ngIf="aboutPage.content">
+            <app-accordion-panel *ngFor="let content of aboutPage.content" [heading]="content.heading"
+                [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)">
+                <div [innerHtml]="content.body"></div>
+            </app-accordion-panel>
+        </app-accordion>
+
+        <!--NEW ACCORDION-->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
         <!--ACCORDION-->
 
-        <div *ngIf="aboutPage.content">
+        <!-- <div *ngIf="aboutPage.content">
 
             <div class="accordion" *ngFor="let content of aboutPage.content">
 
@@ -39,7 +62,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
         <!--ACCORDION-->
 

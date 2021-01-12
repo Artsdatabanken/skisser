@@ -12,10 +12,6 @@ import { AboutPage } from 'src/app/models/aboutPage';
 
 export class AboutPageComponent implements OnInit {
 
-  isExpanded: boolean = false;
-
-  // ----------***
-
   aboutPageId: number;
   aboutPage: AboutPage;
   pageTitle: string;
@@ -79,18 +75,6 @@ export class AboutPageComponent implements OnInit {
 
   getAccordionPanelId(id: number): string {
     return `accordion-panel-${id}`;
-  }
-
-  toggleAccordion(id: number, accordionItemId: string): void {
-    const accordionId: number = +accordionItemId.replace('accordion-panel-', '');
-
-    console.log('toggle', id)
-    console.log('accordionId', accordionItemId)
-    console.log('match', id == +accordionItemId.replace('accordion-panel-', ''));
-
-    //id === accordionId ? this.isExpanded = true : this.isExpanded = false; 
-
-    this.isExpanded = !this.isExpanded;
   }
 
 }
