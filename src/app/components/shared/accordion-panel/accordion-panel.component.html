@@ -4,7 +4,7 @@
 
   <h2 class="accordion__header" [attr.aria-controls]="ariaControls" [attr.aria-expanded]="opened">
 
-    <button class="accordion__button" [ngClass]="{ 'accordion__button--active': isExpanded }" id="{{ headerId }}"
+    <button class="accordion__button" [ngClass]="{ 'accordion__button--active': opened }" id="{{ headerId }}"
       [attr.aria-expanded]="isExpanded" [attr.aria-controls]="panelId" (click)="toggle.emit()">
       {{ heading }}
     </button>
