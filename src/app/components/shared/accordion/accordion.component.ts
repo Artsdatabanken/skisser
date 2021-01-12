@@ -15,28 +15,21 @@ export class AccordionComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
 
-    // Open the first panel
-    this.panels.toArray()[0].opened = true;
+    this.panels.toArray()[0].opened = true;  // open the first panel
 
-    // Loop through all panels
     this.panels.toArray().forEach((panel: any) => {
       
-      // subscribe panel toggle event
       this.subscription = panel.toggle.subscribe(() => {
-        // Open the panel
-        this.openPanel(panel);
+        this.openPanel(panel);  
       });
 
     });
   }
 
-  openPanel(panel: AccordionPanelComponent) {
+  openPanel(panel: AccordionPanelComponent): void {
 
-    // close all panels
-    this.panels.toArray().forEach(p => p.opened = false);
-
-    // open the selected panel    
-    panel.opened = true;
+    this.panels.toArray().forEach(p => p.opened = false); // close all panels
+    panel.opened = true; // open the selected panel    
 
   }
 

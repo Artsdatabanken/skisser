@@ -28,14 +28,16 @@ export class DataService {
   errorMessage: string;
 
   // APIs
-  environmentWpApi: string;
-  wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
-  wpPagesApi: string = 'wp-json/wp/v2/pages';
-  strapiApi: string = 'http://localhost:1337/articles';
+  // environmentWpApi: string;
+  // wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
+  // wpPagesApi: string = 'wp-json/wp/v2/pages';
+  // strapiApi: string = 'http://localhost:1337/articles';
   oldNews: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
   oldNewsItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
 
-  constructor(private http: HttpClient) { this.environmentWpApi = environment.wpApiEndpoint; }
+  constructor(private http: HttpClient) {
+    //this.environmentWpApi = environment.wpApiEndpoint;
+  }
 
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
