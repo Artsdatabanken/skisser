@@ -100,7 +100,7 @@ import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/kno
 import { RefreshPageDirective } from './helpers/refresh-page.directive';
 import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
 import { AccordionComponent } from './components/shared/accordion/accordion.component';
-import { AccordionItemComponent } from './components/shared/accordion-item/accordion-item.component';
+import { AccordionItemComponent } from './components/shared/accordion/accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [

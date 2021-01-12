@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, ContentChildren, QueryList } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 
 @Component({
   selector: 'app-accordion',
@@ -19,7 +19,7 @@ export class AccordionComponent implements AfterContentInit {
 
     this.panels.toArray().forEach((panel: any) => {
 
-      this.subscription = panel.toggle.subscribe(() => {
+      panel.toggle.subscribe(() => {
         this.togglePanel(panel);
       });
 
@@ -27,10 +27,8 @@ export class AccordionComponent implements AfterContentInit {
   }
 
   openPanel(panel: AccordionItemComponent): void {
-
     this.panels.toArray().forEach(p => p.opened = false); // close all panels
     panel.opened = true; // open the selected panel    
-
   }
 
   togglePanel(panel: AccordionItemComponent): void {

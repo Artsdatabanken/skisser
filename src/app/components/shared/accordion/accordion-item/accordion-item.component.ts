@@ -13,11 +13,11 @@ export class AccordionItemComponent implements OnInit {
   @Input() panelId: string;
   @Input() heading: string;
   @Input() shouldCloseOtherItems?: boolean;
-  
+
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void { }
-  
+
 }

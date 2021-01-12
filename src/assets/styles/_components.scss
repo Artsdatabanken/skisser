@@ -1,7 +1,5 @@
 // ----------COMPONENTS (only for angular shareable / reusable components)
 
-
-
 // cards
 
 .card {
@@ -679,7 +677,7 @@
         text-align: left;
         width: 100%;
 
-        &:hover, 
+        &:hover,
         &:focus {
             @include customVar(background-color, clrBlack);
             @include customVar(color, clrWhite);
@@ -691,6 +689,7 @@
         }
 
         &--active {
+            background-color: #a3e4d7;
             background-image: url(../images/iconChevronUp.png);
 
             &:hover {
