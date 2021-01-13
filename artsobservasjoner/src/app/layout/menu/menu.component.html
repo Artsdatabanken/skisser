@@ -1,0 +1,17 @@
+<button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
+    type="button" (click)="toggleMenu()" arial-label="Vis navigasjonsmeny">
+    <span class="hamburger__text" aria-hidden="true">
+        Meny
+    </span>
+    <span class="hamburger__box" aria-hidden="true">
+        <span class="hamburger__inner"></span>
+    </span>
+</button>
+
+<div class="menu" id="menu" [ngClass]="{'menu--open': activeMenu}" [attr.aria-expanded]="activeMenu">
+
+    <app-navigation></app-navigation>
+    <!-- <app-subnavigation></app-subnavigation> -->
+    <app-extra-navigation></app-extra-navigation>
+
+</div>

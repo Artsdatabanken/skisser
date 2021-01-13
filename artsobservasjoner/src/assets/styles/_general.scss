@@ -1,0 +1,70 @@
+// ----------GENERAL & resets
+
+html,
+html a {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  //box-sizing: inherit;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #262626;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #262626;
+  color: #fff;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+main {
+  &:focus {
+    outline-color: none;
+    outline-style: solid;
+    outline-offset: 0;
+    outline-width: 0;
+  }
+}

@@ -1,0 +1,27 @@
+<!--layout component-->
+
+<nav class="navigation navigation--extra navigation--special" role="navigation">
+
+    <div class="navigation__container">
+
+        <!--extra links-->
+        <div class="navigation__item">
+
+            <div class="navigation__section navigation__section--special">
+
+                <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
+                    routerLink="{{ link.path }}" *ngFor="let link of extraMenu" closeMenu>
+                    <span class="navigation__label"> {{ link.data.text }}</span>
+                </a>
+
+            </div>
+
+        </div>
+        <!--extra links-->
+
+    </div>
+
+</nav>
+
+
+<!--layout component-->

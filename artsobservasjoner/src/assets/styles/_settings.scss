@@ -1,0 +1,69 @@
+// ----------SETTINGS
+
+// :root {}
+
+@import "fonts";
+
+$vars: (
+  fontPrimary: #{"zabal",  Consolas,  monospace},
+  fontSecondary: #{"robotocondensed",  Consolas,  monospace},
+  fontAccent: #{"robotomono",  Consolas, monospace},
+
+  clrBlack: #444444,
+  clrWhite: #ffffff, 
+  clrPrimary: #232323,
+  clrAccent: #a3e4d7,
+  clrWash: #d5f5e3,
+
+  paletteColor0: #ededed,
+  paletteColor1: #e3e3e3,
+  paletteColor2: #cccccc,
+  paletteColor3: #bbbbbb,
+  paletteColor4: #555555,
+
+  siteClr1: #e8f8f5,
+  siteClr2: #e8f6f3,
+  siteClr3: #e9f7eF,
+  siteClr4: #eafaf1,
+
+  paddingStd: 15px,
+  transparent: transparent,
+
+);
+
+:root {
+  --fontPrimary: #{map-get($vars, fontPrimary)};
+  --fontSecondary: #{map-get($vars, fontSecondary)};
+  --fontAccent: #{map-get($vars, fontAccent)};
+
+  --clrBlack: #{map-get($vars, clrBlack)};
+  --clrWhite: #{map-get($vars, clrWhite)};
+  --clrPrimary: #{map-get($vars, clrPrimary)};
+  --clrAccent: #{map-get($vars, clrAccent)};
+  --clrWash: #{map-get($vars, clrWash)};
+   
+  --paletteColor0: #{map-get($vars, paletteColor0)};
+  --paletteColor1: #{map-get($vars, paletteColor1)};
+  --paletteColor2: #{map-get($vars, paletteColor2)};
+  --paletteColor3: #{map-get($vars, paletteColor3)};
+  --paletteColor4: #{map-get($vars, paletteColor4)};
+
+  
+  --siteClr1: #{map-get($vars, siteClr1)};
+  --siteClr2: #{map-get($vars, siteClr2)};
+  --siteClr3: #{map-get($vars, siteClr3)};
+  --siteClr4: #{map-get($vars, siteClr4)};
+  
+  --backgroundColor: #{map-get($vars, paletteColor0)};
+  --textColor: #{map-get($vars, clrBlack)};
+
+  --paddingStd: #{map-get($vars, paddingStd)};
+  --transparent: #{map-get($vars, transparent)};
+
+}
+
+@mixin customVar($property, $varName) {
+  #{$property}: map-get($vars, $varName);
+  #{$property}: var(--#{$varName});
+}
+
