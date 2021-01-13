@@ -9,10 +9,8 @@
 
                 <p>Bli med og hjelp oss</p>
                 <p>å kartlegge norsk natur!</p>
-                <p style="font-size: 80px;">HOLAAAAAA!</p>
 
             </div>
-
 
         </div>
         <div class="frontpage__cell">
@@ -50,11 +48,11 @@
             </a>
 
         </div>
-        
+
         <div class="frontpage__cell frontpage__cell--left">
-            
+
             <a class="ad" routerLink="/observations/sightings">
-                
+
                 <div class="ad__icon ad__icon--2"></div>
                 <div class="ad__text">Se observasjoner</div>
 
@@ -83,11 +81,16 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="'/report/add-observation'" [text]="'Legg til observasjon'"></app-card>
+            <!-- <app-card [type]="'link'" [url]="'/report/add-observation'" [text]="'Legg til observasjon'"></app-card>
             <app-card [type]="'link'" [url]="'/observations'" [text]="'Se, søk og filtrer observasjoner'"></app-card>
             <app-card [type]="'link'" [url]="'/my-data/my-observations'" [text]="'Mine observasjoner'"></app-card>
             <app-card [type]="'link'" [url]="'/observations/statistics/quality-assured-data'"
-                [text]="'Kvalitetssikret artsdata'"></app-card>
+                [text]="'Kvalitetssikret artsdata'"></app-card> -->
+
+            <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'Tall og statistikk'"></app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'"></app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'"></app-card>
+            <app-card [type]="'link'" [url]="'/observations/statistics/overview'" [text]="'Volumstatistikk'"></app-card>
 
         </div>
 
