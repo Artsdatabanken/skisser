@@ -25,7 +25,7 @@ export class AppComponent {
   windowScrolled: boolean = false;
 
   layoutTypes: string[] = [];
-  layoutTypesForbidden: string[] = ['article', 'frontpage', 'item', 'spa'];
+  layoutTypesForbidden: string[] = ['article', 'frontpage', 'item', 'spa', 'text'];
 
   @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
 

@@ -438,7 +438,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Kvalitetssikrede data',
       id: 'quality-checked-data',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
@@ -452,7 +452,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Rødlistede arter',
       id: 'red-listed-species',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
@@ -466,7 +466,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Fremmede arter',
       id: 'alien-species',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
@@ -480,7 +480,7 @@ const observationRoutes: Routes = [
     data: {
       text: 'Kunnskapshull',
       id: 'species-with-no-data',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
