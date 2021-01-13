@@ -2,8 +2,11 @@ export interface AboutPage {
     id: number | string;
     url: string;
     heading: string;
-    intro: string;
-    content: any[] | any;
     title: string;
-    languages: string | string[];
+    intro?: string | null | undefined;
+    body: string | null;
+    content?: AboutPage[] | null;
+    languages: string | undefined;
+    order?: number | undefined;
+    expanded?: boolean;
 }

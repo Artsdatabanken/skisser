@@ -5,23 +5,29 @@
     </header>
 
     <div class="page__intro">
-
+        <div *ngIf="aboutPage" [innerHtml]="aboutPage.intro"> </div>
     </div>
 
     <div class="page__content" *ngIf="aboutPage">
 
-        <div [innerHtml]="aboutPage.intro"></div>
+        <div *ngIf="aboutPage.body">
 
-        <div *ngIf="aboutPage.content">
-            
-            <div *ngFor="let content of aboutPage.content">
-                <h2 [innerHtml]="content.Heading"></h2>
-                <div [innerHtml]="content.Body"></div>
-            </div>
+            <div [innerHtml]="aboutPage.body"></div>
 
         </div>
 
-        
+        <br>
+
+        <!--ACCORDION if parent page has children in the form of attachments-->
+
+        <app-accordion *ngIf="aboutPage.content">
+            <app-accordion-item *ngFor="let content of aboutPage.content" [heading]="content.heading"
+                [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)" [shouldCloseOtherItems]="true">
+                <div [innerHtml]="content.body"></div>
+            </app-accordion-item>
+        </app-accordion>
+
+        <!--ACCORDION-->
 
     </div>
 

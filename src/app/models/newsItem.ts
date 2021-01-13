@@ -11,5 +11,5 @@ export interface NewsItem {
   body: string;
   intro: string;
   imgUrl: string | null;
-  image: FeaturedImage | null;
+  image: any | FeaturedImage | null;
 }

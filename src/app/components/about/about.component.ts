@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AboutItem } from 'src/app/models/aboutItem';
+import Settings from 'src/app/data/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
-import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-about',
@@ -13,66 +12,90 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class AboutComponent implements OnInit {
 
-  subMenu: any[];
-  aboutItems: AboutItem[];
   errorMessage: string;
-  data: any;
   aboutPages: AboutPage[] = [];
-  ids: string[] = ['201123', '201730', '286637'];
+  ids: string[] = Settings.drupalIds;
 
   constructor(
-    private navigationService: NavigationService,
-    private dataService: DataService,
-    private http: HttpClient
+    private http: HttpClient,
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
-    this.subMenu = this.navigationService.getSubMenu('about');
-
-    // this.dataService.getAboutItems().subscribe(
-    //   res => {
-    //     this.aboutItems = res;
-    //   },
-    //   error => {
-    //     console.log('error', error);
-    //   }
-    // );
-
-    this.getAboutPage();
-
+    this.getAboutPages();
   }
 
-  getAboutPage(): any {
-    // return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).subscribe(data => {
-    //   console.log('data', data)
-    //   this.data = data;
-    // });
+  getAboutPages(): void {
 
     this.ids.forEach(id => {
-      console.log('id', id)
-      return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).subscribe(res => {
 
-        //console.log('res', res)
+      this.dataService.getAboutPagesById(+id).subscribe(res => {
 
-        this.aboutPages.push({
-          id: res.Id,
-          url: res.Url.replace('/Pages/', ''),
-          heading: res.Heading,
-          intro: res.Intro,
-          content: res.Content,
-          title: res.Title,
-          languages: null
+        let aboutPage: AboutPage;
+
+        res.forEach(r => {
+
+          aboutPage = {
+            id: r.id,
+            url: r.url,
+            heading: r.heading,
+            intro: r.intro,
+            body: r.body,
+            content: r.content,
+            title: r.title,
+            languages: null,
+            order: r.order
+          };
+
+          this.aboutPages.push(aboutPage);
+
         });
 
-        this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.heading.localeCompare(b.heading));
-
-        console.log('about pages', this.aboutPages)
+        this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
 
       });
+
     });
+
   }
 
-  getAboutItemUrl(slug: string): string {
+  // getAboutPages(): void {
+
+  //   this.ids.forEach(id => {
+
+  //     return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).subscribe(res => {
+
+  //       console.log('res', res)
+
+  //       let order: number;
+
+  //       if (res.Metadata[0].Label) {
+  //         order = +res.Metadata[0].Label;
+  //       }
+  //       else {
+  //         order = 0;
+  //       }
+
+  //       this.aboutPages.push({
+  //         id: res.Id,
+  //         url: res.Url.replace('/Pages/', ''),
+  //         heading: res.Heading,
+  //         intro: res.Intro,
+  //         body: res.Body,
+  //         content: res.Content,
+  //         title: res.Title,
+  //         languages: null,
+  //         order: order
+  //       });
+
+  //       this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
+
+  //     });
+  //   });
+
+  // }
+
+  getAboutPageUrl(slug: string): string {
     return `about/${slug}`;
   }
 

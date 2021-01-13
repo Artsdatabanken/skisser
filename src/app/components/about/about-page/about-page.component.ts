@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AboutPage } from 'src/app/models/aboutPage';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-about-page',
@@ -22,31 +21,60 @@ export class AboutPageComponent implements OnInit {
     private titleService: Title,
     private http: HttpClient
   ) {
-    this.aboutPageId = this.route.snapshot.params["pageId"];
+    this.aboutPageId = this.route.snapshot.params["id"];
   }
 
   ngOnInit(): void {
 
     this.http.get<any>('https://artsdatabanken.no/api/Content/' + this.aboutPageId).subscribe(res => {
 
+      let contentPages: AboutPage[] = [];
+      let page: AboutPage;
+
+      res.Content.forEach(element => {
+
+        page = {
+          id: element.Id.replace('Nodes/', ''),
+          url: element.Url.replace('/Pages/', ''),
+          heading: element.Heading,
+          intro: element.Intro,
+          body: element.Body,
+          title: element.Title,
+          languages: element.Languages[0]
+        }
+
+        contentPages.push(page);
+
+      });
+
       this.aboutPage = {
         id: res.Id,
         url: res.Url.replace('/Pages/', ''),
         heading: res.Heading,
         intro: res.Intro,
-        content: res.Content,
+        body: res.Body,
+        content: contentPages,
         title: res.Title,
-        languages: null
+        languages: res.Languages[0]
       };
+
+      console.log('RES', res)
 
       this.pageTitle = res.Heading;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
 
-      console.log('res', res)
-      console.log('about page', this.aboutPage)
-
     });
 
+  }
+
+  getAccordionHeaderId(id: number): string {
+    return `accordion-header-${id}`; 
+
+    /* Functions that return values are allowed in the template */
+  }
+
+  getAccordionPanelId(id: number): string {
+    return `accordion-panel-${id}`;
   }
 
 }

@@ -7,8 +7,6 @@
         <div class="navigation__item" *ngFor="let menuItem of mainMenu">
 
             <h1 class="navigation__heading">
-                <!-- <span class="navigation__heading-text"> {{ menuItem.title }} </span>
-                <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" closeMenu>{{ menuItem.title }}</a> -->
                 <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" closeMenu>{{ menuItem.title }}</a>
             </h1>
 
@@ -27,6 +25,8 @@
 
         </div>
 
+        <app-subnavigation></app-subnavigation>
+        
     </div>
 
 </nav>

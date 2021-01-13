@@ -1,27 +1,34 @@
 <!--layout component-->
 
-<nav class="navigation navigation--special" role="navigation">
+<!-- <nav class="navigation" role="navigation"> -->
 
-    <div class="navigation__container">
+<!--about pages for menu-->
 
-        <!--extra links-->
-        <div class="navigation__item">
+<!-- <div class="navigation__container"> -->
 
-            <div class="navigation__section navigation__section--special">
+<div class="navigation__item">
 
-                <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
-                    routerLink="{{ link.path }}" *ngFor="let link of extraMenu" closeMenu>
-                    <span class="navigation__label"> {{ link.data.text }}</span>
-                </a>
+    <h1 class="navigation__heading">
+        <a class="navigation__heading-link" routerLink="/about" closeMenu>Om tjenesten</a>
+    </h1>
 
-            </div>
+    <div class="navigation__section">
 
-        </div>
-        <!--extra links-->
+        <a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="/about/{{ child.url }}"
+            *ngFor="let child of aboutPages" closeMenu>
+
+            <span class="navigation__label"> {{ child.heading }}</span>
+
+        </a>
 
     </div>
 
-</nav>
+</div>
 
+<!-- </div> -->
+
+<!--about pages for menu-->
+
+<!-- </nav> -->
 
 <!--layout component-->

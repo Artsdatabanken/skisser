@@ -1,24 +1,4 @@
-// ----------COMPONENTS
-
-.section {
-    //border: 1px solid red;
-    margin: 150px 0;
-}
-
-.page-title {
-    margin-bottom: 50px;
-
-    .page-subtitle + & {
-        background: yellow;
-        margin: 200px 0 15px;
-    }
-}
-
-.page-subtitle {
-    font-size: 28px;
-    font-weight: 300;
-    margin-top: -45px;
-}
+// ----------COMPONENTS (only for angular shareable / reusable components)
 
 // cards
 
@@ -341,84 +321,6 @@
     }
 }
 
-/*date*/
-
-.date {
-    @include customVar(font-family, fontSecondary);
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-/*progress bar*/
-
-.progressbar {
-    left: 0;
-    right: 0;
-    //position: absolute;
-    z-index: 10;
-
-    ul,
-    &__list {
-        counter-reset: step;
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    li {
-        @include customVar(font-family, fontSecondary);
-        margin: 0;
-        position: relative;
-        text-align: center;
-        width: 200px;
-        z-index: 10;
-
-        span {
-            display: block;
-            font-size: 18px;
-            margin: auto;
-            padding: 5px;
-        }
-
-        &:before {
-            @include customVar(background-color, clrAqua3);
-            @include customVar(border-color, clrAqua3);
-            @include customVar(color, clrBlack);
-            border-style: solid;
-            border-width: 2px;
-            border-radius: 50%;
-            content: counter(step);
-            counter-increment: step;
-            height: 50px;
-            display: block;
-            font-weight: 600;
-            line-height: 47px;
-            margin: 0 auto 10px;
-            text-align: center;
-            width: 50px;
-        }
-
-        &:after {
-            @include customVar(background-color, clrAqua5);
-            content: "";
-            display: block;
-            height: 3px;
-            left: 123px;
-            position: absolute;
-            top: 25px;
-            width: 152px;
-            z-index: 5;
-        }
-
-        &:last-child:after {
-            content: none;
-        }
-    }
-}
-
 /*items / gallery*/
 
 .item {
@@ -661,21 +563,7 @@
     }
 }
 
-// icons
-
-.icon {
-    &--right {
-        float: right;
-    }
-
-    img {
-        height: 30px;
-        object-fit: cover;
-        width: 30px;
-    }
-}
-
-// tabs /accordion
+// tabs
 
 .tabs {
     overflow: hidden;
@@ -767,38 +655,61 @@
     }
 }
 
-// icon link
+// accordion
 
-.icon-link {
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: auto 15px;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-
-    padding-left: 25px;
-    padding: 12px 0 12px 30px;
-
-    &--login {
-        background-image: url(../images/iconLock.png);
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-size: auto 16px;
+.accordion {
+    &__header {
+        margin: 0 0 1px;
     }
 
-    &--add {
-        background-image: url(../images/iconEye.png);
-        background-position: left center;
+    &__button {
+        @include customVar(font-family, fontSecondary);
+        background-color: #d5f5e3;
+        background-image: url(../images/iconChevronDown.png);
+        background-position: right 30px center;
         background-repeat: no-repeat;
-        background-size: auto 15px;
+        background-size: 17px;
+        border: none;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 400;
+        padding: 15px 45px 15px 30px;
+        text-align: left;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            @include customVar(background-color, clrBlack);
+            @include customVar(color, clrWhite);
+            background-image: url(../images/iconChevronWhiteDown.png);
+        }
+
+        &:focus {
+            outline: 0;
+        }
+
+        &--active {
+            background-color: #a3e4d7;
+            background-image: url(../images/iconChevronUp.png);
+
+            &:hover {
+                @include customVar(background-color, clrBlack);
+                @include customVar(color, clrWhite);
+                background-image: url(../images/iconChevronWhiteUp.png);
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            background-position: right 15px center;
+            background-size: 12px;
+            font-size: 18px;
+            padding: 15px 30px 15px 15px;
+        }
     }
 
-    &--obs {
-        background-image: url(../images/iconEye.png);
-        background-position: left center;
-        background-repeat: no-repeat;
-        background-size: auto 15px;
+    &__body {
+        font-size: 18px;
+        padding: 30px 0;
     }
 }
 

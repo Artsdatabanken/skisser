@@ -12,7 +12,6 @@ import { LogoComponent } from './layout/logo/logo.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { PageComponent } from './components/shared/page/page.component';
 import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
@@ -28,7 +27,6 @@ import { TrimPipe } from './helpers/trim.pipe';
 import { DesignComponent } from './components/design/design.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
-import { SiteSearchComponent } from './components/shared/site-search/site-search.component';
 import { DateComponent } from './components/shared/date/date.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { LoginComponent } from './components/login/login.component';
@@ -93,12 +91,16 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './helpers/truncate-text.pipe';
-import { AboutItemComponent } from './components/about/about-item/about-item.component';
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
+import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
+import { RefreshPageDirective } from './helpers/refresh-page.directive';
+import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
+import { AccordionComponent } from './components/shared/accordion/accordion.component';
+import { AccordionItemComponent } from './components/shared/accordion/accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,6 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
     PageNotFoundComponent,
     HomeComponent,
     AboutComponent,
-    PageComponent,
     OverviewNumbersComponent,
     QualityAssuredDataComponent,
     RedListedSpeciesComponent,
@@ -126,7 +127,6 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
     DesignComponent,
     CardComponent,
     ButtonComponent,
-    SiteSearchComponent,
     DateComponent,
     PageTitleComponent,
     LoginComponent,
@@ -191,12 +191,16 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
     NewsComponent,
     NewsItemComponent,
     TruncateTextPipe,
-    AboutItemComponent,
     OverviewStatsComponent,
     OverviewStatsItemComponent,
     UserProfileComponent,
     SightingsMapComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    KnowledgeGapComponent,
+    RefreshPageDirective,
+    NavigateToPageDirective,
+    AccordionComponent,
+    AccordionItemComponent
   ],
   imports: [
     BrowserModule,
