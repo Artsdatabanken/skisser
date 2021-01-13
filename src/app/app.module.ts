@@ -20,31 +20,28 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
-import { TranslationPipe } from './helpers/translation.pipe';
+import { TranslationPipe } from './pipes/translation.pipe';
 import { NavigationService } from './services/navigation.service';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
-import { TrimPipe } from './helpers/trim.pipe';
-import { DesignComponent } from './components/design/design.component';
-import { CardComponent } from './components/shared/card/card.component';
-import { ButtonComponent } from './components/shared/button/button.component';
-import { DateComponent } from './components/shared/date/date.component';
-import { PageTitleComponent } from './components/shared/page-title/page-title.component';
+import { TrimPipe } from './pipes/trim.pipe';
+import { DesignComponent } from './misc/design/design.component';
+import { CardComponent } from './reusable/card/card.component';
+import { ButtonComponent } from './reusable/button/button.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
-import { FilterComponent } from './components/shared/filter/filter.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { ObservationsComponent } from './components/observations/observations.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
-import { TeaserComponent } from './components/shared/teaser/teaser.component';
-import { MapComponent } from './components/map/map.component';
+import { TeaserComponent } from './reusable/teaser/teaser.component';
+import { MapComponent } from './misc/map/map.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/messages/message/message.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
-import { MenuDirective } from './helpers/menu.directive';
+import { MenuDirective } from './directives/menu.directive';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
 import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
 import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
@@ -65,11 +62,10 @@ import { SurveyProjectComponent } from './components/report/survey-project/surve
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
-import { CategoryRedlistedComponent } from './components/shared/non-dummy/category-redlisted/category-redlisted.component';
-import { CategoryAlienComponent } from './components/shared/non-dummy/category-alien/category-alien.component';
+import { CategoryRedlistedComponent } from './components/shared/category-redlisted/category-redlisted.component';
+import { CategoryAlienComponent } from './components/shared/category-alien/category-alien.component';
 import { SubheaderComponent } from './layout/subheader/subheader.component';
-import { SessionComponent } from './components/session/session.component';
-import { ClosePaneDirective } from './helpers/close-pane.directive';
+import { ClosePaneDirective } from './directives/close-pane.directive';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
 import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
@@ -82,25 +78,22 @@ import { OverviewChild9Component } from './components/statistics/overview/overvi
 import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
-import { CloseDropdownDirective } from './helpers/close-dropdown.directive';
-import { GetDropdownItemDirective } from './helpers/get-dropdown-item.directive';
-import { ClickElsewhereDirective } from './helpers/click-elsewhere.directive';
+import { CloseDropdownDirective } from './directives/close-dropdown.directive';
+import { GetDropdownItemDirective } from './directives/get-dropdown-item.directive';
+import { ClickElsewhereDirective } from './directives/click-elsewhere.directive';
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
-import { TruncateTextPipe } from './helpers/truncate-text.pipe';
+import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
 import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
-import { RefreshPageDirective } from './helpers/refresh-page.directive';
-import { NavigateToPageDirective } from './helpers/navigate-to-page.directive';
-import { AccordionComponent } from './components/shared/accordion/accordion.component';
-import { AccordionItemComponent } from './components/shared/accordion/accordion-item/accordion-item.component';
+import { AccordionComponent } from './reusable/accordion/accordion.component';
+import { AccordionItemComponent } from './reusable/accordion/accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [
@@ -127,14 +120,11 @@ import { AccordionItemComponent } from './components/shared/accordion/accordion-
     DesignComponent,
     CardComponent,
     ButtonComponent,
-    DateComponent,
-    PageTitleComponent,
     LoginComponent,
     RegistrationComponent,
     SubNavigationComponent,
     SightingsComponent,
     SightingComponent,
-    FilterComponent,
     MenuComponent,
     LoginButtonComponent,
     ObservationsComponent,
@@ -168,7 +158,6 @@ import { AccordionItemComponent } from './components/shared/accordion/accordion-
     CategoryRedlistedComponent,
     CategoryAlienComponent,
     SubheaderComponent,
-    SessionComponent,
     ClickElsewhereDirective,
     ClosePaneDirective,
     CloseDropdownDirective,
@@ -193,12 +182,9 @@ import { AccordionItemComponent } from './components/shared/accordion/accordion-
     TruncateTextPipe,
     OverviewStatsComponent,
     OverviewStatsItemComponent,
-    UserProfileComponent,
     SightingsMapComponent,
     AboutPageComponent,
     KnowledgeGapComponent,
-    RefreshPageDirective,
-    NavigateToPageDirective,
     AccordionComponent,
     AccordionItemComponent
   ],

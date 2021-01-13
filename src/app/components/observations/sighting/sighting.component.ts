@@ -75,7 +75,6 @@ export class SightingComponent implements OnInit {
       this.getMapIconStyle(c);
     });
 
-    // map 1
     this.observationMap = new Map({
       interactions: defaults({ dragPan: false, mouseWheelZoom: false }).extend([
         new DragPan({

@@ -8,14 +8,14 @@ import { QualityAssuredDataComponent } from './components/statistics/quality-ass
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
-import { DesignComponent } from './components/design/design.component';
+import { DesignComponent } from './misc/design/design.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { SightingComponent } from './components/observations/sighting/sighting.component';
 import { ObservationsComponent } from './components/observations/observations.component';
 import { ReportComponent } from './components/report/report.component';
-import { MapComponent } from './components/map/map.component';
+import { MapComponent } from './misc/map/map.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ContributeComponent } from './components/about/contribute/contribute.component';
