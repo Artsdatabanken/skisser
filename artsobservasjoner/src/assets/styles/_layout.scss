@@ -141,6 +141,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    visibility: hidden;
     width: 100%;
     z-index: 1000000;
     transform: translateY(-1500vh); /*change here related your menu height*/
@@ -153,6 +154,7 @@
     &--open {
         top: 80px;
         transform: translateY(0);
+        visibility: visible;
 
         @media screen and (max-width: 1024px) {
             top: 70px;
