@@ -12,7 +12,6 @@ import { LogoComponent } from './layout/logo/logo.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { OverviewNumbersComponent } from './components/statistics/overview-numbers/overview-numbers.component';
 import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
@@ -106,7 +105,6 @@ import { AccordionItemComponent } from './reusable/accordion/accordion-item/acco
     PageNotFoundComponent,
     HomeComponent,
     AboutComponent,
-    OverviewNumbersComponent,
     QualityAssuredDataComponent,
     RedListedSpeciesComponent,
     AlienSpeciesComponent,

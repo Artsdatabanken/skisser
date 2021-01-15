@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UtilitiesService } from 'src/app/services/utilities.service';
@@ -14,6 +14,7 @@ export class OverviewStatsComponent implements OnInit {
   pageTitle: string;
   children: any[] = [];
 
+  @Input() open: boolean;
   activeDropdown: boolean;
   subscription: Subscription;
 
@@ -38,7 +39,9 @@ export class OverviewStatsComponent implements OnInit {
 
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.activeDropdown = true;
+   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

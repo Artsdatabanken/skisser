@@ -708,8 +708,27 @@
     }
 
     &__body {
-        font-size: 18px;
+        display: none;
+        opacity: 1;
         padding: 30px 0;
+
+        &--expanded {
+            display: block;
+            animation: growDown 500ms ease-in-out forwards;
+            transform-origin: top center;
+        }
+    }
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0);
+    }
+    60% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(1);
     }
 }
 
@@ -729,17 +748,18 @@
         border: none;
         cursor: pointer;
         display: block;
+        display: inline-block;
         font-size: 20px;
         font-weight: 600;
-        padding: 30px;
+        padding: 30px 90px 30px 30px;
         text-align: left;
-        width: 100%;
+        //width: 100%;
+        width: -moz-fit-content;
+        width: fit-content;
         transition: background-image 0.3s;
 
         &--active {
             background-image: url(../images/iconChevronUp.png);
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
         }
 
         &:focus,
@@ -765,8 +785,8 @@
         @include customVar(background-color, paletteColor0);
         transform: translateY(-1500vh);
         top: auto;
-        left: 0;
-        right: 0;
+        // left: 0;
+        // right: 0;
         position: absolute;
         z-index: 5555;
 
