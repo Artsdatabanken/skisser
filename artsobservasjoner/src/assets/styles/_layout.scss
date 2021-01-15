@@ -92,25 +92,27 @@
     padding: 7px 22px;
 
     @media screen and (max-width: 1024px) {
+        background: none;
         border: none;
+        border-radius: 0;
         padding: 0;
     }
 
-     // active & focus
+    // active & focus
 
-     &:active,
-     &:focus {
-         @include customVar(border-color, clrBlack);
-         border-style: solid;
-         border-width: 2px;
-         outline: none;
- 
-         @media screen and (max-width: 1024px) {
-             @include customVar(background-color, transparent);
-             @include customVar(border-color, transparent);
-         }
-     }
-     
+    &:active,
+    &:focus {
+        @include customVar(border-color, clrBlack);
+        border-style: solid;
+        border-width: 2px;
+        outline: none;
+
+        @media screen and (max-width: 1024px) {
+            @include customVar(background-color, transparent);
+            @include customVar(border-color, transparent);
+        }
+    }
+
     // childs & elements
 
     & > * {
@@ -131,7 +133,6 @@
     &__box {
         justify-self: end;
     }
-
 }
 
 .menu {
@@ -809,6 +810,9 @@ main {
 
     // elements
     &__header {
+        @media screen and (max-width: 1200px) {
+           
+        }
     }
 
     &__intro {
@@ -816,16 +820,20 @@ main {
         font-weight: 800;
         margin-bottom: 30px;
 
+        @media screen and (max-width: 1200px) {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        &:empty {
+            margin: 0;
+        }
+
         p {
             font-size: inherit;
             font-weight: inherit;
             line-height: 1.5;
             margin: 0;
-        }
-
-        @media screen and (max-width: 1200px) {
-            font-size: 22px;
-            font-weight: 700;
         }
     }
 
@@ -858,6 +866,15 @@ main {
 
     &--2 {
         grid-template-columns: 1fr 1fr;
+        gap: 20px 20px;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--smxlg {
+        grid-template-columns: 1fr 5fr;
         gap: 20px 20px;
 
         @media screen and (max-width: 1024px) {

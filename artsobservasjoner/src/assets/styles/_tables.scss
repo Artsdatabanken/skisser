@@ -6,6 +6,10 @@ table {
     margin: 0 auto 50px;
     width: 100%;
 
+    @media screen and (max-width: 1200px) {
+        font-size: 15px;
+    }
+
     caption {
         font-size: 16px;
         font-weight: 500;
@@ -21,11 +25,20 @@ table {
         padding: 10px;
         text-align: left;
 
+        @media screen and (max-width: 1200px) {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
         &[scope="row"] {
             @include customVar(font-family, fontPrimary);
             border-bottom: 2px solid #d1f2eb;
             font-size: 17px;
             font-weight: 700;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 16px;
+            }
         }
     }
 

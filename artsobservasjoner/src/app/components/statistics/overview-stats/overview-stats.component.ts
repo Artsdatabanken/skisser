@@ -17,7 +17,7 @@ export class OverviewStatsComponent implements OnInit {
   activeDropdown: boolean;
   subscription: Subscription;
 
-  dropDownText: string;
+  dropDownText: string = "statistikk";
 
   constructor(
     private route: ActivatedRoute,
@@ -26,14 +26,14 @@ export class OverviewStatsComponent implements OnInit {
 
     this.pageTitle = this.route.routeConfig.data.text;
     this.children = this.route.routeConfig.children.filter(ch => ch.data.hidden === false);
-    this.dropDownText = this.utilitiesService.defaultDropdownText;
+    //this.dropDownText = this.utilitiesService.defaultDropdownText;
 
     this.subscription = this.utilitiesService.dropdownVisibility.subscribe((value) => {
       this.activeDropdown = value;
     });
 
     this.subscription = this.utilitiesService.dropdownLinkText.subscribe((value) => {
-      this.dropDownText = value;
+      //this.dropDownText = value;
     });
 
   }

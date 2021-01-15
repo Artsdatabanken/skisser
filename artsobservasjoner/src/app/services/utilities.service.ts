@@ -16,7 +16,7 @@ export class UtilitiesService {
 
   constructor() {
     this.showDropdownPane = false;
-    this.defaultDropdownText = 'Oversiktstall';
+    this.defaultDropdownText = 'Volumstatistikk';
   }
 
   toggleDropdown(): void {

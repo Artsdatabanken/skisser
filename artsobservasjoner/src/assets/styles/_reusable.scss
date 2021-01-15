@@ -10,6 +10,10 @@
     .page-subtitle + & {
         margin: 200px 0 15px;
     }
+
+    @media screen and (max-width: 1200px) {
+        margin-bottom: 20px;
+    }
 }
 
 .page-subtitle {

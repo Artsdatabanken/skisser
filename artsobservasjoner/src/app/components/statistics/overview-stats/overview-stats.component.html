@@ -5,10 +5,7 @@
     </header>
 
     <div class="page__intro">
-        <p>
-            <!-- Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nec
-            mollis ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. -->
-        </p>
+
     </div>
 
     <div class="page__content" style="min-height: 90vh;">
@@ -18,7 +15,7 @@
         <div class="dropdown" (clickElsewhere)="closeDropdown()">
 
             <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
-                (click)="toggleDropdown()">{{ dropDownText }}</button>
+                (click)="toggleDropdown()">Velg {{ dropDownText }}</button>
 
             <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
                 [attr.aria-expanded]="activeDropdown">

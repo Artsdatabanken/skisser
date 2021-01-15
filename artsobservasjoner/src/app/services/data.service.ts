@@ -32,8 +32,9 @@ export class DataService {
   // wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
   // wpPagesApi: string = 'wp-json/wp/v2/pages';
   // strapiApi: string = 'http://localhost:1337/articles';
-  oldNews: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
-  oldNewsItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
+
+  readonly drupalNewsAPI: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
+  readonly drupalNewsAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
 
   constructor(private http: HttpClient) {
     //this.environmentWpApi = environment.wpApiEndpoint;
@@ -65,7 +66,7 @@ export class DataService {
 
   getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
 
-    return this.http.get(this.oldNews).pipe(
+    return this.http.get(this.drupalNewsAPI).pipe(
       map((res: any[]) => {
 
         console.log('res', res)
@@ -115,7 +116,7 @@ export class DataService {
   }
 
   getNewsItemImages(id: number): Observable<FeaturedImage> {
-    return this.http.get<any>(this.oldNewsItem + id).pipe(
+    return this.http.get<any>(this.drupalNewsAPIItem + id).pipe(
       map((data: any) => {
 
         console.log('img', data)
@@ -137,7 +138,7 @@ export class DataService {
 
   getNewsItemById(id: number): Observable<NewsItem> {
 
-    return this.http.get(this.oldNewsItem + '/' + id).pipe(
+    return this.http.get(this.drupalNewsAPIItem + '/' + id).pipe(
       map((data: any) => {
 
         const newsItem: NewsItem = {
