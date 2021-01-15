@@ -40,7 +40,7 @@ export class OverviewStatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activeDropdown = true;
+    //this.activeDropdown = true;
    }
 
   ngOnDestroy(): void {

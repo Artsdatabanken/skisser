@@ -6,13 +6,19 @@
 
     <div class="page__intro">
 
+        <app-artsobs-numbers></app-artsobs-numbers>
     </div>
 
     <div class="page__content" style="min-height: 90vh;">
 
-        <app-artsobs-numbers></app-artsobs-numbers>
+        <p>
+            Her trenger vi kanskje litt tekst? Sed id felis id justo faucibus fermentum nec fringilla tortor. Duis et
+            auctor est, quis posuere odio. Maecenas placerat pretium lorem, auctor tempor diam accumsan in. Integer at
+            massa posuere, condimentum magna ornare, congue odio.
+        </p>
 
-        <div class="dropdown" (clickElsewhere)="closeDropdown()">
+
+        <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
 
             <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
                 (click)="toggleDropdown()">Velg {{ dropDownText }}</button>
