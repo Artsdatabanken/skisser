@@ -10,7 +10,7 @@
         </p>
 
         <table>
-            <caption>Antall kvalitetssikrede observasjoner per artsgruppe</caption>
+            <caption>Antall kvalitetssikrede observasjoner per artsgruppe ORIGINAL</caption>
             <tr>
                 <th scope="col" role="columnheader">Artsgruppe</th>
                 <th scope="col" role="columnheader" class="th-number">Antall taxa observert</th>
@@ -25,6 +25,28 @@
                 <td class="td-number"> {{ sighting.SightingCount }}</td>
                 <td class="td-number"> {{ sighting.SightingWithMediaCount }} </td>
                 <td class="td-number"> {{ sighting.ValidatedSightingCount }} </td>
+                <td class="td-number"> {{ sighting.ApprovedValidatedSightingCount }} </td>
+            </tr>
+        </table>
+
+        <table>
+            <caption>Antall kvalitetssikrede observasjoner per artsgruppe</caption>
+            <tr>
+                <th scope="col" role="columnheader">Artsgruppe</th>
+                <th scope="col" role="columnheader" class="th-number">Antall taxa observert</th>
+                <th scope="col" role="columnheader" class="th-number">Antall observasjoner</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket av validator*</th>
+                <td></td>
+                <th scope="col" role="columnheader" class="th-number">Med bilder</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket og godkjent av validator**</th>
+            </tr>
+            <tr *ngFor="let sighting of sightings">
+                <th scope="row" role="rowheader">{{ sighting.SpeciesGroupId }}</th>
+                <td class="td-number"> {{ sighting.SightingTaxonCount }} </td>
+                <td class="td-number"> {{ sighting.SightingCount | number }}</td>
+                <td class="td-number"> {{ sighting.ValidatedSightingCount | number }} </td>
+                <td></td>
+                <td class="td-number"> {{ sighting.SightingWithMediaCount }} </td>
                 <td class="td-number"> {{ sighting.ApprovedValidatedSightingCount }} </td>
             </tr>
         </table>

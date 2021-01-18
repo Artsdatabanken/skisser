@@ -12,7 +12,7 @@ table {
 
     caption {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
         margin: 25px auto 15px;
     }
 
@@ -20,7 +20,7 @@ table {
         @include customVar(border-bottom-color, paletteColor1);
         @include customVar(font-family, fontSecondary);
         border-bottom: 2px solid #48c9b0;
-        font-size: 20px;
+        font-size: 19px;
         font-weight: 700;
         padding: 10px;
         text-align: left;
@@ -46,6 +46,14 @@ table {
         border-bottom: 2px solid #d1f2eb;
         padding: 10px;
         text-align: left;
+    }
+
+    th, td {
+        //width: 16.6%;
+    }
+
+    td:empty {
+        background: pink;
     }
 }
 
