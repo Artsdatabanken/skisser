@@ -34,12 +34,12 @@ export class OverviewChild5Component implements OnInit {
       console.log('res', res);
       console.log('this.sightings', this.sightings);
 
-      this.sightings.forEach(s => {
-        console.log('T E S T', formatNumber(Number(s.SightingCount), this.locale, '1.0-0'))
-      })
-
     });
   }
 
+  getPercentage(total: number, partial: number): number | string {
+    const percentage: number =  partial*100/total;
+    return percentage.toFixed(1);
+  }
 
 }
