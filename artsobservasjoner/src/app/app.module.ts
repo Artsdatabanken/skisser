@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
 
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -93,6 +94,11 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { AccordionComponent } from './reusable/accordion/accordion.component';
 import { AccordionItemComponent } from './reusable/accordion/accordion-item/accordion-item.component';
+
+import localeNor from '@angular/common/locales/nb';
+import localeNorExtra from '@angular/common/locales/nb';
+
+registerLocaleData(localeNor, 'no', localeNorExtra);
 
 @NgModule({
   declarations: [
@@ -191,7 +197,10 @@ import { AccordionItemComponent } from './reusable/accordion/accordion-item/acco
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [NavigationService],
+  providers: [
+    NavigationService,
+    { provide: LOCALE_ID, useValue: 'no' }
+  ],
   bootstrap: [AppComponent]
 })
 
