@@ -1,3 +1,34 @@
 <div class="child">
     <h2>{{ pageTitle }}</h2>
+
+    <div class="section">
+
+        <p>
+            Tabellen viser antall taxa observert og antall observasjoner per artsgruppe.
+            For en forklaring på hva som er inkludert i tallene, se xxxxxxx [Lenke til tekst som forklarer reglene for
+            inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.
+        </p>
+
+        <table>
+            <caption>Antall kvalitetssikrede observasjoner per artsgruppe</caption>
+            <tr>
+                <th scope="col" role="columnheader">Artsgruppe</th>
+                <th scope="col" role="columnheader" class="th-number">Antall taxa observert</th>
+                <th scope="col" role="columnheader" class="th-number">Antall observasjoner</th>
+                <th scope="col" role="columnheader" class="th-number">Med bilder</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket av validator*</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket og godkjent av validator**</th>
+            </tr>
+            <tr *ngFor="let sighting of sightings">
+                <th scope="row" role="rowheader">{{ sighting.SpeciesGroupId }}</th>
+                <td class="td-number"> {{ sighting.SightingTaxonCount }} </td>
+                <td class="td-number"> {{ sighting.SightingCount }}</td>
+                <td class="td-number"> {{ sighting.SightingWithMediaCount }} </td>
+                <td class="td-number"> {{ sighting.ValidatedSightingCount }} </td>
+                <td class="td-number"> {{ sighting.ApprovedValidatedSightingCount }} </td>
+            </tr>
+        </table>
+
+    </div>
+
 </div>

@@ -17,8 +17,31 @@
             massa posuere, condimentum magna ornare, congue odio.
         </p>
 
-
+        <br>
+        
         <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
+
+            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
+                (click)="toggleDropdown()">
+                Velg {{ dropDownText }}
+                <!-- <span class="dropdown__button-text">Velg {{ dropDownText }}</span>
+                <span class="dropdown__button-icon" [ngClass]="{'dropdown__button-icon--active': activeDropdown}"></span> -->
+            </button>
+
+            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
+                [attr.aria-expanded]="activeDropdown">
+
+                <a *ngFor="let child of children" class="dropdown__link"
+                    routerLink="/observations/statistics/overview/{{child.path}}"
+                    routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
+                    {{ child.data.text }}
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
 
             <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
                 (click)="toggleDropdown()">Velg {{ dropDownText }}</button>
@@ -34,7 +57,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
         <router-outlet></router-outlet>
 

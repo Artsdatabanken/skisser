@@ -1,12 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../data/settings.json';
 import { NewsItem } from '../models/newsItem';
 import { environment } from '../../environments/environment';
 import { FeaturedImage } from '../models/featuredImage';
 import { AboutPage } from '../models/aboutPage';
+import QAData from '../data/qualityAssuredData.json';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +15,10 @@ import { AboutPage } from '../models/aboutPage';
 
 export class DataService {
 
-  // // bouvet
-  // wordpressPostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts?_embed';
-  // wordpressSinglePostApi: string = 'http://localhost:10004/wp-json/wp/v2/posts/';
-
-  // // home
-  // wpPostsApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts?_embed';
-  // wpSinglePostApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/posts/';
-  // wpPagesApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages';
-  // wpSinglePageApi: string = 'http://artsobservasjoner.local/wp-json/wp/v2/pages/';
-
   ids: string[] = Settings.drupalIds;
   errorMessage: string;
+
+  qaData: any = QAData;
 
   // APIs
   // environmentWpApi: string;
@@ -438,5 +431,90 @@ export class DataService {
     );
 
   }
+
+
+
+  getQADYears(): Observable<string[]> {
+
+    console.log('qa')
+
+    let years: string[] = [];
+
+
+    this.qaData.forEach(element => {
+      console.log('qadata', element.Data)
+
+      element.Data.forEach(elem => {
+        if (!years.includes(elem.year)) {
+          years.push(elem.year);
+        }
+      });
+
+    });
+
+    console.log('years', years)
+    console.log('count years', years.length)
+
+    return of(years).pipe();
+
+  }
+
+  getQAData(): Observable<any[]> {
+
+    let sightings: any[] = [];
+
+    return of(this.qaData).pipe(
+      map(data => {
+
+        data.forEach(d => {
+
+          sightings.push(d);
+
+        });
+
+        return sightings;
+      })
+    );
+
+  }
+
+
+  // getPosts(): Observable<Post[]> {
+
+  //   let posts: Post[] = [];
+  //   let post: Post;
+
+  //   return of(this.data).pipe(
+  //     map(data => {
+
+  //       data.forEach(d => {
+
+  //         post = {
+  //           id: d.id,
+  //           type: 'post',
+  //           title: d.title,
+  //           permalink: d.id,
+  //           date: d.date,
+  //           author: 'CHAU',
+  //           ingress: d.ingress,
+  //           body: d.body,
+  //           category: d.category,
+  //           tags: d.tags,
+  //           featured: d.featured,
+  //           visible: d.visible,
+  //           private: d.private,
+  //           published: d.published
+  //         }
+
+  //         posts.push(post);
+  //       });
+
+  //       posts = posts.filter(p => p.visible === true);
+
+  //       return posts.sort((a, b) => b.date.toString().localeCompare(a.date.toString()));
+  //     })
+  //   );
+
+  // }
 
 }
