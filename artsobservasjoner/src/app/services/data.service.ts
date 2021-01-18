@@ -54,7 +54,7 @@ export class DataService {
   private getTime(date?: Date) {
     return date != null ? new Date(date).getTime() : 0;
   }
-
+  
   //----------------------------------------------------------------------------****
 
   getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
@@ -154,6 +154,110 @@ export class DataService {
       refCount()
     );
   }
+
+  getAboutPagesById(id: number): Observable<AboutPage[]> {
+
+    let aboutPages: AboutPage[] = [];
+
+    return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).pipe(
+      map(res => {
+
+        //console.log('res', res)
+
+        let order: number;
+
+        if (res.Metadata[0].Label) {
+          order = +res.Metadata[0].Label;
+        }
+        else {
+          order = 0;
+        }
+
+        aboutPages.push({
+          id: res.Id,
+          url: res.Url.replace('/Pages/', ''),
+          heading: res.Heading,
+          intro: res.Intro,
+          body: res.Body,
+          content: res.Content,
+          title: res.Title,
+          languages: null,
+          order: order
+        });
+
+        return aboutPages = aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getMammalspeciesGroups(): Observable<any[]> {
+
+    return this.http.get('http://hotline.whalemuseum.org/api.json').pipe(
+      map((res: any[]) => {
+
+        //console.log('speciesGroups', res);
+
+        return res;
+
+      }),
+      publishReplay(1), // Cache the latest emitted
+      refCount(), // Keep alive as long as there are subscribers
+      catchError(error => {
+
+        if (error.error instanceof ErrorEvent) {
+          this.errorMessage = `Error: ${error.error.message}`;
+        }
+        else {
+          this.errorMessage = this.getServerErrorMessage(error);
+        }
+
+        return throwError(this.errorMessage);
+      })
+    );
+
+  }
+
+  // getPosts(): Observable<Post[]> {
+
+  //   let posts: Post[] = [];
+  //   let post: Post;
+
+  //   return of(this.data).pipe(
+  //     map(data => {
+
+  //       data.forEach(d => {
+
+  //         post = {
+  //           id: d.id,
+  //           type: 'post',
+  //           title: d.title,
+  //           permalink: d.id,
+  //           date: d.date,
+  //           author: 'CHAU',
+  //           ingress: d.ingress,
+  //           body: d.body,
+  //           category: d.category,
+  //           tags: d.tags,
+  //           featured: d.featured,
+  //           visible: d.visible,
+  //           private: d.private,
+  //           published: d.published
+  //         }
+
+  //         posts.push(post);
+  //       });
+
+  //       posts = posts.filter(p => p.visible === true);
+
+  //       return posts.sort((a, b) => b.date.toString().localeCompare(a.date.toString()));
+  //     })
+  //   );
+
+  // }
 
   // strapi
 
@@ -364,157 +468,6 @@ export class DataService {
   //       return throwError(this.errorMessage);
   //     })
   //   )
-  // }
-
-  getAboutPagesById(id: number): Observable<AboutPage[]> {
-
-    let aboutPages: AboutPage[] = [];
-
-    return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).pipe(
-      map(res => {
-
-        //console.log('res', res)
-
-        let order: number;
-
-        if (res.Metadata[0].Label) {
-          order = +res.Metadata[0].Label;
-        }
-        else {
-          order = 0;
-        }
-
-        aboutPages.push({
-          id: res.Id,
-          url: res.Url.replace('/Pages/', ''),
-          heading: res.Heading,
-          intro: res.Intro,
-          body: res.Body,
-          content: res.Content,
-          title: res.Title,
-          languages: null,
-          order: order
-        });
-
-        return aboutPages = aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  getMammalSightings(): Observable<any[]> {
-
-    return this.http.get('http://hotline.whalemuseum.org/api.json').pipe(
-      map((res: any[]) => {
-
-        //console.log('sightings', res);
-
-        return res;
-
-      }),
-      publishReplay(1), // Cache the latest emitted
-      refCount(), // Keep alive as long as there are subscribers
-      catchError(error => {
-
-        if (error.error instanceof ErrorEvent) {
-          this.errorMessage = `Error: ${error.error.message}`;
-        }
-        else {
-          this.errorMessage = this.getServerErrorMessage(error);
-        }
-
-        return throwError(this.errorMessage);
-      })
-    );
-
-  }
-
-
-
-  getQADYears(): Observable<string[]> {
-
-    console.log('qa')
-
-    let years: string[] = [];
-
-
-    this.qaData.forEach(element => {
-      console.log('qadata', element.Data)
-
-      element.Data.forEach(elem => {
-        if (!years.includes(elem.year)) {
-          years.push(elem.year);
-        }
-      });
-
-    });
-
-    console.log('years', years)
-    console.log('count years', years.length)
-
-    return of(years).pipe();
-
-  }
-
-  getQAData(): Observable<any[]> {
-
-    let sightings: any[] = [];
-
-    return of(this.qaData).pipe(
-      map(data => {
-
-        data.forEach(d => {
-
-          sightings.push(d);
-
-        });
-
-        return sightings;
-      })
-    );
-
-  }
-
-
-  // getPosts(): Observable<Post[]> {
-
-  //   let posts: Post[] = [];
-  //   let post: Post;
-
-  //   return of(this.data).pipe(
-  //     map(data => {
-
-  //       data.forEach(d => {
-
-  //         post = {
-  //           id: d.id,
-  //           type: 'post',
-  //           title: d.title,
-  //           permalink: d.id,
-  //           date: d.date,
-  //           author: 'CHAU',
-  //           ingress: d.ingress,
-  //           body: d.body,
-  //           category: d.category,
-  //           tags: d.tags,
-  //           featured: d.featured,
-  //           visible: d.visible,
-  //           private: d.private,
-  //           published: d.published
-  //         }
-
-  //         posts.push(post);
-  //       });
-
-  //       posts = posts.filter(p => p.visible === true);
-
-  //       return posts.sort((a, b) => b.date.toString().localeCompare(a.date.toString()));
-  //     })
-  //   );
-
   // }
 
 }

@@ -9,30 +9,6 @@ export class UtilitiesService {
 
   private subject = new Subject<any>();
 
-  showDropdownPane: boolean;
-  dropdownVisibility: Subject<boolean> = new Subject<boolean>();
-  dropdownLinkText: Subject<string> = new Subject<string>();
-  defaultDropdownText: string;
-
-  constructor() {
-    this.showDropdownPane = false;
-    this.defaultDropdownText = 'Volumstatistikk';
-  }
-
-  toggleDropdown(): void {
-    this.showDropdownPane = !this.showDropdownPane;
-    this.dropdownVisibility.next(this.showDropdownPane);
-  }
-
-  closeDropdown(): void {
-    this.showDropdownPane = false; // change state
-    this.dropdownVisibility.next(this.showDropdownPane); // propagate the new state
-  }
-
-  propagateDropdownLinkText(dropdownLinkText: string): void {
-    this.dropdownLinkText.next(dropdownLinkText); // propagate the new state
-  }
-
   //-----------------------------------------------------------------------------------------------------------***
 
   sendClickEvent(): void {
@@ -43,5 +19,10 @@ export class UtilitiesService {
     return this.subject.asObservable();
   }
 
+  getPercentage(total: number, partial: number): number {
+    let percentage: number =  partial*100/total;
+    percentage = +percentage.toFixed(1)
+    return percentage;
+  }
 
 }

@@ -1,5 +1,9 @@
+import { Inject, LOCALE_ID } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QualityAssuredSighting } from 'src/app/models/statistics';
 import { DataService } from 'src/app/services/data.service';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-quality-assured-data',
@@ -9,8 +13,26 @@ import { DataService } from 'src/app/services/data.service';
 
 export class QualityAssuredDataComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  pageTitle: string;
+  sightings: QualityAssuredSighting[] = [];
+  locale: any;
 
-  ngOnInit(): void { }
+  constructor(
+    @Inject(LOCALE_ID) locale: string,
+    private route: ActivatedRoute,
+    private statisticsService: StatisticsService
+  ) {
+    this.locale = locale;
+  }
 
+  ngOnInit(): void {
+
+    this.pageTitle = this.route.routeConfig.data.text;
+
+    this.statisticsService.getQAData().subscribe((res) => {   
+      console.log('res', res);
+      this.sightings = res;
+    });
+  }
+  
 }

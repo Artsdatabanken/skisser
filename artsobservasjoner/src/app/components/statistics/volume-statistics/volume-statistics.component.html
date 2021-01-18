@@ -32,7 +32,7 @@
                 [attr.aria-expanded]="activeDropdown">
 
                 <a *ngFor="let child of children" class="dropdown__link"
-                    routerLink="/observations/statistics/overview/{{child.path}}"
+                    routerLink="/observations/statistics/volume-statistics/{{child.path}}"
                     routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
                     {{ child.data.text }}
                 </a>

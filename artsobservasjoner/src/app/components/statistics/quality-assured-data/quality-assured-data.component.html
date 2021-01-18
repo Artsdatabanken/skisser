@@ -8,103 +8,50 @@
 
     <div class="page__content">
 
-        <h2>Totalt antall kvalitetssikrede (validerte) observasjoner per artsgruppe</h2>
-
-        <p>Totalt antall kvalitetssikrede (validerte) observasjoner per artsgruppe (kakediagram, evt. lage en
-            tilsvarende figur over % av totalen som her https://www.artsdatabanken.no/Rodliste/Resultater ) </p>
-
-        <h2>Artsgruppeoversikt totalt og per år</h2>
-
-        <h2>Valideringsoversikt etter valideringsstatus totalt og per år</h2>
+        <p>
+            Tabellen viser antall taxa observert og antall observasjoner per artsgruppe.
+            For en forklaring på hva som er inkludert i tallene, se xxxxxxx [Lenke til tekst som forklarer reglene for
+            inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.
+        </p>
 
         <table>
-
+            <caption>Antall taxa observert og antall observasjoner per artsgruppe ORIGINAL</caption>
             <tr>
-                <th>Artsgruppe</th>
-                <th>Risikogruppe</th>
-                <th class="td-number">Totalt</th>
-                <th class="td-number">Med bilder</th>
-                <th class="td-number">Validerte</th>
+                <th scope="col" role="columnheader">Artsgruppe</th>
+                <th scope="col" role="columnheader" class="th-number">Antall taxa observert</th>
+                <th scope="col" role="columnheader" class="th-number">Antall observasjoner</th>
+                <th scope="col" role="columnheader" class="th-number">Med bilder</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket av validator*</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket og godkjent av validator**</th>
             </tr>
+            <tr *ngFor="let sighting of sightings">
+                <th scope="row" role="rowheader">{{ sighting.id }}</th>
+                <td class="td-number"> {{ sighting.sightingTaxonCount }} </td>
+                <td class="td-number"> {{ sighting.sightingCount }}</td>
+                <td class="td-number"> {{ sighting.sightingWithMediaCount }} </td>
+                <td class="td-number"> {{ sighting.validatedSightingCount }} </td>
+                <td class="td-number"> {{ sighting.approvedSightingCount }} </td>
+            </tr>
+        </table>
 
+        <table>
+            <caption>Antall kvalitetssikrede observasjoner per artsgruppe</caption>
             <tr>
-                <td rowspan="6" scope="row"><strong>Alger</strong></td>
-                <td>CR</td>
-                <td class="td-number">1</td>
-                <td class="td-number">0</td>
-                <td class="td-number">1</td>
+                <th scope="col" role="columnheader">Artsgruppe</th>
+                <th scope="col" role="columnheader" class="th-number">Antall observasjoner</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket av validator*</th>
+                <th scope="col" role="columnheader" class="th-number">Andel kvalitetssjekket</th>
+                <th scope="col" role="columnheader" class="th-number">Kvalitetssjekket og godkjent av validator**</th>
+                <th scope="col" role="columnheader" class="th-number">Andel kvalitetssjekket og godkjent</th>
             </tr>
-            <tr>
-                <td>EN</td>
-                <td class="td-number">9</td>
-                <td class="td-number">1</td>
-                <td class="td-number">3</td>
+            <tr *ngFor="let sighting of sightings">
+                <th scope="row" role="rowheader"> {{ sighting.id }} </th>
+                <td class="td-number"> {{ sighting.sightingCount | number }} </td>
+                <td class="td-number"> {{ sighting.validatedSightingCount | number }} </td>
+                <td class="td-number td-highlighted"> {{ sighting.percentageSightedVsValidated }} %</td>
+                <td class="td-number"> {{ sighting.approvedSightingCount | number }} </td>
+                <td class="td-number td-highlighted"> {{ sighting.percentageValidatedVsApproved }} %</td>
             </tr>
-            <tr>
-                <td>VU</td>
-                <td class="td-number">54</td>
-                <td class="td-number">0</td>
-                <td class="td-number">15</td>
-            </tr>
-            <tr>
-                <td>NT</td>
-                <td class="td-number">69</td>
-                <td class="td-number">12</td>
-                <td class="td-number">40</td>
-            </tr>
-            <tr>
-                <td>DD</td>
-                <td class="td-number">5</td>
-                <td class="td-number">3</td>
-                <td class="td-number">3</td>
-            </tr>
-            <tr>
-                <td>&mdash;</td>
-                <td class="td-number">7880</td>
-                <td class="td-number">1831</td>
-                <td class="td-number">149</td>
-            </tr>
-
-            <tr class="tr-shadow">
-                <td rowspan="3" scope="row"><strong>Amfibier og reptiler</strong></td>
-                <td>CR</td>
-                <td class="td-number">31</td>
-                <td class="td-number">16</td>
-                <td class="td-number">27</td>
-            </tr>
-
-            <tr class="tr-shadow">
-                <td>NT</td>
-                <td class="td-number">3677</td>
-                <td class="td-number">585</td>
-                <td class="td-number">3329</td>
-            </tr>
-
-            <tr class="tr-shadow">
-                <td>&mdash;</td>
-                <td class="td-number">20375</td>
-                <td class="td-number">3729</td>
-                <td class="td-number">1659</td>
-            </tr>
-
-            <tr>
-                <td rowspan="2" scope="row"><strong>Fisk</strong></td>
-                <td>RE</td>
-                <td class="td-number">1</td>
-                <td class="td-number">1</td>
-                <td class="td-number">0</td>
-            </tr>
-
-
-            <tr>
-
-                <td>CR</td>
-                <td class="td-number">2</td>
-                <td class="td-number">1</td>
-                <td class="td-number">1</td>
-            </tr>
-
-
         </table>
 
     </div>

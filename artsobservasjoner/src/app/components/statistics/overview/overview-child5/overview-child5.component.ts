@@ -1,7 +1,7 @@
-import { formatNumber, registerLocaleData } from '@angular/common';
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from 'src/app/services/data.service';
+import { QualityAssuredSighting } from 'src/app/models/statistics';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-overview-child5',
@@ -12,15 +12,14 @@ import { DataService } from 'src/app/services/data.service';
 export class OverviewChild5Component implements OnInit {
 
   pageTitle: string;
-  sightings: any[] = [];
+  sightings: QualityAssuredSighting[] = [];
   locale: any;
 
   constructor(
     @Inject(LOCALE_ID) locale: string,
     private route: ActivatedRoute,
-    private dataService: DataService
-  ) { 
-    console.log('locale', locale);
+    private statisticsService: StatisticsService
+  ) {
     this.locale = locale;
   }
 
@@ -28,18 +27,21 @@ export class OverviewChild5Component implements OnInit {
 
     this.pageTitle = this.route.routeConfig.data.text;
 
-    this.dataService.getQAData().subscribe((res) => {
+    // this.dataService.getQAData().subscribe((res) => {
+    //   this.sightings = res;
+
+    //   console.log('res', res);
+    //   console.log('this.sightings', this.sightings);
+
+    // });
+
+    this.statisticsService.getQAData().subscribe((res) => {
+    
+      console.log('res', res);
+
       this.sightings = res;
 
-      console.log('res', res);
-      console.log('this.sightings', this.sightings);
-
     });
-  }
-
-  getPercentage(total: number, partial: number): number | string {
-    const percentage: number =  partial*100/total;
-    return percentage.toFixed(1);
   }
 
 }

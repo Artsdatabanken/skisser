@@ -1,6 +1,5 @@
 import { Directive, HostListener } from '@angular/core';
-import { UtilitiesService } from '../services/utilities.service';
-
+import { LayoutService } from '../services/layout.service';
 
 @Directive({
     selector: '[closeDropdown]'
@@ -9,9 +8,9 @@ import { UtilitiesService } from '../services/utilities.service';
 export class CloseDropdownDirective {
 
     @HostListener('click') onClick() {
-        this.utilitiesService.closeDropdown();
+        this.layoutService.closeDropdown();
     }
 
-    constructor(private utilitiesService: UtilitiesService) { }
+    constructor(private layoutService: LayoutService) { }
 
 }

@@ -18,17 +18,11 @@ import { ReportComponent } from './components/report/report.component';
 import { MapComponent } from './misc/map/map.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MessagesComponent } from './components/messages/messages.component';
-import { ContributeComponent } from './components/about/contribute/contribute.component';
-import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
-import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
-import { TosComponent } from './components/about/tos/tos.component';
-import { SupportComponent } from './components/about/support/support.component';
 import { MyDataComponent } from './components/my-data/my-data.component';
 import { MyObservationsComponent } from './components/my-data/my-observations/my-observations.component';
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
 import { MyProjectsComponent } from './components/my-data/my-projects/my-projects.component';
 import { MyLocationsComponent } from './components/my-data/my-locations/my-locations.component';
-import { SpeciesWithNoDataComponent } from './components/statistics/species-with-no-data/species-with-no-data.component';
 import { AddObservationComponent } from './components/report/add-observation/add-observation.component';
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
 import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
@@ -47,11 +41,10 @@ import { OverviewChild10Component } from './components/statistics/overview/overv
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
-import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
-import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
+import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 
 /*
 
@@ -236,11 +229,11 @@ const observationRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/overview',
-    component: OverviewStatsComponent,
+    path: 'observations/statistics/volume-statistics',
+    component: VolumeStatisticsComponent,
     data: {
       text: 'Volumstatistikk',
-      id: 'overview',
+      id: 'volumStatistics',
       layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
@@ -251,8 +244,8 @@ const observationRoutes: Routes = [
     },
     children: [
       {
-        path: 'observations/statistics/overview/:id',
-        component: OverviewStatsItemComponent,
+        path: 'observations/statistics/volume-statistics/:id',
+        component: VolumeStatisticsComponent,
         data: {
           text: 'Oversikt stats item',
           id: 'overviewStatsItem',

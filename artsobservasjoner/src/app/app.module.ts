@@ -87,8 +87,6 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
-import { OverviewStatsComponent } from './components/statistics/overview-stats/overview-stats.component';
-import { OverviewStatsItemComponent } from './components/statistics/overview-stats/overview-stats-item/overview-stats-item.component';
 import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
@@ -97,6 +95,7 @@ import { AccordionItemComponent } from './reusable/accordion/accordion-item/acco
 
 import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
+import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -184,13 +183,12 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     NewsComponent,
     NewsItemComponent,
     TruncateTextPipe,
-    OverviewStatsComponent,
-    OverviewStatsItemComponent,
     SightingsMapComponent,
     AboutPageComponent,
     KnowledgeGapComponent,
     AccordionComponent,
-    AccordionItemComponent
+    AccordionItemComponent,
+    VolumeStatisticsComponent
   ],
   imports: [
     BrowserModule,

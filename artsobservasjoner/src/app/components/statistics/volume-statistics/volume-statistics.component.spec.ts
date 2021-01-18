@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverviewStatsComponent } from './overview-stats.component';
+import { VolumeStatisticsComponent } from './volume-statistics.component';
 
-describe('OverviewStatsComponent', () => {
-  let component: OverviewStatsComponent;
-  let fixture: ComponentFixture<OverviewStatsComponent>;
+describe('VolumeStatisticsComponent', () => {
+  let component: VolumeStatisticsComponent;
+  let fixture: ComponentFixture<VolumeStatisticsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OverviewStatsComponent ]
+      declarations: [ VolumeStatisticsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OverviewStatsComponent);
+    fixture = TestBed.createComponent(VolumeStatisticsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

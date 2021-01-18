@@ -1,5 +1,5 @@
 import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { UtilitiesService } from '../services/utilities.service';
+import { LayoutService } from '../services/layout.service';
 
 @Directive({
     selector: '[getDropdownItem]'
@@ -13,14 +13,14 @@ export class GetDropdownItemDirective implements OnInit {
     constructor(
         private elemRef: ElementRef,
         private renderer: Renderer2,
-        private utilitiesService: UtilitiesService
+        private layoutService: LayoutService
     ) { }
 
     ngOnInit(): void {
 
         this.unlistener = this.renderer.listen(this.elemRef.nativeElement, 'click', (event: any) => {
             this.elem = event.target.innerText || event.currentTarget.innerText;
-            this.utilitiesService.propagateDropdownLinkText(this.elem);
+            this.layoutService.propagateDropdownLinkText(this.elem);
         });
 
     }

@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { UtilitiesService } from 'src/app/services/utilities.service';
+import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
-  selector: 'app-overview-stats',
-  templateUrl: './overview-stats.component.html',
-  styleUrls: ['./overview-stats.component.scss']
+  selector: 'app-volume-statistics',
+  templateUrl: './volume-statistics.component.html',
+  styleUrls: ['./volume-statistics.component.scss']
 })
 
-export class OverviewStatsComponent implements OnInit {
+export class VolumeStatisticsComponent implements OnInit {
 
   pageTitle: string;
   children: any[] = [];
@@ -22,18 +22,18 @@ export class OverviewStatsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private utilitiesService: UtilitiesService
+    private layoutService: LayoutService
   ) {
 
     this.pageTitle = this.route.routeConfig.data.text;
     this.children = this.route.routeConfig.children.filter(ch => ch.data.hidden === false);
     //this.dropDownText = this.utilitiesService.defaultDropdownText;
 
-    this.subscription = this.utilitiesService.dropdownVisibility.subscribe((value) => {
+    this.subscription = this.layoutService.dropdownVisibility.subscribe((value) => {
       this.activeDropdown = value;
     });
 
-    this.subscription = this.utilitiesService.dropdownLinkText.subscribe((value) => {
+    this.subscription = this.layoutService.dropdownLinkText.subscribe((value) => {
       //this.dropDownText = value;
     });
 
@@ -48,11 +48,10 @@ export class OverviewStatsComponent implements OnInit {
   }
 
   toggleDropdown(): void {
-    this.utilitiesService.toggleDropdown();
+    this.layoutService.toggleDropdown();
   }
 
   closeDropdown(): void {
-    this.utilitiesService.closeDropdown();
+    this.layoutService.closeDropdown();
   }
-
 }
