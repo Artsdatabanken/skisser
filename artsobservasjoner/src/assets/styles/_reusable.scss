@@ -691,7 +691,7 @@
 
         cursor: pointer;
         font-size: 23px;
-        font-weight: 600;
+        font-weight: 500;
         padding: 15px 45px 15px 30px;
         padding: 15px 0;
         text-align: left;
@@ -699,9 +699,7 @@
 
         &:hover,
         &:focus {
-            // @include customVar(background-color, clrBlack);
-            // @include customVar(color, clrWhite);
-            // background-image: url(../images/iconChevronWhiteDown.png);
+          
         }
 
         &:focus {
@@ -709,13 +707,10 @@
         }
 
         &--active {
-            //background-color: #a3e4d7;
             background-image: url(../images/iconChevronUp.png);
 
             &:hover {
-                // @include customVar(background-color, clrBlack);
-                // @include customVar(color, clrWhite);
-                // background-image: url(../images/iconChevronWhiteUp.png);
+              
             }
         }
 

@@ -3,12 +3,21 @@
 .layout {
     @include customVar(background-color, backgroundColor);
     @include customVar(background-color, clrWhite);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    & > * {
+        border: 2px dotted red;
+    }
 
     &__header {
     }
 
     &__footer {
         @include customVar(background-color, paletteColor0);
+        align-self: flex-end;
+        width: 100%;
     }
 
     &__main {
@@ -238,6 +247,7 @@
     &__heading {
         font-size: 28px;
         font-size: 32px;
+        font-size: 34px;
         font-weight: 400;
         font-weight: 500;
         margin: 0 0 20px;
@@ -571,7 +581,7 @@
     @include customVar(font-family, fontSecondary);
     border: none;
     font-size: 26px;
-    font-weight: 300;
+    font-weight: 400;
     height: 100%;
     line-height: 1;
     text-transform: uppercase;
@@ -640,6 +650,7 @@
 
 .footer {
     @include customVar(background-color, clrLight);
+    margin-top: 100px;
     padding: 45px;
 
     &__grid {
