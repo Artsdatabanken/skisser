@@ -678,24 +678,30 @@
 
     &__button {
         @include customVar(font-family, fontSecondary);
-        background-color: #d5f5e3;
+        background-color: transparent;
         background-image: url(../images/iconChevronDown.png);
-        background-position: right 30px center;
+        background-position: right 15px center;
         background-repeat: no-repeat;
-        background-size: 17px;
+        background-size: 19px;
+
         border: none;
+        @include customVar(border-bottom-color, paletteColor1);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+
         cursor: pointer;
-        font-size: 22px;
-        font-weight: 400;
+        font-size: 23px;
+        font-weight: 600;
         padding: 15px 45px 15px 30px;
+        padding: 15px 0;
         text-align: left;
         width: 100%;
 
         &:hover,
         &:focus {
-            @include customVar(background-color, clrBlack);
-            @include customVar(color, clrWhite);
-            background-image: url(../images/iconChevronWhiteDown.png);
+            // @include customVar(background-color, clrBlack);
+            // @include customVar(color, clrWhite);
+            // background-image: url(../images/iconChevronWhiteDown.png);
         }
 
         &:focus {
@@ -703,13 +709,13 @@
         }
 
         &--active {
-            background-color: #a3e4d7;
+            //background-color: #a3e4d7;
             background-image: url(../images/iconChevronUp.png);
 
             &:hover {
-                @include customVar(background-color, clrBlack);
-                @include customVar(color, clrWhite);
-                background-image: url(../images/iconChevronWhiteUp.png);
+                // @include customVar(background-color, clrBlack);
+                // @include customVar(color, clrWhite);
+                // background-image: url(../images/iconChevronWhiteUp.png);
             }
         }
 
@@ -861,4 +867,3 @@
         }
     }
 }
-

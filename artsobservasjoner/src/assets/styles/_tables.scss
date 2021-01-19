@@ -22,7 +22,7 @@ table {
         @include customVar(font-family, fontSecondary);
         border-bottom: 2px solid #48c9b0;
         font-size: 19px;
-        font-weight: 700;
+        font-weight: 600;
         text-align: left;
 
         @media screen and (max-width: 1200px) {
@@ -32,7 +32,9 @@ table {
 
         &[scope="row"] {
             @include customVar(font-family, fontPrimary);
-            border-bottom: 2px solid #d1f2eb;
+            @include customVar(border-bottom-color, paletteColor1);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
             font-size: 17px;
             font-weight: 700;
 
@@ -43,7 +45,10 @@ table {
     }
 
     td {
-        border-bottom: 2px solid #d1f2eb;
+        @include customVar(border-bottom-color, paletteColor1);
+        //border-bottom: 2px solid #d1f2eb;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
         text-align: left;
     }
 

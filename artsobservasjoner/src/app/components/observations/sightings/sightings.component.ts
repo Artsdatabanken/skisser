@@ -45,7 +45,7 @@ export class SightingsComponent implements OnInit {
   }
 
   getSightings(): void {
-    this.dataService.getMammalSightings().subscribe(mm => {
+    this.dataService.getMammalspeciesGroups().subscribe(mm => {
       //console.log('mm', mm)
 
       // or send this.take as a parameter so we don't get stuff from the server unnecessarily
