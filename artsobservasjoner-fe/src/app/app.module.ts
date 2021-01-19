@@ -92,10 +92,10 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { AccordionComponent } from './reusable/accordion/accordion.component';
 import { AccordionItemComponent } from './reusable/accordion/accordion-item/accordion-item.component';
+import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 
 import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
-import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
