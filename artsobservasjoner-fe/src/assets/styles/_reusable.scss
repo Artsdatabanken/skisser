@@ -692,14 +692,13 @@
         cursor: pointer;
         font-size: 23px;
         font-weight: 500;
-        padding: 15px 45px 15px 30px;
         padding: 15px 0;
+        position: relative;
         text-align: left;
         width: 100%;
 
         &:hover,
         &:focus {
-          
         }
 
         &:focus {
@@ -708,10 +707,8 @@
 
         &--active {
             background-image: url(../images/iconChevronUp.png);
-
-            &:hover {
-              
-            }
+            @include customVar(border-bottom-color, transparent);
+            font-weight: 700;
         }
 
         @media screen and (max-width: 1200px) {
@@ -728,6 +725,9 @@
         padding: 30px 0;
 
         &--expanded {
+            @include customVar(border-bottom-color, paletteColor1);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
             display: block;
             animation: growDown 500ms ease-in-out forwards;
             transform-origin: top center;

@@ -22,10 +22,14 @@
 
         <app-accordion *ngIf="aboutPage.content">
             <app-accordion-item *ngFor="let content of aboutPage.content" [heading]="content.heading"
-                [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)" [shouldCloseOtherItems]="true">
+                [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)"
+                [shouldCloseOtherItems]="true">
                 <div [innerHtml]="content.body"></div>
             </app-accordion-item>
         </app-accordion>
+
+        <br>
+        <br>
 
         <!--ACCORDION-->
 

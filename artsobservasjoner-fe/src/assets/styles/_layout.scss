@@ -8,7 +8,7 @@
     flex-wrap: nowrap;
 
     & > * {
-        border: 2px dotted red;
+        //border: 2px dotted red;
     }
 
     &__header {
@@ -650,7 +650,6 @@
 
 .footer {
     @include customVar(background-color, clrLight);
-    margin-top: 100px;
     padding: 45px;
 
     &__grid {
@@ -846,7 +845,7 @@ main {
 
     &__intro {
         font-size: 25px;
-        font-weight: 800;
+        font-weight: 700;
         margin-bottom: 30px;
 
         @media screen and (max-width: 1200px) {
