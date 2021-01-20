@@ -1,5 +1,16 @@
 <div class="page page--frontpage frontpage">
 
+    <!--TEST-->
+
+    <!-- <select [(ngModel)]="siteLocale" #language (change)="onChange(language.value)">
+        <option *ngFor="let lang of languageList" [value]="lang.code">
+            {{ lang.label }}
+        </option>
+    </select> -->
+
+    <!--TEST-->
+
+
     <!--intro-->
     <div class="frontpage__section frontpage__section--intro frontpage__section--height-s frontpage__section--width-s">
 
@@ -88,8 +99,10 @@
                 [text]="'Kvalitetssikret artsdata'"></app-card> -->
 
             <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'Tall og statistikk'"></app-card>
-            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'"></app-card>
-            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'"></app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'">
+            </app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'">
+            </app-card>
             <app-card [type]="'link'" [url]="'/observations/statistics/overview'" [text]="'Volumstatistikk'"></app-card>
 
         </div>
