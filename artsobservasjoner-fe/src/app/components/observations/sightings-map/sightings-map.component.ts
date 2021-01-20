@@ -39,7 +39,7 @@ export class SightingsMapComponent implements OnInit {
 
   getSightings(): void {
 
-    this.dataService.getMammalSightings().subscribe(mm => {
+    this.dataService.getMammalspeciesGroups().subscribe(mm => {
       this.marineMammals = mm;
 
       this.marineMammals.forEach(mm => {
