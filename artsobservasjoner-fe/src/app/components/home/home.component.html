@@ -8,6 +8,15 @@
         </option>
     </select> -->
 
+    <select [(ngModel)]="chosenLanguage" #lang (change)="onChange(lang.value)">
+        <option *ngFor="let language of translationService.languages" lang="{{ language.code }}"
+            hreflang="{{ language.code }}" [value]="language.code">{{ language.name }}</option>
+    </select>
+
+    <p>
+        {{'sentence' | translate}}
+    </p>
+
     <!--TEST-->
 
 
@@ -18,8 +27,10 @@
 
             <div class="frontpage__paragraph">
 
-                <p>Bli med og hjelp oss</p>
-                <p>å kartlegge norsk natur!</p>
+                <!-- <p>Bli med og hjelp oss</p>
+                <p>å kartlegge norsk natur!</p> -->
+
+                <p style="margin: 0 auto; width: 20ch">{{ 'frontpage_introText1' | translate }}</p>
 
             </div>
 
@@ -28,13 +39,13 @@
 
             <div>
 
-                <a class="" routerLink="/about/contribute">Lær mer om hvordan du kan bidra</a>
+                <a class="" routerLink="/about/contribute">{{ 'frontpage_introText2' | translate }}</a>
 
             </div>
             <br>
             <div>
                 <a class="button button--cta" routerLink="/register">
-                    Registrer deg
+                    {{ 'account_register' | translate }}
                 </a>
             </div>
         </div>

@@ -20,7 +20,6 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
-import { TranslationPipe } from './pipes/translation.pipe';
 import { NavigationService } from './services/navigation.service';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 import { TrimPipe } from './pipes/trim.pipe';
@@ -96,6 +95,7 @@ import { VolumeStatisticsComponent } from './components/statistics/volume-statis
 
 import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
+import { TranslatePipe } from './pipes/translate.pipe';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -117,7 +117,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     UserListsComponent,
     NoDataSpeciesComponent,
     BreadcrumbsComponent,
-    TranslationPipe,
     TrimPipe,
     LanguageSwitcherComponent,
     DesignComponent,
@@ -188,7 +187,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     KnowledgeGapComponent,
     AccordionComponent,
     AccordionItemComponent,
-    VolumeStatisticsComponent
+    VolumeStatisticsComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,

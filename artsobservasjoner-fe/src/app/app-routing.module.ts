@@ -46,14 +46,22 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 
+import Translations from '../app/data/translations.json';
+import { TranslatePipe } from './pipes/translate.pipe';
+
 /*
 
 DOCUMENTATION:
-* Husk at siste segment i path (url) må være lik id-property under data
 
-TODO: legg til property order
+* Husk at siste segment i path (url) må være lik id-property under data
+* TODO: legg til property order
 
 */
+
+const translate = (key: string, langCode: string): any => {
+
+}
+
 
 const homeRoutes: Routes = [
   {
@@ -167,12 +175,13 @@ const reportRoutes: Routes = [
   }
 ];
 
-const observationRoutes: Routes = [
+const observationsRoutes: Routes = [
   {
     path: 'observations',
     component: ObservationsComponent,
     data: {
       text: 'Observasjonsdata',
+      langKey: 'menu_parent_sightingsData',
       id: 'observations',
       layout: 'page',
       rank: 'primary',
@@ -188,6 +197,7 @@ const observationRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
+      langKey: '',
       id: 'sightings',
       layout: 'page',
       rank: 'primary',
@@ -875,7 +885,7 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...observationRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...observationsRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

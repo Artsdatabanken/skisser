@@ -1,0 +1,60 @@
+[
+    {
+        "id": 1,
+        "language": "norwegian",
+        "languageCode": "no",
+        "keys": [
+            {
+                "login": "Logg inn",
+                "menu_menu": "Meny",
+                "menu_parent_report": "Rapportere observasjoner",
+                "menu_parent_sightingsData": "Observasjonsdata",
+                "menu_parent_userData": "Min data",
+                "menu_parent_about": "Om tjenesten",
+                "menu_children_report_addObservation:": "Legg til observasjon",
+                "menu_children_report_checklist:": "Sjekkliste observasjoner",
+                "menu_children_report_importObservation:": "Importere sightings",
+                "menu_children_report_eventProject:": "Arrangementer",
+                "menu_children_report_surveyProject:": "Kartleggingsprosjekter",
+                "menu_children_sightingsData_sightings:": "Se, søk og filtrer observasjoner",
+                "menu_children_sightingsData_statistics:": "Tall og statistikk",
+                "menu_children_userData_mySightings:": "Mine observasjoner",
+                "menu_children_userData_myStatistics:": "Mine statistikk",
+                "menu_children_userData_myProjects:": "Mine prosjekter",
+                "menu_children_userData_myLocations:": "Mine lokaliteter",
+                "menu_children_userData_myFellowObservers:": "Medobservatører",
+                "menu_extra_news:": "Aktuelle saker",
+                "menu_extra_sitemap:": "Nettstedskart"                
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "language": "english",
+        "languageCode": "en",
+        "keys": [
+            {
+                "login": "Log in",
+                "menu_menu": "Menu",
+                "menu_parent_report": "Report / Register",
+                "menu_parent_sightingsData": "Sightings data",
+                "menu_parent_userData": "My data",
+                "menu_parent_about": "About",
+                "menu_children_report_addObservation:": "Add sighting",
+                "menu_children_report_checklist:": "Checklist sightings",
+                "menu_children_report_importObservation:": "Importere sightings",
+                "menu_children_report_eventProject:": "Events",
+                "menu_children_report_surveyProject:": "Surveys",
+                "menu_children_sightingsData_sightings:": "Search and filter sightings",
+                "menu_children_sightingsData_statistics:": "Statistics",
+                "menu_children_userData_mySightings:": "My sightings",
+                "menu_children_userData_myStatistics:": "My statistics",
+                "menu_children_userData_myProjects:": "My projects",
+                "menu_children_userData_myLocations:": "My locations",
+                "menu_children_userData_myFellowObservers:": "My fellow observers",
+                "menu_extra_news:": "News",
+                "menu_extra_sitemap:": "Sitemap"                
+            }
+        ]
+    }
+]

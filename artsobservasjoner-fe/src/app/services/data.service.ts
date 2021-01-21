@@ -18,13 +18,7 @@ export class DataService {
   ids: string[] = Settings.drupalIds;
   errorMessage: string;
 
-  qaData: any = QAData;
-
   // APIs
-  // environmentWpApi: string;
-  // wpPostsApi: string = 'wp-json/wp/v2/posts'; // husk at ?_embed må være med for å få med bilde og annet
-  // wpPagesApi: string = 'wp-json/wp/v2/pages';
-  // strapiApi: string = 'http://localhost:1337/articles';
 
   readonly drupalNewsAPI: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
   readonly drupalNewsAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
@@ -54,15 +48,13 @@ export class DataService {
   private getTime(date?: Date) {
     return date != null ? new Date(date).getTime() : 0;
   }
-  
+
   //----------------------------------------------------------------------------****
 
   getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
 
     return this.http.get(this.drupalNewsAPI).pipe(
       map((res: any[]) => {
-
-        console.log('res', res)
 
         ///const filteredRes = res.filter(i => i.LANGUAGE === langCode);
         const filteredRes = res;
@@ -72,8 +64,6 @@ export class DataService {
 
           // image handling
           if (data.Content !== undefined) {
-
-            console.log('data content ??????????', data.Content)
 
             data.Content.forEach(element => {
               this.getNewsItemImages(element.replace('Nodes/', ''));
@@ -111,8 +101,6 @@ export class DataService {
   getNewsItemImages(id: number): Observable<FeaturedImage> {
     return this.http.get<any>(this.drupalNewsAPIItem + id).pipe(
       map((data: any) => {
-
-        console.log('img', data)
 
         const img: FeaturedImage = {
           id: data.Id.replace('Nodes/', ''),

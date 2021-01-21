@@ -12,7 +12,6 @@ export class LoginService {
 
   constructor() {
     this.isLoggedIn = false;
-    console.log('login status', this.isLoggedIn)
   }
 
   login(): void {
