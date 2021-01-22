@@ -1,11 +1,14 @@
 <!--layout component-->
 
-<select class="language-switcher" [(ngModel)]="selectedLanguage" #lang (change)="onChange(lang.value)">
+<!-- <select class="language-switcher" [(ngModel)]="selectedLanguage" #lang (change)="onChange(lang.value)">
     <option *ngFor="let language of translationService.languages; let i = index" lang="{{ language.code }}"
-        [attr.hreflang]="language.code" [value]="language.code" [attr.selected]="i === 0 ? true : null">{{ language.name
-        }}</option>
-</select>
+        [attr.hreflang]="language.code" [value]="language.code">
+        {{ language.name }}
+    </option>
+</select> -->
 
-== >> {{ selectedLanguage }}
+<button class="button" (click)="switchLanguage(nonSelectedLanguage.code)">{{ nonSelectedLanguage.name }}</button>
+
+<!--[attr.selected]="i === 0 ? true : null"-->
 
 <!--layout component-->

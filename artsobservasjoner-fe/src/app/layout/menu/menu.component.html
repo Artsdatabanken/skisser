@@ -10,8 +10,14 @@
 
 <div class="menu" id="menu" [ngClass]="{'menu--open': activeMenu}" [attr.aria-expanded]="activeMenu">
 
+    <header class="menu__header">
+        <!-- <app-language-switcher></app-language-switcher> -->
+    </header>
+
     <app-navigation></app-navigation>
     <!-- <app-subnavigation></app-subnavigation> -->
     <app-extra-navigation></app-extra-navigation>
+
+    <footer class="footer__menu"></footer>
 
 </div>

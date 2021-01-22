@@ -16,6 +16,7 @@ export class NewsComponent implements OnInit {
   errorMessage: string;
 
   @Input() take: number | string | null = 0;
+  @Input() location: string;
 
   constructor(private dataService: DataService) { }
 

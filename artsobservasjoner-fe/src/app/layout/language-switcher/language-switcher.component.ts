@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -11,26 +11,38 @@ import { TranslationService } from 'src/app/services/translation.service';
 export class LanguageSwitcherComponent implements OnInit {
 
   selectedLanguage: string;
-  subscription: Subscription;
+  subscription: Subscription[] = [];
+  nonSelectedLanguage: object;
 
   constructor(public translationService: TranslationService) {
-    
-    this.subscription = this.translationService.selectedLanguage.subscribe((value) => {
+
+    this.subscription.push(this.translationService.selectedLanguage.subscribe((value) => {
       this.selectedLanguage = value;
-    });
+    }));
+
+    this.subscription.push(this.translationService.unselectedLanguage.subscribe((value) => {
+      this.nonSelectedLanguage = value;
+      console.log('component', this.nonSelectedLanguage)
+    }));
 
   }
 
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription.forEach(s => s.unsubscribe());
   }
 
-  onChange(selectedLanguageCode: string): void {
-    console.log('selected', selectedLanguageCode);
-    this.translationService.changeLanguage(selectedLanguageCode);
-    //window.location.href = `/${selectedLangCode}`
+  switchLanguage(selectedLanguageCode: string): void {
+    console.log('selected 2', selectedLanguageCode);
+    this.translationService.switchLanguage(selectedLanguageCode);
   }
+
+  // if we use dropdown / select
+  // onChange(selectedLanguageCode: string): void {
+  //   console.log('selected', selectedLanguageCode);
+  //   this.translationService.changeLanguage(selectedLanguageCode);
+  //   //window.location.href = `/${selectedLangCode}`
+  // }
 
 }

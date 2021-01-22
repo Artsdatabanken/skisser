@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import Translations from '../data/translations.json';
 
 export class TranslationSet {
@@ -13,9 +13,15 @@ export class TranslationSet {
 
 export class TranslationService {
 
-  public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }, { code: 'fr', name: 'Français' }, { code: 'es', name: 'Español' }];
+  translation: any = Translations;
+  //public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }, { code: 'fr', name: 'Français' }, { code: 'es', name: 'Español' }];
+  public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }];
+
   public language: string;
   public selectedLanguage: BehaviorSubject<string> = new BehaviorSubject('');
+
+  public otherLanguage: any;
+  public unselectedLanguage: BehaviorSubject<object> = new BehaviorSubject(null);
 
   private dictionary: { [key: string]: TranslationSet } = {
     no: {
@@ -46,6 +52,9 @@ export class TranslationService {
         sentence: 'Norsk!',
         frontpage_introText1: 'Bli med og hjelp oss å kartlegge norsk natur!',
         frontpage_introText2: 'Lær mer om hvordan du kan bidra',
+        frontpage_introText3: 'Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?',
+        frontpage_headings_shortcuts: 'Snarveier',
+        frontpage_headings_statistics: 'Statistikk',
       }
     },
     en: {
@@ -75,7 +84,10 @@ export class TranslationService {
         menu_extra_sitemap: 'Sitemap',
         sentence: 'English!',
         frontpage_introText1: 'Join and help us survey Norwegian nature!',
-        frontpage_introText2: 'Learn more about how you can contribute'
+        frontpage_introText2: 'Learn more about how you can contribute',
+        frontpage_introText3: 'Want to help us ensure the quality of our sightings\'s data?',
+        frontpage_headings_shortcuts: 'Shortcuts',
+        frontpage_headings_statistics: 'Statistics',
       }
     },
     es: {
@@ -110,16 +122,17 @@ export class TranslationService {
     },
   }
 
-  translation: any = Translations;
-
   constructor() {
     this.language = 'en';
     this.selectedLanguage.next(this.language);
+
+    this.otherLanguage = this.getOtherLanguage(this.language);
+    this.unselectedLanguage.next(this.otherLanguage);
   }
 
   translate(key: string): string {
 
-    // console.log('translate called with value ' + key + ' and language ' + this.language);
+    console.log('translate called with value ' + key + ' and language ' + this.language);
 
     if (this.dictionary[this.language] != null) {
       return this.dictionary[this.language].values[key];
@@ -130,14 +143,45 @@ export class TranslationService {
 
   }
 
+  // if we use select + option  / dropdown
   changeLanguage(languageCode: string): void {
-    console.log('service', languageCode)
     this.language = languageCode; // change state
     this.selectedLanguage.next(this.language); // propagate the new state
   }
 
+  // if we use a button
+  switchLanguage(selectedLanguageCode: string): void {
 
-  // -----------------------------------------------------------------------------
+    console.log('languageCode', selectedLanguageCode)
+    this.language = selectedLanguageCode; // change state
+    this.selectedLanguage.next(this.language); // propagate the new state
+    this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
+
+  }
+
+  getOtherLanguage(selectedLanguage: string): object {
+
+    const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
+    console.log('extractedLanguage', extractedLanguage)
+    return extractedLanguage;
+
+
+  }
+
+  // -----------------------------------------------------------------------------***
+
+    // getOtherLanguage(selectedLanguage: string): string {
+
+  //   const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
+
+  //   // object deconstructor
+  //   const { code } = extractedLanguage;
+
+  //   console.log('other language', extractedLanguage, 'code', code, 'xxx', extractedLanguage.code)
+
+  //   return code;
+
+  // }
 
   // getTranslation(languageCode: string | null = 'en'): Observable<any[]> {
 

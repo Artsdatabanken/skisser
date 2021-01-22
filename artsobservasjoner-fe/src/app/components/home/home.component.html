@@ -1,26 +1,16 @@
 <div class="page page--frontpage frontpage">
 
     <!--intro-->
-    <div class="frontpage__section frontpage__section--intro frontpage__section--height-s frontpage__section--width-s">
+
+    <div class="frontpage__section frontpage__section--height-s frontpage__section--width-s">
 
         <div class="frontpage__cell">
-
-            <div class="frontpage__paragraph">
-
-                <!-- <p>Bli med og hjelp oss</p>
-                <p>å kartlegge norsk natur!</p> -->
-
-                <p style="margin: 0 auto; width: 20ch">{{ 'frontpage_introText1' | translate }}</p>
-
-            </div>
-
+            <p class="frontpage__paragraph frontpage__paragraph--sm">{{ 'frontpage_introText1' | translate }}</p>
         </div>
-        <div class="frontpage__cell">
 
+        <div class="frontpage__cell" style="text-align: center;">
             <div>
-
                 <a class="" routerLink="/about/contribute">{{ 'frontpage_introText2' | translate }}</a>
-
             </div>
             <br>
             <div>
@@ -28,9 +18,8 @@
                     {{ 'account_register' | translate }}
                 </a>
             </div>
+
         </div>
-
-
 
     </div>
 
@@ -79,22 +68,17 @@
     <div
         class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l frontpage__section--colored2">
 
-        <h2 class="frontpage__heading">Snarveier</h2>
+        <h2 class="frontpage__heading">{{ 'frontpage_headings_shortcuts' | translate }}</h2>
 
         <div class="loop loop--cards">
-
-            <!-- <app-card [type]="'link'" [url]="'/report/add-observation'" [text]="'Legg til observasjon'"></app-card>
-            <app-card [type]="'link'" [url]="'/observations'" [text]="'Se, søk og filtrer observasjoner'"></app-card>
-            <app-card [type]="'link'" [url]="'/my-data/my-observations'" [text]="'Mine observasjoner'"></app-card>
-            <app-card [type]="'link'" [url]="'/observations/statistics/quality-assured-data'"
-                [text]="'Kvalitetssikret artsdata'"></app-card> -->
 
             <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'Tall og statistikk'"></app-card>
             <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'">
             </app-card>
             <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'">
             </app-card>
-            <app-card [type]="'link'" [url]="'/observations/statistics/overview'" [text]="'Volumstatistikk'"></app-card>
+            <app-card [type]="'link'" [url]="'/observations/statistics/volume-statistics'" [text]="'Volumstatistikk'">
+            </app-card>
 
         </div>
 
@@ -104,10 +88,9 @@
 
     <!--stats-->
 
-    <div
-        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l frontpage__section--colored1">
+    <div class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
 
-        <h2 class="frontpage__heading">Statistikk</h2>
+        <h2 class="frontpage__heading">{{ 'frontpage_headings_statistics' | translate }}</h2>
 
         <div class="frontpage__cell frontpage__cell--no-padding">
 
@@ -155,7 +138,7 @@
     <!--news & articles-->
 
     <div
-        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-m frontpage__section--colored3">
+        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
 
         <h2 class="frontpage__heading">Siste nytt</h2>
 
@@ -170,7 +153,7 @@
                 [title]="'Aktuell lorem ipsum nullam felsi sed tristique'"> </app-teaser>
         </div> -->
 
-        <app-news [take]="'4'"></app-news>
+        <app-news [take]="'4'" [location]="'frontpage'"></app-news>
 
         <div class="centered aligncenter">
             <br><br>
@@ -214,13 +197,14 @@
 
     <!--extras-->
 
-    <div class="frontpage__section" style="padding: 100px 30px;">
+    <div class="frontpage__section frontpage__section--height-s frontpage__section--width-s">
 
         <div class="frontpage__cell">
-            <p class="frontpage__paragraph">Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?</p>
+            <p class="frontpage__paragraph">{{ 'frontpage_introText3' | translate }}</p>
         </div>
-        <div class="frontpage__cell frontpage__cell--centered frontpage__cell--colored3">
-            <a href="" class="button button--cta button--xl button--centered">Bli validator!</a>
+        <div class="frontpage__cell" style="text-align: center;">
+            <a style="display: inline-block; margin: 0 auto;" class="button button--cta button--xl button--centered">Bli
+                validator!</a>
         </div>
 
     </div>

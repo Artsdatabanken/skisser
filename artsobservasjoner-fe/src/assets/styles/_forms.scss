@@ -262,11 +262,32 @@ input {
     }
 }
 
-
 /*language switcher*/
 
 .language-switcher {
-    // background: none;
-    // border: none;
-    // color: red;
+    background: none;
+    border: none;
+    @include customVar(border-bottom-color, transparent);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: inherit;
+    padding: 10px 0;
+    text-indent: 0;
+    transition: border 0.5s;
+
+    &:focus,
+    &:active,
+    &:hover {
+        // @include customVar(background-color, clrBlack);
+        // @include customVar(color, clrWhite);
+        outline: 0;
+        padding: 10px 0;
+    }
+
+    option {
+        min-height: 40px;
+        text-indent: 0;
+    }
 }

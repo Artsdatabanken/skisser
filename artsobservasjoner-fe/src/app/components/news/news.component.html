@@ -2,7 +2,7 @@
 
     <header class="page__header"></header>
 
-    <div class="page__intro">
+    <div class="page__intro" *ngIf="!location">
 
         <p>Ingress og annen nødvendig tekst</p>
 
@@ -10,7 +10,6 @@
 
     <div class="page__content">
 
-        <h2>Old news</h2>
         <div class="loop loop--teasers" *ngIf="news; else message">
 
             <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'Aktuelt'" [date]="item.created"
