@@ -1,7 +1,11 @@
 <!--layout component-->
 
-<div class="flags" [ngClass]="cssClass">
-    <button class="flag flag--1">Norsk</button>&nbsp;|&nbsp;<button class="flag flag--2">English</button>
-</div>
+<select class="language-switcher" [(ngModel)]="selectedLanguage" #lang (change)="onChange(lang.value)">
+    <option *ngFor="let language of translationService.languages; let i = index" lang="{{ language.code }}"
+        [attr.hreflang]="language.code" [value]="language.code" [attr.selected]="i === 0 ? true : null">{{ language.name
+        }}</option>
+</select>
+
+== >> {{ selectedLanguage }}
 
 <!--layout component-->

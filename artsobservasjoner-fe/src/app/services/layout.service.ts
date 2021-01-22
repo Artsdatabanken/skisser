@@ -9,8 +9,9 @@ export class LayoutService {
 
   showDropdownPane: boolean;
   dropdownVisibility: Subject<boolean> = new Subject<boolean>();
-  dropdownLinkText: Subject<string> = new Subject<string>();
+
   defaultDropdownText: string;
+  dropdownLinkText: Subject<string> = new Subject<string>();
 
   constructor() {
     this.showDropdownPane = false;

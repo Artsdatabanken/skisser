@@ -88,6 +88,7 @@ export class NavigationService {
         path: item.path,
         title: item.data.text,
         id: item.path,
+        key: item.langKey,
         layout: item.data.layout,
         rank: item.data.rank,
         hidden: item.data.hidden

@@ -1,4 +1,4 @@
-// ----------FORMS and FORM ELEMENTS
+// ----------FORMS and FORM ELEMENTS; custom form elements
 
 form {
     width: 100%;
@@ -130,6 +130,8 @@ input {
     padding: 9px 15px;
 }
 
+//----------------------------------------custom form elements
+
 .form {
     &__group {
         margin-bottom: 30px;
@@ -258,4 +260,13 @@ input {
     & > form > * {
         justify-self: center;
     }
+}
+
+
+/*language switcher*/
+
+.language-switcher {
+    // background: none;
+    // border: none;
+    // color: red;
 }

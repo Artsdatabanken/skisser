@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -193,6 +194,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [

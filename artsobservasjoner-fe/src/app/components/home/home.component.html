@@ -1,25 +1,5 @@
 <div class="page page--frontpage frontpage">
 
-    <!--TEST-->
-
-    <!-- <select [(ngModel)]="siteLocale" #language (change)="onChange(language.value)">
-        <option *ngFor="let lang of languageList" [value]="lang.code">
-            {{ lang.label }}
-        </option>
-    </select> -->
-
-    <select [(ngModel)]="chosenLanguage" #lang (change)="onChange(lang.value)">
-        <option *ngFor="let language of translationService.languages" lang="{{ language.code }}"
-            hreflang="{{ language.code }}" [value]="language.code">{{ language.name }}</option>
-    </select>
-
-    <p>
-        {{'sentence' | translate}}
-    </p>
-
-    <!--TEST-->
-
-
     <!--intro-->
     <div class="frontpage__section frontpage__section--intro frontpage__section--height-s frontpage__section--width-s">
 

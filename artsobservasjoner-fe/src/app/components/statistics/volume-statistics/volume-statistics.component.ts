@@ -27,11 +27,13 @@ export class VolumeStatisticsComponent implements OnInit {
 
     this.pageTitle = this.route.routeConfig.data.text;
     this.children = this.route.routeConfig.children.filter(ch => ch.data.hidden === false);
-    //this.dropDownText = this.utilitiesService.defaultDropdownText;
+    //this.dropDownText = this.layoutService.defaultDropdownText;
 
     this.subscription = this.layoutService.dropdownVisibility.subscribe((value) => {
       this.activeDropdown = value;
     });
+
+    // TODO: push subscription into array instead of reassign subscription which is incorrect
 
     this.subscription = this.layoutService.dropdownLinkText.subscribe((value) => {
       //this.dropDownText = value;

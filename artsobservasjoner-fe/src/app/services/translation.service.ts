@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import {BehaviorSubject, Subject } from 'rxjs';
 import Translations from '../data/translations.json';
 
 export class TranslationSet {
@@ -15,7 +15,7 @@ export class TranslationService {
 
   public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }, { code: 'fr', name: 'Français' }, { code: 'es', name: 'Español' }];
   public language: string;
-  public chosenLanguage: Subject<string> = new Subject<string>();
+  public selectedLanguage: BehaviorSubject<string> = new BehaviorSubject('');
 
   private dictionary: { [key: string]: TranslationSet } = {
     no: {
@@ -114,6 +114,7 @@ export class TranslationService {
 
   constructor() {
     this.language = 'en';
+    this.selectedLanguage.next(this.language);
   }
 
   translate(key: string): string {
@@ -132,24 +133,24 @@ export class TranslationService {
   changeLanguage(languageCode: string): void {
     console.log('service', languageCode)
     this.language = languageCode; // change state
-    this.chosenLanguage.next(this.language); // propagate the new state
+    this.selectedLanguage.next(this.language); // propagate the new state
   }
 
 
   // -----------------------------------------------------------------------------
 
-  getTranslation(languageCode: string | null = 'en'): Observable<any[]> {
+  // getTranslation(languageCode: string | null = 'en'): Observable<any[]> {
 
-    const translation: any = this.translation.filter(t => {
-      return t.languageCode === languageCode;
-    });
+  //   const translation: any = this.translation.filter(t => {
+  //     return t.languageCode === languageCode;
+  //   });
 
-    this.translation.forEach(element => {
-      //console.log('translation in service', element)
-    });
+  //   this.translation.forEach(element => {
+  //     //console.log('translation in service', element)
+  //   });
 
-    return of(translation).pipe();
+  //   return of(translation).pipe();
 
-  }
+  // }
 
 }

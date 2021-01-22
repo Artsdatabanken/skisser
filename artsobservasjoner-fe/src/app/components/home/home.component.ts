@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
   // ]
 
   constructor(public translationService: TranslationService) {
-    this.subscription = this.translationService.chosenLanguage.subscribe((value) => {
-      this.chosenLanguage = value;
-    });
+    // this.subscription = this.translationService.chosenLanguage.subscribe((value) => {
+    //   this.chosenLanguage = value;
+    // });
   }
 
   ngOnInit(): void {
@@ -48,10 +48,10 @@ export class HomeComponent implements OnInit {
 
   }
 
-  onChange(selectedLangCode: string) {
-    console.log('chosen', selectedLangCode);
-    this.translationService.changeLanguage(selectedLangCode);
-    //window.location.href = `/${selectedLangCode}`
-  }
+  // onChange(selectedLangCode: string) {
+  //   console.log('chosen', selectedLangCode);
+  //   this.translationService.changeLanguage(selectedLangCode);
+  //   //window.location.href = `/${selectedLangCode}`
+  // }
 
 }
