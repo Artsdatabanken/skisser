@@ -1109,7 +1109,7 @@ main {
     }
 
     &__section {
-        border: 1px dashed blue;
+        // border: 1px dashed blue;
         display: grid;
         grid-template-columns: 1fr 1fr;
         text-align: center;
@@ -1159,7 +1159,7 @@ main {
     }
 
     &__cell {
-        border: 1px solid red;
+        // border: 1px solid red;
         align-self: center;
         justify-self: stretch;
         padding: 15px;
