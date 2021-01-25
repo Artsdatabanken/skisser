@@ -22,7 +22,6 @@ export class LanguageSwitcherComponent implements OnInit {
 
     this.subscription.push(this.translationService.unselectedLanguage.subscribe((value) => {
       this.nonSelectedLanguage = value;
-      console.log('component', this.nonSelectedLanguage)
     }));
 
   }
@@ -34,7 +33,7 @@ export class LanguageSwitcherComponent implements OnInit {
   }
 
   switchLanguage(selectedLanguageCode: string): void {
-    console.log('selected 2', selectedLanguageCode);
+    console.log('selected language in switcher', selectedLanguageCode);
     this.translationService.switchLanguage(selectedLanguageCode);
   }
 

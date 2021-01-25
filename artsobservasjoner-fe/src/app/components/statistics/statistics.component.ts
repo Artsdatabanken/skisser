@@ -15,7 +15,7 @@ export class StatisticsComponent implements OnInit {
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.subMenu = this.navigationService.getSubMenu2('statistics');
+    this.subMenu = this.navigationService.getSubMenu('statistics');
   }
 
 }

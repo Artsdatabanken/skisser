@@ -134,6 +134,8 @@ export class TranslationService {
 
     this.otherLanguage = this.getOtherLanguage(this.language);
     this.unselectedLanguage.next(this.otherLanguage);
+
+    console.log('site language in translation serv', this.language)
   }
 
   translate(key: string): string {
@@ -158,7 +160,6 @@ export class TranslationService {
   // if we use a button
   switchLanguage(selectedLanguageCode: string): void {
 
-    console.log('languageCode', selectedLanguageCode)
     this.language = selectedLanguageCode; // change state
     this.selectedLanguage.next(this.language); // propagate the new state
     this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
@@ -168,15 +169,13 @@ export class TranslationService {
   getOtherLanguage(selectedLanguage: string): object {
 
     const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
-    console.log('extractedLanguage', extractedLanguage)
     return extractedLanguage;
-
 
   }
 
   // -----------------------------------------------------------------------------***
 
-    // getOtherLanguage(selectedLanguage: string): string {
+  // getOtherLanguage(selectedLanguage: string): string {
 
   //   const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
 

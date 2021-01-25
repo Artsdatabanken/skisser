@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslationService } from './services/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +17,15 @@ import { isPlatformBrowser } from '@angular/common';
 export class AppComponent {
 
   title = 'Artsobservasjoner';
+  siteLanguage: string;
   pageTitle: string = '';
   pageId: string = '';
   pageLayout: string = '';
-
+  
   skipLinkPath: string;
-  routerSubscription: Subscription;
   windowScrolled: boolean = false;
+  routerSubscription: Subscription;
+  subscription: Subscription;
 
   layoutTypes: string[] = [];
   layoutTypesForbidden: string[] = ['article', 'frontpage', 'item', 'spa', 'text'];
@@ -34,8 +37,13 @@ export class AppComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) { }
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private translationService: TranslationService
+  ) {
+    this.subscription = this.translationService.selectedLanguage.subscribe(l => {
+      this.siteLanguage = l;
+    })
+  }
 
   ngOnInit(): void {
 
@@ -52,7 +60,8 @@ export class AppComponent {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        this.pageTitle = obj.text;
+        // this.pageTitle = obj.text;
+        this.pageTitle = this.siteLanguage === 'no' ? obj.translation.no : obj.translation.en;
         this.pageId = obj.id;
         this.pageLayout = obj.layout;
 
@@ -69,6 +78,7 @@ export class AppComponent {
 
   ngOnDestroy() {
     this.routerSubscription.unsubscribe(); // IMPORTANT!!
+    this.subscription.unsubscribe();
   }
 
   getLayoutStyle(layout: string): string {

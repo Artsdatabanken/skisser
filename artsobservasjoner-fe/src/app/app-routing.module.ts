@@ -79,6 +79,10 @@ const reportRoutes: Routes = [
     component: ReportComponent,
     data: {
       text: 'Rapportere observasjoner',
+      translation: {
+        no: 'Rapportere observasjoner',
+        en: 'Sightings register'
+      },
       id: 'report',
       layout: 'page',
       rank: 'primary',
@@ -89,13 +93,16 @@ const reportRoutes: Routes = [
       hidden: false
     }
   },
-
   {
     path: 'report/add-observation',
-    component: AddObservationComponent,
+    component: SightingsComponent,
     data: {
       text: 'Legg til observasjon',
-      id: 'add-observation',
+      translation: {
+        no: 'Legg til observasjon',
+        en: 'Add sighting'
+      },
+      id: 'add-sighting',
       layout: 'page',
       rank: 'primary',
       parent: 'report',
@@ -110,7 +117,11 @@ const reportRoutes: Routes = [
     component: ChecklistComponent,
     data: {
       text: 'Sjekkliste observasjoner',
-      id: 'checklist-observation',
+      translation: {
+        no: 'Sjekkliste observasjoner',
+        en: 'Sightings checklist registration'
+      },
+      id: 'sightings-checklist',
       layout: 'page',
       rank: 'primary',
       parent: 'report',
@@ -125,7 +136,11 @@ const reportRoutes: Routes = [
     component: ImportObservationsComponent,
     data: {
       text: 'Importere observasjoner',
-      id: 'import-observations',
+      translation: {
+        no: 'Importere observasjoner',
+        en: 'Sightings import'
+      },
+      id: 'sightings-import',
       layout: 'page',
       rank: 'secondary',
       parent: 'report',
@@ -140,6 +155,10 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Arrangementer',
+      translation: {
+        no: 'Arrangementer',
+        en: 'Sighting registration events'
+      },
       id: 'event-project',
       layout: 'page',
       rank: 'secondary',
@@ -155,6 +174,10 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Kartleggingsprosjekter',
+      translation: {
+        no: 'Kartleggingsprosjekter',
+        en: 'Survey sightings registration'
+      },
       id: 'survey-project',
       layout: 'page',
       rank: 'secondary',
@@ -539,6 +562,10 @@ const userDataRoutes: Routes = [
     component: MyDataComponent,
     data: {
       text: 'Min data',
+      translation: {
+        no: 'Min data',
+        en: 'My data'
+      },
       id: 'my-data',
       layout: 'page',
       rank: 'primary',
@@ -554,6 +581,10 @@ const userDataRoutes: Routes = [
     component: MyObservationsComponent,
     data: {
       text: 'Mine observasjoner',
+      translation: {
+        no: 'Mine observasjoner',
+        en: 'My sightings'
+      },
       id: 'my-observations',
       layout: 'page',
       rank: 'primary',
@@ -569,6 +600,10 @@ const userDataRoutes: Routes = [
     component: MyStatisticsComponent,
     data: {
       text: 'Min statistikk',
+      translation: {
+        no: 'Min statistikk',
+        en: 'My stats'
+      },
       id: 'my-statistics',
       layout: 'page',
       rank: 'secondary',
@@ -584,6 +619,10 @@ const userDataRoutes: Routes = [
     component: MyProjectsComponent,
     data: {
       text: 'Mine prosjekter',
+      translation: {
+        no: 'Mine prosjekter',
+        en: 'My projects'
+      },
       id: 'my-projects',
       layout: 'page',
       rank: 'secondary',
@@ -599,6 +638,10 @@ const userDataRoutes: Routes = [
     component: MyLocationsComponent,
     data: {
       text: 'Mine lokaliteter',
+      translation: {
+        no: 'Mine lokaliteter',
+        en: 'My locations'
+      },
       id: 'my-locations',
       layout: 'page',
       rank: 'secondary',
@@ -614,6 +657,10 @@ const userDataRoutes: Routes = [
     component: FellowObserversComponent,
     data: {
       text: 'Medobservatører',
+      translation: {
+        no: 'Medobservatører',
+        en: 'My fellow observers'
+      },
       id: 'fellow-observers',
       layout: 'page',
       rank: 'secondary',
@@ -631,7 +678,11 @@ const aboutRoutes: Routes = [
     path: 'about',
     component: AboutComponent,
     data: {
-      text: 'Om tjenesten',
+      text: 'Om tjenesten',  
+      translation: {
+        no: 'Om tjenesten',
+        en: 'About'
+      },
       id: 'about',
       layout: 'page',
       rank: 'primary',
@@ -646,7 +697,11 @@ const aboutRoutes: Routes = [
     path: 'about/:id',
     component: AboutPageComponent,
     data: {
-      text: 'About Item',
+      text: 'About item',
+      translation: {
+        no: '',
+        en: ''
+      },
       id: 'about',
       layout: 'text',
       rank: '',
@@ -734,12 +789,16 @@ const aboutRoutes: Routes = [
   // }
 ];
 
-const userRoutes: Routes = [
+const accountRoutes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent,
     data: {
       text: 'Registrer deg',
+      translation: {
+        no: 'Registrer deg',
+        en: 'Register'
+      },
       id: 'register',
       layout: 'page',
       rank: '',
@@ -755,6 +814,10 @@ const userRoutes: Routes = [
     component: LoginComponent,
     data: {
       text: 'Logg inn',
+      translation: {
+        no: 'Logg inn',
+        en: 'Login'
+      },
       id: 'login',
       layout: 'page',
       rank: '',
@@ -770,6 +833,10 @@ const userRoutes: Routes = [
     component: DashboardComponent,
     data: {
       text: 'Min side',
+      translation: {
+        no: 'Min side',
+        en: 'Account'
+      },
       id: 'dashboard',
       layout: 'page',
       rank: 'primary',
@@ -785,6 +852,10 @@ const userRoutes: Routes = [
     component: MessagesComponent,
     data: {
       text: 'Meldinger',
+      translation: {
+        no: 'Meldinger',
+        en: 'Messages'
+      },
       id: 'messages',
       layout: 'page',
       rank: 'primary',
@@ -803,6 +874,10 @@ const extraRoutes: Routes = [
     component: NewsComponent,
     data: {
       text: 'Aktuelle saker',
+      translation: {
+        no: 'Aktuelle saker',
+        en: 'News'
+      },
       id: 'news',
       layout: 'std',
       rank: 'secondary',
@@ -817,7 +892,11 @@ const extraRoutes: Routes = [
     path: 'news/:id',
     component: NewsItemComponent,
     data: {
-      text: 'News Item',
+      text: 'News item',
+      translation: {
+        no: '',
+        en: ''
+      },
       id: 'news',
       layout: 'article',
       rank: '',
@@ -833,27 +912,16 @@ const extraRoutes: Routes = [
     component: SitemapComponent,
     data: {
       text: 'Innholdskart fra A-Å',
+      translation: {
+        no: 'Innholdskart fra A-Å',
+        en: 'Sitemap'
+      },
       id: 'sitemap',
       layout: 'page',
       rank: '',
       parent: '',
       menu: 'extraMenu',
       metaTitle: 'Innholdskart A-Å',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'english',
-    component: SitemapComponent,
-    data: {
-      text: 'English',
-      id: 'english',
-      layout: 'page',
-      rank: '',
-      parent: '',
-      menu: 'extraMenu',
-      metaTitle: 'English',
       metaDescription: '',
       hidden: false
     }
@@ -899,6 +967,10 @@ const wildcardRoutes: Routes = [
     component: PageNotFoundComponent,
     data: {
       text: 'Ikke funnet - 404',
+      translation: {
+        no: 'Ikke funnet - 404',
+        en: 'Not found - 404'
+      },
       id: 'not-found',
       layout: 'page',
       rank: '',
@@ -911,7 +983,8 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...observationsRoutes, ...aboutRoutes, ...userRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...observationsRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
