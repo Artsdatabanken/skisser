@@ -53,8 +53,11 @@ export class TranslationService {
         frontpage_introText1: 'Bli med og hjelp oss å kartlegge norsk natur!',
         frontpage_introText2: 'Lær mer om hvordan du kan bidra',
         frontpage_introText3: 'Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?',
+        frontpage_text_4: 'Flere nyheter og aktuelle saker',
+        frontpage_text_5: 'Bli validator',
         frontpage_headings_shortcuts: 'Snarveier',
         frontpage_headings_statistics: 'Statistikk',
+        frontpage_headings_news: 'Siste nytt',
       }
     },
     en: {
@@ -86,8 +89,11 @@ export class TranslationService {
         frontpage_introText1: 'Join and help us survey Norwegian nature!',
         frontpage_introText2: 'Learn more about how you can contribute',
         frontpage_introText3: 'Want to help us ensure the quality of our sightings\'s data?',
+        frontpage_text_4: 'More news',
+        frontpage_text_5: 'Become a validator',
         frontpage_headings_shortcuts: 'Shortcuts',
         frontpage_headings_statistics: 'Statistics',
+        frontpage_headings_news: 'News',
       }
     },
     es: {

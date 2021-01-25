@@ -140,7 +140,7 @@
     <div
         class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
 
-        <h2 class="frontpage__heading">Siste nytt</h2>
+        <h2 class="frontpage__heading">{{ 'frontpage_headings_news' | translate }}</h2>
 
         <!-- <div class="loop loop--teasers">
             <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'04.10.2020'"
@@ -157,7 +157,7 @@
 
         <div class="centered aligncenter">
             <br><br>
-            <a class="button button--primary" routerLink="/news">Flere nyheter og aktuelle saker</a>
+            <a class="button button--primary" routerLink="/news">{{ 'frontpage_text_4' | translate }}</a>
         </div>
 
     </div>
@@ -203,8 +203,9 @@
             <p class="frontpage__paragraph">{{ 'frontpage_introText3' | translate }}</p>
         </div>
         <div class="frontpage__cell" style="text-align: center;">
-            <a style="display: inline-block; margin: 0 auto;" class="button button--cta button--xl button--centered">Bli
-                validator!</a>
+            <a style="display: inline-block; margin: 0 auto;" class="button button--cta button--xl button--centered">
+                {{ 'frontpage_text_5' | translate }}    
+            </a>
         </div>
 
     </div>

@@ -46,9 +46,6 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 
-import Translations from '../app/data/translations.json';
-import { TranslatePipe } from './pipes/translate.pipe';
-
 /*
 
 DOCUMENTATION:
@@ -57,11 +54,6 @@ DOCUMENTATION:
 * TODO: legg til property order
 
 */
-
-const translate = (key: string, langCode: string): any => {
-
-}
-
 
 const homeRoutes: Routes = [
   {
@@ -181,7 +173,10 @@ const observationsRoutes: Routes = [
     component: ObservationsComponent,
     data: {
       text: 'Observasjonsdata',
-      langKey: 'menu_parent_sightingsData',
+      language: {
+        no: 'Observasjonsdata',
+        en: 'Sightings data'
+      },
       id: 'observations',
       layout: 'page',
       rank: 'primary',
@@ -197,7 +192,10 @@ const observationsRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
-      langKey: '',
+      language: {
+        no: 'Se, søk og filtrer observasjoner',
+        en: 'Search in sightings data'
+      },
       id: 'sightings',
       layout: 'page',
       rank: 'primary',
@@ -227,7 +225,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics',
     component: StatisticsComponent,
     data: {
-      text: 'Tall og statistikk',
+      text: 'Tall og statistikk', 
+      language: {
+        no: 'Tall og statistikk',
+        en: 'Statistics'
+      },
       id: 'statistics',
       layout: 'page',
       rank: 'secondary',
@@ -242,7 +244,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics/volume-statistics',
     component: VolumeStatisticsComponent,
     data: {
-      text: 'Volumstatistikk',
+      text: 'Volumstatistikk',  
+      language: {
+        no: 'Volumstatistikk',
+        en: 'Volume statistics'
+      },
       id: 'volumStatistics',
       layout: 'spa',
       rank: 'secondary',
@@ -439,7 +445,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics/quality-checked-data',
     component: QualityAssuredDataComponent,
     data: {
-      text: 'Kvalitetssikrede data',
+      text: 'Kvalitetssikrede data',  
+      language: {
+        no: 'Kvalitetssikrede data',
+        en: 'Quality assured data'
+      },
       id: 'quality-checked-data',
       layout: 'page',
       rank: 'secondary',
@@ -453,7 +463,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics/red-listed-species',
     component: RedListedSpeciesComponent,
     data: {
-      text: 'Rødlistede arter',
+      text: 'Rødlistede arter',  
+      language: {
+        no: 'Rødlisted arter',
+        en: 'Redlisted species'
+      },
       id: 'red-listed-species',
       layout: 'page',
       rank: 'secondary',
@@ -467,7 +481,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
-      text: 'Fremmede arter',
+      text: 'Fremmede arter',  
+      language: {
+        no: 'Fremmede arter',
+        en: 'Alien species'
+      },
       id: 'alien-species',
       layout: 'page',
       rank: 'secondary',
@@ -481,7 +499,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics/knowledge-gap',
     component: KnowledgeGapComponent,
     data: {
-      text: 'Kunnskapshull',
+      text: 'Kunnskapshull',  
+      language: {
+        no: 'Kunnskapshull',
+        en: 'Knowledge gap'
+      },
       id: 'species-with-no-data',
       layout: 'page',
       rank: 'secondary',
@@ -495,7 +517,11 @@ const observationsRoutes: Routes = [
     path: 'observations/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
-      text: 'Brukerstatistikk',
+      text: 'Brukerstatistikk',  
+      language: {
+        no: 'Brukerstatistikk',
+        en: 'User statistics'
+      },
       id: 'user-statistics',
       layout: 'wide',
       rank: 'secondary',

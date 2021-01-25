@@ -18,7 +18,19 @@ export class MenuItem {
 
 export class NavigationService {
 
-  constructor(private router: Router) { }
+  siteLanguage: any;
+
+  constructor(
+    private router: Router,
+    private translationService: TranslationService
+  ) {
+
+    this.translationService.selectedLanguage.subscribe((value) => {
+      this.siteLanguage = value;
+      console.log('site language', this.siteLanguage)
+    });
+
+  }
 
   // **************************************************************************************** //
 
@@ -81,11 +93,19 @@ export class NavigationService {
 
     // }
 
+    // find correct language
+
+
     // funksjonen tar en item og finner alle barn av den NY SYNTAKS (ny syntaks gir ikke tilgang til 'this')
     const handleItem = (item: any): object => {
 
+      let selectedLanguage: string;
+
+      console.log('HHHHHHHHHHHH', item.data.language)
+
       const menuItem: object = {
         path: item.path,
+        language: item.language,
         title: item.data.text,
         id: item.path,
         key: item.langKey,
