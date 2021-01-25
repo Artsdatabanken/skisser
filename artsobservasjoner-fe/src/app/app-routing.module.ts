@@ -173,7 +173,7 @@ const observationsRoutes: Routes = [
     component: ObservationsComponent,
     data: {
       text: 'Observasjonsdata',
-      language: {
+      translation: {
         no: 'Observasjonsdata',
         en: 'Sightings data'
       },
@@ -192,7 +192,7 @@ const observationsRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
-      language: {
+      translation: {
         no: 'Se, søk og filtrer observasjoner',
         en: 'Search in sightings data'
       },
@@ -226,7 +226,7 @@ const observationsRoutes: Routes = [
     component: StatisticsComponent,
     data: {
       text: 'Tall og statistikk', 
-      language: {
+      translation: {
         no: 'Tall og statistikk',
         en: 'Statistics'
       },
@@ -245,7 +245,7 @@ const observationsRoutes: Routes = [
     component: VolumeStatisticsComponent,
     data: {
       text: 'Volumstatistikk',  
-      language: {
+      translation: {
         no: 'Volumstatistikk',
         en: 'Volume statistics'
       },
@@ -446,7 +446,7 @@ const observationsRoutes: Routes = [
     component: QualityAssuredDataComponent,
     data: {
       text: 'Kvalitetssikrede data',  
-      language: {
+      translation: {
         no: 'Kvalitetssikrede data',
         en: 'Quality assured data'
       },
@@ -464,7 +464,7 @@ const observationsRoutes: Routes = [
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',  
-      language: {
+      translation: {
         no: 'Rødlisted arter',
         en: 'Redlisted species'
       },
@@ -482,7 +482,7 @@ const observationsRoutes: Routes = [
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',  
-      language: {
+      translation: {
         no: 'Fremmede arter',
         en: 'Alien species'
       },
@@ -500,7 +500,7 @@ const observationsRoutes: Routes = [
     component: KnowledgeGapComponent,
     data: {
       text: 'Kunnskapshull',  
-      language: {
+      translation: {
         no: 'Kunnskapshull',
         en: 'Knowledge gap'
       },
@@ -518,7 +518,7 @@ const observationsRoutes: Routes = [
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',  
-      language: {
+      translation: {
         no: 'Brukerstatistikk',
         en: 'User statistics'
       },

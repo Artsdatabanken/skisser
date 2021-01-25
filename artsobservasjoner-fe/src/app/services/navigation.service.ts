@@ -19,6 +19,7 @@ export class MenuItem {
 export class NavigationService {
 
   siteLanguage: any;
+  translatedMenuItem: string;
 
   constructor(
     private router: Router,
@@ -27,7 +28,6 @@ export class NavigationService {
 
     this.translationService.selectedLanguage.subscribe((value) => {
       this.siteLanguage = value;
-      console.log('site language', this.siteLanguage)
     });
 
   }
@@ -61,6 +61,10 @@ export class NavigationService {
     let menuItems: any[] = this.router.config.filter(route => route.data.menu === menu); // only add a menu item for routes that belong to a particular menu
     menuItems = menuItems.filter(mi => mi.data.hidden === false);
     return menuItems;
+  }
+
+  private getTranslatedMenuItem() {
+    
   }
 
   getMainMenu(): Route[] {
@@ -99,13 +103,24 @@ export class NavigationService {
     // funksjonen tar en item og finner alle barn av den NY SYNTAKS (ny syntaks gir ikke tilgang til 'this')
     const handleItem = (item: any): object => {
 
-      let selectedLanguage: string;
+      if (item.data.translation) {
 
-      console.log('HHHHHHHHHHHH', item.data.language)
+        const { no } = item.data.translation;
+        const { en } = item.data.translation;
+
+        console.log('Norsk: ', no, 'English: ', en)
+
+        if (this.siteLanguage === 'no') {
+          this.translatedMenuItem = no;
+        }
+        else {
+          this.translatedMenuItem = en;
+        }
+      }
 
       const menuItem: object = {
         path: item.path,
-        language: item.language,
+        heading: this.translatedMenuItem,
         title: item.data.text,
         id: item.path,
         key: item.langKey,
@@ -144,6 +159,33 @@ export class NavigationService {
     // const subMenu: any[] = this.routes.filter(i => {
     //   return i.data.parent === parent;
     // });
+
+    const subMenu: any[] = menuItems.filter(i => {
+      return i.data.parent === parent;
+    });
+
+    return subMenu;
+
+  }
+
+  getSubMenu2(parent: string): any[] {
+
+    const menuItems = this.getRoutes();
+
+    menuItems.forEach(item => {
+      console.log('menuitem', item)
+
+      const menuItem: object = {
+        path: item.path,
+        heading: this.translatedMenuItem,
+        title: item.data.text,
+        id: item.path,
+        key: item.langKey,
+        layout: item.data.layout,
+        rank: item.data.rank,
+        hidden: item.data.hidden
+      };
+    })
 
     const subMenu: any[] = menuItems.filter(i => {
       return i.data.parent === parent;

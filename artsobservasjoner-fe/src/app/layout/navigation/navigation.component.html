@@ -7,7 +7,7 @@
         <div class="navigation__item" *ngFor="let menuItem of mainMenu">
 
             <h1 class="navigation__heading">
-                <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" closeMenu>{{ menuItem.title }}</a>
+                <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" closeMenu>{{ menuItem.heading }}</a>
             </h1>
 
             <div class="navigation__section">
@@ -17,7 +17,7 @@
                     *ngFor="let child of menuItem.children"
                     closeMenu>
 
-                    <span class="navigation__label"> {{ child.title }}</span>
+                    <span class="navigation__label"> {{ child.heading }} </span>
 
                 </a>
 
