@@ -1,5 +1,7 @@
+import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { TranslationService } from './translation.service';
 
 export class MenuItem {
@@ -30,8 +32,11 @@ export class NavigationService {
 
     this.translationService.selectedLanguage.subscribe((value) => {
       this.siteLanguage = value;
-      console.log('site language in nav serv', this.siteLanguage)
     });
+
+    // this.siteLanguage = this.translationService.selectedLanguage.pipe(
+    //   tap(t => console.log('t', t))
+    // ).subscribe();
 
   }
 
@@ -46,11 +51,22 @@ export class NavigationService {
   private getTranslatedMenuItem(item: object): string {
 
     const getPropValue: any = (obj, key) => key.split('.').reduce((o, x) => o == undefined ? o : o[x], obj);
-    const translation = getPropValue(item, this.siteLanguage);
+    let translation: string;
+
+    this.translationService.selectedLanguage.subscribe((value) => {
+      this.siteLanguage = value;
+      console.log('site language helper method', this.siteLanguage)
+      translation = getPropValue(item, value);
+    });
+
+    // console.log('ITEM', item)
+    // console.log('SITE LANGUAGE', this.siteLanguage)
+    // console.log('TRANSLATION', translation)
+
     return translation;
 
   }
-  
+
   getStyle(style: string | null, classification: string | null): string {
 
     if (classification === 'section') {
@@ -124,29 +140,13 @@ export class NavigationService {
 
   }
 
-  // getSubMenu(parent: string): any[] {
-
-  //   const menuItems = this.getRoutes();
-
-  //   // const subMenu: any[] = this.routes.filter(i => {
-  //   //   return i.data.parent === parent;
-  //   // });
-
-  //   const subMenu: any[] = menuItems.filter(i => {
-  //     return i.data.parent === parent;
-  //   });
-
-  //   return subMenu;
-
-  // }
-
   getExtraMenu(): any[] {
 
     const extraMenuOriginal: Route[] = this.getMenuItems('extraMenu');
     const extraMenuItems: object[] = [];
 
     extraMenuOriginal.forEach(item => {
-      
+
       if (item.data.translation) {
         this.translatedMenuItem = this.getTranslatedMenuItem(item.data.translation);
       }
@@ -171,7 +171,10 @@ export class NavigationService {
 
   getSubMenu(parent: string): any[] {
 
-    const routes = this.getRoutes();
+    const routes = this.getRoutes().filter(i => {
+      return i.data['parent'] === parent;
+    });;
+
     const menuItems: object[] = [];
 
     routes.forEach(item => {
@@ -191,15 +194,19 @@ export class NavigationService {
         hidden: item.data.hidden
       };
 
+      console.log('MENU ITEM', menuItem)
       menuItems.push(menuItem);
 
-    })
-
-    const subMenu: object[] = menuItems.filter(i => {
-      return i['parent'] === parent;
     });
 
-    return subMenu;
+    
+    console.log('MENU ITEMS', menuItems)
+
+    // const subMenu: object[] = menuItems.filter(i => {
+    //   return i['parent'] === parent;
+    // });
+
+    return menuItems;
 
   }
 

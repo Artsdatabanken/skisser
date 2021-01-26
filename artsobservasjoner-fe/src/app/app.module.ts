@@ -98,6 +98,8 @@ import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
+import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
+import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -191,7 +193,9 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AccordionItemComponent,
     VolumeStatisticsComponent,
     TranslatePipe,
-    AddSightingComponent
+    AddSightingComponent,
+    OverviewStatisticsComponent,
+    CoObserversComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import Translations from '../data/translations.json';
 
 export class TranslationSet {
@@ -14,7 +14,6 @@ export class TranslationSet {
 export class TranslationService {
 
   translation: any = Translations;
-  //public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }, { code: 'fr', name: 'Français' }, { code: 'es', name: 'Español' }];
   public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }];
 
   public language: string;
@@ -135,7 +134,7 @@ export class TranslationService {
     this.otherLanguage = this.getOtherLanguage(this.language);
     this.unselectedLanguage.next(this.otherLanguage);
 
-    console.log('site language in translation serv', this.language)
+    console.log('site language in translation service', this.language)
   }
 
   translate(key: string): string {
@@ -163,7 +162,7 @@ export class TranslationService {
     this.language = selectedLanguageCode; // change state
     this.selectedLanguage.next(this.language); // propagate the new state
     this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
-
+    
   }
 
   getOtherLanguage(selectedLanguage: string): object {
@@ -172,34 +171,5 @@ export class TranslationService {
     return extractedLanguage;
 
   }
-
-  // -----------------------------------------------------------------------------***
-
-  // getOtherLanguage(selectedLanguage: string): string {
-
-  //   const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
-
-  //   // object deconstructor
-  //   const { code } = extractedLanguage;
-
-  //   console.log('other language', extractedLanguage, 'code', code, 'xxx', extractedLanguage.code)
-
-  //   return code;
-
-  // }
-
-  // getTranslation(languageCode: string | null = 'en'): Observable<any[]> {
-
-  //   const translation: any = this.translation.filter(t => {
-  //     return t.languageCode === languageCode;
-  //   });
-
-  //   this.translation.forEach(element => {
-  //     //console.log('translation in service', element)
-  //   });
-
-  //   return of(translation).pipe();
-
-  // }
 
 }

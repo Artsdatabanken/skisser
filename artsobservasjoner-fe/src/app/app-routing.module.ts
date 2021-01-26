@@ -45,6 +45,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
+import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
+import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
 
 /*
 
@@ -61,12 +63,13 @@ const homeRoutes: Routes = [
     component: HomeComponent,
     data: {
       text: 'Artsobservasjoner',
+      title: 'menu_frontpage',
       id: 'frontpage',
       layout: 'frontpage',
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'Artsobservasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -79,6 +82,7 @@ const reportRoutes: Routes = [
     component: ReportComponent,
     data: {
       text: 'Rapportere observasjoner',
+      title: 'menu_reportSightings',
       translation: {
         no: 'Rapportere observasjoner',
         en: 'Sightings register'
@@ -88,16 +92,17 @@ const reportRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metaTitle: 'Rapportere observasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
   },
   {
     path: 'report/add-observation',
-    component: SightingsComponent,
+    component: AddSightingComponent,
     data: {
       text: 'Legg til observasjon',
+      title: 'menu_addSighting',
       translation: {
         no: 'Legg til observasjon',
         en: 'Add sighting'
@@ -107,7 +112,7 @@ const reportRoutes: Routes = [
       rank: 'primary',
       parent: 'report',
       menu: 'mainMenu',
-      metaTitle: 'Legg til observasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -117,6 +122,7 @@ const reportRoutes: Routes = [
     component: ChecklistComponent,
     data: {
       text: 'Sjekkliste observasjoner',
+      title: 'menu_useChecklist',
       translation: {
         no: 'Sjekkliste observasjoner',
         en: 'Sightings checklist registration'
@@ -126,7 +132,7 @@ const reportRoutes: Routes = [
       rank: 'primary',
       parent: 'report',
       menu: 'mainMenu',
-      metaTitle: 'Sjekkliste observasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -136,6 +142,7 @@ const reportRoutes: Routes = [
     component: ImportObservationsComponent,
     data: {
       text: 'Importere observasjoner',
+      title: 'menu_importSightings',
       translation: {
         no: 'Importere observasjoner',
         en: 'Sightings import'
@@ -145,7 +152,7 @@ const reportRoutes: Routes = [
       rank: 'secondary',
       parent: 'report',
       menu: 'mainMenu',
-      metaTitle: 'Importere observasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -155,6 +162,7 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Arrangementer',
+      title: 'menu_events',
       translation: {
         no: 'Arrangementer',
         en: 'Sighting registration events'
@@ -164,48 +172,50 @@ const reportRoutes: Routes = [
       rank: 'secondary',
       parent: 'report',
       menu: 'mainMenu',
-      metaTitle: 'Arrangementer',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
   },
   {
-    path: 'report/survey-project',
+    path: 'report/projects',
     component: EventProjectComponent,
     data: {
       text: 'Kartleggingsprosjekter',
+      title: 'menu_projects',
       translation: {
         no: 'Kartleggingsprosjekter',
         en: 'Survey sightings registration'
       },
-      id: 'survey-project',
+      id: 'projects',
       layout: 'page',
       rank: 'secondary',
       parent: 'report',
       menu: 'mainMenu',
-      metaTitle: 'Kartleggingsprosjekter',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
   }
 ];
 
-const observationsRoutes: Routes = [
+const sightingsRoutes: Routes = [
   {
     path: 'observations',
     component: ObservationsComponent,
     data: {
       text: 'Observasjonsdata',
+      title: 'menu_sightingsData',
       translation: {
         no: 'Observasjonsdata',
-        en: 'Sightings data'
+        en: 'Sightings'
       },
       id: 'observations',
       layout: 'page',
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metaTitle: 'Observasjonsdata',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -215,16 +225,17 @@ const observationsRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
+      title: 'menu_sightings',
       translation: {
         no: 'Se, søk og filtrer observasjoner',
-        en: 'Search in sightings data'
+        en: 'View and search in sightings'
       },
       id: 'sightings',
       layout: 'page',
       rank: 'primary',
       parent: 'observations',
       menu: 'mainMenu',
-      metaTitle: 'Se, søk og filtrer observasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -234,12 +245,17 @@ const observationsRoutes: Routes = [
     component: SightingComponent,
     data: {
       text: 'Observasjon',
+      title: 'menu_sighting',
+      translation: {
+        no: 'Observasjon',
+        en: 'Ssighting'
+      },
       id: 'sighting',
       layout: 'page',
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'Observasjon',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -249,6 +265,7 @@ const observationsRoutes: Routes = [
     component: StatisticsComponent,
     data: {
       text: 'Tall og statistikk', 
+      title: 'menu_statistics',
       translation: {
         no: 'Tall og statistikk',
         en: 'Statistics'
@@ -258,26 +275,27 @@ const observationsRoutes: Routes = [
       rank: 'secondary',
       parent: 'observations',
       menu: 'mainMenu',
-      metaTitle: 'Tall og statistikk',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
   },
   {
-    path: 'observations/statistics/volume-statistics',
+    path: 'observations/statistics/overview-statistics',
     component: VolumeStatisticsComponent,
     data: {
       text: 'Volumstatistikk',  
+      title: 'menu_overviewStatistics',
       translation: {
         no: 'Volumstatistikk',
-        en: 'Volume statistics'
+        en: 'Overview statistics'
       },
-      id: 'volumStatistics',
+      id: 'overview-statistics',
       layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Volumstatistikk',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     },
@@ -292,7 +310,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Oversikt stats item',
+          metatitle: 'menu_Oversikt stats item',
           metaDescription: '',
           hidden: true
         }
@@ -307,7 +325,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall observasjoner per artsgruppe',
+          metatitle: 'menu_Antall observasjoner per artsgruppe',
           metaDescription: '',
           hidden: false
         }
@@ -322,7 +340,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall arter rapportert per artsgruppe',
+          metatitle: 'menu_Antall arter rapportert per artsgruppe',
           metaDescription: '',
           hidden: false
         }
@@ -337,7 +355,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall bilder per artsgruppe',
+          metatitle: 'menu_Antall bilder per artsgruppe',
           metaDescription: '',
           hidden: false
         }
@@ -352,7 +370,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
+          metatitle: 'menu_Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
           metaDescription: '',
           hidden: false
         }
@@ -367,7 +385,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall kvalitetssikrede observasjoner per artsgruppe',
+          metatitle: 'menu_Antall kvalitetssikrede observasjoner per artsgruppe',
           metaDescription: '',
           hidden: false
         }
@@ -382,7 +400,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall rapporterte observasjoner etter rapporteringsmåte',
+          metatitle: 'menu_Antall rapporterte observasjoner etter rapporteringsmåte',
           metaDescription: '',
           hidden: false
         }
@@ -397,7 +415,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall observasjoner per fylke',
+          metatitle: 'menu_Antall observasjoner per fylke',
           metaDescription: '',
           hidden: false
         }
@@ -412,7 +430,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Rapporteringsoversikt per artsgruppe totalt og per år',
+          metatitle: 'menu_Rapporteringsoversikt per artsgruppe totalt og per år',
           metaDescription: '',
           hidden: false
         }
@@ -427,7 +445,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Månedlige rapporteringer per artsgruppe totalt og per år',
+          metatitle: 'menu_Månedlige rapporteringer per artsgruppe totalt og per år',
           metaDescription: '',
           hidden: false
         }
@@ -442,7 +460,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Månedlige observasjoner per artsgruppe totalt og per år',
+          metatitle: 'menu_Månedlige observasjoner per artsgruppe totalt og per år',
           metaDescription: '',
           hidden: false
         }
@@ -457,7 +475,7 @@ const observationsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metaTitle: 'Antall aktive brukere',
+          metatitle: 'menu_Antall aktive brukere',
           metaDescription: '',
           hidden: false
         }
@@ -465,38 +483,40 @@ const observationsRoutes: Routes = [
     ]
   },
   {
-    path: 'observations/statistics/quality-checked-data',
+    path: 'observations/statistics/validated-data',
     component: QualityAssuredDataComponent,
     data: {
-      text: 'Kvalitetssikrede data',  
+      text: 'Kvalitetssikrede data', 
+      title: 'menu_validatedData', 
       translation: {
         no: 'Kvalitetssikrede data',
-        en: 'Quality assured data'
+        en: 'Validated data'
       },
-      id: 'quality-checked-data',
+      id: 'validated-data',
       layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Kvalitetssikrede data',
+      metatitle: '',
       metaDescription: ''
     }
   },
   {
-    path: 'observations/statistics/red-listed-species',
+    path: 'observations/statistics/redlisted-species',
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',  
+      title: 'menu_redlistedSpecies',
       translation: {
         no: 'Rødlisted arter',
         en: 'Redlisted species'
       },
-      id: 'red-listed-species',
+      id: 'redlisted-species',
       layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Rødlistede arter',
+      metatitle: '',
       metaDescription: ''
     }
   },
@@ -505,6 +525,7 @@ const observationsRoutes: Routes = [
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',  
+      title: 'menu_alienSpecies',
       translation: {
         no: 'Fremmede arter',
         en: 'Alien species'
@@ -514,25 +535,26 @@ const observationsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Fremmede arter',
+      metatitle: '',
       metaDescription: ''
     }
   },
   {
-    path: 'observations/statistics/knowledge-gap',
+    path: 'observations/statistics/knowledge-gaps',
     component: KnowledgeGapComponent,
     data: {
       text: 'Kunnskapshull',  
+      title: 'menu_knowledgeGaps',
       translation: {
         no: 'Kunnskapshull',
-        en: 'Knowledge gap'
+        en: 'Knowledge gaps'
       },
-      id: 'species-with-no-data',
+      id: 'knowledge-gaps',
       layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Kunnskapshull',
+      metatitle: '',
       metaDescription: ''
     }
   },
@@ -541,6 +563,7 @@ const observationsRoutes: Routes = [
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',  
+      title: 'menu_userStatistics',
       translation: {
         no: 'Brukerstatistikk',
         en: 'User statistics'
@@ -550,7 +573,7 @@ const observationsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metaTitle: 'Brukerstatistikk',
+      metatitle: '',
       metaDescription: ''
     }
   }
@@ -562,6 +585,7 @@ const userDataRoutes: Routes = [
     component: MyDataComponent,
     data: {
       text: 'Min data',
+      title: 'menu_myData',
       translation: {
         no: 'Min data',
         en: 'My data'
@@ -571,7 +595,7 @@ const userDataRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metaTitle: 'Min data',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -581,6 +605,7 @@ const userDataRoutes: Routes = [
     component: MyObservationsComponent,
     data: {
       text: 'Mine observasjoner',
+      title: 'menu_mySightings',
       translation: {
         no: 'Mine observasjoner',
         en: 'My sightings'
@@ -590,7 +615,7 @@ const userDataRoutes: Routes = [
       rank: 'primary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metaTitle: 'Mine observasjoner',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -600,6 +625,7 @@ const userDataRoutes: Routes = [
     component: MyStatisticsComponent,
     data: {
       text: 'Min statistikk',
+      title: 'menu_myStatistics',
       translation: {
         no: 'Min statistikk',
         en: 'My stats'
@@ -609,7 +635,7 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metaTitle: 'Min statistikk',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -619,6 +645,7 @@ const userDataRoutes: Routes = [
     component: MyProjectsComponent,
     data: {
       text: 'Mine prosjekter',
+      title: 'menu_myProjects',
       translation: {
         no: 'Mine prosjekter',
         en: 'My projects'
@@ -628,7 +655,7 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metaTitle: 'Mine prosjekter',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -638,6 +665,7 @@ const userDataRoutes: Routes = [
     component: MyLocationsComponent,
     data: {
       text: 'Mine lokaliteter',
+      title: 'menu_myLocations',
       translation: {
         no: 'Mine lokaliteter',
         en: 'My locations'
@@ -647,26 +675,27 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metaTitle: 'Mine lokaliteter',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
   },
   {
-    path: 'my-data/fellow-observers',
-    component: FellowObserversComponent,
+    path: 'my-data/co-observers',
+    component: CoObserversComponent,
     data: {
       text: 'Medobservatører',
+      title: 'menu_myCoObservers',
       translation: {
         no: 'Medobservatører',
-        en: 'My fellow observers'
+        en: 'Co-observers'
       },
-      id: 'fellow-observers',
+      id: 'co-observers',
       layout: 'page',
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metaTitle: 'Medobservatører',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -678,7 +707,8 @@ const aboutRoutes: Routes = [
     path: 'about',
     component: AboutComponent,
     data: {
-      text: 'Om tjenesten',  
+      text: 'Om tjenesten', 
+      title: 'menu_about', 
       translation: {
         no: 'Om tjenesten',
         en: 'About'
@@ -688,7 +718,7 @@ const aboutRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metaTitle: 'Om tjenesten',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -707,7 +737,7 @@ const aboutRoutes: Routes = [
       rank: '',
       parent: 'about',
       menu: 'mainMenu',
-      metaTitle: 'About Item',
+      metatitle: 'menu_About Item',
       metaDescription: '',
       hidden: true
     }
@@ -722,7 +752,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metaTitle: 'Om artsobservasjoner.no',
+  //     metatitle: 'menu_Om artsobservasjoner.no',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -737,7 +767,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metaTitle: 'Kvalitetssikring',
+  //     metatitle: 'menu_Kvalitetssikring',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -752,7 +782,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metaTitle: 'Hvordan du kan bidra',
+  //     metatitle: 'menu_Hvordan du kan bidra',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -767,7 +797,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metaTitle: 'Brukervilkår',
+  //     metatitle: 'menu_Brukervilkår',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -782,7 +812,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metaTitle: 'Brukerstøtte',
+  //     metatitle: 'menu_Brukerstøtte',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -795,6 +825,7 @@ const accountRoutes: Routes = [
     component: RegistrationComponent,
     data: {
       text: 'Registrer deg',
+      title: 'menu_accountRegister',
       translation: {
         no: 'Registrer deg',
         en: 'Register'
@@ -804,7 +835,7 @@ const accountRoutes: Routes = [
       rank: '',
       parent: 'userMenu',
       menu: 'userMenu',
-      metaTitle: 'Registrer deg',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -814,6 +845,7 @@ const accountRoutes: Routes = [
     component: LoginComponent,
     data: {
       text: 'Logg inn',
+      title: 'menu_accountLogin',
       translation: {
         no: 'Logg inn',
         en: 'Login'
@@ -823,7 +855,7 @@ const accountRoutes: Routes = [
       rank: '',
       parent: 'userMenu',
       menu: 'userMenu',
-      metaTitle: 'Logg inn',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -833,6 +865,7 @@ const accountRoutes: Routes = [
     component: DashboardComponent,
     data: {
       text: 'Min side',
+      title: 'menu_account',
       translation: {
         no: 'Min side',
         en: 'Account'
@@ -842,7 +875,7 @@ const accountRoutes: Routes = [
       rank: 'primary',
       parent: 'userMenu',
       menu: 'userMenu',
-      metaTitle: 'Min side',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -852,6 +885,7 @@ const accountRoutes: Routes = [
     component: MessagesComponent,
     data: {
       text: 'Meldinger',
+      title: 'menu_accountMessages',
       translation: {
         no: 'Meldinger',
         en: 'Messages'
@@ -861,7 +895,7 @@ const accountRoutes: Routes = [
       rank: 'primary',
       parent: 'userMenu',
       menu: 'userMenu',
-      metaTitle: 'Meldinger',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -874,6 +908,7 @@ const extraRoutes: Routes = [
     component: NewsComponent,
     data: {
       text: 'Aktuelle saker',
+      title: 'menu_news',
       translation: {
         no: 'Aktuelle saker',
         en: 'News'
@@ -883,7 +918,7 @@ const extraRoutes: Routes = [
       rank: 'secondary',
       parent: '',
       menu: 'extraMenu',
-      metaTitle: 'Aktuelle saker / siste nytt',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -902,7 +937,7 @@ const extraRoutes: Routes = [
       rank: '',
       parent: 'news',
       menu: '',
-      metaTitle: 'News Item',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -912,6 +947,7 @@ const extraRoutes: Routes = [
     component: SitemapComponent,
     data: {
       text: 'Innholdskart fra A-Å',
+      title: 'menu_sitemap',
       translation: {
         no: 'Innholdskart fra A-Å',
         en: 'Sitemap'
@@ -921,7 +957,7 @@ const extraRoutes: Routes = [
       rank: '',
       parent: '',
       menu: 'extraMenu',
-      metaTitle: 'Innholdskart A-Å',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -939,7 +975,7 @@ const testRoutes: Routes = [  // for testing purposes
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'Artsobservasjoner',
+      metatitle: 'menu_Artsobservasjoner',
       metaDescription: '',
       hidden: false
     }
@@ -954,7 +990,7 @@ const testRoutes: Routes = [  // for testing purposes
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: 'Artsobservasjoner',
+      metatitle: 'menu_Artsobservasjoner',
       metaDescription: '',
       hidden: false
     }
@@ -976,15 +1012,15 @@ const wildcardRoutes: Routes = [
       rank: '',
       parent: '',
       menu: '',
-      metaTitle: '404',
+      metatitle: 'menu_404',
       metaDescription: '',
       hidden: false
     }
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...observationsRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
-//const routes: Routes = [...homeRoutes, ...reportRoutes, ...observationsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
