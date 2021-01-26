@@ -55,12 +55,10 @@ import { MyLocationsComponent } from './components/my-data/my-locations/my-locat
 import { MyObserversComponent } from './components/my-data/my-observers/my-observers.component';
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
 import { SpeciesWithNoDataComponent } from './components/statistics/species-with-no-data/species-with-no-data.component';
-import { AddObservationComponent } from './components/report/add-observation/add-observation.component';
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
 import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
-import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 import { CategoryRedlistedComponent } from './components/shared/category-redlisted/category-redlisted.component';
 import { CategoryAlienComponent } from './components/shared/category-alien/category-alien.component';
@@ -154,12 +152,10 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     MyObserversComponent,
     MyStatisticsComponent,
     SpeciesWithNoDataComponent,
-    AddObservationComponent,
     ChecklistComponent,
     ImportObservationsComponent,
     SurveyProjectComponent,
     EventProjectComponent,
-    FellowObserversComponent,
     ExtraNavigationComponent,
     CategoryRedlistedComponent,
     CategoryAlienComponent,
