@@ -7,7 +7,11 @@
     </option>
 </select> -->
 
-<button class="language-switcher" (click)="switchLanguage(nonSelectedLanguage.code)">{{ nonSelectedLanguage.name }}</button>
+<!-- <button class="language-switcher" (click)="switchLanguage(nonSelectedLanguage.code)">{{ nonSelectedLanguage.name }}</button> -->
+
+<button class="language-switcher" (click)="useLanguage('en')">en</button>
+ | 
+<button class="language-switcher" (click)="useLanguage('no')">no</button>
 
 <!--[attr.selected]="i === 0 ? true : null"-->
 

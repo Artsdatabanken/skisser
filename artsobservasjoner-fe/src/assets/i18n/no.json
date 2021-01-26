@@ -1,0 +1,47 @@
+{
+    "menu": {
+        "menu_report": "Rapporter observasjoner",
+        "menu_report_addSighting": "Legg til observasjon",
+        "menu_report_addByChecklist": "Sjekklisterapportering",
+        "menu_report_importSightings": "Importere observasjoner",
+        "menu_report_events": "Arrangementer",
+        "menu_report_projects": "Kartleggingsprosjekter",
+        "menu_observations": "ObservasjonsData",
+        "menu_observations_sightings": "Se og søk i observasjoner",
+        "menu_observations_sighting": "Observasjon",
+        "menu_statistics": "Tall og statistikk",
+        "menu_statistics_overview": "Volumstatistikk",
+        "menu_statistics_validatedData": "Kvalitetssikrede data",
+        "menu_statistics_redlistedSpecies": "Rødlistede arter",
+        "menu_statistics_alienSpecies": "Fremmede arter",
+        "menu_statistics_knowledgeGaps": "Kunnskapshull",
+        "menu_statistics_userStatistics": "Brukerstatistikk",
+        "menu_myData": "Min data",
+        "menu_myData_myObservations": "Mine observasjoner",
+        "menu_myData_myStatistics": "Min statistik",
+        "menu_myData_myProjects": "Mine prosjekter",
+        "menu_myData_myLocations": "Mine lokaliteter",
+        "menu_myData__myCoObservers": "Mine medobservatører",
+        "menu_about": "Om tjenesten",
+        "menu_news": "Aktuelle saker",
+        "menu_sitemap": "Innholdskart A-Å",
+        "menu_404": "Ikke funnet - 404"
+    },
+    "account": {
+        "account_register": "Registrer deg",
+        "account_login": "Logg inn",
+        "account": "Min side",
+        "account_messages": "Meldinger"
+    },
+    "frontpage": {
+        "title": "Translation demo", 
+        "frontpage_introText1": "Bli med og hjelp oss å kartlegge norsk natur!",
+        "frontpage_introText2": "Lær mer om hvordan du kan bidra",
+        "frontpage_introText3": "Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?",
+        "frontpage_text_4": "Flere nyheter og aktuelle saker",
+        "frontpage_text_5": "Bli validator",
+        "frontpage_headings_shortcuts": "Snarveier",
+        "frontpage_headings_statistics": "Statistikk",
+        "frontpage_headings_news": "Siste nytt"
+    }
+}

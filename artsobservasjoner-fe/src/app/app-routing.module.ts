@@ -23,11 +23,9 @@ import { MyObservationsComponent } from './components/my-data/my-observations/my
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
 import { MyProjectsComponent } from './components/my-data/my-projects/my-projects.component';
 import { MyLocationsComponent } from './components/my-data/my-locations/my-locations.component';
-import { AddObservationComponent } from './components/report/add-observation/add-observation.component';
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
 import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
-import { FellowObserversComponent } from './components/my-data/fellow-observers/fellow-observers.component';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
 import { OverviewChild9Component } from './components/statistics/overview/overview-child9/overview-child9.component';
@@ -63,7 +61,7 @@ const homeRoutes: Routes = [
     component: HomeComponent,
     data: {
       text: 'Artsobservasjoner',
-      title: 'menu_frontpage',
+      title: 'frontpage',
       id: 'frontpage',
       layout: 'frontpage',
       rank: '',
@@ -82,7 +80,7 @@ const reportRoutes: Routes = [
     component: ReportComponent,
     data: {
       text: 'Rapportere observasjoner',
-      title: 'menu_reportSightings',
+      title: 'menu_report',
       translation: {
         no: 'Rapportere observasjoner',
         en: 'Sightings register'
@@ -102,7 +100,7 @@ const reportRoutes: Routes = [
     component: AddSightingComponent,
     data: {
       text: 'Legg til observasjon',
-      title: 'menu_addSighting',
+      title: 'menu_report_addSighting',
       translation: {
         no: 'Legg til observasjon',
         en: 'Add sighting'
@@ -122,7 +120,7 @@ const reportRoutes: Routes = [
     component: ChecklistComponent,
     data: {
       text: 'Sjekkliste observasjoner',
-      title: 'menu_useChecklist',
+      title: 'menu_report_addByChecklist',
       translation: {
         no: 'Sjekkliste observasjoner',
         en: 'Sightings checklist registration'
@@ -142,7 +140,7 @@ const reportRoutes: Routes = [
     component: ImportObservationsComponent,
     data: {
       text: 'Importere observasjoner',
-      title: 'menu_importSightings',
+      title: 'menu_report_importSightings',
       translation: {
         no: 'Importere observasjoner',
         en: 'Sightings import'
@@ -162,7 +160,7 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Arrangementer',
-      title: 'menu_events',
+      title: 'menu_report_events',
       translation: {
         no: 'Arrangementer',
         en: 'Sighting registration events'
@@ -182,7 +180,7 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Kartleggingsprosjekter',
-      title: 'menu_projects',
+      title: 'menu_report_projects',
       translation: {
         no: 'Kartleggingsprosjekter',
         en: 'Survey sightings registration'
@@ -205,7 +203,7 @@ const sightingsRoutes: Routes = [
     component: ObservationsComponent,
     data: {
       text: 'Observasjonsdata',
-      title: 'menu_sightingsData',
+      title: 'menu_observations',
       translation: {
         no: 'Observasjonsdata',
         en: 'Sightings'
@@ -225,7 +223,7 @@ const sightingsRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
-      title: 'menu_sightings',
+      title: 'menu_observations_sightings',
       translation: {
         no: 'Se, søk og filtrer observasjoner',
         en: 'View and search in sightings'
@@ -245,7 +243,7 @@ const sightingsRoutes: Routes = [
     component: SightingComponent,
     data: {
       text: 'Observasjon',
-      title: 'menu_sighting',
+      title: 'menu_observations_sighting',
       translation: {
         no: 'Observasjon',
         en: 'Ssighting'
@@ -285,7 +283,7 @@ const sightingsRoutes: Routes = [
     component: VolumeStatisticsComponent,
     data: {
       text: 'Volumstatistikk',  
-      title: 'menu_overviewStatistics',
+      title: 'menu_statistics_overview',
       translation: {
         no: 'Volumstatistikk',
         en: 'Overview statistics'
@@ -487,7 +485,7 @@ const sightingsRoutes: Routes = [
     component: QualityAssuredDataComponent,
     data: {
       text: 'Kvalitetssikrede data', 
-      title: 'menu_validatedData', 
+      title: 'menu_statistics_validatedData', 
       translation: {
         no: 'Kvalitetssikrede data',
         en: 'Validated data'
@@ -506,7 +504,7 @@ const sightingsRoutes: Routes = [
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',  
-      title: 'menu_redlistedSpecies',
+      title: 'menu_statistics_redlistedSpecies',
       translation: {
         no: 'Rødlisted arter',
         en: 'Redlisted species'
@@ -525,7 +523,7 @@ const sightingsRoutes: Routes = [
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',  
-      title: 'menu_alienSpecies',
+      title: 'menu_statistics_alienSpecies',
       translation: {
         no: 'Fremmede arter',
         en: 'Alien species'
@@ -544,7 +542,7 @@ const sightingsRoutes: Routes = [
     component: KnowledgeGapComponent,
     data: {
       text: 'Kunnskapshull',  
-      title: 'menu_knowledgeGaps',
+      title: 'menu_statistics_knowledgeGaps',
       translation: {
         no: 'Kunnskapshull',
         en: 'Knowledge gaps'
@@ -563,7 +561,7 @@ const sightingsRoutes: Routes = [
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',  
-      title: 'menu_userStatistics',
+      title: 'menu_statistics_userStatistics',
       translation: {
         no: 'Brukerstatistikk',
         en: 'User statistics'
@@ -605,7 +603,7 @@ const userDataRoutes: Routes = [
     component: MyObservationsComponent,
     data: {
       text: 'Mine observasjoner',
-      title: 'menu_mySightings',
+      title: 'menu_myData_myObservations',
       translation: {
         no: 'Mine observasjoner',
         en: 'My sightings'
@@ -625,7 +623,7 @@ const userDataRoutes: Routes = [
     component: MyStatisticsComponent,
     data: {
       text: 'Min statistikk',
-      title: 'menu_myStatistics',
+      title: 'menu_myData_myStatistics',
       translation: {
         no: 'Min statistikk',
         en: 'My stats'
@@ -645,7 +643,7 @@ const userDataRoutes: Routes = [
     component: MyProjectsComponent,
     data: {
       text: 'Mine prosjekter',
-      title: 'menu_myProjects',
+      title: 'menu_myData_myProjects',
       translation: {
         no: 'Mine prosjekter',
         en: 'My projects'
@@ -665,7 +663,7 @@ const userDataRoutes: Routes = [
     component: MyLocationsComponent,
     data: {
       text: 'Mine lokaliteter',
-      title: 'menu_myLocations',
+      title: 'menu_myData_myLocations',
       translation: {
         no: 'Mine lokaliteter',
         en: 'My locations'
@@ -685,7 +683,7 @@ const userDataRoutes: Routes = [
     component: CoObserversComponent,
     data: {
       text: 'Medobservatører',
-      title: 'menu_myCoObservers',
+      title: 'menu_myData__myCoObservers',
       translation: {
         no: 'Medobservatører',
         en: 'Co-observers'
@@ -825,7 +823,7 @@ const accountRoutes: Routes = [
     component: RegistrationComponent,
     data: {
       text: 'Registrer deg',
-      title: 'menu_accountRegister',
+      title: 'menu_account_register',
       translation: {
         no: 'Registrer deg',
         en: 'Register'
@@ -845,7 +843,7 @@ const accountRoutes: Routes = [
     component: LoginComponent,
     data: {
       text: 'Logg inn',
-      title: 'menu_accountLogin',
+      title: 'menu_account_ogin',
       translation: {
         no: 'Logg inn',
         en: 'Login'
@@ -885,7 +883,7 @@ const accountRoutes: Routes = [
     component: MessagesComponent,
     data: {
       text: 'Meldinger',
-      title: 'menu_accountMessages',
+      title: 'menu_account_messages',
       translation: {
         no: 'Meldinger',
         en: 'Messages'
@@ -1003,6 +1001,7 @@ const wildcardRoutes: Routes = [
     component: PageNotFoundComponent,
     data: {
       text: 'Ikke funnet - 404',
+      title: 'menu_404',
       translation: {
         no: 'Ikke funnet - 404',
         en: 'Not found - 404'

@@ -1,0 +1,47 @@
+{
+    "menu": {
+        "menu_report": "Report sightings",
+        "menu_report_addSighting": "Add sighting",
+        "menu_report_addByChecklist": "Add sightings with checklist",
+        "menu_report_importSightings": "Import sightings",
+        "menu_report_events": "Events",
+        "menu_report_projects": "Projects",
+        "menu_observations": "Sightings",
+        "menu_observations_sightings": "View and search in sightings",
+        "menu_observations_sighting": "Sighting",
+        "menu_statistics": "Statistics",
+        "menu_statistics_overview": "Overview statistics",
+        "menu_statistics_validatedData": "Validated data",
+        "menu_statistics_redlistedSpecies": "Redlisted species",
+        "menu_statistics_alienSpecies": "Alien species",
+        "menu_statistics_knowledgeGaps": "Knowledge gaps",
+        "menu_statistics_userStatistics": "User statistics",
+        "menu_myData": "My data",
+        "menu_myData_myObservations": "My sightings",
+        "menu_myData_myStatistics": "My statistics",
+        "menu_myData_myProjects": "My projects",
+        "menu_myData_myLocations": "My locations",
+        "menu_myData__myCoObservers": "My co-observers",
+        "menu_about": "About",
+        "menu_news": "News",
+        "menu_sitemap": "Sitemap",
+        "menu_404": "Not found - 404"
+    },
+    "account": {
+        "account_register": "Register",
+        "account_login": "Login",
+        "account": "My account",
+        "account_messages": "Messages"
+    },
+    "frontpage": {
+        "title": "Translation demo",
+        "frontpage_introText1": "Join and help us survey Norwegian nature!",
+        "frontpage_introText2": "Learn more about how you can contribute",
+        "frontpage_introText3": "Want to help us ensure the quality of our sightings\"s data?",
+        "frontpage_text_4": "More news",
+        "frontpage_text_5": "Become a validator",
+        "frontpage_headings_shortcuts": "Shortcuts",
+        "frontpage_headings_statistics": "Statistics",
+        "frontpage_headings_news": "News"
+    }
+}

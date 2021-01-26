@@ -3,10 +3,11 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslationService } from './services/translation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent {
   pageTitle: string = '';
   pageId: string = '';
   pageLayout: string = '';
-  
+
   skipLinkPath: string;
   windowScrolled: boolean = false;
   routerSubscription: Subscription;
@@ -38,14 +39,31 @@ export class AppComponent {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    public translate: TranslateService
   ) {
-    this.subscription = this.translationService.selectedLanguage.subscribe(l => {
-      this.siteLanguage = l;
-    })
+
+    translate.addLangs(['no', 'en']);
+    translate.setDefaultLang('en');
+    translate.use('en');
+
+    const browserLang = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|no/) ? browserLang : 'en');
+
+    // this.subscription = this.translationService.selectedLanguage.subscribe(l => {
+    //   this.siteLanguage = l;
+    // });
+
   }
 
   ngOnInit(): void {
+    
+    this.setPageLayout();
+    this.setPageTitle();
+
+  }
+
+  setPageTitle(): void {
 
     this.routerSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
@@ -56,24 +74,47 @@ export class AppComponent {
       }),
       mergeMap(route => route.data)).subscribe(obj => {
 
+        this.pageId = obj.id;
+        this.pageTitle = obj.title;
+        // this.pageTitle = this.siteLanguage === 'no' ? obj.translation.no : obj.translation.en;
+
+        this.titleService.setTitle(this.translate.instant('menu.' + obj.title));
+
+        this.translate.get('menu.' + obj.title).subscribe((res: string) => {
+
+          this.pageTitle = res;
+
+          if (this.pageId === 'frontpage') {
+            this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
+          }
+          else {
+            this.titleService.setTitle(`${res} - Artsobservasjoner`);
+          }
+
+        });
+
+      });
+
+  }
+
+  setPageLayout(): void {
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map(route => {
+        while (route.firstChild) { route = route.firstChild; }
+        return route;
+      }),
+      mergeMap(route => route.data)).subscribe(obj => {
+
+        // set skip to content
         if (!this.router.url.endsWith('#mainContent')) {
           this.skipLinkPath = `${this.router.url}#mainContent`;
         }
 
-        // this.pageTitle = obj.text;
-        this.pageTitle = this.siteLanguage === 'no' ? obj.translation.no : obj.translation.en;
-        this.pageId = obj.id;
         this.pageLayout = obj.layout;
 
-        if (this.pageId === 'frontpage') {
-          this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
-        }
-        else {
-          this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
-        }
-
       });
-
   }
 
   ngOnDestroy() {

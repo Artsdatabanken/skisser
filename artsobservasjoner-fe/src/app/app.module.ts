@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Injector, LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -91,15 +94,15 @@ import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/kno
 import { AccordionComponent } from './reusable/accordion/accordion.component';
 import { AccordionItemComponent } from './reusable/accordion/accordion-item/accordion-item.component';
 import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
-
-import localeNor from '@angular/common/locales/nb';
-import localeNorExtra from '@angular/common/locales/nb';
-import { TranslatePipe } from './pipes/translate.pipe';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
 import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
 
-registerLocaleData(localeNor, 'no', localeNorExtra);
+import localeNor from '@angular/common/locales/nb';
+import localeNorExtra from '@angular/common/locales/nb';
+// import { TranslatePipe } from './pipes/translate.pipe';
+
+//registerLocaleData(localeNor, 'no', localeNorExtra);
 
 @NgModule({
   declarations: [
@@ -188,7 +191,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AccordionComponent,
     AccordionItemComponent,
     VolumeStatisticsComponent,
-    TranslatePipe,
+    // TranslatePipe,
     AddSightingComponent,
     OverviewStatisticsComponent,
     CoObserversComponent
@@ -198,14 +201,28 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot(
+      {
+        //defaultLanguage: 'en',
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+      }
+    ),
     AppRoutingModule
   ],
   providers: [
     NavigationService,
-    { provide: LOCALE_ID, useValue: 'no' }
+    //{ provide: LOCALE_ID, useValue: 'no' }
   ],
   bootstrap: [AppComponent]
 })
 
 export class AppModule { }
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

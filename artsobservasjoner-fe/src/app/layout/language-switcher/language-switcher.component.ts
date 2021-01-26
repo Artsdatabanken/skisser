@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -14,7 +15,10 @@ export class LanguageSwitcherComponent implements OnInit {
   subscription: Subscription[] = [];
   nonSelectedLanguage: object;
 
-  constructor(public translationService: TranslationService) {
+  constructor(
+    public translationService: TranslationService,
+    public translate: TranslateService
+  ) {
 
     this.subscription.push(this.translationService.selectedLanguage.subscribe((value) => {
       this.selectedLanguage = value;
@@ -34,7 +38,8 @@ export class LanguageSwitcherComponent implements OnInit {
 
   switchLanguage(selectedLanguageCode: string): void {
     console.log('selected language in switcher', selectedLanguageCode);
-    this.translationService.switchLanguage(selectedLanguageCode);
+    //this.translationService.switchLanguage(selectedLanguageCode);
+    this.translate.use(selectedLanguageCode);
   }
 
   // if we use dropdown / select

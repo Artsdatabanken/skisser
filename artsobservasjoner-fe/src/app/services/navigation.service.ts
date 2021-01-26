@@ -1,13 +1,11 @@
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import { TranslationService } from './translation.service';
 
 export class MenuItem {
   path: string;
   heading: string;
-  title: string;
+  text: string;
   id: string;
   parent: any;
   layout: string;
@@ -55,7 +53,6 @@ export class NavigationService {
 
     this.translationService.selectedLanguage.subscribe((value) => {
       this.siteLanguage = value;
-      console.log('site language helper method', this.siteLanguage)
       translation = getPropValue(item, value);
     });
 
@@ -102,14 +99,14 @@ export class NavigationService {
     // funksjonen tar en item og finner alle barn av den NY SYNTAKS (ny syntaks gir ikke tilgang til 'this')
     const handleItem = (item: any): object => {
 
-      if (item.data.translation) {
-        this.translatedMenuItem = this.getTranslatedMenuItem(item.data.translation);
-      }
+      // if (item.data.translation) {
+      //   this.translatedMenuItem = this.getTranslatedMenuItem(item.data.translation);
+      // }
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: this.translatedMenuItem,
-        title: item.data.text,
+        heading: `menu.${item.data.title}`,
+        text: item.data.text,
         id: item.path,
         parent: item.data.parent,
         layout: item.data.layout,
@@ -153,8 +150,8 @@ export class NavigationService {
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: this.translatedMenuItem,
-        title: item.data.text,
+        heading: `menu.${item.data.title}`,
+        text: item.data.text,
         id: item.path,
         parent: item.data.parent,
         layout: item.data.layout,
@@ -185,8 +182,8 @@ export class NavigationService {
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: this.translatedMenuItem,
-        title: item.data.text,
+        heading: `menu.${item.data.title}`,
+        text: item.data.text,
         id: item.path,
         parent: item.data.parent,
         layout: item.data.layout,
@@ -194,17 +191,9 @@ export class NavigationService {
         hidden: item.data.hidden
       };
 
-      console.log('MENU ITEM', menuItem)
       menuItems.push(menuItem);
 
     });
-
-    
-    console.log('MENU ITEMS', menuItems)
-
-    // const subMenu: object[] = menuItems.filter(i => {
-    //   return i['parent'] === parent;
-    // });
 
     return menuItems;
 

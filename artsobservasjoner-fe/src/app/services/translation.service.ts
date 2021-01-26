@@ -133,22 +133,20 @@ export class TranslationService {
 
     this.otherLanguage = this.getOtherLanguage(this.language);
     this.unselectedLanguage.next(this.otherLanguage);
-
-    console.log('site language in translation service', this.language)
   }
 
-  translate(key: string): string {
+  // translate(key: string): string {
 
-    console.log('translate called with value ' + key + ' and language ' + this.language);
+  //   console.log('translate called with value ' + key + ' and language ' + this.language);
 
-    if (this.dictionary[this.language] != null) {
-      return this.dictionary[this.language].values[key];
-    }
-    else {
-      return this.dictionary['no'].values[key];
-    }
+  //   if (this.dictionary[this.language] != null) {
+  //     return this.dictionary[this.language].values[key];
+  //   }
+  //   else {
+  //     return this.dictionary['no'].values[key];
+  //   }
 
-  }
+  // }
 
   // if we use select + option  / dropdown
   changeLanguage(languageCode: string): void {
