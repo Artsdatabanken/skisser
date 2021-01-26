@@ -38,8 +38,7 @@ export class LanguageSwitcherComponent implements OnInit {
 
   switchLanguage(selectedLanguageCode: string): void {
     console.log('selected language in switcher', selectedLanguageCode);
-    //this.translationService.switchLanguage(selectedLanguageCode);
-    this.translate.use(selectedLanguageCode);
+    this.translationService.switchLanguage(selectedLanguageCode);
   }
 
   // if we use dropdown / select

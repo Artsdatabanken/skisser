@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
-import Translations from '../data/translations.json';
 
 export class TranslationSet {
   public languange: string
@@ -13,9 +13,9 @@ export class TranslationSet {
 
 export class TranslationService {
 
-  translation: any = Translations;
   public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }];
 
+  //languages: any[] = [];
   public language: string;
   public selectedLanguage: BehaviorSubject<string> = new BehaviorSubject('');
 
@@ -127,13 +127,21 @@ export class TranslationService {
     },
   }
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.language = 'en';
     this.selectedLanguage.next(this.language);
 
     this.otherLanguage = this.getOtherLanguage(this.language);
     this.unselectedLanguage.next(this.otherLanguage);
   }
+
+  // setLanguage() {
+  //   this.translate.use(this.language);
+  // }
+  
+  // getLanguages() {
+  //   this.languages = [...this.translate.getLangs()];
+  // }
 
   // translate(key: string): string {
 
@@ -157,9 +165,11 @@ export class TranslationService {
   // if we use a button
   switchLanguage(selectedLanguageCode: string): void {
 
+    this.translate.use(selectedLanguageCode); // IMPORTANT
+
     this.language = selectedLanguageCode; // change state
     this.selectedLanguage.next(this.language); // propagate the new state
-    this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
+   // this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
     
   }
 

@@ -6,7 +6,6 @@ import { DOCUMENT } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { TranslationService } from './services/translation.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -18,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
 
   title = 'Artsobservasjoner';
-  siteLanguage: string;
+
   pageTitle: string = '';
   pageId: string = '';
   pageLayout: string = '';
@@ -26,10 +25,13 @@ export class AppComponent {
   skipLinkPath: string;
   windowScrolled: boolean = false;
   routerSubscription: Subscription;
-  subscription: Subscription;
+  subscriptions: Subscription[] = [];
 
   layoutTypes: string[] = [];
   layoutTypesForbidden: string[] = ['article', 'frontpage', 'item', 'spa', 'text'];
+
+  selectedLanguage: string;
+  languages: any[] = [];
 
   @ViewChild('mainContent', { static: true }) mainContent: ElementRef;
 
@@ -39,7 +41,6 @@ export class AppComponent {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private translationService: TranslationService,
     public translate: TranslateService
   ) {
 
@@ -50,14 +51,10 @@ export class AppComponent {
     const browserLang = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|no/) ? browserLang : 'en');
 
-    // this.subscription = this.translationService.selectedLanguage.subscribe(l => {
-    //   this.siteLanguage = l;
-    // });
-
   }
 
   ngOnInit(): void {
-    
+
     this.setPageLayout();
     this.setPageTitle();
 
@@ -65,61 +62,59 @@ export class AppComponent {
 
   setPageTitle(): void {
 
-    this.routerSubscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => this.activatedRoute),
-      map(route => {
-        while (route.firstChild) { route = route.firstChild; }
-        return route;
-      }),
-      mergeMap(route => route.data)).subscribe(obj => {
+    this.subscriptions.push(
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map(route => {
+          while (route.firstChild) { route = route.firstChild; }
+          return route;
+        }),
+        mergeMap(route => route.data)).subscribe(routeData => {
 
-        this.pageId = obj.id;
-        this.pageTitle = obj.title;
-        // this.pageTitle = this.siteLanguage === 'no' ? obj.translation.no : obj.translation.en;
+          this.pageId = routeData.id;
 
-        this.titleService.setTitle(this.translate.instant('menu.' + obj.title));
+          this.translate.stream(['menu.' + routeData.title]).subscribe(res => {
+   
+            this.pageTitle = res[`menu.${routeData.title}`];
 
-        this.translate.get('menu.' + obj.title).subscribe((res: string) => {
+            if (this.pageId === 'frontpage') {
+              this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
+            }
+            else {
+              this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
+            }
+          });
 
-          this.pageTitle = res;
-
-          if (this.pageId === 'frontpage') {
-            this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);
-          }
-          else {
-            this.titleService.setTitle(`${res} - Artsobservasjoner`);
-          }
-
-        });
-
-      });
+        })
+    );
 
   }
 
   setPageLayout(): void {
-    this.routerSubscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => this.activatedRoute),
-      map(route => {
-        while (route.firstChild) { route = route.firstChild; }
-        return route;
-      }),
-      mergeMap(route => route.data)).subscribe(obj => {
+    this.subscriptions.push(
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map(route => {
+          while (route.firstChild) { route = route.firstChild; }
+          return route;
+        }),
+        mergeMap(route => route.data)).subscribe(obj => {
 
-        // set skip to content
-        if (!this.router.url.endsWith('#mainContent')) {
-          this.skipLinkPath = `${this.router.url}#mainContent`;
-        }
+          // set skip to content
+          if (!this.router.url.endsWith('#mainContent')) {
+            this.skipLinkPath = `${this.router.url}#mainContent`;
+          }
 
-        this.pageLayout = obj.layout;
+          this.pageLayout = obj.layout;
 
-      });
+        })
+    );
   }
 
   ngOnDestroy() {
-    this.routerSubscription.unsubscribe(); // IMPORTANT!!
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   getLayoutStyle(layout: string): string {
