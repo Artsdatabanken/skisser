@@ -843,7 +843,7 @@ const accountRoutes: Routes = [
     component: LoginComponent,
     data: {
       text: 'Logg inn',
-      title: 'menu_account_ogin',
+      title: 'menu_account_login',
       translation: {
         no: 'Logg inn',
         en: 'Login'

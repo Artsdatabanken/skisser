@@ -25,7 +25,11 @@
         "menu_about": "About",
         "menu_news": "News",
         "menu_sitemap": "Sitemap",
-        "menu_404": "Not found - 404"
+        "menu_404": "Not found - 404",
+        "menu_account_register": "Register",
+        "menu_account_login": "Login",
+        "menu_account": "My account",
+        "menu_account_messages": "Messages"
     },
     "account": {
         "account_register": "Register",

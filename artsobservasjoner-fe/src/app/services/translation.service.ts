@@ -135,13 +135,22 @@ export class TranslationService {
     this.unselectedLanguage.next(this.otherLanguage);
   }
 
-  // setLanguage() {
-  //   this.translate.use(this.language);
-  // }
-  
-  // getLanguages() {
-  //   this.languages = [...this.translate.getLangs()];
-  // }
+  // if we use a button
+  switchLanguage(selectedLanguageCode: string): void {
+    this.translate.use(selectedLanguageCode); // IMPORTANT
+
+    // this.language = selectedLanguageCode; // change state
+    // this.selectedLanguage.next(this.language); // propagate the new state
+    // this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
+
+  }
+
+  getOtherLanguage(selectedLanguage: string): object {
+
+    const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
+    return extractedLanguage;
+
+  }
 
   // translate(key: string): string {
 
@@ -155,29 +164,5 @@ export class TranslationService {
   //   }
 
   // }
-
-  // if we use select + option  / dropdown
-  changeLanguage(languageCode: string): void {
-    this.language = languageCode; // change state
-    this.selectedLanguage.next(this.language); // propagate the new state
-  }
-
-  // if we use a button
-  switchLanguage(selectedLanguageCode: string): void {
-
-    this.translate.use(selectedLanguageCode); // IMPORTANT
-
-    this.language = selectedLanguageCode; // change state
-    this.selectedLanguage.next(this.language); // propagate the new state
-   // this.unselectedLanguage.next(this.getOtherLanguage(this.language)); // propagate the non selected language
-    
-  }
-
-  getOtherLanguage(selectedLanguage: string): object {
-
-    const extractedLanguage: any = this.languages.find(l => l['code'] !== selectedLanguage);
-    return extractedLanguage;
-
-  }
 
 }
