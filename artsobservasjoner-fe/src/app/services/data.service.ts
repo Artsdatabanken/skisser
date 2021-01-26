@@ -1,13 +1,12 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, filter, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../data/settings.json';
 import { NewsItem } from '../models/newsItem';
-import { environment } from '../../environments/environment';
 import { FeaturedImage } from '../models/featuredImage';
 import { AboutPage } from '../models/aboutPage';
-import QAData from '../data/qualityAssuredData.json';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -150,11 +149,9 @@ export class DataService {
     return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).pipe(
       map(res => {
 
-        //console.log('res', res)
+        let order: number = 0;
 
-        let order: number;
-
-        if (res.Metadata[0].Label) {
+        if (res.Metadata && res.Metadata.length) {
           order = +res.Metadata[0].Label;
         }
         else {
@@ -169,7 +166,7 @@ export class DataService {
           body: res.Body,
           content: res.Content,
           title: res.Title,
-          languages: null,
+          languages: res.Languages[0],
           order: order
         });
 

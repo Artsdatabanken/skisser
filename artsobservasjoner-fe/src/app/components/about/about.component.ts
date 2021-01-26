@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import Settings from 'src/app/data/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-about',
@@ -15,11 +17,9 @@ export class AboutComponent implements OnInit {
   errorMessage: string;
   aboutPages: AboutPage[] = [];
   ids: string[] = Settings.drupalIds;
+  selectedLanguage: string;
 
-  constructor(
-    private http: HttpClient,
-    private dataService: DataService
-  ) { }
+  constructor(private dataService: DataService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.getAboutPages();
@@ -43,13 +43,39 @@ export class AboutComponent implements OnInit {
             body: r.body,
             content: r.content,
             title: r.title,
-            languages: null,
+            languages: r.languages,
             order: r.order
           };
 
           this.aboutPages.push(aboutPage);
 
         });
+
+        console.log('aboutPages', this.aboutPages)
+
+        if (this.translate.currentLang == 'no') {
+          this.aboutPages = this.aboutPages.filter(d => d.languages == 'nb');
+        }
+        else {
+          this.aboutPages = this.aboutPages.filter(d => d.languages == 'en');
+        }
+
+
+
+        // this.translate.onLangChange.subscribe(r => {
+
+        //   console.log('are we coming here?', r.lang, 'TEST', r.lang == 'no')
+
+        //   if (r.lang == 'no') {
+        //     this.aboutPages = this.aboutPages.filter(d => d['languages'] == 'nb');
+        //   }
+        //   else {
+        //     this.aboutPages = this.aboutPages.filter(d => d['languages'] == 'en');
+        //   }
+
+        // });
+
+        console.log('FFFFF', this.aboutPages.filter(d => d['languages'] == 'nb'))
 
         this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
 
@@ -58,42 +84,6 @@ export class AboutComponent implements OnInit {
     });
 
   }
-
-  // getAboutPages(): void {
-
-  //   this.ids.forEach(id => {
-
-  //     return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).subscribe(res => {
-
-  //       console.log('res', res)
-
-  //       let order: number;
-
-  //       if (res.Metadata[0].Label) {
-  //         order = +res.Metadata[0].Label;
-  //       }
-  //       else {
-  //         order = 0;
-  //       }
-
-  //       this.aboutPages.push({
-  //         id: res.Id,
-  //         url: res.Url.replace('/Pages/', ''),
-  //         heading: res.Heading,
-  //         intro: res.Intro,
-  //         body: res.Body,
-  //         content: res.Content,
-  //         title: res.Title,
-  //         languages: null,
-  //         order: order
-  //       });
-
-  //       this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
-
-  //     });
-  //   });
-
-  // }
 
   getAboutPageUrl(slug: string): string {
     return `about/${slug}`;
