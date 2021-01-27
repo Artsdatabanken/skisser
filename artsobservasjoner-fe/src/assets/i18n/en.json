@@ -1,5 +1,6 @@
 {
     "menu": {
+        "menu": "Menu",
         "menu_report": "Report sightings",
         "menu_report_addSighting": "Add sighting",
         "menu_report_addByChecklist": "Add sightings with checklist",
@@ -41,7 +42,7 @@
         "title": "Translation demo",
         "frontpage_introText1": "Join and help us survey Norwegian nature!",
         "frontpage_introText2": "Learn more about how you can contribute",
-        "frontpage_introText3": "Want to help us ensure the quality of our sightings\"s data?",
+        "frontpage_introText3": "Want to help us ensure the quality of our sightings' data?",
         "frontpage_text_4": "More news",
         "frontpage_text_5": "Become a validator",
         "frontpage_headings_shortcuts": "Shortcuts",

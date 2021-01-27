@@ -129,12 +129,31 @@ export class NavigationService {
 
   }
 
-  getTopMenu(): any[] {
+  getSimplifiedMainMenu(): Route[] {
+    const menuItems: Route[] = this.getMenuItems('mainMenu');
+    const parents: any[] = menuItems.filter(i => i.data.parent === '');  // finner parents (top level)
+    const menu: Route[] = []; // sluttresultatet
 
-    let topMenu: any[] = this.getMenuItems('topMenu');
-    topMenu = topMenu.filter(i => i.data.rank === 'primary');
-    return topMenu;
+    parents.forEach(item => {
 
+      const menuItem: MenuItem = {
+        path: item.path,
+        heading: `menu.${item.data.title}`,
+        text: item.data.text,
+        id: item.path,
+        parent: item.data.parent,
+        layout: item.data.layout,
+        rank: item.data.rank,
+        hidden: item.data.hidden
+      };
+
+      menu.push(menuItem);
+    })
+
+    console.log('SIMPLIFIED parents', parents);
+    console.log('SIMPLIFIED menu', menu);
+
+    return menu;
   }
 
   getExtraMenu(): any[] {
@@ -202,10 +221,11 @@ export class NavigationService {
   getSitemap(): any[] {
 
     const mainMenu = this.getMenuItems('mainMenu');
-    const userMenu = this.getMenuItems('userMenu');
+    //const userMenu = this.getMenuItems('accountMenu');
     const extraMenu = this.getMenuItems('extraMenu');
 
-    return [...mainMenu, ...userMenu, ...extraMenu];
+    //return [...mainMenu, ...userMenu, ...extraMenu];
+    return [...mainMenu, ...extraMenu];
 
   }
 

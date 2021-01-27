@@ -1,5 +1,6 @@
 {
     "menu": {
+        "menu": "Meny",
         "menu_report": "Rapporter observasjoner",
         "menu_report_addSighting": "Legg til observasjon",
         "menu_report_addByChecklist": "Sjekklisterapportering",

@@ -864,3 +864,27 @@
         }
     }
 }
+
+// simplified menu
+
+.simplified-menu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    &__link {
+        color: #444;
+        color: var(--clrBlack);
+        border-color: #444;
+        border-color: var(--clrBlack);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        display: inline-block;
+        line-height: 1.15;
+        margin-bottom: 12px;
+        padding: 0;
+        text-decoration: none;
+        transition: border 0.5s;
+    }
+}

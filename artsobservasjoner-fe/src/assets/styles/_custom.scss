@@ -1,6 +1,5 @@
 // ----------CUSTOM: for elements used sparingly
 
-
 .section {
     margin: 50px 0;
 
@@ -219,6 +218,43 @@
 
     button {
         margin: 0 auto;
+    }
+}
+
+// language switcher
+
+.language-switcher {
+    @include customVar(font-family, fontSecondary);
+    background: none;
+    border: none;
+    @include customVar(border-bottom-color, transparent);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0;
+    text-indent: 0;
+    transition: border 0.5s;
+
+    &:focus,
+    &:active,
+    &:hover {
+        // @include customVar(background-color, clrBlack);
+        // @include customVar(color, clrWhite);
+        outline: 0;
+        padding: 10px 0;
+    }
+
+    button {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    option {
+        min-height: 40px;
+        text-indent: 0;
     }
 }
 
@@ -724,4 +760,11 @@
         margin: 0 auto;
         width: 100%;
     }
+}
+
+// puffin
+
+.puffin {
+    height: 30%;
+    width: 30%;
 }

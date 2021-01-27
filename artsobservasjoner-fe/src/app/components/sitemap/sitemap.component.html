@@ -16,7 +16,7 @@
 
             <a [ngClass]="{'sitemap__parent': link.data.parent === '', 'sitemap__child': link.data.parent !== ''}"
                 routerLink="/{{ link.path }}" *ngFor="let link of menuItems">
-                {{ link.data.text }}
+                {{ 'menu.' + link.data.title | translate }}
             </a>
 
         </nav>

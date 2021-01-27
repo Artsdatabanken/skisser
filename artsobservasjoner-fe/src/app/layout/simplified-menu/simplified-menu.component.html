@@ -1,0 +1,13 @@
+<!--layout component-->
+<!--reusable component-->
+
+<nav class="simplified-menu">
+
+    <a class="simplified-menu__link" routerLinkActive="" routerLink="/{{ menuItem.path }}" *ngFor="let menuItem of simplifiedMenu">
+        {{ menuItem.heading | translate }} 
+    </a>
+
+</nav>
+
+<!--reusable component-->
+<!--layout component-->

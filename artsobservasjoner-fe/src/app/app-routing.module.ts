@@ -824,15 +824,11 @@ const accountRoutes: Routes = [
     data: {
       text: 'Registrer deg',
       title: 'menu_account_register',
-      translation: {
-        no: 'Registrer deg',
-        en: 'Register'
-      },
       id: 'register',
       layout: 'page',
       rank: '',
-      parent: 'userMenu',
-      menu: 'userMenu',
+      parent: 'accountMenu',
+      menu: 'accountMenu',
       metatitle: '',
       metaDescription: '',
       hidden: false
@@ -844,15 +840,11 @@ const accountRoutes: Routes = [
     data: {
       text: 'Logg inn',
       title: 'menu_account_login',
-      translation: {
-        no: 'Logg inn',
-        en: 'Login'
-      },
       id: 'login',
       layout: 'page',
       rank: '',
-      parent: 'userMenu',
-      menu: 'userMenu',
+      parent: 'accountMenu',
+      menu: 'accountMenu',
       metatitle: '',
       metaDescription: '',
       hidden: false
@@ -864,15 +856,11 @@ const accountRoutes: Routes = [
     data: {
       text: 'Min side',
       title: 'menu_account',
-      translation: {
-        no: 'Min side',
-        en: 'Account'
-      },
       id: 'dashboard',
       layout: 'page',
       rank: 'primary',
-      parent: 'userMenu',
-      menu: 'userMenu',
+      parent: 'accountMenu',
+      menu: 'accountMenu',
       metatitle: '',
       metaDescription: '',
       hidden: false
@@ -884,15 +872,11 @@ const accountRoutes: Routes = [
     data: {
       text: 'Meldinger',
       title: 'menu_account_messages',
-      translation: {
-        no: 'Meldinger',
-        en: 'Messages'
-      },
       id: 'messages',
       layout: 'page',
       rank: 'primary',
-      parent: 'userMenu',
-      menu: 'userMenu',
+      parent: 'accountMenu',
+      menu: 'accountMenu',
       metatitle: '',
       metaDescription: '',
       hidden: false

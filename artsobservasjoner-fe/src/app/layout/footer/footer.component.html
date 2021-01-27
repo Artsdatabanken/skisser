@@ -6,27 +6,28 @@
 
         <div class="footer__column">
 
-            <ul class="link-list">
+            <app-simplified-menu></app-simplified-menu>
+
+            <!-- <ul class="link-list">
                 <li><a routerLink="/about">Om tjenesten</a></li>
                 <li><a routerLink="/about">Brukerstøtte</a></li>
                 <li></li>
                 <li></li>
-            </ul>
+            </ul> -->
 
         </div>
 
         <div class="footer__column">
+            
             <ul class="link-list">
-                <li><a routerLink="/sitemap">Innholdskart A-Å</a></li>
-                <li><a routerLink="/news">Aktuelle saker</a></li>
-                <li><a routerLink="/en">English</a></li>
-                <li></li>
-                <li></li>
+                <li><a routerLink="/news">{{ 'menu.menu_news' | translate }}</a></li>
+                <li><a routerLink="/sitemap">{{ 'menu.menu_sitemap' | translate }}</a></li>
             </ul>
+
+            <app-language-switcher></app-language-switcher>
         </div>
 
         <div class="footer__column footer__column--y">
-
 
         </div>
 

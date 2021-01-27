@@ -100,6 +100,8 @@ import { CoObserversComponent } from './components/my-data/co-observers/co-obser
 
 import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
+import { SimplifiedMenuComponent } from './layout/simplified-menu/simplified-menu.component';
+import { AccountComponent } from './components/account/account.component';
 // import { TranslatePipe } from './pipes/translate.pipe';
 
 //registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -194,7 +196,9 @@ import localeNorExtra from '@angular/common/locales/nb';
     // TranslatePipe,
     AddSightingComponent,
     OverviewStatisticsComponent,
-    CoObserversComponent
+    CoObserversComponent,
+    SimplifiedMenuComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

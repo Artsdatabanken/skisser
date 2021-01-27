@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.topMenu = this.navigationService.getTopMenu();
+    //this.topMenu = this.navigationService.getTopMenu();
   }
 
   ngOnDestroy() {

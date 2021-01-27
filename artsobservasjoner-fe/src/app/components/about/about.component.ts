@@ -54,8 +54,6 @@ export class AboutComponent implements OnInit {
 
         });
 
-        //console.log('aboutPages', this.aboutPages)
-
         tempAboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
 
         if (this.translate.currentLang == 'no') {
@@ -65,11 +63,7 @@ export class AboutComponent implements OnInit {
           this.aboutPages = tempAboutPages.filter(d => d.languages == 'en');
         }
 
-
-
         this.translate.onLangChange.subscribe(r => {
-
-          console.log('on language change', r.lang)
 
           if (r.lang == 'no') {
             this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'nb');
@@ -81,11 +75,10 @@ export class AboutComponent implements OnInit {
 
         });
 
-        console.log('nb', this.aboutPages.filter(d => d['languages'] == 'nb'))
-        console.log('en', this.aboutPages.filter(d => d['languages'] == 'en'))
+        // console.log('nb', this.aboutPages.filter(d => d['languages'] == 'nb'))
+        // console.log('en', this.aboutPages.filter(d => d['languages'] == 'en'))
 
         this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
-
 
       });
 

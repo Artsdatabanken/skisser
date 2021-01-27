@@ -2,31 +2,31 @@
 
     <!--intro-->
 
-    <div class="frontpage__section frontpage__section--height-s frontpage__section--width-s">
+    <div class="frontpage__grid">
 
-        <div class="frontpage__cell">
-            <p class="frontpage__paragraph frontpage__paragraph--sm">{{ 'frontpage.frontpage_introText1' | translate }}</p>
-        </div>
-
-        <div class="frontpage__cell" style="text-align: center;">
-            <div>
-                <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
-            </div>
+        <div>
+            <p class="frontpage__paragraph frontpage__paragraph--sm">
+                {{ 'frontpage.frontpage_introText1' | translate }}
+            </p>
+            
             <br>
-            <div>
-                <a class="button button--cta" routerLink="/register">
-                    {{ 'account.account_register' | translate }}
-                </a>
-            </div>
 
+            <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
+            <br><br>
+            <a class="button button--cta" routerLink="/register">
+                {{ 'account.account_register' | translate }}
+            </a>
         </div>
-
+        <div>
+            <img class="puffin" src="../../../assets/images/puffin.png" alt="Puffin">
+        </div>
+       
     </div>
 
     <!--intro-->
 
     <!--form-->
-    <div
+    <!-- <div
         class="frontpage__section frontpage__section--colored frontpage__section--height-l frontpage__section--width-m">
 
         <div class="frontpage__cell frontpage__cell--right">
@@ -51,7 +51,7 @@
 
         </div>
 
-    </div>
+    </div> -->
     <!--form-->
 
     <!--content-->
@@ -62,29 +62,6 @@
 
     </div> -->
     <!--content-->
-
-    <!--shortcuts-->
-
-    <div
-        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l frontpage__section--colored2">
-
-        <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_shortcuts' | translate }}</h2>
-
-        <div class="loop loop--cards">
-
-            <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'Tall og statistikk'"></app-card>
-            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'">
-            </app-card>
-            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'">
-            </app-card>
-            <app-card [type]="'link'" [url]="'/observations/statistics/volume-statistics'" [text]="'Volumstatistikk'">
-            </app-card>
-
-        </div>
-
-    </div>
-
-    <!--shortcuts-->
 
     <!--stats-->
 
@@ -119,6 +96,29 @@
 
     <!--stats-->
 
+    <!--shortcuts-->
+
+    <div
+        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l frontpage__section--colored2">
+
+        <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_shortcuts' | translate }}</h2>
+
+        <div class="loop loop--cards">
+
+            <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'Tall og statistikk'"></app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'">
+            </app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'">
+            </app-card>
+            <app-card [type]="'link'" [url]="'/observations/statistics/volume-statistics'" [text]="'Volumstatistikk'">
+            </app-card>
+
+        </div>
+
+    </div>
+
+    <!--shortcuts-->
+
     <!--extras-->
 
     <!-- <div class="frontpage__section frontpage__section--height-l frontpage__section--width-s">
@@ -137,8 +137,7 @@
 
     <!--news & articles-->
 
-    <div
-        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
+    <div class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
 
         <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_news' | translate }}</h2>
 
@@ -200,11 +199,11 @@
     <div class="frontpage__section frontpage__section--height-s frontpage__section--width-s">
 
         <div class="frontpage__cell">
-            <p class="frontpage__paragraph">{{ 'frontpage.frontpage_introText3' | translate }}</p>
+            <p class="frontpage__paragraph frontpage__paragraph--md">{{ 'frontpage.frontpage_introText3' | translate }}</p>
         </div>
         <div class="frontpage__cell" style="text-align: center;">
             <a style="display: inline-block; margin: 0 auto;" class="button button--cta button--xl button--centered">
-                {{ 'frontpage.frontpage_text_5' | translate }}    
+                {{ 'frontpage.frontpage_text_5' | translate }}
             </a>
         </div>
 

@@ -1,7 +1,7 @@
 <button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
     type="button" (click)="toggleMenu()" arial-label="Vis navigasjonsmeny">
     <span class="hamburger__text" aria-hidden="true">
-        Meny
+        {{ 'menu.menu' | translate }}
     </span>
     <span class="hamburger__box" aria-hidden="true">
         <span class="hamburger__inner"></span>
