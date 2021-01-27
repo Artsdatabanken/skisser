@@ -27,6 +27,8 @@ export class AboutComponent implements OnInit {
 
   getAboutPages(): void {
 
+    let tempAboutPages: AboutPage[] = [];
+
     this.ids.forEach(id => {
 
       this.dataService.getAboutPagesById(+id).subscribe(res => {
@@ -47,41 +49,48 @@ export class AboutComponent implements OnInit {
             order: r.order
           };
 
-          this.aboutPages.push(aboutPage);
+          // this.aboutPages.push(aboutPage);
+          tempAboutPages.push(aboutPage);
 
         });
 
-        console.log('aboutPages', this.aboutPages)
+        //console.log('aboutPages', this.aboutPages)
+
+        tempAboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
 
         if (this.translate.currentLang == 'no') {
-          this.aboutPages = this.aboutPages.filter(d => d.languages == 'nb');
+          this.aboutPages = tempAboutPages.filter(d => d.languages == 'nb');
         }
         else {
-          this.aboutPages = this.aboutPages.filter(d => d.languages == 'en');
+          this.aboutPages = tempAboutPages.filter(d => d.languages == 'en');
         }
 
 
 
-        // this.translate.onLangChange.subscribe(r => {
+        this.translate.onLangChange.subscribe(r => {
 
-        //   console.log('are we coming here?', r.lang, 'TEST', r.lang == 'no')
+          console.log('on language change', r.lang)
 
-        //   if (r.lang == 'no') {
-        //     this.aboutPages = this.aboutPages.filter(d => d['languages'] == 'nb');
-        //   }
-        //   else {
-        //     this.aboutPages = this.aboutPages.filter(d => d['languages'] == 'en');
-        //   }
+          if (r.lang == 'no') {
+            this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'nb');
+          }
+          
+          if (r.lang == 'en') {
+            this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'en');
+          }
 
-        // });
+        });
 
-        console.log('FFFFF', this.aboutPages.filter(d => d['languages'] == 'nb'))
+        console.log('nb', this.aboutPages.filter(d => d['languages'] == 'nb'))
+        console.log('en', this.aboutPages.filter(d => d['languages'] == 'en'))
 
         this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
+
 
       });
 
     });
+
 
   }
 

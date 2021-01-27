@@ -16,7 +16,7 @@
             <app-card [type]="'link'" [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
             </app-card>
 
-            <app-card [type]="'link'" [url]="'news'" [text]="'Aktuelle saker'"></app-card>
+            <app-card [type]="'link'" [url]="'news'" [text]="'menu.menu_news' | translate"></app-card>
 
         </div>
 
