@@ -44,5 +44,17 @@
         "frontpage_headings_shortcuts": "Snarveier",
         "frontpage_headings_statistics": "Statistikk",
         "frontpage_headings_news": "Siste nytt"
+    },
+    "shared": {
+        "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
+        "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
+        "tableHeading_speciesGroup": "Artsgruppe",
+        "tableHeading_sightingsNumber": "Antall observasjoner",
+        "tableHeading_qualityChecked": "Kvalitetssjekket av validator*",
+        "tableHeading_sharedValidatedSightings": "Andel kvalitetssjekket",
+        "tableHeading_qualityCheckedAndApproved": "Kvalitetssjekket og godkjent av validator",
+        "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
+        "tableHeading_sightedTaxaNumber": "Antall taxa observert",
+        "tableHeading_withMedia": "Med bilder"
     }
 }

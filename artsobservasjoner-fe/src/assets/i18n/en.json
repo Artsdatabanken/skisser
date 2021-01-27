@@ -48,5 +48,17 @@
         "frontpage_headings_shortcuts": "Shortcuts",
         "frontpage_headings_statistics": "Statistics",
         "frontpage_headings_news": "News"
+    },
+    "shared": {
+        "tableCaption_validatedData": "Number of quality assured observations per species group",
+        "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
+        "tableHeading_speciesGroup": "Species group",
+        "tableHeading_sightingsNumber": "Sightings number",
+        "tableHeading_qualityChecked": "Quality checked by validator*",
+        "tableHeading_sharedValidatedSightings": "Share validated sightings",
+        "tableHeading_qualityCheckedAndApproved": "Quality checked and approved by validator**",
+        "tableHeading_shareValidatedAndApproved": "Share validated and approved",
+        "tableHeading_sightedTaxaNumber": "Sighted taxa number",
+        "tableHeading_withMedia": "With media"
     }
 }
