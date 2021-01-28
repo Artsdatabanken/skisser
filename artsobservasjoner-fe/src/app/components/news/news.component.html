@@ -12,27 +12,27 @@
 
         <!-- <div class="loop loop--teasers" *ngIf="news; else message">
 
-            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'Aktuelt'"
+            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'news.currently' | translate"
                 [date]="item.created" [title]="item.title" *ngFor="let item of news"> </app-teaser>
 
         </div> -->
 
         <!-- <h2>Fra WordPress Non Observable</h2>
         <div class="loop loop--teasers" *ngIf="news; else message">
-            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.excerpt" [tag]="'Aktuelt'" [date]="item.date"
+            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.excerpt" [tag]="'news.currently' | translate" [date]="item.date"
                 [title]="item.title" *ngFor="let item of news"> </app-teaser>
         </div>
+    -->
 
-        <h2>Fra Strapi</h2>
-        <div class="loop loop--teasers" *ngIf="articles; else message">
-            <app-teaser [source]="getArticleImage(article.image.sourceUrl)" [url]="article.url" [text]="article.excerpt" [tag]="'Aktuelt'" [date]="article.created"
-                [title]="article.title" *ngFor="let article of articles"> </app-teaser>
-        </div> -->
+        <div *ngIf="news$ | async as news">
 
-        <div class="loop loop--teasers" *ngIf="news$ | async as news">
+            <div class="loop loop--teasers">
 
-            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'Aktuelt'"
-                [date]="item.created" [title]="item.title" *ngFor="let item of news | slice: 0-take"> </app-teaser>
+                <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro"
+                    [tag]="'news.currently' | translate" [date]="item.created" [title]="item.title"
+                    *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"> </app-teaser>
+
+            </div>
 
         </div>
 

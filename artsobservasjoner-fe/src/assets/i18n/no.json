@@ -35,7 +35,7 @@
         "account_messages": "Meldinger"
     },
     "frontpage": {
-        "title": "Translation demo", 
+        "title": "Translation demo",
         "frontpage_introText1": "Bli med og hjelp oss å kartlegge norsk natur!",
         "frontpage_introText2": "Lær mer om hvordan du kan bidra",
         "frontpage_introText3": "Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?",
@@ -44,6 +44,10 @@
         "frontpage_headings_shortcuts": "Snarveier",
         "frontpage_headings_statistics": "Statistikk",
         "frontpage_headings_news": "Siste nytt"
+    },
+    "news": {
+        "currently": "Aktuelt",
+        "announcements": "Kunngjøringer"
     },
     "shared": {
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",

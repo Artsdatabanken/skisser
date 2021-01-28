@@ -42,7 +42,7 @@ export class StatisticsService {
   }
 
 
-  getQAData(): Observable<any[]> {
+  getQAData(): Observable<QualityAssuredSighting[]> {
 
     let qaSightings: QualityAssuredSighting[] = [];
     let qaSighting: QualityAssuredSighting;
@@ -65,7 +65,7 @@ export class StatisticsService {
 
         });
 
-        console.log('qaSightings', qaSightings)
+        // console.log('qaSightings', qaSightings)
         return qaSightings;
       })
     );

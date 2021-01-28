@@ -49,6 +49,10 @@
         "frontpage_headings_statistics": "Statistics",
         "frontpage_headings_news": "News"
     },
+    "news": {
+        "currently": "Currently",
+        "announcements": "Announcements"
+    },
     "shared": {
         "tableCaption_validatedData": "Number of quality assured observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
