@@ -6,35 +6,46 @@ import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
 
 @Pipe({
-  name: 'numberProxy'
+  name: 'numberProxy',
+  pure: false
 })
 
 export class NumberProxyPipe implements PipeTransform {
 
   constructor(private translate: TranslateService) {
-    console.log(this.translate.currentLang)
     registerLocaleData(localeNor, 'no');
     registerLocaleData(localeNorExtra, 'nb');
   }
 
-  public transform(value: unknown, ...args: unknown[]): any {
+  public transform(value: unknown, ...args: unknown[]): unknown {
 
-    let formattedNumber: any = formatNumber(+value, this.translate.currentLang, '1.0-0');
+    let currentLanguage: string;
+    let formattedNumber: number | string;
 
-    this.translate.onLangChange.subscribe(r => {
+    currentLanguage = this.translate.currentLang;
 
-      formattedNumber = formatNumber(+value, r.lang, '1.0-0');
-      console.log('formatted after change', formattedNumber);
+    if (value) {
 
-      return formattedNumber;
-    });
+      this.translate.onLangChange.subscribe(r => {
+        currentLanguage = r.lang;
+      });
 
-    console.log('formatted', formattedNumber)
+      if (currentLanguage === 'no') {
+        formattedNumber = formatNumber(+value, 'no', '1.0-0');
+      }
+
+      if (currentLanguage === 'en') {
+        formattedNumber = formatNumber(+value, 'en', '1.0-0');
+      }
+
+    }
+    else {
+      formattedNumber = '';
+    }
+
     return formattedNumber;
+
   }
-
-
-
 
 }
 

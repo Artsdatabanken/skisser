@@ -85,11 +85,11 @@
             </tr>
             <tr *ngFor="let sighting of sightings">
                 <th scope="row" role="rowheader">{{ sighting.id }}</th>
-                <td class="td-number"> {{ sighting.sightingTaxonCount | number }} </td>
-                <td class="td-number"> {{ sighting.sightingCount | number }}</td>
-                <td class="td-number"> {{ sighting.sightingWithMediaCount | number }} </td>
-                <td class="td-number"> {{ sighting.validatedSightingCount | number }} </td>
-                <td class="td-number"> {{ sighting.approvedSightingCount | number }} </td>
+                <td class="td-number"> {{ sighting.sightingTaxonCount | numberProxy }} </td>
+                <td class="td-number"> {{ sighting.sightingCount | numberProxy }}</td>
+                <td class="td-number"> {{ sighting.sightingWithMediaCount | numberProxy }} </td>
+                <td class="td-number"> {{ sighting.validatedSightingCount | numberProxy }} </td>
+                <td class="td-number"> {{ sighting.approvedSightingCount | numberProxy }} </td>
             </tr>
         </table>
 
@@ -111,9 +111,9 @@
             <tr *ngFor="let sighting of sightings">
                 <th scope="row" role="rowheader"> {{ sighting.id }} </th>
                 <td class="td-number"> {{ sighting.sightingCount | numberProxy }} </td>
-                <td class="td-number"> {{ sighting.validatedSightingCount | number }} </td>
+                <td class="td-number"> {{ sighting.validatedSightingCount | numberProxy }} </td>
                 <td class="td-number td-highlighted"> {{ sighting.percentageSightedVsValidated }} %</td>
-                <td class="td-number"> {{ sighting.approvedSightingCount | number }} </td>
+                <td class="td-number"> {{ sighting.approvedSightingCount | numberProxy }} </td>
                 <td class="td-number td-highlighted"> {{ sighting.percentageValidatedVsApproved }} %</td>
             </tr>
         </table>
