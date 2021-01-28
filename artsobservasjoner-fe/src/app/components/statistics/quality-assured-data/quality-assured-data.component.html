@@ -56,7 +56,7 @@
             </tr>
             <tr *ngFor="let sighting of sightings">
                 <th scope="row" role="rowheader"> {{ sighting.id }} </th>
-                <td class="td-number"> {{ sighting.sightingCount | number }} </td>
+                <td class="td-number"> {{ sighting.sightingCount | numberProxy }} </td>
                 <td class="td-number"> {{ sighting.validatedSightingCount | number }} </td>
                 <td class="td-number td-highlighted"> {{ sighting.percentageSightedVsValidated }} %</td>
                 <td class="td-number"> {{ sighting.approvedSightingCount | number }} </td>

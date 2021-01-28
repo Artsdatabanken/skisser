@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Article } from 'src/app/models/article';
 import { NewsItem } from 'src/app/models/newsItem';
 import { DataService } from 'src/app/services/data.service';
@@ -14,6 +15,7 @@ export class NewsComponent implements OnInit {
   news: NewsItem[];
   articles: Article[];
   errorMessage: string;
+  news$: Observable<NewsItem[]>;
 
   @Input() take: number | string | null = 0;
   @Input() location: string;
@@ -63,6 +65,8 @@ export class NewsComponent implements OnInit {
         this.errorMessage = 'Old news not working';
       }
     );
+
+    this.news$ = this.dataService.getNews();
 
   }
 

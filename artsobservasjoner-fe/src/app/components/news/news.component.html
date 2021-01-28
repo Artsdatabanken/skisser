@@ -10,11 +10,12 @@
 
     <div class="page__content">
 
-        <div class="loop loop--teasers" *ngIf="news; else message">
+        <!-- <div class="loop loop--teasers" *ngIf="news; else message">
 
-            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'Aktuelt'" [date]="item.created"
-                [title]="item.title" *ngFor="let item of news"> </app-teaser>
-        </div>
+            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'Aktuelt'"
+                [date]="item.created" [title]="item.title" *ngFor="let item of news"> </app-teaser>
+
+        </div> -->
 
         <!-- <h2>Fra WordPress Non Observable</h2>
         <div class="loop loop--teasers" *ngIf="news; else message">
@@ -28,9 +29,16 @@
                 [title]="article.title" *ngFor="let article of articles"> </app-teaser>
         </div> -->
 
-        <ng-template #message>
+        <div class="loop loop--teasers" *ngIf="news$ | async as news">
+
+            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'Aktuelt'"
+                [date]="item.created" [title]="item.title" *ngFor="let item of news | slice: 0-take"> </app-teaser>
+
+        </div>
+
+        <!-- <ng-template #message>
             <p class="message">{{ errorMessage }}</p>
-        </ng-template>
+        </ng-template> -->
 
     </div>
 

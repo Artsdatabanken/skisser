@@ -102,9 +102,9 @@ import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
 import { SimplifiedMenuComponent } from './layout/simplified-menu/simplified-menu.component';
 import { AccountComponent } from './components/account/account.component';
-// import { TranslatePipe } from './pipes/translate.pipe';
+import { NumberProxyPipe } from './pipes/number-proxy.pipe';
 
-//registerLocaleData(localeNor, 'no', localeNorExtra);
+// registerLocaleData(localeNor, 'no', localeNorExtra);
 
 @NgModule({
   declarations: [
@@ -193,12 +193,12 @@ import { AccountComponent } from './components/account/account.component';
     AccordionComponent,
     AccordionItemComponent,
     VolumeStatisticsComponent,
-    // TranslatePipe,
     AddSightingComponent,
     OverviewStatisticsComponent,
     CoObserversComponent,
     SimplifiedMenuComponent,
-    AccountComponent
+    AccountComponent,
+    NumberProxyPipe
   ],
   imports: [
     BrowserModule,
@@ -207,18 +207,16 @@ import { AccountComponent } from './components/account/account.component';
     ReactiveFormsModule,
     TranslateModule.forRoot(
       {
-        //defaultLanguage: 'en',
         loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
-      }
+        }
       }
     ),
     AppRoutingModule
   ],
   providers: [
-    NavigationService,
     //{ provide: LOCALE_ID, useValue: 'no' }
   ],
   bootstrap: [AppComponent]

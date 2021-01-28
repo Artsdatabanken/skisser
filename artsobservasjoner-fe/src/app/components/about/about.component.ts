@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import Settings from 'src/app/data/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
@@ -18,11 +19,16 @@ export class AboutComponent implements OnInit {
   aboutPages: AboutPage[] = [];
   ids: string[] = Settings.drupalIds;
   selectedLanguage: string;
+  subscription: Subscription;
 
   constructor(private dataService: DataService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.getAboutPages();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   getAboutPages(): void {
@@ -31,7 +37,7 @@ export class AboutComponent implements OnInit {
 
     this.ids.forEach(id => {
 
-      this.dataService.getAboutPagesById(+id).subscribe(res => {
+      this.subscription = this.dataService.getAboutPagesById(+id).subscribe(res => {
 
         let aboutPage: AboutPage;
 
@@ -68,7 +74,7 @@ export class AboutComponent implements OnInit {
           if (r.lang == 'no') {
             this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'nb');
           }
-          
+
           if (r.lang == 'en') {
             this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'en');
           }
@@ -87,7 +93,7 @@ export class AboutComponent implements OnInit {
 
   }
 
-  getAboutPageUrl(slug: string): string {
+    getAboutPageUrl(slug: string): string {
     return `about/${slug}`;
   }
 
