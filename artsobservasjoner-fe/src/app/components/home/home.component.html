@@ -105,12 +105,12 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'Tall og statistikk'"></app-card>
-            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'Rødlistede arter'">
+            <app-card [type]="'link'" [url]="'observations/statistics'" [text]="'menu.menu_statistics' | translate"></app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/red-listed-species'" [text]="'menu.menu_statistics_redlistedSpecies' | translate">
             </app-card>
-            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'Fremmede arter'">
+            <app-card [type]="'link'" [url]="'observations/statistics/alien-species'" [text]="'menu.menu_statistics_alienSpecies' | translate">
             </app-card>
-            <app-card [type]="'link'" [url]="'/observations/statistics/volume-statistics'" [text]="'Volumstatistikk'">
+            <app-card [type]="'link'" [url]="'/observations/statistics/volume-statistics'" [text]="'menu.menu_statistics_overview' | translate">
             </app-card>
 
         </div>
@@ -140,17 +140,6 @@
     <div class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
 
         <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_news' | translate }}</h2>
-
-        <!-- <div class="loop loop--teasers">
-            <app-teaser [source]="'animal1'" [url]="'/'" [text]="loremIpsum" [tag]="'Aktuelt'" [date]="'04.10.2020'"
-                [title]="'Aktuell etian eilefend laooreet'"> </app-teaser>
-            <app-teaser [source]="'animal2'" [url]="'/'" [text]="loremIpsum" [tag]="'Nyhet'" [date]="'22.09.2020'"
-                [title]="'Aktuell nullam accusam sagittis'"> </app-teaser>
-            <app-teaser [source]="'animal3'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'19.08.2020'"
-                [title]="'Aktuell placerat extristique velit tiemole'"> </app-teaser>
-            <app-teaser [source]="'animal6'" [url]="'/'" [text]="loremIpsum" [tag]="'Kunngjøring'" [date]="'13.07.2020'"
-                [title]="'Aktuell lorem ipsum nullam felsi sed tristique'"> </app-teaser>
-        </div> -->
 
         <app-news [take]="'4'" [location]="'frontpage'"></app-news>
 
