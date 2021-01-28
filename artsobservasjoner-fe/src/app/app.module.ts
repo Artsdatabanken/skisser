@@ -17,7 +17,6 @@ import { LogoComponent } from './layout/logo/logo.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
@@ -71,7 +70,6 @@ import { OverviewChild1Component } from './components/statistics/overview/overvi
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
 import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
 import { OverviewChild4Component } from './components/statistics/overview/overview-child4/overview-child4.component';
-import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { OverviewChild6Component } from './components/statistics/overview/overview-child6/overview-child6.component';
 import { OverviewChild7Component } from './components/statistics/overview/overview-child7/overview-child7.component';
 import { OverviewChild8Component } from './components/statistics/overview/overview-child8/overview-child8.component';
@@ -103,6 +101,7 @@ import localeNorExtra from '@angular/common/locales/nb';
 import { SimplifiedMenuComponent } from './layout/simplified-menu/simplified-menu.component';
 import { AccountComponent } from './components/account/account.component';
 import { NumberProxyPipe } from './pipes/number-proxy.pipe';
+import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -117,7 +116,6 @@ import { NumberProxyPipe } from './pipes/number-proxy.pipe';
     PageNotFoundComponent,
     HomeComponent,
     AboutComponent,
-    QualityAssuredDataComponent,
     RedListedSpeciesComponent,
     AlienSpeciesComponent,
     UserStatisticsComponent,
@@ -172,7 +170,6 @@ import { NumberProxyPipe } from './pipes/number-proxy.pipe';
     OverviewChild2Component,
     OverviewChild3Component,
     OverviewChild4Component,
-    OverviewChild5Component,
     OverviewChild6Component,
     OverviewChild7Component,
     OverviewChild8Component,
@@ -198,7 +195,8 @@ import { NumberProxyPipe } from './pipes/number-proxy.pipe';
     CoObserversComponent,
     SimplifiedMenuComponent,
     AccountComponent,
-    NumberProxyPipe
+    NumberProxyPipe,
+    ValidatedDataComponent
   ],
   imports: [
     BrowserModule,
@@ -224,7 +222,7 @@ import { NumberProxyPipe } from './pipes/number-proxy.pipe';
 
 export class AppModule { }
 
-// AoT requires an exported function for factories
+// AoT (ahead of time) requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }

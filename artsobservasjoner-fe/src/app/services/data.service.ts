@@ -1,12 +1,11 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, filter, map, publishReplay, refCount } from 'rxjs/operators';
+import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../data/settings.json';
 import { NewsItem } from '../models/newsItem';
 import { FeaturedImage } from '../models/featuredImage';
 import { AboutPage } from '../models/aboutPage';
-import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'

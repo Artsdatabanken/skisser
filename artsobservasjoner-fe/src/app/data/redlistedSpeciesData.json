@@ -1,0 +1,443 @@
+{
+  "speciesGroupStatistics": [
+    {
+      "data": [
+        {
+          "redlistId": 6,
+          "sightingCount": 4,
+          "sightingWithMediaCount": 2,
+          "validatedSightingCount": 0,
+          "approvedValidatedSightingCount": 0
+        }
+      ],
+      "speciesGroupId": null
+    },
+    {
+      "data": [
+        {
+          "redlistId": 1,
+          "sightingCount": 37,
+          "sightingWithMediaCount": 13,
+          "validatedSightingCount": 26,
+          "approvedValidatedSightingCount": 25
+        },
+        {
+          "redlistId": 2,
+          "sightingCount": 680,
+          "sightingWithMediaCount": 189,
+          "validatedSightingCount": 443,
+          "approvedValidatedSightingCount": 427
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 6488,
+          "sightingWithMediaCount": 1483,
+          "validatedSightingCount": 4329,
+          "approvedValidatedSightingCount": 3959
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 31668,
+          "sightingWithMediaCount": 3586,
+          "validatedSightingCount": 18442,
+          "approvedValidatedSightingCount": 18287
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 22130,
+          "sightingWithMediaCount": 4024,
+          "validatedSightingCount": 8668,
+          "approvedValidatedSightingCount": 8614
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 87,
+          "sightingWithMediaCount": 0,
+          "validatedSightingCount": 5,
+          "approvedValidatedSightingCount": 5
+        }
+      ],
+      "speciesGroupId": 1
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 29,
+          "sightingWithMediaCount": 4,
+          "validatedSightingCount": 26,
+          "approvedValidatedSightingCount": 20
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 293,
+          "sightingWithMediaCount": 50,
+          "validatedSightingCount": 181,
+          "approvedValidatedSightingCount": 175
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 759,
+          "sightingWithMediaCount": 133,
+          "validatedSightingCount": 364,
+          "approvedValidatedSightingCount": 361
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 1465,
+          "sightingWithMediaCount": 209,
+          "validatedSightingCount": 515,
+          "approvedValidatedSightingCount": 515
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 133,
+          "sightingWithMediaCount": 13,
+          "validatedSightingCount": 38,
+          "approvedValidatedSightingCount": 37
+        }
+      ],
+      "speciesGroupId": 2
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 106,
+          "sightingWithMediaCount": 29,
+          "validatedSightingCount": 40,
+          "approvedValidatedSightingCount": 40
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 3846,
+          "sightingWithMediaCount": 333,
+          "validatedSightingCount": 3438,
+          "approvedValidatedSightingCount": 3428
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 4549,
+          "sightingWithMediaCount": 889,
+          "validatedSightingCount": 2339,
+          "approvedValidatedSightingCount": 2311
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 13636,
+          "sightingWithMediaCount": 1391,
+          "validatedSightingCount": 6090,
+          "approvedValidatedSightingCount": 6069
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 36,
+          "sightingWithMediaCount": 23,
+          "validatedSightingCount": 12,
+          "approvedValidatedSightingCount": 10
+        }
+      ],
+      "speciesGroupId": 3
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 120,
+          "sightingWithMediaCount": 85,
+          "validatedSightingCount": 92,
+          "approvedValidatedSightingCount": 90
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 1535,
+          "sightingWithMediaCount": 695,
+          "validatedSightingCount": 812,
+          "approvedValidatedSightingCount": 798
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 4251,
+          "sightingWithMediaCount": 2020,
+          "validatedSightingCount": 1133,
+          "approvedValidatedSightingCount": 1117
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 15890,
+          "sightingWithMediaCount": 4149,
+          "validatedSightingCount": 3970,
+          "approvedValidatedSightingCount": 3947
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 514,
+          "sightingWithMediaCount": 299,
+          "validatedSightingCount": 101,
+          "approvedValidatedSightingCount": 100
+        }
+      ],
+      "speciesGroupId": 4
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 1,
+          "sightingWithMediaCount": 0,
+          "validatedSightingCount": 1,
+          "approvedValidatedSightingCount": 1
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 9,
+          "sightingWithMediaCount": 1,
+          "validatedSightingCount": 1,
+          "approvedValidatedSightingCount": 1
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 14,
+          "sightingWithMediaCount": 0,
+          "validatedSightingCount": 9,
+          "approvedValidatedSightingCount": 9
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 61,
+          "sightingWithMediaCount": 8,
+          "validatedSightingCount": 27,
+          "approvedValidatedSightingCount": 27
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 4,
+          "sightingWithMediaCount": 2,
+          "validatedSightingCount": 3,
+          "approvedValidatedSightingCount": 2
+        }
+      ],
+      "speciesGroupId": 5
+    },
+    {
+      "data": [
+        {
+          "redlistId": 1,
+          "sightingCount": 15,
+          "sightingWithMediaCount": 12,
+          "validatedSightingCount": 9,
+          "approvedValidatedSightingCount": 7
+        },
+        {
+          "redlistId": 2,
+          "sightingCount": 342,
+          "sightingWithMediaCount": 187,
+          "validatedSightingCount": 300,
+          "approvedValidatedSightingCount": 249
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 2425,
+          "sightingWithMediaCount": 1094,
+          "validatedSightingCount": 1929,
+          "approvedValidatedSightingCount": 1785
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 4117,
+          "sightingWithMediaCount": 1805,
+          "validatedSightingCount": 2281,
+          "approvedValidatedSightingCount": 2175
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 6242,
+          "sightingWithMediaCount": 2287,
+          "validatedSightingCount": 2889,
+          "approvedValidatedSightingCount": 2819
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 87,
+          "sightingWithMediaCount": 25,
+          "validatedSightingCount": 54,
+          "approvedValidatedSightingCount": 52
+        }
+      ],
+      "speciesGroupId": 7
+    },
+    {
+      "data": [
+        {
+          "redlistId": 1,
+          "sightingCount": 1251,
+          "sightingWithMediaCount": 109,
+          "validatedSightingCount": 572,
+          "approvedValidatedSightingCount": 464
+        },
+        {
+          "redlistId": 2,
+          "sightingCount": 50514,
+          "sightingWithMediaCount": 1432,
+          "validatedSightingCount": 13089,
+          "approvedValidatedSightingCount": 11877
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 429396,
+          "sightingWithMediaCount": 9596,
+          "validatedSightingCount": 50916,
+          "approvedValidatedSightingCount": 48753
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 961069,
+          "sightingWithMediaCount": 20936,
+          "validatedSightingCount": 167827,
+          "approvedValidatedSightingCount": 162078
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 1929289,
+          "sightingWithMediaCount": 24087,
+          "validatedSightingCount": 106860,
+          "approvedValidatedSightingCount": 101842
+        }
+      ],
+      "speciesGroupId": 8
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 28,
+          "sightingWithMediaCount": 15,
+          "validatedSightingCount": 25,
+          "approvedValidatedSightingCount": 24
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 3227,
+          "sightingWithMediaCount": 504,
+          "validatedSightingCount": 2672,
+          "approvedValidatedSightingCount": 2568
+        }
+      ],
+      "speciesGroupId": 9
+    },
+    {
+      "data": [
+        {
+          "redlistId": 1,
+          "sightingCount": 1,
+          "sightingWithMediaCount": 1,
+          "validatedSightingCount": 1,
+          "approvedValidatedSightingCount": 1
+        },
+        {
+          "redlistId": 2,
+          "sightingCount": 600,
+          "sightingWithMediaCount": 111,
+          "validatedSightingCount": 292,
+          "approvedValidatedSightingCount": 290
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 673,
+          "sightingWithMediaCount": 131,
+          "validatedSightingCount": 362,
+          "approvedValidatedSightingCount": 359
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 6272,
+          "sightingWithMediaCount": 648,
+          "validatedSightingCount": 3959,
+          "approvedValidatedSightingCount": 3949
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 7481,
+          "sightingWithMediaCount": 427,
+          "validatedSightingCount": 5880,
+          "approvedValidatedSightingCount": 5880
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 112,
+          "sightingWithMediaCount": 29,
+          "validatedSightingCount": 56,
+          "approvedValidatedSightingCount": 54
+        }
+      ],
+      "speciesGroupId": 11
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 13,
+          "sightingWithMediaCount": 2,
+          "validatedSightingCount": 11,
+          "approvedValidatedSightingCount": 11
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 195,
+          "sightingWithMediaCount": 55,
+          "validatedSightingCount": 21,
+          "approvedValidatedSightingCount": 18
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 141,
+          "sightingWithMediaCount": 47,
+          "validatedSightingCount": 13,
+          "approvedValidatedSightingCount": 13
+        }
+      ],
+      "speciesGroupId": 12
+    },
+    {
+      "data": [
+        {
+          "redlistId": 2,
+          "sightingCount": 2,
+          "sightingWithMediaCount": 1,
+          "validatedSightingCount": 1,
+          "approvedValidatedSightingCount": 1
+        },
+        {
+          "redlistId": 3,
+          "sightingCount": 161,
+          "sightingWithMediaCount": 50,
+          "validatedSightingCount": 148,
+          "approvedValidatedSightingCount": 144
+        },
+        {
+          "redlistId": 4,
+          "sightingCount": 245,
+          "sightingWithMediaCount": 22,
+          "validatedSightingCount": 229,
+          "approvedValidatedSightingCount": 229
+        },
+        {
+          "redlistId": 5,
+          "sightingCount": 48,
+          "sightingWithMediaCount": 15,
+          "validatedSightingCount": 36,
+          "approvedValidatedSightingCount": 35
+        },
+        {
+          "redlistId": 6,
+          "sightingCount": 6,
+          "sightingWithMediaCount": 6,
+          "validatedSightingCount": 6,
+          "approvedValidatedSightingCount": 6
+        }
+      ],
+      "speciesGroupId": 14
+    }
+  ],
+  "lastUpdated": "2021-01-21T08:19:48.6533333"
+}

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverviewChild5Component } from './overview-child5.component';
+import { ValidatedDataComponent } from './validated-data.component';
 
-describe('OverviewChild5Component', () => {
-  let component: OverviewChild5Component;
-  let fixture: ComponentFixture<OverviewChild5Component>;
+describe('ValidatedDataComponent', () => {
+  let component: ValidatedDataComponent;
+  let fixture: ComponentFixture<ValidatedDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OverviewChild5Component ]
+      declarations: [ ValidatedDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OverviewChild5Component);
+    fixture = TestBed.createComponent(ValidatedDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

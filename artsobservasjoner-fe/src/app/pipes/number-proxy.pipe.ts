@@ -39,6 +39,9 @@ export class NumberProxyPipe implements PipeTransform {
       }
 
     }
+    else if (value === 0) {
+      formattedNumber = 0;
+    }
     else {
       formattedNumber = '';
     }

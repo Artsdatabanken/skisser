@@ -52,7 +52,9 @@
     "shared": {
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
+        "tableCaption_redlistedData": "Antall observasjoner i rødliste kategori",
         "tableHeading_speciesGroup": "Artsgruppe",
+        "tableHeading_riskGroup": "Risikogruppe",
         "tableHeading_sightingsNumber": "Antall observasjoner",
         "tableHeading_qualityChecked": "Kvalitetssjekket av validator*",
         "tableHeading_sharedValidatedSightings": "Andel kvalitetssjekket",

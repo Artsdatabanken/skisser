@@ -4,7 +4,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
-import { QualityAssuredDataComponent } from './components/statistics/quality-assured-data/quality-assured-data.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
@@ -32,7 +31,6 @@ import { OverviewChild9Component } from './components/statistics/overview/overvi
 import { OverviewChild8Component } from './components/statistics/overview/overview-child8/overview-child8.component';
 import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
 import { OverviewChild4Component } from './components/statistics/overview/overview-child4/overview-child4.component';
-import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { OverviewChild6Component } from './components/statistics/overview/overview-child6/overview-child6.component';
 import { OverviewChild7Component } from './components/statistics/overview/overview-child7/overview-child7.component';
 import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
@@ -45,6 +43,7 @@ import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/kno
 import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
+import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 
 /*
 
@@ -374,21 +373,6 @@ const sightingsRoutes: Routes = [
         }
       },
       {
-        path: 'overview-5',
-        component: OverviewChild5Component,
-        data: {
-          text: 'Antall kvalitetssikrede observasjoner per artsgruppe',
-          id: 'overview-5',
-          layout: 'spa',
-          rank: 'secondary',
-          parent: 'overview',
-          menu: '',
-          metatitle: 'menu_Antall kvalitetssikrede observasjoner per artsgruppe',
-          metaDescription: '',
-          hidden: false
-        }
-      },
-      {
         path: 'overview-6',
         component: OverviewChild6Component,
         data: {
@@ -482,14 +466,10 @@ const sightingsRoutes: Routes = [
   },
   {
     path: 'observations/statistics/validated-data',
-    component: QualityAssuredDataComponent,
+    component: ValidatedDataComponent,
     data: {
       text: 'Kvalitetssikrede data', 
       title: 'menu_statistics_validatedData', 
-      translation: {
-        no: 'Kvalitetssikrede data',
-        en: 'Validated data'
-      },
       id: 'validated-data',
       layout: 'page',
       rank: 'secondary',
@@ -505,10 +485,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Rødlistede arter',  
       title: 'menu_statistics_redlistedSpecies',
-      translation: {
-        no: 'Rødlisted arter',
-        en: 'Redlisted species'
-      },
       id: 'redlisted-species',
       layout: 'page',
       rank: 'secondary',
@@ -986,10 +962,6 @@ const wildcardRoutes: Routes = [
     data: {
       text: 'Ikke funnet - 404',
       title: 'menu_404',
-      translation: {
-        no: 'Ikke funnet - 404',
-        en: 'Not found - 404'
-      },
       id: 'not-found',
       layout: 'page',
       rank: '',
