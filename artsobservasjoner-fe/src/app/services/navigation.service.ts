@@ -150,9 +150,6 @@ export class NavigationService {
       menu.push(menuItem);
     })
 
-    console.log('SIMPLIFIED parents', parents);
-    console.log('SIMPLIFIED menu', menu);
-
     return menu;
   }
 
