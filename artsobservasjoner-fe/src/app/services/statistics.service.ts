@@ -41,8 +41,9 @@ export class StatisticsService {
       map(data => {
 
         let specialSpeciesDataItem: SpecialSpeciesDataItem;
-        let specialSpeciesDataObject: SpecialSpeciesDataObject;
         let specialSpeciesDataItems: SpecialSpeciesDataItem[] = [];
+
+        let specialSpeciesDataObject: SpecialSpeciesDataObject;
         let specialSpeciesDataObjects: SpecialSpeciesDataObject[] = [];
 
         data.speciesGroupStatistics.forEach(item => {
@@ -53,12 +54,13 @@ export class StatisticsService {
           }
 
           specialSpeciesDataItems.push(specialSpeciesDataItem);
-           
+
         });
 
-        
+
         console.log('specialSpeciesDataItems', specialSpeciesDataItems);
         return specialSpeciesDataItems;
+
       })
     );
 

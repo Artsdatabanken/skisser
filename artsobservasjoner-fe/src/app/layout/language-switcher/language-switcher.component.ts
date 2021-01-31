@@ -14,30 +14,23 @@ export class LanguageSwitcherComponent implements OnInit {
   selectedLanguage: string;
   subscription: Subscription[] = [];
   nonSelectedLanguage: object;
+  currentLanguage: string;
 
   constructor(
     public translationService: TranslationService,
     public translate: TranslateService
-  ) {
+  ) { }
 
-    this.subscription.push(this.translationService.selectedLanguage.subscribe((value) => {
-      this.selectedLanguage = value;
-    }));
-
-    this.subscription.push(this.translationService.unselectedLanguage.subscribe((value) => {
-      this.nonSelectedLanguage = value;
-    }));
-
-  }
-
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.currentLanguage = this.translate.currentLang;
+   }
 
   ngOnDestroy(): void {
     this.subscription.forEach(s => s.unsubscribe());
   }
 
   switchLanguage(selectedLanguageCode: string): void {
-    console.log('selected language in switcher', selectedLanguageCode);
+    this.currentLanguage = selectedLanguageCode;
     this.translationService.switchLanguage(selectedLanguageCode);
   }
 

@@ -9,9 +9,9 @@
 
 <!-- <button class="language-switcher" (click)="switchLanguage(nonSelectedLanguage.code)">{{ nonSelectedLanguage.name }}</button> -->
 
-<button class="language-switcher" lang="en" (click)="switchLanguage('en')">English</button>
+<button class="language-switcher" [ngClass]="{'language-switcher--active': currentLanguage === 'en'}" lang="en" (click)="switchLanguage('en')">English</button>
 |
-<button class="language-switcher" lang="no" (click)="switchLanguage('no')">Norsk</button>
+<button class="language-switcher" [ngClass]="{'language-switcher--active': currentLanguage === 'no'}"  lang="no" (click)="switchLanguage('no')">Norsk</button>
 
 <!--[attr.selected]="i === 0 ? true : null"-->
 

@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let item of redlistedSpecies; let i = index" [ngClass]="{'tr-shadow': i % 2 !== 0}">
+                <tbody *ngFor="let item of redlistedSpecies; let i = index" [ngClass]="{'tbody-shadow': i % 2 !== 0}">
                     <tr *ngFor="let element of item.data">
 
                         <td>{{ item.id }}</td>
@@ -52,7 +52,7 @@
 
 
 
-        <!-- [ngClass]="{'tr-shadow': i % 2 === 0}"  
+        <!-- [ngClass]="{'tbody-shadow': i % 2 === 0}"  
             
             [attr.rowspan]="item.data.length"
         -->
@@ -124,7 +124,7 @@
                 <td></td>
             </tr>
 
-            <tr class="tr-shadow">
+            <tr class="tbody-shadow">
                 <th rowspan="3" scope="row"><strong>Amfibier og reptiler</strong></th>
                 <td>CR</td>
                 <td class="tbl-number">31</td>
@@ -133,7 +133,7 @@
                 <td></td>
             </tr>
 
-            <tr class="tr-shadow">
+            <tr class="tbody-shadow">
                 <td>NT</td>
                 <td class="tbl-number">3677</td>
                 <td class="tbl-number">585</td>
@@ -141,7 +141,7 @@
                 <td></td>
             </tr>
 
-            <tr class="tr-shadow">
+            <tr class="tbody-shadow">
                 <td>&mdash;</td>
                 <td class="tbl-number">20375</td>
                 <td class="tbl-number">3729</td>

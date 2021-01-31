@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import Settings from 'src/app/data/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
-import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-about',
@@ -18,6 +16,8 @@ export class AboutComponent implements OnInit {
   errorMessage: string;
   aboutPages: AboutPage[] = [];
   ids: string[] = Settings.drupalIds;
+  idsNo: object[] = Settings.drupalIdsNo;
+  idsEn: object[] = Settings.drupalIdsEn;
   selectedLanguage: string;
   subscription: Subscription;
 
@@ -55,7 +55,6 @@ export class AboutComponent implements OnInit {
             order: r.order
           };
 
-          // this.aboutPages.push(aboutPage);
           tempAboutPages.push(aboutPage);
 
         });
@@ -90,10 +89,27 @@ export class AboutComponent implements OnInit {
 
     });
 
+    //-------------------------------------------------------------------***
 
   }
 
-    getAboutPageUrl(slug: string): string {
+  getIds(language: string): any[] {
+
+    let ids: any;
+
+    if (language === 'no') {
+      ids = this.idsNo;
+    }
+
+    if (language === 'en') {
+      ids = this.idsEn;
+    }
+
+    return ids;
+
+  }
+
+  getAboutPageUrl(slug: string): string {
     return `about/${slug}`;
   }
 

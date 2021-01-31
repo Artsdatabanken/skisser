@@ -41,7 +41,7 @@
     display: grid;
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px;
-    grid-template-areas: "headerLogo headerLanguageSwitcher headerDashboard headerMainMenu";
+    grid-template-areas: "headerLogo headerDashboard headerMainMenu";
     gap: 0 30px;
 
     padding: 0 30px;
@@ -94,6 +94,17 @@
             @media screen and (max-width: 1024px) {
             }
         }
+    }
+}
+
+// subheader
+
+.subheader {
+    padding: 10px 30px;
+    text-align: right;
+
+    @media screen and (min-width: 1201px) {
+        //display: none;
     }
 }
 
@@ -515,14 +526,6 @@
                 font-size: 15px;
             }
         }
-    }
-}
-
-// subheader
-
-.subheader {
-    @media screen and (min-width: 1201px) {
-        display: none;
     }
 }
 

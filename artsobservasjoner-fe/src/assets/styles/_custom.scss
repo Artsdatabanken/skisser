@@ -238,6 +238,10 @@
     text-indent: 0;
     transition: border 0.5s;
 
+    &--active {
+        font-weight: 700;
+    }
+
     &:focus,
     &:active,
     &:hover {
