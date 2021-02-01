@@ -16,8 +16,6 @@ export class AboutComponent implements OnInit {
   errorMessage: string;
   aboutPages: AboutPage[] = [];
   ids: string[] = Settings.drupalIds;
-  idsNo: object[] = Settings.drupalIdsNo;
-  idsEn: object[] = Settings.drupalIdsEn;
   selectedLanguage: string;
   subscription: Subscription;
 
@@ -90,22 +88,6 @@ export class AboutComponent implements OnInit {
     });
 
     //-------------------------------------------------------------------***
-
-  }
-
-  getIds(language: string): any[] {
-
-    let ids: any;
-
-    if (language === 'no') {
-      ids = this.idsNo;
-    }
-
-    if (language === 'en') {
-      ids = this.idsEn;
-    }
-
-    return ids;
 
   }
 

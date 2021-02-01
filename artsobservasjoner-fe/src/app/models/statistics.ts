@@ -10,6 +10,7 @@ export interface ValidatedDataItem {
 export interface SpecialSpeciesDataItem {
     id: number | string;
     data?: object[];
+    risk?: any;
 }
 
 export interface SpecialSpeciesDataObject {

@@ -19,7 +19,7 @@ export class AboutPageComponent implements OnInit {
   pageTitle: string;
   pageKey: string;
 
-  private dictionary: object = {
+  private dictionaryX: object = {
     no: {
       id1: '303936',
       id2: '305425',
@@ -33,6 +33,52 @@ export class AboutPageComponent implements OnInit {
       id3: '305439',
       id4: '305441',
       id5: '305440'
+    }
+  }
+
+  private dictionary3: string[] = [
+    '305438|303936',
+    '305407|305425',
+    '305439|303934',
+    '305441|303935',
+    '305440|303933',
+  ];
+
+  private dictionary4: any[] = [
+    { id: '305438|303936' },
+    { id: '305407|305425' },
+    { id: '305439|303934' },
+    { id: '305441|303935' },
+    { id: '305440|303933' },
+  ];
+
+  private dictionary: object = {
+    305438: '303936',
+    305407: '305425',
+    305439: '303934',
+    305441: '303935',
+    305440: '303933',
+    303936: '305438',
+    305425: '305407',
+    303934: '305439',
+    303935: '305441',
+    303933: '305440'
+  }
+
+  private dictionary2: object = {
+    no: {
+      305438: '303936',
+      305407: '305425',
+      305439: '303934',
+      305441: '303935',
+      305440: '303933'
+    },
+    en: {
+      303936: '305438',
+      305425: '305407',
+      303934: '305439',
+      303935: '305441',
+      303933: '305440'
     }
   }
 
@@ -59,34 +105,32 @@ export class AboutPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const getKey = (val: any, language: string): string | any => {
-      const res = Object.entries(this.dictionary[language]).filter(([k, v]) => val == v).map(([k, v]) => k);
-      return res[0] || false;
-    };
+    // console.log('TEST en', this.dictionary2['en'][this.aboutPageId])
+    // console.log('TEST no', this.dictionary2['no'][this.aboutPageId])
+
+
+    //------------------------------------------------------------------------------------
+
+    // const getKey = (val: any, language: string): string | any => {
+    //   const res = Object.entries(this.dictionary[language]).filter(([k, v]) => val == v).map(([k, v]) => k);
+    //   return res[0] || false;
+    // };
+
+    let newId: any = this.dictionary2[this.translate.currentLang][this.aboutPageId];
 
     this.translate.onLangChange.subscribe(res => {
 
-      console.log('LANGUAGE', res.lang);
+      //this.router.navigateByUrl('/about/' + newId);
+      // console.log('onlangchange', res.lang)
 
-      if (res.lang == 'no') {
+      // res.lang === 'no' ? newId = this.dictionary2['no'][this.aboutPageId] : this.aboutPageId;
+      // res.lang === 'en' ? newId = this.dictionary2['en'][this.aboutPageId] : this.aboutPageId;
 
-        console.log('NO', this.dictionary[res.lang])
-
-        console.log('id NO', getKey(this.aboutPageId, 'en'))
-
-
-        //this.router.navigateByUrl('/about/' + this.getPageIdByLanguage(getKey(this.aboutPageId, 'en'), 'no'));
-      }
-
-      if (res.lang == 'en') {
-
-        console.log('EN', this.dictionary[res.lang])
-        console.log('id EN', getKey(this.aboutPageId, 'no'))
-
-        //this.router.navigateByUrl('/about/' + this.getPageIdByLanguage(getKey(this.aboutPageId, 'no'), 'en'));
-      }
+      // console.log('newid onlangchange', newId)
 
     });
+
+    // console.log('newid', newId)
 
 
     //****************************************************************************************************************** */
