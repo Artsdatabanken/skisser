@@ -34,15 +34,16 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let item of redlistedSpecies; let i = index" [ngClass]="{'tbody-shadow': i % 2 !== 0}">
+                <tbody *ngFor="let item of redlistedSpecies; let i = index">
                     <tr *ngFor="let element of item.data">
 
-                        <td>{{ item.id }}</td>
+                        <th scope="row" role="rowheader" class="">{{ item.id }}</th>
                         <td class="td-number">{{ element.redlistId }}</td>
                         <td class="td-number">{{ element.sightingCount | numberProxy }}</td>
                         <td class="td-number">{{ element.sightingWithMediaCount | numberProxy }}</td>
                         <td class="td-number">{{ element.validatedSightingCount | numberProxy }}</td>
                         <td class="td-number">{{ element.approvedValidatedSightingCount | numberProxy }}</td>
+
                     </tr>
                 </tbody>
 

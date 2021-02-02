@@ -1,7 +1,8 @@
 // ----------TABLES
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 2px;
     font-size: 17px;
     margin: 50px auto 50px;
     table-layout: fixed;
@@ -18,7 +19,6 @@ table {
     }
 
     th {
-        @include customVar(border-bottom-color, paletteColor1);
         @include customVar(font-family, fontSecondary);
         border-bottom: 2px solid #48c9b0;
         font-size: 19px;
@@ -32,9 +32,8 @@ table {
 
         &[scope="row"] {
             @include customVar(font-family, fontPrimary);
-            @include customVar(border-bottom-color, paletteColor1);
-            border-bottom-style: solid;
-            border-bottom-width: 2px;
+            background-color: rgb(250, 250, 250);
+            border: none;
             font-size: 17px;
             font-weight: 700;
 
@@ -45,10 +44,8 @@ table {
     }
 
     td {
-        @include customVar(border-bottom-color, paletteColor1);
-        //border-bottom: 2px solid #d1f2eb;
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
+        background-color: rgb(250, 250, 250);
+        margin-bottom: 2px;
         text-align: left;
     }
 
@@ -59,6 +56,18 @@ table {
 
     td:empty {
         // @include customVar(border-bottom-color, clrWhite);
+    }
+
+    tbody:nth-child(even) {
+        background-color: #e8f8f5;
+    
+        th[scope="row"] {
+            background-color: #e8f8f5;
+        }
+    
+        td {
+            background-color: #e8f8f5;
+        }
     }
 }
 
@@ -95,17 +104,6 @@ table {
 .tr-shadow {
     @include customVar(background-color, paletteColor1);
     background: #e8f8f5;
-}
-
-.tbody-shadow {
-    @include customVar(background-color, paletteColor1);
-    background: #e8f8f5;
-
-    td {
-        @include customVar(border-bottom-color, paletteColor1);
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
-    }
 }
 
 .td-sm {

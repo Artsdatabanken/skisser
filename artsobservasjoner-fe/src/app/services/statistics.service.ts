@@ -56,12 +56,12 @@ export class StatisticsService {
 
           console.log('xxxxx', item.data)
 
-          let riskGroup;
+          // let riskGroup;
 
-          item.data.forEach(element => {
-            riskGroup = element.data.redListId;
-            console.log('element.data.redListId', element.data.redListId)
-          });
+          // item.data.forEach(element => {
+          //   riskGroup = element.data.redListId;
+          //   console.log('element.data.redListId', element.data.redListId)
+          // });
 
           specialSpeciesDataItem = {
             id: item.speciesGroupId,
