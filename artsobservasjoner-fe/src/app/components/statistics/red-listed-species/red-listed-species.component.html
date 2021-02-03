@@ -8,6 +8,13 @@
         <p>Forklart hvor ofte data oppdateres</p>
 
         <app-category-redlisted></app-category-redlisted>
+
+        <div *ngIf="redlistedCategories$ | async as redlistedCategories">
+            <div *ngFor="let item of redlistedCategories">
+                {{ item }}: 
+                {{ item.code }} | {{ item.labelEnglish }}
+            </div>
+        </div>
     </div>
 
     <div class="page__content">

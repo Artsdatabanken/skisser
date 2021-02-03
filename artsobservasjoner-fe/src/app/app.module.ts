@@ -23,7 +23,6 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
-import { NavigationService } from './services/navigation.service';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 import { TrimPipe } from './pipes/trim.pipe';
 import { DesignComponent } from './misc/design/design.component';
@@ -56,7 +55,6 @@ import { MyProjectsComponent } from './components/my-data/my-projects/my-project
 import { MyLocationsComponent } from './components/my-data/my-locations/my-locations.component';
 import { MyObserversComponent } from './components/my-data/my-observers/my-observers.component';
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
-import { SpeciesWithNoDataComponent } from './components/statistics/species-with-no-data/species-with-no-data.component';
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
 import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
@@ -154,7 +152,6 @@ import { ValidatedDataComponent } from './components/statistics/validated-data/v
     MyLocationsComponent,
     MyObserversComponent,
     MyStatisticsComponent,
-    SpeciesWithNoDataComponent,
     ChecklistComponent,
     ImportObservationsComponent,
     SurveyProjectComponent,

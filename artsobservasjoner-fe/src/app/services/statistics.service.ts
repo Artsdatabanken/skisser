@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, pipe } from 'rxjs';
-import { map, publishReplay, refCount } from 'rxjs/operators';
-import { ValidatedDataItem, SpecialSpeciesDataItem, SpecialSpeciesDataObject } from '../models/statistics';
+import { Observable, of } from 'rxjs';
+import { map, publishReplay, refCount, share, shareReplay, take, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
+import { ValidatedDataItem, SpecialSpeciesDataItem } from '../models/statistics';
+import { UtilitiesService } from './utilities.service';
 
 import ValidatedData from '../data/validatedData.json';
 import RedListedSpeciesData from '../data/redListedSpeciesData.json';
-import { UtilitiesService } from './utilities.service';
-import { HttpClient } from '@angular/common/http';
-import { RedlistedCategory } from '../models/redlistedCategory';
-import { Category } from '../models/category';
+import { AssessmentCategory } from '../models/assessmentCategory';
 
 @Injectable({
   providedIn: 'root'
@@ -16,24 +16,32 @@ import { Category } from '../models/category';
 
 export class StatisticsService {
 
+  public responseCache = new Map();
+
   // API
   tempApiUrl: string = 'https://arvped-ao3api-staging.azurewebsites.net/v1/Statistics/GetRedlist';
   apiUrl: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/';
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
+  redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
 
   // data
   validatedData: any = ValidatedData;
   redlistedSpeciesData: any = RedListedSpeciesData;
-  public redlistedCategories: RedlistedCategory[] = [];
+
+  redlistedCategories: AssessmentCategory[] = [];
+  redlistedCategories$: Observable<AssessmentCategory[]>;
+
+  // ------------------------------------------------------------ ***
 
   constructor(
     private httpClient: HttpClient,
     private utilitiesService: UtilitiesService
   ) {
+    
+    console.log('from cache', this.responseCache.get(this.redlistedCategoriesApi))
+   }
 
-    this.getCategory(2).subscribe(s => console.log('testtttt', s))
-    console.log('TEST', this.getCategory(2))
-  }
+  // ------------------------------------------------------------ ***
 
   getRedlistedSpeciesData(): Observable<SpecialSpeciesDataItem[]> {
 
@@ -54,26 +62,23 @@ export class StatisticsService {
 
         data.speciesGroupStatistics.forEach(item => {
 
-          console.log('xxxxx', item.data)
+          //console.log('ITEM', item)
 
-          // let riskGroup;
+          if (item.speciesGroupId) {
 
-          // item.data.forEach(element => {
-          //   riskGroup = element.data.redListId;
-          //   console.log('element.data.redListId', element.data.redListId)
-          // });
+            specialSpeciesDataItem = {
+              id: item.speciesGroupId,
+              data: item.data
+            }
 
-          specialSpeciesDataItem = {
-            id: item.speciesGroupId,
-            data: item.data,
+            specialSpeciesDataItems.push(specialSpeciesDataItem);
+
           }
-
-          specialSpeciesDataItems.push(specialSpeciesDataItem);
 
         });
 
 
-        console.log('specialSpeciesDataItems', specialSpeciesDataItems);
+        //console.log('specialSpeciesDataItems', specialSpeciesDataItems);
         return specialSpeciesDataItems;
 
       })
@@ -111,31 +116,6 @@ export class StatisticsService {
 
   }
 
-  getQADYears(): Observable<string[]> {
-
-    console.log('qa')
-
-    let years: string[] = [];
-
-
-    this.validatedData.forEach(element => {
-      console.log('validatedData', element.Data)
-
-      element.Data.forEach(elem => {
-        if (!years.includes(elem.year)) {
-          years.push(elem.year);
-        }
-      });
-
-    });
-
-    console.log('years', years)
-    console.log('count years', years.length)
-
-    return of(years).pipe();
-
-  }
-
   getSpeciesGroups(): Observable<any> {
     return this.httpClient.get(this.speciesGroupListApi).pipe(
       map((res: any) => {
@@ -149,16 +129,57 @@ export class StatisticsService {
     );
   }
 
-  getRedlistedCategories(): Observable<RedlistedCategory[]> {
+  getRedlistedCategories3(): Observable<AssessmentCategory[]> {
+
+    const redlistedCategories = this.responseCache.get(this.redlistedCategoriesApi);
+
+    console.log('from cache', this.responseCache.get(this.redlistedCategoriesApi))
+
+    if (redlistedCategories) {
+      return of(redlistedCategories);
+    }
+
+    return this.httpClient.get<any>(this.redlistedCategoriesApi).pipe(
+      map((data: any) => {
+
+        const categories: AssessmentCategory[] = [];
+
+        data.forEach(item => {
+
+          let category: AssessmentCategory = {
+            id: item.redListCategoryId,
+            code: item.redListCategoryCode,
+            labelEnglish: item.redListCategoryResourceLabels[0].label,
+            labelNorwegian: item.redListCategoryResourceLabels[1].label
+          }
+
+          categories.push(category);
+
+        });
+
+        this.responseCache.set(this.redlistedCategoriesApi, categories);
+
+        console.log('to cache', this.responseCache.set(this.redlistedCategoriesApi, categories))
+        console.log('from cache', this.responseCache.get(this.redlistedCategoriesApi))
+
+        return categories;
+
+      })
+    );
+
+  }
+
+  getRedlistedCategories(): Observable<AssessmentCategory[]> {
     return this.httpClient.get('https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories').pipe(
       map((res: any) => {
+
         console.log('redlisted cats', res)
 
-        const categories: RedlistedCategory[] = [];
+        const categories: AssessmentCategory[] = [];
 
         res.forEach(data => {
 
-          let category: RedlistedCategory = {
+          let category: AssessmentCategory = {
             id: data.redListCategoryId,
             code: data.redListCategoryCode,
             labelEnglish: data.redListCategoryResourceLabels[0].label,
@@ -176,21 +197,10 @@ export class StatisticsService {
     );
   }
 
-  getCategory(categoryId: number): Observable<RedlistedCategory> {
-    return this.getRedlistedCategories().pipe(
-      map(categories => categories.find(cat => cat.id === categoryId))
-    );
-  }
-
-
-  // getMovies(): Observable<Movie[]> {
-  //   return this.http.get('http://api.request.com')
-  //     .map((res: Response) => res.json()['results']);
-  // }
-
-  // getMovie(id: number): Observable<Movie> {
-  //   return this.getMovies()
-  //     .map(movies => movies.find(movie => movie.id == id));
+  // getCategory(categoryId: number): Observable<RedlistedCategory> {
+  //   return this.getRedlistedCategories().pipe(
+  //     map(categories => categories.find(cat => cat.id === categoryId))
+  //   );
   // }
 
 }
