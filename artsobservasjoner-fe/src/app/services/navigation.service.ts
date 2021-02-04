@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { TranslationService } from './translation.service';
 
 export class MenuItem {
@@ -25,20 +26,16 @@ export class NavigationService {
 
   constructor(
     private router: Router,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private translate: TranslateService
   ) {
 
-    this.translationService.selectedLanguage.subscribe((value) => {
-      this.siteLanguage = value;
-    });
-
-    // this.siteLanguage = this.translationService.selectedLanguage.pipe(
-    //   tap(t => console.log('t', t))
-    // ).subscribe();
+    this.siteLanguage = this.translate.currentLang;
+    this.translate.onLangChange.subscribe(res => this.siteLanguage = res.lang);
 
   }
 
-  // **************************************************************************************** //
+  // ------------------------------------------------------------------------------------------ //
 
   private getMenuItems(menu: string): any[] {
     let menuItems: any[] = this.router.config.filter(route => route.data.menu === menu); // only add a menu item for routes that belong to a particular menu
@@ -51,14 +48,10 @@ export class NavigationService {
     const getPropValue: any = (obj, key) => key.split('.').reduce((o, x) => o == undefined ? o : o[x], obj);
     let translation: string;
 
-    this.translationService.selectedLanguage.subscribe((value) => {
+    this.translate.onLangChange.subscribe((value) => {
       this.siteLanguage = value;
       translation = getPropValue(item, value);
     });
-
-    // console.log('ITEM', item)
-    // console.log('SITE LANGUAGE', this.siteLanguage)
-    // console.log('TRANSLATION', translation)
 
     return translation;
 

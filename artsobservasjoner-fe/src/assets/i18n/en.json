@@ -59,7 +59,7 @@
         "tableCaption_redlistedData": "Number of sightings in the red list category",
         "tableHeading_speciesGroup": "Species group",
         "tableHeading_riskGroup": "Risk group",
-        "tableHeading_sightingsNumber": "Sightings number",
+        "tableHeading_sightingsCount": "Sightings count",
         "tableHeading_qualityChecked": "Quality checked by validator*",
         "tableHeading_sharedValidatedSightings": "Share validated sightings",
         "tableHeading_qualityCheckedAndApproved": "Quality checked and approved by validator**",
