@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import Settings from '../data/settings.json';
 import { NewsItem } from '../models/newsItem';
 import { FeaturedImage } from '../models/featuredImage';
 import { AboutPage } from '../models/aboutPage';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,27 +22,27 @@ export class DataService {
   readonly drupalNewsAPI: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
   readonly drupalNewsAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private apiService: ApiService) {
     //this.environmentWpApi = environment.wpApiEndpoint;
   }
 
-  private getServerErrorMessage(error: HttpErrorResponse): string {
-    switch (error.status) {
-      case 404: {
-        return `Not Found: ${error.message}`;
-      }
-      case 403: {
-        return `Access Denied: ${error.message}`;
-      }
-      case 500: {
-        return `Internal Server Error: ${error.message}`;
-      }
-      default: {
-        return `Unknown Server Error: ${error.message}`;
-      }
+  // private getServerErrorMessage(error: HttpErrorResponse): string {
+  //   switch (error.status) {
+  //     case 404: {
+  //       return `Not Found: ${error.message}`;
+  //     }
+  //     case 403: {
+  //       return `Access Denied: ${error.message}`;
+  //     }
+  //     case 500: {
+  //       return `Internal Server Error: ${error.message}`;
+  //     }
+  //     default: {
+  //       return `Unknown Server Error: ${error.message}`;
+  //     }
 
-    }
-  }
+  //   }
+  // }
 
   private getTime(date?: Date) {
     return date != null ? new Date(date).getTime() : 0;
@@ -196,7 +197,7 @@ export class DataService {
           this.errorMessage = `Error: ${error.error.message}`;
         }
         else {
-          this.errorMessage = this.getServerErrorMessage(error);
+          this.errorMessage = this.apiService.getServerErrorMessage(error);
         }
 
         return throwError(this.errorMessage);
