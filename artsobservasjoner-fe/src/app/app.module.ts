@@ -100,6 +100,7 @@ import { SimplifiedMenuComponent } from './layout/simplified-menu/simplified-men
 import { AccountComponent } from './components/account/account.component';
 import { NumberProxyPipe } from './pipes/number-proxy.pipe';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
+import { TotalCountStatisticsComponent } from './components/shared/total-count-statistics/total-count-statistics.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -193,7 +194,8 @@ import { ValidatedDataComponent } from './components/statistics/validated-data/v
     SimplifiedMenuComponent,
     AccountComponent,
     NumberProxyPipe,
-    ValidatedDataComponent
+    ValidatedDataComponent,
+    TotalCountStatisticsComponent
   ],
   imports: [
     BrowserModule,
