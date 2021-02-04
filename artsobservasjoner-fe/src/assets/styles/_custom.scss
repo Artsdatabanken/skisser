@@ -328,43 +328,27 @@
 
 // numbers
 
-.numbers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+.numbers-box {
     text-align: center;
 
-    &__box {
-        @include customVar(background-color, clrAqua1);
-        border-radius: 20px;
-        border-bottom-right-radius: 0;
-        padding: 60px 60px;
-    }
-
     &__item {
         @include customVar(font-family, fontSecondary);
         font-size: 62px;
         font-weight: 700;
+
+        .numbers-box--small & {
+           font-size: 24px;
+        }
     }
 
     &__text {
         font-size: 24px;
-        font-weight: 300;
         font-weight: 400;
-    }
-}
 
-.numbers-box {
-    &__item {
-        @include customVar(font-family, fontSecondary);
-        font-size: 62px;
-        font-weight: 700;
-    }
-
-    &__text {
-        font-size: 24px;
-        font-weight: 300;
-        font-weight: 400;
+        .numbers-box--small & {
+            font-size: 18px;
+            font-weight: 500;
+         }
     }
 }
 

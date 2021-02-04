@@ -119,6 +119,57 @@
     }
 }
 
+// ------------------------------------------------------------***
+
+.infographic {
+    &__image {
+        background-color: #a3e4d7;
+        border-radius: 100%;
+        margin: 0 auto 5px;
+        width: auto;
+        height: 70px;
+        width: 70px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__img {
+        width: 30px;
+    }
+
+    &__text {
+        border: 2px solid red;
+
+
+
+        strong {
+            @include customVar(font-family, fontSecondary);
+            display: block;
+            font-size: 62px;
+            font-weight: 700;
+
+            .infographic__text--sm & {
+                font-size: 20px;
+            }
+        }
+
+        span {
+            display: block;
+            font-size: 24px;
+            font-weight: 400;
+            
+            .infographic__text--sm & {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+// ------------------------------------------------------------***
+
 // graphs
 
 $graphColor1: #73948b;

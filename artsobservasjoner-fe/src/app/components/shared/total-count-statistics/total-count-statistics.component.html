@@ -2,10 +2,24 @@
 
 <div class="non-dummy">
 
-    <div class="numbers-box" *ngIf="totalCount$ | async as total">
+    <div class="numbers-box" [ngClass]="{'numbers-box--small': size === 'sm'}" *ngIf="totalCount$ | async as total">
         <div class="numbers-box__item"> {{ total.count | numberProxy }}</div>
         <div class="numbers-box__text"> {{ text | lowercase }}</div>
     </div>
+
+    <!-- <figure class="infographic" *ngIf="totalCount$ | async as total">
+
+         <div class="infographic__image">
+            <img src="/assets/images/gallery/statsLeaf.png" alt="" class="infographic__img">
+        </div>
+
+        <figcaption class="infographic__text" [ngClass]="{'infographic__text--sm': size}">             
+            <strong>{{ total.count | numberProxy }}</strong>
+            <span>{{ text | lowercase }}</span>
+        </figcaption>
+
+    </figure> -->
+
 
 </div>
 
