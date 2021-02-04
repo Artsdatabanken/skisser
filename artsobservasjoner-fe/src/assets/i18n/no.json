@@ -62,5 +62,11 @@
         "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
         "tableHeading_sightedTaxaNumber": "Antall taxa observert",
         "tableHeading_withMedia": "Med bilder"
+    },
+    "statistics": {
+        "overviewNumbers_sightings": "Observasjoner",
+        "overviewNumbers_species": "Rapporerte arter",
+        "overviewNumbers_images": "Bilder",
+        "overviewNumbers_users": "Brukere"
     }
 }

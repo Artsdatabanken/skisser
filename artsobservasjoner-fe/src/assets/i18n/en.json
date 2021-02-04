@@ -66,5 +66,11 @@
         "tableHeading_shareValidatedAndApproved": "Share validated and approved",
         "tableHeading_sightedTaxaNumber": "Sighted taxa number",
         "tableHeading_withMedia": "With media"
+    },
+    "statistics": {
+        "overviewNumbers_sightings": "Sightings",
+        "overviewNumbers_species": "Registered species",
+        "overviewNumbers_images": "Images",
+        "overviewNumbers_users": "Users"
     }
 }

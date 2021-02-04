@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { AssessmentCategory } from 'src/app/models/assessmentCategory';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-category-alien',
@@ -8,8 +12,20 @@ import { Component, OnInit } from '@angular/core';
 
 export class CategoryAlienComponent implements OnInit {
 
-  constructor() { }
+  alienCategories$: Observable<AssessmentCategory[]>;
+  currentLanguage: string = this.translate.currentLang;
 
-  ngOnInit(): void { }
+  constructor(
+    private statisticsService: StatisticsService,
+    private translate: TranslateService
+  ) { }
 
+  ngOnInit(): void {
+    this.alienCategories$ = this.statisticsService.getAlienCategories();
+
+    this.translate.onLangChange.subscribe(l => {
+      this.currentLanguage = l.lang;
+    });
+    
+  }
 }

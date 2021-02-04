@@ -354,6 +354,20 @@
     }
 }
 
+.numbers-box {
+    &__item {
+        @include customVar(font-family, fontSecondary);
+        font-size: 62px;
+        font-weight: 700;
+    }
+
+    &__text {
+        font-size: 24px;
+        font-weight: 300;
+        font-weight: 400;
+    }
+}
+
 // league / awards / user statistics
 
 .league {
