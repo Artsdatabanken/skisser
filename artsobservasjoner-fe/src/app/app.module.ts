@@ -89,7 +89,6 @@ import { AboutPageComponent } from './components/about/about-page/about-page.com
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { AccordionComponent } from './reusable/accordion/accordion.component';
 import { AccordionItemComponent } from './reusable/accordion/accordion-item/accordion-item.component';
-import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
 import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
@@ -187,7 +186,6 @@ import { TotalCountStatisticsComponent } from './components/shared/total-count-s
     KnowledgeGapComponent,
     AccordionComponent,
     AccordionItemComponent,
-    VolumeStatisticsComponent,
     AddSightingComponent,
     OverviewStatisticsComponent,
     CoObserversComponent,

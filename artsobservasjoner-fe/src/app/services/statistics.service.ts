@@ -93,6 +93,17 @@ export class StatisticsService {
     //   })
     // );
 
+    /*
+someHttpCall.pipe(
+  switchMap(arrayOfItems => {
+    const arrayOfObservables: Observable<any>[] = arrayOfItems.map(item => this.someService.returnsHttpCallsWithId(item.id))
+    return forkJoin(
+      arrayOfObservables
+    )
+  })
+)
+    */
+
     return of(this.redlistedSpeciesData).pipe(
       map(data => {
 
@@ -142,7 +153,7 @@ export class StatisticsService {
 
         return totalCount;
       }),
-      catchError(error => {        
+      catchError(error => {
         console.log('error', error)
         this.apiService.handleError<TotalCountStatistic[]>('getTotalCountStatistics', [])
         if (error.error instanceof ErrorEvent) {

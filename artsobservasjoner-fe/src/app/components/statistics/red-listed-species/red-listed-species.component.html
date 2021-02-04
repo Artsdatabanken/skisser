@@ -9,9 +9,11 @@
 
         <app-category-redlisted></app-category-redlisted>
 
+
+
         <div *ngIf="redlistedCategories$ | async as redlistedCategories">
             <div *ngFor="let item of redlistedCategories">
-                {{ item }}: 
+                {{ item }}:
                 {{ item.code }} | {{ item.labelEnglish }}
             </div>
         </div>

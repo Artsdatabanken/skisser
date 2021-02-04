@@ -40,10 +40,10 @@ import { NewsItemComponent } from './components/news/news-item/news-item.compone
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
-import { VolumeStatisticsComponent } from './components/statistics/volume-statistics/volume-statistics.component';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
+import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
 
 /*
 
@@ -279,7 +279,7 @@ const sightingsRoutes: Routes = [
   },
   {
     path: 'observations/statistics/overview-statistics',
-    component: VolumeStatisticsComponent,
+    component: OverviewStatisticsComponent,
     data: {
       text: 'Volumstatistikk',  
       title: 'menu_statistics_overview',
