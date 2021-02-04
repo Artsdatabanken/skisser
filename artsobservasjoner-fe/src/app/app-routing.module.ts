@@ -299,7 +299,7 @@ const sightingsRoutes: Routes = [
     children: [
       {
         path: 'observations/statistics/volume-statistics/:id',
-        component: VolumeStatisticsComponent,
+        component: OverviewStatisticsComponent,
         data: {
           text: 'Oversikt stats item',
           id: 'overviewStatsItem',
