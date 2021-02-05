@@ -41,7 +41,7 @@ yarn-error.log
 testem.log
 /typings
 travis.yml
-deploy.sh
+#deploy.sh
 #/failed  <-- MÅ VÆRE MED FOR AT GITHUB SKISSER FUNKER, må fjernes i bitbucket og TFS
 
 # System Files
