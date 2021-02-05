@@ -1,11 +1,5 @@
 BRANCH=$1
 FILENAME=skisser.tar.gz
-echo "pwd"
-pwd
-echo "checking filesystem"
-ls -l
-echo "where are you"
-ls -l artsobservasjoner-fe
 echo "copying .htaccess"
 cp --verbose .htaccess artsobservasjoner-fe/dist/artsobservasjoner
 echo "Making archive"
