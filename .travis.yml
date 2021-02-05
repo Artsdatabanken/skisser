@@ -9,6 +9,7 @@ branches:
   - master
 
 install:
+- cd artsobservasjoner-fe
 - npm install
   
 script:
