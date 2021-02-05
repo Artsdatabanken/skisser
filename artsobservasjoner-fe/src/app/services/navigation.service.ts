@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslationService } from './translation.service';
 
 export class MenuItem {
   path: string;
@@ -26,7 +25,6 @@ export class NavigationService {
 
   constructor(
     private router: Router,
-    private translationService: TranslationService,
     private translate: TranslateService
   ) {
 
@@ -43,19 +41,19 @@ export class NavigationService {
     return menuItems;
   }
 
-  private getTranslatedMenuItem(item: object): string {
+  // private getTranslatedMenuItem(item: object): string {
 
-    const getPropValue: any = (obj, key) => key.split('.').reduce((o, x) => o == undefined ? o : o[x], obj);
-    let translation: string;
+  //   const getPropValue: any = (obj, key) => key.split('.').reduce((o, x) => o == undefined ? o : o[x], obj);
+  //   let translation: string;
 
-    this.translate.onLangChange.subscribe((value) => {
-      this.siteLanguage = value;
-      translation = getPropValue(item, value);
-    });
+  //   this.translate.onLangChange.subscribe((value) => {
+  //     this.siteLanguage = value;
+  //     translation = getPropValue(item, value);
+  //   });
 
-    return translation;
+  //   return translation;
 
-  }
+  // }
 
   getStyle(style: string | null, classification: string | null): string {
 
@@ -91,10 +89,6 @@ export class NavigationService {
 
     // funksjonen tar en item og finner alle barn av den NY SYNTAKS (ny syntaks gir ikke tilgang til 'this')
     const handleItem = (item: any): object => {
-
-      // if (item.data.translation) {
-      //   this.translatedMenuItem = this.getTranslatedMenuItem(item.data.translation);
-      // }
 
       const menuItem: MenuItem = {
         path: item.path,
@@ -153,10 +147,6 @@ export class NavigationService {
 
     extraMenuOriginal.forEach(item => {
 
-      if (item.data.translation) {
-        this.translatedMenuItem = this.getTranslatedMenuItem(item.data.translation);
-      }
-
       const menuItem: MenuItem = {
         path: item.path,
         heading: `menu.${item.data.title}`,
@@ -185,10 +175,6 @@ export class NavigationService {
 
     routes.forEach(item => {
 
-      if (item.data.translation) {
-        this.translatedMenuItem = this.getTranslatedMenuItem(item.data.translation);
-      }
-
       const menuItem: MenuItem = {
         path: item.path,
         heading: `menu.${item.data.title}`,
@@ -211,7 +197,6 @@ export class NavigationService {
   getSitemap(): any[] {
 
     const mainMenu = this.getMenuItems('mainMenu');
-    //const userMenu = this.getMenuItems('accountMenu');
     const extraMenu = this.getMenuItems('extraMenu');
 
     //return [...mainMenu, ...userMenu, ...extraMenu];
