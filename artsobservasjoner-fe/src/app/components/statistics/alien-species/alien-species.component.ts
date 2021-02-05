@@ -10,16 +10,13 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class AlienSpeciesComponent implements OnInit {
 
-  redlistedCategories$: Observable<any[]>;
-  redlistedCategories3$: Observable<any[]>;
+
 
   constructor(private statisticsService: StatisticsService) { }
 
   ngOnInit(): void {
 
-    this.redlistedCategories$ = this.statisticsService.getRedlistedCategories3();
 
-    console.log('stuff', this.redlistedCategories$)
 
   }
 
