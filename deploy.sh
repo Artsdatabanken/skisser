@@ -5,11 +5,11 @@ pwd
 echo "checking filesystem"
 ls -l
 echo "where are you"
-ls -l artsobservasjoner_fe
+ls -l artsobservasjoner-fe
 echo "copying .htaccess"
-cp --verbose .htaccess artsobservasjoner_fe/dist/
+cp --verbose .htaccess artsobservasjoner-fe/dist/artsobservasjoner
 echo "Making archive"
-tar --directory=dist -zcf $FILENAME .
+tar --directory=artsobservasjoner-fe/dist -zcf $FILENAME .
 if [ "${BRANCH}" == "master" ]
  then
   sshpass -p $scp_pass scp -v -o StrictHostKeyChecking=no $FILENAME $scp_user@$scp_dest/
