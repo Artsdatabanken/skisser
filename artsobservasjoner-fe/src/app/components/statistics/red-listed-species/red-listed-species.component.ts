@@ -15,20 +15,16 @@ export class RedListedSpeciesComponent implements OnInit {
 
   redlistedSpeciesData$: Observable<any[]>;
   redlistedCategories$: Observable<any[]>;
-  stuff$;
-
-  redlistedSpecies: RedlistedSpeciesItem[] = [];
-  redlistedCategories: AssessmentCategory;
-  data: RedlistedSpeciesItem[] = [];
+  data$;
 
   constructor(private statisticsService: StatisticsService) { }
 
   ngOnInit(): void {
 
-    this.redlistedSpeciesData$ = this.statisticsService.getRedlistedSpeciesData();
-    this.redlistedCategories$ = this.statisticsService.getRedlistedCategories();
+    // this.redlistedSpeciesData$ = this.statisticsService.getRedlistedSpeciesData();
+    // this.redlistedCategories$ = this.statisticsService.getRedlistedCategories();
 
-    this.stuff$ = forkJoin([
+    this.data$ = forkJoin([
       this.statisticsService.getRedlistedSpeciesData(),
       this.statisticsService.getRedlistedCategories()
     ]).pipe(

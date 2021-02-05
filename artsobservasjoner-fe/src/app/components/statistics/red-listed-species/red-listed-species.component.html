@@ -8,12 +8,12 @@
         <p>Forklart hvor ofte data oppdateres</p>
 
         <app-category-redlisted></app-category-redlisted>
-       
+
     </div>
 
     <div class="page__content">
 
-        <div *ngIf="stuff$ | async as stuff">
+        <div *ngIf="data$ | async as redlistedSpecies">
 
             <table>
                 <caption>{{ 'shared.tableCaption_redlistedData' | translate }}</caption>
@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let species of stuff | keyvalue">
+                <tbody *ngFor="let species of redlistedSpecies | keyvalue">
                     <tr *ngFor="let data of species.value.data">
                         <th scope="row" role="rowheader" class="">{{ species.key }}</th>
                         <td>{{ data.assessmentCategory.code }}</td>
@@ -47,20 +47,10 @@
                 </tbody>
 
             </table>
-            
 
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+        </div>
 
-        <div *ngIf="redlistedSpeciesData$ | async as redlistedSpecies">
+        <!-- <div *ngIf="redlistedSpeciesData$ | async as redlistedSpecies">
 
             <table>
                 <caption>{{ 'shared.tableCaption_redlistedData' | translate }}</caption>
@@ -97,7 +87,7 @@
 
             </table>
 
-        </div>
+        </div> -->
 
 
 
