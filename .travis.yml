@@ -14,9 +14,6 @@ install:
   
 script:
 - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
-- ls -l
-- pwd
-- ls -l ../data
 - ng build
 
 after_success:
