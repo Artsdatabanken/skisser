@@ -42,7 +42,7 @@ testem.log
 /typings
 travis.yml
 deploy.sh
-/failed
+#/failed  <-- MÅ VÆRE MED FOR AT GITHUB SKISSER FUNKER, må fjernes i bitbucket og TFS
 
 # System Files
 .DS_Store
