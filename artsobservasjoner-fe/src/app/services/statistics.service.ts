@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 import { UtilitiesService } from './utilities.service';
 
 import ValidatedData from '../data/validatedData.json';
-import RedListedSpeciesData from '../data/redListedSpeciesData.json';
 import { AssessmentCategory } from '../models/assessmentCategory';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
@@ -22,8 +21,8 @@ export class StatisticsService {
   errorMessage: string;
 
   // API
-  tempApiUrl: string = 'https://arvped-ao3api-staging.azurewebsites.net/v1/Statistics/GetRedlist';
-  apiUrl: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/';
+ 
+  redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
   alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
@@ -35,10 +34,6 @@ export class StatisticsService {
 
   // data
   validatedData: any = ValidatedData;
-  redlistedSpeciesData: any = RedListedSpeciesData;
-
-  redlistedCategories: AssessmentCategory[] = [];
-  redlistedCategories$: Observable<AssessmentCategory[]>;
 
   // ------------------------------------------------------------ ***
 
@@ -84,35 +79,16 @@ export class StatisticsService {
   // REDLISTED SPECIES / RØDLISTEDE ARTER
   getRedlistedSpeciesData(): Observable<RedlistedSpeciesItem[]> {
 
-    // return this.httpClient.get(this.tempApiUrl).pipe(
-    //   map((res: any) => {
-
-    //     console.log('res', res)
-
-    //     return res;
-    //   })
-    // );
-
-    /*
-someHttpCall.pipe(
-  switchMap(arrayOfItems => {
-    const arrayOfObservables: Observable<any>[] = arrayOfItems.map(item => this.someService.returnsHttpCallsWithId(item.id))
-    return forkJoin(
-      arrayOfObservables
-    )
-  })
-)
-    */
-
-    return of(this.redlistedSpeciesData).pipe(
+    return this.httpClient.get(this.redlistSpeciesApi).pipe(
       map(data => {
 
+        console.log('data', data)
         let redlistedSpeciesItem: RedlistedSpeciesItem;
         let redlistedSpeciesItems: RedlistedSpeciesItem[] = [];
 
-        data.speciesGroupStatistics.forEach(item => {
+        data['speciesGroupStatistics'].forEach(item => {
 
-          //console.log('ITEM', item)
+          console.log('ITEM', item)
 
           if (item.speciesGroupId) {
 
@@ -127,8 +103,6 @@ someHttpCall.pipe(
 
         });
 
-
-        // console.log('redlistedSpeciesItems', redlistedSpeciesItems);
         return redlistedSpeciesItems;
 
       })
@@ -172,6 +146,7 @@ someHttpCall.pipe(
   }
 
   // SPECIES GROUPS / ARTSGRUPPER
+  
   getSpeciesGroups(): Observable<any> {
     return this.httpClient.get(this.speciesGroupListApi).pipe(
       map((res: any) => {
@@ -187,52 +162,11 @@ someHttpCall.pipe(
 
   // ASSESSMENT CATEGORIES
 
-  // (TEST)
-  getRedlistedCategories3(): Observable<AssessmentCategory[]> {
-
-    const redlistedCategories = this.responseCache.get(this.redlistedCategoriesApi);
-
-    console.log('from cache', this.responseCache.get(this.redlistedCategoriesApi))
-
-    if (redlistedCategories) {
-      return of(redlistedCategories);
-    }
-
-    return this.httpClient.get<any>(this.redlistedCategoriesApi).pipe(
-      map((data: any) => {
-
-        const categories: AssessmentCategory[] = [];
-
-        data.forEach(item => {
-
-          let category: AssessmentCategory = {
-            id: item.redListCategoryId,
-            code: item.redListCategoryCode,
-            labelEnglish: item.redListCategoryResourceLabels[0].label,
-            labelNorwegian: item.redListCategoryResourceLabels[1].label
-          }
-
-          categories.push(category);
-
-        });
-
-        this.responseCache.set(this.redlistedCategoriesApi, categories);
-
-        console.log('to cache', this.responseCache.set(this.redlistedCategoriesApi, categories))
-        console.log('from cache', this.responseCache.get(this.redlistedCategoriesApi))
-
-        return categories;
-
-      })
-    );
-
-  }
-
   getRedlistedCategories(): Observable<AssessmentCategory[]> {
-    return this.httpClient.get('https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories').pipe(
+    return this.httpClient.get(this.redlistedCategoriesApi).pipe(
       map((res: any) => {
 
-       // console.log('redlisted cats', res)
+        // console.log('redlisted cats', res)
 
         const categories: AssessmentCategory[] = [];
 
@@ -283,12 +217,5 @@ someHttpCall.pipe(
       refCount()
     );
   }
-
-  getAssessmentCategory(categoryId: number): Observable<AssessmentCategory> {
-    return this.getRedlistedCategories().pipe(
-      map(categories => categories.find(cat => cat.id === categoryId))
-    );
-  }
-
 
 }

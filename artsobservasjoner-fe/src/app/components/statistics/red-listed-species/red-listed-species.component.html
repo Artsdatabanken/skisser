@@ -8,6 +8,10 @@
         <p>Forklart hvor ofte data oppdateres</p>
 
         <app-category-redlisted></app-category-redlisted>
+       
+    </div>
+
+    <div class="page__content">
 
         <div *ngIf="stuff$ | async as stuff">
 
@@ -16,7 +20,7 @@
                 <thead>
                     <tr>
                         <th>{{ 'shared.tableHeading_speciesGroup' | translate }}</th>
-                        <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_riskGroup' |
+                        <th scope="col" role="columnheader">{{ 'shared.tableHeading_riskGroup' |
                             translate
                             }}</th>
                         <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_sightingsCount' |
@@ -33,45 +37,28 @@
 
                 <tbody *ngFor="let species of stuff | keyvalue">
                     <tr *ngFor="let data of species.value.data">
-                        <th scope="row" role="rowheader" class="">{{ species.id }}</th>
-                        <td class="td-number">{{ data.assessmentCategory.code }}</td>
-                        <td class="td-number">{{ data.sightingCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.sightingWithMediaCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.validatedSightingCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.approvedValidatedSightingCount | numberProxy }}</td>
+                        <th scope="row" role="rowheader" class="">{{ species.key }}</th>
+                        <td>{{ data.assessmentCategory.code }}</td>
+                        <td class="td-number">{{ data.sightingsCount | numberProxy }}</td>
+                        <td class="td-number">{{ data.imagesCount | numberProxy }}</td>
+                        <td class="td-number">{{ data.validatedCount | numberProxy }}</td>
+                        <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
                     </tr>
                 </tbody>
 
             </table>
             
-            
 
-              <!-- <div *ngFor="let species of stuff | keyvalue">
-                 KEY {{ specie.key }}
-                 <br>
-                 VALUE {{ specie.value }}
-
-                 <div *ngFor="let data of species.value.data">
-                    TEST : {{ data.assessmentCategory.code }}
-                 </div>
-              </div> -->
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-       
-    </div>
-
-    <div class="page__content">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
 
         <div *ngIf="redlistedSpeciesData$ | async as redlistedSpecies">
 

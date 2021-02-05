@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { AssessmentCategory } from 'src/app/models/assessmentCategory';
 import { RedlistedSpeciesItem, SpecialSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
@@ -75,10 +75,9 @@ export class RedListedSpeciesComponent implements OnInit {
         });
 
 
-        const result = [...map.values()];
+        //const result = [...map.values()];
 
         console.log('map', map)
-        console.log('result', result)
 
         return map;
 
