@@ -17,6 +17,7 @@ script:
 - ng build
 
 after_success:
+  - cd ..
   - ./deploy.sh $BRANCH
 
 before_install:
