@@ -28,29 +28,13 @@ export class RedListedSpeciesComponent implements OnInit {
     this.redlistedSpeciesData$ = this.statisticsService.getRedlistedSpeciesData();
     this.redlistedCategories$ = this.statisticsService.getRedlistedCategories();
 
-
-    this.statisticsService.getRedlistedSpeciesData().subscribe(res => {
-
-      console.log('res', res)
-
-      this.redlistedSpecies = res;
-
-
-
-
-    });
-
-    this.stuff$ = forkJoin(
+    this.stuff$ = forkJoin([
       this.statisticsService.getRedlistedSpeciesData(),
       this.statisticsService.getRedlistedCategories()
-    ).pipe(
+    ]).pipe(
       map(([species, categories,]) => {
 
-        let tempRedlistedSpeciesItem: RedlistedSpeciesItem;
         let redlistedSpeciesItemData: SpecialSpeciesItemStats;
-        let redlistedSpeciesItemDataArray: SpecialSpeciesItemStats[] = [];
-
-        let temp = {};
 
         // ---------------------------------------- ***
 
@@ -60,52 +44,43 @@ export class RedListedSpeciesComponent implements OnInit {
 
         // ---------------------------------------- ***
 
+        const map = new Map();
+
         species.forEach(speciesItem => {
 
-          // tempRedlistedSpeciesItem = {
-          //   id: speciesItem.id
-        // }
-
-/*
-          export class TranslationSet {
-            public languange: string
-            public values: { [key: string]: string } = {}
-          }
-          // };
+          let tempArray = [];
           
-          { [key: string]: TranslationSet } 
-
-          */
-         
-          let tempID = speciesItem.id
-
-          temp['id'] = tempID;
-          temp['data'] = ['hei'];
-
-          console.log('ID: ', temp, speciesItem.id)
+          map.set(speciesItem.id, { data: [] })
 
           speciesItem.data.forEach(data => {
 
             redlistedSpeciesItemData = {
               id: speciesItem.id,
+              assessmentCategoryId: data['redlistId'],
               assessmentCategory: getCategory(data['redlistId']),
               sightingsCount: data['sightingCount'],
               imagesCount: data['sightingWithMediaCount'],
               validatedCount: data['validatedSightingCount'],
               approvedCount: data['approvedValidatedSightingCount'],
-            }           
-           
+            }
 
-            console.log('redlistedSpeciesItemData', redlistedSpeciesItemData)
+            if (speciesItem.id == redlistedSpeciesItemData.id) {
+              tempArray.push(redlistedSpeciesItemData)
+            }
+
+            map.set(speciesItem.id, { data: tempArray })
 
           });
-        
-
-          // console.log('redlistedSpeciesItemData', redlistedSpeciesItemData)
-
-          // console.log('tempRedlistedSpeciesItem', tempRedlistedSpeciesItem)
 
         });
+
+
+        const result = [...map.values()];
+
+        console.log('map', map)
+        console.log('result', result)
+
+        return map;
 
       })
     );

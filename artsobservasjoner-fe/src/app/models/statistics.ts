@@ -17,6 +17,7 @@ export interface SpecialSpeciesItem {
 
 export interface SpecialSpeciesItemStats {
     id: number;
+    assessmentCategoryId: number;
     assessmentCategory: AssessmentCategory;
     sightingsCount: number;
     imagesCount: number;

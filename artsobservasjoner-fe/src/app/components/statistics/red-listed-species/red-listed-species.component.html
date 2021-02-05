@@ -12,6 +12,16 @@
         <div *ngIf="stuff$ | async as stuff">
             
               Stuff ?   {{ stuff }}
+
+              <div *ngFor="let specie of stuff | keyvalue">
+                 KEY {{ specie.key }}
+                 <br>
+                 VALUE {{ specie.value }}
+
+                 <div *ngFor="let data of specie.value.data">
+                    TEST : {{ data.assessmentCategory.code }}
+                 </div>
+              </div>
         </div>
 
         <br>
