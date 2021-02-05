@@ -32,7 +32,7 @@ export class RedListedSpeciesComponent implements OnInit {
       this.statisticsService.getRedlistedSpeciesData(),
       this.statisticsService.getRedlistedCategories()
     ]).pipe(
-      map(([species, categories,]) => {
+      map(([species, categories]) => {
 
         let redlistedSpeciesItemData: SpecialSpeciesItemStats;
 
