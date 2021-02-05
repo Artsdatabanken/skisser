@@ -60,11 +60,11 @@ table {
 
     tbody:nth-child(even) {
         background-color: #e8f8f5;
-    
+
         th[scope="row"] {
             background-color: #e8f8f5;
         }
-    
+
         td {
             background-color: #e8f8f5;
         }
@@ -112,4 +112,85 @@ table {
 
 .td-md {
     min-width: 15vw;
+}
+
+// custom table
+
+.custom-table {
+    &__caption {
+    }
+
+    &__head {
+        border-bottom: 2px solid #48c9b0;
+        @include customVar(font-family, fontSecondary);
+    }
+
+    &__body {
+        font-size: 17px;
+
+        &:nth-child(odd) {
+            background-color: rgb(250, 250, 250);
+        }
+
+        &:nth-child(even) {
+            background-color: #e8f8f5;
+        }
+    }
+
+    &__row {
+        border-top: 2px solid white;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
+
+    &__column {
+        align-self: center;
+        padding: 0 10px;
+    }
+
+    &__grid {
+        & > div {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            width: 100%;
+        }
+    }
+
+    &__td,
+    &__th {
+        padding: 10px;
+
+        &:only-child {
+            border-bottom: 2px solid transparent;
+        }
+    }
+
+    &__th {
+        align-self: center;
+        font-weight: 17px;
+        font-weight: 600;
+
+        &:only-child {
+            @include customVar(font-family, fontPrimary);
+            font-weight: 700;
+            padding: 0 25px;
+        }
+    }
+
+    &__td {
+        background-color: rgb(250, 250, 250);
+        border-bottom: 2px solid white;
+
+        .custom-table__grid & {
+            background: pink;
+        }
+
+        .custom-table__body:nth-child(odd) & {
+            background-color: rgb(250, 250, 250);
+        }
+
+        .custom-table__body:nth-child(even) & {
+            background-color: #e8f8f5;
+        }
+    }
 }

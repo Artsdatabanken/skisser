@@ -51,28 +51,11 @@ export class RedListedSpeciesComponent implements OnInit {
           return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
-        const getSpeciesGroupLabel = (id: number): string => {
+        const getSpeciesGroupByLanguage = (id: number): string => {
+          const category: object = speciesGroups.find(speciesGroup => speciesGroup.id === id);
 
-          const speciesGroup: {} = speciesGroups.find(speciesGroup => speciesGroup.id === id);
-
-          let label: string;
-
-          // if (this.translate.currentLang === 'en') { label = speciesGroup['labelEnglish']; }
-          // if (this.translate.currentLang === 'no') { label = speciesGroup['labelNorwegian']; }
-
-
-          // this.translate.onLangChange.subscribe(response => {
-
-          //   if (response.lang == 'en') {
-          //     label = speciesGroup['labelEnglish'];
-          //   }
-          //   else {
-          //     label = speciesGroup['labelNorwegian']
-          //   }
-
-          // });
-
-          return label;
+          if (this.currentLanguage === 'en') return category['labelEnglish'];
+          if (this.currentLanguage === 'no') return category['labelNorwegian'];
 
         }
 
@@ -84,11 +67,10 @@ export class RedListedSpeciesComponent implements OnInit {
 
           let tempArray = [];
 
-          map.set(speciesItem.id, { data: [] })
+          //map.set({ id: speciesItem.id, label: getSpeciesGroupByLanguage(speciesItem.id) }, { data: [] });
+
 
           speciesItem.data.forEach(data => {
-
-            console.log('TEST', getSpeciesGroupLabel(speciesItem.id))
 
             redlistedSpeciesItemData = {
               id: speciesItem.id,
@@ -106,11 +88,14 @@ export class RedListedSpeciesComponent implements OnInit {
               tempArray.push(redlistedSpeciesItemData)
             }
 
-            map.set(speciesItem.id, { data: tempArray })
+            // map.set(speciesItem.id, { data: tempArray });
+            map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
 
           });
 
         });
+
+        console.log('new map', map)
 
         //const result = [...map.values()];
 
