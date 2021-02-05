@@ -1,0 +1,573 @@
+// ----------FONTS
+
+// roboto condensed
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-Light.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-LightItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-Regular.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-RegularItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-RegularItalic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-Bold.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotocondensed";
+    src: url("/assets/fonts/robotocondensed/RobotoCondensed-BoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotocondensed/RobotoCondensed-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+// robotomono
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Thin.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-ThinItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-ThinItalic.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-ExtraLight.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-ExtraLight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-ExtraLightItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-ExtraLightItalic.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Light.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-LightItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Regular.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Italic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Medium.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-MediumItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-MediumItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-SemiBoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-Bold.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "robotomono";
+    src: url("/assets/fonts/robotomono/RobotoMono-BoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/robotomono/RobotoMono-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+// avertastd
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-extrathin-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-extrathin-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-extrathinitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-extrathinitalic-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-thin-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-thin-webfont.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-thinitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-thinitalic-webfont.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-light-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-light-webfont.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-lightitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-lightitalic-webfont.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-regular-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-regular-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-regularitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-regularitalic-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-semibold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-semibold-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-semibolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-semibolditalic-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-semibold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-semibold-webfont.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-semibolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-semibolditalic-webfont.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-bold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-bolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-bolditalic-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-extrabold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-extrabold-webfont.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-extrabolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-extrabolditalic-webfont.woff") format("woff");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-black-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-black-webfont.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "averta";
+    src: url("/assets/fonts/averta/avertastd-blackitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/averta/avertastd-blackitalic-webfont.woff") format("woff");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+// zabal
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-thin-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-thin-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-thinitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-thinitalic-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+} 
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-extralight-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-extralight-webfont.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-extralightitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-extralightitalic-webfont.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-light-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-light-webfont.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-lightitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-lightitalic-webfont.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-regular-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-regular-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-regularitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-regularitalic-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-medium-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-medium-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-mediumitalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-mediumitalic-webfont.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-semibold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-semibold-webfont.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-semibolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-semibolditalic-webfont.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-bold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-bolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-bolditalic-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-extrabold-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-extrabold-webfont.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-extrabolditalic-webfont.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-extrabolditalic-webfont.woff") format("woff");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-black.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "zabal";
+    src: url("/assets/fonts/zabal/zabal-blackitalic.woff2") format("woff2"),
+        url("/assets/fonts/zabal/zabal-blackitalic.woff") format("woff");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+// weeklyfree
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-Light.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-Light.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-Light.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "weeklyfree";
+    src: url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/weeklyfree/WeeklyFree-SemiBold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+
+

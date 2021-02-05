@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+sudo: required
+
+branches:
+  only:
+  - master
+
+install:
+- npm install
+  
+script:
+- export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+- ng build
+
+after_success:
+  - ./deploy.sh $BRANCH
+
+before_install:
+  - sudo apt-get install -y sshpass
+
+after-failure:
+  - node ./failed/failed.js $message_builder

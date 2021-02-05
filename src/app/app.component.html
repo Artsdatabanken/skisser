@@ -1,0 +1,42 @@
+<a [href]="skipLinkPath" class="skip-to-content">Skip to content</a>
+
+<div class="layout">
+
+    <div class="layout__header">
+        <app-header></app-header>
+        <!-- <app-breadcrumbs class="" *ngIf="pageLayout !== 'frontpage'"></app-breadcrumbs> -->
+        <app-subheader></app-subheader>
+    </div>
+
+    <div class="layout__main">
+
+        <!-- <app-shortcuts [location]="pageId" *ngIf="pageTitle !== 'Artsobservasjoner'"></app-shortcuts> -->
+        <app-shortcuts [location]="pageId"></app-shortcuts>
+
+        <ng-container *ngIf="pageTitle" aria-live="assertive">
+            <span [attr.aria-label]="pageTitle"></span>
+        </ng-container>
+
+        <main role="main" id="mainContent" tabindex="-1" #mainContent class="main main-grid"
+            [class]="getLayoutStyle(pageLayout)">
+
+            <h1 class="page-title" *ngIf="getAllowedLayoutStyle(pageLayout)">{{ pageTitle }}</h1>
+            <!-- TODO: <app-page-title [pageLayout]="pageLayout"></app-page-title> -->
+
+            <!-- <router-outlet (activate)="onActivate($event)"></router-outlet> -->
+
+            <router-outlet></router-outlet>
+
+        </main>
+
+    </div>
+
+    <div class="layout__footer">
+        <app-footer></app-footer>
+
+        <!-- <button class="scroll-up" [ngClass]="{'scroll-up--active': windowScrolled}"
+            (click)="scrollToTop()"></button> -->
+
+    </div>
+
+</div>

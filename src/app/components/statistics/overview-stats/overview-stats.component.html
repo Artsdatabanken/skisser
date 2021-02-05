@@ -1,0 +1,45 @@
+<div class="page">
+
+    <header class="page__header">
+        <h1 class="page-title">{{ pageTitle }}</h1>
+    </header>
+
+    <div class="page__intro">
+        <p>
+            <!-- Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nec
+            mollis ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. -->
+        </p>
+    </div>
+
+    <div class="page__content" style="min-height: 90vh;">
+
+        <app-artsobs-numbers></app-artsobs-numbers>
+
+        <div class="dropdown" (clickElsewhere)="closeDropdown()">
+
+            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
+                (click)="toggleDropdown()">{{ dropDownText }}</button>
+
+            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
+                [attr.aria-expanded]="activeDropdown">
+
+                <a *ngFor="let child of children" class="dropdown__link"
+                    routerLink="/observations/statistics/overview/{{child.path}}"
+                    routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
+                    {{ child.data.text }}
+                </a>
+
+            </div>
+
+        </div>
+
+        <router-outlet></router-outlet>
+
+        <br><br>
+
+    </div>
+
+    <br><br>
+
+    <div class="page__footer"></div>
+</div>

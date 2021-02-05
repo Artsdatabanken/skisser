@@ -1,0 +1,20 @@
+<!--shareable component-->
+
+
+<a class="teaser" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="teaser--active">
+    <h1 class="teaser__heading">{{ title }}</h1>
+    <!-- <img class="teaser__image" src='assets/images/gallery/{{ source }}.jpg' alt=""> -->
+
+
+    <img class="teaser__image" src="{{ source }}" alt="" *ngIf="source">
+    <img class="teaser__image" src="assets/images/gallery/animal1.jpg" alt="" *ngIf="!source">
+
+    <div class="teaser__details">
+        <div class="teaser__tag">{{ tag }}</div>
+        <div class="teaser__date">{{ date | date: 'dd.MM.yyyy'}}</div>
+    </div>
+    <p class="teaser__text" [innerHtml]="text | truncateText: 150"></p>
+</a>
+
+
+<!--shareable component-->

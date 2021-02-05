@@ -1,0 +1,261 @@
+// ----------FORMS and FORM ELEMENTS
+
+form {
+    width: 100%;
+
+    ::placeholder {
+        @include customVar(color, clrDark);
+        font-size: 19px;
+    }
+
+    label {
+        @include customVar(font-family, fontSecondary);
+        display: block;
+        font-size: 19px;
+        font-weight: 500;
+        line-height: 1;
+        margin-bottom: 5px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 18px;
+        }
+    }
+
+    input {
+        @include customVar(background-color, clrWash);
+        @include customVar(border-color, clrDark);
+        @include customVar(font-family, fontPrimary);
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 50px;
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+        //margin: 5px 0 25px;
+        padding: 12px 24px 9px;
+        width: 100%;
+
+        &:disabled {
+            @include customVar(border-color, clrAccent);
+            border: 2px solid #666;
+        }
+
+        &:active,
+        &:focus {
+            padding: 12px 18px 9px;
+        }
+
+        &[type="date"],
+        &[type="time"] {
+            font-weight: 600;
+        }
+
+        &[type="submit"] {
+            @include customVar(font-family, fontSecondary);
+            float: right;
+            font-size: 24px;
+            font-weight: 500;
+            font-weight: 400;
+            padding: 14px 24px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            margin: 5px 0 20px;
+        }
+
+        .form__group--light & {
+            @include customVar(background-color, clrWhite);
+        }
+    }
+
+    textarea {
+        @include customVar(background-color, clrWhite);
+        @include customVar(border-color, clrBlack);
+        @include customVar(font-family, fontPrimary);
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
+        border-width: 2px;
+        min-height: 25vh;
+        padding: 15px;
+        width: 100%;
+
+        &:focus,
+        &:active {
+            padding: 15px;
+        }
+    }
+
+    select {
+        @extend input;
+        @include customVar(background-color, clrWhite);
+        @include customVar(font-family, fontPrimary);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 7px 11px;
+
+        &:focus,
+        &:active {
+            border: none;
+            outline: none !important;
+            margin: 5px;
+            padding: 5px;
+        }
+    }
+}
+
+button {
+    @include customVar(color, clrBlack);
+}
+
+select {
+    @extend input;
+    @include customVar(background-color, clrWhite);
+    @include customVar(border-color, clrBlack);
+    @include customVar(font-family, fontPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 7px 15px;
+
+    option {
+        font-weight: 500;
+        padding: 15px;
+    }
+}
+
+input {
+    @extend select;
+    padding: 9px 15px;
+}
+
+.form {
+    &__group {
+        margin-bottom: 30px;
+    }
+
+    &__input {
+        &--light {
+            @include customVar(background-color, clrWhite);
+        }
+    }
+
+    &__grid {
+        display: grid;
+        align-items: center;
+
+        &--4 {
+            grid-template-columns: 3fr 1fr 1fr 2fr;
+            grid-gap: 10px;
+        }
+
+        &--3 {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+
+            @media screen and (max-width: 1024px) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &--2 {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+
+            & > {
+                border: 1px solid red;
+                margin: 0;
+            }
+        }
+
+        &--bss {
+            // big small small
+            grid-template-columns: 3fr 1fr 1fr;
+            grid-gap: 10px 10px;
+            margin-top: 5px;
+
+            & > * {
+                align-self: center;
+                justify-self: stretch;
+                margin: 0;
+            }
+        }
+
+        &--bs {
+            // big small
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 10px 10px;
+            margin-top: 5px;
+
+            & > * {
+                align-self: center;
+                justify-self: stretch;
+                margin: 0;
+            }
+        }
+
+        &--bxxs {
+            // big small
+            grid-template-columns: 3fr 1fr 1fr 2fr;
+            grid-gap: 10px 10px;
+            margin-top: 5px;
+
+            & > * {
+                align-self: center;
+                justify-self: stretch;
+                margin: 0;
+            }
+        }
+
+        & > * {
+            // align-self: stretch;
+            // justify-self: stretch;
+        }
+    }
+}
+
+.filter {
+    label {
+        font-size: 0.85em;
+        font-weight: 600;
+        margin-right: 15px;
+    }
+
+    select {
+        margin: 0 30px 0 0;
+    }
+}
+
+.search {
+    background-image: url(../images/iconSearch.png);
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 17px;
+}
+
+.error-message {
+    //@include customVar(color, #ff0000);
+    color: red;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.menu-search {
+    form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    input {
+        margin-right: 20px;
+        width: 40%;
+    }
+
+    & > form > * {
+        justify-self: center;
+    }
+}

@@ -1,0 +1,27 @@
+<div class="page page--landing">
+
+    <header class="page__header"></header>
+
+
+    <div class="page__intro">
+        <p>
+            Tekst.
+        </p>
+    </div>
+
+    <div class="page__content">
+
+        <div class="loop loop--cards">
+
+            <app-card [type]="'link'" [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
+            </app-card>
+
+            <app-card [type]="'link'" [url]="'news'" [text]="'Aktuelle saker'"></app-card>
+
+        </div>
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>
