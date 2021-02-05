@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 import { UtilitiesService } from './utilities.service';
 
 import ValidatedData from '../data/validatedData.json';
-import { AssessmentCategory } from '../models/assessmentCategory';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { AssessmentCategory, Category, RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -21,16 +21,16 @@ export class StatisticsService {
   errorMessage: string;
 
   // API
- 
+
   redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
   alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
 
-  totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
-  totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
-  totalImagesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
-  totalUsersCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
+  // totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
+  // totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
+  // totalImagesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
+  // totalUsersCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
 
   // data
   validatedData: any = ValidatedData;
@@ -40,7 +40,8 @@ export class StatisticsService {
   constructor(
     private httpClient: HttpClient,
     private utilitiesService: UtilitiesService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private translate: TranslateService
   ) { }
 
   // ------------------------------------------------------------ ***
@@ -82,13 +83,10 @@ export class StatisticsService {
     return this.httpClient.get(this.redlistSpeciesApi).pipe(
       map(data => {
 
-        console.log('data', data)
         let redlistedSpeciesItem: RedlistedSpeciesItem;
         let redlistedSpeciesItems: RedlistedSpeciesItem[] = [];
 
         data['speciesGroupStatistics'].forEach(item => {
-
-          console.log('ITEM', item)
 
           if (item.speciesGroupId) {
 
@@ -118,9 +116,6 @@ export class StatisticsService {
 
     return this.httpClient.get(apiUrl).pipe(
       map((data: any) => {
-
-        console.log('data', data)
-
         totalCount = {
           count: data.count
         }
@@ -146,14 +141,45 @@ export class StatisticsService {
   }
 
   // SPECIES GROUPS / ARTSGRUPPER
-  
+
   getSpeciesGroups(): Observable<any> {
     return this.httpClient.get(this.speciesGroupListApi).pipe(
       map((res: any) => {
-        console.log('speciesgroup', res)
-        return res;
 
+        const speciesGroups: Category[] = [];
 
+        res.forEach(data => {
+
+          let label: string;
+
+          if (this.translate.currentLang == 'en') {
+            label = data.speciesGroupResourceLabels[0].label;
+          }
+          else {
+            label = data.speciesGroupResourceLabels[1].label;
+          }
+          
+          this.translate.onLangChange.subscribe(response => {
+            if (response.lang == 'en') {
+              label = data.speciesGroupResourceLabels[0].label;
+            }
+            if (response.lang == 'no') {
+              label = data.speciesGroupResourceLabels[1].label;
+            }
+          });
+
+          let speciesGroup: Category = {
+            id: data.speciesGroupId,
+            label: label,
+            labelEnglish: data.speciesGroupResourceLabels[0].label,
+            labelNorwegian: data.speciesGroupResourceLabels[1].label
+          }
+
+          speciesGroups.push(speciesGroup);
+
+        });
+
+        return speciesGroups;
       }),
       publishReplay(1),
       refCount()

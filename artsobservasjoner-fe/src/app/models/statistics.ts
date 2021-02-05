@@ -1,5 +1,3 @@
-import { AssessmentCategory } from "./assessmentCategory";
-
 export interface ValidatedDataItem {
     id: number | string;
     sightingCount: number;
@@ -17,6 +15,8 @@ export interface SpecialSpeciesItem {
 
 export interface SpecialSpeciesItemStats {
     id: number;
+    speciesGroupId: number;
+    speciesGroup: string | Category;
     assessmentCategoryId: number;
     assessmentCategory: AssessmentCategory;
     sightingsCount: number;
@@ -27,3 +27,14 @@ export interface SpecialSpeciesItemStats {
 
 export interface RedlistedSpeciesItem extends SpecialSpeciesItem {}
 export interface AlienSpeciesItem extends SpecialSpeciesItem {}
+
+export interface Category {
+    id: number;
+    label?: string;
+    labelEnglish?: string;
+    labelNorwegian?: string;
+}
+
+export interface AssessmentCategory extends Category {
+    code: string;
+}

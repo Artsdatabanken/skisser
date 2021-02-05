@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { AssessmentCategory } from 'src/app/models/assessmentCategory';
+import { AssessmentCategory } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AssessmentCategory } from 'src/app/models/assessmentCategory';
-import { RedlistedSpeciesItem, SpecialSpeciesItemStats } from 'src/app/models/statistics';
+import { AssessmentCategory, Category, RedlistedSpeciesItem, SpecialSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -13,22 +13,31 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class RedListedSpeciesComponent implements OnInit {
 
-  redlistedSpeciesData$: Observable<any[]>;
-  redlistedCategories$: Observable<any[]>;
+  // redlistedSpeciesData$: Observable<any[]>;
+  // redlistedCategories$: Observable<any[]>;
   data$;
+  currentLanguage: string;
 
-  constructor(private statisticsService: StatisticsService) { }
+  constructor(
+    private statisticsService: StatisticsService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
+
+    this.translate.onLangChange.subscribe(l => {
+      this.currentLanguage = l.lang;
+    });
 
     // this.redlistedSpeciesData$ = this.statisticsService.getRedlistedSpeciesData();
     // this.redlistedCategories$ = this.statisticsService.getRedlistedCategories();
 
     this.data$ = forkJoin([
       this.statisticsService.getRedlistedSpeciesData(),
-      this.statisticsService.getRedlistedCategories()
+      this.statisticsService.getRedlistedCategories(),
+      this.statisticsService.getSpeciesGroups()
     ]).pipe(
-      map(([species, categories]) => {
+      map(([species, categories, speciesGroups]) => {
 
         let redlistedSpeciesItemData: SpecialSpeciesItemStats;
 
@@ -38,6 +47,35 @@ export class RedListedSpeciesComponent implements OnInit {
           return categories.find(category => category.id === id);
         }
 
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
+
+        const getSpeciesGroupLabel = (id: number): string => {
+
+          const speciesGroup: {} = speciesGroups.find(speciesGroup => speciesGroup.id === id);
+
+          let label: string;
+
+          // if (this.translate.currentLang === 'en') { label = speciesGroup['labelEnglish']; }
+          // if (this.translate.currentLang === 'no') { label = speciesGroup['labelNorwegian']; }
+
+
+          // this.translate.onLangChange.subscribe(response => {
+
+          //   if (response.lang == 'en') {
+          //     label = speciesGroup['labelEnglish'];
+          //   }
+          //   else {
+          //     label = speciesGroup['labelNorwegian']
+          //   }
+
+          // });
+
+          return label;
+
+        }
+
         // ---------------------------------------- ***
 
         const map = new Map();
@@ -45,13 +83,17 @@ export class RedListedSpeciesComponent implements OnInit {
         species.forEach(speciesItem => {
 
           let tempArray = [];
-          
+
           map.set(speciesItem.id, { data: [] })
 
           speciesItem.data.forEach(data => {
 
+            console.log('TEST', getSpeciesGroupLabel(speciesItem.id))
+
             redlistedSpeciesItemData = {
               id: speciesItem.id,
+              speciesGroupId: speciesItem.id,
+              speciesGroup: getSpeciesGroup(speciesItem.id),
               assessmentCategoryId: data['redlistId'],
               assessmentCategory: getCategory(data['redlistId']),
               sightingsCount: data['sightingCount'],
@@ -70,30 +112,12 @@ export class RedListedSpeciesComponent implements OnInit {
 
         });
 
-
         //const result = [...map.values()];
-
-        console.log('map', map)
 
         return map;
 
       })
     );
-
-    // this._moviesDataService.getShowtimes()
-    // .switchMap(res => { 
-    //     const showtimes = res[0].showtimes;
-    //     const id = Object.keys(showtimes)[0];
-
-    //     return Observable.zip(
-    //         this.getMovies(id),
-    //         Observable.of(showtimes[id])
-    //     );
-    // })
-    // .subscribe(([movies, showtimes]) => {
-    //     this.results.movies = movies; // or assign it to some other property
-    //     this.results.showtimes = showtimes; // and use in the template
-    // }
 
   }
 
