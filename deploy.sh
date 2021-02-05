@@ -4,8 +4,10 @@ echo "pwd"
 pwd
 echo "checking filesystem"
 ls -l
+echo "where are you"
+ls -l artsobservasjoner_fe
 echo "copying .htaccess"
-cp --verbose .htaccess artsobservasjoner_fe/dist/artsobservasjoner_fe
+cp --verbose .htaccess artsobservasjoner_fe/dist/
 echo "Making archive"
 tar --directory=dist -zcf $FILENAME .
 if [ "${BRANCH}" == "master" ]
