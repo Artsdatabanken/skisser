@@ -1038,6 +1038,28 @@ main {
         }
     }
 
+    &--stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px 20px;
+
+        & > * {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--stats-sm {
+        grid-template-columns: repeat(4, 1fr);
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
     &--teasers {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

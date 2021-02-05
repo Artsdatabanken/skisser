@@ -1,3 +1,5 @@
+import { AssessmentCategory } from "./assessmentCategory";
+
 export interface ValidatedDataItem {
     id: number | string;
     sightingCount: number;
@@ -7,17 +9,20 @@ export interface ValidatedDataItem {
     percentageValidatedVsApproved: number;
 }
 
-export interface SpecialSpeciesDataItem {
-    id: number | string;
+export interface SpecialSpeciesItem {
+    id: number;
     data?: object[];
-    risk?: any;
+    risk?: SpecialSpeciesItemStats[];
 }
 
-export interface SpecialSpeciesDataObject {
-    id: number | string;
-    riskGroup: string;
-    sightingCount: number;
-    sightingsWithMedia: number;
-    validatedSightingsCount: number;
-    approvedSightingsCount: number;
+export interface SpecialSpeciesItemStats {
+    id: number;
+    assessmentCategory: AssessmentCategory;
+    sightingsCount: number;
+    imagesCount: number;
+    validatedCount: number;
+    approvedCount: number;
 }
+
+export interface RedlistedSpeciesItem extends SpecialSpeciesItem {}
+export interface AlienSpeciesItem extends SpecialSpeciesItem {}

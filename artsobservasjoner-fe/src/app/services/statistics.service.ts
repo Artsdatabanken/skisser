@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, flatMap, map, publishReplay, refCount, share, shareReplay, take, tap } from 'rxjs/operators';
+import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-import { ValidatedDataItem, SpecialSpeciesDataItem } from '../models/statistics';
 import { UtilitiesService } from './utilities.service';
 
 import ValidatedData from '../data/validatedData.json';
@@ -11,6 +10,7 @@ import RedListedSpeciesData from '../data/redListedSpeciesData.json';
 import { AssessmentCategory } from '../models/assessmentCategory';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
+import { RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
 
 @Injectable({
   providedIn: 'root'
@@ -82,7 +82,7 @@ export class StatisticsService {
   }
 
   // REDLISTED SPECIES / RØDLISTEDE ARTER
-  getRedlistedSpeciesData(): Observable<SpecialSpeciesDataItem[]> {
+  getRedlistedSpeciesData(): Observable<RedlistedSpeciesItem[]> {
 
     // return this.httpClient.get(this.tempApiUrl).pipe(
     //   map((res: any) => {
@@ -107,8 +107,8 @@ someHttpCall.pipe(
     return of(this.redlistedSpeciesData).pipe(
       map(data => {
 
-        let specialSpeciesDataItem: SpecialSpeciesDataItem;
-        let specialSpeciesDataItems: SpecialSpeciesDataItem[] = [];
+        let redlistedSpeciesItem: RedlistedSpeciesItem;
+        let redlistedSpeciesItems: RedlistedSpeciesItem[] = [];
 
         data.speciesGroupStatistics.forEach(item => {
 
@@ -116,20 +116,20 @@ someHttpCall.pipe(
 
           if (item.speciesGroupId) {
 
-            specialSpeciesDataItem = {
+            redlistedSpeciesItem = {
               id: item.speciesGroupId,
               data: item.data
             }
 
-            specialSpeciesDataItems.push(specialSpeciesDataItem);
+            redlistedSpeciesItems.push(redlistedSpeciesItem);
 
           }
 
         });
 
 
-        console.log('specialSpeciesDataItems', specialSpeciesDataItems);
-        return specialSpeciesDataItems;
+        // console.log('redlistedSpeciesItems', redlistedSpeciesItems);
+        return redlistedSpeciesItems;
 
       })
     );
@@ -232,7 +232,7 @@ someHttpCall.pipe(
     return this.httpClient.get('https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories').pipe(
       map((res: any) => {
 
-        console.log('redlisted cats', res)
+       // console.log('redlisted cats', res)
 
         const categories: AssessmentCategory[] = [];
 
