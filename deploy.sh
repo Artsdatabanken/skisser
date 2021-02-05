@@ -1,9 +1,9 @@
 BRANCH=$1
 FILENAME=skisser.tar.gz
 echo "copying .htaccess"
-cp --verbose .htaccess dist/artsobservasjoner/
+cp --verbose .htaccess artsobservasjoner-fe/dist/artsobservasjoner
 echo "Making archive"
-tar --directory=dist -zcf $FILENAME .
+tar --directory=artsobservasjoner-fe/dist -zcf $FILENAME .
 if [ "${BRANCH}" == "master" ]
  then
   sshpass -p $scp_pass scp -v -o StrictHostKeyChecking=no $FILENAME $scp_user@$scp_dest/
