@@ -1,8 +1,7 @@
 // ----------TABLES
 
 table {
-    border-collapse: separate;
-    border-spacing: 0 2px;
+    border-collapse: collapse;
     font-size: 17px;
     margin: 50px auto 50px;
     table-layout: fixed;
@@ -20,6 +19,7 @@ table {
 
     th {
         @include customVar(font-family, fontSecondary);
+        border-top: 2px solid rgba(240, 240, 240);
         border-bottom: 2px solid #48c9b0;
         font-size: 19px;
         font-weight: 600;
@@ -44,7 +44,10 @@ table {
     }
 
     td {
+        @include customVar(border-bottom-color, clrWhite);
         background-color: rgb(250, 250, 250);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
         margin-bottom: 2px;
         text-align: left;
     }
@@ -55,15 +58,10 @@ table {
     }
 
     td:empty {
-        // @include customVar(border-bottom-color, clrWhite);
     }
 
     tbody:nth-child(even) {
         background-color: #e8f8f5;
-
-        th[scope="row"] {
-            background-color: #e8f8f5;
-        }
 
         td {
             background-color: #e8f8f5;
@@ -117,121 +115,15 @@ table {
 // custom table
 
 .custom-table {
-    &__caption {
-        font-size: 15px;
-        font-weight: 600;
-        text-align: center;
-    }
-
-    &__head {
-        border-bottom: 2px solid #48c9b0;
-        @include customVar(font-family, fontSecondary);
-    }
-
-    &__body {
-        font-size: 17px;
-        margin-bottom: 2px;
-
-        // &:nth-child(odd) {
-        //     background-color: rgb(250, 250, 250);
-        // }
-
-        // &:nth-child(even) {
-        //     background-color: #e8f8f5;
-        // }
-    }
-
     &__row {
-        display: grid;
-        grid-template-columns: 1fr 4fr;
-    }
-
-    &__column {
-        border: 1px dotted fuchsia;
-        align-self: stretch;
-        justify-self: stretch;
-        padding: 0;
-    }
-
-    &__grid {
-        & > div {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            width: 100%;
-        }
-    }
-
-    &__td,
-    &__th {
-        padding: 10px;
-    }
-
-    &__th {
-        align-self: center;
-        font-weight: 17px;
-        font-weight: 600;
-
-        &--in-head {
-        }
-
-        &--in-body {
-            @include customVar(font-family, fontPrimary);
-            font-weight: 700;
-            padding: 0 25px;
-
-            .custom-table__body:nth-child(odd) & {
-                background-color: rgb(250, 250, 250);
-            }
-
-            .custom-table__body:nth-child(even) & {
-                background-color: #e8f8f5;
-            }
-        }
     }
 
     &__td {
-        background-color: rgb(250, 250, 250);
-        margin-bottom: 2px;
+        @include customVar(border-bottom-color, transparent);
+        font-weight: 600;
 
-        .custom-table__body:nth-child(odd) & {
-            background-color: rgb(250, 250, 250);
+        .custom-table__row:last-child & {
+            @include customVar(border-bottom-color, clrWhite);
         }
-
-        .custom-table__body:nth-child(even) & {
-            background-color: #e8f8f5;
-        }
-    }
-}
-
-.tbl {
-    //border: 1px solid red;
-
-    &__row {
-        display: grid;
-        grid-template-columns: 1fr 4fr;
-    }
-
-    &__col {
-        border: 1px solid blue;
-        align-self: stretch;
-        justify-self: stretch;
-    }
-
-    &__cell {
-        //display: flex;
-        height: 100%;
-        padding: 15px;
-
-        .tbl__row:nth-child(odd) & {
-            background-color: rgb(250, 250, 250);
-        }
-
-        .tbl__row:nth-child(even) & {
-            background-color: #e8f8f5;
-        }
-    }
-
-    table {
-        margin: 0 auto;
     }
 }
