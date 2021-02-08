@@ -37,6 +37,8 @@ export class AboutComponent implements OnInit {
 
       this.subscription = this.dataService.getAboutPagesById(+id).subscribe(res => {
 
+        console.log('TEST', res)
+
         let aboutPage: AboutPage;
 
         res.forEach(r => {

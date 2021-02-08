@@ -117,7 +117,11 @@ table {
 // custom table
 
 .custom-table {
+
     &__caption {
+        font-size: 15px;
+        font-weight: 600;
+        text-align: center;
     }
 
     &__head {
@@ -141,6 +145,7 @@ table {
         border-top: 2px solid white;
         display: grid;
         grid-template-columns: 1fr 4fr;
+        grid-gap: 2px 0;
     }
 
     &__column {
