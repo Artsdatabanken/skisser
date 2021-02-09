@@ -4,7 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../data/settings.json';
 import { NewsItem } from '../models/newsItem';
-import { FeaturedImage } from '../models/featuredImage';
 import { AboutPage } from '../models/aboutPage';
 import { ApiService } from './api.service';
 
@@ -97,11 +96,11 @@ export class DataService {
 
   }
 
-  getNewsItemImages(id: number): Observable<FeaturedImage> {
+  getNewsItemImages(id: number): Observable<any> {
     return this.http.get<any>(this.drupalNewsAPIItem + id).pipe(
       map((data: any) => {
 
-        const img: FeaturedImage = {
+        const img: any = {
           id: data.Id.replace('Nodes/', ''),
           altText: data.Name,
           caption: data.Body,

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Article } from 'src/app/models/article';
-import { ArticleImage } from 'src/app/models/articleImage';
-import { FeaturedImage } from 'src/app/models/featuredImage';
 import { NewsItem } from 'src/app/models/newsItem';
 import { DataService } from 'src/app/services/data.service';
 

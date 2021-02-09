@@ -12,8 +12,7 @@ export class KnowledgeGapComponent implements OnInit {
   constructor(private statisticsService: StatisticsService) { }
 
   ngOnInit(): void {
-    this.statisticsService.getRedlistedCategories().subscribe(s =>
-      console.log('s', s));
+   
   }
 
 }
