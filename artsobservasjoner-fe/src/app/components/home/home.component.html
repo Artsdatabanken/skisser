@@ -11,11 +11,24 @@
 
             <br>
 
-            <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
+            <!-- <div class="loop loop--2">
+                <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
+                &nbsp;
+                <a class="" routerLink="/register"> {{ 'account.account_register' | translate }} </a>
+            </div> -->
+
+            <div class="loop loop--2">
+                <a class="button button--cta" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
+               
+                <a class="button button--cta" routerLink="/register"> {{ 'account.account_register' | translate }} </a>
+            </div>
+
+            <!-- <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
             <br><br>
             <a class="button button--cta" routerLink="/register">
                 {{ 'account.account_register' | translate }}
-            </a>
+            </a> -->
+
         </div>
         <div>
             <img class="puffin" src="../../../assets/images/puffin.png" alt="Puffin">
@@ -73,11 +86,14 @@
 
             <div class="loop loop--stats">
 
-                <app-total-count-statistics [statistics]="'totalSightings'" [text]="'statistics.overviewNumbers_sightings' | translate"></app-total-count-statistics>
-                <app-total-count-statistics [statistics]="'totalSpecies'" [text]="'statistics.overviewNumbers_species' | translate"></app-total-count-statistics>
-                <app-total-count-statistics [statistics]="'totalImages'" [text]="'statistics.overviewNumbers_images' | translate"></app-total-count-statistics>
+                <app-total-count-statistics [statistics]="'totalSightings'"
+                    [text]="'statistics.overviewNumbers_sightings' | translate"></app-total-count-statistics>
+                <app-total-count-statistics [statistics]="'totalSpecies'"
+                    [text]="'statistics.overviewNumbers_species' | translate"></app-total-count-statistics>
+                <app-total-count-statistics [statistics]="'totalImages'"
+                    [text]="'statistics.overviewNumbers_images' | translate"></app-total-count-statistics>
 
-                
+
             </div>
 
         </div>
@@ -105,6 +121,12 @@
             </app-card>
             <app-card [type]="'link'" [url]="'/observations/statistics/volume-statistics'"
                 [text]="'menu.menu_statistics_overview' | translate">
+            </app-card>
+            <app-card [type]="'link'" [url]="'observations/statistics/validated-data'"
+                [text]="'menu.menu_statistics_validatedData' | translate">
+            </app-card>
+            <app-card [type]="'link'" [url]="'/observations/statistics/knowledge-gaps'"
+                [text]="'menu.menu_statistics_knowledgeGaps' | translate">
             </app-card>
 
         </div>

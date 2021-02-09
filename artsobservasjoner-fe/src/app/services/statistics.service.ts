@@ -8,7 +8,7 @@ import { UtilitiesService } from './utilities.service';
 import ValidatedData from '../data/validatedData.json';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { AlienSpeciesItem, AssessmentCategory, Category, RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { AssessmentCategory, Category, SpecialSpeciesItem, ValidatedDataItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -22,6 +22,7 @@ export class StatisticsService {
 
   // API
 
+  validatedDataApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetValidatedData';
   redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
   alienSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetAlienlist';
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
@@ -53,18 +54,23 @@ export class StatisticsService {
     let validatedSightings: ValidatedDataItem[] = [];
     let validatedSighting: ValidatedDataItem;
 
-    return of(this.validatedData).pipe(
-      map(data => {
+    return this.httpClient.get(this.validatedDataApi).pipe(
+      map((res: any) => {
 
-        data.forEach(d => {
+        console.log('validated data', res)
+
+        res['validatedDataStatistics'].forEach(d => {
 
           validatedSighting = {
-            id: d.SpeciesGroupId,
-            sightingCount: d.SightingCount,
-            validatedSightingCount: d.ValidatedSightingCount,
-            approvedSightingCount: d.ApprovedValidatedSightingCount,
-            percentageSightedVsValidated: this.utilitiesService.getPercentage(d.SightingCount, d.ValidatedSightingCount),
-            percentageValidatedVsApproved: this.utilitiesService.getPercentage(d.ValidatedSightingCount, d.ApprovedValidatedSightingCount),
+            id: d.speciesGroupId,
+            speciesGroup: null,
+            sightingCount: d.sightingCount,
+            sightingTaxonCount: d.sightingTaxonCount,
+            sightingWithMediaCount: d.sightingWithMediaCount,
+            validatedSightingCount: d.validatedSightingCount,
+            approvedSightingCount: d.approvedValidatedSightingCount,
+            percentageSightedVsValidated: this.utilitiesService.getPercentage(d.sightingCount, d.validatedSightingCount),
+            percentageValidatedVsApproved: this.utilitiesService.getPercentage(d.validatedSightingCount, d.approvedValidatedSightingCount),
           }
 
           validatedSightings.push(validatedSighting);
@@ -73,69 +79,39 @@ export class StatisticsService {
 
         // console.log('validatedSightings', validatedSightings)
         return validatedSightings;
-      })
+      }),
+      publishReplay(1),
+      refCount()
     );
 
   }
 
-  // REDLISTED SPECIES / RØDLISTEDE ARTER
-  getRedlistedSpeciesData(): Observable<RedlistedSpeciesItem[]> {
+  getSpeciesGroupsStatsData(data: string): Observable<SpecialSpeciesItem[]> {
 
-    return this.httpClient.get(this.redlistSpeciesApi).pipe(
-      map(data => {
+    const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
 
-        let redlistedSpeciesItem: RedlistedSpeciesItem;
-        let redlistedSpeciesItems: RedlistedSpeciesItem[] = [];
-
-        data['speciesGroupStatistics'].forEach(item => {
-
-          if (item.speciesGroupId) {
-
-            redlistedSpeciesItem = {
-              id: item.speciesGroupId,
-              data: item.data
-            }
-
-            redlistedSpeciesItems.push(redlistedSpeciesItem);
-
-          }
-
-        });
-
-        return redlistedSpeciesItems;
-
-      })
-    );
-
-  }
-
-  // ALIEN SPECIES /  FREMMEDE ARTER
-
-  getAlienSpeciesData(): Observable<AlienSpeciesItem[]> {
-
-    return this.httpClient.get(this.alienSpeciesApi).pipe(
+    return this.httpClient.get(api).pipe(
       map((res: any) => {
-        console.log('res', res)
-        
-        let alienSpeciesItem: AlienSpeciesItem;
-        let alienSpeciesItems: AlienSpeciesItem[] = [];
+
+        let speciesItem: SpecialSpeciesItem;
+        let speciesItems: SpecialSpeciesItem[] = [];
 
         res['speciesGroupStatistics'].forEach(item => {
 
           if (item.speciesGroupId) {
 
-            alienSpeciesItem = {
+            speciesItem = {
               id: item.speciesGroupId,
               data: item.data
             }
 
-            alienSpeciesItems.push(alienSpeciesItem);
+            speciesItems.push(speciesItem);
 
           }
 
         });
 
-        return alienSpeciesItems;
+        return speciesItems;
 
 
       }),
@@ -148,6 +124,8 @@ export class StatisticsService {
   // NUMBERS STATISTICS
 
   getTotalCount(apiUrl: string): Observable<TotalCountStatistic> {
+
+    let api: string;
 
     let totalCount: TotalCountStatistic;
 
@@ -195,7 +173,7 @@ export class StatisticsService {
           else {
             label = data.speciesGroupResourceLabels[1].label;
           }
-          
+
           this.translate.onLangChange.subscribe(response => {
             if (response.lang == 'en') {
               label = data.speciesGroupResourceLabels[0].label;
@@ -225,36 +203,11 @@ export class StatisticsService {
 
   // ASSESSMENT CATEGORIES
 
-  getRedlistedCategories(): Observable<AssessmentCategory[]> {
-    return this.httpClient.get(this.redlistedCategoriesApi).pipe(
-      map((res: any) => {
+  getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
 
-        // console.log('redlisted cats', res)
+    const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
 
-        const categories: AssessmentCategory[] = [];
-
-        res.forEach(data => {
-
-          let category: AssessmentCategory = {
-            id: data.redListCategoryId,
-            code: data.redListCategoryCode,
-            labelEnglish: data.redListCategoryResourceLabels[0].label,
-            labelNorwegian: data.redListCategoryResourceLabels[1].label
-          }
-
-          categories.push(category);
-
-        });
-
-        return categories;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  getAlienCategories(): Observable<AssessmentCategory[]> {
-    return this.httpClient.get(this.alienCategoriesApi).pipe(
+    return this.httpClient.get(api).pipe(
       map((res: any) => {
 
         const categories: AssessmentCategory[] = [];

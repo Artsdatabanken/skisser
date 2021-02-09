@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AlienSpeciesItem, AssessmentCategory, Category, SpecialSpeciesItemStats } from 'src/app/models/statistics';
+import { AssessmentCategory, Category, SpecialSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -13,8 +13,9 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class AlienSpeciesComponent implements OnInit {
 
-  data$: Observable<AlienSpeciesItem[]>;
+  data$;
   currentLanguage: string;
+  test$;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -22,16 +23,20 @@ export class AlienSpeciesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
     });
 
-    //this.data$ = this.statisticsService.getAlienSpeciesData();
+    this.getData();
+
+  }
+
+  getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getAlienSpeciesData(),
-      this.statisticsService.getAlienCategories(),
+      this.statisticsService.getSpeciesGroupsStatsData('alienSpecies'),
+      this.statisticsService.getAssessmentCategories('alienCategories'),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
       map(([species, categories, speciesGroups]) => {

@@ -1,6 +1,9 @@
 export interface ValidatedDataItem {
-    id: number | string;
+    id: number;
+    speciesGroup: Category;
     sightingCount: number;
+    sightingTaxonCount: number;
+    sightingWithMediaCount: number;
     validatedSightingCount: number;
     approvedSightingCount: number;
     percentageSightedVsValidated: number;
@@ -24,9 +27,6 @@ export interface SpecialSpeciesItemStats {
     validatedCount: number;
     approvedCount: number;
 }
-
-export interface RedlistedSpeciesItem extends SpecialSpeciesItem {}
-export interface AlienSpeciesItem extends SpecialSpeciesItem {}
 
 export interface Category {
     id: number;
