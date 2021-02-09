@@ -56,7 +56,8 @@
     "shared": {
         "tableCaption_validatedData": "Number of quality assured observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
-        "tableCaption_redlistedData": "Number of sightings in the red list category",
+        "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
+        "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
         "tableHeading_speciesGroup": "Species group",
         "tableHeading_riskGroup": "Risk group",
         "tableHeading_sightingsCount": "Sightings count",

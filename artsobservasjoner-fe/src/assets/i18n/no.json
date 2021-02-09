@@ -52,7 +52,8 @@
     "shared": {
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
-        "tableCaption_redlistedData": "Antall observasjoner i rødliste kategori",
+        "tableCaption_redlistedSpeciesData": "Antall observasjoner i rødliste kategori etter artsgruppe",
+        "tableCaption_alienSpeciesData": "Antall observasjoner av fremmede arter etter artsgruppe",
         "tableHeading_speciesGroup": "Artsgruppe",
         "tableHeading_riskGroup": "Risikogruppe",
         "tableHeading_sightingsNumber": "Antall observasjoner",

@@ -8,95 +8,63 @@
 
     <div class="page__content">
 
-        <table>
-
-            <tr>
-                <th>Artsgruppe</th>
-                <th>Risikogruppe</th>
-                <th class="tbl-number">Totalt</th>
-                <th class="tbl-number">Med bilder</th>
-                <th class="tbl-number">Validerte</th>
-            </tr>
-
-            <tr>
-                <td rowspan="6" scope="row"><strong>Alger</strong></td>
-                <td>CR</td>
-                <td class="tbl-number">1</td>
-                <td class="tbl-number">0</td>
-                <td class="tbl-number">1</td>
-            </tr>
-            <tr>
-                <td>EN</td>
-                <td class="tbl-number">9</td>
-                <td class="tbl-number">1</td>
-                <td class="tbl-number">3</td>
-            </tr>
-            <tr>
-                <td>VU</td>
-                <td class="tbl-number">54</td>
-                <td class="tbl-number">0</td>
-                <td class="tbl-number">15</td>
-            </tr>
-            <tr>
-                <td>NT</td>
-                <td class="tbl-number">69</td>
-                <td class="tbl-number">12</td>
-                <td class="tbl-number">40</td>
-            </tr>
-            <tr>
-                <td>DD</td>
-                <td class="tbl-number">5</td>
-                <td class="tbl-number">3</td>
-                <td class="tbl-number">3</td>
-            </tr>
-            <tr>
-                <td>&mdash;</td>
-                <td class="tbl-number">7880</td>
-                <td class="tbl-number">1831</td>
-                <td class="tbl-number">149</td>
-            </tr>
-
-            <tr class="tr-shadow">
-                <td rowspan="3" scope="row"><strong>Amfibier og reptiler</strong></td>
-                <td>CR</td>
-                <td class="tbl-number">31</td>
-                <td class="tbl-number">16</td>
-                <td class="tbl-number">27</td>
-            </tr>
-
-            <tr class="tr-shadow">
-                <td>NT</td>
-                <td class="tbl-number">3677</td>
-                <td class="tbl-number">585</td>
-                <td class="tbl-number">3329</td>
-            </tr>
-
-            <tr class="tr-shadow">
-                <td>&mdash;</td>
-                <td class="tbl-number">20375</td>
-                <td class="tbl-number">3729</td>
-                <td class="tbl-number">1659</td>
-            </tr>
-
-            <tr>
-                <td rowspan="2" scope="row"><strong>Fisk</strong></td>
-                <td>RE</td>
-                <td class="tbl-number">1</td>
-                <td class="tbl-number">1</td>
-                <td class="tbl-number">0</td>
-            </tr>
+      <div *ngIf="data$ | async as alienSpecies">
+        
+          <table>
+            <caption>{{ 'shared.tableCaption_alienSpeciesData' | translate }}</caption>
+            <thead>
+                <tr>
+                    <th>{{ 'shared.tableHeading_speciesGroup' | translate }}</th>
+                    <th scope="col" role="columnheader">
+                        {{ 'shared.tableHeading_riskGroup' | translate }}
+                    </th>
+                    <th scope="col" role="columnheader" class="th-number">
+                        {{ 'shared.tableHeading_sightingsCount' | translate }}
+                    </th>
+                    <th scope="col" role="columnheader" class="th-number">
+                        {{ 'shared.tableHeading_withMedia' | translate }}
+                    </th>
+                    <th scope="col" role="columnheader" class="th-number">
+                        {{ 'shared.tableHeading_qualityChecked' | translate }}
+                    </th>
+                    <th scope="col" role="columnheader" class="th-number">
+                        {{ 'shared.tableHeading_qualityCheckedAndApproved' | translate }}
+                    </th>
+                </tr>
+            </thead>
 
 
-            <tr>
+            <tbody *ngFor="let species of alienSpecies | keyvalue">
+                <tr class="custom-table__row" *ngFor="let data of species.value.data; let i = index">
+                    <td class="custom-table__td">
 
-                <td>CR</td>
-                <td class="tbl-number">2</td>
-                <td class="tbl-number">1</td>
-                <td class="tbl-number">1</td>
-            </tr>
+                        <span *ngIf="i === 0">
+                            {{ currentLanguage == 'no' ? species.key.labelNorwegian :
+                            species.key.labelEnglish }}
+                        </span>
+                        <span *ngIf="i > 0" class="sr-only">
+                            {{ currentLanguage == 'no' ? species.key.labelNorwegian :
+                            species.key.labelEnglish }}
+                        </span>
 
+                    </td>
+                    <td>
+                        {{ data.assessmentCategory.code }} 
+                        <span class="sr-only">
+                            {{ currentLanguage == 'no' ? data.assessmentCategory.labelNorwegian :
+                            data.assessmentCategory.labelEnglish }}
+                        </span>
+                    </td>
+                    <td class="td-number">{{ data.sightingsCount | numberProxy }}</td>
+                    <td class="td-number">{{ data.imagesCount | numberProxy }}</td>
+                    <td class="td-number">{{ data.validatedCount | numberProxy }}</td>
+                    <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
+                </tr>
+            </tbody>
 
         </table>
+
+      </div>
 
     </div>
 

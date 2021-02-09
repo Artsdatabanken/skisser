@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
 import { AboutPage } from 'src/app/models/aboutPage';
-import { TranslationSet } from 'src/app/models/translation';
 
 @Component({
   selector: 'app-about-page',

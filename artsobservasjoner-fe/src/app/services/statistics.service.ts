@@ -8,7 +8,7 @@ import { UtilitiesService } from './utilities.service';
 import ValidatedData from '../data/validatedData.json';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { AssessmentCategory, Category, RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { AlienSpeciesItem, AssessmentCategory, Category, RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class StatisticsService {
   // API
 
   redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
+  alienSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetAlienlist';
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
   alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
@@ -104,6 +105,42 @@ export class StatisticsService {
         return redlistedSpeciesItems;
 
       })
+    );
+
+  }
+
+  // ALIEN SPECIES /  FREMMEDE ARTER
+
+  getAlienSpeciesData(): Observable<AlienSpeciesItem[]> {
+
+    return this.httpClient.get(this.alienSpeciesApi).pipe(
+      map((res: any) => {
+        console.log('res', res)
+        
+        let alienSpeciesItem: AlienSpeciesItem;
+        let alienSpeciesItems: AlienSpeciesItem[] = [];
+
+        res['speciesGroupStatistics'].forEach(item => {
+
+          if (item.speciesGroupId) {
+
+            alienSpeciesItem = {
+              id: item.speciesGroupId,
+              data: item.data
+            }
+
+            alienSpeciesItems.push(alienSpeciesItem);
+
+          }
+
+        });
+
+        return alienSpeciesItems;
+
+
+      }),
+      publishReplay(1),
+      refCount()
     );
 
   }
@@ -219,8 +256,6 @@ export class StatisticsService {
   getAlienCategories(): Observable<AssessmentCategory[]> {
     return this.httpClient.get(this.alienCategoriesApi).pipe(
       map((res: any) => {
-
-        console.log('res', res)
 
         const categories: AssessmentCategory[] = [];
 

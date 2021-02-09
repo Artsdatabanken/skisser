@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AssessmentCategory, Category, RedlistedSpeciesItem, SpecialSpeciesItemStats } from 'src/app/models/statistics';
+import { AssessmentCategory, Category, SpecialSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -13,8 +13,6 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class RedListedSpeciesComponent implements OnInit {
 
-  // redlistedSpeciesData$: Observable<any[]>;
-  // redlistedCategories$: Observable<any[]>;
   data$;
   currentLanguage: string;
 
@@ -28,9 +26,6 @@ export class RedListedSpeciesComponent implements OnInit {
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
     });
-
-    // this.redlistedSpeciesData$ = this.statisticsService.getRedlistedSpeciesData();
-    // this.redlistedCategories$ = this.statisticsService.getRedlistedCategories();
 
     this.data$ = forkJoin([
       this.statisticsService.getRedlistedSpeciesData(),
@@ -51,14 +46,6 @@ export class RedListedSpeciesComponent implements OnInit {
           return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
-        const getSpeciesGroupByLanguage = (id: number): string => {
-          const category: object = speciesGroups.find(speciesGroup => speciesGroup.id === id);
-
-          if (this.currentLanguage === 'en') return category['labelEnglish'];
-          if (this.currentLanguage === 'no') return category['labelNorwegian'];
-
-        }
-
         // ---------------------------------------- ***
 
         const map = new Map();
@@ -68,7 +55,6 @@ export class RedListedSpeciesComponent implements OnInit {
           let tempArray = [];
 
           //map.set({ id: speciesItem.id, label: getSpeciesGroupByLanguage(speciesItem.id) }, { data: [] });
-
 
           speciesItem.data.forEach(data => {
 
@@ -88,7 +74,6 @@ export class RedListedSpeciesComponent implements OnInit {
               tempArray.push(redlistedSpeciesItemData)
             }
 
-            // map.set(speciesItem.id, { data: tempArray });
             map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
 
           });

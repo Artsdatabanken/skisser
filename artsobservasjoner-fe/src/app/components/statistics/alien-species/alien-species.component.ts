@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AlienSpeciesItem, AssessmentCategory, Category, SpecialSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -10,13 +13,81 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class AlienSpeciesComponent implements OnInit {
 
+  data$: Observable<AlienSpeciesItem[]>;
+  currentLanguage: string;
 
-
-  constructor(private statisticsService: StatisticsService) { }
+  constructor(
+    private statisticsService: StatisticsService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
+    
+    this.translate.onLangChange.subscribe(l => {
+      this.currentLanguage = l.lang;
+    });
 
+    //this.data$ = this.statisticsService.getAlienSpeciesData();
 
+    this.data$ = forkJoin([
+      this.statisticsService.getAlienSpeciesData(),
+      this.statisticsService.getAlienCategories(),
+      this.statisticsService.getSpeciesGroups()
+    ]).pipe(
+      map(([species, categories, speciesGroups]) => {
+
+        let alienSpeciesItemData: SpecialSpeciesItemStats;
+
+        // ---------------------------------------- ***
+
+        const getCategory = (id: number): AssessmentCategory => {
+          return categories.find(category => category.id === id);
+        }
+
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
+
+        // ---------------------------------------- ***
+
+        const map = new Map();
+
+        species.forEach(speciesItem => {
+
+          let tempArray = [];
+
+          speciesItem.data.forEach(data => {
+
+            alienSpeciesItemData = {
+              id: speciesItem.id,
+              speciesGroupId: speciesItem.id,
+              speciesGroup: getSpeciesGroup(speciesItem.id),
+              assessmentCategoryId: data['redlistId'],
+              assessmentCategory: getCategory(data['redlistId']),
+              sightingsCount: data['sightingCount'],
+              imagesCount: data['sightingWithMediaCount'],
+              validatedCount: data['validatedSightingCount'],
+              approvedCount: data['approvedValidatedSightingCount'],
+            }
+
+            if (speciesItem.id == alienSpeciesItemData.id) {
+              tempArray.push(alienSpeciesItemData)
+            }
+
+            map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
+
+          });
+
+        });
+
+        console.log('new map', map)
+
+        //const result = [...map.values()];
+
+        return map;
+
+      })
+    );
 
   }
 
