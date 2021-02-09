@@ -60,8 +60,6 @@ import { ImportObservationsComponent } from './components/report/import-observat
 import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
-import { CategoryRedlistedComponent } from './components/shared/category-redlisted/category-redlisted.component';
-import { CategoryAlienComponent } from './components/shared/category-alien/category-alien.component';
 import { SubheaderComponent } from './layout/subheader/subheader.component';
 import { ClosePaneDirective } from './directives/close-pane.directive';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
@@ -101,6 +99,7 @@ import { NumberProxyPipe } from './pipes/number-proxy.pipe';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 import { TotalCountStatisticsComponent } from './components/shared/total-count-statistics/total-count-statistics.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
+import { AssessmentCategoryComponent } from './components/shared/assessment-category/assessment-category.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -158,8 +157,6 @@ import { AlertsComponent } from './components/alerts/alerts.component';
     SurveyProjectComponent,
     EventProjectComponent,
     ExtraNavigationComponent,
-    CategoryRedlistedComponent,
-    CategoryAlienComponent,
     SubheaderComponent,
     ClickElsewhereDirective,
     ClosePaneDirective,
@@ -195,7 +192,8 @@ import { AlertsComponent } from './components/alerts/alerts.component';
     NumberProxyPipe,
     ValidatedDataComponent,
     TotalCountStatisticsComponent,
-    AlertsComponent
+    AlertsComponent,
+    AssessmentCategoryComponent
   ],
   imports: [
     BrowserModule,

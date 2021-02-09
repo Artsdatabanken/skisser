@@ -3,16 +3,11 @@
     <header class="page__header"></header>
 
     <div class="page__intro">
-        <app-category-alien></app-category-alien>
+
+        <app-assessment-category [categoryVariant]="'alienCategories'"></app-assessment-category>
     </div>
 
     <div class="page__content">
-
-        <div *ngIf="test$ | async as test">
-
-            TEST {{ test }}
-
-        </div>
 
       <div *ngIf="data$ | async as alienSpecies">
         

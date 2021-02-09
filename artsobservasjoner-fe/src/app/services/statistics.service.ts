@@ -267,6 +267,35 @@ export class StatisticsService {
 
   // ASSESSMENT CATEGORIES
 
+  getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
+
+    const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
+
+    return this.httpClient.get(api).pipe(
+      map((res: any) => {
+
+        const categories: AssessmentCategory[] = [];
+
+        res.forEach(data => {
+
+          let category: AssessmentCategory = {
+            id: data.redListCategoryId,
+            code: data.redListCategoryCode,
+            labelEnglish: data.redListCategoryResourceLabels[0].label,
+            labelNorwegian: data.redListCategoryResourceLabels[1].label
+          }
+
+          categories.push(category);
+
+        });
+
+        return categories;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
   getRedlistedCategories(): Observable<AssessmentCategory[]> {
     return this.httpClient.get(this.redlistedCategoriesApi).pipe(
       map((res: any) => {

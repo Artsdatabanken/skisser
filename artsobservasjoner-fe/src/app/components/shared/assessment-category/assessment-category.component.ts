@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { AssessmentCategory } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
-  selector: 'app-category-redlisted',
-  templateUrl: './category-redlisted.component.html',
-  styleUrls: ['./category-redlisted.component.scss']
+  selector: 'app-assessment-category',
+  templateUrl: './assessment-category.component.html',
+  styleUrls: ['./assessment-category.component.scss']
 })
 
-export class CategoryRedlistedComponent implements OnInit {
+export class AssessmentCategoryComponent implements OnInit {
 
-  redlistedCategories$: Observable<AssessmentCategory[]>;
+  @Input() categoryVariant: string;
+  categories$: Observable<AssessmentCategory[]>;
   currentLanguage: string = this.translate.currentLang;
 
   constructor(
@@ -21,7 +22,7 @@ export class CategoryRedlistedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.redlistedCategories$ = this.statisticsService.getRedlistedCategories();
+    this.categories$ = this.statisticsService.getAssessmentCategories(this.categoryVariant);
 
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
