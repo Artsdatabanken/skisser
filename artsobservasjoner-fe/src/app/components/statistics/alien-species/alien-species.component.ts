@@ -13,8 +13,10 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class AlienSpeciesComponent implements OnInit {
 
+  dataVariant: string = 'alienSpecies';
   data$;
   currentLanguage: string;
+  test$;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -22,15 +24,16 @@ export class AlienSpeciesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
+    this.test$ = this.statisticsService.getSpeciesGroupsStatsData(this.dataVariant);
+
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
     });
 
-    //this.data$ = this.statisticsService.getAlienSpeciesData();
-
     this.data$ = forkJoin([
-      this.statisticsService.getAlienSpeciesData(),
+      //this.statisticsService.getAlienSpeciesData(),
+      this.statisticsService.getSpeciesGroupsStatsData(this.dataVariant),
       this.statisticsService.getAlienCategories(),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(

@@ -8,7 +8,7 @@ import { UtilitiesService } from './utilities.service';
 import ValidatedData from '../data/validatedData.json';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { AlienSpeciesItem, AssessmentCategory, Category, RedlistedSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { AlienSpeciesItem, AssessmentCategory, Category, RedlistedSpeciesItem, SpecialSpeciesItem, ValidatedDataItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -27,6 +27,7 @@ export class StatisticsService {
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
   alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
+  dataVariantApi: string;
 
   // totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
   // totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
@@ -78,6 +79,44 @@ export class StatisticsService {
 
   }
 
+  getSpeciesGroupsStatsData(data: string): Observable<SpecialSpeciesItem[]> {
+
+    const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
+
+    return this.httpClient.get(api).pipe(
+      map((res: any) => {
+
+        console.log('TEST res', res)
+
+        let speciesItem: SpecialSpeciesItem;
+        let speciesItems: SpecialSpeciesItem[] = [];
+
+        res['speciesGroupStatistics'].forEach(item => {
+
+          if (item.speciesGroupId) {
+
+            speciesItem = {
+              id: item.speciesGroupId,
+              data: item.data
+            }
+
+            speciesItems.push(speciesItem);
+
+          }
+
+        });
+
+        return speciesItems;
+
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  // ***GOING TO BE DELETED because of more generic method
   // REDLISTED SPECIES / RØDLISTEDE ARTER
   getRedlistedSpeciesData(): Observable<RedlistedSpeciesItem[]> {
 
@@ -109,6 +148,7 @@ export class StatisticsService {
 
   }
 
+  // ***GOING TO BE DELETED because of more generic method
   // ALIEN SPECIES /  FREMMEDE ARTER
 
   getAlienSpeciesData(): Observable<AlienSpeciesItem[]> {
@@ -116,7 +156,7 @@ export class StatisticsService {
     return this.httpClient.get(this.alienSpeciesApi).pipe(
       map((res: any) => {
         console.log('res', res)
-        
+
         let alienSpeciesItem: AlienSpeciesItem;
         let alienSpeciesItems: AlienSpeciesItem[] = [];
 
@@ -148,6 +188,8 @@ export class StatisticsService {
   // NUMBERS STATISTICS
 
   getTotalCount(apiUrl: string): Observable<TotalCountStatistic> {
+
+    let api: string;
 
     let totalCount: TotalCountStatistic;
 
@@ -195,7 +237,7 @@ export class StatisticsService {
           else {
             label = data.speciesGroupResourceLabels[1].label;
           }
-          
+
           this.translate.onLangChange.subscribe(response => {
             if (response.lang == 'en') {
               label = data.speciesGroupResourceLabels[0].label;

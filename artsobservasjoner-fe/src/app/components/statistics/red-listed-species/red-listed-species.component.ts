@@ -13,8 +13,10 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class RedListedSpeciesComponent implements OnInit {
 
+  dataVariant: string = 'redlistedSpecies';
   data$;
   currentLanguage: string;
+  test$;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -23,12 +25,15 @@ export class RedListedSpeciesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.test$ = this.statisticsService.getSpeciesGroupsStatsData(this.dataVariant);
+
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
     });
 
     this.data$ = forkJoin([
-      this.statisticsService.getRedlistedSpeciesData(),
+      //this.statisticsService.getRedlistedSpeciesData(),
+      this.statisticsService.getSpeciesGroupsStatsData(this.dataVariant),
       this.statisticsService.getRedlistedCategories(),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
