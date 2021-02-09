@@ -8,7 +8,7 @@ import { UtilitiesService } from './utilities.service';
 import ValidatedData from '../data/validatedData.json';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { AlienSpeciesItem, AssessmentCategory, Category, RedlistedSpeciesItem, SpecialSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { AssessmentCategory, Category, SpecialSpeciesItem, ValidatedDataItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -22,12 +22,12 @@ export class StatisticsService {
 
   // API
 
+  validatedDataApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetValidatedData';
   redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
   alienSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetAlienlist';
   speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
   alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
-  dataVariantApi: string;
 
   // totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
   // totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
@@ -54,21 +54,23 @@ export class StatisticsService {
     let validatedSightings: ValidatedDataItem[] = [];
     let validatedSighting: ValidatedDataItem;
 
-    return of(this.validatedData).pipe(
-      map(data => {
+    return this.httpClient.get(this.validatedDataApi).pipe(
+      map((res: any) => {
 
-        console.log('validated data', data )
+        console.log('validated data', res)
 
-        data.forEach(d => {
+        res['validatedDataStatistics'].forEach(d => {
 
           validatedSighting = {
-            id: d.SpeciesGroupId,
-            sightingCount: d.SightingCount,
-            sightingTaxonCount: d.SightingTaxonCount,
-            validatedSightingCount: d.ValidatedSightingCount,
-            approvedSightingCount: d.ApprovedValidatedSightingCount,
-            percentageSightedVsValidated: this.utilitiesService.getPercentage(d.SightingCount, d.ValidatedSightingCount),
-            percentageValidatedVsApproved: this.utilitiesService.getPercentage(d.ValidatedSightingCount, d.ApprovedValidatedSightingCount),
+            id: d.speciesGroupId,
+            speciesGroup: null,
+            sightingCount: d.sightingCount,
+            sightingTaxonCount: d.sightingTaxonCount,
+            sightingWithMediaCount: d.sightingWithMediaCount,
+            validatedSightingCount: d.validatedSightingCount,
+            approvedSightingCount: d.approvedValidatedSightingCount,
+            percentageSightedVsValidated: this.utilitiesService.getPercentage(d.sightingCount, d.validatedSightingCount),
+            percentageValidatedVsApproved: this.utilitiesService.getPercentage(d.validatedSightingCount, d.approvedValidatedSightingCount),
           }
 
           validatedSightings.push(validatedSighting);
@@ -77,7 +79,9 @@ export class StatisticsService {
 
         // console.log('validatedSightings', validatedSightings)
         return validatedSightings;
-      })
+      }),
+      publishReplay(1),
+      refCount()
     );
 
   }
@@ -108,75 +112,6 @@ export class StatisticsService {
         });
 
         return speciesItems;
-
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  // ***GOING TO BE DELETED because of more generic method
-  // REDLISTED SPECIES / RØDLISTEDE ARTER
-  getRedlistedSpeciesData(): Observable<RedlistedSpeciesItem[]> {
-
-    return this.httpClient.get(this.redlistSpeciesApi).pipe(
-      map(data => {
-
-        let redlistedSpeciesItem: RedlistedSpeciesItem;
-        let redlistedSpeciesItems: RedlistedSpeciesItem[] = [];
-
-        data['speciesGroupStatistics'].forEach(item => {
-
-          if (item.speciesGroupId) {
-
-            redlistedSpeciesItem = {
-              id: item.speciesGroupId,
-              data: item.data
-            }
-
-            redlistedSpeciesItems.push(redlistedSpeciesItem);
-
-          }
-
-        });
-
-        return redlistedSpeciesItems;
-
-      })
-    );
-
-  }
-
-  // ***GOING TO BE DELETED because of more generic method
-  // ALIEN SPECIES /  FREMMEDE ARTER
-
-  getAlienSpeciesData(): Observable<AlienSpeciesItem[]> {
-
-    return this.httpClient.get(this.alienSpeciesApi).pipe(
-      map((res: any) => {
-        console.log('res', res)
-
-        let alienSpeciesItem: AlienSpeciesItem;
-        let alienSpeciesItems: AlienSpeciesItem[] = [];
-
-        res['speciesGroupStatistics'].forEach(item => {
-
-          if (item.speciesGroupId) {
-
-            alienSpeciesItem = {
-              id: item.speciesGroupId,
-              data: item.data
-            }
-
-            alienSpeciesItems.push(alienSpeciesItem);
-
-          }
-
-        });
-
-        return alienSpeciesItems;
 
 
       }),

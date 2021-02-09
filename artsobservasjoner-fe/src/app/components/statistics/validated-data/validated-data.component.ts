@@ -1,7 +1,9 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { ValidatedDataItem } from 'src/app/models/statistics';
+import { TranslateService } from '@ngx-translate/core';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Category, ValidatedDataItem } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -13,30 +15,62 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class ValidatedDataComponent implements OnInit {
 
   pageTitle: string;
-  //sightings: ValidatedDataItem[] = [];
-  locale: any;
-  sightings$: Observable<ValidatedDataItem[]>;
+  data$;
+  currentLanguage: string;
 
   constructor(
-    @Inject(LOCALE_ID) locale: string,
     private route: ActivatedRoute,
-    private statisticsService: StatisticsService
-  ) {
-    this.locale = locale;
-  }
+    private statisticsService: StatisticsService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
 
     this.pageTitle = this.route.routeConfig.data.text;
 
-    // NOT THE BEST METHOD BECAUSE YOU HAVE TO REMEMBER TO UNSUBSCRIBE IN THE ngOnDestroy() method
-    // this.statisticsService.getValidatedData().subscribe((res) => {   
-    //   console.log('res', res);
-    //   this.sightings = res;
-    // });
+    this.translate.onLangChange.subscribe(l => {
+      this.currentLanguage = l.lang;
+    });
 
-    // BETTER METHOD
-    this.sightings$ = this.statisticsService.getValidatedData();
+    this.data$ = forkJoin([
+      this.statisticsService.getValidatedData(),
+      this.statisticsService.getSpeciesGroups()
+    ]).pipe(
+      map(([species, speciesGroups]) => {
+
+        // ---------------------------------------- ***
+
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
+
+        // ---------------------------------------- ***
+
+        let validatedDataItem: ValidatedDataItem;
+        let validatedData: ValidatedDataItem[] = [];
+
+        species.forEach(speciesItem => {
+
+          validatedDataItem = {
+            id: speciesItem.id,
+            speciesGroup: getSpeciesGroup(speciesItem.id),
+            sightingCount: speciesItem.sightingCount,
+            sightingTaxonCount: speciesItem.sightingTaxonCount,
+            sightingWithMediaCount: speciesItem.sightingWithMediaCount,
+            validatedSightingCount: speciesItem.validatedSightingCount,
+            approvedSightingCount: speciesItem.approvedSightingCount,
+            percentageSightedVsValidated: speciesItem.percentageSightedVsValidated,
+            percentageValidatedVsApproved: speciesItem.percentageValidatedVsApproved,
+          }
+
+          validatedData.push(validatedDataItem);
+
+        });
+
+        return validatedData;
+
+      })
+    );
 
   }
 

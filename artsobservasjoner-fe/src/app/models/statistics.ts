@@ -1,7 +1,9 @@
 export interface ValidatedDataItem {
-    id: number | string;
+    id: number;
+    speciesGroup: Category;
     sightingCount: number;
     sightingTaxonCount: number;
+    sightingWithMediaCount: number;
     validatedSightingCount: number;
     approvedSightingCount: number;
     percentageSightedVsValidated: number;
