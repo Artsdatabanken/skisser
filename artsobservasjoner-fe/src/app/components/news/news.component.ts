@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Article } from 'src/app/models/article';
 import { NewsItem } from 'src/app/models/newsItem';
 import { DataService } from 'src/app/services/data.service';
 
