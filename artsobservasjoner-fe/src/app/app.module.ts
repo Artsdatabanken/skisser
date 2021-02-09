@@ -100,6 +100,7 @@ import { AccountComponent } from './components/account/account.component';
 import { NumberProxyPipe } from './pipes/number-proxy.pipe';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 import { TotalCountStatisticsComponent } from './components/shared/total-count-statistics/total-count-statistics.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -193,7 +194,8 @@ import { TotalCountStatisticsComponent } from './components/shared/total-count-s
     AccountComponent,
     NumberProxyPipe,
     ValidatedDataComponent,
-    TotalCountStatisticsComponent
+    TotalCountStatisticsComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
