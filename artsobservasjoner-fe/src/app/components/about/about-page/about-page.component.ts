@@ -70,26 +70,6 @@ export class AboutPageComponent implements OnInit {
 
     });
 
-    // if (this.translate.currentLang == 'no') {
-    //   this.aboutPages = tempAboutPages.filter(d => d.languages == 'nb');
-    // }
-    // else {
-    //   this.aboutPages = tempAboutPages.filter(d => d.languages == 'en');
-    // }
-
-    // this.translate.onLangChange.subscribe(r => {
-
-    //   if (r.lang == 'no') {
-    //     this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'nb');
-    //   }
-
-    //   if (r.lang == 'en') {
-    //     this.aboutPages = tempAboutPages.filter(d => d['languages'] == 'en');
-    //   }
-
-    // });
-
-
   }
 
   getAccordionHeaderId(id: number): string {
