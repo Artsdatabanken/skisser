@@ -12,7 +12,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class AssessmentCategoryComponent implements OnInit {
 
-  @Input() categoryVariant: string;
+  @Input() categoryVariant: string | null;
   categories$: Observable<AssessmentCategory[]>;
   currentLanguage: string = this.translate.currentLang;
 
@@ -22,12 +22,18 @@ export class AssessmentCategoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.categories$ = this.statisticsService.getAssessmentCategories(this.categoryVariant);
 
+    if (this.categoryVariant !== null) {
+      this.categories$ = this.statisticsService.getAssessmentCategories(this.categoryVariant);
+    }
+    else {
+      this.categories$ = null;
+    }
+    
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
     });
-    
+
   }
 
 }

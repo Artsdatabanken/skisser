@@ -21,7 +21,6 @@ import { RedListedSpeciesComponent } from './components/statistics/red-listed-sp
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
-import { NoDataSpeciesComponent } from './components/statistics/no-data-species/no-data-species.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
 import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 import { TrimPipe } from './pipes/trim.pipe';
@@ -118,7 +117,6 @@ import { AssessmentCategoryComponent } from './components/shared/assessment-cate
     AlienSpeciesComponent,
     UserStatisticsComponent,
     UserListsComponent,
-    NoDataSpeciesComponent,
     BreadcrumbsComponent,
     TrimPipe,
     LanguageSwitcherComponent,

@@ -61,7 +61,7 @@
         "tableHeading_sharedValidatedSightings": "Andel kvalitetssjekket",
         "tableHeading_qualityCheckedAndApproved": "Kvalitetssjekket og godkjent av validator",
         "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
-        "tableHeading_sightedTaxaNumber": "Antall taxa observert",
+        "tableHeading_sightedTaxonCount": "Antall taxa observert",
         "tableHeading_withMedia": "Med bilder"
     },
     "statistics": {

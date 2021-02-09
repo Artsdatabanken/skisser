@@ -13,7 +13,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class ValidatedDataComponent implements OnInit {
 
   pageTitle: string;
-  sightings: ValidatedDataItem[] = [];
+  //sightings: ValidatedDataItem[] = [];
   locale: any;
   sightings$: Observable<ValidatedDataItem[]>;
 
@@ -30,10 +30,10 @@ export class ValidatedDataComponent implements OnInit {
     this.pageTitle = this.route.routeConfig.data.text;
 
     // NOT THE BEST METHOD BECAUSE YOU HAVE TO REMEMBER TO UNSUBSCRIBE IN THE ngOnDestroy() method
-    this.statisticsService.getValidatedData().subscribe((res) => {   
-      console.log('res', res);
-      this.sightings = res;
-    });
+    // this.statisticsService.getValidatedData().subscribe((res) => {   
+    //   console.log('res', res);
+    //   this.sightings = res;
+    // });
 
     // BETTER METHOD
     this.sightings$ = this.statisticsService.getValidatedData();

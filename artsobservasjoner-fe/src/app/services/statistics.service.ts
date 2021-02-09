@@ -57,11 +57,14 @@ export class StatisticsService {
     return of(this.validatedData).pipe(
       map(data => {
 
+        console.log('validated data', data )
+
         data.forEach(d => {
 
           validatedSighting = {
             id: d.SpeciesGroupId,
             sightingCount: d.SightingCount,
+            sightingTaxonCount: d.SightingTaxonCount,
             validatedSightingCount: d.ValidatedSightingCount,
             approvedSightingCount: d.ApprovedValidatedSightingCount,
             percentageSightedVsValidated: this.utilitiesService.getPercentage(d.SightingCount, d.ValidatedSightingCount),
@@ -85,8 +88,6 @@ export class StatisticsService {
 
     return this.httpClient.get(api).pipe(
       map((res: any) => {
-
-        console.log('TEST res', res)
 
         let speciesItem: SpecialSpeciesItem;
         let speciesItems: SpecialSpeciesItem[] = [];
@@ -272,60 +273,6 @@ export class StatisticsService {
     const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
 
     return this.httpClient.get(api).pipe(
-      map((res: any) => {
-
-        const categories: AssessmentCategory[] = [];
-
-        res.forEach(data => {
-
-          let category: AssessmentCategory = {
-            id: data.redListCategoryId,
-            code: data.redListCategoryCode,
-            labelEnglish: data.redListCategoryResourceLabels[0].label,
-            labelNorwegian: data.redListCategoryResourceLabels[1].label
-          }
-
-          categories.push(category);
-
-        });
-
-        return categories;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  getRedlistedCategories(): Observable<AssessmentCategory[]> {
-    return this.httpClient.get(this.redlistedCategoriesApi).pipe(
-      map((res: any) => {
-
-        // console.log('redlisted cats', res)
-
-        const categories: AssessmentCategory[] = [];
-
-        res.forEach(data => {
-
-          let category: AssessmentCategory = {
-            id: data.redListCategoryId,
-            code: data.redListCategoryCode,
-            labelEnglish: data.redListCategoryResourceLabels[0].label,
-            labelNorwegian: data.redListCategoryResourceLabels[1].label
-          }
-
-          categories.push(category);
-
-        });
-
-        return categories;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  getAlienCategories(): Observable<AssessmentCategory[]> {
-    return this.httpClient.get(this.alienCategoriesApi).pipe(
       map((res: any) => {
 
         const categories: AssessmentCategory[] = [];

@@ -65,7 +65,7 @@
         "tableHeading_sharedValidatedSightings": "Share validated sightings",
         "tableHeading_qualityCheckedAndApproved": "Quality checked and approved by validator**",
         "tableHeading_shareValidatedAndApproved": "Share validated and approved",
-        "tableHeading_sightedTaxaNumber": "Sighted taxa number",
+        "tableHeading_sightedTaxonCount": "Sighted taxon count",
         "tableHeading_withMedia": "With media"
     },
     "statistics": {
