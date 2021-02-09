@@ -73,5 +73,12 @@
         "overviewNumbers_species": "Registered species",
         "overviewNumbers_images": "Added images",
         "overviewNumbers_users": "Users"
+    },
+    "redlist":{
+        "tableDescription_content":"The table shows number of observations of endagered species by species group of the following categories",
+        "tableDescription_includedData":"Endangered-species categories containing no observations are omitted from the table. An overview on which numbers are included can be found at [xxxxx]. Numbers are updated daily.",
+        "tableDescription_excluded":"* Includes all validation categories except 'not validated (sighting not validated).'",
+        "tableDescription_approved":"** Has one of the following validation categories Godkjent basert på observatørens opplysninger; Godkjent. Belegg gransket av validator; Godkjent. Foto eller lyd godkjent av validator; Godkjent basert på determinators verifisering; Godkjent, basert på en tidligere sjeldenhetsrapport; Godkjent, funnet er sannsynlig."
+        
     }
 }
