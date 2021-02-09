@@ -1,5 +1,3 @@
-import { FeaturedImage } from './featuredImage';
-
 export interface NewsItem {
   id: string;
   url: string;
@@ -11,5 +9,5 @@ export interface NewsItem {
   body: string;
   intro: string;
   imgUrl: string | null;
-  image: any | FeaturedImage | null;
+  image: any | null;
 }
