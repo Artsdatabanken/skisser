@@ -19,121 +19,15 @@ export class AboutPageComponent implements OnInit {
   pageTitle: string;
   pageKey: string;
 
-  private dictionaryX: object = {
-    no: {
-      id1: '303936',
-      id2: '305425',
-      id3: '303934',
-      id4: '303935',
-      id5: '303933'
-    },
-    en: {
-      id1: '305438',
-      id2: '305407',
-      id3: '305439',
-      id4: '305441',
-      id5: '305440'
-    }
-  }
-
-  private dictionary3: string[] = [
-    '305438|303936',
-    '305407|305425',
-    '305439|303934',
-    '305441|303935',
-    '305440|303933',
-  ];
-
-  private dictionary4: any[] = [
-    { id: '305438|303936' },
-    { id: '305407|305425' },
-    { id: '305439|303934' },
-    { id: '305441|303935' },
-    { id: '305440|303933' },
-  ];
-
-  private dictionary: object = {
-    305438: '303936',
-    305407: '305425',
-    305439: '303934',
-    305441: '303935',
-    305440: '303933',
-    303936: '305438',
-    305425: '305407',
-    303934: '305439',
-    303935: '305441',
-    303933: '305440'
-  }
-
-  private dictionary2: object = {
-    no: {
-      305438: '303936',
-      305407: '305425',
-      305439: '303934',
-      305441: '303935',
-      305440: '303933'
-    },
-    en: {
-      303936: '305438',
-      305425: '305407',
-      303934: '305439',
-      303935: '305441',
-      303933: '305440'
-    }
-  }
-
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private titleService: Title,
-    private http: HttpClient,
-    private translate: TranslateService
+    private http: HttpClient
   ) {
     this.aboutPageId = this.route.snapshot.params['id'];
   }
 
-  private getPageIdByLanguage(key: string | any, language: string): string {
-
-    if (this.dictionary[language] !== null) {
-      return this.dictionary[language].values[key];
-    }
-    else {
-      return this.dictionary['no'].values[key];
-    }
-
-  }
-
   ngOnInit(): void {
-
-    // console.log('TEST en', this.dictionary2['en'][this.aboutPageId])
-    // console.log('TEST no', this.dictionary2['no'][this.aboutPageId])
-
-
-    //------------------------------------------------------------------------------------
-
-    // const getKey = (val: any, language: string): string | any => {
-    //   const res = Object.entries(this.dictionary[language]).filter(([k, v]) => val == v).map(([k, v]) => k);
-    //   return res[0] || false;
-    // };
-
-    let newId: any = this.dictionary2[this.translate.currentLang][this.aboutPageId];
-
-    this.translate.onLangChange.subscribe(res => {
-
-      //this.router.navigateByUrl('/about/' + newId);
-      // console.log('onlangchange', res.lang)
-
-      // res.lang === 'no' ? newId = this.dictionary2['no'][this.aboutPageId] : this.aboutPageId;
-      // res.lang === 'en' ? newId = this.dictionary2['en'][this.aboutPageId] : this.aboutPageId;
-
-      // console.log('newid onlangchange', newId)
-
-    });
-
-    // console.log('newid', newId)
-
-
-    //****************************************************************************************************************** */
 
     this.http.get<any>('https://artsdatabanken.no/api/Content/' + this.aboutPageId).subscribe(res => {
 

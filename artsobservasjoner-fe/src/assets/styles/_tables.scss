@@ -54,7 +54,7 @@ table {
 
     th,
     td {
-        padding: 10px 15px;
+        padding: 10px 20px;
     }
 
     td:empty {
@@ -121,6 +121,8 @@ table {
     &__td {
         @include customVar(border-bottom-color, transparent);
         font-weight: 600;
+        max-width: 100%;
+        white-space: nowrap;
 
         .custom-table__row:last-child & {
             @include customVar(border-bottom-color, clrWhite);
