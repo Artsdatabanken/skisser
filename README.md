@@ -4,9 +4,10 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 # Getting Started
 
 ## Installation
-1. Etter kloning, åpne terminalvindu og naviger til mappa der løsningen er klonet i
-2. Kjør npm install // installerer dependencies
-3. Kjør ng serve // kjører løsningen lokalt
+1. Etter kloning, åpne terminalvindu og naviger til mappa der løsningen er klonet i (artsobservasjoner_fe)
+2. Kjør npm install (denne skal kjøres i samme mappe der package.json befinner seg i) // installerer dependencies
+3. Har du installert Angular CLI (https://cli.angular.io/), kjør ng serve // kjører løsningen lokalt
+4. Har du ikke Angular CLI installert, prøv med npm run ng serve, eller npm run start
 4. Gå på nettleseren din og åpne http://localhost:4200
 
 
