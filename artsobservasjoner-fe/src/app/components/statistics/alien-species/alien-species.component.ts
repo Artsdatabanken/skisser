@@ -13,7 +13,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class AlienSpeciesComponent implements OnInit {
 
-  data$: Observable<AlienSpeciesItem[]>;
+  data$;
   currentLanguage: string;
 
   constructor(
