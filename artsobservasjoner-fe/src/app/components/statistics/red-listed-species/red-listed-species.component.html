@@ -4,13 +4,12 @@
 
     <div class="page__intro">
 
-        <p>{{'redlist.tableDescription_content' | translate}}</p>
-        <p> {{'redlist.tableDescription_includedData' | translate}}</p>
+        <p>{{'redlist.tableDescription_content' | translate}}</p>       
 
-        <app-category-redlisted></app-category-redlisted>        
+        <app-category-redlisted></app-category-redlisted>     
+        
+        <p> {{'redlist.tableDescription_includedData' | translate}}</p>
        
-        <p>{{'redlist.tableDescription_excluded' | translate}}</p>
-        <p>{{'redlist.tableDescription_approved' | translate}}</p>
 
     </div>
 
@@ -180,9 +179,11 @@
             </table>
 
         </div> -->
-
-        <p>*Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. </p>
-        <p> ** Har en av følgende valideringskategorier: </p>
+       
+        <p>
+            {{'redlist.tableDescription_excluded' | translate}}
+            <br/>        
+            {{'redlist.tableDescription_approved' | translate}}</p>
 
         <ul>
             <li>Godkjent basert på observatørens opplysninger</li>

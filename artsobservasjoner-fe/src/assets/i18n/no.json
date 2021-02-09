@@ -71,10 +71,10 @@
         "overviewNumbers_users": "Brukere"
     },
     "redlist":{
-        "tableDescription_content":"Tabellen viser antall observasjoner av rødlistede arter etter artsgruppe med en av følgende rødlistekategorier",
+        "tableDescription_content":"Tabellen viser antall observasjoner av rødlistede arter etter artsgruppe med en av følgende rødlistekategorier:",
         "tableDescription_includedData":"Hvis en rødlistekategori ikke er med i tabellen, betyr det at det er ingen observasjoner av rødlistede arter i denne kategorien. For en forklaring på hva som er inkludert i tallene, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt. ",
-        "tableDescription_excluded":"*Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
-        "tableDescription_approved":" Har en av følgende valideringskategorier: Godkjent basert på observatørens opplysninger; Godkjent. Belegg gransket av validator; Godkjent. Foto eller lyd godkjent av validator; Godkjent basert på determinators verifisering; Godkjent, basert på en tidligere sjeldenhetsrapport; Godkjent, funnet er sannsynlig."
+        "tableDescription_excluded":"* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
+        "tableDescription_approved":"** Har en av følgende valideringskategorier:"
     }
 
 }
