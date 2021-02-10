@@ -752,6 +752,9 @@ main {
     }
 
     &--frontpage {
+        display: grid;
+        grid-template-columns: 1fr; 
+        grid-template-areas: "pageTitle" "component" "router";
     }
 
     &--std {
@@ -812,7 +815,7 @@ main {
     }
 
     & > * {
-        //border: 2px dotted black;
+        // border: 2px dotted black;
         align-self: stretch;
         justify-self: stretch;
 
@@ -1061,13 +1064,23 @@ main {
     }
 
     &--teasers {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 0 50px;
+        // display: grid;
+        // grid-template-columns: repeat(4, 1fr);
+        // grid-gap: 0 50px;
 
-        @media screen and (max-width: 1024px) {
-            grid-template-columns: 1fr;
-        }
+        // @media screen and (max-width: 1024px) {
+        //     grid-template-columns: 1fr;
+        // }
+    }
+
+    &--teasers-2 {
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-gap: 0 50px;
+
+        // @media screen and (max-width: 1024px) {
+        //     grid-template-columns: 1fr;
+        // }
     }
 
     &--gallery {

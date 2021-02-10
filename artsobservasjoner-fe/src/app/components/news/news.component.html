@@ -26,7 +26,7 @@
 
         <div *ngIf="news$ | async as news">
 
-            <div class="loop loop--teasers">
+            <div class="loop" [ngClass]="{'loop--teasers-2': take !== 0, 'loop--teasers': take === 0}">
 
                 <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro"
                     [tag]="'news.currently' | translate" [date]="item.created" [title]="item.title"

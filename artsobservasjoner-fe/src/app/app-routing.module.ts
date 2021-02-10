@@ -867,12 +867,8 @@ const extraRoutes: Routes = [
     data: {
       text: 'Aktuelle saker',
       title: 'menu_news',
-      translation: {
-        no: 'Aktuelle saker',
-        en: 'News'
-      },
       id: 'news',
-      layout: 'std',
+      layout: 'text',
       rank: 'secondary',
       parent: '',
       menu: 'extraMenu',
