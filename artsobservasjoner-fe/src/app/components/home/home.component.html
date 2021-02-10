@@ -11,17 +11,17 @@
 
             <br>
 
-            <!-- <div class="loop loop--2">
+            <div class="loop loop--2">
                 <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
                 &nbsp;
-                <a class="" routerLink="/register"> {{ 'account.account_register' | translate }} </a>
-            </div> -->
+                <!-- <a class="" routerLink="/register"> {{ 'account.account_register' | translate }} </a> -->
+            </div>
 
-            <div class="loop loop--2">
+            <!-- <div class="loop loop--2">
                 <a class="button button--cta" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
                
                 <a class="button button--cta" routerLink="/register"> {{ 'account.account_register' | translate }} </a>
-            </div>
+            </div> -->
 
             <!-- <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
             <br><br>
@@ -87,11 +87,11 @@
             <div class="loop loop--stats">
 
                 <app-total-count-statistics [statistics]="'totalSightings'"
-                    [text]="'statistics.overviewNumbers_sightings' | translate"></app-total-count-statistics>
+                    [text]="'statistics.overviewNumbers_sightings' | translate" [icon]="true"></app-total-count-statistics>
                 <app-total-count-statistics [statistics]="'totalSpecies'"
-                    [text]="'statistics.overviewNumbers_species' | translate"></app-total-count-statistics>
+                    [text]="'statistics.overviewNumbers_species' | translate" [icon]="true"></app-total-count-statistics>
                 <app-total-count-statistics [statistics]="'totalImages'"
-                    [text]="'statistics.overviewNumbers_images' | translate"></app-total-count-statistics>
+                    [text]="'statistics.overviewNumbers_images' | translate" [icon]="true"></app-total-count-statistics>
 
 
             </div>

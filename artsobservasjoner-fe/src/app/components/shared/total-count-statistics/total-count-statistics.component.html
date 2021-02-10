@@ -3,6 +3,7 @@
 <div class="non-dummy">
 
     <div class="numbers-box" [ngClass]="{'numbers-box--small': size === 'sm'}" *ngIf="totalCount$ | async as total">
+        <div class="numbers-box__icon" [class]="getCountIcon(statistics)" *ngIf="icon"></div>
         <div class="numbers-box__item"> {{ total.count | numberProxy }}</div>
         <div class="numbers-box__text"> {{ text | lowercase }}</div>
     </div>

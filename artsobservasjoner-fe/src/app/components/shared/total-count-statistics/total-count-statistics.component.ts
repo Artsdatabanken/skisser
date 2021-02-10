@@ -13,7 +13,7 @@ export class TotalCountStatisticsComponent implements OnInit {
 
   @Input() statistics: string;
   @Input() text: string | null;
-  @Input() imgSrc: string | null;
+  @Input() icon: boolean | null;
   @Input() size: string | null;
 
   totalCount$: Observable<TotalCountStatistic>;
@@ -37,6 +37,10 @@ export class TotalCountStatisticsComponent implements OnInit {
 
     this.totalCount$ = this.statisticsService.getTotalCount(this.api);
 
+  }
+
+  getCountIcon(statistics: string): string {
+    return `numbers-box__icon--${statistics}`;
   }
 
 }
