@@ -2,9 +2,7 @@
 
     <header class="page__header"></header>
 
-    <div class="page__intro">
-
-    </div>
+    <div class="page__intro"></div>
 
     <div class="page__content">
 
@@ -12,7 +10,7 @@
 
         <p class="body-text"> {{ 'shared.stats_tableDescription_includedDataExplanation' | translate }} </p>
 
-        <div *ngIf="data$ | async as data">
+        <div *ngIf="data$ | async as data; else noData">
 
             <table>
                 <caption>{{ 'shared.tableCaption_validatedDataOriginal' | translate }}</caption>
@@ -102,78 +100,31 @@
 
             </table>
 
+            <ng-template #noData>
+                {{ 'shared.noData' | translate }}
+            </ng-template>
+    
+            <p>
+                {{ 'shared.stats_tableDescription_excluded' | translate }}
+                <br />
+                {{ 'shared.stats_tableDescription_approved' | translate }}
+            </p>
+    
+            <ul>
+                <li>Godkjent basert på observatørens opplysninger</li>
+                <li>Godkjent</li>
+                <li>Belegg gransket av validator</li>
+                <li>Godkjent. Foto eller lyd godkjent av validator</li>
+                <li>Godkjent basert på determinators verifisering</li>
+                <li>Godkjent, basert på en tidligere sjeldenhetsrapport</li>
+                <li>Godkjent, funnet er sannsynlig</li>
+            </ul>
+    
         </div>
 
 
     </div>
 
-
-    <footer class="page__footer">
-
-        <!-- <table>
-            <caption>{{ 'shared.tableCaption_validatedDataOriginal' | translate }}</caption>
-            <thead>
-                <tr>
-                    <th scope="col" role="columnheader">
-                        {{ 'shared.tableHeading_speciesGroup' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_sightedTaxonCount' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_sightingsCount' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_withMedia' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_qualityChecked' |
-                        translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_qualityCheckedAndApproved' | translate }}
-                    </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let sighting of sightings">
-                    <th scope="row" role="rowheader">{{ sighting.id }}</th>
-                    <td class="td-number"> {{ sighting.sightingTaxonCount | numberProxy }} </td>
-                    <td class="td-number"> {{ sighting.sightingCount | numberProxy }}</td>
-                    <td class="td-number"> {{ sighting.sightingWithMediaCount | numberProxy }} </td>
-                    <td class="td-number"> {{ sighting.validatedSightingCount | numberProxy }} </td>
-                    <td class="td-number"> {{ sighting.approvedSightingCount | numberProxy }} </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table>
-            <caption>{{ 'shared.tableCaption_validatedData' | translate }}</caption>
-            <tr>
-                <th scope="col" role="columnheader">{{ 'shared.tableHeading_speciesGroup' | translate }}</th>
-                <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_sightingsCount' |
-                    translate }}</th>
-                <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_qualityChecked' |
-                    translate }}</th>
-                <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_sharedValidatedSightings'
-                    | translate }}</th>
-                <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_qualityCheckedAndApproved'
-                    | translate }}</th>
-                <th scope="col" role="columnheader" class="th-number">{{ 'shared.tableHeading_shareValidatedAndApproved'
-                    | translate }}</th>
-            </tr>
-            <tr *ngFor="let sighting of sightings">
-                <th scope="row" role="rowheader"> {{ sighting.id }} </th>
-                <td class="td-number"> {{ sighting.sightingCount | numberProxy }} </td>
-                <td class="td-number"> {{ sighting.validatedSightingCount | numberProxy }} </td>
-                <td class="td-number td-highlighted"> {{ sighting.percentageSightedVsValidated }} %</td>
-                <td class="td-number"> {{ sighting.approvedSightingCount | numberProxy }} </td>
-                <td class="td-number td-highlighted"> {{ sighting.percentageValidatedVsApproved }} %</td>
-            </tr>
-        </table> -->
-
-    </footer>
-
+    <footer class="page__footer"></footer>
 
 </div>
