@@ -4,10 +4,12 @@
 
     <div class="page__intro">
 
-        <p>Husk at datagrunnlaget må forklares</p>
-        <p>Forklart hvor ofte data oppdateres</p>
+        <p>{{'redlist.tableDescription_content' | translate}}</p>       
 
         <app-assessment-category [categoryVariant]="'redlistedCategories'"></app-assessment-category>
+          
+        <p> {{'redlist.tableDescription_includedData' | translate}}</p>
+       
 
     </div>
 
@@ -177,9 +179,11 @@
             </table>
 
         </div> -->
-
-        <p>*Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. </p>
-        <p> ** Har en av følgende valideringskategorier: </p>
+       
+        <p>
+            {{'redlist.tableDescription_excluded' | translate}}
+            <br/>        
+            {{'redlist.tableDescription_approved' | translate}}</p>
 
         <ul>
             <li>Godkjent basert på observatørens opplysninger</li>
