@@ -8,11 +8,9 @@
 
     <div class="page__content">
 
-        <p style="width: 70ch;">
-            Tabellen(e) viser antall taxa observert og antall observasjoner per artsgruppe.
-            For en forklaring på hva som er inkludert i tallene, se xxxxxxx [Lenke til tekst som forklarer reglene for
-            inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.
-        </p>
+        <p class="body-text"> {{ 'statistics.validatedData_tableDescription' | translate }} </p>
+
+        <p class="body-text"> {{ 'shared.stats_tableDescription_includedDataExplanation' | translate }} </p>
 
         <div *ngIf="data$ | async as data">
 

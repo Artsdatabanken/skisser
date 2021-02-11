@@ -78,12 +78,7 @@
         "overviewNumbers_sightings": "Sightings",
         "overviewNumbers_species": "Registered species",
         "overviewNumbers_images": "Added images",
-        "overviewNumbers_users": "Users"
-    },
-    "redlist": {
-        "tableDescription_content": "The table shows number of observations of endagered species by species group of the following categories:",
-        "tableDescription_includedData": "Endangered-species categories containing no observations are omitted from the table. An overview on which numbers are included can be found at [xxxxx]. Numbers are updated daily.",
-        "tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",
-        "tableDescription_approved": "** Has one of the following validation category:"
+        "overviewNumbers_users": "Users",        
+        "validatedData_tableDescription": "The table(s) show(s) the number of sighted taxa and the number of sightings per species group."
     }
 }

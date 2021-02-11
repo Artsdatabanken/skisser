@@ -74,6 +74,7 @@
         "overviewNumbers_sightings": "Observasjoner",
         "overviewNumbers_species": "Rapporerte arter",
         "overviewNumbers_images": "Bilder lagt inn",
-        "overviewNumbers_users": "Brukere"
+        "overviewNumbers_users": "Brukere",
+        "validatedData_tableDescription": "Tabellen(e) viser antall taxa observert og antall observasjoner per artsgruppe."
     }
 }
