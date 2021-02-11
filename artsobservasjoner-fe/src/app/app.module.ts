@@ -99,6 +99,9 @@ import { ValidatedDataComponent } from './components/statistics/validated-data/v
 import { TotalCountStatisticsComponent } from './components/shared/total-count-statistics/total-count-statistics.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { AssessmentCategoryComponent } from './components/shared/assessment-category/assessment-category.component';
+import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
+import { TableComponent } from './reusable/table/table.component';
+import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -191,7 +194,10 @@ import { AssessmentCategoryComponent } from './components/shared/assessment-cate
     ValidatedDataComponent,
     TotalCountStatisticsComponent,
     AlertsComponent,
-    AssessmentCategoryComponent
+    AssessmentCategoryComponent,
+    OverviewItemComponent,
+    TableComponent,
+    NewKeyValuePipe,
   ],
   imports: [
     BrowserModule,

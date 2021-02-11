@@ -112,6 +112,15 @@ table {
     min-width: 15vw;
 }
 
+// reusable table
+
+.tbl {
+    &--auto {
+        margin: auto;
+        width: auto;
+    }
+}
+
 // custom table
 
 .custom-table {

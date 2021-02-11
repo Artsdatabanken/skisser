@@ -1,0 +1,29 @@
+<!--REUSABLE COMPONENT-->
+<!-- REUSABLE TABLE -->
+
+<table class="tbl" [class]="getTableWidth(width)">
+    <caption>{{ caption }}</caption>
+    <thead>
+        <tr>
+            <th scope="col" role="columnheader" *ngFor="let column of columns" class="tbl__cell"
+                [class]="getTableCellStyle(alignment)">
+                {{ column.title }}
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let row of rows">
+            <td *ngFor="let cell of row.values | newKeyValue" [attr.data-type]="cell.key" class="tbl__cell"
+                [class]="getTableCellStyle(alignment)">
+
+                <span style="color: #ddd; font-size: 0.7em;"> {{ cell.key }}</span><br>
+                {{ cell.value }}
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- REUSABLE TABLE-->
+<!--REUSABLE COMPONENT-->

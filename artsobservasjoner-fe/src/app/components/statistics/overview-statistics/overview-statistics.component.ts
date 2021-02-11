@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TableColumn, TableRow } from 'src/app/models/reusable';
 import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
@@ -43,7 +44,7 @@ export class OverviewStatisticsComponent implements OnInit {
 
   ngOnInit(): void {
     //this.activeDropdown = true;
-   }
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -56,5 +57,108 @@ export class OverviewStatisticsComponent implements OnInit {
   closeDropdown(): void {
     this.layoutService.closeDropdown();
   }
+
+
+
+
+
+
+
+  public dogsColumns: TableColumn<any>[] = [
+    { name: 'name' },
+    { name: 'breed' },
+    { name: 'weight' },
+  ];
+
+  public dogsRows: TableRow<any>[] = [
+    {
+      values: {
+        name: 'Charlie',
+        breed: 'Basset Hound',
+        weight: 30
+      },
+    },
+    {
+      values: {
+        name: 'Bella',
+        breed: 'Cocker Spaniel',
+        weight: 15,
+      },
+    },
+  ];
+
+
+
+  public sightingCountBySpeciesGroupColumns: TableColumn<any>[] = [
+    {
+      title: 'Artsgruppe',
+      name: 'speciesGroup'
+    },
+    {
+      title: 'Antall observasjoner',
+      name: 'sightingCount',
+      alignment: 'right'
+    },
+  ];
+
+  public sightingCountBySpeciesGroupRows: TableRow<any>[] = [
+    {
+      values: {
+        speciesGroup: 'Alger',
+        sightingCount: 30
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Amfibier og reptiler',
+        sightingCount: 15,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Fisker',
+        sightingCount: 20,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Fugler',
+        sightingCount: 25,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Karplanter',
+        sightingCount: 10,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Lav',
+        sightingCount: 5,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Moser',
+        sightingCount: 35,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Pattedyr',
+        sightingCount: 55,
+      },
+    },
+    {
+      values: {
+        speciesGroup: 'Sopper',
+        sightingCount: 60,
+      },
+    },
+  ];
+
+
+
 
 }
