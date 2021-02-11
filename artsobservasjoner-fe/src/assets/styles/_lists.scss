@@ -74,6 +74,7 @@ dl {
 .assessment-categories {
   @include customVar(background-color, paletteColor0);
   font-size: 17px;
+  margin: 25px 0;
   padding: 30px 20px;
   min-width: fit-content;
   width: fit-content;
@@ -157,6 +158,17 @@ dl {
     &--ne {
       background: #311b92;
     }
+  }
+
+  dt {
+    background: #311b92;
+    @include customVar(color, clrWhite);
+    @include customVar(font-family, fontSecondary);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 2px;
+    text-align: center;
+    width: 100%;
   }
 
   dd {

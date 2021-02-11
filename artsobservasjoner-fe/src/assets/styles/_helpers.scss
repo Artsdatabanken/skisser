@@ -42,6 +42,16 @@
   text-align: center;
 }
 
+.body-text {
+  margin-bottom: 0;
+  width: 70ch;
+
+  figcaption & {
+    font-size: 20px;
+    text-align: left;
+  }
+}
+
 .forward {
   background-image: url(../images/iconChevronRight.png);
   background-position: right center;

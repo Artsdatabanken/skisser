@@ -54,19 +54,25 @@
         "announcements": "Announcements"
     },
     "shared": {
+        "noData": "An error has occurred. Please check again later.",
         "tableCaption_validatedData": "Number of quality assured observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
         "tableHeading_speciesGroup": "Species group",
-        "tableHeading_riskGroup": "Risk group",
+        "tableHeading_riskGroup": "Risk category",
         "tableHeading_sightingsCount": "Sightings count",
         "tableHeading_qualityChecked": "Quality checked by validator*",
         "tableHeading_sharedValidatedSightings": "Share validated sightings",
         "tableHeading_qualityCheckedAndApproved": "Quality checked and approved by validator**",
         "tableHeading_shareValidatedAndApproved": "Share validated and approved",
         "tableHeading_sightedTaxonCount": "Sighted taxon count",
-        "tableHeading_withMedia": "With media"
+        "tableHeading_withMedia": "With media",
+        "stats_tableDescription_content": "The following table shows number of observations of {{value1}} by {{value2}} in each of the categories below. ",
+        "stats_tableDescription_includedData": "Categories without observations are omitted from the table.",
+        "stats_tableDescription_includedDataExplanation": "A description of the data included may be found at [xxxxx]. Statistics are updated daily.",
+        "stats_tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",
+        "stats_tableDescription_approved": "** Has one of the following validation category:"
     },
     "statistics": {
         "overviewNumbers_sightings": "Sightings",
@@ -74,11 +80,10 @@
         "overviewNumbers_images": "Added images",
         "overviewNumbers_users": "Users"
     },
-    "redlist":{
-        "tableDescription_content":"The table shows number of observations of endagered species by species group of the following categories:",
-        "tableDescription_includedData":"Endangered-species categories containing no observations are omitted from the table. An overview on which numbers are included can be found at [xxxxx]. Numbers are updated daily.",
-        "tableDescription_excluded":"* Includes all validation categories except 'not validated (sighting not validated).'",
-        "tableDescription_approved":"** Has one of the following validation categorie:"
-        
+    "redlist": {
+        "tableDescription_content": "The table shows number of observations of endagered species by species group of the following categories:",
+        "tableDescription_includedData": "Endangered-species categories containing no observations are omitted from the table. An overview on which numbers are included can be found at [xxxxx]. Numbers are updated daily.",
+        "tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",
+        "tableDescription_approved": "** Has one of the following validation category:"
     }
 }

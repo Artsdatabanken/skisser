@@ -2,22 +2,23 @@
 
     <header class="page__header"></header>
 
-    <div class="page__intro">
-
-        <p>{{'redlist.tableDescription_content' | translate}}</p>       
-
-        <app-assessment-category [categoryVariant]="'redlistedCategories'"></app-assessment-category>
-          
-        <p> {{'redlist.tableDescription_includedData' | translate}}</p>
-       
-
-    </div>
+    <div class="page__intro"></div>
 
     <div class="page__content">
 
-        <div *ngIf="data$ | async as redlistedSpecies">
+        <p class="body-text">
+            {{ 'shared.stats_tableDescription_content' | translate: { value1: translationParamValue1, value2:
+            translationParamValue2 } }}  {{ 'shared.stats_tableDescription_includedData' | translate }}
+        </p>
 
-            <table>
+        <app-assessment-category [categoryVariant]="'redlistedCategories'"></app-assessment-category>
+
+        <br>
+        <p class="body-text"> {{ 'shared.stats_tableDescription_includedDataExplanation' | translate }}</p>
+
+        <div *ngIf="data$ | async as redlistedSpecies; else noData">
+
+            <table aria-describedby="redlist">
                 <caption>{{ 'shared.tableCaption_redlistedSpeciesData' | translate }}</caption>
                 <thead>
                     <tr>
@@ -56,7 +57,7 @@
 
                         </td>
                         <td>
-                            {{ data.assessmentCategory.code }} 
+                            {{ data.assessmentCategory.code }}
                             <span class="sr-only">
                                 {{ currentLanguage == 'no' ? data.assessmentCategory.labelNorwegian :
                                 data.assessmentCategory.labelEnglish }}
@@ -141,6 +142,10 @@
 
         </div>
 
+        <ng-template #noData>
+            {{ 'shared.noData' | translate }}
+        </ng-template>
+
         <!-- <div *ngIf="redlistedSpeciesData$ | async as redlistedSpecies">
 
             <table>
@@ -179,11 +184,12 @@
             </table>
 
         </div> -->
-       
+
         <p>
             {{'redlist.tableDescription_excluded' | translate}}
-            <br/>        
-            {{'redlist.tableDescription_approved' | translate}}</p>
+            <br />
+            {{'redlist.tableDescription_approved' | translate}}
+        </p>
 
         <ul>
             <li>Godkjent basert på observatørens opplysninger</li>

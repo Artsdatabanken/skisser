@@ -50,19 +50,25 @@
         "announcements": "Kunngjøringer"
     },
     "shared": {
+        "noData": "En feil har oppstått. Vennligst sjekk igjen senere.",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_redlistedSpeciesData": "Antall observasjoner i rødliste kategori etter artsgruppe",
         "tableCaption_alienSpeciesData": "Antall observasjoner av fremmede arter etter artsgruppe",
         "tableHeading_speciesGroup": "Artsgruppe",
-        "tableHeading_riskGroup": "Risikogruppe",
-        "tableHeading_sightingsNumber": "Antall observasjoner",
+        "tableHeading_riskGroup": "Risikokategori",
+        "tableHeading_sightingsCount": "Antall observasjoner",
         "tableHeading_qualityChecked": "Kvalitetssjekket av validator*",
         "tableHeading_sharedValidatedSightings": "Andel kvalitetssjekket",
-        "tableHeading_qualityCheckedAndApproved": "Kvalitetssjekket og godkjent av validator",
+        "tableHeading_qualityCheckedAndApproved": "Kvalitetssjekket og godkjent av validator***",
         "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
         "tableHeading_sightedTaxonCount": "Antall taxa observert",
-        "tableHeading_withMedia": "Med bilder"
+        "tableHeading_withMedia": "Med bilder",
+        "stats_tableDescription_content": "Tabellen viser antall observasjoner av {{value1}} etter {{value2}}, med en av kategoriene nedenfor. ",
+        "stats_tableDescription_includedData": "Kategorier uten artsobservasjoner er utelatt fra tabellen.",
+        "stats_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
+        "stats_tableDescription_excluded": "* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
+        "stats_tableDescription_approved": "** Har en av følgende valideringskategorier:"
     },
     "statistics": {
         "overviewNumbers_sightings": "Observasjoner",
@@ -70,11 +76,10 @@
         "overviewNumbers_images": "Bilder lagt inn",
         "overviewNumbers_users": "Brukere"
     },
-    "redlist":{
-        "tableDescription_content":"Tabellen viser antall observasjoner av rødlistede arter etter artsgruppe med en av følgende rødlistekategorier:",
-        "tableDescription_includedData":"Hvis en rødlistekategori ikke er med i tabellen, betyr det at det er ingen observasjoner av rødlistede arter i denne kategorien. For en forklaring på hva som er inkludert i tallene, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt. ",
-        "tableDescription_excluded":"* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
-        "tableDescription_approved":"** Har en av følgende valideringskategorier:"
+    "redlist": {
+        "tableDescription_content": "Tabellen viser antall observasjoner av rødlistede arter etter artsgruppe med en av følgende rødlistekategorier:",
+        "tableDescription_includedData": "Hvis en rødlistekategori ikke er med i tabellen, betyr det at det er ingen observasjoner av rødlistede arter i denne kategorien. For en forklaring på hva som er inkludert i tallene, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt. ",
+        "tableDescription_excluded": "* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
+        "tableDescription_approved": "** Har en av følgende valideringskategorier:"
     }
-
 }
