@@ -100,16 +100,12 @@
 
             </table>
 
-            <ng-template #noData>
-                {{ 'shared.noData' | translate }}
-            </ng-template>
-    
             <p>
                 {{ 'shared.stats_tableDescription_excluded' | translate }}
                 <br />
                 {{ 'shared.stats_tableDescription_approved' | translate }}
             </p>
-    
+
             <ul>
                 <li>Godkjent basert på observatørens opplysninger</li>
                 <li>Godkjent</li>
@@ -119,9 +115,12 @@
                 <li>Godkjent, basert på en tidligere sjeldenhetsrapport</li>
                 <li>Godkjent, funnet er sannsynlig</li>
             </ul>
-    
+
         </div>
 
+        <ng-template #noData>
+            {{ 'shared.noData' | translate }}
+        </ng-template>
 
     </div>
 

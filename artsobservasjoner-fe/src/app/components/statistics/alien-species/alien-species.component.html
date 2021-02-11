@@ -72,10 +72,6 @@
 
             </table>
 
-            <ng-template #noData>
-                {{ 'shared.noData' | translate }}
-            </ng-template>
-
             <p>
                 {{ 'shared.stats_tableDescription_excluded' | translate }}
                 <br />
@@ -93,6 +89,10 @@
             </ul>
             
         </div>
+
+        <ng-template #noData>
+            {{ 'shared.noData' | translate }}
+        </ng-template>
 
     </div>
 
