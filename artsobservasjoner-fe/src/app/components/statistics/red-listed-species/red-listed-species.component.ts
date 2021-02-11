@@ -15,7 +15,7 @@ export class RedListedSpeciesComponent implements OnInit {
 
   data$;
   currentLanguage: string;
-  test$;
+  
   translationParamValue1: string;
   translationParamValue2: string;
 
