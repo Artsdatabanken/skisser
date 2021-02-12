@@ -283,10 +283,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Volumstatistikk',  
       title: 'menu_statistics_overview',
-      translation: {
-        no: 'Volumstatistikk',
-        en: 'Overview statistics'
-      },
       id: 'overview-statistics',
       layout: 'spa',
       rank: 'secondary',
@@ -298,7 +294,7 @@ const sightingsRoutes: Routes = [
     },
     children: [
       {
-        path: 'observations/statistics/volume-statistics/:id',
+        path: 'observations/statistics/overview-statistics/:id',
         component: OverviewStatisticsComponent,
         data: {
           text: 'Oversikt stats item',
