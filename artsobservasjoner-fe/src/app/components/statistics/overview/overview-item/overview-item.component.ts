@@ -13,8 +13,8 @@ export class OverviewItemComponent implements OnInit {
   @Input() title?: string;
   @Input() table?: TableComponent<any>;
   // @Input() data: { columns: TableColumn<any>[], rows: TableRow<any>[] };
-  @Input() dataColumns: TableColumn<any>[];
-  @Input() dataRows: TableRow<any>[];
+  @Input() dataTableColumns: TableColumn<any>[];
+  @Input() dataTableRows: TableRow<any>[];
 
 
   constructor() { }
