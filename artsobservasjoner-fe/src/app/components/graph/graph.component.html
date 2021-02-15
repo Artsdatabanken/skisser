@@ -1,0 +1,13 @@
+<p>graph works!</p>
+
+<div *ngIf="data$ | async as data">
+    <div *ngFor="let dataItem of data">
+
+        <div *ngFor="let element of dataItem.values | newKeyValue">
+            {{ element.key }}
+            {{ element.value }}
+        </div>
+    </div>
+</div>
+
+<canvas #barCanvas></canvas>

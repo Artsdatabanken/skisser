@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AssessmentCategory, Category, SpecialSpeciesItemStats } from 'src/app/models/statistics';
+import { AssessmentCategory, Category, AssessedSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -41,13 +41,13 @@ export class AlienSpeciesComponent implements OnInit {
   getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getSpeciesGroupsStatsData('alienSpecies'),
+      this.statisticsService.getAssessedSpeciesStats('alienSpecies'),
       this.statisticsService.getAssessmentCategories('alienCategories'),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
       map(([species, categories, speciesGroups]) => {
 
-        let alienSpeciesItemData: SpecialSpeciesItemStats;
+        let alienSpeciesItemStats: AssessedSpeciesItemStats;
 
         // ---------------------------------------- ***
 
@@ -69,7 +69,7 @@ export class AlienSpeciesComponent implements OnInit {
 
           speciesItem.data.forEach(data => {
 
-            alienSpeciesItemData = {
+            alienSpeciesItemStats = {
               id: speciesItem.id,
               speciesGroupId: speciesItem.id,
               speciesGroup: getSpeciesGroup(speciesItem.id),
@@ -81,8 +81,8 @@ export class AlienSpeciesComponent implements OnInit {
               approvedCount: data['approvedValidatedSightingCount'],
             }
 
-            if (speciesItem.id == alienSpeciesItemData.id) {
-              tempArray.push(alienSpeciesItemData)
+            if (speciesItem.id == alienSpeciesItemStats.id) {
+              tempArray.push(alienSpeciesItemStats)
             }
 
             map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });

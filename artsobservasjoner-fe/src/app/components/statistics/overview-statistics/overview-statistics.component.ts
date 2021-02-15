@@ -64,31 +64,6 @@ export class OverviewStatisticsComponent implements OnInit {
 
 
 
-  public dogsColumns: TableColumn<any>[] = [
-    { name: 'name' },
-    { name: 'breed' },
-    { name: 'weight' },
-  ];
-
-  public dogsRows: TableRow<any>[] = [
-    {
-      values: {
-        name: 'Charlie',
-        breed: 'Basset Hound',
-        weight: 30
-      },
-    },
-    {
-      values: {
-        name: 'Bella',
-        breed: 'Cocker Spaniel',
-        weight: 15,
-      },
-    },
-  ];
-
-
-
   public sightingCountBySpeciesGroupColumns: TableColumn<any>[] = [
     {
       title: 'Artsgruppe',

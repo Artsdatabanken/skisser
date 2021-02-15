@@ -1,7 +1,15 @@
-export interface ValidatedDataItem {
+// VIEWMODELS FOR ALL STATISTICS ITEMS
+
+export interface StatisticsItem {
     id: number;
-    speciesGroup: Category;
-    sightingCount: number;
+    speciesGroup?: Category;
+    sightingCount?: number;
+}
+
+export interface ValidatedDataItem extends StatisticsItem {
+    // id: number;
+    // speciesGroup: Category;
+    // sightingCount: number;
     sightingTaxonCount: number;
     sightingWithMediaCount: number;
     validatedSightingCount: number;
@@ -10,13 +18,12 @@ export interface ValidatedDataItem {
     percentageValidatedVsApproved: number;
 }
 
-export interface SpecialSpeciesItem {
+export interface AssessedSpeciesItem {
     id: number;
-    data?: object[];
-    risk?: SpecialSpeciesItemStats[];
+    data?: object[] | AssessedSpeciesItemStats[];
 }
 
-export interface SpecialSpeciesItemStats {
+export interface AssessedSpeciesItemStats {
     id: number;
     speciesGroupId: number;
     speciesGroup: string | Category;

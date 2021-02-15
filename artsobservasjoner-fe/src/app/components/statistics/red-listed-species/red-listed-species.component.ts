@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AssessmentCategory, Category, SpecialSpeciesItemStats } from 'src/app/models/statistics';
+import { AssessmentCategory, Category, AssessedSpeciesItemStats } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -41,13 +41,13 @@ export class RedListedSpeciesComponent implements OnInit {
   getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getSpeciesGroupsStatsData('redlistedSpecies'),
+      this.statisticsService.getAssessedSpeciesStats('redlistedSpecies'),
       this.statisticsService.getAssessmentCategories('redlistedCategories'),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
       map(([species, categories, speciesGroups]) => {
 
-        let redlistedSpeciesItemData: SpecialSpeciesItemStats;
+        let redlistedSpeciesItemStats: AssessedSpeciesItemStats;
 
         // ---------------------------------------- ***
 
@@ -71,7 +71,7 @@ export class RedListedSpeciesComponent implements OnInit {
 
           speciesItem.data.forEach(data => {
 
-            redlistedSpeciesItemData = {
+            redlistedSpeciesItemStats = {
               id: speciesItem.id,
               speciesGroupId: speciesItem.id,
               speciesGroup: getSpeciesGroup(speciesItem.id),
@@ -83,8 +83,8 @@ export class RedListedSpeciesComponent implements OnInit {
               approvedCount: data['approvedValidatedSightingCount'],
             }
 
-            if (speciesItem.id == redlistedSpeciesItemData.id) {
-              tempArray.push(redlistedSpeciesItemData)
+            if (speciesItem.id == redlistedSpeciesItemStats.id) {
+              tempArray.push(redlistedSpeciesItemStats)
             }
 
             map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });

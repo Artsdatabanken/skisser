@@ -8,7 +8,7 @@ import { UtilitiesService } from './utilities.service';
 import ValidatedData from '../data/validatedData.json';
 import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { AssessmentCategory, Category, SpecialSpeciesItem, ValidatedDataItem } from '../models/statistics';
+import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -26,25 +26,19 @@ export class StatisticsService {
   redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
   alienSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetAlienlist';
   //speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
-  speciesGroupListApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   //redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
   //alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
+  speciesGroupListApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=redlist';
   alienCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=alienlist';
   assessmentCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
 
-  /*
-  NYE API
-/api/v1/Lists/GetAssessmentCategories?assessmentListType=redlist
-/api/v1/Lists/GetAssessmentCategories?assessmentListType=alienlist
-  */
+  overviewStatsApi1: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
+
   // totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
   // totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
   // totalImagesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
   // totalUsersCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
-
-  // data
-  validatedData: any = ValidatedData;
 
   // ------------------------------------------------------------ ***
 
@@ -95,15 +89,15 @@ export class StatisticsService {
 
   }
 
-  getSpeciesGroupsStatsData(data: string): Observable<SpecialSpeciesItem[]> {
+  getAssessedSpeciesStats(data: string): Observable<AssessedSpeciesItem[]> {
 
     const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
 
     return this.httpClient.get(api).pipe(
       map((res: any) => {
 
-        let speciesItem: SpecialSpeciesItem;
-        let speciesItems: SpecialSpeciesItem[] = [];
+        let speciesItem: AssessedSpeciesItem;
+        let speciesItems: AssessedSpeciesItem[] = [];
 
         res['speciesGroupStatistics'].forEach(item => {
 
@@ -239,6 +233,42 @@ export class StatisticsService {
       publishReplay(1),
       refCount()
     );
+  }
+
+  // OVERVIEW STATISTICS
+
+  getSightingsCountPerSpeciesGroup(): Observable<StatisticsItem[]> {
+
+    return this.httpClient.get(this.overviewStatsApi1).pipe(
+      map((res: any) => {
+        
+        console.log('getsightingscountbyspeciesgroup', res)
+
+        let statisticsItem: StatisticsItem;
+        let statisticsItems: StatisticsItem[] = [];
+
+        res.sightingsCountPerSpeciesGroupStatistics.forEach(element => {
+
+          if (element.speciesGroupId !== null) {
+
+            statisticsItem = {
+              id: element.speciesGroupId,
+              sightingCount: element.sightingCount
+            }
+
+            statisticsItems.push(statisticsItem);
+
+          }
+
+        });
+
+        return statisticsItems;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
   }
 
 }

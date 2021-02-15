@@ -102,6 +102,7 @@ import { AssessmentCategoryComponent } from './components/shared/assessment-cate
 import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
 import { TableComponent } from './reusable/table/table.component';
 import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
+import { GraphComponent } from './components/graph/graph.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -198,6 +199,7 @@ import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
     OverviewItemComponent,
     TableComponent,
     NewKeyValuePipe,
+    GraphComponent,
   ],
   imports: [
     BrowserModule,
