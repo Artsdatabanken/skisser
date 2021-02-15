@@ -4,7 +4,56 @@
 
     <div class="section">
 
-      
+        <div class="loop loop--2x">
+
+            <div *ngIf="data$ | async as data">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                {{ 'shared.tableHeading_speciesGroup' | translate }}
+                            </th>
+                            <th class="th-number">
+                                {{ 'shared.tableHeading_sightingsCount' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dataItem of data">
+                            <td>
+                                {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
+                                dataItem.speciesGroup.labelEnglish }}
+                            </td>
+                            <td class="td-number">
+                                {{ dataItem.sightingCount | numberProxy }}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- <tbody>
+                    <tr *ngFor="let dataItem of data">
+                        <td *ngFor="let element of dataItem.values | newKeyValue">
+                     
+                            {{ element.value }}
+
+                            {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
+                            item.speciesGroup.labelEnglish }}
+                        </td>
+                    </tr>
+                </tbody> -->
+                </table>
+
+            </div>
+
+            <!-- <div class="chart-container">
+                <canvas id="myCanvas" #myCanvas></canvas>
+            </div> -->
+
+        </div>
+
+        <div class="chart-container">
+            <canvas id="myCanvas" #myCanvas></canvas>
+        </div>
     </div>
 
 </div>

@@ -763,6 +763,11 @@
 
 // dropdown
 
+.dropdown-container {
+    @include customVar(background-color, paletteColor0);
+    padding: 15px 30px;
+}
+
 .dropdown {
     background-color: transparent;
     display: block;
@@ -794,7 +799,7 @@
 
         &--active {
             background-image: url(../images/iconChevronUp.png);
-            border: 2px solid transparent;
+            //border: 2px solid transparent;
         }
 
         &:focus,
@@ -816,17 +821,16 @@
     }
 
     &__pane {
-        @include customVar(background-color, clrWhite);
-        background: #d5f5e3;
+        @include customVar(background-color, paletteColor2);
+        //background: #d5f5e3;
         border-color: transparent;
-        border-radius: 40px;
         border-top-style: solid;
         border-style: solid;
         border-width: 2px;
         display: none;
         margin-top: 25px;
         opacity: 1;
-        padding: 30px 0;
+        padding: 0;
         position: absolute;
         top: auto;
         z-index: 5555;
@@ -834,9 +838,10 @@
 
         &:before,
         &::before {
+            @include customVar(border-bottom-color, paletteColor2);
             border-left: 18px solid transparent;
             border-right: 18px solid transparent;
-            border-bottom: 18px solid #d5f5e3;
+            //border-bottom: 18px solid #d5f5e3;
             content: "";
             height: 0;
             width: 0;

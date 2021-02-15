@@ -14,7 +14,7 @@
 
     <tbody>
         <tr *ngFor="let row of rows">
-            <td *ngFor="let cell of row.values | newKeyValue" [attr.data-type]="cell.key" class="tbl__cell"
+            <td *ngFor="let cell of row.values | newKeyValue" [attr.data-title]="cell.key" class="tbl__cell"
                 [class]="getTableCellStyle(alignment)">
 
                 <span style="color: #ddd; font-size: 0.7em;"> {{ cell.key }}</span><br>

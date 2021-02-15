@@ -75,6 +75,17 @@
         "overviewNumbers_species": "Rapporerte arter",
         "overviewNumbers_images": "Bilder lagt inn",
         "overviewNumbers_users": "Brukere",
+        "overviewStats_buttonText": "Velg statistikk",
+        "overviewStats_heading_1": "Antall observasjoner per artsgruppe",
+        "overviewStats_heading_2": "Antall bilder per artsgruppe og antall bilder per artsgruppe med åpen lisens",
+        "overviewStats_heading_3": "Antall observasjoner fra Artsobservasjoner og funn i Artskart per år siden 2007",
+        "overviewStats_heading_4": "Antall brukere",
+        "overviewStats_heading_5": "Antall prosjekter",
+        "overviewStats_heading_6": "Antall rapporterte observasjoner etter rapporteringsmåte",
+        "overviewStats_heading_7": "Geografisk fordeling",
+        "overviewStats_heading_8": "Månedlige observasjoner per artsgruppe totalt og per år",
+        "overviewStats_heading_9": "Rapporteringsoversikt per artsgruppe totalt og per år",
+        "overviewStats_heading_10": "Månedlige registreringer per artsgruppe totalt og per år",
         "validatedData_tableDescription": "Tabellen(e) viser antall taxa observert og antall observasjoner per artsgruppe."
     }
 }

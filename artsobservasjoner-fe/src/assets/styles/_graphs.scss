@@ -143,8 +143,6 @@
     &__text {
         border: 2px solid red;
 
-
-
         strong {
             @include customVar(font-family, fontSecondary);
             display: block;
@@ -160,7 +158,7 @@
             display: block;
             font-size: 24px;
             font-weight: 400;
-            
+
             .infographic__text--sm & {
                 font-size: 16px;
             }
@@ -323,4 +321,17 @@ $graphColor6: #3c1434;
     top: 0;
     left: 50%;
     z-index: 2000;
+}
+
+// canvas
+
+.chart-container {
+    border: 1px solid red;
+    margin: 100px auto;
+    position: relative;
+    height: 50vh;
+    width: 100%;
+}
+
+canvas {
 }

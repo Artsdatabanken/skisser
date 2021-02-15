@@ -45,3 +45,9 @@ export interface Category {
 export interface AssessmentCategory extends Category {
     code: string;
 }
+
+export interface TotalCountStatistic {
+    count: number;
+    iconSource?: string;
+    text?: string;
+}

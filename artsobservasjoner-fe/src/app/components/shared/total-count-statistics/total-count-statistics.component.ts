@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TotalCountStatistic } from 'src/app/models/totalCountStatistic';
+import { TotalCountStatistic } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({

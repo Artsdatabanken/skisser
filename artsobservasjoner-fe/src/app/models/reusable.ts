@@ -8,9 +8,12 @@ export interface TableRow<T> {
   }
 
   export interface TableColumn<T> {
-    name: keyof T;
+    id: keyof T;
     title?: keyof T;
+    titleNorwegian?: keyof T;
+    titleEnglish?: keyof T;
     alignment?: keyof T;
+    
     // Add here any additional action or information
     // about a generic table column, like whether it is
     // sortable or not.

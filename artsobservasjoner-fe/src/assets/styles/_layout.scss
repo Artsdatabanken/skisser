@@ -753,7 +753,7 @@ main {
 
     &--frontpage {
         display: grid;
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         grid-template-areas: "pageTitle" "component" "router";
     }
 
@@ -1045,6 +1045,7 @@ main {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 50px 20px;
+        margin: 100px auto 50px;
 
         & > * {
             width: 100%;
@@ -1097,15 +1098,27 @@ main {
     }
 
     &--2 {
-        // display: grid;
-        // grid-template-columns: 1fr 1fr;
-        // gap: 5px 5px;
         display: block;
         text-align: center;
 
         & > * {
             display: inline-block;
             margin: 0 10px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--2x {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 50px 25px;
+        align-items: start;
+
+        & > * {
+            border: 1px solid blue;
         }
 
         @media screen and (max-width: 1024px) {

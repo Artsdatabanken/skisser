@@ -44,6 +44,8 @@ import { AddSightingComponent } from './components/report/add-sighting/add-sight
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
+import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
+import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 
 /*
 
@@ -263,10 +265,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Tall og statistikk', 
       title: 'menu_statistics',
-      translation: {
-        no: 'Tall og statistikk',
-        en: 'Statistics'
-      },
       id: 'statistics',
       layout: 'page',
       rank: 'secondary',
@@ -295,7 +293,7 @@ const sightingsRoutes: Routes = [
     children: [
       {
         path: 'observations/statistics/overview-statistics/:id',
-        component: OverviewStatisticsComponent,
+        component: OverviewItemComponent,
         data: {
           text: 'Oversikt stats item',
           id: 'overviewStatsItem',
@@ -303,7 +301,7 @@ const sightingsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Oversikt stats item',
+          metatitle: '',
           metaDescription: '',
           hidden: true
         }
@@ -313,12 +311,13 @@ const sightingsRoutes: Routes = [
         component: OverviewChild1Component,
         data: {
           text: 'Antall observasjoner per artsgruppe',
+          title: 'statistics.overviewStats_heading_1',
           id: 'overview-1',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Antall observasjoner per artsgruppe',
+          metatitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -327,7 +326,8 @@ const sightingsRoutes: Routes = [
         path: 'overview-2',
         component: OverviewChild2Component,
         data: {
-          text: 'Antall arter rapportert per artsgruppe',
+          text: 'Antall bilder per artsgruppe og antall bilder per artsgruppe med åpen lisens',
+          title: 'statistics.overviewStats_heading_2',
           id: 'overview-2',
           layout: 'spa',
           rank: 'secondary',
@@ -342,7 +342,8 @@ const sightingsRoutes: Routes = [
         path: 'overview-3',
         component: OverviewChild3Component,
         data: {
-          text: 'Antall bilder per artsgruppe',
+          text: 'Antall observasjoner fra Artsobservasjoner og funn i Artskart per år siden 2007',
+          title: 'statistics.overviewStats_heading_3',
           id: 'overview-3',
           layout: 'spa',
           rank: 'secondary',
@@ -357,13 +358,30 @@ const sightingsRoutes: Routes = [
         path: 'overview-4',
         component: OverviewChild4Component,
         data: {
-          text: 'Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
+          text: 'Antall brukere',
+          title: 'statistics.overviewStats_heading_4',
           id: 'overview-4',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Antall data akkumulert fra Artsobservasjoner og Artskart samlet over tid',
+          metatitle: '',
+          metaDescription: '',
+          hidden: false
+        }
+      },
+      {
+        path: 'overview-5',
+        component: OverviewChild5Component,
+        data: {
+          text: 'Antall prosjekter',
+          title: 'statistics.overviewStats_heading_5',
+          id: 'overview-6',
+          layout: 'spa',
+          rank: 'secondary',
+          parent: 'overview',
+          menu: '',
+          metatitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -373,12 +391,13 @@ const sightingsRoutes: Routes = [
         component: OverviewChild6Component,
         data: {
           text: 'Antall rapporterte observasjoner etter rapporteringsmåte',
+          title: 'statistics.overviewStats_heading_6',
           id: 'overview-6',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Antall rapporterte observasjoner etter rapporteringsmåte',
+          metatitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -387,13 +406,14 @@ const sightingsRoutes: Routes = [
         path: 'overview-7',
         component: OverviewChild7Component,
         data: {
-          text: 'Antall observasjoner per fylke',
+          text: 'Geografisk fordeling',
+          title: 'statistics.overviewStats_heading_7',
           id: 'overview-7',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Antall observasjoner per fylke',
+          metatitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -402,13 +422,14 @@ const sightingsRoutes: Routes = [
         path: 'overview-8',
         component: OverviewChild8Component,
         data: {
-          text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
+          text: 'Månedlige observasjoner per artsgruppe totalt og per år',
+          title: 'statistics.overviewStats_heading_8',
           id: 'overview-8',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Rapporteringsoversikt per artsgruppe totalt og per år',
+          metatitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -417,13 +438,14 @@ const sightingsRoutes: Routes = [
         path: 'overview-9',
         component: OverviewChild9Component,
         data: {
-          text: 'Månedlige rapporteringer per artsgruppe totalt og per år',
+          text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
+          title: 'statistics.overviewStats_heading_9',
           id: 'overview-9',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Månedlige rapporteringer per artsgruppe totalt og per år',
+          metatitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -432,32 +454,34 @@ const sightingsRoutes: Routes = [
         path: 'overview-10',
         component: OverviewChild10Component,
         data: {
-          text: 'Månedlige observasjoner per artsgruppe totalt og per år',
+          text: 'Månedlige registreringer per artsgruppe totalt og per år',
+          title: 'statistics.overviewStats_heading_10',
           id: 'overview-10',
           layout: 'spa',
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Månedlige observasjoner per artsgruppe totalt og per år',
+          metatitle: 'r',
           metaDescription: '',
           hidden: false
         }
       },
-      {
-        path: 'overview-11',
-        component: OverviewChild11Component,
-        data: {
-          text: 'Antall aktive brukere',
-          id: 'overview-11',
-          layout: 'spa',
-          rank: 'secondary',
-          parent: 'overview',
-          menu: '',
-          metatitle: 'menu_Antall aktive brukere',
-          metaDescription: '',
-          hidden: false
-        }
-      }
+      // {
+      //   path: 'overview-11',
+      //   component: OverviewChild11Component,
+      //   data: {
+      //     text: '',
+      //     title: '',
+      //     id: 'overview-11',
+      //     layout: 'spa',
+      //     rank: 'secondary',
+      //     parent: 'overview',
+      //     menu: '',
+      //     metatitle: '',
+      //     metaDescription: '',
+      //     hidden: false
+      //   }
+      // }
     ]
   },
   {

@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { TableColumn, TableRow } from 'src/app/models/reusable';
+import { filter, map, mergeMap } from 'rxjs/operators';
 import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
@@ -18,36 +20,32 @@ export class OverviewStatisticsComponent implements OnInit {
   @Input() open: boolean;
   activeDropdown: boolean;
   subscription: Subscription;
-
-  dropDownText: string = "statistikk";
+  subscriptions: Subscription[] = [];
 
   constructor(
-    private route: ActivatedRoute,
-    private layoutService: LayoutService
+    private activatedRoute: ActivatedRoute,
+    private layoutService: LayoutService,
+    private router: Router,
+    private titleService: Title,
+    private translate: TranslateService
   ) {
 
-    this.pageTitle = this.route.routeConfig.data.text;
-    this.children = this.route.routeConfig.children.filter(ch => ch.data.hidden === false);
-    //this.dropDownText = this.layoutService.defaultDropdownText;
+    this.children = this.activatedRoute.routeConfig.children.filter(ch => ch.data.hidden === false);
 
-    this.subscription = this.layoutService.dropdownVisibility.subscribe((value) => {
-      this.activeDropdown = value;
-    });
+    this.subscriptions.push(
+      this.layoutService.dropdownVisibility.subscribe((value) => {
+        this.activeDropdown = value;
+      })
+    );
 
-    // TODO: push subscription into array instead of reassign subscription which is incorrect
-
-    this.subscription = this.layoutService.dropdownLinkText.subscribe((value) => {
-      //this.dropDownText = value;
-    });
+    this.setPageTitle();
 
   }
 
-  ngOnInit(): void {
-    //this.activeDropdown = true;
-  }
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   toggleDropdown(): void {
@@ -58,82 +56,15 @@ export class OverviewStatisticsComponent implements OnInit {
     this.layoutService.closeDropdown();
   }
 
+  setPageTitle(): void {
 
+    this.translate.stream(['menu.menu_statistics_overview']).subscribe(res => {
 
+      this.pageTitle = res['menu.menu_statistics_overview'];
+      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
 
-
-
-
-  public sightingCountBySpeciesGroupColumns: TableColumn<any>[] = [
-    {
-      title: 'Artsgruppe',
-      name: 'speciesGroup'
-    },
-    {
-      title: 'Antall observasjoner',
-      name: 'sightingCount',
-      alignment: 'right'
-    },
-  ];
-
-  public sightingCountBySpeciesGroupRows: TableRow<any>[] = [
-    {
-      values: {
-        speciesGroup: 'Alger',
-        sightingCount: 30
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Amfibier og reptiler',
-        sightingCount: 15,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Fisker',
-        sightingCount: 20,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Fugler',
-        sightingCount: 25,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Karplanter',
-        sightingCount: 10,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Lav',
-        sightingCount: 5,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Moser',
-        sightingCount: 35,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Pattedyr',
-        sightingCount: 55,
-      },
-    },
-    {
-      values: {
-        speciesGroup: 'Sopper',
-        sightingCount: 60,
-      },
-    },
-  ];
-
-
-
+    });
+    
+  }
 
 }

@@ -1,7 +1,7 @@
 <div class="page">
 
     <header class="page__header">
-        <h1 class="page-title">{{ pageTitle }}</h1>
+        <h1 class="page-title">{{ pageTitle | translate }}</h1>
     </header>
 
     <div class="page__intro">
@@ -11,90 +11,41 @@
 
     <div class="page__content" style="min-height: 90vh;">
 
-        <p>
+        <p style="width: 60ch;">
             Her trenger vi kanskje litt tekst? Sed id felis id justo faucibus fermentum nec fringilla tortor. Duis et
-            auctor est, quis posuere odio. Maecenas placerat pretium lorem, auctor tempor diam accumsan in. Integer at
-            massa posuere, condimentum magna ornare, congue odio.
+            auctor est, quis posuere odio.
         </p>
 
         <br>
 
-        <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
+        <div class="dropdown-container">
 
-            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
-                (click)="toggleDropdown()">
-                Velg {{ dropDownText }}
-                <!-- <span class="dropdown__button-text">Velg {{ dropDownText }}</span>
-                <span class="dropdown__button-icon" [ngClass]="{'dropdown__button-icon--active': activeDropdown}"></span> -->
-            </button>
+            <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
 
-            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
-                [attr.aria-expanded]="activeDropdown">
+                <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
+                    (click)="toggleDropdown()">
+                    {{ 'statistics.overviewStats_buttonText' | translate }}
+                </button>
 
-                <a *ngFor="let child of children" class="dropdown__link"
-                    routerLink="/observations/statistics/volume-statistics/{{child.path}}"
-                    routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
-                    {{ child.data.text }}
-                </a>
+                <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
+                    [attr.aria-expanded]="activeDropdown">
+
+                    <a *ngFor="let child of children" class="dropdown__link"
+                        routerLink="/observations/statistics/overview-statistics/{{child.path}}"
+                        routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
+                        {{ child.data.title | translate }}
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
-        <h2>NEW</h2>
-
-        Antall observasjoner per artsgruppe <br>
-        Antall bilder per artsgruppe og antall bilder per artsgruppe med åpen lisens <br>
-        Antall observasjoner fra Artsobservasjoner og funn i Artskart per år siden 2007 <br>
-        Antall brukere <br>
-        Antall prosjekter <br>
-        Antall rapporterte observasjoner etter rapporteringsmåte <br>
-        Geografisk fordeling <br>
-        Månedlige observasjoner per artsgruppe totalt og per år <br>
-        Rapporteringsoversikt per artsgruppe totalt og per år <br>
-        Månedlige registreringer per artsgruppe totalt og per år <br>
-
-        <!-- <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
-
-            <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
-                (click)="toggleDropdown()">Velg {{ dropDownText }}</button>
-
-            <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
-                [attr.aria-expanded]="activeDropdown">
-
-                <a *ngFor="let child of children" class="dropdown__link"
-                    routerLink="/observations/statistics/overview/{{child.path}}"
-                    routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
-                    {{ child.data.text }}
-                </a>
-
-            </div>
-
-        </div> -->
-
-
-        <!--test-->
-
-        <!-- <app-table [columns]="dogsColumns" [rows]="dogsRows"> </app-table> -->
-
-        <app-table [columns]="sightingCountBySpeciesGroupColumns" [rows]="sightingCountBySpeciesGroupRows" [width]="'auto'"> </app-table>
-
-        <app-overview-item [title]="'Test'" [dataTableColumns]="sightingCountBySpeciesGroupColumns" [dataTableRows]="sightingCountBySpeciesGroupRows"></app-overview-item>
-
-        <br><br><br><br><br>
-
-        <app-graph></app-graph>
-
-        <!--test-->
-        <br><br><br><br><br><br><br><br><br><br>
-
         <router-outlet></router-outlet>
-
-        <br><br>
 
     </div>
 
-    <br><br>
 
     <div class="page__footer"></div>
 </div>

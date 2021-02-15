@@ -35,9 +35,9 @@ export class TableComponent<T> implements OnInit {
 
     });
 
-    console.log('alignment', this.alignment)
-    console.log('columns', this.columns)
-    console.log('rows', this.rows)
+    // console.log('alignment', this.alignment)
+    // console.log('columns', this.columns)
+    // console.log('rows', this.rows)
 
   }
 

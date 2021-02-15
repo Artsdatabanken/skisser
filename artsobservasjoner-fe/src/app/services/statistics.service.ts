@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-
-import ValidatedData from '../data/validatedData.json';
-import { TotalCountStatistic } from '../models/totalCountStatistic';
 import { ApiService } from './api.service';
-import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem } from '../models/statistics';
+import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -242,8 +239,6 @@ export class StatisticsService {
     return this.httpClient.get(this.overviewStatsApi1).pipe(
       map((res: any) => {
         
-        console.log('getsightingscountbyspeciesgroup', res)
-
         let statisticsItem: StatisticsItem;
         let statisticsItems: StatisticsItem[] = [];
 

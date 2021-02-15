@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { forkJoin, Subscription } from 'rxjs';
+import { Chart } from 'chart.js';
+import { Category, StatisticsItem } from 'src/app/models/statistics';
+import { NumberProxyPipe } from 'src/app/pipes/number-proxy.pipe';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import { filter, map, mergeMap } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-overview-child1',
@@ -7,14 +15,161 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./overview-child1.component.scss']
 })
 
-export class OverviewChild1Component implements OnInit {
+export class OverviewChild1Component implements OnInit, AfterViewInit {
 
   pageTitle: string;
+  currentLanguage: string = this.translate.currentLang;
+  data$;
+  subscription: Subscription;
 
-  constructor(private route: ActivatedRoute) { }
+  @ViewChild('myCanvas') canvasRef: ElementRef;
+  chart: any[] = [];
+
+  graphLabels: string[] = [];
+  graphValues: number[] = [];
+
+  graphColors: string[] = [
+    '#a3e4d7',
+    '#81b0d0',
+    '#5abad1',
+    '#264992',
+    '#91d0ce',
+    '#3f97c2',
+    '#274b93',
+    '#131a55',
+    '#afdccc',
+    '#56b9d2',
+    '#3984b6',
+    '#172068',
+  ]
+
+  constructor(
+    private statisticsService: StatisticsService,
+    private translate: TranslateService,
+    private titleService: Title
+  ) { }
 
   ngOnInit(): void {
-    this.pageTitle = this.route.routeConfig.data.text;
+
+    this.translate.onLangChange.subscribe(res => {
+      this.currentLanguage = res.lang;
+    });
+
+    this.getData();
+    this.setPageTitle();
+  }
+
+  ngAfterViewInit() { }
+
+  getData(): void {
+
+    this.data$ = forkJoin([
+      this.statisticsService.getSightingsCountPerSpeciesGroup(),
+      this.statisticsService.getSpeciesGroups()
+    ]).pipe(
+      map(([species, speciesGroups]) => {
+
+        // ---------------------------------------- ***
+
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
+
+        // ---------------------------------------- ***
+
+        let statisticsItem: StatisticsItem;
+        let statisticsItems: StatisticsItem[] = [];
+
+        species.forEach(speciesItem => {
+
+          statisticsItem = {
+            id: speciesItem.id,
+            speciesGroup: getSpeciesGroup(speciesItem.id),
+            sightingCount: speciesItem.sightingCount
+          }
+
+          this.graphValues.push(speciesItem.sightingCount);
+
+          statisticsItems.push(statisticsItem);
+
+        });
+
+
+        // build chart by language TODO: refactor
+
+        if (this.currentLanguage === 'no') {
+          this.buildChart(speciesGroups.map(sg => sg.labelNorwegian));
+        }
+        else {
+          this.buildChart(speciesGroups.map(sg => sg.labelEnglish));
+        }
+
+        this.translate.onLangChange.subscribe(response => {
+
+          if (response.lang === 'no') {
+            this.buildChart(speciesGroups.map(sg => sg.labelNorwegian));
+          }
+          else {
+            this.buildChart(speciesGroups.map(sg => sg.labelEnglish));
+          }
+
+        });
+
+        //this.buildChart();
+        return statisticsItems.sort((a, b) => b.sightingCount - a.sightingCount);
+
+      })
+    );
+
+  }
+
+  buildChart(labels: string[]): void {
+
+    Chart.defaults.global.defaultFontFamily = 'zabal';
+    Chart.defaults.global.defaultFontColor = 'black';
+    Chart.defaults.global.defaultFontStyle = '500';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.legend.position = 'left';
+
+    this.chart = new Chart('myCanvas', {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            data: this.graphValues,
+            borderColor: '#fff',
+            backgroundColor: this.graphColors,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            display: false
+          }],
+          yAxes: [{
+            display: false
+          }],
+        }
+      }
+    });
+
+  }
+
+  setPageTitle(): void {
+
+    this.translate.stream(['statistics.overviewStats_heading_1']).subscribe(res => {
+
+      this.pageTitle = res['statistics.overviewStats_heading_1'];
+      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
+
+    });
+    
   }
 
 }

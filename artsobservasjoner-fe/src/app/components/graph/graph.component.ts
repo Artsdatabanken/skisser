@@ -1,11 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Chart } from 'chart.js';
-import { forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { TableRow } from 'src/app/models/reusable';
-import { Category, StatisticsItem } from 'src/app/models/statistics';
-import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-graph',
@@ -18,90 +12,11 @@ export class GraphComponent implements AfterViewInit {
   @ViewChild('barCanvas') barCanvas;
   barChart: any;
 
-  data$;
-  currentLanguage: string;
-
-  constructor(
-    private statisticsService: StatisticsService,
-    private translate: TranslateService
-  ) { }
+  constructor(  ) { }
 
   //ngOnInit(): void { }
 
   ngAfterViewInit() {
-
-    this.translate.onLangChange.subscribe(res => {
-      this.currentLanguage = res.lang;
-    });
-
-    this.statisticsService.getSightingsCountPerSpeciesGroup().subscribe(r => console.log('xxx', r));
-
-    this.data$ = forkJoin([
-      this.statisticsService.getSightingsCountPerSpeciesGroup(),
-      this.statisticsService.getSpeciesGroups()
-    ]).pipe(
-      map(([species, speciesGroups]) => {
-
-        // ---------------------------------------- ***
-
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
-
-        const getSpeciesGroupByLanguage = (id: number): string => {
-
-          console.log('TEST', id)
-
-          const tempSpeciesGroup = speciesGroups.find(speciesGroup => speciesGroup.id === id);
-          let speciesGroup: string;
-
-          if (this.currentLanguage === 'no') {
-            speciesGroup = tempSpeciesGroup['labelNorwegian'];
-          }
-          else {
-            speciesGroup = tempSpeciesGroup['labelEnglish'];
-          }
-
-          return speciesGroup;
-        }
-
-        // ---------------------------------------- ***
-
-        let statisticsItem: StatisticsItem;
-        let statisticsItems: StatisticsItem[] = [];
-        let temp: TableRow<any>[] = [];
-        let tempItem: any;
-
-        species.forEach(speciesItem => {
-
-          statisticsItem = {
-            id: speciesItem.id,
-            speciesGroup: getSpeciesGroup(speciesItem.id),
-            sightingCount: speciesItem.sightingCount,
-          }
-
-          statisticsItems.push(statisticsItem);
-
-          tempItem = {
-            values: {
-              speciesGroup: getSpeciesGroupByLanguage(speciesItem.id),
-              sightingCount: speciesItem.sightingCount
-            }
-          }
-
-          temp.push(tempItem);
-
-        });
-
-        console.log('statisticsItems', statisticsItems)
-        console.log('temp', temp)
-        return temp;
-
-      })
-    );
-
-
-
     this.barChartMethod();
   }
 

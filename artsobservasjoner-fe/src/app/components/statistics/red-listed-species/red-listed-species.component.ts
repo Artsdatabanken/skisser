@@ -29,7 +29,7 @@ export class RedListedSpeciesComponent implements OnInit {
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
 
-      l.lang === 'no' ? this.translationParamValue1 = 'rødlistede arter' : this.translationParamValue1 = 'endangered species';
+      l.lang === 'no' ? this.translationParamValue1 = 'rødlistede arter' : this.translationParamValue1 = 'redlisted species';
       l.lang === 'no' ? this.translationParamValue2 = 'artsgruppe' : this.translationParamValue2 = 'species group';
 
     });
