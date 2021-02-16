@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -13,7 +15,10 @@ export class LayoutService {
   defaultDropdownText: string;
   dropdownLinkText: Subject<string> = new Subject<string>();
 
-  constructor() {
+  constructor(
+    private titleService: Title,
+    private translate: TranslateService
+  ) {
     this.showDropdownPane = false;
     this.defaultDropdownText = 'Volumstatistikk';
   }
@@ -31,4 +36,21 @@ export class LayoutService {
   propagateDropdownLinkText(dropdownLinkText: string): void {
     this.dropdownLinkText.next(dropdownLinkText); // propagate the new state
   }
+
+
+  setPageTitle(key: string): string {
+
+    let pageTitle: string;
+
+    this.translate.stream([key]).subscribe(res => {
+
+      pageTitle = res[key];
+      this.titleService.setTitle(`${pageTitle} - Artsobservasjoner`);
+
+    });
+
+    return pageTitle;
+
+  }
+
 }

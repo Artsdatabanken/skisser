@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
 import { Category, StatisticsItem } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
   selector: 'app-overview-child1',
@@ -42,6 +43,7 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
   ]
 
   constructor(
+    private layoutService: LayoutService,
     private statisticsService: StatisticsService,
     private translate: TranslateService,
     private titleService: Title
@@ -54,7 +56,8 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
     });
 
     this.getData();
-    this.setPageTitle();
+    this.pageTitle = this.layoutService.setPageTitle('statistics.overviewStats_heading_1');
+
   }
 
   ngAfterViewInit() { }
@@ -159,15 +162,15 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
 
   }
 
-  setPageTitle(): void {
+  // setPageTitle(): void {
 
-    this.translate.stream(['statistics.overviewStats_heading_1']).subscribe(res => {
+  //   this.translate.stream(['statistics.overviewStats_heading_1']).subscribe(res => {
 
-      this.pageTitle = res['statistics.overviewStats_heading_1'];
-      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
+  //     this.pageTitle = res['statistics.overviewStats_heading_1'];
+  //     this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
 
-    });
+  //   });
     
-  }
+  // }
 
 }

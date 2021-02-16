@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
   selector: 'app-overview-child6',
@@ -11,10 +11,11 @@ export class OverviewChild6Component implements OnInit {
 
   pageTitle: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private layoutService: LayoutService) { }
 
   ngOnInit(): void {
-    this.pageTitle = this.route.routeConfig.data.text;
-  }
+  
+    this.pageTitle = this.layoutService.setPageTitle('statistics.overviewStats_heading_6');
 
+  }
 }

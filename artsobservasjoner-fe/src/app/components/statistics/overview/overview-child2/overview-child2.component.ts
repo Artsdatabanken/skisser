@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category, ImageStatisticsItem } from 'src/app/models/statistics';
+import { LayoutService } from 'src/app/services/layout.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class OverviewChild2Component implements OnInit {
   subscription: Subscription;
 
   constructor(
+    private layoutService: LayoutService,
     private statisticsService: StatisticsService,
     private translate: TranslateService,
     private titleService: Title
@@ -31,7 +33,7 @@ export class OverviewChild2Component implements OnInit {
       this.currentLanguage = res.lang;
     });
 
-    this.setPageTitle();
+    this.pageTitle = this.layoutService.setPageTitle('statistics.overviewStats_heading_2');
     this.getData();
   
   }
@@ -72,17 +74,6 @@ export class OverviewChild2Component implements OnInit {
 
       })
     );
-
-  }
-
-  setPageTitle(): void {
-
-    this.translate.stream(['statistics.overviewStats_heading_2']).subscribe(res => {
-
-      this.pageTitle = res['statistics.overviewStats_heading_2'];
-      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
-
-    });
 
   }
 
