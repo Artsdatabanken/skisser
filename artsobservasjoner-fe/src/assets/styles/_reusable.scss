@@ -750,11 +750,12 @@
 
     &__button {
         @include customVar(background-color, transparent);
+        @include customVar(background-color, clrAccent);
         @include customVar(border-color, clrAccent);
-        @include customVar(color, clrAccent);
+        @include customVar(color, clrWhite);
         @include customVar(font-family, fontPrimary);
         //background-color: #d5f5e3;
-        background-image: url(../images/iconChevronColorDown.png);
+        background-image: url(../images/iconChevronWhiteDown.png);
         background-position: right 30px center;
         background-repeat: no-repeat;
         background-size: 20px;
@@ -774,20 +775,20 @@
         transition: background-image 0.3s;
 
         &:hover {
-            @include customVar(background-color, clrAccent);
+            @include customVar(background-color, clrTransparent);
             @include customVar(border-color, clrAccent);
-            @include customVar(color, clrWhite);
-            background-image: url(../images/iconChevronWhiteDown.png);
+            @include customVar(color, clrAccent);
+            background-image: url(../images/iconChevronDown.png);
         }
 
         &--active {
-            background-image: url(../images/iconChevronColorUp.png);
+            background-image: url(../images/iconChevronWhiteUp.png);
         
             &:hover {
-                @include customVar(background-color, clrAccent);
-                @include customVar(border-color, clrAccent);
-                @include customVar(color, clrWhite);
-                background-image: url(../images/iconChevronWhiteUp.png);
+                @include customVar(background-color, clrTransparent);
+            @include customVar(border-color, clrAccent);
+            @include customVar(color, clrAccent);
+                background-image: url(../images/iconChevronUp.png);
             }
         }
 
@@ -851,6 +852,7 @@
     &__link {
         @include customVar(border-bottom-color, clrWhite);
         @include customVar(color, clrAccent);
+        @include customVar(color, clrBlack);
         border-bottom-style: solid;
         border-bottom-width: 2px;
         cursor: pointer;
@@ -871,7 +873,7 @@
         &:active,
         &--active {
             @include customVar(background-color, paletteColor0);
-            @include customVar(color, clrPrimary);
+            @include customVar(color, clrAccent);
             display: block;
             width: 100%;
         }
