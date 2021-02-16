@@ -3,7 +3,12 @@
 export interface StatisticsItem {
     id: number;
     speciesGroup?: Category;
-    sightingCount?: number;
+    count?: number;
+}
+
+export interface ImageStatisticsItem extends StatisticsItem {
+    imageCount: number;
+    imageCountWithOpenLicence: number;
 }
 
 export interface ValidatedDataItem extends StatisticsItem {

@@ -56,6 +56,8 @@
         "tableCaption_redlistedSpeciesData": "Antall observasjoner i rødliste kategori etter artsgruppe",
         "tableCaption_alienSpeciesData": "Antall observasjoner av fremmede arter etter artsgruppe",
         "tableHeading_speciesGroup": "Artsgruppe",
+        "tableHeading_imageCount": "Antall bilder",
+        "tableHeading_imageCountWithOpenLicence": "Antall bilder med åpen lisens",
         "tableHeading_riskGroup": "Risikokategori",
         "tableHeading_sightingsCount": "Antall observasjoner",
         "tableHeading_qualityChecked": "Kvalitetssjekket av validator*",

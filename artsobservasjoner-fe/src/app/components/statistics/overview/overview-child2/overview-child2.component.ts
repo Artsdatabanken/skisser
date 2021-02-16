@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { forkJoin, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Category, ImageStatisticsItem } from 'src/app/models/statistics';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-overview-child2',
@@ -10,11 +15,75 @@ import { ActivatedRoute } from '@angular/router';
 export class OverviewChild2Component implements OnInit {
 
   pageTitle: string;
+  currentLanguage: string = this.translate.currentLang;
+  data$;
+  subscription: Subscription;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private statisticsService: StatisticsService,
+    private translate: TranslateService,
+    private titleService: Title
+  ) { }
 
   ngOnInit(): void {
-    this.pageTitle = this.route.routeConfig.data.text;
+
+    this.translate.onLangChange.subscribe(res => {
+      this.currentLanguage = res.lang;
+    });
+
+    this.setPageTitle();
+    this.getData();
+  
+  }
+
+  getData(): void {
+
+    this.data$ = forkJoin([
+      this.statisticsService.getImageCountPerSpeciesGroup(),
+      this.statisticsService.getSpeciesGroups()
+    ]).pipe(
+      map(([species, speciesGroups]) => {
+
+        // ---------------------------------------- ***
+
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
+
+        // ---------------------------------------- ***
+
+        let statisticsItem: ImageStatisticsItem;
+        let statisticsItems: ImageStatisticsItem[] = [];
+
+        species.forEach(speciesItem => {
+
+          statisticsItem = {
+            id: speciesItem.id,
+            speciesGroup: getSpeciesGroup(speciesItem.id),
+            imageCount: speciesItem.imageCount,
+            imageCountWithOpenLicence: speciesItem.imageCountWithOpenLicence,
+          }
+
+          statisticsItems.push(statisticsItem);
+
+        });
+
+        return statisticsItems.sort((a, b) => b.count - a.count);
+
+      })
+    );
+
+  }
+
+  setPageTitle(): void {
+
+    this.translate.stream(['statistics.overviewStats_heading_2']).subscribe(res => {
+
+      this.pageTitle = res['statistics.overviewStats_heading_2'];
+      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
+
+    });
+
   }
 
 }

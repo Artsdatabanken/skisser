@@ -1,13 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
 import { Category, StatisticsItem } from 'src/app/models/statistics';
-import { NumberProxyPipe } from 'src/app/pipes/number-proxy.pipe';
 import { StatisticsService } from 'src/app/services/statistics.service';
-import { filter, map, mergeMap } from 'rxjs/operators';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-overview-child1',
@@ -85,10 +83,10 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
           statisticsItem = {
             id: speciesItem.id,
             speciesGroup: getSpeciesGroup(speciesItem.id),
-            sightingCount: speciesItem.sightingCount
+            count: speciesItem.count
           }
 
-          this.graphValues.push(speciesItem.sightingCount);
+          this.graphValues.push(speciesItem.count);
 
           statisticsItems.push(statisticsItem);
 
@@ -116,7 +114,7 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
         });
 
         //this.buildChart();
-        return statisticsItems.sort((a, b) => b.sightingCount - a.sightingCount);
+        return statisticsItems.sort((a, b) => b.count - a.count);
 
       })
     );

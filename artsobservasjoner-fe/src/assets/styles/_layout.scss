@@ -18,6 +18,7 @@
         @include customVar(background-color, paletteColor0);
         align-self: flex-end;
         justify-self: stretch;
+        margin-top: 100px;
         width: 100%;
     }
 
@@ -738,6 +739,7 @@ main {
 
     &--spa {
         @extend .main-grid--page;
+        grid-template-columns: 1fr 6fr 1fr;
     }
 
     &--mega {

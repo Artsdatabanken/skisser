@@ -6,17 +6,9 @@
 
     <div class="page__intro">
         <app-artsobs-numbers></app-artsobs-numbers>
-        <br>
     </div>
 
     <div class="page__content" style="min-height: 90vh;">
-
-        <p style="width: 60ch;">
-            Her trenger vi kanskje litt tekst? Sed id felis id justo faucibus fermentum nec fringilla tortor. Duis et
-            auctor est, quis posuere odio.
-        </p>
-
-        <br>
 
         <div class="dropdown-container">
 
@@ -30,7 +22,7 @@
                 <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
                     [attr.aria-expanded]="activeDropdown">
 
-                    <a *ngFor="let child of children" class="dropdown__link"
+                    <a *ngFor="let child of children" class="dropdown__link dropdown__link--stats"
                         routerLink="/observations/statistics/overview-statistics/{{child.path}}"
                         routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
                         {{ child.data.title | translate }}
@@ -41,6 +33,13 @@
             </div>
 
         </div>
+
+        <p style="width: 60ch;">
+            Her trenger vi kanskje litt tekst? Sed id felis id justo faucibus fermentum nec fringilla tortor. Duis et
+            auctor est, quis posuere odio.
+        </p>
+
+        <br>
 
         <router-outlet></router-outlet>
 

@@ -764,10 +764,10 @@
 // dropdown
 
 .dropdown-container {
-    @include customVar(background-color, paletteColor0);
-    @include customVar(background-color, clrWash);
-    background-color: rgb(250, 250, 250);
-    padding: 15px 30px;
+    // @include customVar(background-color, paletteColor0);
+    // @include customVar(background-color, clrWash);
+    // background-color: rgb(250, 250, 250);
+    // padding: 15px 30px;
 }
 
 .dropdown {
@@ -843,10 +843,10 @@
 
         &:before,
         &::before {
-            @include customVar(border-bottom-color, paletteColor2);
+            @include customVar(border-bottom-color, clrWash);
             border-left: 18px solid transparent;
             border-right: 18px solid transparent;
-            //border-bottom: 18px solid #d5f5e3;
+            border-bottom: 18px solid rgb(245, 245, 245);
             content: "";
             height: 0;
             width: 0;
@@ -868,28 +868,18 @@
         @include customVar(color, clrAccent);
         border-bottom-style: solid;
         border-bottom-width: 2px;
-        background-image: url(../images/iconStatsBlue.png);
-        background-position: left 30px center;
-        background-repeat: no-repeat;
-        background-size: 20px;
         cursor: pointer;
         display: block;
         font-size: 17px;
         font-weight: 600;
         padding: 15px 30px 15px 60px;
 
-        // &:before {
-        //     background-image: url(../images/iconStatsBlue.png);
-        //     background-position: left center;
-        //     background-repeat: no-repeat;
-        //     background-size: 20px;
-        //     content: '';
-        //     display: inline-flex;
-        //     margin: 0 7px 0 0;
-        //     vertical-align: middle;
-        //     height: 20px;
-        //     width: 20px;
-        // }
+        &--stats {
+            background-image: url(../images/iconStatsBlue.png);
+            background-position: left 30px center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+        }
 
         &:hover,
         &:focus,

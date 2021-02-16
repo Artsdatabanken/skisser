@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
 import { ApiService } from './api.service';
-import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic } from '../models/statistics';
+import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -35,6 +35,7 @@ export class StatisticsService {
   assessmentCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
 
   overviewStatsApi1: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
+  overviewStatsApi2: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
 
   // totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
   // totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
@@ -68,7 +69,7 @@ export class StatisticsService {
           validatedSighting = {
             id: d.speciesGroupId,
             speciesGroup: null,
-            sightingCount: d.sightingCount,
+            count: d.sightingCount,
             sightingTaxonCount: d.sightingTaxonCount,
             sightingWithMediaCount: d.sightingWithMediaCount,
             validatedSightingCount: d.validatedSightingCount,
@@ -252,7 +253,42 @@ export class StatisticsService {
 
             statisticsItem = {
               id: element.speciesGroupId,
-              sightingCount: element.sightingCount
+              count: element.sightingCount
+            }
+
+            statisticsItems.push(statisticsItem);
+
+          }
+
+        });
+
+        return statisticsItems;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getImageCountPerSpeciesGroup(): Observable<ImageStatisticsItem[]> {
+
+    return this.httpClient.get(this.overviewStatsApi2).pipe(
+      map((res: any) => {
+
+        let statisticsItem: ImageStatisticsItem;
+        let statisticsItems: ImageStatisticsItem[] = [];
+
+        res.imagesPerSpeciesGroupStatistics.forEach(element => {
+
+          console.log('res', res.imagesPerSpeciesGroupStatistics)
+
+          if (element.speciesGroupId !== null) {
+
+            statisticsItem = {
+              id: element.speciesGroupId,
+              imageCount: element.imageCount,
+              imageCountWithOpenLicence: element.imageCountWithOpenLicense
             }
 
             statisticsItems.push(statisticsItem);
