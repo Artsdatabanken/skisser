@@ -607,7 +607,7 @@
     &__image {
         background-image: url(../images/logos/artsobservasjoner6.png);
         background-image: url(../images/logos/artsobservasjoner7.png);
-        background-image: url(../images/logos/artsobservasjoner8.png);
+        background-image: url(../images/logos/artsobservasjoner.png);
         background-position: left center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -1114,14 +1114,14 @@ main {
     &--2x {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 50px 25px;
+        grid-gap: 0 40px;
         align-items: start;
 
         & > * {
             
         }
 
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1366px) {
             grid-template-columns: 1fr;
         }
     }

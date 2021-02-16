@@ -765,6 +765,8 @@
 
 .dropdown-container {
     @include customVar(background-color, paletteColor0);
+    @include customVar(background-color, clrWash);
+    background-color: rgb(250, 250, 250);
     padding: 15px 30px;
 }
 
@@ -775,9 +777,11 @@
     width: max-content;
 
     &__button {
-        @include customVar(border-color, clrBlack);
+        @include customVar(background-color, transparent);
+        @include customVar(border-color, clrAccent);
+        @include customVar(color, clrAccent);
         @include customVar(font-family, fontPrimary);
-        background-color: #d5f5e3;
+        //background-color: #d5f5e3;
         background-image: url(../images/iconChevronDown.png);
         background-position: right 30px center;
         background-repeat: no-repeat;
@@ -821,8 +825,9 @@
     }
 
     &__pane {
-        @include customVar(background-color, paletteColor2);
+        @include customVar(background-color, clrWash);
         //background: #d5f5e3;
+
         border-color: transparent;
         border-top-style: solid;
         border-style: solid;
@@ -859,25 +864,42 @@
     }
 
     &__link {
-        // @include customVar(background-color, paletteColor1);
-        //background: #e8f8f5;
         @include customVar(border-bottom-color, clrWhite);
-        //@include customVar(border-top-color, paletteColor1);
+        @include customVar(color, clrAccent);
         border-bottom-style: solid;
         border-bottom-width: 2px;
+        background-image: url(../images/iconStatsBlue.png);
+        background-position: left 30px center;
+        background-repeat: no-repeat;
+        background-size: 20px;
         cursor: pointer;
         display: block;
         font-size: 17px;
         font-weight: 600;
-        padding: 15px 45px;
+        padding: 15px 30px 15px 60px;
+
+        // &:before {
+        //     background-image: url(../images/iconStatsBlue.png);
+        //     background-position: left center;
+        //     background-repeat: no-repeat;
+        //     background-size: 20px;
+        //     content: '';
+        //     display: inline-flex;
+        //     margin: 0 7px 0 0;
+        //     vertical-align: middle;
+        //     height: 20px;
+        //     width: 20px;
+        // }
 
         &:hover,
         &:focus,
         &:active,
         &--active {
-            @include customVar(background-color, clrBlack);
-            @include customVar(color, clrWhite);
+            @include customVar(background-color, paletteColor0);
+            //@include customVar(border-bottom-color, clrAccent);
+            //@include customVar(color, clrBlack);
             display: block;
+            font-weight: 700;
             width: 100%;
         }
 
