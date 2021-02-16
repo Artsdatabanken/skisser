@@ -11,9 +11,11 @@ $vars: (
 
   clrBlack: #444444,
   clrWhite: #ffffff, 
-  clrPrimary: #232323,
+  clrPrimary: #180470,
   clrAccent: #311b92,
   clrWash: rgb(245, 245,245),
+  clrShadow: #eafaf1,
+  clrVeil: #eaf2f8,
 
   paletteColor0: #ededed,
   paletteColor1: #e3e3e3,
@@ -36,18 +38,14 @@ $vars: (
   --clrPrimary: #{map-get($vars, clrPrimary)};
   --clrAccent: #{map-get($vars, clrAccent)};
   --clrWash: #{map-get($vars, clrWash)};
+  --clrShadow: #{map-get($vars, clrShadow)};
+  --clrVeil: #{map-get($vars, clrVeil)};
    
   --paletteColor0: #{map-get($vars, paletteColor0)};
   --paletteColor1: #{map-get($vars, paletteColor1)};
   --paletteColor2: #{map-get($vars, paletteColor2)};
   --paletteColor3: #{map-get($vars, paletteColor3)};
   --paletteColor4: #{map-get($vars, paletteColor4)};
-
-  
-  --siteClr1: #{map-get($vars, siteClr1)};
-  --siteClr2: #{map-get($vars, siteClr2)};
-  --siteClr3: #{map-get($vars, siteClr3)};
-  --siteClr4: #{map-get($vars, siteClr4)};
   
   --backgroundColor: #{map-get($vars, paletteColor0)};
   --textColor: #{map-get($vars, clrBlack)};

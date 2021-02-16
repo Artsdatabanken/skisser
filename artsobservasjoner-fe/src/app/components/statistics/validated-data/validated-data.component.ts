@@ -54,7 +54,7 @@ export class ValidatedDataComponent implements OnInit {
           validatedDataItem = {
             id: speciesItem.id,
             speciesGroup: getSpeciesGroup(speciesItem.id),
-            sightingCount: speciesItem.sightingCount,
+            count: speciesItem.count,
             sightingTaxonCount: speciesItem.sightingTaxonCount,
             sightingWithMediaCount: speciesItem.sightingWithMediaCount,
             validatedSightingCount: speciesItem.validatedSightingCount,

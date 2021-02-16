@@ -18,7 +18,7 @@
 
         <div *ngIf="data$ | async as redlistedSpecies; else noData">
 
-            <table aria-describedby="redlist">
+            <table class="tbl" aria-describedby="redlist">
                 <caption>{{ 'shared.tableCaption_redlistedSpeciesData' | translate }}</caption>
                 <thead>
                     <tr>
@@ -69,75 +69,6 @@
                         <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
                     </tr>
                 </tbody>
-
-
-                <!-- <tbody *ngFor="let species of redlistedSpecies | keyvalue">
-                    <tr>
-                        <th scope="row" role="rowheader" colspan="6">
-                            {{ currentLanguage == 'no' ? species.key.labelNorwegian :
-                            species.key.labelEnglish }}
-                        </th>
-                    </tr>
-
-                    <tr *ngFor="let data of species.value.data">
-                        <td></td>
-                        <td style="width: auto;">{{ data.assessmentCategory.code }}</td>
-                        <td class="td-number">{{ data.sightingsCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.imagesCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.validatedCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
-                    </tr>
-                </tbody> -->
-
-
-                <!-- <tbody *ngFor="let species of redlistedSpecies | keyvalue">
-                    <tr *ngFor="let data of species.value.data; let i = index">
-                        <th scope="row" role="rowheader">
-                            {{ species.value.data.length }}
-                            {{ species.value.data.length - species.value.data.length + 1 }}
-                            <br>
-                            {{ currentLanguage == 'no' ? data.speciesGroup.labelNorwegian :
-                            data.speciesGroup.labelEnglish }}
-                        </th>
-                    </tr>
-
-                    <tr *ngFor="let data of species.value.data">
-              
-                        
-                        <td style="width: auto;">{{ data.assessmentCategory.code }}</td>
-                        <td class="td-number">{{ data.sightingsCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.imagesCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.validatedCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
-                    </tr>
-                </tbody> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- <tbody *ngFor="let species of redlistedSpecies | keyvalue">
-                    <tr *ngFor="let data of species.value.data">
-                        <th scope="row" role="rowheader" class="">
-                            {{ currentLanguage == 'no' ? data.speciesGroup.labelNorwegian :
-                            data.speciesGroup.labelEnglish }}
-                        </th>
-                        <td style="width: auto;">{{ data.assessmentCategory.code }}</td>
-                        <td class="td-number">{{ data.sightingsCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.imagesCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.validatedCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
-                    </tr>
-                </tbody> -->
-
             </table>
             
             <p>

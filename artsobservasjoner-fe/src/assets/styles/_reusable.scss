@@ -18,8 +18,11 @@
 
 .card {
     @include customVar(background-color, transparent);
-    @include customVar(color, clrBlack);
+    @include customVar(border-color, clrAccent);
+    //@include customVar(color, clrBlack);
+    @include customVar(color, clrAccent);
     background-image: url(../images/iconChevronRight.png);
+    background-image: url(../images/iconChevronColorRight.png);
     background-position: right 30px center;
     background-repeat: no-repeat;
     background-size: 11px 20px;
@@ -30,14 +33,11 @@
     padding: 20px 45px 20px 30px;
     text-align: left;
 
-    // &--active {
-    //     @include customVar(background-color, clrAqua4Original);
-    //     @include customVar(border-color, clrAqua4Original);
-    // }
-
     &:hover {
-        @include customVar(background-color, clrBlack);
-        @include customVar(border-color, clrBlack);
+        // @include customVar(background-color, clrBlack);
+        // @include customVar(border-color, clrBlack);
+        @include customVar(background-color, clrAccent);
+        @include customVar(border-color, clrAccent);
         @include customVar(color, clrWhite);
         background-image: url(../images/iconChevronWhiteRight.png);
     }
@@ -77,8 +77,8 @@
 
 .button {
     @include customVar(background-color, transparent);
-    @include customVar(border-color, clrBlack);
-    @include customVar(color, clrBlack);
+    @include customVar(border-color, clrAccent);
+    @include customVar(color, clrAccent);
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
@@ -110,8 +110,8 @@
     }
 
     &--primary {
-        @include customVar(background-color, clrBlack);
-        @include customVar(border-color, clrBlack);
+        @include customVar(background-color, clrAccent);
+        @include customVar(border-color, clrAccent);
         @include customVar(color, clrWhite);
         text-align: center !important;
     }
@@ -125,8 +125,8 @@
     }
 
     &--cta {
-        @include customVar(background-color, clrPrimary);
-        @include customVar(border-color, clrPrimary);
+        @include customVar(background-color, clrAccent);
+        @include customVar(border-color, clrAccent);
         @include customVar(color, clrWhite);
         padding: 12px 22px;
     }
@@ -357,7 +357,7 @@
 
     &__subtitle {
         font-size: 18px;
-        font-weight: 400 !important;
+        font-weight: 500 !important;
         padding: 0 30px 10px;
         margin: 5px 0 15px !important;
         order: 2;
@@ -403,33 +403,11 @@
         &--noImg {
             @include customVar(background-color, paletteColor1);
             @include customVar(background-color, clrWash);
+            @include customVar(background-color, clrVeil);
             background-image: url(../images/iconNoImage.png);
             background-size: 84px;
         }
 
-        &--noImg1 {
-            @include customVar(background-color, clrWash);
-            background-image: url(../images/gallery/artPa.png);
-            background-size: 128px;
-        }
-
-        &--noImg2 {
-            @include customVar(background-color, clrWash);
-            background-image: url(../images/gallery/artP.png);
-            background-size: 68px;
-        }
-
-        &--noImg3 {
-            @include customVar(background-color, clrWash);
-            background-image: url(../images/gallery/artAR.png);
-            background-size: 128px;
-        }
-
-        &--noImg7 {
-            @include customVar(background-color, clrWash);
-            background-image: url(../images/gallery/artOrca.png);
-            background-size: 128px;
-        }
     }
 
     &__copyright {
@@ -703,15 +681,16 @@
     }
 
     &__button {
+        @include customVar(color, clrAccent);
         @include customVar(font-family, fontSecondary);
         background-color: transparent;
-        background-image: url(../images/iconChevronDown.png);
+        background-image: url(../images/iconChevronColorDown.png);
         background-position: right 15px center;
         background-repeat: no-repeat;
         background-size: 19px;
 
         border: none;
-        @include customVar(border-bottom-color, paletteColor1);
+        @include customVar(border-bottom-color, clrShadow);
         border-bottom-style: solid;
         border-bottom-width: 2px;
 
@@ -732,9 +711,9 @@
         }
 
         &--active {
-            background-image: url(../images/iconChevronUp.png);
+            background-image: url(../images/iconChevronColorUp.png);
             @include customVar(border-bottom-color, transparent);
-            font-weight: 700;
+            @include customVar(color, clrPrimary);
         }
 
         @media screen and (max-width: 1200px) {
@@ -763,13 +742,6 @@
 
 // dropdown
 
-.dropdown-container {
-    // @include customVar(background-color, paletteColor0);
-    // @include customVar(background-color, clrWash);
-    // background-color: rgb(250, 250, 250);
-    // padding: 15px 30px;
-}
-
 .dropdown {
     background-color: transparent;
     display: block;
@@ -782,7 +754,7 @@
         @include customVar(color, clrAccent);
         @include customVar(font-family, fontPrimary);
         //background-color: #d5f5e3;
-        background-image: url(../images/iconChevronDown.png);
+        background-image: url(../images/iconChevronColorDown.png);
         background-position: right 30px center;
         background-repeat: no-repeat;
         background-size: 20px;
@@ -801,9 +773,22 @@
         text-align: left;
         transition: background-image 0.3s;
 
+        &:hover {
+            @include customVar(background-color, clrAccent);
+            @include customVar(border-color, clrAccent);
+            @include customVar(color, clrWhite);
+            background-image: url(../images/iconChevronWhiteDown.png);
+        }
+
         &--active {
-            background-image: url(../images/iconChevronUp.png);
-            //border: 2px solid transparent;
+            background-image: url(../images/iconChevronColorUp.png);
+        
+            &:hover {
+                @include customVar(background-color, clrAccent);
+                @include customVar(border-color, clrAccent);
+                @include customVar(color, clrWhite);
+                background-image: url(../images/iconChevronWhiteUp.png);
+            }
         }
 
         &:focus,
@@ -886,11 +871,20 @@
         &:active,
         &--active {
             @include customVar(background-color, paletteColor0);
-            //@include customVar(border-bottom-color, clrAccent);
-            //@include customVar(color, clrBlack);
+            @include customVar(color, clrPrimary);
             display: block;
-            font-weight: 700;
             width: 100%;
+        }
+
+        &::after,
+        &:after {
+            @include customVar(background-color, clrAccent);
+            content: "";
+            display: block;
+            height: 2px;
+            margin-top: -3px;
+            transition: width 0.3s;
+            width: 0;
         }
 
         &:last-child {

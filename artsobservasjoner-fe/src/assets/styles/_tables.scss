@@ -59,9 +59,13 @@ table {
         padding: 10px 20px;
     }
 
-    td:empty {
-    }
+}
 
+/*table*/
+
+// helpers
+
+.tbl {
     tbody:nth-child(even) {
         background-color: #e8f8f5;
 
@@ -70,10 +74,6 @@ table {
         }
     }
 }
-
-/*table*/
-
-// helpers
 
 .tbl-md {
     font-size: 17px;
