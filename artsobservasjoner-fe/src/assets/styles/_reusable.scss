@@ -407,7 +407,6 @@
             background-image: url(../images/iconNoImage.png);
             background-size: 84px;
         }
-
     }
 
     &__copyright {
@@ -749,13 +748,12 @@
     width: max-content;
 
     &__button {
-        @include customVar(background-color, transparent);
         @include customVar(background-color, clrAccent);
         @include customVar(border-color, clrAccent);
         @include customVar(color, clrWhite);
+        @include customVar(color, clrBlack);
         @include customVar(font-family, fontPrimary);
-        //background-color: #d5f5e3;
-        background-image: url(../images/iconChevronWhiteDown.png);
+        background-image: url(../images/iconChevronDown.png);
         background-position: right 30px center;
         background-repeat: no-repeat;
         background-size: 20px;
@@ -777,17 +775,17 @@
         &:hover {
             @include customVar(background-color, clrTransparent);
             @include customVar(border-color, clrAccent);
-            @include customVar(color, clrAccent);
+            @include customVar(color, clrBlack);
             background-image: url(../images/iconChevronDown.png);
         }
 
         &--active {
-            background-image: url(../images/iconChevronWhiteUp.png);
-        
+            background-image: url(../images/iconChevronUp.png);
+
             &:hover {
                 @include customVar(background-color, clrTransparent);
-            @include customVar(border-color, clrAccent);
-            @include customVar(color, clrAccent);
+                @include customVar(border-color, clrAccent);
+                @include customVar(color, clrBlack);
                 background-image: url(../images/iconChevronUp.png);
             }
         }
@@ -798,7 +796,8 @@
         }
 
         @media screen and (max-width: 1600px) {
-            padding: 20px 30px;
+            background-position: right 25px center;
+            padding: 20px 75px 20px 30px;
         }
 
         @media screen and (max-width: 1200px) {
@@ -873,7 +872,7 @@
         &:active,
         &--active {
             @include customVar(background-color, paletteColor0);
-            @include customVar(color, clrAccent);
+            //@include customVar(color, clrAccent);
             display: block;
             width: 100%;
         }
