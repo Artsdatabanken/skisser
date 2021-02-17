@@ -104,6 +104,7 @@ import { TableComponent } from './reusable/table/table.component';
 import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
 import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
+import { IntersectionComponent } from './reusable/intersection/intersection.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -202,6 +203,7 @@ import { OverviewChild5Component } from './components/statistics/overview/overvi
     NewKeyValuePipe,
     GraphComponent,
     OverviewChild5Component,
+    IntersectionComponent,
   ],
   imports: [
     BrowserModule,

@@ -328,9 +328,8 @@ $graphColor6: #3c1434;
 .chart-container {
     margin: 100px auto;
     position: relative;
-    height: 50vh;
+    min-height: 50vh;
     width: 100%;
 }
 
-canvas {
-}
+canvas {}

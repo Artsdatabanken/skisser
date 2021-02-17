@@ -2,11 +2,11 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Title } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
 import { Category, StatisticsItem } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { LayoutService } from 'src/app/services/layout.service';
+import { GRAPHCOLORS } from 'src/app/data/graphs';
 
 @Component({
   selector: 'app-overview-child1',
@@ -26,27 +26,12 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
 
   graphLabels: string[] = [];
   graphValues: number[] = [];
-
-  graphColors: string[] = [
-    '#a3e4d7',
-    '#81b0d0',
-    '#5abad1',
-    '#264992',
-    '#91d0ce',
-    '#3f97c2',
-    '#274b93',
-    '#131a55',
-    '#afdccc',
-    '#56b9d2',
-    '#3984b6',
-    '#172068',
-  ]
+  graphColors: string[] = GRAPHCOLORS;
 
   constructor(
     private layoutService: LayoutService,
     private statisticsService: StatisticsService,
-    private translate: TranslateService,
-    private titleService: Title
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -95,7 +80,6 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
 
         });
 
-
         // build chart by language TODO: refactor
 
         if (this.currentLanguage === 'no') {
@@ -140,6 +124,7 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
           {
             data: this.graphValues,
             borderColor: '#fff',
+            borderWidth: 0,
             backgroundColor: this.graphColors,
             fill: true
           }
@@ -161,16 +146,5 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
     });
 
   }
-
-  // setPageTitle(): void {
-
-  //   this.translate.stream(['statistics.overviewStats_heading_1']).subscribe(res => {
-
-  //     this.pageTitle = res['statistics.overviewStats_heading_1'];
-  //     this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
-
-  //   });
-    
-  // }
 
 }

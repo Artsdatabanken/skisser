@@ -13,10 +13,10 @@
 
         <div class="loop loop--cards">
 
-            <app-card [type]="'link'" [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
-            </app-card>
+            <app-intersection [type]="'link'" [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
+            </app-intersection>
 
-            <app-card [type]="'link'" [url]="'news'" [text]="'menu.menu_news' | translate"></app-card>
+            <app-intersection [type]="'link'" [url]="'news'" [text]="'menu.menu_news' | translate"></app-intersection>
 
         </div>
 

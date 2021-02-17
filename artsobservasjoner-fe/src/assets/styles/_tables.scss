@@ -4,7 +4,7 @@ table {
     border-collapse: collapse;
     font-size: 17px;
     margin: 50px auto 50px;
-    table-layout: fixed;
+    //table-layout: fixed;
     width: 100%;
 
     @media screen and (max-width: 1200px) {
@@ -21,10 +21,12 @@ table {
     }
 
     th {
+        @include customVar(border-bottom-color, clrAccent);
         @include customVar(font-family, fontSecondary);
-        border-bottom: 2px solid #48c9b0;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
         font-size: 19px;
-        font-weight: 600;
+        font-weight: 500;
         text-align: left;
 
         @media screen and (max-width: 1200px) {
@@ -33,8 +35,8 @@ table {
         }
 
         &[scope="row"] {
+            @include customVar(background-color, clrWash2);
             @include customVar(font-family, fontPrimary);
-            background-color: rgb(250, 250, 250);
             border: none;
             font-size: 17px;
             font-weight: 700;
@@ -46,8 +48,8 @@ table {
     }
 
     td {
+        @include customVar(background-color, clrWash2);
         @include customVar(border-bottom-color, clrWhite);
-        background-color: rgb(250, 250, 250);
         border-bottom-style: solid;
         border-bottom-width: 2px;
         margin-bottom: 2px;
@@ -67,10 +69,10 @@ table {
 
 .tbl {
     tbody:nth-child(even) {
-        background-color: #e8f8f5;
+        @include customVar(background-color, clrShadow);
 
         td {
-            background-color: #e8f8f5;
+            @include customVar(background-color, clrShadow);
         }
     }
 }
@@ -105,10 +107,10 @@ table {
     background: #e9f7ef;
 }
 
-.tr-shadow {
-    @include customVar(background-color, paletteColor1);
-    background: #e8f8f5;
-}
+// .tr-shadow {
+//     @include customVar(background-color, paletteColor1);
+//     background: #e8f8f5;
+// }
 
 .td-sm {
     min-width: 10vw;

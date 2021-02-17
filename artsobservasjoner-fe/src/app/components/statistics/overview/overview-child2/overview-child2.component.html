@@ -7,8 +7,8 @@
         <div *ngIf="data$ | async as data">
 
             <br>
-            
-            <table style="min-width: 60%; width: auto;">
+
+            <table style="min-width: 70%; width: auto;">
                 <thead>
                     <tr>
                         <th>
@@ -19,6 +19,9 @@
                         </th>
                         <th class="th-number">
                             {{ 'shared.tableHeading_imageCountWithOpenLicence' | translate }}
+                        </th>
+                        <th class="th-number">
+                            %
                         </th>
                     </tr>
                 </thead>
@@ -34,9 +37,24 @@
                         <td class="td-number">
                             {{ dataItem.imageCountWithOpenLicence | numberProxy }}
                         </td>
+                        <td class="td-number">
+                            {{ getPercentage(dataItem.imageCount, dataItem.imageCountWithOpenLicence) }} %
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
+        </div>
+
+        <div class="loop loop--2x">
+
+            <div class="chart-container">
+                <canvas id="canvas1" #canvas1></canvas>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="canvas2" #canvas2></canvas>
+            </div>
 
         </div>
 

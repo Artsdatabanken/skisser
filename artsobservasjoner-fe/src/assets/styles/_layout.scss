@@ -38,7 +38,7 @@
 // header
 
 .header {
-    @include customVar(background-color, paletteColor0);
+    @include customVar(background-color, clrLayout);
     display: grid;
     grid-template-columns: 3fr auto auto;
     grid-template-rows: 80px;
@@ -112,10 +112,10 @@
 // navigation
 
 .hamburger {
+    @include customVar(background-color, clrStd1);
     @include customVar(padding-right, paddingStd);
-    @include customVar(border-color, clrBlack);
-    background-color: #abebc6;
-    border-color: #abebc6;
+    @include customVar(border-color, clrStd1);
+    @include customVar(color, clrBlack);
     border-radius: 50px;
     border-style: solid;
     border-width: 2px;
@@ -134,15 +134,17 @@
 
     &:active,
     &:focus {
-        @include customVar(border-color, clrBlack);
-        border-style: solid;
-        border-width: 2px;
         outline: none;
 
         @media screen and (max-width: 1024px) {
             @include customVar(background-color, transparent);
             @include customVar(border-color, transparent);
         }
+    }
+
+    &:hover {
+        @include customVar(background-color, transparent);
+        @include customVar(border-color, clrBlack);
     }
 
     // childs & elements
@@ -168,7 +170,7 @@
 }
 
 .menu {
-    @include customVar(background-color, paletteColor0);
+    @include customVar(background-color, clrLayout);
     position: absolute;
     top: -1000vh;
     left: 0;
@@ -213,7 +215,7 @@
     // modifiers
 
     &--primary {
-        @include customVar(background-color, paletteColor0);
+        // @include customVar(background-color, clrLayout);
     }
 
     &--top {
@@ -294,16 +296,6 @@
         }
     }
 
-    &__heading-text {
-        @media screen and (max-width: 1200px) {
-            display: none;
-        }
-
-        @media screen and (max-width: 1024px) {
-            display: none;
-        }
-    }
-
     &__heading-link {
         &::before,
         &:before {
@@ -314,11 +306,10 @@
             content: "";
             display: inline-block;
             margin-top: -7px;
-            margin-right: 12px;
+            margin-right: 6px;
             vertical-align: middle;
             height: 14px;
             width: 8px;
-            //display: none;
 
             @media screen and (max-width: 1024px) {
                 margin-right: 9px;
@@ -326,14 +317,6 @@
                 width: 6px;
             }
         }
-
-        // @media screen and (min-width: 1201px) {
-        //     display: none;
-        // }
-
-        // @media screen and (min-width: 1025px) {
-        //     display: none;
-        // }
     }
 
     &__section {
@@ -369,9 +352,10 @@
         @include customVar(border-bottom-color, paletteColor1);
         border-bottom-style: solid;
         border-bottom-width: 2px;
+        border: none;
         align-self: stretch;
         justify-self: stretch;
-        padding: 10px 0;
+        padding: 5px 0;
         text-decoration: none;
 
         @media screen and (max-width: 1920px) {
@@ -665,7 +649,7 @@
 // footer
 
 .footer {
-    @include customVar(background-color, clrLight);
+    @include customVar(background-color, clrLayout);
     padding: 45px;
 
     &__grid {
@@ -852,7 +836,7 @@ main {
     }
 }
 
-// page
+// page & child pages
 
 .page {
     grid-area: pageContent;
@@ -981,7 +965,7 @@ main {
     }
 }
 
-/* list of elements... buttons, cards, teasers... etc*/
+/* for loops, list of elements... buttons, cards, teasers... etc*/
 
 .loop {
     display: flex;
@@ -1121,7 +1105,6 @@ main {
         align-items: start;
 
         & > * {
-            
         }
 
         @media screen and (max-width: 1366px) {
@@ -1134,7 +1117,6 @@ main {
 
 .frontpage {
     &__grid {
-        // border: 2px dotted green;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 0.25fr;
@@ -1209,7 +1191,6 @@ main {
     }
 
     &__section {
-        // border: 1px dashed blue;
         display: grid;
         grid-template-columns: 1fr 1fr;
         text-align: center;
@@ -1249,7 +1230,9 @@ main {
         }
 
         &:nth-child(even) {
-            @include customVar(background-color, paletteColor0);
+            @include customVar(background-color, clrWash1);
+
+            @include customVar(background-color, clrShadow);
         }
 
         @media screen and (max-width: 1024px) {

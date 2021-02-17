@@ -161,11 +161,11 @@ dl {
   }
 
   dt {
-    background: #311b92;
-    @include customVar(color, clrWhite);
+    @include customVar(background-color, clrAccent);
+    @include customVar(color, clrBlack);
     @include customVar(font-family, fontSecondary);
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     padding: 2px;
     text-align: center;
     width: 100%;

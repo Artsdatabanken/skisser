@@ -14,9 +14,9 @@
         <div class="loop loop--cards">
 
 
-            <app-card [type]="'link'" [url]="menuItem.path" [text]="menuItem.heading | translate"
+            <app-intersection [type]="'link'" [url]="menuItem.path" [text]="menuItem.heading | translate"
                 *ngFor="let menuItem of subMenu">
-            </app-card>
+            </app-intersection>
 
 
         </div>

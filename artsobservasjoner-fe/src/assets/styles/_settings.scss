@@ -9,19 +9,19 @@ $vars: (
   fontSecondary: #{"barlowsemicondensed",  Consolas,  monospace},
   fontAccent: #{"robotomono",  Consolas, monospace},
 
-  clrBlack: #333333,
+  clrLayout: #ededed,
+  clrBlack: #444444,
   clrWhite: #ffffff, 
-  clrPrimary: #180470,
-  clrAccent: #40E0D0, // #311b92, //#0E6251, //#311b92,
-  clrWash: rgb(245, 245,245),
-  clrShadow: #eafaf1,
-  clrVeil: #eaf2f8,
+  clrAccent: #48c9b0,  
+  clrStd1: #abebc6,
+  clrStd2: #a3e4d7,
+  clrShadow: #eafaf1, 
+  clrWash1: #f5f5f5,
+  clrWash2: #fafafa,
 
   paletteColor0: #ededed,
   paletteColor1: #e3e3e3,
   paletteColor2: #cccccc,
-  paletteColor3: #bbbbbb,
-  paletteColor4: #555555,
 
   paddingStd: 15px,
   transparent: transparent,
@@ -33,19 +33,20 @@ $vars: (
   --fontSecondary: #{map-get($vars, fontSecondary)};
   --fontAccent: #{map-get($vars, fontAccent)};
 
+  --clrLayout: #{map-get($vars, clrLayout)};
   --clrBlack: #{map-get($vars, clrBlack)};
   --clrWhite: #{map-get($vars, clrWhite)};
-  --clrPrimary: #{map-get($vars, clrPrimary)};
   --clrAccent: #{map-get($vars, clrAccent)};
-  --clrWash: #{map-get($vars, clrWash)};
+  --clrStd1: #{map-get($vars, clrStd1)};
+  --clrStd2: #{map-get($vars, clrStd2)};
   --clrShadow: #{map-get($vars, clrShadow)};
-  --clrVeil: #{map-get($vars, clrVeil)};
+  --clrWash1: #{map-get($vars, clrWash1)};
+  --clrWash2: #{map-get($vars, clrWash2)};
    
   --paletteColor0: #{map-get($vars, paletteColor0)};
   --paletteColor1: #{map-get($vars, paletteColor1)};
   --paletteColor2: #{map-get($vars, paletteColor2)};
-  --paletteColor3: #{map-get($vars, paletteColor3)};
-  --paletteColor4: #{map-get($vars, paletteColor4)};
+  
   
   --backgroundColor: #{map-get($vars, paletteColor0)};
   --textColor: #{map-get($vars, clrBlack)};
@@ -59,16 +60,3 @@ $vars: (
   #{$property}: map-get($vars, $varName);
   #{$property}: var(--#{$varName});
 }
-
-.color1 { color: #ffffff}
-.color2 { color: #81b0d0}
-.color3 { color: #5abad1}
-.color4 { color: #264992}
-.color5 { color: #91d0ce}
-.color6 { color: #3f97c2}
-.color7 { color: #274b93}
-.color8 { color: #131a55}
-.color9 { color: #afdccc}
-.color10 { color: #56b9d2}
-.color11 { color: #3984b6}
-.color12 { color: #172068}

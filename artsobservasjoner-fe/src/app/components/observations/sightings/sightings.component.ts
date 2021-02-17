@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class SightingsComponent implements OnInit {
 
   isActive: boolean = false;
-  display: string = 'map';
+  display: string = 'card';
 
   @Input() location: string | null;
   @Input() take: number | null = 0;

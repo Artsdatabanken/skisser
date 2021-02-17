@@ -14,15 +14,13 @@
     }
 }
 
-// cards
+// intersection
 
-.card {
+.intersection {
     @include customVar(background-color, transparent);
-    @include customVar(border-color, clrAccent);
-    //@include customVar(color, clrBlack);
-    @include customVar(color, clrAccent);
+    @include customVar(border-color, clrBlack);
+    @include customVar(color, clrBlack);
     background-image: url(../images/iconChevronRight.png);
-    background-image: url(../images/iconChevronColorRight.png);
     background-position: right 30px center;
     background-repeat: no-repeat;
     background-size: 11px 20px;
@@ -34,10 +32,8 @@
     text-align: left;
 
     &:hover {
-        // @include customVar(background-color, clrBlack);
-        // @include customVar(border-color, clrBlack);
-        @include customVar(background-color, clrAccent);
-        @include customVar(border-color, clrAccent);
+        @include customVar(background-color, clrBlack);
+        @include customVar(border-color, clrBlack);
         @include customVar(color, clrWhite);
         background-image: url(../images/iconChevronWhiteRight.png);
     }
@@ -77,8 +73,8 @@
 
 .button {
     @include customVar(background-color, transparent);
-    @include customVar(border-color, clrAccent);
-    @include customVar(color, clrAccent);
+    @include customVar(border-color, clrBlack);
+    @include customVar(color, clrBlack);
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
@@ -326,9 +322,8 @@
     &:active,
     &:focus,
     &:hover {
-        @include customVar(background-color, clrPrimary);
-        @include customVar(background-color, clrPrimary);
-        @include customVar(border-color, clrPrimary);
+        @include customVar(background-color, clrBlack);
+        @include customVar(border-color, clrBlack);
         @include customVar(color, clrWhite);
         border-style: solid;
         border-width: 2px;
@@ -338,8 +333,7 @@
 /*items / gallery*/
 
 .item {
-    @include customVar(background-color, paletteColor0);
-    background-color: #e9f7ef;
+    @include customVar(background-color, clrShadow);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -401,9 +395,7 @@
         }
 
         &--noImg {
-            @include customVar(background-color, paletteColor1);
-            @include customVar(background-color, clrWash);
-            @include customVar(background-color, clrVeil);
+            @include customVar(background-color, clrWash1);
             background-image: url(../images/iconNoImage.png);
             background-size: 84px;
         }
@@ -748,9 +740,8 @@
     width: max-content;
 
     &__button {
-        @include customVar(background-color, clrAccent);
+        @include customVar(background-color, transparent);
         @include customVar(border-color, clrAccent);
-        @include customVar(color, clrWhite);
         @include customVar(color, clrBlack);
         @include customVar(font-family, fontPrimary);
         background-image: url(../images/iconChevronDown.png);
@@ -774,7 +765,7 @@
 
         &:hover {
             @include customVar(background-color, clrTransparent);
-            @include customVar(border-color, clrAccent);
+            @include customVar(border-color, clrBlack);
             @include customVar(color, clrBlack);
             background-image: url(../images/iconChevronDown.png);
         }
@@ -784,7 +775,7 @@
 
             &:hover {
                 @include customVar(background-color, clrTransparent);
-                @include customVar(border-color, clrAccent);
+                @include customVar(border-color, clrBlack);
                 @include customVar(color, clrBlack);
                 background-image: url(../images/iconChevronUp.png);
             }
@@ -810,7 +801,7 @@
     }
 
     &__pane {
-        @include customVar(background-color, clrWash);
+        @include customVar(background-color, clrWash1);
         //background: #d5f5e3;
 
         border-color: transparent;
@@ -828,7 +819,7 @@
 
         &:before,
         &::before {
-            @include customVar(border-bottom-color, clrWash);
+            @include customVar(border-bottom-color, clrWash1);
             border-left: 18px solid transparent;
             border-right: 18px solid transparent;
             border-bottom: 18px solid rgb(245, 245, 245);
@@ -861,7 +852,7 @@
         padding: 15px 30px 15px 60px;
 
         &--stats {
-            background-image: url(../images/iconStatsBlue.png);
+            background-image: url(../images/iconStatsColor.png);
             background-position: left 30px center;
             background-repeat: no-repeat;
             background-size: 20px;
@@ -871,8 +862,7 @@
         &:focus,
         &:active,
         &--active {
-            @include customVar(background-color, paletteColor0);
-            //@include customVar(color, clrAccent);
+            @include customVar(background-color, paletteColor1);
             display: block;
             width: 100%;
         }
@@ -924,3 +914,4 @@
         transition: border 0.5s;
     }
 }
+
