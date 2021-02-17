@@ -112,10 +112,10 @@
 // navigation
 
 .hamburger {
-    @include customVar(background-color, clrStd1);
+    @include customVar(background-color, clrBlack);
     @include customVar(padding-right, paddingStd);
-    @include customVar(border-color, clrStd1);
-    @include customVar(color, clrBlack);
+    @include customVar(border-color, clrBlack);
+    @include customVar(color, clrWhite);
     border-radius: 50px;
     border-style: solid;
     border-width: 2px;
@@ -145,6 +145,7 @@
     &:hover {
         @include customVar(background-color, transparent);
         @include customVar(border-color, clrBlack);
+        @include customVar(color, clrBlack);
     }
 
     // childs & elements
@@ -166,6 +167,18 @@
 
     &__box {
         justify-self: end;
+    }
+
+    &__inner {
+        &,
+        &::before,
+        &::after {
+            @include customVar(background-color, clrWhite);
+
+            .hamburger:hover & {
+                @include customVar(background-color, clrBlack);
+            }
+        }
     }
 }
 
