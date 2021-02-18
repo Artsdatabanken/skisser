@@ -122,7 +122,6 @@
 // icons
 
 .icon {
-  
 }
 
 // scroll up
@@ -305,7 +304,62 @@
 // numbers
 
 .numbers-box {
+    // border: 1px solid red;
     text-align: center;
+
+    @media screen and (max-width: 1200px) {
+        // display: flex;
+        // flex-direction: row;
+        // align-items: flex-start;
+        // justify-content: flex-start;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+
+        & > * {
+            //border: 1px solid blue;
+            align-self: center;
+            justify-self: flex-start; 
+            text-align: left;
+        }
+    }
+
+    &__icon {
+        @include customVar(background-color, clrPrimary);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 50px;
+        border-radius: 500px;
+        height: 110px;
+        //margin: 0 auto;
+        text-align: center;
+        width: 110px;
+
+        &--totalSightings {
+            background-image: url(../images/gallery/statsBinoculars.png);
+        }
+
+        &--totalSpecies {
+            background-image: url(../images/gallery/statsLeaf.png);
+        }
+
+        &--totalImages {
+            background-image: url(../images/gallery/statsCamera.png);
+        }
+
+        &--totalUsers {
+            background-image: url(../images/gallery/statsBinoculars.png);
+        }
+
+        @media screen and (max-width: 1200px) {
+            background-size: 35px;
+            margin: 0 auto 10px;
+            height: 70px;
+            width: 70px;
+        }
+    }
+
+    &__wrapper {
+    }
 
     &__item {
         @include customVar(font-family, fontSecondary);
@@ -335,41 +389,6 @@
         .numbers-box--small & {
             font-size: 18px;
             font-weight: 500;
-        }
-    }
-
-    &__icon {
-        @include customVar(background-color, clrPrimary);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 50px;
-        border-radius: 500px;
-        height: 110px;
-        margin: 0 auto;
-        text-align: center;
-        width: 110px;
-
-        &--totalSightings {
-            background-image: url(../images/gallery/statsBinoculars.png);
-        }
-
-        &--totalSpecies {
-            background-image: url(../images/gallery/statsLeaf.png);
-        }
-
-        &--totalImages {
-            background-image: url(../images/gallery/statsCamera.png);
-        }
-
-        &--totalUsers {
-            background-image: url(../images/gallery/statsBinoculars.png);
-        }
-
-        @media screen and (max-width: 1200px) {
-            background-size: 35px;
-            margin: 0 auto 10px;
-            height: 70px;
-            width: 70px;
         }
     }
 }

@@ -29,7 +29,6 @@
     border-width: 2px;
     border-radius: 50px;
     display: block;
-    padding: 16px 45px 16px 30px;
     padding: 15px 45px 15px 30px;
     text-align: left;
 
@@ -49,12 +48,11 @@
 
     // elements
 
-    &__heading {
+    &__text {
         @include customVar(font-family, fontPrimary);
         color: inherit;
         font-size: 21px;
         font-weight: 500 !important;
-        order: 2;
 
         @media screen and (max-width: 1024px) {
             font-size: 17px;
@@ -62,13 +60,6 @@
         }
     }
 
-    &__text {
-        font-size: 16px;
-        margin-top: 60px;
-        order: 3;
-        text-align: left;
-        display: none;
-    }
 }
 
 /*button*/
