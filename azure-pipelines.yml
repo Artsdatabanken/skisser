@@ -25,7 +25,7 @@ steps:
     script: 'cp --verbose artsobservasjoner-fe/.htaccess artsobservasjoner-fe/dist/artsobservasjoner'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'artsobservasjoner-fe/dist'
+    rootFolderOrFile: 'artsobservasjoner-fe/dist/artsobservasjoner'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/drop.zip'
