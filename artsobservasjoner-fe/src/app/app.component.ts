@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import defaultLanguage from "./../assets/i18n/no.json";
 
 @Component({
   selector: 'app-root',
@@ -44,12 +45,15 @@ export class AppComponent {
     public translate: TranslateService
   ) {
 
-    translate.addLangs(['no', 'en']);
-    translate.setDefaultLang('en');
-    translate.use('en');
+    // translate.addLangs(['no', 'en']);
+    // translate.setDefaultLang('en');
+    // translate.use('en');
 
-    const browserLang = translate.getBrowserLang();
+    
+    // const browserLang = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|no/) ? browserLang : 'en');
+
+    this.handleLanguage();
 
   }
 
@@ -58,6 +62,34 @@ export class AppComponent {
     this.setPageLayout();
     this.setPageTitle();
 
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  handleLanguage(): void {
+    
+    // DEFINE SUPPORTED LANGUAGES
+    this.translate.addLangs(['no', 'en']);
+
+    // DEFINE AND USE DEFAULT LANGUAGE
+    // this.translate.setTranslation('no', defaultLanguage);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+
+    console.log('LANGUAGE', localStorage.getItem('LANGUAGE'))
+
+    if (localStorage.getItem('LANGUAGE')) {
+      this.translate.setDefaultLang(localStorage.getItem('LANGUAGE'));
+      this.translate.use(localStorage.getItem('LANGUAGE'));
+    }
+    else {
+      this.translate.setDefaultLang('en');
+      this.translate.use('en');
+      localStorage.setItem('LANGUAGE', 'en');
+    }
+    
   }
 
   setPageTitle(): void {
@@ -75,7 +107,7 @@ export class AppComponent {
           this.pageId = routeData.id;
 
           this.translate.stream(['menu.' + routeData.title]).subscribe(res => {
-   
+
             this.pageTitle = res[`menu.${routeData.title}`];
 
             if (this.pageId === 'frontpage') {
@@ -111,10 +143,6 @@ export class AppComponent {
 
         })
     );
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   getLayoutStyle(layout: string): string {

@@ -62,8 +62,6 @@ export class StatisticsService {
     return this.httpClient.get(this.validatedDataApi).pipe(
       map((res: any) => {
 
-        console.log('validated data', res)
-
         res['validatedDataStatistics'].forEach(d => {
 
           validatedSighting = {

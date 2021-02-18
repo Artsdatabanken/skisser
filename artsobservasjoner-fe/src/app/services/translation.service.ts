@@ -16,8 +16,8 @@ export class TranslationService {
 
   constructor(private translate: TranslateService) { }
 
-  // if we use a button
   switchLanguage(selectedLanguageCode: string): void {
+    localStorage.setItem('LANGUAGE', selectedLanguageCode);
     this.translate.use(selectedLanguageCode); // IMPORTANT 
   }
 

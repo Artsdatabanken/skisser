@@ -62,9 +62,25 @@ export class ValidatedDataComponent implements OnInit {
             percentageSightedVsValidated: speciesItem.percentageSightedVsValidated,
             percentageValidatedVsApproved: speciesItem.percentageValidatedVsApproved,
           }
-
+          
           validatedData.push(validatedDataItem);
 
+        });
+
+        if (this.currentLanguage === 'no') {
+          validatedData = validatedData.sort((a, b) => a.speciesGroup.labelNorwegian.localeCompare(b.speciesGroup.labelNorwegian));
+        }
+        else {
+          validatedData = validatedData.sort((a, b) => a.speciesGroup.labelEnglish.localeCompare(b.speciesGroup.labelEnglish));
+        }
+
+        this.translate.onLangChange.subscribe(res => {
+          if (res.lang === 'no') {
+            validatedData = validatedData.sort((a, b) => a.speciesGroup.labelNorwegian.localeCompare(b.speciesGroup.labelNorwegian));
+          }
+          else {
+            validatedData = validatedData.sort((a, b) => a.speciesGroup.labelEnglish.localeCompare(b.speciesGroup.labelEnglish));
+          }
         });
 
         return validatedData;
