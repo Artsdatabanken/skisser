@@ -1,0 +1,93 @@
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
+export class HttpError {
+  static BadRequest = 400;
+  static Unauthorized = 401;
+  static Forbidden = 403;
+  static NotFound = 404;
+  static TimeOut = 408;
+  static Conflict = 409;
+  static InternalServerError = 500;
+}
+
+@Injectable()
+export class HttpErrorInterceptor implements HttpInterceptor {
+
+  // constructor() { }
+
+  // intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  //   return next.handle(request);
+  // }
+
+  constructor(private router: Router) { }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+
+          let errorMsg: string = '';
+          const logFormat = 'background: black; color: white; padding: 10px';
+
+          if (error instanceof HttpErrorResponse) {
+            switch (error.status) {
+
+              case HttpError.BadRequest:
+                console.error('%c Bad Request 400', logFormat);
+                break;
+
+              case HttpError.Unauthorized:
+                console.error('%c Unauthorized 401', logFormat);
+                window.location.href = '/login' + window.location.hash;
+                break;
+
+              case HttpError.NotFound:
+                //show error toast message
+                console.error('%c Not Found 404', logFormat);
+
+                this.router.navigate(['']);
+                break;
+
+              case HttpError.TimeOut:
+                // Handled in AnalyticsExceptionHandler
+                console.error('%c TimeOut 408', logFormat);
+                break;
+
+              case HttpError.Forbidden:
+                console.error('%c Forbidden 403', logFormat);
+                break;
+
+              case HttpError.InternalServerError:
+                console.error('%c big bad 500', logFormat);
+                break;
+            }
+          }
+
+          if (error.error instanceof ErrorEvent) {
+            console.log('This is client side error', logFormat);
+            errorMsg = `Error: ${error.error.message}`;
+          }
+          else {
+            console.log('This is server side error', logFormat);
+            errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+          }
+
+          console.log('ERROR: ', errorMsg);
+          return throwError(errorMsg);
+
+        }),
+
+      )
+  }
+
+}

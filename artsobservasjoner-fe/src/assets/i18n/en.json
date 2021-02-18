@@ -81,7 +81,7 @@
         "overviewNumbers_species": "Registered species",
         "overviewNumbers_images": "Added images",
         "overviewNumbers_users": "Users",
-        "overviewStats_buttonText": "Choose statistics",
+        "overviewStats_buttonText": "Select statistics",
         "overviewStats_heading_1": "Sightings count per species group",
         "overviewStats_heading_2": "Image count per species group and images count per species group with open license",
         "overviewStats_heading_3": "Sightings count from Artsobservasjoner.no and findings in Artskart per year since 2007",
@@ -92,6 +92,6 @@
         "overviewStats_heading_8": "Monthly sightings per species group in total and per year",
         "overviewStats_heading_9": "Reporting overview per species group in total and per year",
         "overviewStats_heading_10": "Monthly registrations per species group in total and per year",
-        "validatedData_tableDescription": "The table(s) show(s) the number of sighted taxa and the number of sightings per species group."
+        "validatedData_tableDescription": "The table(s) show(s) the number of sighted taxa and the sightings count per species group."
     }
 }

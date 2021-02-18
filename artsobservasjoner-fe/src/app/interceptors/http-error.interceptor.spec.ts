@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CacheInterceptor } from './cache.interceptor';
+import { HttpErrorInterceptor } from './http-error.interceptor';
 
-describe('CacheInterceptor', () => {
+describe('HttpErrorInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      CacheInterceptor
+      HttpErrorInterceptor
       ]
   }));
 
   it('should be created', () => {
-    const interceptor: CacheInterceptor = TestBed.inject(CacheInterceptor);
+    const interceptor: HttpErrorInterceptor = TestBed.inject(HttpErrorInterceptor);
     expect(interceptor).toBeTruthy();
   });
 });

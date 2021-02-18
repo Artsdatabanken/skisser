@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -105,6 +105,7 @@ import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
 import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { IntersectionComponent } from './reusable/intersection/intersection.component';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -223,6 +224,11 @@ import { IntersectionComponent } from './reusable/intersection/intersection.comp
   ],
   providers: [
     //{ provide: LOCALE_ID, useValue: 'no' }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+  },
   ],
   bootstrap: [AppComponent]
 })
