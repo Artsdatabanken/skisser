@@ -19,6 +19,10 @@ steps:
     npm install
     ng build
   displayName: 'npm install and build'
+
+- task: CmdLine@2
+  inputs:
+    script: 'cp --verbose .htaccess artsobservasjoner-fe/dist/artsobservasjoner'
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: 'artsobservasjoner-fe/dist'
