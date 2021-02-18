@@ -2,24 +2,17 @@
 
     <!--intro-->
 
-    <div class="frontpage__grid">
-
+    <div class="frontpage__intro">
+        
         <div>
             <p class="frontpage__paragraph frontpage__paragraph--sm">
                 {{ 'frontpage.frontpage_introText1' | translate }}
             </p>
 
             <br>
+            
+            <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
 
-            <div class="loop loop--2">
-                <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
-                &nbsp;
-                <!-- <a class="" routerLink="/register"> {{ 'account.account_register' | translate }} </a> -->
-            </div>
-
-        </div>
-        <div>
-            <img class="puffin" src="../../../assets/images/puffin.png" alt="Puffin">
         </div>
 
     </div>
@@ -66,21 +59,18 @@
 
     <!--stats-->
 
-    <div class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
+    <div class="frontpage__section">
 
-        <div class="frontpage__cell frontpage__cell--no-padding">
+        <div class="loop loop--stats">
 
-            <div class="loop loop--stats">
-
-                <app-total-count-statistics [statistics]="'totalSightings'"
-                    [text]="'statistics.overviewNumbers_sightings' | translate" [icon]="true"></app-total-count-statistics>
-                <app-total-count-statistics [statistics]="'totalSpecies'"
-                    [text]="'statistics.overviewNumbers_species' | translate" [icon]="true"></app-total-count-statistics>
-                <app-total-count-statistics [statistics]="'totalImages'"
-                    [text]="'statistics.overviewNumbers_images' | translate" [icon]="true"></app-total-count-statistics>
-
-
-            </div>
+            <app-total-count-statistics [statistics]="'totalSightings'"
+                [text]="'statistics.overviewNumbers_sightings' | translate" [icon]="true">
+            </app-total-count-statistics>
+            <app-total-count-statistics [statistics]="'totalSpecies'"
+                [text]="'statistics.overviewNumbers_species' | translate" [icon]="true">
+            </app-total-count-statistics>
+            <app-total-count-statistics [statistics]="'totalImages'"
+                [text]="'statistics.overviewNumbers_images' | translate" [icon]="true"></app-total-count-statistics>
 
         </div>
 
@@ -90,14 +80,14 @@
 
     <!--shortcuts-->
 
-    <div
-        class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l frontpage__section--colored2">
+    <div class="frontpage__section frontpage__section--narrow">
 
         <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_shortcuts' | translate }}</h2>
 
-        <div class="loop loop--cards">
+        <div class="loop loop--intersections">
 
-            <app-intersection [type]="'link'" [url]="'observations/statistics'" [text]="'menu.menu_statistics' | translate">
+            <app-intersection [type]="'link'" [url]="'observations/statistics'"
+                [text]="'menu.menu_statistics' | translate">
             </app-intersection>
             <app-intersection [type]="'link'" [url]="'observations/statistics/redlisted-species'"
                 [text]="'menu.menu_statistics_redlistedSpecies' | translate">
@@ -123,55 +113,25 @@
 
     <!--news & articles-->
 
-    <div class="frontpage__section frontpage__section--column frontpage__section--height-l frontpage__section--width-l">
+    <div class="frontpage__section  frontpage__section--narrow">
 
         <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_news' | translate }}</h2>
 
         <app-news [take]="'4'" [location]="'frontpage'"></app-news>
 
-        <div class="centered aligncenter">
+        <!-- <div class="centered aligncenter">
             <br><br>
             <a class="button button--primary" routerLink="/news">{{ 'frontpage.frontpage_text_4' | translate }}</a>
-        </div>
+        </div> -->
 
     </div>
 
     <!--news & articles-->
 
-    <!-- What we do -->
-
-    <!-- <div
-        class="frontpage__section frontpage__section--column3 frontpage__section--height-l frontpage__section--width-s frontpage__section--colored1">
-
-        <div class="frontpage__cell">
-            <h2 class="frontpage__heading">Hva vi gjør</h2>
-        </div>
-
-        <div class="frontpage__cell">
-            <h3 class="frontpage__subheading">Arter uten nok data</h3>
-            <p class="frontpage__paragraph frontpage__paragraph--sm">
-                Ut sed tristique dui, id elementum nunc. Duis sed mollis orci, nec viverra es...Morbi ac luctus nibh.
-                Aliquam fermentum ipsum non dapibus consectetur
-            </p>
-
-        </div>
-
-        <div class="frontpage__cell">
-            <h3 class="frontpage__subheading">Artsorakelet</h3>
-            <p class="frontpage__paragraph frontpage__paragraph--sm">
-                Llitora torquent per conubia nostra, per inceptos himenaeos Fusce tincidunt aliquet ultrices. Donec quam
-                ex, lobortis fringilla magna a, venenatis interdum orci.
-            </p>
-        </div>
-
-    </div> -->
-
-    <!-- What we do -->
-
 
     <!--extras-->
 
-    <div class="frontpage__section frontpage__section--height-s frontpage__section--width-s">
+    <div class="frontpage__section">
 
         <div class="frontpage__cell">
             <p class="frontpage__paragraph frontpage__paragraph--md">{{ 'frontpage.frontpage_introText3' | translate }}

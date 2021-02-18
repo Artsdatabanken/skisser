@@ -93,8 +93,6 @@ export class RedListedSpeciesComponent implements OnInit {
 
         });
 
-        console.log('new map', map)
-
         //const result = [...map.values()];
 
         return map;

@@ -142,18 +142,19 @@ export class StatisticsService {
 
         return totalCount;
       }),
-      catchError(error => {
-        console.log('error', error)
-        this.apiService.handleError<TotalCountStatistic[]>('getTotalCountStatistics', [])
-        if (error.error instanceof ErrorEvent) {
-          this.errorMessage = `Error: ${error.error.message}`;
-        }
-        else {
-          this.errorMessage = this.apiService.getServerErrorMessage(error);
-        }
+      // catchError(error => {
 
-        return throwError(this.errorMessage);
-      }),
+      //   this.apiService.handleError<TotalCountStatistic[]>('getTotalCountStatistics', []);
+
+      //   if (error.error instanceof ErrorEvent) {
+      //     this.errorMessage = `Error: ${error.error.message}`;
+      //   }
+      //   else {
+      //     this.errorMessage = this.apiService.getServerErrorMessage(error);
+      //   }
+
+      //   return throwError(this.errorMessage);
+      // }),
       publishReplay(1),
       refCount()
     );
@@ -280,8 +281,6 @@ export class StatisticsService {
         let statisticsItems: ImageStatisticsItem[] = [];
 
         res.imagesPerSpeciesGroupStatistics.forEach(element => {
-
-          console.log('res', res.imagesPerSpeciesGroupStatistics)
 
           if (element.speciesGroupId !== null) {
 

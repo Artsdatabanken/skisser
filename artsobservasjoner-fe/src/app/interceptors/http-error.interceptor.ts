@@ -23,12 +23,6 @@ export class HttpError {
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
 
-  // constructor() { }
-
-  // intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-  //   return next.handle(request);
-  // }
-
   constructor(private router: Router) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -74,11 +68,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           }
 
           if (error.error instanceof ErrorEvent) {
-            console.log('This is client side error', logFormat);
+            console.log('Client side error', logFormat);
             errorMsg = `Error: ${error.error.message}`;
           }
           else {
-            console.log('This is server side error', logFormat);
+            console.log('Server side error', logFormat);
             errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
           }
 

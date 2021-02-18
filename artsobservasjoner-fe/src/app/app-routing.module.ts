@@ -87,7 +87,7 @@ const reportRoutes: Routes = [
         en: 'Sightings register'
       },
       id: 'report',
-      layout: 'page',
+      layout: 'landing',
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
@@ -205,12 +205,8 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Observasjonsdata',
       title: 'menu_observations',
-      translation: {
-        no: 'Observasjonsdata',
-        en: 'Sightings'
-      },
       id: 'observations',
-      layout: 'page',
+      layout: 'landing',
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
@@ -225,10 +221,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Se, søk og filtrer observasjoner',
       title: 'menu_observations_sightings',
-      translation: {
-        no: 'Se, søk og filtrer observasjoner',
-        en: 'View and search in sightings'
-      },
       id: 'sightings',
       layout: 'page',
       rank: 'primary',
@@ -245,10 +237,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Observasjon',
       title: 'menu_observations_sighting',
-      translation: {
-        no: 'Observasjon',
-        en: 'Ssighting'
-      },
       id: 'sighting',
       layout: 'page',
       rank: '',
@@ -266,7 +254,7 @@ const sightingsRoutes: Routes = [
       text: 'Tall og statistikk', 
       title: 'menu_statistics',
       id: 'statistics',
-      layout: 'page',
+      layout: 'landing',
       rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
       parent: 'observations',
       menu: 'mainMenu',
@@ -580,12 +568,8 @@ const userDataRoutes: Routes = [
     data: {
       text: 'Min data',
       title: 'menu_myData',
-      translation: {
-        no: 'Min data',
-        en: 'My data'
-      },
       id: 'my-data',
-      layout: 'page',
+      layout: 'landing',
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
@@ -702,13 +686,9 @@ const aboutRoutes: Routes = [
     component: AboutComponent,
     data: {
       text: 'Om tjenesten', 
-      title: 'menu_about', 
-      translation: {
-        no: 'Om tjenesten',
-        en: 'About'
-      },
+      title: 'menu_about',
       id: 'about',
-      layout: 'page',
+      layout: 'landing',
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
