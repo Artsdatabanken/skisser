@@ -3,15 +3,18 @@
     <!--intro-->
 
     <div class="frontpage__intro">
-        
+
         <div>
             <p class="frontpage__paragraph frontpage__paragraph--sm">
                 {{ 'frontpage.frontpage_introText1' | translate }}
             </p>
 
             <br>
-            
-            <a class="" routerLink="/about/contribute">{{ 'frontpage.frontpage_introText2' | translate }}</a>
+
+            <div class="aligncenter">
+                <a class="button button--cta button--md" routerLink="/about/contribute">{{
+                    'frontpage.frontpage_introText2' | translate }}</a>
+            </div>
 
         </div>
 
@@ -113,18 +116,13 @@
 
     <!--news & articles-->
 
-    <div class="frontpage__section  frontpage__section--narrow">
+    <!-- <div class="frontpage__section  frontpage__section--narrow">
 
         <h2 class="frontpage__heading">{{ 'frontpage.frontpage_headings_news' | translate }}</h2>
 
         <app-news [take]="'4'" [location]="'frontpage'"></app-news>
 
-        <!-- <div class="centered aligncenter">
-            <br><br>
-            <a class="button button--primary" routerLink="/news">{{ 'frontpage.frontpage_text_4' | translate }}</a>
-        </div> -->
-
-    </div>
+    </div> -->
 
     <!--news & articles-->
 
@@ -133,15 +131,12 @@
 
     <div class="frontpage__section">
 
-        <div class="frontpage__cell">
-            <p class="frontpage__paragraph frontpage__paragraph--md">{{ 'frontpage.frontpage_introText3' | translate }}
-            </p>
-        </div>
-        <div class="frontpage__cell" style="text-align: center;">
-            <a style="display: inline-block; margin: 0 auto;" class="button button--cta button--xl button--centered">
-                {{ 'frontpage.frontpage_text_5' | translate }}
-            </a>
-        </div>
+        <p class="frontpage__paragraph frontpage__paragraph--md">{{ 'frontpage.frontpage_introText3' | translate }}
+        </p>
+
+        <a style="display: inline-block; margin: 0 auto;" class="button button--cta button--xl button--centered">
+            {{ 'frontpage.frontpage_text_5' | translate }}
+        </a>
 
     </div>
 
