@@ -6,8 +6,6 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-default
 
 steps:
 - task: NodeTool@0
