@@ -267,7 +267,7 @@ const sightingsRoutes: Routes = [
       title: 'menu_statistics',
       id: 'statistics',
       layout: 'page',
-      rank: 'secondary',
+      rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
       parent: 'observations',
       menu: 'mainMenu',
       metatitle: '',

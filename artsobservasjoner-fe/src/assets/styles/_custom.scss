@@ -352,7 +352,7 @@
     }
 
     &__icon {
-        background-color: #a3e4d7;
+        @include customVar(background-color, clrPrimary);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 50px;

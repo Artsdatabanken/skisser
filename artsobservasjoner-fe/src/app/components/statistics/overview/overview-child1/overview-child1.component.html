@@ -11,20 +11,20 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>
+                            <th scope="col" role="columnheader">
                                 {{ 'shared.tableHeading_speciesGroup' | translate }}
                             </th>
-                            <th class="th-number">
+                            <th scope="col" role="columnheader" class="th-number">
                                 {{ 'shared.tableHeading_sightingsCount' | translate }}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let dataItem of data">
-                            <td>
+                            <th scope="row" role="rowheader">
                                 {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
                                 dataItem.speciesGroup.labelEnglish }}
-                            </td>
+                            </th>
                             <td class="td-number">
                                 {{ dataItem.count | numberProxy }}
                             </td>
@@ -54,7 +54,7 @@
         <!-- <div class="chart-container">
             <canvas id="myCanvas" #myCanvas></canvas>
         </div> -->
-        
+
     </div>
 
 </div>

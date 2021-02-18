@@ -214,6 +214,10 @@
 
     &__footer {
         padding: 30px;
+
+        @media screen and (max-width: 1024px) {
+            padding: 15px 0;
+        }
     }
 }
 
@@ -328,7 +332,7 @@
             width: 8px;
 
             @media screen and (max-width: 1024px) {
-                margin-right: 9px;
+                margin-right: 4px;
                 height: 11px;
                 width: 6px;
             }

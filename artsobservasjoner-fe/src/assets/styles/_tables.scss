@@ -39,7 +39,7 @@ table {
             @include customVar(font-family, fontPrimary);
             border: none;
             font-size: 17px;
-            font-weight: 700;
+            font-weight: 600;
 
             @media screen and (max-width: 1200px) {
                 font-size: 16px;
