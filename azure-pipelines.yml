@@ -14,6 +14,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd artsobservasjoner-fe
     npm install -g @angular/cli
     npm install
     ng build
