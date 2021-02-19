@@ -7,36 +7,36 @@
     <div class="page__content">
 
         <p class="body-text">
-            {{ 'shared.stats_tableDescription_content' | translate: { value1: translationParamValue1, value2:
-            translationParamValue2 } }} {{ 'shared.stats_tableDescription_includedData' | translate }}
+            {{ 'statistics.shared_tableDescription_content' | translate: { value1: translationParamValue1, value2:
+            translationParamValue2 } }} {{ 'statistics.shared_tableDescription_includedData' | translate }}
         </p>
 
         <app-assessment-category [categoryVariant]="'redlistedCategories'"></app-assessment-category>
 
         <br>
-        <p class="body-text"> {{ 'shared.stats_tableDescription_includedDataExplanation' | translate }}</p>
+        <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
 
         <div *ngIf="data$ | async as redlistedSpecies; else noData">
 
             <table class="tbl" aria-describedby="redlist">
-                <caption>{{ 'shared.tableCaption_redlistedSpeciesData' | translate }}</caption>
+                <caption>{{ 'statistics.tableCaption_redlistedSpeciesData' | translate }}</caption>
                 <thead>
                     <tr>
-                        <th>{{ 'shared.tableHeading_speciesGroup' | translate }}</th>
+                        <th>{{ 'statistics.tableHeading_speciesGroup' | translate }}</th>
                         <th scope="col" role="columnheader">
-                            {{ 'shared.tableHeading_riskGroup' | translate }}
+                            {{ 'statistics.tableHeading_riskGroup' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_sightingsCount' | translate }}
+                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_withMedia' | translate }}
+                            {{ 'statistics.tableHeading_withMedia' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_qualityChecked' | translate }}
+                            {{ 'statistics.tableHeading_validated' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_qualityCheckedAndApproved' | translate }}
+                            {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
                         </th>
                     </tr>
                 </thead>
@@ -72,9 +72,9 @@
             </table>
             
             <p>
-                {{ 'shared.stats_tableDescription_excluded' | translate }}
+                {{ 'statistics.shared_tableDescription_excluded' | translate }}
                 <br />
-                {{ 'shared.stats_tableDescription_approved' | translate }}
+                {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
     
             <ul>

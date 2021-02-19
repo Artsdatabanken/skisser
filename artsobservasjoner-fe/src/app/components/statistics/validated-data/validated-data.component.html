@@ -6,34 +6,34 @@
 
     <div class="page__content">
 
-        <p class="body-text"> {{ 'statistics.validatedData_tableDescription' | translate }} </p>
+        <p class="body-text"> {{ 'statistics.tableDescription_validatedData' | translate }} </p>
 
-        <p class="body-text"> {{ 'shared.stats_tableDescription_includedDataExplanation' | translate }} </p>
+        <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }} </p>
 
         <div *ngIf="data$ | async as data; else noData">
 
             <table>
-                <caption>{{ 'shared.tableCaption_validatedDataOriginal' | translate }}</caption>
+                <caption>{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}</caption>
                 <thead>
                     <tr>
                         <th scope="col" role="columnheader">
-                            {{ 'shared.tableHeading_speciesGroup' | translate }}
+                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_sightedTaxonCount' | translate }}
+                            {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_sightingsCount' | translate }}
+                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_withMedia' | translate }}
+                            {{ 'statistics.tableHeading_withMedia' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_qualityChecked' |
+                            {{ 'statistics.tableHeading_validated' |
                             translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'shared.tableHeading_qualityCheckedAndApproved' | translate }}
+                            {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
                         </th>
                     </tr>
                 </thead>
@@ -60,25 +60,25 @@
             <br><br>
 
             <table>
-                <caption>{{ 'shared.tableCaption_validatedData' | translate }}</caption>
+                <caption>{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
                 <tr>
                     <th scope="col" role="columnheader">
-                        {{ 'shared.tableHeading_speciesGroup' | translate }}
+                        {{ 'statistics.tableHeading_speciesGroup' | translate }}
                     </th>
                     <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_sightingsCount' | translate }}
+                        {{ 'statistics.tableHeading_sightingsCount' | translate }}
                     </th>
                     <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_qualityChecked' | translate }}
+                        {{ 'statistics.tableHeading_validated' | translate }}
                     </th>
                     <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_sharedValidatedSightings' | translate }}
+                        {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
                     </th>
                     <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_qualityCheckedAndApproved' | translate }}
+                        {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
                     </th>
                     <th scope="col" role="columnheader" class="th-number">
-                        {{ 'shared.tableHeading_shareValidatedAndApproved' | translate }}
+                        {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
                     </th>
                 </tr>
 
@@ -101,9 +101,9 @@
             </table>
 
             <p>
-                {{ 'shared.stats_tableDescription_excluded' | translate }}
+                {{ 'statistics.shared_tableDescription_excluded' | translate }}
                 <br />
-                {{ 'shared.stats_tableDescription_approved' | translate }}
+                {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
 
             <ul>

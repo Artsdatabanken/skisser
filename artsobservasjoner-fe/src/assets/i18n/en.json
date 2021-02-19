@@ -55,28 +55,8 @@
         "announcements": "Announcements"
     },
     "shared": {
-        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our {{ value }} for updates.",
-        "tableCaption_validatedData": "Number of validated observations per species group",
-        "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
-        "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
-        "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
-        "tableHeading_speciesGroup": "Species group",
-        "tableHeading_imageCount": "Image count",
-        "tableHeading_imageCountWithOpenLicence": "Image count with open licence",
-        "tableHeading_riskGroup": "Risk category",
-        "tableHeading_sightingsCount": "Sightings count",
-        "tableHeading_qualityChecked": "Validated*",
-        "tableHeading_sharedValidatedSightings": "Percent validated",
-        "tableHeading_qualityCheckedAndApproved": "Validated and approved**",
-        "tableHeading_shareValidatedAndApproved": "Percent validated and approved",
-        "tableHeading_sightedTaxonCount": "Sighted taxon count",
-        "tableHeading_withMedia": "With media",
-        "stats_tableDescription_content": "The following table shows number of observations of {{value1}} by {{value2}} in each of the categories below. ",
-        "stats_tableDescription_includedData": "Categories without observations are omitted from the table.",
-        "stats_tableDescription_includedDataExplanation": "A description of the data included may be found at [xxxxx]. Statistics are updated daily.",
-        "stats_tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",
-        "stats_tableDescription_approved": "** Has one of the following validation category:"
-    },
+        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our {{ value }} for updates."
+       },
     "statistics": {
         "overviewNumbers_sightings": "Sightings",
         "overviewNumbers_species": "Registered species",
@@ -93,6 +73,27 @@
         "overviewStats_heading_8": "Monthly sightings per species group in total and per year",
         "overviewStats_heading_9": "Reporting overview per species group in total and per year",
         "overviewStats_heading_10": "Monthly registrations per species group in total and per year",
-        "validatedData_tableDescription": "The table(s) show(s) the number of sighted taxa and the sightings count per species group."
+        "shared_tableDescription_content": "The following table shows number of observations of {{value1}} by {{value2}} in each of the categories below. ",
+        "shared_tableDescription_includedData": "Categories without observations are omitted from the table.",
+        "shared_tableDescription_includedDataExplanation": "A description of the data included may be found at [xxxxx]. Statistics are updated daily.",
+        "shared_tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",
+        "shared_tableDescription_approved": "** Has one of the following validation category:",
+        "tableDescription_validatedData": "The table(s) show(s) the number of sighted taxa and the sightings count per species group.",
+        "tableCaption_validatedData": "Number of validated observations per species group",
+        "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
+        "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
+        "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
+        "tableHeading_speciesGroup": "Species group",
+        "tableHeading_imageCount": "Image count",
+        "tableHeading_imageCountWithOpenLicence": "Image count with open licence",
+        "tableHeading_riskGroup": "Risk category",
+        "tableHeading_sightingsCount": "Sightings count",
+        "tableHeading_validated": "Validated*",
+        "tableHeading_sharedValidatedSightings": "Percent validated",
+        "tableHeading_validatedAndApproved": "Validated and approved**",
+        "tableHeading_shareValidatedAndApproved": "Percent validated and approved",
+        "tableHeading_sightedTaxonCount": "Sighted taxon count",
+        "tableHeading_withMedia": "With media"
+      
     }
 }
