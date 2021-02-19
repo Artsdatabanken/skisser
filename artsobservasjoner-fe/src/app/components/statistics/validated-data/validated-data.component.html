@@ -40,14 +40,12 @@
 
                 <tbody>
                     <tr *ngFor="let item of data">
-                        <td>
+                        <th scope="row" role="rowheader">
 
-                            <strong>
-                                {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
-                                item.speciesGroup.labelEnglish }}
-                            </strong>
+                            {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
+                            item.speciesGroup.labelEnglish }}
 
-                        </td>
+                        </th>
                         <td class="td-number"> {{ item.sightingTaxonCount | numberProxy }} </td>
                         <td class="td-number"> {{ item.count | numberProxy }}</td>
                         <td class="td-number"> {{ item.sightingWithMediaCount | numberProxy }} </td>
@@ -84,12 +82,12 @@
 
                 <tbody>
                     <tr *ngFor="let item of data">
-                        <td>
-                            <strong>
-                                {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
-                                item.speciesGroup.labelEnglish }}
-                            </strong>
-                        </td>
+                        <th scope="row" role="rowheader">
+
+                            {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
+                            item.speciesGroup.labelEnglish }}
+
+                        </th>
                         <td class="td-number"> {{ item.count | numberProxy }} </td>
                         <td class="td-number"> {{ item.validatedSightingCount | numberProxy }} </td>
                         <td class="td-number td-highlighted"> {{ item.percentageSightedVsValidated }} %</td>
