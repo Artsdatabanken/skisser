@@ -62,7 +62,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 break;
 
               case HttpError.InternalServerError:
-                console.error('%c big bad 500', logFormat);
+                console.error('%c Internal server error 500', logFormat);
                 break;
             }
           }

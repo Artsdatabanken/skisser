@@ -119,6 +119,31 @@
         font-weight: 400;
         padding: 17px 46px;
 
+        @media screen and (max-width: 1600px) {
+            font-size: 26px;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            font-size: 24px;
+            font-weight: 500;
+            padding: 10px 30px;
+        }
+    }
+
+    &--lg {
+        display: inline-block;
+        font-size: 26px;
+        font-weight: 500;
+        padding: 17px 46px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+        
         @media screen and (max-width: 1024px) {
             font-size: 24px;
             font-weight: 500;
