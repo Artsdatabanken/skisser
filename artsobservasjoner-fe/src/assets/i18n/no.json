@@ -26,7 +26,12 @@
         "menu_about": "Om tjenesten",
         "menu_news": "Aktuelle saker",
         "menu_sitemap": "Innholdskart A-Å",
-        "menu_404": "Ikke funnet - 404"
+        "menu_404": "Ikke funnet - 404",
+        "menu_account_register": "Registrer deg",
+        "menu_account_login": "Logg inn",
+        "menu_account": "Min side",
+        "menu_account_messages": "Meldinger",
+        "menu_statusPage": "Driftsmeldinger"
     },
     "account": {
         "account_register": "Registrer deg",

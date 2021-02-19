@@ -30,7 +30,8 @@
         "menu_account_register": "Register",
         "menu_account_login": "Login",
         "menu_account": "My account",
-        "menu_account_messages": "Messages"
+        "menu_account_messages": "Messages",
+        "menu_statusPage": "Status page"
     },
     "account": {
         "account_register": "Register",
