@@ -329,7 +329,8 @@ $graphColor6: #3c1434;
     margin: 100px auto;
     position: relative;
     min-height: 50vh;
-    width: 100%;
+    min-width: 50vw;
+    width: 50%;
 }
 
 canvas {}

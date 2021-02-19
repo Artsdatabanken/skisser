@@ -8,6 +8,8 @@
     }
 }
 
+// page title & subtitle
+
 .page-title {
     display: inline-block;
     margin-bottom: 50px;
@@ -47,6 +49,21 @@
     @include customVar(font-family, fontSecondary);
     font-weight: 700;
     margin-bottom: 25px;
+}
+
+// error response
+
+.error-response {
+    @include customVar(background-color, clrWash2);
+    background-image: url(../images/iconWarningColor.png);
+    background-position: left 20px center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 30px 0;
+    padding: 15px 20px 15px 75px;
+    width: 50ch;
 }
 
 /*progress bar*/
@@ -318,7 +335,7 @@
         & > * {
             //border: 1px solid blue;
             align-self: center;
-            justify-self: flex-start; 
+            justify-self: flex-start;
             text-align: left;
         }
     }

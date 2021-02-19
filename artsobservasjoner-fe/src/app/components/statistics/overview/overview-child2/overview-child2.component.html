@@ -4,7 +4,7 @@
 
     <div class="section">
 
-        <div *ngIf="data$ | async as data">
+        <div *ngIf="data$ | async as data; else noData">
 
             <br>
 
@@ -55,6 +55,9 @@
             <canvas id="canvas2" #canvas2></canvas>
         </div>
 
+        <ng-template #noData>
+            <app-error-response></app-error-response>        
+        </ng-template>   
 
     </div>
 

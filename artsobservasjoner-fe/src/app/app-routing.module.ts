@@ -46,6 +46,7 @@ import { ValidatedDataComponent } from './components/statistics/validated-data/v
 import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
 import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
+import { StatusPageComponent } from './components/status-page/status-page.component';
 
 /*
 
@@ -882,10 +883,6 @@ const extraRoutes: Routes = [
     component: NewsItemComponent,
     data: {
       text: 'News item',
-      translation: {
-        no: '',
-        en: ''
-      },
       id: 'news',
       layout: 'article',
       rank: '',
@@ -902,11 +899,23 @@ const extraRoutes: Routes = [
     data: {
       text: 'Innholdskart fra A-Å',
       title: 'menu_sitemap',
-      translation: {
-        no: 'Innholdskart fra A-Å',
-        en: 'Sitemap'
-      },
       id: 'sitemap',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: 'extraMenu',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'status-page',
+    component: StatusPageComponent,
+    data: {
+      text: 'Driftsmeldinger',
+      title: 'menu_statusPage',
+      id: 'statusPage',
       layout: 'page',
       rank: '',
       parent: '',

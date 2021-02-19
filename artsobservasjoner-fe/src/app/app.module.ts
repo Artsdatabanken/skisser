@@ -106,6 +106,8 @@ import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { IntersectionComponent } from './reusable/intersection/intersection.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
+import { StatusPageComponent } from './components/status-page/status-page.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -205,6 +207,8 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
     GraphComponent,
     OverviewChild5Component,
     IntersectionComponent,
+    ErrorResponseComponent,
+    StatusPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -54,7 +54,7 @@
         "announcements": "Announcements"
     },
     "shared": {
-        "noData": "An error has occurred. Please check again later.",
+        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our {{ value }} for updates.",
         "tableCaption_validatedData": "Number of validated observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",

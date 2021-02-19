@@ -19,7 +19,6 @@ export class AlienSpeciesComponent implements OnInit {
   translationParamValue1: string;
   translationParamValue2: string;
 
-
   constructor(
     private statisticsService: StatisticsService,
     private translate: TranslateService
@@ -90,10 +89,6 @@ export class AlienSpeciesComponent implements OnInit {
           });
 
         });
-
-        console.log('new map', map)
-
-        //const result = [...map.values()];
 
         return map;
 

@@ -4,33 +4,31 @@
 
     <div class="section">
 
-        <div class="loop loop--2x">
+        <div *ngIf="data$ | async as data; else noData">
 
-            <div *ngIf="data$ | async as data">
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col" role="columnheader">
-                                {{ 'shared.tableHeading_speciesGroup' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'shared.tableHeading_sightingsCount' | translate }}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let dataItem of data">
-                            <th scope="row" role="rowheader">
-                                {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
-                                dataItem.speciesGroup.labelEnglish }}
-                            </th>
-                            <td class="td-number">
-                                {{ dataItem.count | numberProxy }}
-                            </td>
-                        </tr>
-                    </tbody>
-                    <!-- <tbody>
+            <table style="min-width: 60%; width: auto;">
+                <thead>
+                    <tr>
+                        <th scope="col" role="columnheader">
+                            {{ 'shared.tableHeading_speciesGroup' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'shared.tableHeading_sightingsCount' | translate }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dataItem of data">
+                        <th scope="row" role="rowheader">
+                            {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
+                            dataItem.speciesGroup.labelEnglish }}
+                        </th>
+                        <td class="td-number">
+                            {{ dataItem.count | numberProxy }}
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- <tbody>
                     <tr *ngFor="let dataItem of data">
                         <td *ngFor="let element of dataItem.values | newKeyValue">
                      
@@ -41,19 +39,17 @@
                         </td>
                     </tr>
                 </tbody> -->
-                </table>
-
-            </div>
-
-            <div class="chart-container">
-                <canvas id="myCanvas" #myCanvas></canvas>
-            </div>
+            </table>
 
         </div>
 
-        <!-- <div class="chart-container">
+        <div class="chart-container">
             <canvas id="myCanvas" #myCanvas></canvas>
-        </div> -->
+        </div>
+
+        <ng-template #noData>
+            <app-error-response></app-error-response>
+        </ng-template>
 
     </div>
 

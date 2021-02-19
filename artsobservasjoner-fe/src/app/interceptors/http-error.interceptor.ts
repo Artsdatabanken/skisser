@@ -7,7 +7,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 export class HttpError {
@@ -28,6 +28,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(
+        retry(2),
         catchError((error: HttpErrorResponse) => {
 
           let errorMsg: string = '';
@@ -82,6 +83,25 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         }),
 
       )
+  }
+
+  getServerErrorMessage(error: HttpErrorResponse): string {
+    
+    switch (error.status) {
+      case 404: {
+        return `Not Found: ${error.message}`;
+      }
+      case 403: {
+        return `Access Denied: ${error.message}`;
+      }
+      case 500: {
+        return `Internal Server Error: ${error.message}`;
+      }
+      default: {
+        return `Unknown Server Error: ${error.message}`;
+      }
+
+    }
   }
 
 }
