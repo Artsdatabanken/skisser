@@ -4,7 +4,6 @@ import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { ApiService } from './api.service';
 import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -47,7 +46,6 @@ export class StatisticsService {
   constructor(
     private httpClient: HttpClient,
     private utilitiesService: UtilitiesService,
-    private apiService: ApiService,
     private translate: TranslateService
   ) { }
 
