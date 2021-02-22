@@ -55,7 +55,7 @@
         "announcements": "Announcements"
     },
     "shared": {
-        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our {{ value }} for updates."
+        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
        },
     "statistics": {
         "overviewNumbers_sightings": "Sightings",

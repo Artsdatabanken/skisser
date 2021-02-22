@@ -55,7 +55,7 @@
         "announcements": "Kunngjøringer"
     },
     "shared": {
-        "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre {{ value }} for oppdateringer."       
+        "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."       
     },
     "statistics": {
         "overviewNumbers_sightings": "Observasjoner",
