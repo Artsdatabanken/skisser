@@ -46,6 +46,10 @@
   margin-bottom: 0;
   width: 70ch;
 
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
   figcaption & {
     font-size: 20px;
     text-align: left;

@@ -44,8 +44,6 @@ export class LayoutService {
     return this.translate.stream([key]).pipe(
       map(res => {
 
-        console.log('XXXXX', res, res[key]);
-
         this.titleService.setTitle(`${res[key]} - Artsobservasjoner`);  
         return res[key];
       

@@ -534,66 +534,6 @@
     }
 }
 
-// breadcrumbs
-
-.breadcrumbs {
-    //@include customVar(background-color, paletteColor1);
-    background: #f7f7f7;
-    line-height: 1;
-    margin: 0;
-    padding: 3px 0 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-
-    a {
-        align-self: center;
-        justify-self: stretch;
-        @include customVar(border-bottom-color, transparent);
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
-        font-size: 15px;
-        font-weight: 500;
-        margin-right: 40px;
-        padding-right: 0;
-        padding-bottom: 2px;
-        position: relative;
-        transition: border 0.3s;
-
-        &:after {
-            background-image: url(../images/separator.png);
-            background-image: url(../images/iconChevronRight.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 5px;
-            content: "";
-            display: inline-block;
-            width: 10px;
-            position: absolute;
-            top: 0;
-            right: -25px;
-            bottom: 0;
-            left: auto;
-        }
-
-        &:last-child {
-            pointer-events: none;
-
-            &:after {
-                content: none;
-            }
-        }
-
-        &:hover {
-            @include customVar(border-bottom-color, clrBlack);
-        }
-    }
-}
-
-.breadcrumb {
-}
-
 // logo
 
 .logo {
@@ -749,7 +689,13 @@ main {
 
     &--spa {
         @extend .main-grid--page;
-        grid-template-columns: 1fr 6fr 1fr;
+        grid-template-columns: 1fr 7fr 1fr;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "pageTitle" "component" "router";
+            padding: 45px 15px;
+        }
     }
 
     &--mega {
@@ -864,7 +810,7 @@ main {
 // page & child pages
 
 .page {
-    grid-area: pageContent;
+    width: 100%;
 
     // elements
     &__header {
@@ -895,7 +841,6 @@ main {
     }
 
     &__content {
-        grid-area: pageContent;
     }
 
     &__footer {
@@ -903,12 +848,13 @@ main {
 }
 
 .child {
+
     h2 {
         margin-bottom: 50px;
         width: 50ch;
 
         @media screen and (max-width: 1024px) {
-            margin: 100%;
+            width: 100%;
         }
     }
 }
