@@ -108,6 +108,7 @@ import { IntersectionComponent } from './reusable/intersection/intersection.comp
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
+import { DropdownComponent } from './reusable/dropdown/dropdown.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -209,6 +210,7 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
     IntersectionComponent,
     ErrorResponseComponent,
     StatusPageComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,

@@ -905,6 +905,11 @@ main {
 .child {
     h2 {
         margin-bottom: 50px;
+        width: 50ch;
+
+        @media screen and (max-width: 1024px) {
+            margin: 100%;
+        }
     }
 }
 

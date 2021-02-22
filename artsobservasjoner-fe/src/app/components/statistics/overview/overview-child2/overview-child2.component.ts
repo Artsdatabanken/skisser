@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { TranslateService } from '@ngx-translate/core';
-import { forkJoin, Subscription } from 'rxjs';
+import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GRAPHCOLORS } from 'src/app/data/graphs';
 import { Category, ImageStatisticsItem } from 'src/app/models/statistics';
@@ -17,7 +17,7 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 
 export class OverviewChild2Component implements OnInit {
 
-  pageTitle: string;
+  pageTitle$: Observable<string>;
   currentLanguage: string = this.translate.currentLang;
   data$;
   subscription: Subscription;
@@ -46,7 +46,8 @@ export class OverviewChild2Component implements OnInit {
       this.currentLanguage = res.lang;
     });
 
-    this.pageTitle = this.layoutService.setPageTitle('statistics.overviewStats_heading_2');
+    this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_2');
+
     this.getData();
 
   }

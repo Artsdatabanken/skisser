@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -38,18 +39,18 @@ export class LayoutService {
   }
 
 
-  setPageTitle(key: string): string {
+  setPageTitle(key: string): Observable<string> {
 
-    let pageTitle: string;
+    return this.translate.stream([key]).pipe(
+      map(res => {
 
-    this.translate.stream([key]).subscribe(res => {
+        console.log('XXXXX', res, res[key]);
 
-      pageTitle = res[key];
-      this.titleService.setTitle(`${pageTitle} - Artsobservasjoner`);
-
-    });
-
-    return pageTitle;
+        this.titleService.setTitle(`${res[key]} - Artsobservasjoner`);  
+        return res[key];
+      
+      })
+    );
 
   }
 

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { forkJoin, Subscription } from 'rxjs';
+import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 import { Category, StatisticsItem } from 'src/app/models/statistics';
@@ -16,7 +16,7 @@ import { GRAPHCOLORS } from 'src/app/data/graphs';
 
 export class OverviewChild1Component implements OnInit, AfterViewInit {
 
-  pageTitle: string;
+  pageTitle$: Observable<string>;
   currentLanguage: string = this.translate.currentLang;
   data$;
   subscription: Subscription;
@@ -40,9 +40,11 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
       this.currentLanguage = res.lang;
     });
 
-    this.getData();
-    this.pageTitle = this.layoutService.setPageTitle('statistics.overviewStats_heading_1');
+    this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_1');
 
+
+    this.getData();
+  
   }
 
   ngAfterViewInit() { }

@@ -1,6 +1,6 @@
 <div class="child">
 
-    <h2 style="width: 50ch;">{{ pageTitle }}</h2>
+    <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
 
     <div class="section">
 

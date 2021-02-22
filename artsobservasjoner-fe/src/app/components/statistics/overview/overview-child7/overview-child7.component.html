@@ -1,6 +1,6 @@
 <div class="child">
 
-    <h2>{{ pageTitle }}</h2>
+    <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
 
     <div class="loop">
 
@@ -55,7 +55,7 @@
     <br><br>
 
     <table class="tbl-number">
-        <caption>{{ pageTitle }}</caption>
+        <caption></caption>
         <thead>
             <tr role="row">
                 <th scope="col" role="columnheader">Fylke</th>

@@ -19,3 +19,9 @@ export interface TableRow<T> {
     // sortable or not.
   }
 
+export interface DropdownOption {
+  text: string;
+  url?: string;
+  icon?: string;
+  action?: any; // if it's not a link, but a function, for instance
+}

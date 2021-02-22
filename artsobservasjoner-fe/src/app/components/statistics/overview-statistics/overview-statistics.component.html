@@ -18,36 +18,16 @@
 
         <br>
 
-        <div class="dropdown-container">
-
-            <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()">
-
-                <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
-                    (click)="toggleDropdown()">
-                    {{ 'statistics.overviewStats_buttonText' | translate }}
-                </button>
-
-                <div class="dropdown__pane" [ngClass]="{'dropdown__pane--open': activeDropdown}"
-                    [attr.aria-expanded]="activeDropdown">
-
-                    <a *ngFor="let child of children" class="dropdown__link dropdown__link--stats"
-                        routerLink="/observations/statistics/overview-statistics/{{child.path}}"
-                        routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
-                        {{ child.data.title | translate }}
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-       
+        <app-dropdown [type]="'link'" [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'"></app-dropdown>
 
         <router-outlet></router-outlet>
 
     </div>
 
 
-    <div class="page__footer"></div>
+    <div class="page__footer">
+
+       
+
+    </div>
 </div>

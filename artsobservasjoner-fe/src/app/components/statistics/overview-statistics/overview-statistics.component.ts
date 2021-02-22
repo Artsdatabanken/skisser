@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { filter, map, mergeMap } from 'rxjs/operators';
+import { DropdownOption } from 'src/app/models/reusable';
 import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
@@ -17,54 +17,59 @@ export class OverviewStatisticsComponent implements OnInit {
   pageTitle: string;
   children: any[] = [];
 
-  @Input() open: boolean;
-  activeDropdown: boolean;
+  // @Input() open: boolean;
+  // activeDropdown: boolean;
   subscription: Subscription;
   subscriptions: Subscription[] = [];
 
+  dropdownOptions: DropdownOption[] = [];
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private layoutService: LayoutService,
-    private router: Router,
     private titleService: Title,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private layoutService: LayoutService
   ) {
 
-    this.children = this.activatedRoute.routeConfig.children.filter(ch => ch.data.hidden === false);
+    this.layoutService.setPageTitle('menu.menu_statistics_overview').subscribe(res => {
+      this.pageTitle = res;
+    });
 
-    this.subscriptions.push(
-      this.layoutService.dropdownVisibility.subscribe((value) => {
-        this.activeDropdown = value;
-      })
-    );
-
-    this.setPageTitle();
-
+    //this.setPageTitle();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    
+    this.children = this.activatedRoute.routeConfig.children.filter(ch => ch.data.hidden === false);
+    this.children.forEach(child => {
+
+      let item: DropdownOption = {
+        text: child.data.title, 
+        url: `/observations/statistics/overview-statistics/${child.path}`
+      }
+
+      this.dropdownOptions.push(item);
+
+    });
+
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s.unsubscribe());
   }
+  
 
-  toggleDropdown(): void {
-    this.layoutService.toggleDropdown();
-  }
+  // FLYTTET TIL SERVICE FOR GJENBRUK 
 
-  closeDropdown(): void {
-    this.layoutService.closeDropdown();
-  }
+  // setPageTitle(): void {
 
-  setPageTitle(): void {
+  //   this.translate.stream(['menu.menu_statistics_overview']).subscribe(res => {
 
-    this.translate.stream(['menu.menu_statistics_overview']).subscribe(res => {
+  //     this.pageTitle = res['menu.menu_statistics_overview'];
+  //     this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
 
-      this.pageTitle = res['menu.menu_statistics_overview'];
-      this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
-
-    });
+  //   });
     
-  }
+  // }
 
 }

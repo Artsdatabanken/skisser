@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
@@ -9,13 +10,13 @@ import { LayoutService } from 'src/app/services/layout.service';
 
 export class OverviewChild8Component implements OnInit {
 
-  pageTitle: string;
+  pageTitle$: Observable<string>;
 
   constructor(private layoutService: LayoutService) { }
 
   ngOnInit(): void {
   
-    this.pageTitle = this.layoutService.setPageTitle('statistics.overviewStats_heading_8');
+    this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_8');
 
   }
 
