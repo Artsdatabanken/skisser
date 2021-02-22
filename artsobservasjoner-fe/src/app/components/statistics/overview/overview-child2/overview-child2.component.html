@@ -9,35 +9,38 @@
             <br>
 
             <table>
-                <thead>
-                    <tr>
-                        <th>
+                <caption *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th scope="col" role="columnheader">
                             {{ 'statistics.tableHeading_speciesGroup' | translate }}
                         </th>
-                        <th class="th-number">
+                        <th scope="col" role="columnheader" class="th-number">
                             {{ 'statistics.tableHeading_imageCount' | translate }}
                         </th>
-                        <th class="th-number">
+                        <th scope="col" role="columnheader" class="th-number">
                             {{ 'statistics.tableHeading_imageCountWithOpenLicence' | translate }}
                         </th>
-                        <th class="th-number">
+                        <th scope="col" role="columnheader" class="th-number">
                             %
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody role="rowgroup">
                     <tr *ngFor="let dataItem of data">
-                        <td>
+                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
                             {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
                             dataItem.speciesGroup.labelEnglish }}
                         </td>
-                        <td class="td-number">
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_imageCount' | translate">
                             {{ dataItem.imageCount | numberProxy }}
                         </td>
-                        <td class="td-number">
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_imageCountWithOpenLicence' | translate">
                             {{ dataItem.imageCountWithOpenLicence | numberProxy }}
                         </td>
-                        <td class="td-number">
+                        <td role="cell" class="td-number" [attr.data-heading]="'%'">
                             {{ getPercentage(dataItem.imageCount, dataItem.imageCountWithOpenLicence) }} %
                         </td>
                     </tr>
@@ -56,8 +59,8 @@
         </div>
 
         <ng-template #noData>
-            <app-error-response></app-error-response>        
-        </ng-template>   
+            <app-error-response></app-error-response>
+        </ng-template>
 
     </div>
 
