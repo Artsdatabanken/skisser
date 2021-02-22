@@ -18,7 +18,7 @@
 
         <div *ngIf="data$ | async as alienSpecies; else noData">
 
-            <table class="tbl">
+            <table class="custom-table">
                 <caption>{{ 'statistics.tableCaption_alienSpeciesData' | translate }}</caption>
                 <thead>
                     <tr>
@@ -41,10 +41,9 @@
                     </tr>
                 </thead>
 
-
                 <tbody *ngFor="let species of alienSpecies | keyvalue">
-                    <tr class="custom-table__row" *ngFor="let data of species.value.data; let i = index">
-                        <td class="custom-table__td">
+                    <tr *ngFor="let data of species.value.data; let i = index">
+                        <th scope="row" role="rowheader">
 
                             <span *ngIf="i === 0">
                                 {{ currentLanguage == 'no' ? species.key.labelNorwegian :
@@ -55,7 +54,7 @@
                                 species.key.labelEnglish }}
                             </span>
 
-                        </td>
+                        </th>
                         <td>
                             {{ data.assessmentCategory.code }}
                             <span class="sr-only">
@@ -77,7 +76,7 @@
                 <br />
                 {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
-    
+
             <ul>
                 <li>Godkjent basert på observatørens opplysninger</li>
                 <li>Godkjent</li>
@@ -87,18 +86,16 @@
                 <li>Godkjent, basert på en tidligere sjeldenhetsrapport</li>
                 <li>Godkjent, funnet er sannsynlig</li>
             </ul>
-            
+
         </div>
 
         <ng-template #noData>
-
             <app-error-response></app-error-response>
-        
-        </ng-template>        
+        </ng-template>
 
     </div>
 
-    <footer class="page__footer">   </footer>
+    <footer class="page__footer"> </footer>
 
 
 </div>

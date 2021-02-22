@@ -18,11 +18,11 @@
 
         <div *ngIf="data$ | async as redlistedSpecies; else noData">
 
-            <table class="tbl" aria-describedby="redlist">
+            <table class="custom-table" aria-describedby="redlist">
                 <caption>{{ 'statistics.tableCaption_redlistedSpeciesData' | translate }}</caption>
                 <thead>
                     <tr>
-                        <th>{{ 'statistics.tableHeading_speciesGroup' | translate }}</th>
+                        <th scope="col" role="columnheader">{{ 'statistics.tableHeading_speciesGroup' | translate }}</th>
                         <th scope="col" role="columnheader">
                             {{ 'statistics.tableHeading_riskGroup' | translate }}
                         </th>
@@ -43,8 +43,8 @@
 
 
                 <tbody *ngFor="let species of redlistedSpecies | keyvalue">
-                    <tr class="custom-table__row" *ngFor="let data of species.value.data; let i = index">
-                        <td class="custom-table__td">
+                    <tr *ngFor="let data of species.value.data; let i = index">
+                        <th scope="row" role="rowheader">
 
                             <span *ngIf="i === 0">
                                 {{ currentLanguage == 'no' ? species.key.labelNorwegian :
@@ -55,7 +55,7 @@
                                 species.key.labelEnglish }}
                             </span>
 
-                        </td>
+                        </th>
                         <td>
                             {{ data.assessmentCategory.code }}
                             <span class="sr-only">

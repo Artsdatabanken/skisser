@@ -37,7 +37,8 @@ table {
         &[scope="row"] {
             @include customVar(background-color, clrWash2);
             @include customVar(font-family, fontPrimary);
-            border: none;
+            @include customVar(border-bottom-color, clrWhite);
+            //border: none;
             font-size: 17px;
             font-weight: 600;
 
@@ -60,16 +61,11 @@ table {
     td {
         padding: 10px 20px;
     }
-
 }
 
 /*table*/
 
 // helpers
-
-.tbl-md {
-    font-size: 17px;
-}
 
 .th-number,
 .td-number {
@@ -84,18 +80,17 @@ table {
     @include customVar(background-color, clrShadow);
 }
 
-
 // reusable and custom tables
 
 .tbl {
-    
     &--auto {
         margin: auto;
         width: auto;
     }
 
     &--lg {
-        th[scope="row"], td {
+        th[scope="row"],
+        td {
             padding: 20px 15px;
         }
     }
@@ -103,28 +98,30 @@ table {
     tbody:nth-child(even) {
         @include customVar(background-color, clrShadow);
 
-        th, td {
+        th,
+        td {
             @include customVar(background-color, clrShadow);
         }
     }
-
-    
 }
 
-
-
 .custom-table {
-    &__row {
+    tr {
+        &:last-child {
+            th[scope="row"] {
+                @include customVar(border-bottom-color, clrWhite);
+            }
+        }
     }
 
-    &__td {
+    th[scope="row"] {
         @include customVar(border-bottom-color, transparent);
-        font-weight: 600;
-        max-width: 100%;
-        white-space: nowrap;
+    }
 
-        .custom-table__row:last-child & {
-            @include customVar(border-bottom-color, clrWhite);
+    tbody:nth-child(even) {
+        th,
+        td {
+            @include customVar(background-color, clrShadow);
         }
     }
 }
