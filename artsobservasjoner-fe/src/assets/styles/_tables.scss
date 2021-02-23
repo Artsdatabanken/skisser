@@ -92,19 +92,16 @@ table {
             display: none;
         }
 
+        th,
         td {
-           // @include customVar(background-color, clrShadow);
             display: grid;
             font-weight: 600;
             grid-template-columns: 2fr 3fr;
             grid-gap: 1em 2em;
-            //padding: 0;
 
             &::before {
-                //@include customVar(background-color, clrWash1);
                 @include customVar(font-family, fontSecondary);
                 content: attr(data-heading);
-                //content: attr(data-heading) ":";
                 display: inline;
                 font-size: 16px;
                 font-weight: 600;
@@ -120,6 +117,14 @@ table {
 /*table*/
 
 // helpers
+
+.td-hidden {
+    visibility: hidden;
+    
+    @media screen and (max-width: 1024px) {
+        visibility: visible;
+    }
+}
 
 .th-number,
 .td-number {

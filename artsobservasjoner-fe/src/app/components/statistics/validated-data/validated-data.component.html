@@ -14,8 +14,8 @@
 
             <table>
                 <caption>{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}</caption>
-                <thead>
-                    <tr>
+                <thead role="rowgroup">
+                    <tr role="row">
                         <th scope="col" role="columnheader">
                             {{ 'statistics.tableHeading_speciesGroup' | translate }}
                         </th>
@@ -38,19 +38,28 @@
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr *ngFor="let item of data">
-                        <th scope="row" role="rowheader">
+                <tbody role="rowgroup">
+                    <tr role="row" *ngFor="let item of data">
+                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 
                             {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
                             item.speciesGroup.labelEnglish }}
 
-                        </th>
-                        <td class="td-number"> {{ item.sightingTaxonCount | numberProxy }} </td>
-                        <td class="td-number"> {{ item.count | numberProxy }}</td>
-                        <td class="td-number"> {{ item.sightingWithMediaCount | numberProxy }} </td>
-                        <td class="td-number"> {{ item.validatedSightingCount | numberProxy }} </td>
-                        <td class="td-number"> {{ item.approvedSightingCount | numberProxy }} </td>
+                        </td>
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_sightedTaxonCount' | translate"> {{
+                            item.sightingTaxonCount | numberProxy }} </td>
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{ item.count |
+                            numberProxy }}</td>
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_withMedia' | translate"> {{
+                            item.sightingWithMediaCount | numberProxy }} </td>
+                        <td role="cell" class="td-number" [attr.data-heading]="'statistics.tableHeading_validated' |
+                        translate"> {{ item.validatedSightingCount | numberProxy }} </td>
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
+                            item.approvedSightingCount | numberProxy }} </td>
                     </tr>
                 </tbody>
             </table>
@@ -59,40 +68,52 @@
 
             <table>
                 <caption>{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
-                <tr>
-                    <th scope="col" role="columnheader">
-                        {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'statistics.tableHeading_validated' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">
-                        {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
-                    </th>
-                </tr>
+                <thead role="rowgroup">
+                    <tr>
+                        <th scope="col" role="columnheader">
+                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_validated' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
+                        </th>
+                    </tr>
+                </thead>
 
-                <tbody>
-                    <tr *ngFor="let item of data">
-                        <th scope="row" role="rowheader">
+                <tbody role="rowgroup">
+                    <tr role="row" *ngFor="let item of data">
+                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 
                             {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
                             item.speciesGroup.labelEnglish }}
 
-                        </th>
-                        <td class="td-number"> {{ item.count | numberProxy }} </td>
-                        <td class="td-number"> {{ item.validatedSightingCount | numberProxy }} </td>
-                        <td class="td-number"> {{ item.percentageSightedVsValidated }} %</td>
-                        <td class="td-number"> {{ item.approvedSightingCount | numberProxy }} </td>
-                        <td class="td-number"> {{ item.percentageValidatedVsApproved }} %</td>
+                        </td>
+                        <td class="td-number" role="cell"
+                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{ item.count |
+                            numberProxy }} </td>
+                        <td class="td-number" role="cell"
+                            [attr.data-heading]="'statistics.tableHeading_validated' | translate"> {{
+                            item.validatedSightingCount | numberProxy }} </td>
+                        <td class="td-number" role="cell"
+                            [attr.data-heading]="'statistics.tableHeading_sharedValidatedSightings' | translate"> {{
+                            item.percentageSightedVsValidated }} %</td>
+                        <td class="td-number" role="cell"
+                            [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
+                            item.approvedSightingCount | numberProxy }} </td>
+                        <td class="td-number" role="cell"
+                            [attr.data-heading]="'statistics.tableHeading_shareValidatedAndApproved' | translate"> {{
+                            item.percentageValidatedVsApproved }} %</td>
                     </tr>
                 </tbody>
 
@@ -119,8 +140,8 @@
 
         <table class="tbl tbl--lg">
             <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
-            <thead>
-                <tr>
+            <thead role="rowgroup">
+                <tr role="row">
                     <th scope="col" role="columnheader">{{ 'statistics.tableHeading_validationCategory' | translate }}
                     </th>
                     <th scope="col" role="columnheader" class="th-number">Karplanter</th>
@@ -137,167 +158,168 @@
 
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+
+            <tbody role="rowgroup">
+                <tr role="row">
                     <th scope="row" role="rowheader">Godkjent basert på observatørens opplysninger</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Godkjent. Belegg gransket av validator</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Godkjent. Foto eller lyd godkjent av validator</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Godkjent basert på determinators verifisering</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Godkjent, basert på en tidligere sjeldenhetsrapport</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Godkjent, funnet er sannsynlig</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Kontrollert, behøver ikke valideres</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Kontrollert, kan ikke valideres</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Ufullstendig rapportering</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th scope="row" role="rowheader">Underkjent</th>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
-                    <td class="td-number">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
+                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
                 </tr>
             </tbody>
-           
+
         </table>
 
         <ng-template #noData>

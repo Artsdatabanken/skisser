@@ -20,9 +20,11 @@
 
             <table class="custom-table">
                 <caption>{{ 'statistics.tableCaption_alienSpeciesData' | translate }}</caption>
-                <thead>
-                    <tr>
-                        <th>{{ 'statistics.tableHeading_speciesGroup' | translate }}</th>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th scope="col" role="columnheader">
+                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                        </th>
                         <th scope="col" role="columnheader">
                             {{ 'statistics.tableHeading_riskGroup' | translate }}
                         </th>
@@ -41,31 +43,40 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let species of alienSpecies | keyvalue">
-                    <tr *ngFor="let data of species.value.data; let i = index">
-                        <th scope="row" role="rowheader">
+                <tbody role="rowgroup" *ngFor="let species of alienSpecies | keyvalue">
+                    <tr role="row" *ngFor="let data of species.value.data; let i = index">
+                        <th scope="row" role="rowheader"
+                            [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 
                             <span *ngIf="i === 0">
                                 {{ currentLanguage == 'no' ? species.key.labelNorwegian :
                                 species.key.labelEnglish }}
                             </span>
-                            <span *ngIf="i > 0" class="sr-only">
+                            <span *ngIf="i > 0" class="td-hidden">
                                 {{ currentLanguage == 'no' ? species.key.labelNorwegian :
                                 species.key.labelEnglish }}
                             </span>
 
                         </th>
-                        <td>
+                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_riskGroup' | translate">
                             {{ data.assessmentCategory.code }}
                             <span class="sr-only">
                                 {{ currentLanguage == 'no' ? data.assessmentCategory.labelNorwegian :
                                 data.assessmentCategory.labelEnglish }}
                             </span>
                         </td>
-                        <td class="td-number">{{ data.sightingsCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.imagesCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.validatedCount | numberProxy }}</td>
-                        <td class="td-number">{{ data.approvedCount | numberProxy }}</td>
+                        <td class="td-number" role="cell" [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate">
+                            {{ data.sightingsCount | numberProxy }}
+                        </td>
+                        <td class="td-number" role="cell" [attr.data-heading]="'statistics.tableHeading_withMedia' | translate">
+                            {{ data.imagesCount | numberProxy }}
+                        </td>
+                        <td class="td-number" role="cell" [attr.data-heading]="'statistics.tableHeading_validated' | translate">
+                            {{ data.validatedCount | numberProxy }}
+                        </td>
+                        <td class="td-number" role="cell" [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate">
+                            {{ data.approvedCount | numberProxy }}
+                        </td>
                     </tr>
                 </tbody>
 
