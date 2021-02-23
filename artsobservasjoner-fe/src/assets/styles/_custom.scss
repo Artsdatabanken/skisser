@@ -321,24 +321,7 @@
 // numbers
 
 .numbers-box {
-    // border: 1px solid red;
     text-align: center;
-
-    @media screen and (max-width: 1200px) {
-        // display: flex;
-        // flex-direction: row;
-        // align-items: flex-start;
-        // justify-content: flex-start;
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-
-        & > * {
-            //border: 1px solid blue;
-            align-self: center;
-            justify-self: flex-start;
-            text-align: left;
-        }
-    }
 
     &__icon {
         @include customVar(background-color, clrPrimary);
@@ -406,6 +389,19 @@
         .numbers-box--small & {
             font-size: 18px;
             font-weight: 500;
+        }
+    }
+    
+    &--list {
+        @media screen and (max-width: 1200px) {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+    
+            & > * {
+                align-self: stretch;
+                justify-self: flex-start;
+                text-align: left;
+            }
         }
     }
 }

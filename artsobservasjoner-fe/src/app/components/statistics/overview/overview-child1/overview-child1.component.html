@@ -7,6 +7,7 @@
         <div *ngIf="data$ | async as data; else noData">
 
             <table style="min-width: 60%; width: auto;">
+                <caption *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
                 <thead>
                     <tr>
                         <th scope="col" role="columnheader">
@@ -19,11 +20,12 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let dataItem of data">
-                        <th scope="row" role="rowheader">
+                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
                             {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
                             dataItem.speciesGroup.labelEnglish }}
-                        </th>
-                        <td class="td-number">
+                        </td>
+                        <td role="cell" class="td-number"
+                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate">
                             {{ dataItem.count | numberProxy }}
                         </td>
                     </tr>

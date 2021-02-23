@@ -75,6 +75,7 @@ table {
 
         caption {
             @include customVar(background-color, clrShadow);
+            @include customVar(font-family, fontSecondary);
             border: none;
             padding: 10px 15px;
             text-align: left;
@@ -101,7 +102,7 @@ table {
                 //@include customVar(background-color, clrWash1);
                 @include customVar(font-family, fontSecondary);
                 content: attr(data-heading);
-                content: attr(data-heading) ":";
+                //content: attr(data-heading) ":";
                 display: inline;
                 font-size: 16px;
                 font-weight: 600;

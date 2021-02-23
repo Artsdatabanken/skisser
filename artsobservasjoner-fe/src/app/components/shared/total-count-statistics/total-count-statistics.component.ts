@@ -15,6 +15,7 @@ export class TotalCountStatisticsComponent implements OnInit {
   @Input() text: string | null;
   @Input() icon: boolean | null;
   @Input() size: string | null;
+  @Input() style?: string | null = 'grid';
 
   totalCount$: Observable<TotalCountStatistic>;
   api: string;

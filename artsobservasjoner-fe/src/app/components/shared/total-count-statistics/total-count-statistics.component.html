@@ -2,7 +2,7 @@
 
 <div class="non-dummy">
 
-    <div class="numbers-box" [ngClass]="{'numbers-box--small': size === 'sm'}" *ngIf="totalCount$ | async as total">
+    <div class="numbers-box" [ngClass]="{'numbers-box--small': size === 'sm', 'numbers-box--list': style === 'list'}" *ngIf="totalCount$ | async as total">
         <div class="numbers-box__icon" [class]="getCountIcon(statistics)" *ngIf="icon"></div>
 
         <div class="numbers-box__wrapper">
