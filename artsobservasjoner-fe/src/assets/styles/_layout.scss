@@ -660,11 +660,11 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     align-content: start; // important, do not remove
+    padding: 60px 30px;
 
     &--page {
         grid-template-columns: 1fr 5fr 1fr;
         grid-template-areas: ". pageTitle  ." ". component ." ". router .";
-        padding: 60px 30px;
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 6fr 1fr;
@@ -673,7 +673,6 @@ main {
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
             grid-template-areas: "pageTitle" "component" "router";
-            padding: 45px 15px;
         }
     }
 
@@ -681,6 +680,11 @@ main {
         @extend .main-grid--page;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: ". pageTitle  ." ". component ." ". router .";
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "pageTitle" "component" "router";
+        }
     }
 
     &--item {
@@ -694,7 +698,6 @@ main {
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
             grid-template-areas: "pageTitle" "component" "router";
-            padding: 45px 15px;
         }
     }
 
@@ -719,12 +722,10 @@ main {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
-        padding: 60px 30px;
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 6fr 1fr;
             grid-template-areas: "pageTitle pageTitle pageTitle" "component component component" "router router router";
-            padding: 60px 30px;
         }
     }
 
@@ -732,7 +733,6 @@ main {
         grid-template-columns: 1fr 1.5fr 1fr;
         grid-template-areas: ". component ." ". router .";
         grid-template-rows: auto;
-        padding: 60px 30px;
 
         @media screen and (max-width: 1921px) {
             grid-template-columns: 1fr 2fr 1fr;
@@ -749,26 +749,22 @@ main {
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
             grid-template-areas: "component" "router";
-            padding: 45px 15px;
         }
     }
 
     &--article {
         @extend .main-grid--text;
         grid-template-areas: ". component ." ". router .";
-        padding: 60px 0;
     }
 
     &--wide {
         grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
         grid-template-rows: repeat(4, auto);
         grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
-        padding: 60px 30px;
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 12fr 1fr;
             grid-template-areas: ". pageTitle ." ". component ." ". router .";
-            padding: 60px 30px;
         }
     }
 
@@ -805,6 +801,10 @@ main {
     & > *:nth-child(3) {
         grid-area: component;
     }
+
+    @media screen and (max-width: 1200px) {
+        padding: 45px 15px;
+    }
 }
 
 // page & child pages
@@ -824,8 +824,9 @@ main {
         margin-bottom: 30px;
 
         @media screen and (max-width: 1200px) {
-            font-size: 22px;
+            font-size: 21px;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         &:empty {
@@ -848,7 +849,6 @@ main {
 }
 
 .child {
-
     h2 {
         margin-bottom: 50px;
         width: 50ch;
@@ -1101,7 +1101,6 @@ main {
 // frontpage
 
 .frontpage {
-    
     &__intro {
         background-image: url(../images/puffin.png);
         background-position: right 100px center;
@@ -1220,7 +1219,6 @@ main {
             @include customVar(background-color, clrShadow);
         }
 
-        
         @media screen and (max-width: 1600px) {
             padding-top: 50px;
             padding-bottom: 70px;
@@ -1241,6 +1239,5 @@ main {
                 padding: 60px 70px;
             }
         }
-
     }
 }

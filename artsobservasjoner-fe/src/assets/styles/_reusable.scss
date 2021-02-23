@@ -681,16 +681,16 @@
     }
 
     &__button {
-        @include customVar(color, clrAccent);
+        @include customVar(color, clrBlack);
         @include customVar(font-family, fontSecondary);
         background-color: transparent;
-        background-image: url(../images/iconChevronColorDown.png);
+        background-image: url(../images/iconChevronDown.png);
         background-position: right 15px center;
         background-repeat: no-repeat;
         background-size: 19px;
 
         border: none;
-        @include customVar(border-bottom-color, clrShadow);
+        @include customVar(border-bottom-color, clrPrimary);
         border-bottom-style: solid;
         border-bottom-width: 2px;
 
@@ -711,16 +711,28 @@
         }
 
         &--active {
-            background-image: url(../images/iconChevronColorUp.png);
+            background-image: url(../images/iconChevronUp.png);
             @include customVar(border-bottom-color, transparent);
-            @include customVar(color, clrPrimary);
+            @include customVar(color, clrBlack);
+
+            &::after,
+            &:after {
+                @include customVar(background-color, clrAccent);
+                border-radius: 50px;
+                content: "";
+                display: inline-block;
+                height: 10px;
+                margin: 0 0 0 5px;
+                vertical-align: middle;
+                width: 10px;
+            }
         }
 
         @media screen and (max-width: 1200px) {
             background-position: right 15px center;
             background-size: 12px;
             font-size: 18px;
-            padding: 15px 30px 15px 15px;
+            padding: 15px 30px 15px 0;
         }
     }
 

@@ -78,8 +78,6 @@ export class AppComponent {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
 
-    console.log('LANGUAGE', localStorage.getItem('LANGUAGE'))
-
     if (localStorage.getItem('LANGUAGE')) {
       this.translate.setDefaultLang(localStorage.getItem('LANGUAGE'));
       this.translate.use(localStorage.getItem('LANGUAGE'));

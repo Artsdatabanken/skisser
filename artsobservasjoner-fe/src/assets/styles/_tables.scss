@@ -77,6 +77,8 @@ table {
             @include customVar(background-color, clrShadow);
             @include customVar(font-family, fontSecondary);
             border: none;
+            font-size: 20px;
+            font-weight: 500;
             padding: 10px 15px;
             text-align: left;
         }

@@ -120,7 +120,7 @@ export class OverviewChild2Component implements OnInit {
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontStyle = '500';
-    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontSize = 14;
     Chart.defaults.global.legend.position = 'left';
 
     this.chart1 = new Chart('canvas1', {
@@ -139,19 +139,21 @@ export class OverviewChild2Component implements OnInit {
       },
       options: {
         title: {
-        display: true,
-        text: this.currentLanguage === 'no' ? 'Antall bilder' : 'Image count',
-        position: 'bottom',
-        fontFamily: 'barlowsemicondensed',
-        fontColor: '#444',
-        fontSize: 20,
-        fontStyle: '500',
-        lineHeight: 1,
-        padding: 15
-      },
+          display: true,
+          text: this.currentLanguage === 'no' ? 'Antall bilder' : 'Image count',
+          position: 'bottom',
+          fontFamily: 'barlowsemicondensed',
+          fontColor: '#444',
+          fontSize: 20,
+          fontStyle: '500',
+          lineHeight: 1,
+          padding: 15
+        },
         legend: {
           display: true
         },
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [{
             display: false
@@ -192,6 +194,8 @@ export class OverviewChild2Component implements OnInit {
         legend: {
           display: true
         },
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [{
             display: false
