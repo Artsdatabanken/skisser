@@ -22,11 +22,11 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp --verbose artsobservasjoner-fe/.htaccess artsobservasjoner-fe/dist/artsobservasjoner'
+    script: 'cp --verbose artsobservasjoner-fe/web.config artsobservasjoner-fe/dist/artsobservasjoner'
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: 'artsobservasjoner-fe/dist/artsobservasjoner'
-    includeRootFolder: true
+    includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/drop.zip'
     replaceExistingArchive: true
