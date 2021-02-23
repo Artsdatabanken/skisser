@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../data/settings.json';
-import { NewsItem } from '../models/newsItem';
 import { AboutPage } from '../models/aboutPage';
+import { Announcement, NewsItem } from '../models/news';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -25,29 +25,46 @@ export class DataService {
     //this.environmentWpApi = environment.wpApiEndpoint;
   }
 
-  // private getServerErrorMessage(error: HttpErrorResponse): string {
-  //   switch (error.status) {
-  //     case 404: {
-  //       return `Not Found: ${error.message}`;
-  //     }
-  //     case 403: {
-  //       return `Access Denied: ${error.message}`;
-  //     }
-  //     case 500: {
-  //       return `Internal Server Error: ${error.message}`;
-  //     }
-  //     default: {
-  //       return `Unknown Server Error: ${error.message}`;
-  //     }
-
-  //   }
-  // }
-
   private getTime(date?: Date) {
     return date != null ? new Date(date).getTime() : 0;
   }
 
   //----------------------------------------------------------------------------****
+
+  
+  getAnnouncements(langCode: string | null = 'no'): Observable<Announcement[]> {
+
+    return this.http.get(this.drupalNewsAPI).pipe(
+      map((res: any[]) => {
+
+        ///const filteredRes = res.filter(i => i.LANGUAGE === langCode);
+        const filteredRes = res;
+        const announcements: Announcement[] = [];
+
+        filteredRes.forEach(data => {
+
+          const announcement: Announcement = {
+            id: data.Id.replace('Nodes/', ''),
+            url: data.Id.replace('Nodes/', ''),
+            title: data.Name,
+            heading: data.Heading,
+            updated: data.Changed,
+            published: data.Published,
+            body: data.Body
+          }
+
+          announcements.push(announcement);
+
+        });
+
+        return announcements.sort((a: Announcement, b: Announcement) => this.getTime(b.published) - this.getTime(a.published));
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
 
   getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
 

@@ -1,0 +1,48 @@
+<div class="page page--landing">
+
+    <header class="page__header"></header>
+
+    <div class="page__intro" *ngIf="!location">
+
+        <p>Ingress og annen nødvendig tekst</p>
+
+    </div>
+
+    <div class="page__content">
+
+        <div *ngIf="announcements$ | async as announcements">
+
+            <div class="loop" [ngClass]="{'loop--teasers-2': take !== 0, 'loop--teasers': take === 0}">
+
+                <!-- <div *ngFor="let item of (take === 0 ? (announcements) : (announcements | slice: 0: take) )">
+                    {{ item.title }}
+                    <br>
+                </div> -->
+            </div>
+
+        </div>
+
+        <!--ACCORDION if parent page has children in the form of attachments-->
+
+        <app-accordion *ngIf="announcements$ | async as announcements">
+            <app-accordion-item *ngFor="let item of announcements" [heading]="item.heading"
+                [headerId]="item.id" [panelId]="item.id"
+                [shouldCloseOtherItems]="true">
+                <div [innerHtml]="item.body"></div>
+            </app-accordion-item>
+        </app-accordion>
+
+        <br>
+        <br>
+
+        <!--ACCORDION-->
+
+        <!-- <ng-template #message>
+            <p class="message">{{ errorMessage }}</p>
+        </ng-template> -->
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>

@@ -47,6 +47,7 @@ import { OverviewStatisticsComponent } from './components/statistics/overview-st
 import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
+import { AnnouncementsComponent } from './components/announcements/announcements.component';
 
 /*
 
@@ -888,6 +889,22 @@ const extraRoutes: Routes = [
       rank: '',
       parent: 'news',
       menu: '',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'announcements',
+    component: AnnouncementsComponent,
+    data: {
+      text: 'Kunngjøringer',
+      title: 'menu_announcements',
+      id: 'announcements',
+      layout: 'text',
+      rank: 'secondary',
+      parent: '',
+      menu: 'extraMenu',
       metatitle: '',
       metaDescription: '',
       hidden: false

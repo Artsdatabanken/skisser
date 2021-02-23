@@ -715,17 +715,23 @@
             @include customVar(border-bottom-color, transparent);
             @include customVar(color, clrBlack);
 
-            &::after,
-            &:after {
-                @include customVar(background-color, clrAccent);
-                border-radius: 50px;
-                content: "";
-                display: inline-block;
-                height: 10px;
-                margin: 0 0 0 5px;
-                vertical-align: middle;
-                width: 10px;
+            @media screen and (max-width: 1200px) {
+                &::after,
+                &:after {
+                    @include customVar(background-color, clrAccent);
+                    border-radius: 50px;
+                    content: "";
+                    display: inline-block;
+                    height: 10px;
+                    margin: 0 0 0 5px;
+                    vertical-align: middle;
+                    width: 10px;
+                }
             }
+        }
+
+        p {
+            margin: 0;
         }
 
         @media screen and (max-width: 1200px) {

@@ -109,6 +109,8 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { DropdownComponent } from './reusable/dropdown/dropdown.component';
+import { AnnouncementsComponent } from './components/announcements/announcements.component';
+import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -211,6 +213,8 @@ import { DropdownComponent } from './reusable/dropdown/dropdown.component';
     ErrorResponseComponent,
     StatusPageComponent,
     DropdownComponent,
+    AnnouncementsComponent,
+    AnnouncementComponent,
   ],
   imports: [
     BrowserModule,
