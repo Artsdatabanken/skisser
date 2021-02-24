@@ -20,13 +20,14 @@
 
         <!-- <app-dropdown [type]="'link'" [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'"></app-dropdown> -->
 
-        <app-dropdown id="first" #dd1 [id]="'ddown1'" [type]="'link'"
-            [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'">
+        <app-dropdown [id]="'ddown1'" [title]="'statistics.overviewStats_buttonText' | translate"
+            [options]="dropdownOptions" [icon]="'stats'">
         </app-dropdown>
 
-        <app-dropdown id="second" #dd2 [id]="'ddown2'" [type]="'link'"
-            [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'">
+        <app-dropdown [id]="'ddown2'" [title]="'statistics.overviewStats_buttonText' | translate"
+            [options]="dropdownOptions" [icon]="'stats'">
         </app-dropdown>
+
 
         <router-outlet></router-outlet>
 

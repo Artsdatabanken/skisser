@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { chownSync } from 'fs';
 import { Subscription } from 'rxjs';
 import { DropdownOption } from 'src/app/models/reusable';
@@ -12,12 +12,12 @@ import { LayoutService } from 'src/app/services/layout.service';
 
 export class DropdownComponent implements OnInit {
 
+  @Input() id: string;
   @Input() title: string;
   @Input() options: DropdownOption[];
   @Input() icon?: string; // name of the CSS modifier-class
-  @Input() type: string;
   @Input() open?: boolean;
-  @Input() id: string;
+  @Output() isActive = new EventEmitter<boolean>();
 
   activeDropdown: boolean;
   subscriptions: Subscription[] = [];
@@ -26,6 +26,8 @@ export class DropdownComponent implements OnInit {
     this.subscriptions.push(
       this.layoutService.dropdownVisibility.subscribe((value) => {
         this.activeDropdown = value;
+
+        console.log('dropdown', this.activeDropdown)
       })
     );
   }
@@ -40,8 +42,9 @@ export class DropdownComponent implements OnInit {
     this.layoutService.toggleDropdown();
   }
 
-  newToggle(): void {
-    this.layoutService.toggleDropdown2(this.id);
+  toggleDropdown2(elem: any): void {
+    console.log('this', elem.id)
+    console.log('this', elem.activeDropdown)
   }
 
   closeDropdown(): void {

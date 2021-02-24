@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -11,7 +11,8 @@ import { map } from 'rxjs/operators';
 export class LayoutService {
 
   showDropdownPane: boolean;
-  dropdownVisibility: Subject<boolean> = new Subject<boolean>();
+  // dropdownVisibility: Subject<boolean> = new Subject<boolean>();
+  dropdownVisibility: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   // defaultDropdownText: string;
   // dropdownLinkText: Subject<string> = new Subject<string>();
@@ -30,8 +31,7 @@ export class LayoutService {
   }
 
   toggleDropdown2(id: string): void {
-    this.showDropdownPane = !this.showDropdownPane;
-    this.dropdownVisibility.next(this.showDropdownPane);
+    console.log('id', id)
   }
 
   closeDropdown(): void {

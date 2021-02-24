@@ -110,6 +110,7 @@ import { AnnouncementsComponent } from './components/announcements/announcements
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
+import { CustomDropdownComponent } from './reusable/custom-dropdown/custom-dropdown.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -213,6 +214,7 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
     DropdownComponent,
     AnnouncementsComponent,
     AnnouncementComponent,
+    CustomDropdownComponent
   ],
   imports: [
     BrowserModule,
