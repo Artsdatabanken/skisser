@@ -2,8 +2,6 @@ import { Component, OnInit, Input, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
-import { DataService } from 'src/app/services/data.service';
-import { AboutPage } from 'src/app/models/aboutPage';
 
 @Component({
   selector: 'app-menu',
@@ -40,8 +38,7 @@ export class MenuComponent implements OnInit {
   toggleMenu(): void {
 
     this.menuService.toggleMenu(); 
-    this.menuService.closeDashboard(); // close dashboard
-
+    
     if (this.menuService.activeMenu) {
       this.renderer.addClass(this.document.body, 'active-menu');
     }

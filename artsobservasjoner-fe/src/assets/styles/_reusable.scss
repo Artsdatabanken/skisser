@@ -758,6 +758,34 @@
     }
 }
 
+// dropdown box
+
+.dropdown-box {
+    @include customVar(background-color, clrWash1);
+    margin: 0 0 15px;
+    padding: 30px 30px 30px 90px;
+
+    &--undefined {
+        background-image: url(../images/iconBell.png);
+        background-position: left 30px top 30px;
+        background-repeat: no-repeat;
+        background-size: 40px;
+
+    } 
+
+    &__heading {
+        // @include customVar(font-family, fontPrimary);
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    &__content {
+        display: none;
+        font-size: 18px;
+        margin-top: 15px;
+    }
+}
+
 // dropdown
 
 .dropdown {

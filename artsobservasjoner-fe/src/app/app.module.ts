@@ -76,7 +76,6 @@ import { CloseDropdownDirective } from './directives/close-dropdown.directive';
 import { GetDropdownItemDirective } from './directives/get-dropdown-item.directive';
 import { ClickElsewhereDirective } from './directives/click-elsewhere.directive';
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
@@ -106,11 +105,11 @@ import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { IntersectionComponent } from './reusable/intersection/intersection.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
-import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
-import { StatusPageComponent } from './components/status-page/status-page.component';
 import { DropdownComponent } from './reusable/dropdown/dropdown.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
+import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
+import { StatusPageComponent } from './components/status-page/status-page.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -184,7 +183,6 @@ import { AnnouncementComponent } from './components/announcements/announcement/a
     OverviewChild12Component,
     GetDropdownItemDirective,
     ShortcutsComponent,
-    DashboardComponent,
     ArtsobsNumbersComponent,
     NewsComponent,
     NewsItemComponent,

@@ -20,7 +20,7 @@ export class GetDropdownItemDirective implements OnInit {
 
         this.unlistener = this.renderer.listen(this.elemRef.nativeElement, 'click', (event: any) => {
             this.elem = event.target.innerText || event.currentTarget.innerText;
-            this.layoutService.propagateDropdownLinkText(this.elem);
+            //this.layoutService.propagateDropdownLinkText(this.elem);
         });
 
     }

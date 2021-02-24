@@ -11,14 +11,22 @@
     </div>
 
     <div class="page__content" style="min-height: 90vh;">
-        
+
         <p class="body-text">
             Her trenger vi kanskje litt tekst? Forklar hva disse tabellene viser og hva som er datagrunnlag og hensikt.
         </p>
 
         <br>
 
-        <app-dropdown [type]="'link'" [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'"></app-dropdown>
+        <!-- <app-dropdown [type]="'link'" [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'"></app-dropdown> -->
+
+        <app-dropdown id="first" #dd1 [id]="'ddown1'" [type]="'link'"
+            [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'">
+        </app-dropdown>
+
+        <app-dropdown id="second" #dd2 [id]="'ddown2'" [type]="'link'"
+            [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions" [icon]="'stats'">
+        </app-dropdown>
 
         <router-outlet></router-outlet>
 
@@ -27,7 +35,7 @@
 
     <div class="page__footer">
 
-       
+
 
     </div>
 </div>

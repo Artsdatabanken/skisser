@@ -9,7 +9,7 @@ import { MenuService } from '../services/menu.service';
 export class ClosePaneDirective {
 
     @HostListener('click') onClick() {
-        this.menuService.closeDashboard();
+        //this.menuService.closeDashboard();
     }
 
     constructor(private menuService: MenuService) { }

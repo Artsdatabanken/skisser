@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { chownSync } from 'fs';
 import { Subscription } from 'rxjs';
 import { DropdownOption } from 'src/app/models/reusable';
@@ -17,6 +17,7 @@ export class DropdownComponent implements OnInit {
   @Input() icon?: string; // name of the CSS modifier-class
   @Input() type: string;
   @Input() open?: boolean;
+  @Input() id: string;
 
   activeDropdown: boolean;
   subscriptions: Subscription[] = [];
@@ -37,6 +38,10 @@ export class DropdownComponent implements OnInit {
 
   toggleDropdown(): void {
     this.layoutService.toggleDropdown();
+  }
+
+  newToggle(): void {
+    this.layoutService.toggleDropdown2(this.id);
   }
 
   closeDropdown(): void {

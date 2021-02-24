@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { NewsItem } from 'src/app/models/newsItem';
+import { NewsItem } from 'src/app/models/news';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({

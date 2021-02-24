@@ -37,7 +37,6 @@ import { OverviewChild10Component } from './components/statistics/overview/overv
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
@@ -821,22 +820,6 @@ const accountRoutes: Routes = [
       id: 'login',
       layout: 'page',
       rank: '',
-      parent: 'accountMenu',
-      menu: 'accountMenu',
-      metatitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    data: {
-      text: 'Min side',
-      title: 'menu_account',
-      id: 'dashboard',
-      layout: 'page',
-      rank: 'primary',
       parent: 'accountMenu',
       menu: 'accountMenu',
       metatitle: '',
