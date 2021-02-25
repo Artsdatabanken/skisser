@@ -31,12 +31,11 @@ export class DataService {
   //----------------------------------------------------------------------------****
 
   
-  getAnnouncements(langCode: string | null = 'no'): Observable<Announcement[]> {
+  getAnnouncements(): Observable<Announcement[]> {
 
     return this.http.get(this.drupalNewsAPI).pipe(
       map((res: any[]) => {
 
-        ///const filteredRes = res.filter(i => i.LANGUAGE === langCode);
         const filteredRes = res;
         const announcements: Announcement[] = [];
 
@@ -64,6 +63,29 @@ export class DataService {
     );
 
   }
+
+  getAnnouncementById(id: number): Observable<Announcement> {
+
+    return this.http.get(this.drupalNewsAPIItem + '/' + id).pipe(
+      map((data: any) => {
+
+        const announcement: Announcement = {
+          id: data.Id.replace('Nodes/', ''),
+          url: data.Id.replace('Nodes/', ''),
+          title: data.Name,
+          heading: data.Heading,
+          updated: data.Changed,
+          published: data.Published,
+          body: data.Body
+        }
+
+        return announcement;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
 
   getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
 
@@ -212,7 +234,7 @@ export class DataService {
           this.errorMessage = `Error: ${error.error.message}`;
         }
         else {
-          this.errorMessage = this.apiService.getServerErrorMessage(error);
+          //this.errorMessage = this.apiService.getServerErrorMessage(error);
         }
 
         return throwError(this.errorMessage);

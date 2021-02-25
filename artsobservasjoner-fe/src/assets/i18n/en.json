@@ -26,6 +26,7 @@
         "menu_about": "About",
         "menu_news": "News",
         "menu_announcements": "Announcements",
+        "menu_announcement": "Announcement",
         "menu_sitemap": "Sitemap",
         "menu_404": "Not found - 404",
         "menu_account_register": "Register",
@@ -56,6 +57,7 @@
         "announcements": "Announcements"
     },
     "shared": {
+        "at": "at",
         "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
        },
     "statistics": {

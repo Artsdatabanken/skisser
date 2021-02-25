@@ -10,21 +10,30 @@
 
     <div class="page__content">
 
-        <div *ngIf="announcements$ | async as announcements">
+        <div *ngIf="announcements$ | async as announcements; else noData">
 
+            <div class="loop loop--2x">
 
-            <div class="dropdown-box" [class]="'dropdown-box--' + item.icon" *ngFor="let item of (take === 0 ? (announcements) : (announcements | slice: 0: take) )">
-                <h1 class="dropdown-box__heading">{{ item.title }}</h1>
-                <div class="dropdown-box__content" [innerHTML]="item.body"></div>
+                <a routerLink="/announcements/{{ item.url }}" class="dropdown-box"
+                    [class]="'dropdown-box--' + item.icon"
+                    *ngFor="let item of (take === 0 ? (announcements) : (announcements | slice: 0: take) )">
+                   
+                    <h1 class="dropdown-box__heading">{{ item.title }}</h1>
+                    <div class="dropdown-box__details">
+                        {{ item.published | localizedDate }},
+                        {{ 'shared.at' | translate }} {{ item.published | date: 'hh:mm' }}
+                    </div>
+                    <div class="dropdown-box__content" [innerHTML]="item.body | truncateText: 150 | stripHtml"></div>
+
+                </a>
+
             </div>
-
-
 
         </div>
 
-        <!-- <ng-template #message>
-            <p class="message">{{ errorMessage }}</p>
-        </ng-template> -->
+        <ng-template #noData>
+            <app-error-message></app-error-message>
+        </ng-template>
 
     </div>
 

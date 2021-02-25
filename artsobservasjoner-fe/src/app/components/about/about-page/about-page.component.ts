@@ -59,10 +59,6 @@ export class AboutPageComponent implements OnInit {
         languages: res.Languages[0]
       };
 
-
-
-      //console.log('RES', res)
-
       this.pageTitle = res.Heading;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
 

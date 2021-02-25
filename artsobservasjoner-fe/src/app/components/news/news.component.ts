@@ -20,22 +20,7 @@ export class NewsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    
-    // this.dataService.getNews().subscribe(
-    //   (res: any) => {
-    //     if (this.take === 0) {
-    //       this.news = res;
-    //     }
-    //     else {
-    //       this.news = res.slice(0, this.take);
-    //     }
-    //   },
-    //   error => {
-    //     console.log('error', error);
-    //     this.errorMessage = 'Old news not working';
-    //   }
-    // );
-
+  
     this.news$ = this.dataService.getNews();
 
   }

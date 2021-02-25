@@ -10,13 +10,6 @@
 
     <div class="page__content">
 
-        <!-- <div class="loop loop--teasers" *ngIf="news; else message">
-
-            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro" [tag]="'news.currently' | translate"
-                [date]="item.created" [title]="item.title" *ngFor="let item of news"> </app-teaser>
-
-        </div> -->
-
         <!-- <h2>Fra WordPress Non Observable</h2>
         <div class="loop loop--teasers" *ngIf="news; else message">
             <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.excerpt" [tag]="'news.currently' | translate" [date]="item.date"
@@ -24,21 +17,37 @@
         </div>
     -->
 
-        <div *ngIf="news$ | async as news">
+        <div *ngIf="news$ | async as news; else noData">
 
-            <div class="loop" [ngClass]="{'loop--teasers-2': take !== 0, 'loop--teasers': take === 0}">
+            <!-- <div class="loop" [ngClass]="{'loop--teasers-2': take !== 0, 'loop--teasers': take === 0}"> -->
 
-                <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.intro"
-                    [tag]="'news.currently' | translate" [date]="item.created" [title]="item.title"
+            <div class="loop loop--news">
+
+                <app-teaser [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
+                    [date]="item.created" [title]="item.title"
                     *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"> </app-teaser>
+
+                <!-- <a class="" routerLink="item.url" routerLinkActive=""
+                    *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )">
+
+                    <h1 class="">{{ item.title }}</h1>
+
+                    <img class="" src="assets/images/gallery/animal1.jpg" alt="" style="width: 200px;">
+
+                    <div class="">
+                        <div class="">{{ 'news.currently' | translate }}</div>
+                        <div class="">{{ item.published | localizedDate }}</div>
+                    </div>
+
+                </a> -->
 
             </div>
 
         </div>
 
-        <!-- <ng-template #message>
-            <p class="message">{{ errorMessage }}</p>
-        </ng-template> -->
+        <ng-template #noData>
+            <app-error-message></app-error-message>
+        </ng-template>
 
     </div>
 

@@ -3,7 +3,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { registerLocaleData } from '@angular/common';
+import { DatePipe, registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -108,8 +108,10 @@ import { AnnouncementsComponent } from './components/announcements/announcements
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
+import { LocalizedDatePipe } from './pipes/localized-date.pipe';
+import { StripHtmlPipe } from './pipes/strip-html.pipe';
 
-// registerLocaleData(localeNor, 'no', localeNorExtra);
+registerLocaleData(localeNor, 'no', localeNorExtra);
 
 @NgModule({
   declarations: [
@@ -209,7 +211,9 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
     DropdownComponent,
     AnnouncementsComponent,
     AnnouncementComponent,
-    CloseDropdownDirective
+    CloseDropdownDirective,
+    LocalizedDatePipe,
+    StripHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -228,12 +232,13 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
     AppRoutingModule
   ],
   providers: [
-    //{ provide: LOCALE_ID, useValue: 'no' }
+    { provide: DatePipe },
+    // { provide: LOCALE_ID, useValue: 'no' },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
-  },
+    },
   ],
   bootstrap: [AppComponent]
 })

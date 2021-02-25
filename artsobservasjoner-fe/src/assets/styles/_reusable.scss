@@ -477,34 +477,36 @@
 // teaser
 
 .teaser {
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: nowrap;
-    // justify-content: stretch;
-    // align-items: flex-start;
-    // width: 100%;
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    align-items: flex-start;
+    width: 100%;
 
     &__grid {
-        display: grid;
-        grid-template-columns: auto 6fr;
-        grid-gap: 0 20px;
-        margin-bottom: 50px;
+        // display: grid;
+        // grid-template-columns: auto 6fr;
+        // grid-gap: 0 20px;
+        // margin-bottom: 50px;
     }
 
     &__box {
-        //border: 1px solid red;
+        border: 1px solid red;
     }
 
-    &__icon {
-        @include customVar(background-color, paletteColor1);
-        background-image: url(../images/iconNews.png);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 35px;
-        border-radius: 500px;
-        height: 70px;
-        width: 70px;
-    }
+    // &__icon {
+    //     @include customVar(background-color, paletteColor1);
+    //     background-image: url(../images/iconNews.png);
+    //     background-position: center center;
+    //     background-repeat: no-repeat;
+    //     background-size: 35px;
+    //     border-radius: 500px;
+    //     height: 70px;
+    //     width: 70px;
+    //     display: none;
+    // }
 
     &__heading {
         font-size: 28px;
@@ -762,16 +764,15 @@
 
 .dropdown-box {
     @include customVar(background-color, clrWash1);
-    margin: 0 0 15px;
+    margin: 0;
     padding: 30px 30px 30px 90px;
 
     &--undefined {
         background-image: url(../images/iconBell.png);
         background-position: left 30px top 30px;
         background-repeat: no-repeat;
-        background-size: 40px;
-
-    } 
+        background-size: 35px;
+    }
 
     &__heading {
         // @include customVar(font-family, fontPrimary);
@@ -779,9 +780,15 @@
         font-weight: 500;
     }
 
+    &__details {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
     &__content {
-        display: none;
-        font-size: 18px;
+        // display: none;
+        font-size: 17px;
         margin-top: 15px;
     }
 }

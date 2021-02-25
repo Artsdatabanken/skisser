@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { NewsItem } from 'src/app/models/news';
 import { DataService } from 'src/app/services/data.service';
 
@@ -15,6 +16,7 @@ export class NewsItemComponent implements OnInit {
   pageTitle: string;
   newsItemId: number;
   newsItem: NewsItem;
+  subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,14 +28,15 @@ export class NewsItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dataService.getNewsItemById(this.newsItemId).subscribe(ni => {
+    this.subscription = this.dataService.getNewsItemById(this.newsItemId).subscribe(ni => {
       this.newsItem = ni;
       this.pageTitle = ni.title;
-      //this.image = ni.image;
-      //this.imageUrl = `http://localhost:1337${article.image.sourceUrl}`;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
     });
 
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

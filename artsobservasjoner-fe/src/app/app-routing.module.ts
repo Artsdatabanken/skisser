@@ -47,6 +47,7 @@ import { OverviewItemComponent } from './components/statistics/overview/overview
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
+import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 
 /*
 
@@ -252,7 +253,7 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics',
     component: StatisticsComponent,
     data: {
-      text: 'Tall og statistikk', 
+      text: 'Tall og statistikk',
       title: 'menu_statistics',
       id: 'statistics',
       layout: 'landing',
@@ -268,7 +269,7 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics/overview-statistics',
     component: OverviewStatisticsComponent,
     data: {
-      text: 'Volumstatistikk',  
+      text: 'Volumstatistikk',
       title: 'menu_statistics_overview',
       id: 'overview-statistics',
       layout: 'spa',
@@ -477,8 +478,8 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics/validated-data',
     component: ValidatedDataComponent,
     data: {
-      text: 'Kvalitetssikrede data', 
-      title: 'menu_statistics_validatedData', 
+      text: 'Kvalitetssikrede data',
+      title: 'menu_statistics_validatedData',
       id: 'validated-data',
       layout: 'page',
       rank: 'secondary',
@@ -492,7 +493,7 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics/redlisted-species',
     component: RedListedSpeciesComponent,
     data: {
-      text: 'Rødlistede arter',  
+      text: 'Rødlistede arter',
       title: 'menu_statistics_redlistedSpecies',
       id: 'redlisted-species',
       layout: 'page',
@@ -507,7 +508,7 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
-      text: 'Fremmede arter',  
+      text: 'Fremmede arter',
       title: 'menu_statistics_alienSpecies',
       translation: {
         no: 'Fremmede arter',
@@ -526,7 +527,7 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics/knowledge-gaps',
     component: KnowledgeGapComponent,
     data: {
-      text: 'Kunnskapshull',  
+      text: 'Kunnskapshull',
       title: 'menu_statistics_knowledgeGaps',
       translation: {
         no: 'Kunnskapshull',
@@ -545,7 +546,7 @@ const sightingsRoutes: Routes = [
     path: 'observations/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
-      text: 'Brukerstatistikk',  
+      text: 'Brukerstatistikk',
       title: 'menu_statistics_userStatistics',
       translation: {
         no: 'Brukerstatistikk',
@@ -686,7 +687,7 @@ const aboutRoutes: Routes = [
     path: 'about',
     component: AboutComponent,
     data: {
-      text: 'Om tjenesten', 
+      text: 'Om tjenesten',
       title: 'menu_about',
       id: 'about',
       layout: 'landing',
@@ -703,16 +704,13 @@ const aboutRoutes: Routes = [
     component: AboutPageComponent,
     data: {
       text: 'About item',
-      translation: {
-        no: '',
-        en: ''
-      },
+      title: '',
       id: 'about',
       layout: 'text',
       rank: '',
       parent: 'about',
-      menu: 'mainMenu',
-      metatitle: 'menu_About Item',
+      menu: '',
+      metatitle: '',
       metaDescription: '',
       hidden: true
     }
@@ -853,7 +851,7 @@ const extraRoutes: Routes = [
       text: 'Aktuelle saker',
       title: 'menu_news',
       id: 'news',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: '',
       menu: 'extraMenu',
@@ -884,13 +882,29 @@ const extraRoutes: Routes = [
       text: 'Kunngjøringer',
       title: 'menu_announcements',
       id: 'announcements',
-      layout: 'text',
+      layout: 'page',
       rank: 'secondary',
       parent: '',
       menu: 'extraMenu',
       metatitle: '',
       metaDescription: '',
       hidden: false
+    }
+  },
+  {
+    path: 'announcements/:id',
+    component: AnnouncementComponent,
+    data: {
+      text: 'Kunngjøring',
+      title: 'menu_announcement',
+      id: 'announcement',
+      layout: 'text',
+      rank: 'secondary',
+      parent: '',
+      menu: '',
+      metatitle: '',
+      metaDescription: '',
+      hidden: true
     }
   },
   {

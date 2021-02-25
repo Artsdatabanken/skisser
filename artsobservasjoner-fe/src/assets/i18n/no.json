@@ -26,6 +26,7 @@
         "menu_about": "Om tjenesten",
         "menu_news": "Aktuelle saker",
         "menu_announcements": "Kunngjøringer",
+        "menu_announcement": "Kunngjøring",
         "menu_sitemap": "Innholdskart A-Å",
         "menu_404": "Ikke funnet - 404",
         "menu_account_register": "Registrer deg",
@@ -56,6 +57,7 @@
         "announcements": "Kunngjøringer"
     },
     "shared": {
+        "at": "kl.",
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."       
     },
     "statistics": {

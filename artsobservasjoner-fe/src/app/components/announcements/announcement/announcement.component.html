@@ -1,1 +1,19 @@
-<p>announcement works!</p>
+<div class="page">
+
+    <header class="page__header">
+        <h1 class="page__title" [innerHtml]="pageTitle"></h1>
+    </header>
+
+    <div class="page__intro"> </div>
+
+    <div class="page__content" *ngIf="announcement">
+
+        <div class="date">{{ announcement.published | date: 'dd.MM.yyyy'}}</div>
+
+        <div class="page__body" [innerHtml]="announcement.body"></div>
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+</div>
