@@ -5,7 +5,6 @@ import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../data/settings.json';
 import { AboutPage } from '../models/aboutPage';
 import { Announcement, NewsItem } from '../models/news';
-import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class DataService {
   readonly drupalNewsAPI: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
   readonly drupalNewsAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
 
-  constructor(private http: HttpClient, private apiService: ApiService) {
+  constructor(private http: HttpClient) {
     //this.environmentWpApi = environment.wpApiEndpoint;
   }
 
