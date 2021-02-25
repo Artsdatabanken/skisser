@@ -2,14 +2,14 @@
 
 <div class="dropdown-container">
 
-    <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown()" id="{{ id }}">
+    <div class="dropdown" [ngClass]="{'dropdown--active': activeDropdown}" (clickElsewhere)="closeDropdown(this)" id="{{ id }}">
 
         <!-- <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}"
             (click)="toggleDropdown()">
             {{ title }}
         </button> -->
 
-        <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}" (click)="toggleDropdown2(this)">
+        <button class="dropdown__button" [ngClass]="{'dropdown__button--active': activeDropdown}" (click)="toggleDropdown(this)">
             {{ title }}
         </button>
 
@@ -17,7 +17,7 @@
             [attr.aria-expanded]="activeDropdown">
 
             <a *ngFor="let option of options" class="dropdown__link" [class]="getDropdownOptionIcon(option.icon, icon)"
-                routerLink="{{ option.url }}" routerLinkActive="dropdown__link--active" closeDropdown getDropdownItem>
+                routerLink="{{ option.url }}" routerLinkActive="dropdown__link--active" closeDropdown>
                 {{ option.text | translate }}
             </a>
 

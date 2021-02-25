@@ -60,7 +60,6 @@ import { SurveyProjectComponent } from './components/report/survey-project/surve
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
 import { SubheaderComponent } from './layout/subheader/subheader.component';
-import { ClosePaneDirective } from './directives/close-pane.directive';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
 import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
@@ -72,7 +71,6 @@ import { OverviewChild9Component } from './components/statistics/overview/overvi
 import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
 import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { OverviewChild12Component } from './components/statistics/overview/overview-child12/overview-child12.component';
-import { CloseDropdownDirective } from './directives/close-dropdown.directive';
 import { GetDropdownItemDirective } from './directives/get-dropdown-item.directive';
 import { ClickElsewhereDirective } from './directives/click-elsewhere.directive';
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
@@ -105,12 +103,11 @@ import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { IntersectionComponent } from './reusable/intersection/intersection.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
-import { DropdownComponent } from './reusable/dropdown/dropdown.component';
+import { CloseDropdownDirective, DropdownComponent } from './reusable/dropdown/dropdown.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
-import { CustomDropdownComponent } from './reusable/custom-dropdown/custom-dropdown.component';
 
 // registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -169,8 +166,6 @@ import { CustomDropdownComponent } from './reusable/custom-dropdown/custom-dropd
     ExtraNavigationComponent,
     SubheaderComponent,
     ClickElsewhereDirective,
-    ClosePaneDirective,
-    CloseDropdownDirective,
     OverviewChild1Component,
     OverviewChild2Component,
     OverviewChild3Component,
@@ -214,7 +209,7 @@ import { CustomDropdownComponent } from './reusable/custom-dropdown/custom-dropd
     DropdownComponent,
     AnnouncementsComponent,
     AnnouncementComponent,
-    CustomDropdownComponent
+    CloseDropdownDirective
   ],
   imports: [
     BrowserModule,
