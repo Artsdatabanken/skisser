@@ -477,7 +477,7 @@
 // teaser
 
 .teaser {
-    border: 2px solid blue;
+    border: 2px solid fuchsia;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -485,28 +485,10 @@
     align-items: flex-start;
     width: 100%;
 
-    &__grid {
-        // display: grid;
-        // grid-template-columns: auto 6fr;
-        // grid-gap: 0 20px;
-        // margin-bottom: 50px;
+    @media screen and (max-width: 1024px) {
+        border: 2px solid green;
+        display: block;
     }
-
-    &__box {
-        border: 1px solid red;
-    }
-
-    // &__icon {
-    //     @include customVar(background-color, paletteColor1);
-    //     background-image: url(../images/iconNews.png);
-    //     background-position: center center;
-    //     background-repeat: no-repeat;
-    //     background-size: 35px;
-    //     border-radius: 500px;
-    //     height: 70px;
-    //     width: 70px;
-    //     display: none;
-    // }
 
     &__heading {
         font-size: 28px;
@@ -514,10 +496,15 @@
         margin-bottom: 0;
         order: 2;
         text-align: left;
-
+        
         &:focus,
         &:active {
             order: 2;
+        }
+
+        @media screen and (max-width: 1200px) {
+            font-size: 23px;
+            width: 100%;
         }
     }
 
@@ -526,8 +513,8 @@
         object-fit: cover;
         order: 1;
         height: 30vh;
-        width: 100%;
         transition: opacity 0.5s;
+        width: 100%;
 
         &:focus,
         &:active {
@@ -537,6 +524,10 @@
         &:hover {
             opacity: 0.3;
             transition: opacity 0.5s;
+        }
+
+        @media screen and (max-width: 1024px) {
+            width: 50%;
         }
     }
 
@@ -570,7 +561,6 @@
     }
 
     &__date {
-        //@include customVar(font-family, fontSecondary);
         font-size: 16px;
         font-weight: 800;
     }
