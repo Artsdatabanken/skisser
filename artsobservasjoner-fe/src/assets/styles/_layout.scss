@@ -407,6 +407,7 @@
             }
 
             @media screen and (max-width: 1024px) {
+                font-size: 14px;
                 padding: 0 0 5px;
             }
         }
@@ -467,27 +468,6 @@
 
             &:hover:after {
                 width: 100%;
-            }
-
-            &:nth-child(1) {
-                background-image: url(../images/iconLock.png);
-                background-image: url(../images/iconLockWhite.png);
-                background-size: 12px;
-            }
-
-            &:nth-child(2) {
-                background-image: url(../images/iconEnvelope.png);
-                background-image: url(../images/iconEnvelopeWhite.png);
-                background-size: 18px;
-                font-size: 0;
-                padding-left: 47px;
-            }
-
-            &:nth-child(2) {
-                background-image: url(../images/iconUserWhite.png);
-                background-size: 13px;
-                font-size: 0;
-                padding-left: 47px;
             }
         }
     }
@@ -657,18 +637,24 @@ main {
 }
 
 .main-grid {
+    //border: 2px solid orange;
     display: grid;
     grid-template-columns: 1fr;
     align-content: start; // important, do not remove
+    margin: 0 auto;
     padding: 60px 30px;
 
     &--page {
         grid-template-columns: 1fr 5fr 1fr;
         grid-template-areas: ". pageTitle  ." ". component ." ". router .";
 
-        @media screen and (max-width: 1600px) {
-            grid-template-columns: 1fr 6fr 1fr;
-        }
+        // @media screen and (max-width: 1600px) {
+        //     grid-template-columns: 1fr 6fr 1fr;
+        // }
+
+        // @media screen and (max-width: 1200px) {
+        //     grid-template-columns: 1fr 3fr 1fr;
+        // }
 
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
@@ -682,7 +668,6 @@ main {
     }
 
     &--landing {
-        @extend .main-grid--page;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-areas: ". pageTitle  ." ". component ." ". router .";
 
@@ -775,7 +760,7 @@ main {
     }
 
     & > * {
-        // border: 2px dotted black;
+        //border: 2px dotted black;
         align-self: stretch;
         justify-self: stretch;
 
@@ -1053,17 +1038,20 @@ main {
     }
 
     &--news {
+        border: 2px solid blue;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: flex-start;
         justify-content: space-between;
 
+        @media screen and (max-width: 1024px) {
+            display: block;
+        }
+
         & > * {
+            border: 2px solid red;
             align-self: stretch;
             justify-self: stretch;
-            margin: 25px 0;
-            width: calc(33% - 50px);
             width: 32%;
 
             @media screen and (max-width: 1024px) {
@@ -1071,11 +1059,6 @@ main {
                 margin: 15px auto;
                 width: 90%;
             }
-        }
-
-        @media screen and (max-width: 1024px) {
-            border: 2px solid red;
-            display: block;
         }
     }
 
