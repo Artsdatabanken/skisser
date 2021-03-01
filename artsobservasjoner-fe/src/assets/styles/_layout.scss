@@ -407,6 +407,7 @@
             }
 
             @media screen and (max-width: 1024px) {
+                font-size: 14px;
                 padding: 0 0 5px;
             }
         }
@@ -469,26 +470,6 @@
                 width: 100%;
             }
 
-            &:nth-child(1) {
-                background-image: url(../images/iconLock.png);
-                background-image: url(../images/iconLockWhite.png);
-                background-size: 12px;
-            }
-
-            &:nth-child(2) {
-                background-image: url(../images/iconEnvelope.png);
-                background-image: url(../images/iconEnvelopeWhite.png);
-                background-size: 18px;
-                font-size: 0;
-                padding-left: 47px;
-            }
-
-            &:nth-child(2) {
-                background-image: url(../images/iconUserWhite.png);
-                background-size: 13px;
-                font-size: 0;
-                padding-left: 47px;
-            }
         }
     }
 
