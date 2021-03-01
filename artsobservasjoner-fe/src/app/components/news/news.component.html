@@ -9,32 +9,30 @@
     <div class="page__content">
 
 
-        <div *ngIf="news$ | async as news; else noData">
+        <div *ngIf="news$ | async as news; else noData" class="loop loop--news">
 
+            <app-teaser [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
+                [date]="item.created" [title]="item.title"
+                *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"> </app-teaser>
 
-            <!-- <app-teaser [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
-                    [date]="item.created" [title]="item.title"
-                    *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"
-                    style="border: 2px solid red; display: block;"> </app-teaser> -->
-
-            <div *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )">
+            <!-- <div *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )">
 
                 <a class="" routerLink="item.url" routerLinkActive="" style="border: 2px solid fuchsia;">
 
                     <p>{{ item.title }}</p>
 
-                    <!-- <img class="" src="assets/images/gallery/animal1.jpg" alt=""> -->
+                  
 
                     <div style="display: none;">
                         <div class="">{{ 'news.currently' | translate }}</div>
                         <div class="">{{ item.published | localizedDate }}</div>
                     </div>
 
-                </a>
-
-            </div>
+                </a>-->
 
         </div>
+
+
 
         <ng-template #noData>
             <app-error-response></app-error-response>

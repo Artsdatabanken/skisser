@@ -477,7 +477,6 @@
 // teaser
 
 .teaser {
-    border: 2px solid fuchsia;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -486,7 +485,6 @@
     width: 100%;
 
     @media screen and (max-width: 1024px) {
-        border: 2px solid green;
         display: block;
     }
 
@@ -494,12 +492,10 @@
         font-size: 28px;
         font-weight: 400 !important;
         margin-bottom: 0;
-        order: 2;
         text-align: left;
-        
+
         &:focus,
         &:active {
-            order: 2;
         }
 
         @media screen and (max-width: 1200px) {
@@ -509,16 +505,14 @@
     }
 
     &__image {
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         object-fit: cover;
-        order: 1;
         height: 30vh;
         transition: opacity 0.5s;
         width: 100%;
 
         &:focus,
         &:active {
-            order: 1;
         }
 
         &:hover {
@@ -527,7 +521,6 @@
         }
 
         @media screen and (max-width: 1024px) {
-            width: 50%;
         }
     }
 
@@ -535,7 +528,6 @@
         line-height: 1;
         margin: 10px 0 0;
         padding: 0;
-        order: 3;
         text-align: left;
 
         & > * {
@@ -568,7 +560,6 @@
     &__text {
         font-size: 18px;
         margin-top: 20px;
-        order: 4;
         width: 60ch;
     }
 }

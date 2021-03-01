@@ -11,12 +11,12 @@
     <p class="teaser__text" [innerHtml]="text | truncateText: 150"></p>
 </a> -->
 
-<!-- <a class="teaser" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="teaser--active">
+<a class="teaser" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="teaser--active">
+
+    <img class="teaser__image" src="{{ source }}" alt="" *ngIf="source" [attr.aria-hidden]="true">
+    <img class="teaser__image" src="assets/images/gallery/animal1.jpg" alt="" *ngIf="!source" [attr.aria-hidden]="true">
 
     <h1 class="teaser__heading">{{ title }}</h1>
-
-    <img class="teaser__image" src="{{ source }}" alt="" *ngIf="source">
-    <img class="teaser__image" src="assets/images/gallery/animal1.jpg" alt="" *ngIf="!source">
 
     <div class="teaser__details">
         <div class="teaser__tag">{{ tag }}</div>
@@ -24,20 +24,7 @@
     </div>
     <p class="teaser__text" [innerHtml]="text | truncateText: 150"></p>
 
-</a> -->
-
-<a class="" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="">
-
-    <h1 class="" style="font-size: 20px;">{{ title }}</h1>
-
-    <img class="" src="assets/images/gallery/animal1.jpg" alt="" *ngIf="!source" style="width: 200px;">
-
-    <div class="">
-        <div class="">{{ tag }}</div>
-        <div class="">{{ date | date: 'dd.MM.yyyy'}}</div>
-    </div>
-    <p class="" [innerHtml]="text | truncateText: 150"></p>
-
 </a>
+
 
 <!--REUSABLE COMPONENT-->

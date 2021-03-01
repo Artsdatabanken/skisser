@@ -159,7 +159,7 @@ export class StatisticsService {
 
   // SPECIES GROUPS / ARTSGRUPPER
 
-  getSpeciesGroups(): Observable<any> {
+  getSpeciesGroups(): Observable<Category[]> {
     return this.httpClient.get(this.speciesGroupListApi).pipe(
       map((res: any) => {
 

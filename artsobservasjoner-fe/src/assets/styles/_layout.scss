@@ -407,7 +407,6 @@
             }
 
             @media screen and (max-width: 1024px) {
-                font-size: 14px;
                 padding: 0 0 5px;
             }
         }
@@ -506,6 +505,15 @@
         .navigation--top & {
             font-size: 17px;
             font-weight: 500;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 15px;
+            }
+        }
+
+        .navigation--extra & {
+            font-size: 15px;
+            font-weight: 600;
 
             @media screen and (max-width: 1024px) {
                 font-size: 15px;
@@ -637,69 +645,32 @@ main {
 }
 
 .main-grid {
-    //border: 2px solid orange;
     display: grid;
     grid-template-columns: 1fr;
     align-content: start; // important, do not remove
     margin: 0 auto;
     padding: 60px 30px;
 
+    grid-template-areas: ". pageTitle  ." ". component ." ". router .";
+
     &--page {
         grid-template-columns: 1fr 5fr 1fr;
-        grid-template-areas: ". pageTitle  ." ". component ." ". router .";
-
-        // @media screen and (max-width: 1600px) {
-        //     grid-template-columns: 1fr 6fr 1fr;
-        // }
-
-        // @media screen and (max-width: 1200px) {
-        //     grid-template-columns: 1fr 3fr 1fr;
-        // }
-
-        @media screen and (max-width: 1024px) {
-            grid-template-columns: 1fr;
-            grid-template-areas: "pageTitle" "component" "router";
-            display: block;
-
-            & > * {
-                border: 2px solid blue;
-            }
-        }
     }
 
     &--landing {
         grid-template-columns: 1fr 3fr 1fr;
-        grid-template-areas: ". pageTitle  ." ". component ." ". router .";
-
-        @media screen and (max-width: 1024px) {
-            grid-template-columns: 1fr;
-            grid-template-areas: "pageTitle" "component" "router";
-        }
-    }
-
-    &--item {
-        @extend .main-grid--page;
-    }
-
-    &--spa {
-        @extend .main-grid--page;
-        grid-template-columns: 1fr 7fr 1fr;
-
-        @media screen and (max-width: 1024px) {
-            grid-template-columns: 1fr;
-            grid-template-areas: "pageTitle" "component" "router";
-        }
-    }
-
-    &--mega {
-        grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-        grid-template-rows: repeat(4, auto);
-        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 6fr 1fr;
-            grid-template-areas: "pageTitle pageTitle pageTitle" "component component component" "router router router";
         }
+    }
+
+    &--spa {
+        grid-template-columns: 1fr 8fr 1fr;
+    }
+
+    &--full-width {
+        display: block;
     }
 
     &--frontpage {
@@ -709,16 +680,7 @@ main {
         padding: 0 !important;
     }
 
-    &--std {
-        grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-        grid-template-rows: repeat(4, auto);
-        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
-
-        @media screen and (max-width: 1600px) {
-            grid-template-columns: 1fr 6fr 1fr;
-            grid-template-areas: "pageTitle pageTitle pageTitle" "component component component" "router router router";
-        }
-    }
+    // text and article are similar, but article will have wider pictures/images
 
     &--text {
         grid-template-columns: 1fr 1.5fr 1fr;
@@ -736,26 +698,18 @@ main {
         @media screen and (max-width: 1300px) {
             grid-template-columns: 1fr 8fr 1fr;
         }
-
-        @media screen and (max-width: 1024px) {
-            grid-template-columns: 1fr;
-            grid-template-areas: "component" "router";
-        }
     }
 
     &--article {
         @extend .main-grid--text;
-        grid-template-areas: ". component ." ". router .";
     }
 
     &--wide {
-        grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+        grid-template-columns: 1fr 8fr 1fr;
         grid-template-rows: repeat(4, auto);
-        grid-template-areas: ". pageTitle pageTitle pageTitle ." ". component component component ." "router router router router router";
 
         @media screen and (max-width: 1600px) {
             grid-template-columns: 1fr 12fr 1fr;
-            grid-template-areas: ". pageTitle ." ". component ." ". router .";
         }
     }
 
@@ -793,7 +747,12 @@ main {
         grid-area: component;
     }
 
-    @media screen and (max-width: 1200px) {
+    // @media screen and (max-width: 1600px) {
+    //     grid-template-columns: 1fr 7fr 1fr;
+    // }
+
+    @media screen and (max-width: 1024px) {
+        display: block;
         padding: 45px 15px;
     }
 }
@@ -1027,18 +986,7 @@ main {
         }
     }
 
-    &--teasers {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 0 50px;
-
-        @media screen and (max-width: 1024px) {
-            grid-template-columns: 1fr;
-        }
-    }
-
     &--news {
-        border: 2px solid blue;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -1049,7 +997,6 @@ main {
         }
 
         & > * {
-            border: 2px solid red;
             align-self: stretch;
             justify-self: stretch;
             width: 32%;
@@ -1057,7 +1004,7 @@ main {
             @media screen and (max-width: 1024px) {
                 display: block;
                 margin: 15px auto;
-                width: 90%;
+                width: 100%;
             }
         }
     }
