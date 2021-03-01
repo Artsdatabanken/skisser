@@ -673,6 +673,11 @@ main {
         @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
             grid-template-areas: "pageTitle" "component" "router";
+            display: block;
+
+            & > * {
+                border: 2px solid blue;
+            }
         }
     }
 
@@ -1048,20 +1053,29 @@ main {
     }
 
     &--news {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
-        justify-items: center;
+        justify-content: space-between;
 
         & > * {
             align-self: stretch;
             justify-self: stretch;
-            margin: 25px;
+            margin: 25px 0;
             width: calc(33% - 50px);
+            width: 32%;
+
+            @media screen and (max-width: 1024px) {
+                display: block;
+                margin: 15px auto;
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            border: 2px solid red;
+            display: block;
         }
     }
 

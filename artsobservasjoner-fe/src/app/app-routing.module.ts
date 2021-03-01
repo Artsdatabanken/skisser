@@ -48,6 +48,7 @@ import { OverviewChild5Component } from './components/statistics/overview/overvi
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
+import { PressComponent } from './components/press/press.component';
 
 /*
 
@@ -902,6 +903,22 @@ const extraRoutes: Routes = [
       rank: 'secondary',
       parent: '',
       menu: '',
+      metatitle: '',
+      metaDescription: '',
+      hidden: true
+    }
+  },
+  {
+    path: 'press',
+    component: PressComponent,
+    data: {
+      text: 'Presse',
+      title: 'menu_press',
+      id: 'press',
+      layout: 'page',
+      rank: 'secondary',
+      parent: '',
+      menu: 'extraMenu',
       metatitle: '',
       metaDescription: '',
       hidden: true

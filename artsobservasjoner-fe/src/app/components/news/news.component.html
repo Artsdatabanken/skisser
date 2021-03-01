@@ -3,43 +3,34 @@
     <header class="page__header"></header>
 
     <div class="page__intro" *ngIf="!location">
-
         <p>Ingress og annen nødvendig tekst</p>
-
     </div>
 
     <div class="page__content">
 
-        <!-- <h2>Fra WordPress Non Observable</h2>
-        <div class="loop loop--teasers" *ngIf="news; else message">
-            <app-teaser [source]="item.imgUrl" [url]="item.url" [text]="item.excerpt" [tag]="'news.currently' | translate" [date]="item.date"
-                [title]="item.title" *ngFor="let item of news"> </app-teaser>
-        </div>
-    -->
 
         <div *ngIf="news$ | async as news; else noData">
 
-            <!-- <div class="loop" [ngClass]="{'loop--teasers-2': take !== 0, 'loop--teasers': take === 0}"> -->
 
-            <div class="loop loop--news">
-
-                <app-teaser [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
+            <!-- <app-teaser [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
                     [date]="item.created" [title]="item.title"
-                    *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"> </app-teaser>
+                    *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"
+                    style="border: 2px solid red; display: block;"> </app-teaser> -->
 
-                <!-- <a class="" routerLink="item.url" routerLinkActive=""
-                    *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )">
+            <div *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )">
 
-                    <h1 class="">{{ item.title }}</h1>
+                <a class="" routerLink="item.url" routerLinkActive="" style="border: 2px solid fuchsia;">
 
-                    <img class="" src="assets/images/gallery/animal1.jpg" alt="" style="width: 200px;">
+                    <p>{{ item.title }}</p>
 
-                    <div class="">
+                    <!-- <img class="" src="assets/images/gallery/animal1.jpg" alt=""> -->
+
+                    <div style="display: none;">
                         <div class="">{{ 'news.currently' | translate }}</div>
                         <div class="">{{ item.published | localizedDate }}</div>
                     </div>
 
-                </a> -->
+                </a>
 
             </div>
 

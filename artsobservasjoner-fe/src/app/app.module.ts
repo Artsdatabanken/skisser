@@ -110,6 +110,7 @@ import { ErrorResponseComponent } from './components/shared/error-response/error
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
+import { PressComponent } from './components/press/press.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -213,7 +214,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AnnouncementComponent,
     CloseDropdownDirective,
     LocalizedDatePipe,
-    StripHtmlPipe
+    StripHtmlPipe,
+    PressComponent
   ],
   imports: [
     BrowserModule,
