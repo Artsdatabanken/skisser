@@ -15,9 +15,7 @@ export class AlienSpeciesComponent implements OnInit {
 
   data$;
   currentLanguage: string;
-
-  translationParamValue1: string;
-  translationParamValue2: string;
+  translationParamValue: string;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -29,8 +27,7 @@ export class AlienSpeciesComponent implements OnInit {
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
 
-      l.lang === 'no' ? this.translationParamValue1 = 'fremmede arter' : this.translationParamValue1 = 'alien species';
-      l.lang === 'no' ? this.translationParamValue2 = 'artsgruppe' : this.translationParamValue2 = 'species group';
+      l.lang === 'no' ? this.translationParamValue = 'fremmede arter' : this.translationParamValue = 'alien species';
     });
 
     this.getData();

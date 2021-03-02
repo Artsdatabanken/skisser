@@ -77,7 +77,7 @@
         "overviewStats_heading_8": "Monthly sightings per species group in total and per year",
         "overviewStats_heading_9": "Reporting overview per species group in total and per year",
         "overviewStats_heading_10": "Monthly registrations per species group in total and per year",
-        "shared_tableDescription_content": "The following table shows number of observations of {{value1}} by {{value2}} in each of the categories below. ",
+        "shared_tableDescription_content": "The following table shows number of observations of {{ value }} by species group in each of the categories below. ",
         "shared_tableDescription_includedData": "Categories without observations are omitted from the table.",
         "shared_tableDescription_includedDataExplanation": "A description of the data included may be found at [xxxxx]. Statistics are updated daily.",
         "shared_tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",

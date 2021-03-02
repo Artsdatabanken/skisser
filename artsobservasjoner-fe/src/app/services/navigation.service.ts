@@ -41,20 +41,6 @@ export class NavigationService {
     return menuItems;
   }
 
-  // private getTranslatedMenuItem(item: object): string {
-
-  //   const getPropValue: any = (obj, key) => key.split('.').reduce((o, x) => o == undefined ? o : o[x], obj);
-  //   let translation: string;
-
-  //   this.translate.onLangChange.subscribe((value) => {
-  //     this.siteLanguage = value;
-  //     translation = getPropValue(item, value);
-  //   });
-
-  //   return translation;
-
-  // }
-
   getStyle(style: string | null, classification: string | null): string {
 
     if (classification === 'section') {

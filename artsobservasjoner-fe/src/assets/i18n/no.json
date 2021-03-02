@@ -77,7 +77,7 @@
         "overviewStats_heading_8": "Månedlige observasjoner per artsgruppe totalt og per år",
         "overviewStats_heading_9": "Rapporteringsoversikt per artsgruppe totalt og per år",
         "overviewStats_heading_10": "Månedlige registreringer per artsgruppe totalt og per år", 
-        "shared_tableDescription_content": "Tabellen viser antall observasjoner av {{value1}} etter {{value2}}, med en av kategoriene nedenfor. ",
+        "shared_tableDescription_content": "Tabellen viser antall observasjoner av {{ value }} etter artsgruppe, med en av kategoriene nedenfor. ",
         "shared_tableDescription_includedData": "Kategorier uten artsobservasjoner er utelatt fra tabellen.",
         "shared_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
         "shared_tableDescription_excluded": "* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",

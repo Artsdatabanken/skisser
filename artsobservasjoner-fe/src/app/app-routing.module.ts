@@ -915,7 +915,7 @@ const extraRoutes: Routes = [
       text: 'Presse',
       title: 'menu_press',
       id: 'press',
-      layout: 'page',
+      layout: 'full-width',
       rank: 'secondary',
       parent: '',
       menu: 'extraMenu',

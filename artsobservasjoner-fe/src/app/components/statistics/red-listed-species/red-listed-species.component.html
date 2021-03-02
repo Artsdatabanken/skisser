@@ -7,8 +7,8 @@
     <div class="page__content">
 
         <p class="body-text">
-            {{ 'statistics.shared_tableDescription_content' | translate: { value1: translationParamValue1, value2:
-            translationParamValue2 } }} {{ 'statistics.shared_tableDescription_includedData' | translate }}
+            {{ 'statistics.shared_tableDescription_content' | translate: { value: translationParamValue } }}
+            {{ 'statistics.shared_tableDescription_includedData' | translate }}
         </p>
 
         <app-assessment-category [categoryVariant]="'redlistedCategories'"></app-assessment-category>

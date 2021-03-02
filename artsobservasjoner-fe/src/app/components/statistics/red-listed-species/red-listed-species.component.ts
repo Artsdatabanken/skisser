@@ -16,8 +16,8 @@ export class RedListedSpeciesComponent implements OnInit {
   data$;
   currentLanguage: string;
   
-  translationParamValue1: string;
-  translationParamValue2: string;
+  translationParamValue: string;
+  value: string;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -29,8 +29,8 @@ export class RedListedSpeciesComponent implements OnInit {
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
 
-      l.lang === 'no' ? this.translationParamValue1 = 'rødlistede arter' : this.translationParamValue1 = 'redlisted species';
-      l.lang === 'no' ? this.translationParamValue2 = 'artsgruppe' : this.translationParamValue2 = 'species group';
+      l.lang === 'no' ? this.translationParamValue = 'rødlistede arter' : this.translationParamValue = 'redlisted species';
+      l.lang === 'no' ? this.value = 'rødlistede arter' : this.value = 'redlisted species';
 
     });
 
