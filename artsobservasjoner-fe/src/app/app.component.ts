@@ -29,7 +29,7 @@ export class AppComponent {
   subscriptions: Subscription[] = [];
 
   layoutTypes: string[] = [];
-  layoutTypesForbidden: string[] = ['article', 'frontpage', 'item', 'spa', 'text'];
+  layoutTypesForbidden: string[] = ['article', 'frontpage', 'spa', 'text', 'full-width'];
 
   selectedLanguage: string;
   languages: any[] = [];

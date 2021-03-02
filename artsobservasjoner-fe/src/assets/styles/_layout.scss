@@ -671,6 +671,8 @@ main {
 
     &--full-width {
         display: block;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     &--frontpage {
@@ -999,7 +1001,8 @@ main {
         & > * {
             align-self: stretch;
             justify-self: stretch;
-            width: 32%;
+            margin: 15px auto;
+            width: 30%;
 
             @media screen and (max-width: 1024px) {
                 display: block;
