@@ -93,7 +93,6 @@
         @media screen and (max-width: 1024px) {
             margin-top: -5px;
         }
-
     }
 
     &__wrapper {
@@ -105,6 +104,10 @@
         font-weight: 700;
         line-height: 1;
         margin: 0;
+
+        @media screen and (max-width: 1366px) {
+            font-size: 44x;
+        }
 
         @media screen and (max-width: 1200px) {
             font-size: 42px;
@@ -132,7 +135,6 @@
             font-size: 20px;
         }
 
-
         .numbers-box--small & {
             font-size: 18px;
             font-weight: 500;
@@ -140,6 +142,9 @@
     }
 
     &--list {
+        display: grid;
+        grid-gap: 20px 0;
+
         @media screen and (max-width: 1200px) {
             display: grid;
             grid-template-columns: auto 3fr;
