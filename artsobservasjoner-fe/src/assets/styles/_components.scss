@@ -87,9 +87,13 @@
             background-size: 35px;
             margin: 0 auto 10px;
             height: 70px;
-            margin-top: 10px;
             width: 70px;
         }
+
+        @media screen and (max-width: 1024px) {
+            margin-top: -5px;
+        }
+
     }
 
     &__wrapper {
@@ -106,6 +110,10 @@
             font-size: 42px;
         }
 
+        @media screen and (max-width: 1024px) {
+            font-size: 32px;
+        }
+
         .numbers-box--small & {
             font-size: 24px;
         }
@@ -118,8 +126,12 @@
         @media screen and (max-width: 1200px) {
             font-size: 22px;
             font-weight: 500;
-            //margin-top: -5px;
         }
+
+        @media screen and (max-width: 1024px) {
+            font-size: 20px;
+        }
+
 
         .numbers-box--small & {
             font-size: 18px;
@@ -131,11 +143,10 @@
         @media screen and (max-width: 1200px) {
             display: grid;
             grid-template-columns: auto 3fr;
-            grid-gap: 0 15px;
+            grid-gap: 0 20px;
 
             & > * {
-                border: 1px solid blue;
-                align-self: center;
+                align-self: start;
                 justify-self: start;
                 text-align: left;
             }
