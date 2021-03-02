@@ -5,7 +5,6 @@ html {
 
 body {
   @include customVar(background-color, backgroundColor);
-  @include customVar(background-color, clrLight);
   @include customVar(color, textColor);
   @include customVar(font-family, fontPrimary);
 
@@ -103,7 +102,6 @@ h1 {
   font-size: 62px;
   font-weight: 300;
   line-height: 1.2;
-  max-width: 70ch;
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -111,7 +109,8 @@ h1 {
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
-  hyphens: auto;
+  hyphens: auto;  
+  width: 70ch;
 
   @media screen and (max-width: 1024px) {
     font-size: 40px;

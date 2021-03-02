@@ -4,12 +4,12 @@ import { NewsItem, Announcement } from 'src/app/models/news';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-press',
-  templateUrl: './press.component.html',
-  styleUrls: ['./press.component.scss']
+  selector: 'app-press2',
+  templateUrl: './press2.component.html',
+  styleUrls: ['./press2.component.scss']
 })
 
-export class PressComponent implements OnInit {
+export class Press2Component implements OnInit {
 
   news$: Observable<NewsItem[]>;
   announcements$: Observable<Announcement[]>;
@@ -20,5 +20,4 @@ export class PressComponent implements OnInit {
     this.news$ = this.dataService.getNews();
     this.announcements$ = this.dataService.getAnnouncements();
   }
-
 }

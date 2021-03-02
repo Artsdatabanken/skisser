@@ -111,6 +111,7 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
+import { Press2Component } from './components/press/press2/press2.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -215,7 +216,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     CloseDropdownDirective,
     LocalizedDatePipe,
     StripHtmlPipe,
-    PressComponent
+    PressComponent,
+    Press2Component
   ],
   imports: [
     BrowserModule,

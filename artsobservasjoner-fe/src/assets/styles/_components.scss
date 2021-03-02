@@ -1,1 +1,144 @@
-// ----------COMPONENTS
+// ----------COMPONENTS: for elementer som gjenbrukes men er ikke en Angular reusable component
+
+// box
+
+.box {
+    margin: 0;
+    padding: 0 0 0 60px;
+
+    @media screen and (max-width: 1024px) {
+        padding: 0 0 0 60px;
+    }
+
+    &--undefined {
+        background-image: url(../images/iconBell.png);
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: 35px;
+
+        @media screen and (max-width: 1024px) {
+            background-size: 25px;
+        }
+    }
+
+    &__heading {
+        font-size: 24px;
+        font-weight: 500;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 21px;
+        }
+    }
+
+    &__details {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 15px;
+        }
+    }
+
+    &__content {
+        // display: none;
+        font-size: 17px;
+        margin-top: 15px;
+
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
+    }
+}
+
+// numbers box
+
+.numbers-box {
+    text-align: center;
+
+    &__icon {
+        @include customVar(background-color, clrPrimary);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 50px;
+        border-radius: 500px;
+        height: 110px;
+        margin: 0 auto;
+        text-align: center;
+        width: 110px;
+
+        &--totalSightings {
+            background-image: url(../images/gallery/statsBinoculars.png);
+        }
+
+        &--totalSpecies {
+            background-image: url(../images/gallery/statsLeaf.png);
+        }
+
+        &--totalImages {
+            background-image: url(../images/gallery/statsCamera.png);
+        }
+
+        &--totalUsers {
+            background-image: url(../images/gallery/statsBinoculars.png);
+        }
+
+        @media screen and (max-width: 1200px) {
+            background-size: 35px;
+            margin: 0 auto 10px;
+            height: 70px;
+            margin-top: 10px;
+            width: 70px;
+        }
+    }
+
+    &__wrapper {
+    }
+
+    &__item {
+        @include customVar(font-family, fontSecondary);
+        font-size: 62px;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0;
+
+        @media screen and (max-width: 1200px) {
+            font-size: 42px;
+        }
+
+        .numbers-box--small & {
+            font-size: 24px;
+        }
+    }
+
+    &__text {
+        font-size: 24px;
+        font-weight: 400;
+
+        @media screen and (max-width: 1200px) {
+            font-size: 22px;
+            font-weight: 500;
+            //margin-top: -5px;
+        }
+
+        .numbers-box--small & {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+
+    &--list {
+        @media screen and (max-width: 1200px) {
+            display: grid;
+            grid-template-columns: auto 3fr;
+            grid-gap: 0 15px;
+
+            & > * {
+                border: 1px solid blue;
+                align-self: center;
+                justify-self: start;
+                text-align: left;
+            }
+        }
+    }
+}

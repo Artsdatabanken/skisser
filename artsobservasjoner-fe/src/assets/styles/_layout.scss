@@ -3,9 +3,6 @@
 .layout {
     @include customVar(background-color, backgroundColor);
     @include customVar(background-color, clrWhite);
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: nowrap;
     width: 100%;
 
     & > * {
@@ -17,8 +14,6 @@
 
     &__footer {
         @include customVar(background-color, paletteColor0);
-        align-self: flex-end;
-        justify-self: stretch;
         margin-top: 100px;
         width: 100%;
     }
@@ -650,6 +645,7 @@ main {
     align-content: start; // important, do not remove
     margin: 0 auto;
     padding: 60px 30px;
+    width: 100%;
 
     grid-template-areas: ". pageTitle  ." ". component ." ". router .";
 
@@ -671,8 +667,11 @@ main {
 
     &--full-width {
         display: block;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        @media screen and (max-width: 1200px) {
+        }
     }
 
     &--frontpage {
@@ -899,6 +898,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
 
     & > * {
     }
@@ -945,6 +945,7 @@ main {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 25px 25px;
+        width: 100%;
 
         & > *,
         .intersection {
@@ -964,6 +965,7 @@ main {
         margin: 50px auto;
 
         & > * {
+            border: 1px solid red;
             width: 100%;
         }
 
@@ -972,11 +974,12 @@ main {
         }
 
         @media screen and (max-width: 1200px) {
-            grid-gap: 40px 0;
+            grid-gap: 0 30px;
         }
 
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 1024px) {
             grid-template-columns: 1fr;
+            grid-gap: 0 0;
         }
     }
 
@@ -1001,12 +1004,13 @@ main {
         & > * {
             align-self: stretch;
             justify-self: stretch;
-            margin: 15px auto;
+            margin: 15px 0;
             width: 30%;
+            width: 45%;
 
             @media screen and (max-width: 1024px) {
                 display: block;
-                margin: 15px auto;
+                margin: 15px 0;
                 width: 100%;
             }
         }
@@ -1052,6 +1056,10 @@ main {
         @media screen and (max-width: 1366px) {
             grid-template-columns: 1fr;
         }
+
+        @media screen and (max-width: 1024px) {
+            grid-gap: 15px 0;
+        }
     }
 }
 
@@ -1060,11 +1068,14 @@ main {
 .frontpage {
     &__intro {
         background-image: url(../images/puffin.png);
-        background-position: right 100px center;
+        background-position: right 20% center;
         background-repeat: no-repeat;
-        background-size: 20%;
-        padding: 200px;
+        background-size: 18%;
+        height: 45vh;
+        padding: 145px;
+        padding: 0 10%;
         display: flex;
+        align-items: center;
 
         @media screen and (max-width: 1024px) {
             background-position: right 15px center;
@@ -1095,7 +1106,7 @@ main {
 
         @media screen and (max-width: 1024px) {
             display: inline-block;
-            margin: 0 0 30px;
+            margin: -15px 0 45px;
             padding: 0;
             position: static;
             text-align: left;
@@ -1113,6 +1124,7 @@ main {
     }
 
     &__paragraph {
+        @extend .text-overflow;
         font-size: 52px;
         font-weight: 300;
         line-height: 1.1;
@@ -1133,13 +1145,19 @@ main {
             width: 22ch;
 
             @media screen and (max-width: 1024px) {
-                font-size: 30px;
+                font-size: 29px;
                 font-weight: 400;
             }
         }
 
         &--sm {
             width: 20ch;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 28px;
+                font-weight: 400;
+                width: 75%;
+            }
         }
     }
 
@@ -1155,9 +1173,14 @@ main {
 
     &__section {
         //border: 1px solid red;
-        text-align: center;
-        padding: 50px 10% 70px;
+        display: flex;
+        height: 45vh;
+        padding: 0 10%;
         position: relative;
+        align-items: center;
+        justify-content: space-between;
+
+        text-align: center;
 
         & > * {
             //border: 1px solid blue;
@@ -1167,23 +1190,34 @@ main {
             @include customVar(background-color, clrShadow);
         }
 
-        @media screen and (max-width: 1600px) {
-            padding-top: 50px;
-            padding-bottom: 70px;
-        }
+        // @media screen and (max-width: 1600px) {
+        //     padding-top: 50px;
+        //     padding-bottom: 70px;
+        // }
 
         @media screen and (max-width: 1200px) {
             //padding: 50px 100px 70px;
         }
 
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 1024px) {
+            display: block;
+            height: auto;
             padding: 60px 30px;
+        }
+
+        &--column {
+            flex-direction: column;
+            justify-content: center;
+
+            @media screen and (max-width: 900px) {
+            }
         }
 
         &--narrow {
             padding: 60px 18% 80px;
+            padding: 0 18%;
 
-            @media screen and (max-width: 900px) {
+            @media screen and (max-width: 1024px) {
                 padding: 60px 70px;
             }
         }

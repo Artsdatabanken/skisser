@@ -740,39 +740,6 @@
     }
 }
 
-// box
-
-.box {
-    @include customVar(background-color, clrWash1);
-    margin: 0;
-    padding: 30px 30px 30px 90px;
-
-    &--undefined {
-        background-image: url(../images/iconBell.png);
-        background-position: left 30px top 30px;
-        background-repeat: no-repeat;
-        background-size: 35px;
-    }
-
-    &__heading {
-        // @include customVar(font-family, fontPrimary);
-        font-size: 24px;
-        font-weight: 500;
-    }
-
-    &__details {
-        font-size: 16px;
-        font-weight: 600;
-        margin-top: 10px;
-    }
-
-    &__content {
-        // display: none;
-        font-size: 17px;
-        margin-top: 15px;
-    }
-}
-
 // dropdown
 
 .dropdown {

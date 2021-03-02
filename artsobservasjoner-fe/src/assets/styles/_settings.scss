@@ -46,7 +46,7 @@ $vars: (
   --paletteColor2: #{map-get($vars, paletteColor2)};
   
   
-  --backgroundColor: #{map-get($vars, paletteColor0)};
+  --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};
 
   --paddingStd: #{map-get($vars, paddingStd)};

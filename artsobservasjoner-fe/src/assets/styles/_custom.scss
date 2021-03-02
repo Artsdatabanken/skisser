@@ -148,23 +148,32 @@
 // scroll up
 
 .scroll-up {
-    @include customVar(background-color, clrSecondary);
+    @include customVar(background-color, clrPrimary);
+    @include customVar(border-color, clrBlack);
     background-image: url(../images/iconChevronUp.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 22px;
     border-radius: 50%;
-    border-radius: 50%;
-    border-radius: 50%;
-    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
     height: 65px;
     line-height: 63px;
     text-align: center;
     width: 65px;
     position: fixed;
-    right: 40px;
     top: auto;
+    right: 40px;
     bottom: 40px;
+
+    @media screen and (max-width: 1200px) {
+        background-size: 16px;
+        height: 50px;
+        line-height: 48px;
+        width: 50px;
+        right: 15px;
+        bottom: 15px;
+    }
 }
 
 // skip to content
@@ -322,93 +331,7 @@
     }
 }
 
-// numbers
 
-.numbers-box {
-    text-align: center;
-
-    &__icon {
-        @include customVar(background-color, clrPrimary);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 50px;
-        border-radius: 500px;
-        height: 110px;
-        margin: 0 auto;
-        text-align: center;
-        width: 110px;
-
-        &--totalSightings {
-            background-image: url(../images/gallery/statsBinoculars.png);
-        }
-
-        &--totalSpecies {
-            background-image: url(../images/gallery/statsLeaf.png);
-        }
-
-        &--totalImages {
-            background-image: url(../images/gallery/statsCamera.png);
-        }
-
-        &--totalUsers {
-            background-image: url(../images/gallery/statsBinoculars.png);
-        }
-
-        @media screen and (max-width: 1200px) {
-            background-size: 35px;
-            margin: 0 auto 10px;
-            height: 70px;
-            width: 70px;
-        }
-    }
-
-    &__wrapper {
-    }
-
-    &__item {
-        @include customVar(font-family, fontSecondary);
-        font-size: 62px;
-        font-weight: 700;
-        margin: 0;
-
-        @media screen and (max-width: 1200px) {
-            font-size: 42px;
-        }
-
-        .numbers-box--small & {
-            font-size: 24px;
-        }
-    }
-
-    &__text {
-        font-size: 24px;
-        font-weight: 400;
-
-        @media screen and (max-width: 1200px) {
-            font-size: 22px;
-            font-weight: 500;
-            margin-top: -5px;
-        }
-
-        .numbers-box--small & {
-            font-size: 18px;
-            font-weight: 500;
-        }
-    }
-
-    &--list {
-        @media screen and (max-width: 1200px) {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-
-            & > * {
-                align-self: stretch;
-                justify-self: flex-start;
-                text-align: left;
-            }
-        }
-    }
-}
 
 // league / awards / user statistics
 
@@ -832,17 +755,28 @@
 // press
 
 .press {
-   
+    // & > * {
+    //     padding: 0 15vw;
+    //     padding: 0;
 
-    & > * {
-        padding: 0 15vw;
-        
-        &:last-child {
-            @include customVar(background-color, paletteColor1);
-            padding-top: 50px;
-            padding-bottom: 50px;
+    //     &:last-child {
+    //         @include customVar(background-color, paletteColor1);
+    //         padding-top: 50px;
+    //         padding-bottom: 50px;
+    //     }
+
+    //     @media screen and (max-width: 1024px) {
+    //         padding: 0 15px;
+    //     }
+    // }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 20px 20px;
+
+        & > * {
+            border: 2px dotted red;
         }
     }
-
-   
 }
