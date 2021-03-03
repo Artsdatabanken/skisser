@@ -524,6 +524,57 @@
         }
     }
 
+    &__img-wrapper {
+        height: 30vh;
+        width: 100%;
+        
+        margin-bottom: 15px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__img {
+        background-position: center center;
+        background-size: cover;
+        margin-bottom: 15px;
+        height: 30vh;
+        // transition: opacity 0.5s;
+        transition: all 1s;
+
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+            //opacity: 0.3;
+            // transition: opacity 0.5s;
+            transform: scale(1.2);
+        }
+
+        app-teaser:nth-child(1) & {
+            background-image: url(../images/gallery/animal9.jpg);
+        }
+
+        app-teaser:nth-child(2) & {
+            background-image: url(../images/gallery/animal10.jpg);
+        }
+
+        app-teaser:nth-child(3) & {
+            background-image: url(../images/gallery/animal8.jpg);
+        }
+
+        app-teaser:nth-child(4) & {
+            background-image: url(../images/gallery/animal11.jpg);
+        }
+
+        app-teaser:nth-child(5) & {
+            background-image: url(../images/gallery/animal7.jpg);
+        }
+
+        app-teaser:nth-child(6) & {
+            background-image: url(../images/gallery/animal12.jpg);
+        }
+    }
+
     &__details {
         line-height: 1;
         margin: 10px 0 0;

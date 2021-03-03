@@ -86,26 +86,15 @@ export class DataService {
     );
   }
 
-
-  getNews(langCode: string | null = 'no'): Observable<NewsItem[]> {
+  getNews(): Observable<NewsItem[]> {
 
     return this.http.get(this.drupalNewsAPI).pipe(
       map((res: any[]) => {
 
-        ///const filteredRes = res.filter(i => i.LANGUAGE === langCode);
         const filteredRes = res;
         const news: NewsItem[] = [];
-
+   
         filteredRes.forEach(data => {
-
-          // image handling
-          if (data.Content !== undefined) {
-
-            data.Content.forEach(element => {
-              this.getNewsItemImages(element.replace('Nodes/', ''));
-            });
-
-          }
 
           const newsItem: NewsItem = {
             id: data.Id.replace('Nodes/', ''),

@@ -14,7 +14,10 @@
 <a class="teaser" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="teaser--active">
 
     <img class="teaser__image" src="{{ source }}" alt="" *ngIf="source" [attr.aria-hidden]="true">
-    <img class="teaser__image" src="assets/images/gallery/animal1.jpg" alt="" *ngIf="!source" [attr.aria-hidden]="true">
+    
+    <div class="teaser__img-wrapper">
+        <div class="teaser__img"></div>
+    </div>
 
     <h1 class="teaser__heading">{{ title }}</h1>
 

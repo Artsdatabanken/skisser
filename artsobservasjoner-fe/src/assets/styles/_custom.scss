@@ -331,8 +331,6 @@
     }
 }
 
-
-
 // league / awards / user statistics
 
 .league {
@@ -755,28 +753,27 @@
 // press
 
 .press {
-    // & > * {
-    //     padding: 0 15vw;
-    //     padding: 0;
+    & > * {
+        padding: 0 15vw;
 
-    //     &:last-child {
-    //         @include customVar(background-color, paletteColor1);
-    //         padding-top: 50px;
-    //         padding-bottom: 50px;
-    //     }
+        &:last-child {
+            @include customVar(background-color, paletteColor1);
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
 
-    //     @media screen and (max-width: 1024px) {
-    //         padding: 0 15px;
-    //     }
-    // }
-
-    &__grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-gap: 20px 20px;
-
-        & > * {
-            border: 2px dotted red;
+        @media screen and (max-width: 1024px) {
+            padding: 0 15px;
         }
     }
+
+    // &__grid {
+    //     display: grid;
+    //     grid-template-columns: 2fr 1fr;
+    //     grid-gap: 20px 20px;
+
+    //     & > * {
+    //         border: 2px dotted red;
+    //     }
+    // }
 }
