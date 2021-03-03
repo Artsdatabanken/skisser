@@ -1,15 +1,15 @@
 <!--REUSABLE COMPONENT-->
 
-<!-- <ng-container *ngIf="type === 'link'">
-
-    <a class="card" [ngClass]="cssClass" routerLink="/{{ url }}" routerLinkActive="card--active">
-        <span class="card__heading">{{ text }}</span>
+<!-- THIS IS OK and preferable in some cases -->
+<!--
+    <a class="intersection" routerLink="/{{ url }}" routerLinkActive="intersection--active">
+        <ng-content></ng-content>
     </a>
+ -->
 
-</ng-container> -->
-
-<a class="intersection" [ngClass]="cssClass" routerLink="/{{ url }}" routerLinkActive="intersection--active">
+<a class="intersection" routerLink="/{{ url }}" routerLinkActive="intersection--active">
     <span class="intersection__text">{{ text }}</span>
 </a>
+
 
 <!--REUSABLE COMPONENT-->

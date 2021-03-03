@@ -14,19 +14,24 @@
 
         <div class="loop loop--2x">
 
-          <a routerLink="/announcements/{{ item.url }}" class="box" [class]="'box--' + item.icon"
-            *ngFor="let item of announcements | slice: 0 : 4">
+          <!-- <app-teaser [type]="'icon'" [icon]="'bell'" [url]="'/announcements/' + item.url" [tag]="'news.currently' | translate"
+            [date]="item.published" [title]="item.title" [text]="item.body | truncateText: 100 | stripHtml"
+            *ngFor="let item of announcements | slice: 0 : 4"> </app-teaser> -->
 
-            <h1 class="box__heading">{{ item.title }}</h1>
-            <div class="box__details">
-              {{ item.published | localizedDate }},
-              {{ 'shared.at' | translate }} {{ item.published | date: 'hh:mm' }}
-            </div>
-            <div class="box__content" [innerHTML]="item.body | truncateText: 120 | stripHtml"></div>
-
-          </a>
+          <app-teaser 
+              *ngFor="let item of announcements | slice: 0 : 4"
+              [type]="'icon'" 
+              [icon]="'bell'" 
+              [url]="'/announcements/' + item.url"
+              [tag]="'news.currently' | translate" 
+              [date]="item.published" 
+              [title]="item.title"> 
+          </app-teaser>
 
         </div>
+
+        <br><br>
+        <a routerLink="/news" class="button button--cta">{{ 'headings.announcements' | translate }}</a>
 
       </ng-container>
 
@@ -39,10 +44,15 @@
 
         <div class="loop loop--news">
 
-          <app-teaser [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate" [date]="item.created"
-            [title]="item.title" [text]="item.body | stripHtml" *ngFor="let item of news | slice: 0 : 6"> </app-teaser>
+          <app-teaser [type]="'img'" [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
+            [date]="item.created" [title]="item.title" [text]="item.body | truncateText: 150 | stripHtml"
+            *ngFor="let item of news | slice: 0 : 6"> </app-teaser>
 
         </div>
+
+        <br><br>
+
+        <a routerLink="/news" class="button button--cta">{{ 'headings.news' | translate }}</a>
 
       </div>
 

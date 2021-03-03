@@ -36,6 +36,14 @@
         "menu_account_messages": "Meldinger",
         "menu_statusPage": "Driftsmeldinger"
     },
+    "shared": {
+        "at": "kl.",
+        "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."
+    },
+    "headings": {
+        "announcements": "Flere kunngjøringer",
+        "news": "Gå til nyhetsoversikt"
+    },
     "account": {
         "account_register": "Registrer deg",
         "account_login": "Logg inn",
@@ -57,10 +65,6 @@
         "currently": "Aktuelt",
         "announcements": "Kunngjøringer"
     },
-    "shared": {
-        "at": "kl.",
-        "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."       
-    },
     "statistics": {
         "overviewNumbers_sightings": "Observasjoner",
         "overviewNumbers_species": "Rapporterte arter",
@@ -76,7 +80,7 @@
         "overviewStats_heading_7": "Geografisk fordeling",
         "overviewStats_heading_8": "Månedlige observasjoner per artsgruppe totalt og per år",
         "overviewStats_heading_9": "Rapporteringsoversikt per artsgruppe totalt og per år",
-        "overviewStats_heading_10": "Månedlige registreringer per artsgruppe totalt og per år", 
+        "overviewStats_heading_10": "Månedlige registreringer per artsgruppe totalt og per år",
         "shared_tableDescription_content": "Tabellen viser antall observasjoner av {{ value }} etter artsgruppe, med en av kategoriene nedenfor. ",
         "shared_tableDescription_includedData": "Kategorier uten artsobservasjoner er utelatt fra tabellen.",
         "shared_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
@@ -99,6 +103,6 @@
         "tableHeading_validatedAndApproved": "Kvalitetssjekket og godkjent***",
         "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
         "tableHeading_sightedTaxonCount": "Antall taxa observert",
-        "tableHeading_withMedia": "Med bilder"        
+        "tableHeading_withMedia": "Med bilder"
     }
 }

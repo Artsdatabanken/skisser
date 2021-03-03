@@ -8,18 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class ButtonComponent implements OnInit {
 
-  @Input() cssClass: string | null;
+  @Input() style?: string | string[];
   @Input() text: string;
 
   constructor() { }
 
-  ngOnInit(): void {
-
-    // console.log('button',
-    //   'css', this.cssClass,
-    //   'text', this.text
-    // )
-
-  }
+  ngOnInit(): void { }
 
 }

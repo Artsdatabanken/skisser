@@ -42,12 +42,6 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/messages/message/message.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MenuDirective } from './directives/menu.directive';
-import { ContributeComponent } from './components/about/contribute/contribute.component';
-import { ArtsObsComponent } from './components/about/artsobs/artsobs.component';
-import { QualityAssuranceComponent } from './components/about/quality-assurance/quality-assurance.component';
-import { TosComponent } from './components/about/tos/tos.component';
-import { SupportComponent } from './components/about/support/support.component';
-import { LatestNewsComponent } from './components/about/latest-news/latest-news.component';
 import { MyDataComponent } from './components/my-data/my-data.component';
 import { MyObservationsComponent } from './components/my-data/my-observations/my-observations.component';
 import { MyProjectsComponent } from './components/my-data/my-projects/my-projects.component';
@@ -111,7 +105,6 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
-import { Press2Component } from './components/press/press2/press2.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -151,12 +144,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     MessageComponent,
     SitemapComponent,
     MenuDirective,
-    ContributeComponent,
-    ArtsObsComponent,
-    QualityAssuranceComponent,
-    TosComponent,
-    SupportComponent,
-    LatestNewsComponent,
     MyDataComponent,
     MyObservationsComponent,
     MyProjectsComponent,
@@ -216,8 +203,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     CloseDropdownDirective,
     LocalizedDatePipe,
     StripHtmlPipe,
-    PressComponent,
-    Press2Component
+    PressComponent
   ],
   imports: [
     BrowserModule,

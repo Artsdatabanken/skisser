@@ -19,6 +19,8 @@ export class DataService {
 
   readonly drupalNewsAPI: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
   readonly drupalNewsAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
+  readonly drupalNews: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/309451';
+  readonly drupalAbout: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/302996';
 
   constructor(private http: HttpClient) {
     //this.environmentWpApi = environment.wpApiEndpoint;
@@ -30,7 +32,16 @@ export class DataService {
 
   //----------------------------------------------------------------------------****
 
-  
+  getData(): Observable<any> {
+    return this.http.get(this.drupalNews).pipe(
+      map((response: any) => {
+        console.log('response', response);
+      }),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
   getAnnouncements(): Observable<Announcement[]> {
 
     return this.http.get(this.drupalNewsAPI).pipe(
@@ -93,7 +104,7 @@ export class DataService {
 
         const filteredRes = res;
         const news: NewsItem[] = [];
-   
+
         filteredRes.forEach(data => {
 
           const newsItem: NewsItem = {

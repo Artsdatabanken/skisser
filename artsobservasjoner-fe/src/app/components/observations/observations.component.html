@@ -14,8 +14,10 @@
         <div class="loop loop--intersections">
 
 
-            <app-intersection [type]="'link'" [url]="menuItem.path" [text]="menuItem.heading | translate"
-                *ngFor="let menuItem of subMenu">
+            <app-intersection             
+                *ngFor="let menuItem of subMenu"
+                [url]="menuItem.path" 
+                [text]="menuItem.heading | translate">
             </app-intersection>
 
 

@@ -1,22 +1,61 @@
 <!--REUSABLE COMPONENT-->
 
-<a class="teaser" [ngClass]="cssClass" [routerLink]="[url]" routerLinkActive="teaser--active">
+<!-- if icon -->
 
-    <img class="teaser__image" src="{{ source }}" alt="" *ngIf="source" [attr.aria-hidden]="true">
-    
-    <div class="teaser__img-wrapper" *ngIf="!source">
-        <div class="teaser__img"></div>
-    </div>
+<div *ngIf="type === 'icon'">
 
-    <h1 class="teaser__heading">{{ title }}</h1>
+    <a class="teaser teaser--icon" [class]="'teaser--' + type" [routerLink]="[url]" routerLinkActive="teaser--active">
 
-    <div class="teaser__details">
-        <div class="teaser__tag">{{ tag }}</div>
-        <div class="teaser__date">{{ date | date: 'dd.MM.yyyy'}}</div>
-    </div>
-    <p class="teaser__text" [innerHtml]="text | truncateText: 150"></p>
+        <div class="teaser__grid">
 
-</a>
+            <div class="teaser__cell">
+                <div class="teaser__icon" [class]="'teaser__icon--' + icon"></div>
+            </div>
 
+            <div class="teaser__cell">
+
+                <h1 class="teaser__heading">{{ title }}</h1>
+                <div class="teaser__details">
+                    {{ date | localizedDate }},
+                    {{ 'shared.at' | translate }} {{ date | date: 'hh:mm' }}
+                </div>
+                <div class="teaser__text" [innerHTML]="text"></div>
+
+            </div>
+
+        </div>
+
+    </a>
+
+</div>
+
+<!-- if icon -->
+
+<!-- if img -->
+
+<div *ngIf="type === 'img'">
+
+    <a class="teaser teaser--img" [class]="'teaser--' + type" [routerLink]="[url]" routerLinkActive="teaser--active">
+
+        <img class="teaser__image" src="{{ source }}" alt="" *ngIf="source" [attr.aria-hidden]="true">
+
+        <!--denne er midl inntil vi får faktiske nyhetssaker med bilde-->
+        <div class="teaser__img-wrapper" *ngIf="!source">
+            <div class="teaser__img"></div>
+        </div>
+
+        <h1 class="teaser__heading">{{ title }}</h1>
+
+        <div class="teaser__details">
+            <div class="teaser__tag">{{ tag }}</div>
+            <div class="teaser__date">{{ date | date: 'dd.MM.yyyy'}}</div>
+        </div>
+        <p class="teaser__text" [innerHtml]="text"></p>
+
+    </a>
+
+</div>
+
+<!-- if img -->
 
 <!--REUSABLE COMPONENT-->

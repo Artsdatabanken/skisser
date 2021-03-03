@@ -49,8 +49,10 @@
 }
 
 .aligncenter {
+  display: block;
   margin: auto;
   text-align: center;
+  width: 100%;
 }
 
 .body-text {

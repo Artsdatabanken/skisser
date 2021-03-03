@@ -11,15 +11,24 @@
 
     <div class="page__content">
 
-        <div class="loop loop--intersections">
+        <!-- <div class="loop loop--intersections">
 
-            <app-intersection [type]="'link'" [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
+            <app-intersection [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
             </app-intersection>
 
-            <app-intersection [type]="'link'" [url]="'news'" [text]="'menu.menu_news' | translate"></app-intersection>
+            <app-intersection [url]="'news'" [text]="'menu.menu_news' | translate"></app-intersection>
+
+        </div> -->
+
+
+        <div class="loop loop--intersections">
+
+            <app-intersection [url]="getAboutPageUrl(item.url)" [text]="item.heading" *ngFor="let item of aboutPages">
+            </app-intersection>
+
+            <app-intersection [url]="'news'" [text]="'menu.menu_news' | translate"></app-intersection>
 
         </div>
-
     </div>
 
     <footer class="page__footer"></footer>

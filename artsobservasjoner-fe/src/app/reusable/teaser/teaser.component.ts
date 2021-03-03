@@ -8,9 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class TeaserComponent implements OnInit {
 
-  @Input() cssClass: string | null;
+  @Input() type: string;
   @Input() title: string;
   @Input() source: string | null;
+  @Input() icon: string | null;
   @Input() text: string | null;
   @Input() url: string | null;
   @Input() tag: string | null;

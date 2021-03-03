@@ -19,7 +19,10 @@ export class AboutComponent implements OnInit {
   selectedLanguage: string;
   subscription: Subscription;
 
-  constructor(private dataService: DataService, private translate: TranslateService) { }
+  constructor(
+    private dataService: DataService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
     this.getAboutPages();

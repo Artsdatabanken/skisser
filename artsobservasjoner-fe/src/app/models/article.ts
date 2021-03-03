@@ -1,5 +1,3 @@
-import { ArticleImage } from './articleImage';
-
 export interface Article {
     id: number;
     url: string; // blir laget sammen med id
@@ -11,5 +9,5 @@ export interface Article {
     published: Date;
     updated: Date;
     body: string;
-    image?: ArticleImage
+    image?: null
   }

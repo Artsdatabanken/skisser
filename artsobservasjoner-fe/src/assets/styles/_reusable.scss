@@ -488,15 +488,47 @@
         display: block;
     }
 
+    &__grid {
+        display: grid;
+        grid-template-columns: 50px auto;
+
+        & > * {
+        }
+    }
+
+    &__icon {
+        background-image: url(../images/iconBell.png);
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: 35px;
+        height: 44px;
+        width: 44px;
+
+        @media screen and (max-width: 1024px) {
+            background-size: 25px;
+        }
+    }
+
     &__heading {
         font-size: 28px;
-        font-weight: 400 !important;
+        font-weight: 400;
         margin-bottom: 0;
         text-align: left;
 
         @media screen and (max-width: 1200px) {
             font-size: 23px;
             width: 100%;
+        }
+
+        .teaser--icon & {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1;
+            margin: 0;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 21px;
+            }
         }
     }
 
@@ -519,7 +551,7 @@
     &__img-wrapper {
         height: 30vh;
         width: 100%;
-        
+
         margin-bottom: 15px;
         overflow: hidden;
         position: relative;
@@ -566,7 +598,7 @@
         app-teaser:nth-child(6) & {
             background-image: url(../images/gallery/animal12.jpg);
         }
-        
+
         app-teaser:nth-child(7) & {
             background-image: url(../images/gallery/animal13.jpg);
         }
@@ -578,7 +610,6 @@
         app-teaser:nth-child(9) & {
             background-image: url(../images/gallery/animal15.jpg);
         }
-
     }
 
     &__details {
@@ -590,6 +621,16 @@
         & > * {
             display: inline-block;
             vertical-align: middle;
+        }
+
+        .teaser--icon & {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 12px;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 15px;
+            }
         }
     }
 
@@ -617,6 +658,15 @@
     &__text {
         font-size: 18px;
         margin-top: 20px;
+
+        .teaser--icon & {
+            font-size: 17px;
+            margin-top: 15px;
+
+            @media screen and (max-width: 1024px) {
+                display: none;
+            }
+        }
     }
 }
 

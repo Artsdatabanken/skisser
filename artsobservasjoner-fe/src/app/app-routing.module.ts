@@ -49,7 +49,6 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 import { PressComponent } from './components/press/press.component';
-import { Press2Component } from './components/press/press2/press2.component';
 
 /*
 
@@ -912,22 +911,6 @@ const extraRoutes: Routes = [
   {
     path: 'press',
     component: PressComponent,
-    data: {
-      text: 'Presse',
-      title: 'menu_press',
-      id: 'press',
-      layout: 'full-width',
-      rank: 'secondary',
-      parent: '',
-      menu: 'extraMenu',
-      metatitle: '',
-      metaDescription: '',
-      hidden: true
-    }
-  },
-  {
-    path: 'press2',
-    component: Press2Component,
     data: {
       text: 'Presse',
       title: 'menu_press',

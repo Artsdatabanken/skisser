@@ -36,6 +36,14 @@
         "menu_account_messages": "Messages",
         "menu_statusPage": "Status page"
     },
+    "shared": {
+        "at": "at",
+        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
+    },    
+    "headings": {
+        "announcements": "More announcements",
+        "news": "Go to news"
+    },
     "account": {
         "account_register": "Register",
         "account_login": "Login",
@@ -57,10 +65,6 @@
         "currently": "Currently",
         "announcements": "Announcements"
     },
-    "shared": {
-        "at": "at",
-        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
-       },
     "statistics": {
         "overviewNumbers_sightings": "Sightings",
         "overviewNumbers_species": "Registered species",
@@ -84,7 +88,7 @@
         "shared_tableDescription_approved": "** Has one of the following validation category:",
         "tableDescription_validatedData": "The table(s) show(s) the number of sighted taxa and the sightings count per species group.",
         "tableCaption_validatedData": "Number of validated observations per species group",
-        "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",        
+        "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_validatedData2": "Validated sightings count by validation category",
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
@@ -100,6 +104,5 @@
         "tableHeading_shareValidatedAndApproved": "Percent validated and approved",
         "tableHeading_sightedTaxonCount": "Sighted taxon count",
         "tableHeading_withMedia": "With media"
-      
     }
 }
