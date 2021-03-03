@@ -494,10 +494,6 @@
         margin-bottom: 0;
         text-align: left;
 
-        &:focus,
-        &:active {
-        }
-
         @media screen and (max-width: 1200px) {
             font-size: 23px;
             width: 100%;
@@ -510,10 +506,6 @@
         height: 30vh;
         transition: opacity 0.5s;
         width: 100%;
-
-        &:focus,
-        &:active {
-        }
 
         &:hover {
             opacity: 0.3;
@@ -534,6 +526,7 @@
     }
 
     &__img {
+        @include customVar(background-color, clrShadow);
         background-position: center center;
         background-size: cover;
         margin-bottom: 15px;
@@ -555,7 +548,7 @@
         }
 
         app-teaser:nth-child(2) & {
-            background-image: url(../images/gallery/animal10.jpg);
+            background-image: url(../images/gallery/animal14.jpg);
         }
 
         app-teaser:nth-child(3) & {
@@ -563,7 +556,7 @@
         }
 
         app-teaser:nth-child(4) & {
-            background-image: url(../images/gallery/animal11.jpg);
+            background-image: url(../images/gallery/animal10.jpg);
         }
 
         app-teaser:nth-child(5) & {
@@ -573,6 +566,19 @@
         app-teaser:nth-child(6) & {
             background-image: url(../images/gallery/animal12.jpg);
         }
+        
+        app-teaser:nth-child(7) & {
+            background-image: url(../images/gallery/animal13.jpg);
+        }
+
+        app-teaser:nth-child(8) & {
+            background-image: url(../images/gallery/animal11.jpg);
+        }
+
+        app-teaser:nth-child(9) & {
+            background-image: url(../images/gallery/animal15.jpg);
+        }
+
     }
 
     &__details {
