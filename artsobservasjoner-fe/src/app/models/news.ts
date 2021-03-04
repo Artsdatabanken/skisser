@@ -6,6 +6,7 @@ export interface Announcement {
     updated: Date;
     published: Date;
     body: string;
+    tags?: string | string[];
     icon?: string;
 }
 
@@ -19,6 +20,6 @@ export interface NewsItem {
     published: Date;
     body: string;
     intro: string;
-    imgUrl: string | null;
-    image: any | null;
+    imgUrl?: string;
+    image?: any;
   }

@@ -17,10 +17,10 @@ export class DataService {
 
   // APIs
 
-  readonly drupalAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
   readonly drupalNews: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/309451';
   readonly drupalAbout: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/302996';
 
+  readonly drupalAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
   readonly announcementsApi: string = 'https://artsdatabanken.no/api/Resource/?Tags=Varsel,Kunngj%C3%B8ring';
   readonly newsApi: string = 'https://artsdatabanken.no/api/Resource/?Tags=Nyhet';
 
@@ -49,10 +49,13 @@ export class DataService {
     return this.http.get(this.announcementsApi).pipe(
       map((response: any[]) => {
 
-        const filteredRes = response;
         const announcements: Announcement[] = [];
+        let tag: string;
 
-        filteredRes.forEach(data => {
+        response.forEach(data => {
+
+          // create object tags property
+          data.Tags.slice(-1)[0] === 'Varsel' ? tag = 'notice' : tag = 'announcement';
 
           const announcement: Announcement = {
             id: data.Id.replace('Nodes/', ''),
@@ -61,13 +64,16 @@ export class DataService {
             heading: data.Heading,
             updated: data.Changed,
             published: data.Published,
-            body: data.Body
+            body: data.Body,
+            //tags: data.Tags.slice(-1)[0]
+            tags: tag
           }
 
           announcements.push(announcement);
 
         });
 
+        console.log('announcements', announcements)
         return announcements.sort((a: Announcement, b: Announcement) => this.getTime(b.published) - this.getTime(a.published));
 
       }),
@@ -104,10 +110,9 @@ export class DataService {
     return this.http.get(this.newsApi).pipe(
       map((response: any[]) => {
 
-        const filteredRes = response;
         const news: NewsItem[] = [];
 
-        filteredRes.forEach(data => {
+        response.forEach(data => {
 
           const newsItem: NewsItem = {
             id: data.Id.replace('Nodes/', ''),
@@ -118,9 +123,7 @@ export class DataService {
             created: data.Created,
             updated: data.Changed,
             published: data.Published,
-            body: data.Body,
-            imgUrl: null,
-            image: null // articleImage
+            body: data.Body
           }
 
           news.push(newsItem);
@@ -139,20 +142,18 @@ export class DataService {
   getNewsItemById(id: number): Observable<NewsItem> {
 
     return this.http.get(this.drupalAPIItem + '/' + id).pipe(
-      map((data: any) => {
+      map((response: any) => {
 
         const newsItem: NewsItem = {
-          id: data.Id.replace('Nodes/', ''),
-          url: data.Id.replace('Nodes/', ''),
-          title: data.Name,
-          heading: data.Heading,
-          intro: data.Intro,
-          created: data.Created,
-          updated: data.Changed,
-          published: data.Published,
-          body: data.Body,
-          imgUrl: null,
-          image: null // articleImage
+          id: response.Id.replace('Nodes/', ''),
+          url: response.Id.replace('Nodes/', ''),
+          title: response.Name,
+          heading: response.Heading,
+          intro: response.Intro,
+          created: response.Created,
+          updated: response.Changed,
+          published: response.Published,
+          body: response.Body
         }
 
         return newsItem;
