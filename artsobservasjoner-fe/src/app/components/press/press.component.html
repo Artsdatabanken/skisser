@@ -25,13 +25,13 @@
               [url]="'/announcements/' + item.url"
               [tag]="'news.currently' | translate" 
               [date]="item.published" 
-              [title]="item.title"> 
+              [title]="item.heading | stripHtml"> 
           </app-teaser>
 
         </div>
 
         <br><br>
-        <a routerLink="/news" class="button button--cta">{{ 'headings.announcements' | translate }}</a>
+        <a routerLink="/announcements" class="button button--cta">{{ 'headings.announcements' | translate }}</a>
 
       </ng-container>
 
@@ -44,9 +44,16 @@
 
         <div class="loop loop--news">
 
-          <app-teaser [type]="'img'" [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
-            [date]="item.created" [title]="item.title" [text]="item.body | truncateText: 150 | stripHtml"
-            *ngFor="let item of news | slice: 0 : 6"> </app-teaser>
+          <app-teaser 
+            *ngFor="let item of news | slice: 0 : 6"
+            [type]="'img'" 
+            [source]="item.imgUrl" 
+            [url]="'/news/' + item.url" 
+            [tag]="'news.currently' | translate"
+            [date]="item.created" 
+            [title]="item.heading | stripHtml" 
+            [text]="item.body | truncateText: 150 | stripHtml"> 
+          </app-teaser>
 
         </div>
 

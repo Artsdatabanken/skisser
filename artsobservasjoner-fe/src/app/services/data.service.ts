@@ -17,10 +17,12 @@ export class DataService {
 
   // APIs
 
-  readonly drupalNewsAPI: string = 'https://artsdatabanken.no/api/Resource/?Tags=Artsobservasjoner';
-  readonly drupalNewsAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
+  readonly drupalAPIItem: string = 'https://artsdatabanken.no/api/Resource/Nodes/';
   readonly drupalNews: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/309451';
   readonly drupalAbout: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/302996';
+
+  readonly announcementsApi: string = 'https://artsdatabanken.no/api/Resource/?Tags=Varsel,Kunngj%C3%B8ring';
+  readonly newsApi: string = 'https://artsdatabanken.no/api/Resource/?Tags=Nyhet';
 
   constructor(private http: HttpClient) {
     //this.environmentWpApi = environment.wpApiEndpoint;
@@ -44,10 +46,10 @@ export class DataService {
 
   getAnnouncements(): Observable<Announcement[]> {
 
-    return this.http.get(this.drupalNewsAPI).pipe(
-      map((res: any[]) => {
+    return this.http.get(this.announcementsApi).pipe(
+      map((response: any[]) => {
 
-        const filteredRes = res;
+        const filteredRes = response;
         const announcements: Announcement[] = [];
 
         filteredRes.forEach(data => {
@@ -77,17 +79,17 @@ export class DataService {
 
   getAnnouncementById(id: number): Observable<Announcement> {
 
-    return this.http.get(this.drupalNewsAPIItem + '/' + id).pipe(
-      map((data: any) => {
+    return this.http.get(this.drupalAPIItem + '/' + id).pipe(
+      map((response: any) => {
 
         const announcement: Announcement = {
-          id: data.Id.replace('Nodes/', ''),
-          url: data.Id.replace('Nodes/', ''),
-          title: data.Name,
-          heading: data.Heading,
-          updated: data.Changed,
-          published: data.Published,
-          body: data.Body
+          id: response.Id.replace('Nodes/', ''),
+          url: response.Id.replace('Nodes/', ''),
+          title: response.Name,
+          heading: response.Heading,
+          updated: response.Changed,
+          published: response.Published,
+          body: response.Body
         }
 
         return announcement;
@@ -99,10 +101,10 @@ export class DataService {
 
   getNews(): Observable<NewsItem[]> {
 
-    return this.http.get(this.drupalNewsAPI).pipe(
-      map((res: any[]) => {
+    return this.http.get(this.newsApi).pipe(
+      map((response: any[]) => {
 
-        const filteredRes = res;
+        const filteredRes = response;
         const news: NewsItem[] = [];
 
         filteredRes.forEach(data => {
@@ -134,28 +136,9 @@ export class DataService {
 
   }
 
-  getNewsItemImages(id: number): Observable<any> {
-    return this.http.get<any>(this.drupalNewsAPIItem + id).pipe(
-      map((data: any) => {
-
-        const img: any = {
-          id: data.Id.replace('Nodes/', ''),
-          altText: data.Name,
-          caption: data.Body,
-          title: data.Name,
-          sourceUrl: ''
-        }
-
-        return img;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
   getNewsItemById(id: number): Observable<NewsItem> {
 
-    return this.http.get(this.drupalNewsAPIItem + '/' + id).pipe(
+    return this.http.get(this.drupalAPIItem + '/' + id).pipe(
       map((data: any) => {
 
         const newsItem: NewsItem = {
@@ -184,26 +167,26 @@ export class DataService {
     let aboutPages: AboutPage[] = [];
 
     return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).pipe(
-      map(res => {
+      map(response => {
 
         let order: number = 0;
 
-        if (res.Metadata && res.Metadata.length) {
-          order = +res.Metadata[0].Label;
+        if (response.Metadata && response.Metadata.length) {
+          order = +response.Metadata[0].Label;
         }
         else {
           order = 0;
         }
 
         aboutPages.push({
-          id: res.Id,
-          url: res.Url.replace('/Pages/', ''),
-          heading: res.Heading,
-          intro: res.Intro,
-          body: res.Body,
-          content: res.Content,
-          title: res.Title,
-          languages: res.Languages[0],
+          id: response.Id,
+          url: response.Url.replace('/Pages/', ''),
+          heading: response.Heading,
+          intro: response.Intro,
+          body: response.Body,
+          content: response.Content,
+          title: response.Title,
+          languages: response.Languages[0],
           order: order
         });
 

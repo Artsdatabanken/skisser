@@ -10,9 +10,15 @@
 
         <div *ngIf="news$ | async as news; else noData" class="loop loop--news">
 
-            <app-teaser [type]="'img'" [source]="item.imgUrl" [url]="item.url" [tag]="'news.currently' | translate"
-                [date]="item.created" [title]="item.title"
-                *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"> </app-teaser>
+            <app-teaser 
+                *ngFor="let item of (take === 0 ? (news) : (news | slice: 0: take) )"
+                [type]="'img'" 
+                [source]="item.imgUrl" 
+                [url]="'/news/' + item.url" 
+                [tag]="'news.currently' | translate"
+                [date]="item.created" 
+                [title]="item.heading | stripHtml"> 
+            </app-teaser>
 
         </div>
 

@@ -58,9 +58,9 @@ export class StatisticsService {
     let validatedSighting: ValidatedDataItem;
 
     return this.httpClient.get(this.validatedDataApi).pipe(
-      map((res: any) => {
+      map((response: any) => {
 
-        res['validatedDataStatistics'].forEach(d => {
+        response['validatedDataStatistics'].forEach(d => {
 
           validatedSighting = {
             id: d.speciesGroupId,
@@ -92,12 +92,12 @@ export class StatisticsService {
     const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
 
     return this.httpClient.get(api).pipe(
-      map((res: any) => {
+      map((response: any) => {
 
         let speciesItem: AssessedSpeciesItem;
         let speciesItems: AssessedSpeciesItem[] = [];
 
-        res['speciesGroupStatistics'].forEach(item => {
+        response['speciesGroupStatistics'].forEach(item => {
 
           if (item.speciesGroupId) {
 
@@ -131,9 +131,9 @@ export class StatisticsService {
     let totalCount: TotalCountStatistic;
 
     return this.httpClient.get(apiUrl).pipe(
-      map((data: any) => {
+      map((response: any) => {
         totalCount = {
-          count: data.count
+          count: response.count
         }
 
         return totalCount;
@@ -161,11 +161,11 @@ export class StatisticsService {
 
   getSpeciesGroups(): Observable<Category[]> {
     return this.httpClient.get(this.speciesGroupListApi).pipe(
-      map((res: any) => {
+      map((response: any) => {
 
         const speciesGroups: Category[] = [];
 
-        res.forEach(data => {
+        response.forEach(data => {
 
           let label: string;
 
@@ -210,11 +210,11 @@ export class StatisticsService {
     const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
 
     return this.httpClient.get(api).pipe(
-      map((res: any) => {
+      map((response: any) => {
 
         const categories: AssessmentCategory[] = [];
 
-        res.forEach(data => {
+        response.forEach(data => {
 
           let category: AssessmentCategory = {
             id: data.redListCategoryId,
@@ -239,12 +239,12 @@ export class StatisticsService {
   getSightingsCountPerSpeciesGroup(): Observable<StatisticsItem[]> {
 
     return this.httpClient.get(this.overviewStatsApi1).pipe(
-      map((res: any) => {
+      map((response: any) => {
 
         let statisticsItem: StatisticsItem;
         let statisticsItems: StatisticsItem[] = [];
 
-        res.sightingsCountPerSpeciesGroupStatistics.forEach(element => {
+        response.sightingsCountPerSpeciesGroupStatistics.forEach(element => {
 
           if (element.speciesGroupId !== null) {
 
@@ -271,12 +271,12 @@ export class StatisticsService {
   getImageCountPerSpeciesGroup(): Observable<ImageStatisticsItem[]> {
 
     return this.httpClient.get(this.overviewStatsApi2).pipe(
-      map((res: any) => {
+      map((response: any) => {
 
         let statisticsItem: ImageStatisticsItem;
         let statisticsItems: ImageStatisticsItem[] = [];
 
-        res.imagesPerSpeciesGroupStatistics.forEach(element => {
+        response.imagesPerSpeciesGroupStatistics.forEach(element => {
 
           if (element.speciesGroupId !== null) {
 

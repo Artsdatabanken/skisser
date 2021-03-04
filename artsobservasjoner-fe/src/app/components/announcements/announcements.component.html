@@ -14,18 +14,15 @@
 
             <div class="loop loop--2x">
 
-                <a routerLink="/announcements/{{ item.url }}" class="box"
-                    [class]="'box--' + item.icon"
-                    *ngFor="let item of (take === 0 ? (announcements) : (announcements | slice: 0: take) )">
-                   
-                    <h1 class="box__heading">{{ item.title }}</h1>
-                    <div class="box__details">
-                        {{ item.published | localizedDate }},
-                        {{ 'shared.at' | translate }} {{ item.published | date: 'hh:mm' }}
-                    </div>
-                    <div class="box__content" [innerHTML]="item.body | truncateText: 150 | stripHtml"></div>
-
-                </a>
+                <app-teaser 
+                    *ngFor="let item of announcements | slice: 0 : 4"
+                    [type]="'icon'" 
+                    [icon]="'bell'" 
+                    [url]="'/announcements/' + item.url"
+                    [tag]="'news.currently' | translate" 
+                    [date]="item.published" 
+                    [title]="item.heading | stripHtml"> 
+                </app-teaser>
 
             </div>
 
