@@ -17,7 +17,8 @@
                 [url]="'/news/' + item.url" 
                 [tag]="'news.currently' | translate"
                 [date]="item.created" 
-                [title]="item.heading | stripHtml"> 
+                [title]="item.heading | stripHtml"
+                [text]="item.body | truncateText: 150 | stripHtml"> 
             </app-teaser>
 
         </div>

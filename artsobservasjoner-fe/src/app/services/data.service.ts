@@ -73,7 +73,6 @@ export class DataService {
 
         });
 
-        console.log('announcements', announcements)
         return announcements.sort((a: Announcement, b: Announcement) => this.getTime(b.published) - this.getTime(a.published));
 
       }),

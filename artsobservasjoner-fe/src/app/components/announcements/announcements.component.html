@@ -17,11 +17,12 @@
                 <app-teaser 
                     *ngFor="let item of announcements | slice: 0 : 4"
                     [type]="'icon'" 
-                    [icon]="'bell'" 
+                    [icon]="item.tags" 
                     [url]="'/announcements/' + item.url"
                     [tag]="'news.currently' | translate" 
                     [date]="item.published" 
-                    [title]="item.heading | stripHtml"> 
+                    [title]="item.heading | stripHtml"
+                    [text]="item.body | truncateText: 120 | stripHtml"> 
                 </app-teaser>
 
             </div>

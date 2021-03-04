@@ -79,17 +79,7 @@
     text-align: center;
     width: auto;
 
-    // modifiers
-
-    &--wide {
-        width: 100%;
-    }
-
-    &--styleless {
-        background: transparent !important;
-        border: none !important;
-        padding: none !important;
-    }
+    // modifiers (types of buttons)
 
     &--primary {
         @include customVar(background-color, clrAccent);
@@ -111,6 +101,8 @@
         @include customVar(border-color, clrAccent);
         @include customVar(color, clrBlack);
     }
+
+    // modifiers (sizes of buttons)
 
     &--xl {
         display: inline-block;
@@ -217,6 +209,16 @@
         }
     }
 
+    // modifiers (helpers)
+
+    &--centered {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    // special cases
+
     &--dropdown {
         background-image: url(../images/iconChevronDown.png);
         background-position: right 15px center;
@@ -275,36 +277,6 @@
             padding-left: 42px;
             padding-right: 11px;
             width: auto;
-        }
-    }
-
-    &--map {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 20px;
-        font-size: 0;
-        width: auto;
-
-        @media screen and (max-width: 1024px) {
-            background-size: 16px;
-            padding: 0;
-        }
-    }
-
-    &--map-1 {
-        background-image: url(../images/iconMapMarker.png);
-
-        &:hover {
-            //background-image: url(../images/iconMapMarkerDark.png);
-        }
-    }
-
-    &--map-2 {
-        background-image: url(../images/iconMapGps.png);
-        background-size: 24px;
-
-        &:hover {
-            //background-image: url(../images/iconMapGpsDark.png);
         }
     }
 
@@ -497,7 +469,6 @@
     }
 
     &__icon {
-        background-image: url(../images/iconBell.png);
         background-position: left top;
         background-repeat: no-repeat;
         background-size: 35px;
@@ -505,7 +476,15 @@
         width: 44px;
 
         @media screen and (max-width: 1024px) {
-            background-size: 25px;
+            background-size: 30px;
+        }
+
+        &--announcement {
+            background-image: url(../images/iconMegaphone.png);
+        }
+
+        &--notice {
+            background-image: url(../images/iconBell.png);
         }
     }
 
@@ -527,7 +506,8 @@
             margin: 0;
 
             @media screen and (max-width: 1024px) {
-                font-size: 21px;
+                font-size: 20px;
+                margin-top: -4px;
             }
         }
     }
@@ -535,7 +515,7 @@
     &__image {
         margin-bottom: 15px;
         object-fit: cover;
-        height: 30vh;
+        height: 24vh;
         transition: opacity 0.5s;
         width: 100%;
 
@@ -545,16 +525,20 @@
         }
 
         @media screen and (max-width: 1024px) {
+            height: 30vh;
         }
     }
 
     &__img-wrapper {
-        height: 30vh;
+        height: 24vh;
         width: 100%;
-
         margin-bottom: 15px;
         overflow: hidden;
         position: relative;
+
+        @media screen and (max-width: 1024px) {
+            height: 30vh;
+        }
     }
 
     &__img {
@@ -562,16 +546,18 @@
         background-position: center center;
         background-size: cover;
         margin-bottom: 15px;
-        height: 30vh;
-        // transition: opacity 0.5s;
         transition: all 1s;
 
         height: 100%;
         width: 100%;
 
         &:hover {
-            //opacity: 0.3;
-            // transition: opacity 0.5s;
+            transform: scale(1.2);
+        }
+
+        // hover effect when hovering on parent
+
+        .teaser:hover & {
             transform: scale(1.2);
         }
 
@@ -629,7 +615,7 @@
             margin-top: 12px;
 
             @media screen and (max-width: 1024px) {
-                font-size: 15px;
+                font-size: 14px;
             }
         }
     }
@@ -662,10 +648,10 @@
         .teaser--icon & {
             font-size: 17px;
             margin-top: 15px;
+        }
 
-            @media screen and (max-width: 1024px) {
-                display: none;
-            }
+        @media screen and (max-width: 1024px) {
+            font-size: 16px;
         }
     }
 }

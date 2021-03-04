@@ -10,18 +10,17 @@
 
       <ng-container *ngIf="announcements$ | async as announcements; else noData">
 
-        <h1 class="page-title">{{ 'menu.menu_announcements' | translate }}</h1>
+        <h1 class="page-title" style="display: inline;">{{ 'menu.menu_announcements' | translate }}</h1>
+
+        <br>
+        <br>
 
         <div class="loop loop--2x">
-
-          <!-- <app-teaser [type]="'icon'" [icon]="'bell'" [url]="'/announcements/' + item.url" [tag]="'news.currently' | translate"
-            [date]="item.published" [title]="item.title" [text]="item.body | truncateText: 100 | stripHtml"
-            *ngFor="let item of announcements | slice: 0 : 4"> </app-teaser> -->
 
           <app-teaser 
               *ngFor="let item of announcements | slice: 0 : 4"
               [type]="'icon'" 
-              [icon]="'bell'" 
+              [icon]="item.tags" 
               [url]="'/announcements/' + item.url"
               [tag]="'news.currently' | translate" 
               [date]="item.published" 
@@ -31,7 +30,7 @@
         </div>
 
         <br><br>
-        <a routerLink="/announcements" class="button button--cta">{{ 'headings.announcements' | translate }}</a>
+        <a routerLink="/announcements" class="button button--cta button--centered">{{ 'headings.announcements' | translate }}</a>
        
       </ng-container>
 
@@ -59,7 +58,7 @@
 
         <br><br>
 
-        <a routerLink="/news" class="button button--cta">{{ 'headings.news' | translate }}</a>
+        <a routerLink="/news" class="button button--cta button--centered">{{ 'headings.news' | translate }}</a>
 
       </div>
 
