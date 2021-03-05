@@ -4,7 +4,7 @@ import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem } from '../models/statistics';
+import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -15,18 +15,13 @@ export class StatisticsService {
 
   public responseCache = new Map();
   errorMessage: string;
+  public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
 
   // API
 
-  // redlistSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetRedlist';
-  // alienSpeciesApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetAlienlist';
-  // speciesGroupListApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
-  // redlistedCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetRedListCategories';
-  // alienCategoriesApi: string = 'https://ap-ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAlienListCategories';
-
-  validatedDataApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetValidatedData';
+  validatedDataApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetValidatedData';
   redlistSpeciesApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=redlist';
-  alienSpeciesApi: string = ' https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=alienlist';
+  alienSpeciesApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=alienlist';
 
   speciesGroupListApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=redlist';
@@ -36,10 +31,10 @@ export class StatisticsService {
   overviewStatsApi1: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
   overviewStatsApi2: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
 
-  // totalSightingsCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
-  // totalSpeciesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
-  // totalImagesCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
-  // totalUsersCountApi: string = 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
+  totalCountApiSightings: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
+  totalCountApiSpecies: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
+  totalCountApiImages: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
+  totalCountApiUsers: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
 
   // ------------------------------------------------------------ ***
 
@@ -59,6 +54,8 @@ export class StatisticsService {
 
     return this.httpClient.get(this.validatedDataApi).pipe(
       map((response: any) => {
+
+        console.log('res', response)
 
         response['validatedDataStatistics'].forEach(d => {
 
@@ -124,13 +121,34 @@ export class StatisticsService {
 
   // NUMBERS STATISTICS
 
-  getTotalCount(apiUrl: string): Observable<TotalCountStatistic> {
+  getTotalCount(stats: string): Observable<TotalCountStatistic> {
 
     let api: string;
 
+    switch (stats) {
+      case this.totalCountStatistics.totalSightings:
+        api = this.totalCountApiSightings;
+        break;
+
+      case this.totalCountStatistics.totalSpecies:
+        api = this.totalCountApiSpecies;
+        break;
+
+      case this.totalCountStatistics.totalImages:
+        api = this.totalCountApiImages;
+        break;
+
+      case this.totalCountStatistics.totalUsers:
+        api = this.totalCountApiUsers;
+        break;
+
+      default:
+        console.log();
+    }
+
     let totalCount: TotalCountStatistic;
 
-    return this.httpClient.get(apiUrl).pipe(
+    return this.httpClient.get(api).pipe(
       map((response: any) => {
         totalCount = {
           count: response.count

@@ -1,54 +1,5 @@
 // ----------CUSTOM: for elements used sparingly
 
-.section {
-    margin: 50px 0;
-
-    p {
-        max-width: 80ch;
-    }
-}
-
-// page title & subtitle
-
-.page-title {
-    background-image: linear-gradient(transparent 80%, #a3e4d7 20%);
-    display: block;
-    font-size: 62px;
-    margin-bottom: 50px;
-    width: fit-content;
-
-    .page-subtitle + & {
-        margin: 200px 0 15px;
-    }
-
-    @media screen and (max-width: 1200px) {
-        background-image: linear-gradient(transparent 85%, #a3e4d7 15%);
-        display: inline;
-        font-size: 40px;
-        margin-bottom: 30px;
-    }
-
-    // &::after,
-    // &:after {
-    //     @include customVar(background-color, clrPrimary);
-    //     content: "";
-    //     display: block;
-    //     height: 13px;
-    //     margin: -18px 0 0 3px;
-    //     width: auto;
-
-    //     @media screen and (max-width: 1200px) {
-    //         height: 9px;
-    //         margin: -12px 0 0 3px;
-    //     }
-    // }
-}
-
-.page-subtitle {
-    font-size: 28px;
-    font-weight: 300;
-    margin-top: -45px;
-}
 
 /*date*/
 

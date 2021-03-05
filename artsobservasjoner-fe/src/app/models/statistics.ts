@@ -56,3 +56,10 @@ export interface TotalCountStatistic {
     iconSource?: string;
     text?: string;
 }
+
+export enum TOTAL_COUNT_STATISTICS {
+    totalSightings = 'totalSightings',
+    totalSpecies = 'totalSpecies',
+    totalImages = 'totalImages',
+    totalUsers = 'totalUsers'
+}

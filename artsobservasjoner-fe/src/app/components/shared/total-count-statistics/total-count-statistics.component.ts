@@ -32,12 +32,17 @@ export class TotalCountStatisticsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.statistics === Object.keys(this.apis).find(stats => stats === this.statistics)) {
-      this.api = this.apis[this.statistics];
-    }
+    // if (this.statistics === Object.keys(this.apis).find(stats => stats === this.statistics)) {
+    //   this.api = this.apis[this.statistics];
+    // }
 
-    this.totalCount$ = this.statisticsService.getTotalCount(this.api);
+    // this.totalCount$ = this.statisticsService.getTotalCount(this.api);
+    this.getData();
 
+  }
+
+  getData(): void {
+    this.totalCount$ = this.statisticsService.getTotalCount(this.statistics);
   }
 
   getCountIcon(statistics: string): string {

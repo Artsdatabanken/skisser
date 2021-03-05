@@ -10,10 +10,13 @@
 
       <ng-container *ngIf="announcements$ | async as announcements; else noData">
 
-        <h1 class="page-title" style="display: inline;">{{ 'menu.menu_announcements' | translate }}</h1>
+        <h1 class="page-title page-title--special-case">{{ 'menu.menu_announcements' | translate }}</h1>
 
         <br>
         <br>
+        <br>
+        <br>
+        
 
         <div class="loop loop--2x">
 
