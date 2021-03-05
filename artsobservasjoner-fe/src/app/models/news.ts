@@ -1,3 +1,5 @@
+// MODELS, CLASSES, INTERFACES AND ENUMS FOR NEWS AND SUCH
+
 export interface Announcement {
     id: string;
     url: string;

@@ -27,6 +27,7 @@ export class StatisticsService {
   redlistedCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=redlist';
   alienCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=alienlist';
   assessmentCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
+  validationStatusApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
 
   overviewStatsApi1: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
   overviewStatsApi2: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
@@ -54,8 +55,6 @@ export class StatisticsService {
 
     return this.httpClient.get(this.validatedDataApi).pipe(
       map((response: any) => {
-
-        console.log('res', response)
 
         response['validatedDataStatistics'].forEach(d => {
 
@@ -150,11 +149,13 @@ export class StatisticsService {
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
+
         totalCount = {
           count: response.count
         }
 
         return totalCount;
+
       }),
       // catchError(error => {
 
@@ -250,6 +251,41 @@ export class StatisticsService {
       publishReplay(1),
       refCount()
     );
+  }
+
+  // VALIDATION CATEGORIES
+
+  getValidationStatus(group?: string): Observable<Category[]> {
+
+    let apiUrl: string;
+    apiUrl = group ? apiUrl = this.validationStatusApi + '?group=' + group : apiUrl = this.validationStatusApi;
+
+    return this.httpClient.get(apiUrl).pipe(
+      map((response: any) => {
+
+        console.log('res', response)
+
+        const statuses: Category[] = [];
+
+        response.forEach(data => {
+
+          let status: Category = {
+            id: data.validationStatusId,
+            labelEnglish: data.speciesGroupResourceLabels[0].label,
+            labelNorwegian: data.speciesGroupResourceLabels[1].label
+          }
+
+          statuses.push(status);
+
+        });
+
+        return statuses;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
   }
 
   // OVERVIEW STATISTICS

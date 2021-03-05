@@ -63,3 +63,11 @@ export enum TOTAL_COUNT_STATISTICS {
     totalImages = 'totalImages',
     totalUsers = 'totalUsers'
 }
+
+export enum VALIDATION_STATUS {
+    notValidated = 'NotValidated',
+    inProgress = 'InProgress',
+    validated = 'Validated',
+    rejected = 'Rejected',
+    approved = 'Approved'
+}

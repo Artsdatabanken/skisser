@@ -1,23 +1,23 @@
-// models and viewmodels for reusable components
+// MODELS, CLASSES, INTERFACES AND ENUMS FOR REUSABLE COMPONENTS / ELEMENTS
 
 export interface TableRow<T> {
-    values: T;
-    // Add here any additional action or information
-    // about a generic table row, like a navigation
-    // target if the row is clicked.
-  }
+  values: T;
+  // Add here any additional action or information
+  // about a generic table row, like a navigation
+  // target if the row is clicked.
+}
 
-  export interface TableColumn<T> {
-    id: keyof T;
-    title?: keyof T;
-    titleNorwegian?: keyof T;
-    titleEnglish?: keyof T;
-    alignment?: keyof T;
-    
-    // Add here any additional action or information
-    // about a generic table column, like whether it is
-    // sortable or not.
-  }
+export interface TableColumn<T> {
+  id: keyof T;
+  title?: keyof T;
+  titleNorwegian?: keyof T;
+  titleEnglish?: keyof T;
+  alignment?: keyof T;
+
+  // Add here any additional action or information
+  // about a generic table column, like whether it is
+  // sortable or not.
+}
 
 export interface DropdownOption {
   text: string;

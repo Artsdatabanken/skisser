@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Category, ValidatedDataItem } from 'src/app/models/statistics';
+import { Category, ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
@@ -14,24 +14,31 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 
 export class ValidatedDataComponent implements OnInit {
 
-  pageTitle: string;
-  data$;
+  data$: Observable<ValidatedDataItem[]>;
+  validationStatusData$;
+  validationStatus$: Observable<Category[]>;
+  speciesGroups$: Observable<Category[]>;
   currentLanguage: string;
+  validationStatus: typeof VALIDATION_STATUS = VALIDATION_STATUS;
 
   constructor(
-    private route: ActivatedRoute,
     private statisticsService: StatisticsService,
     private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
 
-    this.pageTitle = this.route.routeConfig.data.text;
-
     this.translate.onLangChange.subscribe(l => {
       this.currentLanguage = l.lang;
     });
 
+    this.getValidatedData();
+    this.getValidatedStatusData();
+    this.getSpeciesGroups();
+
+  }
+
+  getValidatedData(): void {
     this.data$ = forkJoin([
       this.statisticsService.getValidatedData(),
       this.statisticsService.getSpeciesGroups()
@@ -62,7 +69,7 @@ export class ValidatedDataComponent implements OnInit {
             percentageSightedVsValidated: speciesItem.percentageSightedVsValidated,
             percentageValidatedVsApproved: speciesItem.percentageValidatedVsApproved,
           }
-          
+
           validatedData.push(validatedDataItem);
 
         });
@@ -87,7 +94,26 @@ export class ValidatedDataComponent implements OnInit {
 
       })
     );
+  }
+
+  getValidatedStatusData(): void {
+
+    this.validationStatus$ = this.statisticsService.getValidationStatus(this.validationStatus.validated);
+
+    this.validationStatusData$ = forkJoin(([
+      this.statisticsService.getSpeciesGroups(),
+      this.statisticsService.getValidationStatus()
+    ])).pipe(
+      map(([speciesGroups, validationStatus]) => {
+
+        console.log('xxx', validationStatus)
+
+      })
+    );
 
   }
 
+  getSpeciesGroups(): void {
+    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
+  }
 }
