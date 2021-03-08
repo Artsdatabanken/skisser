@@ -14,7 +14,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class AlienSpeciesComponent implements OnInit {
 
   data$;
-  currentLanguage: string;
+  currentLanguage: string = localStorage.getItem('LANGUAGE');
   translationParamValue: string;
 
   constructor(
@@ -24,11 +24,11 @@ export class AlienSpeciesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.translate.onLangChange.subscribe(l => {
-      this.currentLanguage = l.lang;
+    // this.translate.onLangChange.subscribe(l => {
+    //   this.currentLanguage = l.lang;
 
-      l.lang === 'no' ? this.translationParamValue = 'fremmede arter' : this.translationParamValue = 'alien species';
-    });
+    //   l.lang === 'no' ? this.translationParamValue = 'fremmede arter' : this.translationParamValue = 'alien species';
+    // });
 
     this.getData();
 

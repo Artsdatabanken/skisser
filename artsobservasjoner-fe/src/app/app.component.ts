@@ -61,14 +61,12 @@ export class AppComponent {
   }
 
   handleLanguage(): void {
-    
+
     // DEFINE SUPPORTED LANGUAGES
     this.translate.addLangs(['no', 'en']);
 
     // DEFINE AND USE DEFAULT LANGUAGE
     // this.translate.setTranslation('no', defaultLanguage);
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
 
     if (localStorage.getItem('LANGUAGE')) {
       this.translate.setDefaultLang(localStorage.getItem('LANGUAGE'));
@@ -79,7 +77,9 @@ export class AppComponent {
       this.translate.use('en');
       localStorage.setItem('LANGUAGE', 'en');
     }
-    
+
+    console.log('current language', this.translate.currentLang);
+
   }
 
   setPageTitle(): void {

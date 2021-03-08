@@ -5,6 +5,7 @@ import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category, ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-validated-data',
@@ -18,19 +19,31 @@ export class ValidatedDataComponent implements OnInit {
   validationStatusData$;
   validationStatus$: Observable<Category[]>;
   speciesGroups$: Observable<Category[]>;
+  currentLanguage$: Observable<string>;
   currentLanguage: string;
   validationStatus: typeof VALIDATION_STATUS = VALIDATION_STATUS;
 
   constructor(
     private statisticsService: StatisticsService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
-    this.translate.onLangChange.subscribe(l => {
-      this.currentLanguage = l.lang;
+    // this.currentLanguage = localStorage.getItem('LANGUAGE') || this.translate.currentLang;
+    // this.translate.onLangChange.subscribe(l => {
+    //   this.currentLanguage = l.lang;
+    // });
+
+    this.currentLanguage$ = this.translationService.currentLanguage$;
+    this.translationService.currentLanguage$.subscribe(lang => {
+      this.currentLanguage = lang;
+      console.log('current', this.currentLanguage)
+      
     });
+
+    console.log('current', this.currentLanguage)
 
     this.getValidatedData();
     this.getValidatedStatusData();
