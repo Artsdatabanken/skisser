@@ -136,9 +136,53 @@
 
         </div>
 
-        <br><br><br><br><br><br><br><br><br><br>
+        <br><br>
 
-        <table class="tbl tbl--lg">
+        <div>
+
+            <table class="tbl tbl--lg">
+                <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th scope="col" role="columnheader">
+                            {{ 'statistics.tableHeading_validationCategory' | translate }}
+                        </th>
+                        <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
+                            <th *ngFor="let speciesGroup of speciesGroups">
+
+                                {{ currentLanguage == 'no' ? speciesGroup.labelNorwegian :
+                                speciesGroup.labelEnglish }}
+
+                            </th>
+                        </ng-container>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup" *ngIf="validationStatus$ | async as validationStatus">
+                    <tr role="row" *ngFor="let valStatus of validationStatus">
+                        <td role="cell">
+
+                            {{ currentLanguage == 'no' ? valStatus.labelNorwegian :
+                            valStatus.labelEnglish }}
+
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- <table class="tbl tbl--lg">
             <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
             <thead role="rowgroup">
                 <tr role="row">
@@ -320,7 +364,7 @@
                 </tr>
             </tbody>
 
-        </table>
+        </table> -->
 
         <ng-template #noData>
             <app-error-response></app-error-response>

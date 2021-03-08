@@ -78,6 +78,7 @@
     padding: 0 22px;
     text-align: center;
     width: auto;
+    transition: all 0.5s;
 
     // modifiers (types of buttons)
 
@@ -462,28 +463,40 @@
 
     &__grid {
         display: grid;
-        grid-template-columns: 50px auto;
+        grid-template-columns: 75px auto;
 
         & > * {
+            // border: 1px solid red
         }
     }
 
     &__icon {
+        @include customVar(background-color, clrShadow);
         background-position: left top;
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: 35px;
+        border-radius: 100%;
+        text-align: center;
         height: 44px;
         width: 44px;
+
+        height: 64px;
+        width: 64px;
 
         @media screen and (max-width: 1024px) {
             background-size: 30px;
         }
 
         &--announcement {
+            @include customVar(background-color, clrShadow);
             background-image: url(../images/iconMegaphone.png);
         }
 
         &--notice {
+            @include customVar(background-color, clrDanger);
+
+            background-size: 30px;
             background-image: url(../images/iconBell.png);
         }
     }
@@ -503,7 +516,7 @@
             font-size: 24px;
             font-weight: 500;
             line-height: 1;
-            margin: 0;
+            margin: 4px 0 0 0;
 
             @media screen and (max-width: 1024px) {
                 font-size: 20px;

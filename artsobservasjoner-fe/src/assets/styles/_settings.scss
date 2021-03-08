@@ -17,6 +17,7 @@ $vars: (
   clrShadow: #eafaf1, 
   clrWash1: #f5f5f5,
   clrWash2: #fafafa,
+  clrDanger: #f5b7b1, // #f1948a,
 
   paletteColor0: #ededed,
   paletteColor1: #e3e3e3,
@@ -40,6 +41,7 @@ $vars: (
   --clrShadow: #{map-get($vars, clrShadow)};
   --clrWash1: #{map-get($vars, clrWash1)};
   --clrWash2: #{map-get($vars, clrWash2)};
+  --clrDanger: #{map-get($vars, clrDanger)};
    
   --paletteColor0: #{map-get($vars, paletteColor0)};
   --paletteColor1: #{map-get($vars, paletteColor1)};

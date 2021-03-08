@@ -66,13 +66,15 @@
 
         <div class="loop loop--stats">
 
-            <app-total-count-statistics [statistics]="'totalSightings'" [style]="'list'"
+            <app-total-count-statistics [statistics]="totalCountStatistics.totalSightings" [style]="'list'"
                 [text]="'statistics.overviewNumbers_sightings' | translate" [icon]="true">
             </app-total-count-statistics>
-            <app-total-count-statistics [statistics]="'totalSpecies'" [style]="'list'"
+
+            <app-total-count-statistics [statistics]="totalCountStatistics.totalSpecies" [style]="'list'"
                 [text]="'statistics.overviewNumbers_species' | translate" [icon]="true">
             </app-total-count-statistics>
-            <app-total-count-statistics [statistics]="'totalImages'" [style]="'list'"
+
+            <app-total-count-statistics [statistics]="totalCountStatistics.totalImages" [style]="'list'"
                 [text]="'statistics.overviewNumbers_images' | translate" [icon]="true"></app-total-count-statistics>
 
         </div>
@@ -89,8 +91,7 @@
 
         <div class="loop loop--intersections">
 
-            <app-intersection [url]="'observations/statistics'"
-                [text]="'menu.menu_statistics' | translate">
+            <app-intersection [url]="'observations/statistics'" [text]="'menu.menu_statistics' | translate">
             </app-intersection>
             <app-intersection [url]="'observations/statistics/redlisted-species'"
                 [text]="'menu.menu_statistics_redlistedSpecies' | translate">

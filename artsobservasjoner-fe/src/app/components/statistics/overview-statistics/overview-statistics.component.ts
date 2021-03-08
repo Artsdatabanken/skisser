@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,9 +16,6 @@ export class OverviewStatisticsComponent implements OnInit {
 
   pageTitle: string;
   children: any[] = [];
-
-  // @Input() open: boolean;
-  // activeDropdown: boolean;
   subscription: Subscription;
   subscriptions: Subscription[] = [];
 

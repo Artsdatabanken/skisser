@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
-export class TranslationSet {
-  public languange: string
-  public values: { [key: string]: string } = {}
-}
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +8,25 @@ export class TranslationSet {
 
 export class TranslationService {
 
-  public languages: object[] = [{ code: 'no', name: 'Norsk' }, { code: 'en', name: 'English' }];
+  public currentLanguage$ = new BehaviorSubject(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
 
   constructor(private translate: TranslateService) { }
 
   switchLanguage(selectedLanguageCode: string): void {
     localStorage.setItem('LANGUAGE', selectedLanguageCode);
     this.translate.use(selectedLanguageCode); // IMPORTANT 
+    this.currentLanguage$.next(selectedLanguageCode);
   }
+
+  // getCurrentLanguage(): Observable<string> {
+
+  //   this.currentLanguage$.next(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
+
+  //   this.translate.onLangChange.subscribe(l => {
+  //     this.currentLanguage$.next(l.lang);
+  //   });
+
+  //   return this.currentLanguage$;
+  // }
 
 }
