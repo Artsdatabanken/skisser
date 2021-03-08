@@ -22,7 +22,6 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
-import { LanguageSwitcherComponent } from './layout/language-switcher/language-switcher.component';
 import { TrimPipe } from './pipes/trim.pipe';
 import { DesignComponent } from './misc/design/design.component';
 import { CardComponent } from './reusable/card/card.component';
@@ -105,6 +104,7 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
+import { LanguageSwitcherComponent } from './components/shared/language-switcher/language-switcher.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 

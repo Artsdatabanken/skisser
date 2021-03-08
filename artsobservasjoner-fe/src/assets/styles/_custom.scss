@@ -193,13 +193,16 @@
     border-radius: 0;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 10px 0;
+    text-decoration: underline;
     text-indent: 0;
     transition: border 0.5s;
 
     &--active {
-        font-weight: 700;
+        // active here is the current selected language; we don't want this to stand out
+        font-weight: 600;
+        text-decoration: none;
     }
 
     &:focus,

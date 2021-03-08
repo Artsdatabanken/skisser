@@ -12,8 +12,7 @@ import { TranslationService } from 'src/app/services/translation.service';
 export class LanguageSwitcherComponent implements OnInit {
 
   selectedLanguage: string;
-  subscription: Subscription[] = [];
-  nonSelectedLanguage: object;
+  subscription: Subscription;
   currentLanguage: string;
 
   constructor(
@@ -26,7 +25,7 @@ export class LanguageSwitcherComponent implements OnInit {
    }
 
   ngOnDestroy(): void {
-    this.subscription.forEach(s => s.unsubscribe());
+    this.subscription.unsubscribe();
   }
 
   switchLanguage(selectedLanguageCode: string): void {
