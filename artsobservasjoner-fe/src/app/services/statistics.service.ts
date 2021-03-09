@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map, publishReplay, refCount } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES } from '../models/statistics';
+import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES, AssessedSpeciesItemStats } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
 import { Category } from '../models/shared';
 import { TranslationService } from './translation.service';
@@ -204,14 +204,14 @@ export class StatisticsService {
         const speciesGroups: Category[] = [];
 
         response.forEach(data => {
-          
+
           let speciesGroup: Category = {
             id: data.speciesGroupId,
             en: data.speciesGroupResourceLabels[0].label,
             no: data.speciesGroupResourceLabels[1].label
           }
 
-          speciesGroups.push(speciesGroup);      
+          speciesGroups.push(speciesGroup);
 
         });
 
@@ -368,6 +368,86 @@ export class StatisticsService {
       refCount()
     );
 
+  }
+
+  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+  getAssessedSpeciesData(categoryVariant: string): any {
+
+    console.log('we\'re using this one');
+
+    let assessmentCategory: string;
+
+    switch (categoryVariant) {
+      case this.assessmentCategories.redlist:
+        assessmentCategory = this.assessmentCategories.redlist;
+        break;
+
+      case this.assessmentCategories.alienlist:
+        assessmentCategory = this.assessmentCategories.alienlist;
+        break;
+
+      default:
+        console.log('');
+    }
+
+    const data$ = forkJoin([
+      this.getAssessedSpeciesStats(assessmentCategory),
+      this.getAssessmentCategories(assessmentCategory),
+      this.getSpeciesGroups()
+    ]).pipe(
+      map(([species, categories, speciesGroups]) => {
+
+        let assessedSpeciesItemStats: AssessedSpeciesItemStats;
+
+        // ---------------------------------------- ***
+
+        const getCategory = (id: number): AssessmentCategory => {
+          return categories.find(category => category.id === id);
+        }
+
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
+
+        // ---------------------------------------- ***
+
+        const map = new Map();
+
+        species.forEach(speciesItem => {
+
+          let tempArray = [];
+
+          speciesItem.data.forEach(data => {
+
+            assessedSpeciesItemStats = {
+              id: speciesItem.id,
+              speciesGroupId: speciesItem.id,
+              speciesGroup: getSpeciesGroup(speciesItem.id),
+              assessmentCategoryId: data['redlistId'],
+              assessmentCategory: getCategory(data['redlistId']),
+              sightingsCount: data['sightingCount'],
+              imagesCount: data['sightingWithMediaCount'],
+              validatedCount: data['validatedSightingCount'],
+              approvedCount: data['approvedValidatedSightingCount'],
+            }
+
+            if (speciesItem.id == assessedSpeciesItemStats.id) {
+              tempArray.push(assessedSpeciesItemStats)
+            }
+
+            map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
+
+          });
+
+        });
+
+        return map;
+
+      })
+    );
+
+    return data$;
   }
 
 }

@@ -39,65 +39,67 @@ export class RedListedSpeciesComponent implements OnInit {
 
   getData(): void {
 
-    this.data$ = forkJoin([
-      this.statisticsService.getAssessedSpeciesStats(this.assessmentCategories.redlist),
-      this.statisticsService.getAssessmentCategories(this.assessmentCategories.redlist),
-      this.statisticsService.getSpeciesGroups()
-    ]).pipe(
-      map(([species, categories, speciesGroups]) => {
+    this.data$ = this.statisticsService.getAssessedSpeciesData(this.assessmentCategories.redlist);
 
-        let redlistedSpeciesItemStats: AssessedSpeciesItemStats;
+    // this.data$ = forkJoin([
+    //   this.statisticsService.getAssessedSpeciesStats(this.assessmentCategories.redlist),
+    //   this.statisticsService.getAssessmentCategories(this.assessmentCategories.redlist),
+    //   this.statisticsService.getSpeciesGroups()
+    // ]).pipe(
+    //   map(([species, categories, speciesGroups]) => {
 
-        // ---------------------------------------- ***
+    //     let redlistedSpeciesItemStats: AssessedSpeciesItemStats;
 
-        const getCategory = (id: number): AssessmentCategory => {
-          return categories.find(category => category.id === id);
-        }
+    //     // ---------------------------------------- ***
 
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
+    //     const getCategory = (id: number): AssessmentCategory => {
+    //       return categories.find(category => category.id === id);
+    //     }
 
-        // ---------------------------------------- ***
+    //     const getSpeciesGroup = (id: number): Category => {
+    //       return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+    //     }
 
-        const map = new Map();
+    //     // ---------------------------------------- ***
 
-        species.forEach(speciesItem => {
+    //     const map = new Map();
 
-          let tempArray = [];
+    //     species.forEach(speciesItem => {
 
-          //map.set({ id: speciesItem.id, label: getSpeciesGroupByLanguage(speciesItem.id) }, { data: [] });
+    //       let tempArray = [];
 
-          speciesItem.data.forEach(data => {
+    //       //map.set({ id: speciesItem.id, label: getSpeciesGroupByLanguage(speciesItem.id) }, { data: [] });
 
-            redlistedSpeciesItemStats = {
-              id: speciesItem.id,
-              speciesGroupId: speciesItem.id,
-              speciesGroup: getSpeciesGroup(speciesItem.id),
-              assessmentCategoryId: data['redlistId'],
-              assessmentCategory: getCategory(data['redlistId']),
-              sightingsCount: data['sightingCount'],
-              imagesCount: data['sightingWithMediaCount'],
-              validatedCount: data['validatedSightingCount'],
-              approvedCount: data['approvedValidatedSightingCount'],
-            }
+    //       speciesItem.data.forEach(data => {
 
-            if (speciesItem.id == redlistedSpeciesItemStats.id) {
-              tempArray.push(redlistedSpeciesItemStats)
-            }
+    //         redlistedSpeciesItemStats = {
+    //           id: speciesItem.id,
+    //           speciesGroupId: speciesItem.id,
+    //           speciesGroup: getSpeciesGroup(speciesItem.id),
+    //           assessmentCategoryId: data['redlistId'],
+    //           assessmentCategory: getCategory(data['redlistId']),
+    //           sightingsCount: data['sightingCount'],
+    //           imagesCount: data['sightingWithMediaCount'],
+    //           validatedCount: data['validatedSightingCount'],
+    //           approvedCount: data['approvedValidatedSightingCount'],
+    //         }
 
-            map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
+    //         if (speciesItem.id == redlistedSpeciesItemStats.id) {
+    //           tempArray.push(redlistedSpeciesItemStats)
+    //         }
 
-          });
+    //         map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
 
-        });
+    //       });
 
-        //const result = [...map.values()];
+    //     });
 
-        return map;
+    //     //const result = [...map.values()];
 
-      })
-    );
+    //     return map;
+
+    //   })
+    // );
 
   }
 

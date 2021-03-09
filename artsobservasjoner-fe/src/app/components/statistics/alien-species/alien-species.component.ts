@@ -38,63 +38,65 @@ export class AlienSpeciesComponent implements OnInit {
 
   getData(): void {
 
-    this.data$ = forkJoin([
-      this.statisticsService.getAssessedSpeciesStats(this.assessmentCategories.alienlist),
-      this.statisticsService.getAssessmentCategories(this.assessmentCategories.alienlist),
-      this.statisticsService.getSpeciesGroups()
-    ]).pipe(
-      map(([species, categories, speciesGroups]) => {
+    this.data$ = this.statisticsService.getAssessedSpeciesData(this.assessmentCategories.alienlist);
 
-        let alienSpeciesItemStats: AssessedSpeciesItemStats;
+    // this.data$ = forkJoin([
+    //   this.statisticsService.getAssessedSpeciesStats(this.assessmentCategories.alienlist),
+    //   this.statisticsService.getAssessmentCategories(this.assessmentCategories.alienlist),
+    //   this.statisticsService.getSpeciesGroups()
+    // ]).pipe(
+    //   map(([species, categories, speciesGroups]) => {
 
-        // ---------------------------------------- ***
+    //     let alienSpeciesItemStats: AssessedSpeciesItemStats;
 
-        const getCategory = (id: number): AssessmentCategory => {
-          return categories.find(category => category.id === id);
-        }
+    //     // ---------------------------------------- ***
 
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
+    //     const getCategory = (id: number): AssessmentCategory => {
+    //       return categories.find(category => category.id === id);
+    //     }
 
-        // ---------------------------------------- ***
+    //     const getSpeciesGroup = (id: number): Category => {
+    //       return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+    //     }
 
-        const map = new Map();
+    //     // ---------------------------------------- ***
 
-        species.forEach(speciesItem => {
+    //     const map = new Map();
 
-          let tempArray = [];
+    //     species.forEach(speciesItem => {
 
-          speciesItem.data.forEach(data => {
+    //       let tempArray = [];
 
-            alienSpeciesItemStats = {
-              id: speciesItem.id,
-              speciesGroupId: speciesItem.id,
-              speciesGroup: getSpeciesGroup(speciesItem.id),
-              //speciesGroup: getSpeciesGroupByLanguage(speciesItem.id),
-              assessmentCategoryId: data['redlistId'],
-              assessmentCategory: getCategory(data['redlistId']),
-              sightingsCount: data['sightingCount'],
-              imagesCount: data['sightingWithMediaCount'],
-              validatedCount: data['validatedSightingCount'],
-              approvedCount: data['approvedValidatedSightingCount'],
-            }
+    //       speciesItem.data.forEach(data => {
 
-            if (speciesItem.id == alienSpeciesItemStats.id) {
-              tempArray.push(alienSpeciesItemStats)
-            }
+    //         alienSpeciesItemStats = {
+    //           id: speciesItem.id,
+    //           speciesGroupId: speciesItem.id,
+    //           speciesGroup: getSpeciesGroup(speciesItem.id),
+    //           //speciesGroup: getSpeciesGroupByLanguage(speciesItem.id),
+    //           assessmentCategoryId: data['redlistId'],
+    //           assessmentCategory: getCategory(data['redlistId']),
+    //           sightingsCount: data['sightingCount'],
+    //           imagesCount: data['sightingWithMediaCount'],
+    //           validatedCount: data['validatedSightingCount'],
+    //           approvedCount: data['approvedValidatedSightingCount'],
+    //         }
 
-            map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
+    //         if (speciesItem.id == alienSpeciesItemStats.id) {
+    //           tempArray.push(alienSpeciesItemStats)
+    //         }
 
-          });
+    //         map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
 
-        });
+    //       });
 
-        console.log('map', map)
-        return map;
+    //     });
 
-      })
-    );
+    //     console.log('map', map)
+    //     return map;
+
+    //   })
+    // );
 
   }
 
