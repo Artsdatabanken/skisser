@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, publishReplay, refCount } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, Category, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS } from '../models/statistics';
+import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES } from '../models/statistics';
 import { TranslateService } from '@ngx-translate/core';
+import { Category } from '../models/shared';
+import { TranslationService } from './translation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,8 @@ export class StatisticsService {
 
   public responseCache = new Map();
   errorMessage: string;
-  public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
+  totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
+  assessmentCategories: typeof ASSESSMENT_CATEGORIES = ASSESSMENT_CATEGORIES;
 
   // API
 
@@ -26,7 +29,7 @@ export class StatisticsService {
   speciesGroupListApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   redlistedCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=redlist';
   alienCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=alienlist';
-  assessmentCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
+  //assessmentCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
   validationStatusApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
 
   overviewStatsApi1: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
@@ -42,7 +45,8 @@ export class StatisticsService {
   constructor(
     private httpClient: HttpClient,
     private utilitiesService: UtilitiesService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private translationService: TranslationService
   ) { }
 
   // ------------------------------------------------------------ ***
@@ -83,9 +87,24 @@ export class StatisticsService {
 
   }
 
-  getAssessedSpeciesStats(data: string): Observable<AssessedSpeciesItem[]> {
+  getAssessedSpeciesStats(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
 
-    const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
+    //const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
+
+    let api: string;
+
+    switch (categoryVariant) {
+      case this.assessmentCategories.redlist:
+        api = this.redlistSpeciesApi;
+        break;
+
+      case this.assessmentCategories.alienlist:
+        api = this.alienSpeciesApi;
+        break;
+
+      default:
+        console.log('');
+    }
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -185,33 +204,14 @@ export class StatisticsService {
         const speciesGroups: Category[] = [];
 
         response.forEach(data => {
-
-          let label: string;
-
-          if (this.translate.currentLang == 'en') {
-            label = data.speciesGroupResourceLabels[0].label;
-          }
-          else {
-            label = data.speciesGroupResourceLabels[1].label;
-          }
-
-          this.translate.onLangChange.subscribe(response => {
-            if (response.lang == 'en') {
-              label = data.speciesGroupResourceLabels[0].label;
-            }
-            if (response.lang == 'no') {
-              label = data.speciesGroupResourceLabels[1].label;
-            }
-          });
-
+          
           let speciesGroup: Category = {
             id: data.speciesGroupId,
-            label: label,
-            labelEnglish: data.speciesGroupResourceLabels[0].label,
-            labelNorwegian: data.speciesGroupResourceLabels[1].label
+            en: data.speciesGroupResourceLabels[0].label,
+            no: data.speciesGroupResourceLabels[1].label
           }
 
-          speciesGroups.push(speciesGroup);
+          speciesGroups.push(speciesGroup);      
 
         });
 
@@ -226,7 +226,22 @@ export class StatisticsService {
 
   getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
 
-    const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
+    //const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
+
+    let api: string;
+
+    switch (categoryVariant) {
+      case this.assessmentCategories.redlist:
+        api = this.redlistedCategoriesApi;
+        break;
+
+      case this.assessmentCategories.alienlist:
+        api = this.alienCategoriesApi;
+        break;
+
+      default:
+        console.log('');
+    }
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -238,8 +253,8 @@ export class StatisticsService {
           let category: AssessmentCategory = {
             id: data.redListCategoryId,
             code: data.redListCategoryCode,
-            labelEnglish: data.redListCategoryResourceLabels[0].label,
-            labelNorwegian: data.redListCategoryResourceLabels[1].label
+            en: data.redListCategoryResourceLabels[0].label,
+            no: data.redListCategoryResourceLabels[1].label
           }
 
           categories.push(category);
@@ -271,8 +286,8 @@ export class StatisticsService {
 
           let status: Category = {
             id: data.validationStatusId,
-            labelEnglish: data.speciesGroupResourceLabels[0].label,
-            labelNorwegian: data.speciesGroupResourceLabels[1].label
+            en: data.speciesGroupResourceLabels[0].label,
+            no: data.speciesGroupResourceLabels[1].label
           }
 
           statuses.push(status);

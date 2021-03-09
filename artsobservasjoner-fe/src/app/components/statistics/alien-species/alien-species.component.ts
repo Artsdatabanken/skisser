@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AssessmentCategory, Category, AssessedSpeciesItemStats } from 'src/app/models/statistics';
+import { Category } from 'src/app/models/shared';
+import { AssessmentCategory, AssessedSpeciesItemStats, ASSESSMENT_CATEGORIES } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-alien-species',
@@ -14,22 +16,22 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class AlienSpeciesComponent implements OnInit {
 
   data$;
-  currentLanguage: string = localStorage.getItem('LANGUAGE');
+  assessmentCategories: typeof ASSESSMENT_CATEGORIES = ASSESSMENT_CATEGORIES;
+  currentLanguage$: Observable<string>;
   translationParamValue: string;
 
   constructor(
     private statisticsService: StatisticsService,
-    private translate: TranslateService
+    private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
-    // this.translate.onLangChange.subscribe(l => {
-    //   this.currentLanguage = l.lang;
+    this.translationService.currentLanguage$.subscribe(language => {
+      language === 'no' ? this.translationParamValue = 'fremmede arter' : this.translationParamValue = 'alien species';
+    });
 
-    //   l.lang === 'no' ? this.translationParamValue = 'fremmede arter' : this.translationParamValue = 'alien species';
-    // });
-
+    this.currentLanguage$ = this.translationService.currentLanguage$;
     this.getData();
 
   }
@@ -37,8 +39,8 @@ export class AlienSpeciesComponent implements OnInit {
   getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getAssessedSpeciesStats('alienSpecies'),
-      this.statisticsService.getAssessmentCategories('alienCategories'),
+      this.statisticsService.getAssessedSpeciesStats(this.assessmentCategories.alienlist),
+      this.statisticsService.getAssessmentCategories(this.assessmentCategories.alienlist),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
       map(([species, categories, speciesGroups]) => {
@@ -69,6 +71,7 @@ export class AlienSpeciesComponent implements OnInit {
               id: speciesItem.id,
               speciesGroupId: speciesItem.id,
               speciesGroup: getSpeciesGroup(speciesItem.id),
+              //speciesGroup: getSpeciesGroupByLanguage(speciesItem.id),
               assessmentCategoryId: data['redlistId'],
               assessmentCategory: getCategory(data['redlistId']),
               sightingsCount: data['sightingCount'],
@@ -87,6 +90,7 @@ export class AlienSpeciesComponent implements OnInit {
 
         });
 
+        console.log('map', map)
         return map;
 
       })

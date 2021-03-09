@@ -11,7 +11,7 @@
             {{ 'statistics.shared_tableDescription_includedData' | translate }}
         </p>
 
-        <app-assessment-category [categoryVariant]="'redlistedCategories'"></app-assessment-category>
+        <app-assessment-category [categoryVariant]="assessmentCategories.redlist"></app-assessment-category>
 
         <br>
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
@@ -43,28 +43,42 @@
                     </tr>
                 </thead>
 
-
                 <tbody *ngFor="let species of redlistedSpecies | keyvalue">
                     <tr *ngFor="let data of species.value.data; let i = index">
                         <th role="rowheader" scope="row"
                             [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 
-                            <span *ngIf="i === 0">
-                                {{ currentLanguage == 'no' ? species.key.labelNorwegian :
-                                species.key.labelEnglish }}
-                            </span>
-                            <span *ngIf="i > 0" class="td-hidden">
-                                {{ currentLanguage == 'no' ? species.key.labelNorwegian :
-                                species.key.labelEnglish }}
-                            </span>
+                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                <span *ngIf="i === 0">
+                                    <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
+                                </span>
+
+                                <span *ngIf="i > 0" class="td-hidden">
+                                    <!--for screen readers-->
+                                    <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
+                                </span>
+
+                            </ng-container>
 
                         </th>
                         <td role="cell" [attr.data-heading]="'statistics.tableHeading_riskGroup' | translate">
-                            {{ data.assessmentCategory.code }}
+                            
                             <span class="sr-only">
-                                {{ currentLanguage == 'no' ? data.assessmentCategory.labelNorwegian :
-                                data.assessmentCategory.labelEnglish }}
+                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ data.assessmentCategory.en }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ data.assessmentCategory.no }}
+                                    </ng-container>
+
+                                </ng-container>
                             </span>
+
                         </td>
                         <td class="td-number" role="cell"
                             [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate">

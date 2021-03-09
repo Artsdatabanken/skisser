@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { AssessmentCategory } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-assessment-category',
@@ -14,11 +15,11 @@ export class AssessmentCategoryComponent implements OnInit {
 
   @Input() categoryVariant: string | null;
   categories$: Observable<AssessmentCategory[]>;
-  currentLanguage: string = this.translate.currentLang;
+  currentLanguage$: Observable<string> = this.translationService.currentLanguage$;
 
   constructor(
     private statisticsService: StatisticsService,
-    private translate: TranslateService
+    private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
@@ -29,10 +30,6 @@ export class AssessmentCategoryComponent implements OnInit {
     else {
       this.categories$ = null;
     }
-    
-    this.translate.onLangChange.subscribe(l => {
-      this.currentLanguage = l.lang;
-    });
 
   }
 

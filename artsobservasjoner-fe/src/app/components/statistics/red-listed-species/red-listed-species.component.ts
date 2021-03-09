@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AssessmentCategory, Category, AssessedSpeciesItemStats } from 'src/app/models/statistics';
+import { Category } from 'src/app/models/shared';
+import { AssessmentCategory, AssessedSpeciesItemStats, ASSESSMENT_CATEGORIES } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-red-listed-species',
@@ -14,25 +15,23 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class RedListedSpeciesComponent implements OnInit {
 
   data$;
-  currentLanguage: string;
-  
+  assessmentCategories: typeof ASSESSMENT_CATEGORIES = ASSESSMENT_CATEGORIES;
+  currentLanguage$: Observable<string>;  
   translationParamValue: string;
   value: string;
 
   constructor(
     private statisticsService: StatisticsService,
-    private translate: TranslateService
+    private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
-    this.translate.onLangChange.subscribe(l => {
-      this.currentLanguage = l.lang;
-
-      l.lang === 'no' ? this.translationParamValue = 'rødlistede arter' : this.translationParamValue = 'redlisted species';
-      l.lang === 'no' ? this.value = 'rødlistede arter' : this.value = 'redlisted species';
-
+    this.translationService.currentLanguage$.subscribe(language => {
+      language === 'no' ? this.translationParamValue = 'rødlistede arter' : this.translationParamValue = 'redlisted species';
     });
+
+    this.currentLanguage$ = this.translationService.currentLanguage$;
 
     this.getData();
 
@@ -41,8 +40,8 @@ export class RedListedSpeciesComponent implements OnInit {
   getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getAssessedSpeciesStats('redlistedSpecies'),
-      this.statisticsService.getAssessmentCategories('redlistedCategories'),
+      this.statisticsService.getAssessedSpeciesStats(this.assessmentCategories.redlist),
+      this.statisticsService.getAssessmentCategories(this.assessmentCategories.redlist),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
       map(([species, categories, speciesGroups]) => {

@@ -1,5 +1,7 @@
 // VIEWMODELS FOR ALL STATISTICS ITEMS
 
+import { Category } from "./shared";
+
 export interface StatisticsItem {
     id: number;
     speciesGroup?: Category;
@@ -40,13 +42,6 @@ export interface AssessedSpeciesItemStats {
     approvedCount: number;
 }
 
-export interface Category {
-    id: number;
-    label?: string;
-    labelEnglish?: string;
-    labelNorwegian?: string;
-}
-
 export interface AssessmentCategory extends Category {
     code: string;
 }
@@ -70,4 +65,9 @@ export enum VALIDATION_STATUS {
     validated = 'Validated',
     rejected = 'Rejected',
     approved = 'Approved'
+}
+
+export enum ASSESSMENT_CATEGORIES {
+    redlist = 'redlist',
+    alienlist = 'alienlist'
 }
