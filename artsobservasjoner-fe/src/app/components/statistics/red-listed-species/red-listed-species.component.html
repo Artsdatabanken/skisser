@@ -43,8 +43,8 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let species of redlistedSpecies | keyvalue">
-                    <tr *ngFor="let data of species.value.data; let i = index">
+                <tbody role="rowgroup" *ngFor="let species of redlistedSpecies | keyvalue">
+                    <tr role="row" *ngFor="let data of species.value.data; let i = index">
                         <th role="rowheader" scope="row"
                             [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 

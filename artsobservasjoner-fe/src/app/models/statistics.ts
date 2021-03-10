@@ -23,8 +23,12 @@ export interface ValidatedDataItem extends StatisticsItem {
     percentageValidatedVsApproved: number;
 }
 
-export interface AssessedSpeciesItem {
-    id: number;
+export interface ValidatedDataItemByStatus {
+    speciesGroup?: Category;
+    count?: number;
+}
+
+export interface AssessedSpeciesItem extends StatisticsItem {
     data?: object[] | AssessedSpeciesItemStats[];
 }
 
@@ -49,6 +53,8 @@ export interface TotalCountStatistic {
     iconSource?: string;
     text?: string;
 }
+
+// ENUMS
 
 export enum TOTAL_COUNT_STATISTICS {
     totalSightings = 'totalSightings',

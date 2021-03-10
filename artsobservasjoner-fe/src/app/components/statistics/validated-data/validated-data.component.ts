@@ -16,7 +16,7 @@ import { TranslationService } from 'src/app/services/translation.service';
 export class ValidatedDataComponent implements OnInit {
 
   data$: Observable<ValidatedDataItem[]>;
-  validatedDataByStatus$: Observable<StatisticsItem[]>;
+  validatedDataByStatus$: Observable<any>;
   validationStatus$: Observable<Category[]>;
   speciesGroups$: Observable<Category[]>;
   currentLanguage$: Observable<string>;
@@ -85,6 +85,7 @@ export class ValidatedDataComponent implements OnInit {
   getValidatedDataByStatus(): void {
 
     //this.validationStatus$ = this.statisticsService.getValidationStatus(this.validationStatus.validated);
+    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
     this.validatedDataByStatus$ = this.statisticsService.getValidatedDataByStatus();
 
     this.statisticsService.getValidatedDataByStatus().subscribe(res => {

@@ -4,10 +4,8 @@ import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES, AssessedSpeciesItemStats } from '../models/statistics';
-import { TranslateService } from '@ngx-translate/core';
+import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES, AssessedSpeciesItemStats, ValidatedDataItemByStatus } from '../models/statistics';
 import { Category } from '../models/shared';
-import { TranslationService } from './translation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -82,53 +80,83 @@ export class StatisticsService {
 
   }
 
-  getValidatedDataByStatus(): Observable<any> {
-
-    this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).subscribe(response => {
-      console.log('TEST', response)
-    });
-
+  getValidatedDataCountByStatus(): Observable<StatisticsItem[]> {
 
     return this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).pipe(
-      map((response: any) => {
+      tap(t => console.log('t', t)),
+      map(response => {
 
-     
-        console.log('TEST 2', response)
-        return null;
+        let statisticsItem: StatisticsItem;
+        let statisticsItems: StatisticsItem[] = [];
+
+        response['sightingsValidated'].forEach(element => {
+
+          statisticsItem = {
+            id: element.validationStatusId,
+            data: element.data
+          }
+
+          statisticsItems.push(statisticsItem);
+
+        });
+
+        return statisticsItems;
       }),
       publishReplay(1),
       refCount()
     );
 
-    return null
-    // return this.httpClient.get(this.SPECIES_GROUP_API).pipe(
-    //   tap(t => console.log('t', t)),
-    //   map(response => {
+  }
 
-    //     console.log('response', response)
+  getValidatedDataByStatus(): Observable<Map<Category, ValidatedDataItemByStatus[]>> {
 
-    //     let statisticsItem: StatisticsItem;
-    //     let statisticsItems: StatisticsItem[] = [];
+    const data$ = forkJoin([
+      this.getValidatedDataCountByStatus(),
+      this.getSpeciesGroups(),
+      this.getValidationStatus()
+    ]).pipe(
+      map(([validatedData, speciesGroups, validationStatuses]) => {
 
-    //     response['sightingsValidated'].forEach(element => {
+        // ---------------------------------------- ***
 
-    //       statisticsItem = {
-    //         id: element.speciesGroupId,
-    //         speciesGroup: null,
-    //         count: element.sightingCount,
+        const getValidationStatus = (id: number): Category => {
+          return validationStatuses.find(valStatus => valStatus.id === id);
+        }
 
-    //       }
+        const getSpeciesGroup = (id: number): Category => {
+          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+        }
 
-    //       statisticsItems.push(statisticsItem);
+        // ---------------------------------------- ***
 
-    //     });
+        const map = new Map();
 
-    //     return statisticsItems;
-    //   }),
-    //   publishReplay(1),
-    //   refCount()
-    // );
+        validatedData.forEach(validatedDataItem => {
 
+          let tempArray = [];
+
+          validatedDataItem.data.forEach(element => {
+
+            if (validatedDataItem.id == validatedDataItem.id) {
+              tempArray.push({
+                speciesGroup: getSpeciesGroup(element['speciesGroupId']),
+                count: element['sightingCount']
+              });
+            }
+
+            map.set(getValidationStatus(validatedDataItem.id), { data: tempArray });
+
+          });
+
+        });
+
+        console.log('map', map)
+        return map;
+
+      })
+    );
+
+    return data$;
   }
 
   getAssessedSpeciesStats(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
@@ -179,7 +207,7 @@ export class StatisticsService {
 
   }
 
-  getAssessedSpeciesData(categoryVariant: string): any {
+  getAssessedSpeciesData(categoryVariant: string): Observable<any> {
 
     let assessmentCategory: string;
 

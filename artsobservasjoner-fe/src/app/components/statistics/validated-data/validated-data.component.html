@@ -147,6 +147,88 @@
         <br><br>
         {{ validatedDataByStatus$ }}
 
+        <div *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
+
+            <table class="custom-table">
+                <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th scope="col" role="columnheader">
+                            {{ 'statistics.tableHeading_validationCategory' | translate }}
+                        </th>
+                        <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
+                            <th *ngFor="let speciesGroup of speciesGroups">
+
+                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                    <ng-container *ngIf="currentLanguage === 'en'">{{ speciesGroup.en }}</ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">{{ speciesGroup.no }}</ng-container>
+
+                                </ng-container>
+
+                            </th>
+                        </ng-container>
+                    </tr>
+
+                </thead>
+
+                <tbody role="rowgroup" *ngFor="let validatedDataItem of validatedDataByStatus | keyvalue">
+                    <tr role="row" *ngFor="let item of validatedDataItem.value.data; let i = index">
+                        
+                        <th role="rowheader" scope="row">
+
+                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                <span *ngIf="i === 0">
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ validatedDataItem.key.en }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ validatedDataItem.key.no }}
+                                    </ng-container>
+                                </span>
+
+                                <span *ngIf="i > 0" class="td-hidden">
+                                    <!--for screen readers-->
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ validatedDataItem.key.en }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ validatedDataItem.key.no }}
+                                    </ng-container>
+                                </span>
+
+                            </ng-container>
+
+                        </th>
+
+                        <td role="cell">
+
+                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                <ng-container *ngIf="currentLanguage === 'en'">
+                                    {{ item.speciesGroup.en }}
+                                </ng-container>
+                                <ng-container *ngIf="currentLanguage === 'no'">
+                                    {{ item.speciesGroup.no }}
+                                </ng-container>
+
+                            </ng-container>
+
+                        </td>
+
+                        <td class="td-number" role="cell">
+                            {{ item.count | numberProxy }}
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
         <br><br><br><br><br><br><br><br><br><br>
         <div>
 
