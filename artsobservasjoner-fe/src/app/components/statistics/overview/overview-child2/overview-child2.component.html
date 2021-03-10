@@ -27,21 +27,25 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr *ngFor="let dataItem of data">
+                    <tr *ngFor="let item of data">
                         <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
-                            {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
-                            dataItem.speciesGroup.labelEnglish }}
+                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}</ng-container>
+                                <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}</ng-container>
+
+                            </ng-container>
                         </td>
                         <td role="cell" class="td-number"
                             [attr.data-heading]="'statistics.tableHeading_imageCount' | translate">
-                            {{ dataItem.imageCount | numberProxy }}
+                            {{ item.imageCount | numberProxy }}
                         </td>
                         <td role="cell" class="td-number"
                             [attr.data-heading]="'statistics.tableHeading_imageCountWithOpenLicence' | translate">
-                            {{ dataItem.imageCountWithOpenLicence | numberProxy }}
+                            {{ item.imageCountWithOpenLicence | numberProxy }}
                         </td>
                         <td role="cell" class="td-number" [attr.data-heading]="'%'">
-                            {{ getPercentage(dataItem.imageCount, dataItem.imageCountWithOpenLicence) }} %
+                            {{ getPercentage(item.imageCount, item.imageCountWithOpenLicence) }} %
                         </td>
                     </tr>
                 </tbody>

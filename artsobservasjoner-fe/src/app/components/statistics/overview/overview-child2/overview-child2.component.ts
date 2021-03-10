@@ -1,13 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
-import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GRAPHCOLORS } from 'src/app/data/graphs';
-import { Category, ImageStatisticsItem } from 'src/app/models/statistics';
+import { ImageStatisticsItem } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { TranslationService } from 'src/app/services/translation.service';
+import { Category } from 'src/app/models/shared';
 
 @Component({
   selector: 'app-overview-child2',
@@ -18,7 +19,7 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 export class OverviewChild2Component implements OnInit {
 
   pageTitle$: Observable<string>;
-  currentLanguage: string = this.translate.currentLang;
+  currentLanguage$: Observable<string>;
   data$;
   subscription: Subscription;
 
@@ -37,17 +38,13 @@ export class OverviewChild2Component implements OnInit {
     private layoutService: LayoutService,
     private statisticsService: StatisticsService,
     private utilitiesService: UtilitiesService,
-    private translate: TranslateService
+    private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
-    this.translate.onLangChange.subscribe(res => {
-      this.currentLanguage = res.lang;
-    });
-
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_2');
-
+    this.currentLanguage$ = this.translationService.currentLanguage$;
     this.getData();
 
   }
@@ -89,25 +86,15 @@ export class OverviewChild2Component implements OnInit {
 
         // build chart by language TODO: refactor
 
-        if (this.currentLanguage === 'no') {
-          this.buildChart(speciesGroups.map(sg => sg.labelNorwegian));
-        }
-        else {
-          this.buildChart(speciesGroups.map(sg => sg.labelEnglish));
-        }
-
-        this.translate.onLangChange.subscribe(response => {
-
-          if (response.lang === 'no') {
-            this.buildChart(speciesGroups.map(sg => sg.labelNorwegian));
+        this.translationService.currentLanguage$.subscribe(language => {
+          if (language === 'no') {
+            this.buildChart(speciesGroups.map(sg => sg.no));
           }
           else {
-            this.buildChart(speciesGroups.map(sg => sg.labelEnglish));
+            this.buildChart(speciesGroups.map(sg => sg.en));
           }
-
         });
-
-
+  
         return statisticsItems.sort((a, b) => b.imageCount - a.imageCount);
 
       })
@@ -140,7 +127,7 @@ export class OverviewChild2Component implements OnInit {
       options: {
         title: {
           display: true,
-          text: this.currentLanguage === 'no' ? 'Antall bilder' : 'Image count',
+          //text: this.currentLanguage === 'no' ? 'Antall bilder' : 'Image count',
           position: 'bottom',
           fontFamily: 'barlowsemicondensed',
           fontColor: '#444',
@@ -182,7 +169,7 @@ export class OverviewChild2Component implements OnInit {
       options: {
         title: {
           display: true,
-          text: this.currentLanguage === 'no' ? 'Antall bilder med åpen lisens' : 'Image count with open licence',
+          //text: this.currentLanguage === 'no' ? 'Antall bilder med åpen lisens' : 'Image count with open licence',
           position: 'bottom',
           fontFamily: 'barlowsemicondensed',
           fontColor: '#444',

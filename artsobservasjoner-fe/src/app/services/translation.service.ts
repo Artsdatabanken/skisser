@@ -18,6 +18,26 @@ export class TranslationService {
     this.currentLanguage$.next(selectedLanguageCode);
   }
 
+  handleLanguage(): void {
+
+    // DEFINE SUPPORTED LANGUAGES
+    this.translate.addLangs(['no', 'en']);
+
+    // DEFINE AND USE DEFAULT LANGUAGE
+    // this.translate.setTranslation('no', defaultLanguage);
+
+    if (localStorage.getItem('LANGUAGE')) {
+      this.translate.setDefaultLang(localStorage.getItem('LANGUAGE'));
+      this.translate.use(localStorage.getItem('LANGUAGE'));
+    }
+    else {
+      this.translate.setDefaultLang('en');
+      this.translate.use('en');
+      localStorage.setItem('LANGUAGE', 'en');
+    }
+
+  }
+
   // getCurrentLanguage(): Observable<string> {
 
   //   this.currentLanguage$.next(localStorage.getItem('LANGUAGE') || this.translate.currentLang);

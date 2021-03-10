@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { map, publishReplay, refCount } from 'rxjs/operators';
+import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
@@ -22,31 +22,27 @@ export class StatisticsService {
 
   // API
 
-  validatedDataApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetValidatedData';
-  redlistSpeciesApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=redlist';
-  alienSpeciesApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=alienlist';
+  VALIDATED_DATA_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetValidatedData';
+  VALIDATED_DATA_BY_STATUS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsValidatedCountData';
+  ASSESSED_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=';
 
-  speciesGroupListApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
-  redlistedCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=redlist';
-  alienCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=alienlist';
-  //assessmentCategoriesApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
-  validationStatusApi: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
+  SPECIES_GROUP_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
+  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
+  VALIDATION_STATUS_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
 
-  overviewStatsApi1: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
-  overviewStatsApi2: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
+  OVERVIEW_STATS_1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
+  OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
 
-  totalCountApiSightings: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
-  totalCountApiSpecies: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
-  totalCountApiImages: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
-  totalCountApiUsers: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
+  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
+  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
+  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
+  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
 
   // ------------------------------------------------------------ ***
 
   constructor(
     private httpClient: HttpClient,
-    private utilitiesService: UtilitiesService,
-    private translate: TranslateService,
-    private translationService: TranslationService
+    private utilitiesService: UtilitiesService
   ) { }
 
   // ------------------------------------------------------------ ***
@@ -54,32 +50,69 @@ export class StatisticsService {
   // VALIDATED DATA / KVALITETSSIKREDE DATA
   getValidatedData(): Observable<ValidatedDataItem[]> {
 
-    let validatedSightings: ValidatedDataItem[] = [];
-    let validatedSighting: ValidatedDataItem;
-
-    return this.httpClient.get(this.validatedDataApi).pipe(
+    return this.httpClient.get(this.VALIDATED_DATA_API).pipe(
       map((response: any) => {
 
-        response['validatedDataStatistics'].forEach(d => {
+        let validatedSightings: ValidatedDataItem[] = [];
+        let validatedSighting: ValidatedDataItem;
+
+        response['validatedDataStatistics'].forEach(element => {
 
           validatedSighting = {
-            id: d.speciesGroupId,
+            id: element.speciesGroupId,
             speciesGroup: null,
-            count: d.sightingCount,
-            sightingTaxonCount: d.sightingTaxonCount,
-            sightingWithMediaCount: d.sightingWithMediaCount,
-            validatedSightingCount: d.validatedSightingCount,
-            approvedSightingCount: d.approvedValidatedSightingCount,
-            percentageSightedVsValidated: this.utilitiesService.getPercentage(d.sightingCount, d.validatedSightingCount),
-            percentageValidatedVsApproved: this.utilitiesService.getPercentage(d.validatedSightingCount, d.approvedValidatedSightingCount),
+            count: element.sightingCount,
+            sightingTaxonCount: element.sightingTaxonCount,
+            sightingWithMediaCount: element.sightingWithMediaCount,
+            validatedSightingCount: element.validatedSightingCount,
+            approvedSightingCount: element.approvedValidatedSightingCount,
+            percentageSightedVsValidated: this.utilitiesService.getPercentage(element.sightingCount, element.validatedSightingCount),
+            percentageValidatedVsApproved: this.utilitiesService.getPercentage(element.validatedSightingCount, element.approvedValidatedSightingCount),
           }
 
           validatedSightings.push(validatedSighting);
 
         });
 
-        // console.log('validatedSightings', validatedSightings)
         return validatedSightings;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getValidatedDataByStatus(): Observable<any> {
+
+    console.log('are we here', this.VALIDATED_DATA_BY_STATUS_API);
+
+    this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).subscribe(res => {
+      console.log('TEST', res)
+    });
+
+    return this.httpClient.get<any>(this.VALIDATED_DATA_BY_STATUS_API).pipe(
+      tap(t => console.log('t', t)),
+      map(response => {
+
+        console.log('response', response)
+
+        let statisticsItem: StatisticsItem;
+        let statisticsItems: StatisticsItem[] = [];
+
+        response['sightingsValidated'].forEach(element => {
+
+          statisticsItem = {
+            id: element.speciesGroupId,
+            speciesGroup: null,
+            count: element.sightingCount,
+          
+          }
+
+          statisticsItems.push(statisticsItem);
+
+        });
+
+        return statisticsItems;
       }),
       publishReplay(1),
       refCount()
@@ -89,17 +122,17 @@ export class StatisticsService {
 
   getAssessedSpeciesStats(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
 
-    //const api: string = data === 'redlistedSpecies' ? this.redlistSpeciesApi : this.alienSpeciesApi;
-
     let api: string;
+
+    console.log('TEST', this.ASSESSED_SPECIES_API + this.assessmentCategories.alienlist);
 
     switch (categoryVariant) {
       case this.assessmentCategories.redlist:
-        api = this.redlistSpeciesApi;
+        api = this.ASSESSED_SPECIES_API + this.assessmentCategories.redlist;
         break;
 
       case this.assessmentCategories.alienlist:
-        api = this.alienSpeciesApi;
+        api = this.ASSESSED_SPECIES_API + this.assessmentCategories.alienlist;
         break;
 
       default:
@@ -137,244 +170,7 @@ export class StatisticsService {
 
   }
 
-  // NUMBERS STATISTICS
-
-  getTotalCount(stats: string): Observable<TotalCountStatistic> {
-
-    let api: string;
-
-    switch (stats) {
-      case this.totalCountStatistics.totalSightings:
-        api = this.totalCountApiSightings;
-        break;
-
-      case this.totalCountStatistics.totalSpecies:
-        api = this.totalCountApiSpecies;
-        break;
-
-      case this.totalCountStatistics.totalImages:
-        api = this.totalCountApiImages;
-        break;
-
-      case this.totalCountStatistics.totalUsers:
-        api = this.totalCountApiUsers;
-        break;
-
-      default:
-        console.log();
-    }
-
-    let totalCount: TotalCountStatistic;
-
-    return this.httpClient.get(api).pipe(
-      map((response: any) => {
-
-        totalCount = {
-          count: response.count
-        }
-
-        return totalCount;
-
-      }),
-      // catchError(error => {
-
-      //   this.apiService.handleError<TotalCountStatistic[]>('getTotalCountStatistics', []);
-
-      //   if (error.error instanceof ErrorEvent) {
-      //     this.errorMessage = `Error: ${error.error.message}`;
-      //   }
-      //   else {
-      //     this.errorMessage = this.apiService.getServerErrorMessage(error);
-      //   }
-
-      //   return throwError(this.errorMessage);
-      // }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  // SPECIES GROUPS / ARTSGRUPPER
-
-  getSpeciesGroups(): Observable<Category[]> {
-    return this.httpClient.get(this.speciesGroupListApi).pipe(
-      map((response: any) => {
-
-        const speciesGroups: Category[] = [];
-
-        response.forEach(data => {
-
-          let speciesGroup: Category = {
-            id: data.speciesGroupId,
-            en: data.speciesGroupResourceLabels[0].label,
-            no: data.speciesGroupResourceLabels[1].label
-          }
-
-          speciesGroups.push(speciesGroup);
-
-        });
-
-        return speciesGroups;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  // ASSESSMENT CATEGORIES
-
-  getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
-
-    //const api: string = categoryVariant === 'redlistedCategories' ? this.redlistedCategoriesApi : this.alienCategoriesApi;
-
-    let api: string;
-
-    switch (categoryVariant) {
-      case this.assessmentCategories.redlist:
-        api = this.redlistedCategoriesApi;
-        break;
-
-      case this.assessmentCategories.alienlist:
-        api = this.alienCategoriesApi;
-        break;
-
-      default:
-        console.log('');
-    }
-
-    return this.httpClient.get(api).pipe(
-      map((response: any) => {
-
-        const categories: AssessmentCategory[] = [];
-
-        response.forEach(data => {
-
-          let category: AssessmentCategory = {
-            id: data.redListCategoryId,
-            code: data.redListCategoryCode,
-            en: data.redListCategoryResourceLabels[0].label,
-            no: data.redListCategoryResourceLabels[1].label
-          }
-
-          categories.push(category);
-
-        });
-
-        return categories;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  // VALIDATION CATEGORIES
-
-  getValidationStatus(group?: string): Observable<Category[]> {
-
-    let apiUrl: string;
-    apiUrl = group ? apiUrl = this.validationStatusApi + '?group=' + group : apiUrl = this.validationStatusApi;
-
-    return this.httpClient.get(apiUrl).pipe(
-      map((response: any) => {
-
-        console.log('res', response)
-
-        const statuses: Category[] = [];
-
-        response.forEach(data => {
-
-          let status: Category = {
-            id: data.validationStatusId,
-            en: data.speciesGroupResourceLabels[0].label,
-            no: data.speciesGroupResourceLabels[1].label
-          }
-
-          statuses.push(status);
-
-        });
-
-        return statuses;
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  // OVERVIEW STATISTICS
-
-  getSightingsCountPerSpeciesGroup(): Observable<StatisticsItem[]> {
-
-    return this.httpClient.get(this.overviewStatsApi1).pipe(
-      map((response: any) => {
-
-        let statisticsItem: StatisticsItem;
-        let statisticsItems: StatisticsItem[] = [];
-
-        response.sightingsCountPerSpeciesGroupStatistics.forEach(element => {
-
-          if (element.speciesGroupId !== null) {
-
-            statisticsItem = {
-              id: element.speciesGroupId,
-              count: element.sightingCount
-            }
-
-            statisticsItems.push(statisticsItem);
-
-          }
-
-        });
-
-        return statisticsItems;
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  getImageCountPerSpeciesGroup(): Observable<ImageStatisticsItem[]> {
-
-    return this.httpClient.get(this.overviewStatsApi2).pipe(
-      map((response: any) => {
-
-        let statisticsItem: ImageStatisticsItem;
-        let statisticsItems: ImageStatisticsItem[] = [];
-
-        response.imagesPerSpeciesGroupStatistics.forEach(element => {
-
-          if (element.speciesGroupId !== null) {
-
-            statisticsItem = {
-              id: element.speciesGroupId,
-              imageCount: element.imageCount,
-              imageCountWithOpenLicence: element.imageCountWithOpenLicense
-            }
-
-            statisticsItems.push(statisticsItem);
-
-          }
-
-        });
-
-        return statisticsItems;
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
   getAssessedSpeciesData(categoryVariant: string): any {
-
-    console.log('we\'re using this one');
 
     let assessmentCategory: string;
 
@@ -449,5 +245,235 @@ export class StatisticsService {
 
     return data$;
   }
+
+  // SPECIES GROUPS / ARTSGRUPPER
+
+  getSpeciesGroups(): Observable<Category[]> {
+    return this.httpClient.get(this.SPECIES_GROUP_API).pipe(
+      map((response: any) => {
+
+        const speciesGroups: Category[] = [];
+
+        response.forEach(data => {
+
+          let speciesGroup: Category = {
+            id: data.speciesGroupId,
+            en: data.speciesGroupResourceLabels[0].label,
+            no: data.speciesGroupResourceLabels[1].label
+          }
+
+          speciesGroups.push(speciesGroup);
+
+        });
+
+        return speciesGroups;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
+  // ASSESSMENT CATEGORIES
+
+  getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
+
+    let api: string;
+
+    switch (categoryVariant) {
+      case this.assessmentCategories.redlist:
+        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategories.redlist;
+        break;
+
+      case this.assessmentCategories.alienlist:
+        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategories.alienlist;
+        break;
+
+      default:
+        console.log('');
+    }
+
+    return this.httpClient.get(api).pipe(
+      map((response: any) => {
+
+        const categories: AssessmentCategory[] = [];
+
+        response.forEach(data => {
+
+          let category: AssessmentCategory = {
+            id: data.redListCategoryId,
+            code: data.redListCategoryCode,
+            en: data.redListCategoryResourceLabels[0].label,
+            no: data.redListCategoryResourceLabels[1].label
+          }
+
+          categories.push(category);
+
+        });
+
+        return categories;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
+  // VALIDATION CATEGORIES
+
+  getValidationStatus(group?: string): Observable<Category[]> {
+
+    let apiUrl: string;
+    apiUrl = group ? apiUrl = this.VALIDATION_STATUS_API + '?group=' + group : apiUrl = this.VALIDATION_STATUS_API;
+
+    return this.httpClient.get(apiUrl).pipe(
+      map((response: any) => {
+
+        const statuses: Category[] = [];
+
+        response.forEach(data => {
+
+          let status: Category = {
+            id: data.validationStatusId,
+            en: data.speciesGroupResourceLabels[0].label,
+            no: data.speciesGroupResourceLabels[1].label
+          }
+
+          statuses.push(status);
+
+        });
+
+        return statuses;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  // NUMBERS STATISTICS
+
+  getTotalCount(stats: string): Observable<TotalCountStatistic> {
+
+    let api: string;
+
+    switch (stats) {
+      case this.totalCountStatistics.totalSightings:
+        api = this.TOTAL_COUNT_SIGHTINGS_API;
+        break;
+
+      case this.totalCountStatistics.totalSpecies:
+        api = this.TOTAL_COUNT_SPECIES_API;
+        break;
+
+      case this.totalCountStatistics.totalImages:
+        api = this.TOTAL_COUNT_IMAGES_API;
+        break;
+
+      case this.totalCountStatistics.totalUsers:
+        api = this.TOTAL_COUNT_USERS_API;
+        break;
+
+      default:
+        console.log();
+    }
+
+    let totalCount: TotalCountStatistic;
+
+    return this.httpClient.get(api).pipe(
+      map((response: any) => {
+
+        totalCount = {
+          count: response.count
+        }
+
+        return totalCount;
+
+      }),
+      // catchError(error => {
+
+      //   this.apiService.handleError<TotalCountStatistic[]>('getTotalCountStatistics', []);
+
+      //   if (error.error instanceof ErrorEvent) {
+      //     this.errorMessage = `Error: ${error.error.message}`;
+      //   }
+      //   else {
+      //     this.errorMessage = this.apiService.getServerErrorMessage(error);
+      //   }
+
+      //   return throwError(this.errorMessage);
+      // }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  // OVERVIEW STATISTICS
+
+  getSightingsCountPerSpeciesGroup(): Observable<StatisticsItem[]> {
+
+    return this.httpClient.get(this.OVERVIEW_STATS_1_API).pipe(
+      map((response: any) => {
+
+        let statisticsItem: StatisticsItem;
+        let statisticsItems: StatisticsItem[] = [];
+
+        response.sightingsCountPerSpeciesGroupStatistics.forEach(element => {
+
+          if (element.speciesGroupId !== null) {
+
+            statisticsItem = {
+              id: element.speciesGroupId,
+              count: element.sightingCount
+            }
+
+            statisticsItems.push(statisticsItem);
+
+          }
+
+        });
+
+        return statisticsItems;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getImageCountPerSpeciesGroup(): Observable<ImageStatisticsItem[]> {
+
+    return this.httpClient.get(this.OVERVIEW_STATS_2_API).pipe(
+      map((response: any) => {
+
+        let statisticsItem: ImageStatisticsItem;
+        let statisticsItems: ImageStatisticsItem[] = [];
+
+        response.imagesPerSpeciesGroupStatistics.forEach(element => {
+
+          if (element.speciesGroupId !== null) {
+
+            statisticsItem = {
+              id: element.speciesGroupId,
+              imageCount: element.imageCount,
+              imageCountWithOpenLicence: element.imageCountWithOpenLicense
+            }
+
+            statisticsItems.push(statisticsItem);
+
+          }
+
+        });
+
+        return statisticsItems;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
 
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Category, ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
+import { Category } from 'src/app/models/shared';
+import { StatisticsItem, ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -16,42 +16,27 @@ import { TranslationService } from 'src/app/services/translation.service';
 export class ValidatedDataComponent implements OnInit {
 
   data$: Observable<ValidatedDataItem[]>;
-  validationStatusData$;
+  validatedDataByStatus$: Observable<StatisticsItem[]>;
   validationStatus$: Observable<Category[]>;
   speciesGroups$: Observable<Category[]>;
   currentLanguage$: Observable<string>;
-  currentLanguage: string;
   validationStatus: typeof VALIDATION_STATUS = VALIDATION_STATUS;
 
   constructor(
     private statisticsService: StatisticsService,
-    private translate: TranslateService,
     private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
-    // this.currentLanguage = localStorage.getItem('LANGUAGE') || this.translate.currentLang;
-    // this.translate.onLangChange.subscribe(l => {
-    //   this.currentLanguage = l.lang;
-    // });
-
     this.currentLanguage$ = this.translationService.currentLanguage$;
-    this.translationService.currentLanguage$.subscribe(lang => {
-      this.currentLanguage = lang;
-      console.log('current', this.currentLanguage)
-      
-    });
-
-    console.log('current', this.currentLanguage)
-
     this.getValidatedData();
-    this.getValidatedStatusData();
-    this.getSpeciesGroups();
+    this.getValidatedDataByStatus();
 
   }
 
   getValidatedData(): void {
+
     this.data$ = forkJoin([
       this.statisticsService.getValidatedData(),
       this.statisticsService.getSpeciesGroups()
@@ -87,20 +72,8 @@ export class ValidatedDataComponent implements OnInit {
 
         });
 
-        if (this.currentLanguage === 'no') {
-          validatedData = validatedData.sort((a, b) => a.speciesGroup.labelNorwegian.localeCompare(b.speciesGroup.labelNorwegian));
-        }
-        else {
-          validatedData = validatedData.sort((a, b) => a.speciesGroup.labelEnglish.localeCompare(b.speciesGroup.labelEnglish));
-        }
-
-        this.translate.onLangChange.subscribe(res => {
-          if (res.lang === 'no') {
-            validatedData = validatedData.sort((a, b) => a.speciesGroup.labelNorwegian.localeCompare(b.speciesGroup.labelNorwegian));
-          }
-          else {
-            validatedData = validatedData.sort((a, b) => a.speciesGroup.labelEnglish.localeCompare(b.speciesGroup.labelEnglish));
-          }
+        this.translationService.currentLanguage$.subscribe(lang => {
+          validatedData = validatedData.sort((a, b) => a.speciesGroup[lang].localeCompare(b.speciesGroup[lang]));
         });
 
         return validatedData;
@@ -109,20 +82,54 @@ export class ValidatedDataComponent implements OnInit {
     );
   }
 
-  getValidatedStatusData(): void {
+  getValidatedDataByStatus(): void {
 
-    this.validationStatus$ = this.statisticsService.getValidationStatus(this.validationStatus.validated);
+    //this.validationStatus$ = this.statisticsService.getValidationStatus(this.validationStatus.validated);
+    this.validatedDataByStatus$ = this.statisticsService.getValidatedDataByStatus();
+    
+    // this.validatedDataByStatus$ = forkJoin(([
+    //   this.statisticsService.getValidatedDataByStatus(),
+    //   this.statisticsService.getSpeciesGroups(),
+    //   this.statisticsService.getValidationStatus()
+    // ])).pipe(
+    //   map(([validatedData, speciesGroups, validationStatuses]) => {
 
-    this.validationStatusData$ = forkJoin(([
-      this.statisticsService.getSpeciesGroups(),
-      this.statisticsService.getValidationStatus()
-    ])).pipe(
-      map(([speciesGroups, validationStatus]) => {
+    //     console.log('xxx', validatedData)
 
-        console.log('xxx', validationStatus)
+    //     // ---------------------------------------- ***
 
-      })
-    );
+    //     const getSpeciesGroup = (id: number): Category => {
+    //       return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+    //     }
+
+    //     const getValidationStatus = (id: number): Category => {
+    //       return validationStatuses.find(validationStatus => validationStatus.id === id);
+    //     }
+
+    //     // ---------------------------------------- ***
+
+    //     let statsItem: StatisticsItem;
+    //     let statsItems: StatisticsItem[] = [];
+
+    //     validatedData.forEach(element => {
+
+    //       statsItem = {
+    //         id: element.id,
+    //         speciesGroup: getSpeciesGroup(element.id),
+    //         count: element.count,
+    //       }
+
+    //       statsItems.push(statsItem);
+
+    //     });
+
+    //     this.translationService.currentLanguage$.subscribe(lang => {
+    //       statsItems = statsItems.sort((a, b) => a.speciesGroup[lang].localeCompare(b.speciesGroup[lang]));
+    //     });
+
+    //     return statsItems;
+    //   })
+    // );
 
   }
 

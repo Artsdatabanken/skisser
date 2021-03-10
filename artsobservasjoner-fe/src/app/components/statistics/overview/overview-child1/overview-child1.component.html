@@ -19,28 +19,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let dataItem of data">
+                    <tr *ngFor="let item of data">
                         <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
-                            {{ currentLanguage == 'no' ? dataItem.speciesGroup.labelNorwegian :
-                            dataItem.speciesGroup.labelEnglish }}
+                            
+                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}</ng-container>
+                                <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}</ng-container>
+
+                            </ng-container>
+
                         </td>
                         <td role="cell" class="td-number"
                             [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate">
-                            {{ dataItem.count | numberProxy }}
+                            {{ item.count | numberProxy }}
                         </td>
                     </tr>
                 </tbody>
-                <!-- <tbody>
-                    <tr *ngFor="let dataItem of data">
-                        <td *ngFor="let element of dataItem.values | newKeyValue">
-                     
-                            {{ element.value }}
-
-                            {{ currentLanguage == 'no' ? item.speciesGroup.labelNorwegian :
-                            item.speciesGroup.labelEnglish }}
-                        </td>
-                    </tr>
-                </tbody> -->
+        
             </table>
 
         </div>

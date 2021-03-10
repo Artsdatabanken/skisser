@@ -4,6 +4,7 @@ import { Category } from "./shared";
 
 export interface StatisticsItem {
     id: number;
+    data?: object[];
     speciesGroup?: Category;
     count?: number;
 }
@@ -14,9 +15,6 @@ export interface ImageStatisticsItem extends StatisticsItem {
 }
 
 export interface ValidatedDataItem extends StatisticsItem {
-    // id: number;
-    // speciesGroup: Category;
-    // sightingCount: number;
     sightingTaxonCount: number;
     sightingWithMediaCount: number;
     validatedSightingCount: number;

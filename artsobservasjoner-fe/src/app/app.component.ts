@@ -8,6 +8,7 @@ import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import defaultLanguage from "./../assets/i18n/no.json";
+import { TranslationService } from './services/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -42,10 +43,11 @@ export class AppComponent {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId: Object,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private translationService: TranslationService
   ) {
-
-    this.handleLanguage();
+    
+    this.translationService.handleLanguage();
 
   }
 
@@ -58,28 +60,6 @@ export class AppComponent {
 
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
-  }
-
-  handleLanguage(): void {
-
-    // DEFINE SUPPORTED LANGUAGES
-    this.translate.addLangs(['no', 'en']);
-
-    // DEFINE AND USE DEFAULT LANGUAGE
-    // this.translate.setTranslation('no', defaultLanguage);
-
-    if (localStorage.getItem('LANGUAGE')) {
-      this.translate.setDefaultLang(localStorage.getItem('LANGUAGE'));
-      this.translate.use(localStorage.getItem('LANGUAGE'));
-    }
-    else {
-      this.translate.setDefaultLang('en');
-      this.translate.use('en');
-      localStorage.setItem('LANGUAGE', 'en');
-    }
-
-    console.log('current language', this.translate.currentLang);
-
   }
 
   setPageTitle(): void {
