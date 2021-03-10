@@ -86,6 +86,10 @@ export class ValidatedDataComponent implements OnInit {
 
     //this.validationStatus$ = this.statisticsService.getValidationStatus(this.validationStatus.validated);
     this.validatedDataByStatus$ = this.statisticsService.getValidatedDataByStatus();
+
+    this.statisticsService.getValidatedDataByStatus().subscribe(res => {
+      console.log('xxxxx', res)
+    })
     
     // this.validatedDataByStatus$ = forkJoin(([
     //   this.statisticsService.getValidatedDataByStatus(),

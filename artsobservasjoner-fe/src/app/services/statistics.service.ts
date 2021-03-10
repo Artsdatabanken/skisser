@@ -84,47 +84,56 @@ export class StatisticsService {
 
   getValidatedDataByStatus(): Observable<any> {
 
-    console.log('are we here', this.VALIDATED_DATA_BY_STATUS_API);
-
-    this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).subscribe(res => {
-      console.log('TEST', res)
+    this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).subscribe(response => {
+      console.log('TEST', response)
     });
 
-    return this.httpClient.get<any>(this.VALIDATED_DATA_BY_STATUS_API).pipe(
-      tap(t => console.log('t', t)),
-      map(response => {
 
-        console.log('response', response)
+    return this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).pipe(
+      map((response: any) => {
 
-        let statisticsItem: StatisticsItem;
-        let statisticsItems: StatisticsItem[] = [];
-
-        response['sightingsValidated'].forEach(element => {
-
-          statisticsItem = {
-            id: element.speciesGroupId,
-            speciesGroup: null,
-            count: element.sightingCount,
-          
-          }
-
-          statisticsItems.push(statisticsItem);
-
-        });
-
-        return statisticsItems;
+     
+        console.log('TEST 2', response)
+        return null;
       }),
       publishReplay(1),
       refCount()
     );
+
+    return null
+    // return this.httpClient.get(this.SPECIES_GROUP_API).pipe(
+    //   tap(t => console.log('t', t)),
+    //   map(response => {
+
+    //     console.log('response', response)
+
+    //     let statisticsItem: StatisticsItem;
+    //     let statisticsItems: StatisticsItem[] = [];
+
+    //     response['sightingsValidated'].forEach(element => {
+
+    //       statisticsItem = {
+    //         id: element.speciesGroupId,
+    //         speciesGroup: null,
+    //         count: element.sightingCount,
+
+    //       }
+
+    //       statisticsItems.push(statisticsItem);
+
+    //     });
+
+    //     return statisticsItems;
+    //   }),
+    //   publishReplay(1),
+    //   refCount()
+    // );
 
   }
 
   getAssessedSpeciesStats(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
 
     let api: string;
-
-    console.log('TEST', this.ASSESSED_SPECIES_API + this.assessmentCategories.alienlist);
 
     switch (categoryVariant) {
       case this.assessmentCategories.redlist:
