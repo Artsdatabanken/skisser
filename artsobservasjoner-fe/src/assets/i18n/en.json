@@ -92,6 +92,7 @@
         "tableCaption_validatedData2": "Validated sightings count by validation category",
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
+        "tableHeading_year": "Year",
         "tableHeading_speciesGroup": "Species group",
         "tableHeading_imageCount": "Image count",
         "tableHeading_imageCountWithOpenLicence": "Image count with open licence",

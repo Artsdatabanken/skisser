@@ -145,7 +145,6 @@
         </div>
 
         <br><br>
-        {{ validatedDataByStatus$ }}
 
         <div *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
 
@@ -175,7 +174,7 @@
 
                 <tbody role="rowgroup" *ngFor="let validatedDataItem of validatedDataByStatus | keyvalue">
                     <tr role="row" *ngFor="let item of validatedDataItem.value.data; let i = index">
-                        
+
                         <th role="rowheader" scope="row">
 
                             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
@@ -189,8 +188,9 @@
                                     </ng-container>
                                 </span>
 
+
+                                <!--for screen readers-->
                                 <span *ngIf="i > 0" class="td-hidden">
-                                    <!--for screen readers-->
                                     <ng-container *ngIf="currentLanguage === 'en'">
                                         {{ validatedDataItem.key.en }}
                                     </ng-container>
@@ -198,6 +198,7 @@
                                         {{ validatedDataItem.key.no }}
                                     </ng-container>
                                 </span>
+                                <!--for screen readers-->
 
                             </ng-container>
 
@@ -222,57 +223,29 @@
                             {{ item.count | numberProxy }}
                         </td>
 
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
                     </tr>
                 </tbody>
 
             </table>
 
         </div>
+
 
         <br><br><br><br><br><br><br><br><br><br>
-        <div>
 
-            <table class="tbl tbl--lg">
-                <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
-                <thead role="rowgroup">
-                    <tr role="row">
-                        <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_validationCategory' | translate }}
-                        </th>
-                        <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
-                            <th *ngFor="let speciesGroup of speciesGroups">
+        <div id="tabletest"></div>
+        <br><br><br><br><br><br><br><br><br><br>
 
-                                <!-- {{ currentLanguage == 'no' ? speciesGroup.labelNorwegian :
-                                speciesGroup.labelEnglish }} -->
-
-                            </th>
-                        </ng-container>
-                    </tr>
-                </thead>
-                <tbody role="rowgroup" *ngIf="validationStatus$ | async as validationStatus">
-                    <tr role="row" *ngFor="let valStatus of validationStatus">
-                        <td role="cell">
-
-                            <!-- {{ currentLanguage == 'no' ? valStatus.labelNorwegian :
-                            valStatus.labelEnglish }} -->
-
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
 
         <!-- <table class="tbl tbl--lg">
             <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>

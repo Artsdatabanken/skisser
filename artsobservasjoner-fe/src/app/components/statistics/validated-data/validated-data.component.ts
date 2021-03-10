@@ -84,61 +84,82 @@ export class ValidatedDataComponent implements OnInit {
 
   getValidatedDataByStatus(): void {
 
-    //this.validationStatus$ = this.statisticsService.getValidationStatus(this.validationStatus.validated);
     this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
     this.validatedDataByStatus$ = this.statisticsService.getValidatedDataByStatus();
 
-    this.statisticsService.getValidatedDataByStatus().subscribe(res => {
-      console.log('xxxxx', res)
-    })
-    
-    // this.validatedDataByStatus$ = forkJoin(([
-    //   this.statisticsService.getValidatedDataByStatus(),
-    //   this.statisticsService.getSpeciesGroups(),
-    //   this.statisticsService.getValidationStatus()
-    // ])).pipe(
-    //   map(([validatedData, speciesGroups, validationStatuses]) => {
 
-    //     console.log('xxx', validatedData)
+    this.statisticsService.getValidatedDataByStatus().subscribe(response => {
 
-    //     // ---------------------------------------- ***
 
-    //     const getSpeciesGroup = (id: number): Category => {
-    //       return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-    //     }
+      // get the reference for the body
+      var body = document.getElementById('tabletest');
 
-    //     const getValidationStatus = (id: number): Category => {
-    //       return validationStatuses.find(validationStatus => validationStatus.id === id);
-    //     }
+      // creates a <table> element and a <tbody> element
+      var tbl = document.createElement('table');
+      var tblBody = document.createElement('tbody');
+      for (var i = 0; i < response.size; i++) {
 
-    //     // ---------------------------------------- ***
+        console.log('xxyyyxxxx', Object.entries(response).length);
 
-    //     let statsItem: StatisticsItem;
-    //     let statsItems: StatisticsItem[] = [];
+        // creates a table row
+        var row = document.createElement('tr');
 
-    //     validatedData.forEach(element => {
+        for (var j = 0; j < 12; j++) {
+          // Create a <td> element and a text node, make the text
+          // node the contents of the <td>, and put the <td> at
+          // the end of the table row
 
-    //       statsItem = {
-    //         id: element.id,
-    //         speciesGroup: getSpeciesGroup(element.id),
-    //         count: element.count,
-    //       }
+          console.log('fffggghhh', j);
 
-    //       statsItems.push(statsItem);
+          var cell = document.createElement('td');
+          var cellText = document.createTextNode('cell in row ' + i + ', column ' + j);
+          
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        }
 
-    //     });
+      }
 
-    //     this.translationService.currentLanguage$.subscribe(lang => {
-    //       statsItems = statsItems.sort((a, b) => a.speciesGroup[lang].localeCompare(b.speciesGroup[lang]));
-    //     });
+    });
 
-    //     return statsItems;
-    //   })
-    // );
+
 
   }
 
-  getSpeciesGroups(): void {
-    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
+  generateTable() {
+    // get the reference for the body
+    var body = document.getElementById('tabletest');
+
+    // creates a <table> element and a <tbody> element
+    var tbl = document.createElement('table');
+    var tblBody = document.createElement('tbody');
+
+    // creating all cells
+    for (var i = 0; i < 2; i++) {
+
+      // creates a table row
+      var row = document.createElement('tr');
+
+      for (var j = 0; j < 2; j++) {
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        var cell = document.createElement('td');
+        var cellText = document.createTextNode('cell in row ' + i + ', column ' + j);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+
+      // add the row to the end of the table body
+      tblBody.appendChild(row);
+    }
+
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    body.appendChild(tbl);
+    // sets the border attribute of tbl to 2;
+    tbl.setAttribute('border', '1');
   }
+
 }

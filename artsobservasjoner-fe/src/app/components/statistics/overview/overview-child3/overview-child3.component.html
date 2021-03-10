@@ -4,8 +4,37 @@
 
     <div class="section">
 
-        Test
-       
+        <div *ngIf="data$ | async as data; else noData">
+
+            <table style="min-width: 60%; width: auto;">
+                <caption *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" role="columnheader">
+                            {{ 'statistics.tableHeading_year' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td role="cell">
+
+                            {{ item.id }}
+
+                        </td>
+                        <td role="cell" class="td-number">
+                            {{ item.count | numberProxy }}
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
 
     </div>
 

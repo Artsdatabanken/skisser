@@ -92,6 +92,7 @@
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",
         "tableCaption_redlistedSpeciesData": "Antall observasjoner i rødliste kategori etter artsgruppe",
         "tableCaption_alienSpeciesData": "Antall observasjoner av fremmede arter etter artsgruppe",
+        "tableHeading_year": "År",
         "tableHeading_speciesGroup": "Artsgruppe",
         "tableHeading_imageCount": "Antall bilder",
         "tableHeading_imageCountWithOpenLicence": "Antall bilder med åpen lisens",

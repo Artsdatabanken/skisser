@@ -75,3 +75,8 @@ export enum ASSESSMENT_CATEGORIES {
     redlist = 'redlist',
     alienlist = 'alienlist'
 }
+
+export enum SIGHTINGS_PER_YEAR {
+    artsobs = 'artsobs',
+    artskart = 'artskart'
+}

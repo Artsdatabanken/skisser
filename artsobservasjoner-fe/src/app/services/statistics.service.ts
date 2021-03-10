@@ -4,7 +4,7 @@ import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES, AssessedSpeciesItemStats, ValidatedDataItemByStatus } from '../models/statistics';
+import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES, AssessedSpeciesItemStats, ValidatedDataItemByStatus, SIGHTINGS_PER_YEAR } from '../models/statistics';
 import { Category } from '../models/shared';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class StatisticsService {
   errorMessage: string;
   totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
   assessmentCategories: typeof ASSESSMENT_CATEGORIES = ASSESSMENT_CATEGORIES;
+  sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
 
   // API
 
@@ -30,6 +31,8 @@ export class StatisticsService {
 
   OVERVIEW_STATS_1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
   OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
+  OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYear';
+  OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
 
   TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
   TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
@@ -495,6 +498,53 @@ export class StatisticsService {
               id: element.speciesGroupId,
               imageCount: element.imageCount,
               imageCountWithOpenLicence: element.imageCountWithOpenLicense
+            }
+
+            statisticsItems.push(statisticsItem);
+
+          }
+
+        });
+
+        return statisticsItems;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getSightinsCountSumPerYear(variant: string): Observable<StatisticsItem[]> {
+
+    let api: string;
+
+    switch (variant) {
+      case this.sightingsCountPerYear.artsobs:
+        api = this.OVERVIEW_STATS_3A_API;
+        break;
+
+      case this.sightingsCountPerYear.artskart:
+        api = this.OVERVIEW_STATS_3B_API;
+        break;
+
+      default:
+        console.log();
+    }
+
+    return this.httpClient.get(api).pipe(
+      map((response: any) => {
+
+        let statisticsItem: StatisticsItem;
+        let statisticsItems: StatisticsItem[] = [];
+
+        response.sightingsCountByYearStatistics.forEach(element => {
+
+          if (element.speciesGroupId !== null) {
+
+            statisticsItem = {
+              id: element.year,
+              count: element.totalSightingsCount
             }
 
             statisticsItems.push(statisticsItem);
