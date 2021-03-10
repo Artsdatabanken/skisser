@@ -14,7 +14,10 @@
                             {{ 'statistics.tableHeading_year' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            {{ 'statistics.tableHeading_sightingsCount' | translate }} Artsobservasjoner
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_sightingsCount' | translate }} Artskart
                         </th>
                     </tr>
                 </thead>
@@ -22,11 +25,15 @@
                     <tr *ngFor="let item of data">
                         <td role="cell">
 
-                            {{ item.id }}
+                            {{ item.year }}
 
                         </td>
                         <td role="cell" class="td-number">
-                            {{ item.count | numberProxy }}
+                            {{ item.artsobsCount | numberProxy }}
+                        </td>
+
+                        <td role="cell" class="td-number">
+                            {{ item.artskartCount | numberProxy }}
                         </td>
                     </tr>
                 </tbody>

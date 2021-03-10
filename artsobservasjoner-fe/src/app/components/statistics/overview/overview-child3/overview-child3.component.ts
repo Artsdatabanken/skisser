@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SIGHTINGS_PER_YEAR } from 'src/app/models/statistics';
+import { SIGHTINGS_PER_YEAR, StatisticsItem } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
@@ -37,16 +37,37 @@ export class OverviewChild3Component implements OnInit {
   getData(): void {
     this.data$ = this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs);
 
-    // this.data$ = forkJoin([
-    //   this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs),
-    //   this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artskart)
-    // ]).pipe(
-    //   map(([artsobs, artskart]) => {
+    this.data$ = forkJoin([
+      this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs),
+      this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artskart)
+    ]).pipe(
+      map(([artsobs, artskart]) => {
 
-    //     return null
+        let tempArray: any[] = [];
 
-    //   })
-    // );
+        artsobs.forEach(element => {
+
+          artskart.forEach(elem => {
+
+            if (element.id === elem.id) {
+
+              tempArray.push({
+                year: element.id,
+                artsobsCount: element.count,
+                artskartCount: elem.count
+              });
+
+            }
+
+          });
+
+        });
+
+        console.log('temp', tempArray)
+        return tempArray;
+
+      })
+    );
 
 
   }
