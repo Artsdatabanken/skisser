@@ -37,6 +37,7 @@
         "menu_statusPage": "Driftsmeldinger"
     },
     "shared": {
+        "footnotes": "Fotnoter",
         "at": "kl.",
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."
     },
@@ -83,11 +84,13 @@
         "overviewStats_heading_10": "Månedlige registreringer per artsgruppe totalt og per år",
         "shared_tableDescription_content": "Tabellen viser antall observasjoner av {{ value }} etter artsgruppe, med en av kategoriene nedenfor. ",
         "shared_tableDescription_includedData": "Kategorier uten artsobservasjoner er utelatt fra tabellen.",
-        "shared_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen, se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
+        "shared_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen(e), se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
         "shared_tableDescription_excluded": "* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
         "shared_tableDescription_approved": "** Har en av følgende valideringskategorier:",
+        "tableDescription_overviewStats": "Datatabellene nedenfor viser diverse data fra Artsobservasjoner. Bruk nedtrekksmenyen nedenfor for å velge hvilke datasett du vil se.",
         "tableDescription_validatedData": "Tabellen(e) viser antall taxa observert og antall observasjoner per artsgruppe.",
         "tableDescription_sightingCountArtsobsVsArtskart": "Grafen viser antall observasjoner i Artsobservasjoner sammenstilt med antall funn i Artskart. Artskart samler stedfestet informasjon om arter i Norge fra alle datakilder, inkludert Artsobservasjoner.",
+        "tableDescription_imageCountPerSpeciesGroup": "Tabellen viser antall bilder per artsgruppe og antall bilder per artsgruppe der bildet har en åpen lisens. En åpen lisens er en av følgende Creative Commons-lisenser:<ul><li>CC BY 4.0 - Navngivelse</li><li>CC BY-SA - Navngivelse-DelPåSammeVilkår </li><li>CC BY-NC-SA - Navngivelse-IkkeKommersiell-DelPåSammeVilkår</li></ul><br>Alternativet til de tre åpne lisensene er <em>Alle rettigheter forbeholdt</em>.",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",

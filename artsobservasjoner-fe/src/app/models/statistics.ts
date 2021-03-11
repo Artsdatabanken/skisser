@@ -71,7 +71,7 @@ export enum VALIDATION_STATUS {
     approved = 'Approved'
 }
 
-export enum ASSESSMENT_CATEGORIES {
+export enum ASSESSMENT_CATEGORY_TYPES {
     redlist = 'redlist',
     alienlist = 'alienlist'
 }

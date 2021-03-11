@@ -202,6 +202,10 @@ strong {
   font-weight: 700;
 }
 
+em {
+  font-style: italic;
+}
+
 mark {
   @include customVar(background-color, --clrBlack);
   @include customVar(color, --clrWhite);
@@ -238,69 +242,3 @@ abbr[title] {
   // }
 }
 
-/*quotes*/
-
-blockquote {
-  @include customVar(background-color, clrAccent);
-  @include customVar(background-color, clrShadow);
-  @include customVar(font-family, fontAccent);
-  // border-radius: 15px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -0.015em;
-  line-height: 1.4;
-  margin: 30px -30% 30px 30px;
-  padding: 30px;
-  width: 65%;
-  float: right;
-
-  p {
-    line-height: 1;
-    margin: 0;
-
-    &:before {
-      @include customVar(font-family, fontAccent);
-      content: "\201D";
-      display: block;
-      float: right;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 2em;
-      text-align: right;
-
-      @media screen and (max-width: 900px) {
-        font-size: 1.5em;
-        padding-left: 15px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 900px) {
-    float: none;
-    font-size: 30px;
-    margin: 40px auto;
-    padding: 15px;
-    width: 90%;
-  }
-}
-
-q {
-  font-style: italic;
-  font-weight: 600;
-
-  &::before {
-    content: open-quote;
-    font-style: normal;
-    margin: 0 0 0 -4px;
-    padding-right: 2px;
-  }
-
-  &::after {
-    content: close-quote;
-    font-style: normal;
-    margin: 0;
-    padding-left: 2px;
-  }
-}

@@ -8,6 +8,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 import { Chart } from 'chart.js';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-overview-child3',
@@ -34,7 +35,8 @@ export class OverviewChild3Component implements OnInit {
   constructor(
     private layoutService: LayoutService,
     private statisticsService: StatisticsService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private utilitiesService: UtilitiesService
   ) { }
 
   ngOnInit(): void {
@@ -96,7 +98,8 @@ export class OverviewChild3Component implements OnInit {
                 artsobsCount: aoElement.count,
                 artsobsYearlyIncrease: getYearlyIncrease(aoElement.count, previousValueArtsobs),
                 artskartCount: akElement.count,
-                artskartYearlyIncrease: getYearlyIncrease(akElement.count, previousValueArtskart)
+                artskartYearlyIncrease: getYearlyIncrease(akElement.count, previousValueArtskart),
+                percent: this.utilitiesService.getPercentage(akElement.count, aoElement.count)
               });
 
             }

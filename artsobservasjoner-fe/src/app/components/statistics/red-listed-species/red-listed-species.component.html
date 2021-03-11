@@ -11,12 +11,13 @@
             {{ 'statistics.shared_tableDescription_includedData' | translate }}
         </p>
 
-        <app-assessment-category [categoryVariant]="assessmentCategories.redlist"></app-assessment-category>
+        <app-assessment-category [categoryVariant]="assessmentCategoryTypes.redlist"></app-assessment-category>
 
         <br>
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
 
-        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as redlistedSpecies; else noData">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            *ngIf="data$ | async as redlistedSpecies; else noData">
 
             <table class="custom-table" aria-describedby="redlist">
                 <caption id="caption1">{{ 'statistics.tableCaption_redlistedSpeciesData' | translate }}</caption>
@@ -55,17 +56,20 @@
                                     <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
                                 </span>
 
+
+                                <!--for screen readers-->
                                 <span *ngIf="i > 0" class="td-hidden">
-                                    <!--for screen readers-->
                                     <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
                                     <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
                                 </span>
+                                <!--for screen readers-->
 
                             </ng-container>
 
                         </th>
                         <td role="cell" [attr.data-heading]="'statistics.tableHeading_riskGroup' | translate">
-                            
+                            {{ data.assessmentCategory.code }}
+
                             <span class="sr-only">
                                 <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
@@ -106,15 +110,9 @@
                 {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
 
-            <ul>
-                <li>Godkjent basert på observatørens opplysninger</li>
-                <li>Godkjent</li>
-                <li>Belegg gransket av validator</li>
-                <li>Godkjent. Foto eller lyd godkjent av validator</li>
-                <li>Godkjent basert på determinators verifisering</li>
-                <li>Godkjent, basert på en tidligere sjeldenhetsrapport</li>
-                <li>Godkjent, funnet er sannsynlig</li>
-            </ul>
+
+            <app-validation-status [validationStatusType]="validationStatuses.approved"></app-validation-status>
+
 
         </div>
 

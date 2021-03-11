@@ -33,6 +33,9 @@
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
                             {{ 'statistics.tableHeading_newSightingsCount' | translate }}
+                        </th>                        
+                        <th scope="col" role="columnheader" class="th-number">
+                         %
                         </th>
                     </tr>
                 </thead>
@@ -43,6 +46,7 @@
                         <td role="cell" class="td-number"> {{ item.artsobsYearlyIncrease | numberProxy }} </td>
                         <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>
                         <td role="cell" class="td-number"> {{ item.artskartYearlyIncrease | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.percent | numberProxy }} </td>
                     </tr>
                 </tbody>
 

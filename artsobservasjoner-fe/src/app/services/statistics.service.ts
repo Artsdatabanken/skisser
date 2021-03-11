@@ -4,7 +4,7 @@ import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORIES, AssessedSpeciesItemStats, ValidatedDataItemByStatus, SIGHTINGS_PER_YEAR } from '../models/statistics';
+import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORY_TYPES, AssessedSpeciesItemStats, ValidatedDataItemByStatus, SIGHTINGS_PER_YEAR } from '../models/statistics';
 import { Category } from '../models/shared';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class StatisticsService {
   public responseCache = new Map();
   errorMessage: string;
   totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
-  assessmentCategories: typeof ASSESSMENT_CATEGORIES = ASSESSMENT_CATEGORIES;
+  assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
 
   // API
@@ -167,12 +167,12 @@ export class StatisticsService {
     let api: string;
 
     switch (categoryVariant) {
-      case this.assessmentCategories.redlist:
-        api = this.ASSESSED_SPECIES_API + this.assessmentCategories.redlist;
+      case this.assessmentCategoryTypes.redlist:
+        api = this.ASSESSED_SPECIES_API + this.assessmentCategoryTypes.redlist;
         break;
 
-      case this.assessmentCategories.alienlist:
-        api = this.ASSESSED_SPECIES_API + this.assessmentCategories.alienlist;
+      case this.assessmentCategoryTypes.alienlist:
+        api = this.ASSESSED_SPECIES_API + this.assessmentCategoryTypes.alienlist;
         break;
 
       default:
@@ -215,12 +215,12 @@ export class StatisticsService {
     let assessmentCategory: string;
 
     switch (categoryVariant) {
-      case this.assessmentCategories.redlist:
-        assessmentCategory = this.assessmentCategories.redlist;
+      case this.assessmentCategoryTypes.redlist:
+        assessmentCategory = this.assessmentCategoryTypes.redlist;
         break;
 
-      case this.assessmentCategories.alienlist:
-        assessmentCategory = this.assessmentCategories.alienlist;
+      case this.assessmentCategoryTypes.alienlist:
+        assessmentCategory = this.assessmentCategoryTypes.alienlist;
         break;
 
       default:
@@ -278,6 +278,7 @@ export class StatisticsService {
 
         });
 
+        console.log('map', map)
         return map;
 
       })
@@ -320,12 +321,12 @@ export class StatisticsService {
     let api: string;
 
     switch (categoryVariant) {
-      case this.assessmentCategories.redlist:
-        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategories.redlist;
+      case this.assessmentCategoryTypes.redlist:
+        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.redlist;
         break;
 
-      case this.assessmentCategories.alienlist:
-        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategories.alienlist;
+      case this.assessmentCategoryTypes.alienlist:
+        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.alienlist;
         break;
 
       default:

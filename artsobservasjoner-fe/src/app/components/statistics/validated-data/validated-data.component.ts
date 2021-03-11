@@ -20,7 +20,7 @@ export class ValidatedDataComponent implements OnInit {
   validationStatus$: Observable<Category[]>;
   speciesGroups$: Observable<Category[]>;
   currentLanguage$: Observable<string>;
-  validationStatus: typeof VALIDATION_STATUS = VALIDATION_STATUS;
+  validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
 
   constructor(
     private statisticsService: StatisticsService,

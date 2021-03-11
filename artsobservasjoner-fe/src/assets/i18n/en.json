@@ -37,6 +37,7 @@
         "menu_statusPage": "Status page"
     },
     "shared": {
+        "footnotes": "Footnotes",
         "at": "at",
         "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
     },    
@@ -86,8 +87,10 @@
         "shared_tableDescription_includedDataExplanation": "A description of the data included may be found at [xxxxx]. Statistics are updated daily.",
         "shared_tableDescription_excluded": "* Includes all validation categories except 'not validated (sighting not validated).'",
         "shared_tableDescription_approved": "** Has one of the following validation category:",
+        "tableDescription_overviewStats": "The following tables show diverse data from Artsobservasjoner. Use the dropdown below to select which data set you would like to see.",
         "tableDescription_validatedData": "The table(s) show(s) the number of sighted taxa and the sightings count per species group.",
         "tableDescription_sightingCountArtsobsVsArtskart": "The graph shows the number of sightings in Artsobservasjoner compared with the number of finds in Artskart. Artskart collects localized information about species in Norway from all data sources, including Artsobservasjoner.",
+        "tableDescription_imageCountPerSpeciesGroup": "The table shows the number of images per species group and the number of images per species group where the image has an open license. An open license is one of the following Creative Commons licenses: <ul> <li> CC BY 4.0 - Attribution </li> <li> CC BY-SA - Creative Commons Attribution-ShareAlike </li> <li> CC BY-NC-SA - Creative Commons Non-Commercial Share-alike </li> </ul> <br> The alternative to the three open licenses is <em> All rights reserved </em>. ",
         "tableCaption_validatedData": "Number of validated observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_validatedData2": "Validated sightings count by validation category",

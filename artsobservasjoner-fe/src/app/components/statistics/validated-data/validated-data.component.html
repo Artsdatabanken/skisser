@@ -147,14 +147,7 @@
                 {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
 
-            <ul>
-                <li>Godkjent basert på observatørens opplysninger</li>
-                <li>Godkjent. Belegg gransket av validator</li>
-                <li>Godkjent. Foto eller lyd godkjent av validator</li>
-                <li>Godkjent basert på determinators verifisering</li>
-                <li>Godkjent, basert på en tidligere sjeldenhetsrapport</li>
-                <li>Godkjent, funnet er sannsynlig</li>
-            </ul>
+            <app-validation-status [validationStatusType]="validationStatuses.approved"></app-validation-status>
 
         </ng-container>
 

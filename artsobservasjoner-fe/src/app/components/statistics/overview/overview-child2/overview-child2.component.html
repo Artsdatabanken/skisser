@@ -4,6 +4,8 @@
 
     <div class="section">
 
+        <p class="body-text" [innerHTML]="'statistics.tableDescription_imageCountPerSpeciesGroup' | translate"></p>
+
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as data; else noData">
 
             <br>

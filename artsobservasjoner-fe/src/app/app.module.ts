@@ -105,6 +105,7 @@ import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
 import { LanguageSwitcherComponent } from './components/shared/language-switcher/language-switcher.component';
+import { ValidationStatusComponent } from './components/shared/validation-status/validation-status.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -203,7 +204,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     CloseDropdownDirective,
     LocalizedDatePipe,
     StripHtmlPipe,
-    PressComponent
+    PressComponent,
+    ValidationStatusComponent
   ],
   imports: [
     BrowserModule,
