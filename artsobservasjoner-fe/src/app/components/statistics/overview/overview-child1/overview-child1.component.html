@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of data">
-                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
+                        <td role="cell">
                             
                             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
@@ -30,8 +30,7 @@
                             </ng-container>
 
                         </td>
-                        <td role="cell" class="td-number"
-                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate">
+                        <td role="cell" class="td-number">
                             {{ item.count | numberProxy }}
                         </td>
                     </tr>

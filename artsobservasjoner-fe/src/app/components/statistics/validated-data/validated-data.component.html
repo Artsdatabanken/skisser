@@ -42,33 +42,26 @@
 
                     <tbody role="rowgroup">
                         <tr role="row" *ngFor="let item of data">
-                            <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
+
+                            <th role="rowheader" scope="row">
 
                                 <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                                    <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ item.speciesGroup.en }}
                                     </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ item.speciesGroup.no }}
                                     </ng-container>
 
                                 </ng-container>
 
-                            </td>
-                            <td role="cell" class="td-number"
-                                [attr.data-heading]="'statistics.tableHeading_sightedTaxonCount' | translate"> {{
-                                item.sightingTaxonCount | numberProxy }} </td>
-                            <td role="cell" class="td-number"
-                                [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{
-                                item.count |
-                                numberProxy }}</td>
-                            <td role="cell" class="td-number"
-                                [attr.data-heading]="'statistics.tableHeading_withMedia' | translate"> {{
-                                item.sightingWithMediaCount | numberProxy }} </td>
-                            <td role="cell" class="td-number" [attr.data-heading]="'statistics.tableHeading_validated' |
-                        translate"> {{ item.validatedSightingCount | numberProxy }} </td>
-                            <td role="cell" class="td-number"
-                                [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
-                                item.approvedSightingCount | numberProxy }} </td>
+                            </th>
+                            <td role="cell" class="td-number"> {{ item.sightingTaxonCount | numberProxy }} </td>
+                            <td role="cell" class="td-number"> {{ item.count | numberProxy }}</td>
+                            <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | numberProxy }} </td>
+                            <td role="cell" class="td-number"> {{ item.validatedSightingCount | numberProxy }} </td>
+                            <td role="cell" class="td-number"> {{ item.approvedSightingCount | numberProxy }} </td>
                         </tr>
                     </tbody>
                 </table>
@@ -106,35 +99,26 @@
 
                     <tbody role="rowgroup">
                         <tr role="row" *ngFor="let item of data">
-                            <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
+
+                            <th role="rowheader" scope="row">
 
                                 <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                                    <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ item.speciesGroup.en }}
                                     </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ item.speciesGroup.no }}
                                     </ng-container>
 
                                 </ng-container>
 
-                            </td>
-                            <td class="td-number" role="cell"
-                                [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{
-                                item.count |
-                                numberProxy }} </td>
-                            <td class="td-number" role="cell"
-                                [attr.data-heading]="'statistics.tableHeading_validated' | translate"> {{
-                                item.validatedSightingCount | numberProxy }} </td>
-                            <td class="td-number" role="cell"
-                                [attr.data-heading]="'statistics.tableHeading_sharedValidatedSightings' | translate"> {{
-                                item.percentageSightedVsValidated }} %</td>
-                            <td class="td-number" role="cell"
-                                [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
-                                item.approvedSightingCount | numberProxy }} </td>
-                            <td class="td-number" role="cell"
-                                [attr.data-heading]="'statistics.tableHeading_shareValidatedAndApproved' | translate">
-                                {{
-                                item.percentageValidatedVsApproved }} %</td>
+                            </th>
+                            <td class="td-number" role="cell"> {{ item.count | numberProxy }} </td>
+                            <td class="td-number" role="cell"> {{ item.validatedSightingCount | numberProxy }} </td>
+                            <td class="td-number" role="cell"> {{ item.percentageSightedVsValidated }} %</td>
+                            <td class="td-number" role="cell"> {{ item.approvedSightingCount | numberProxy }} </td>
+                            <td class="td-number" role="cell"> {{ item.percentageValidatedVsApproved }} %</td>
                         </tr>
                     </tbody>
 

@@ -26,13 +26,13 @@
                             {{ 'statistics.tableHeading_aggregatedSightingsCount' | translate }} Artsobservasjoner
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_newSightingsCount' | translate }}
+                            {{ 'statistics.tableHeading_newSightingsCount' | translate }} Artsobservasjoner
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
                             {{ 'statistics.tableHeading_aggregatedSightingsCount' | translate }} Artskart
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_newSightingsCount' | translate }}
+                            {{ 'statistics.tableHeading_newSightingsCount' | translate }} Artskart
                         </th>                        
                         <th scope="col" role="columnheader" class="th-number">
                          %
@@ -41,7 +41,7 @@
                 </thead>
                 <tbody role="rowgroup">
                     <tr role="row" *ngFor="let item of data">
-                        <td role="cell"> {{ item.year }} </td>
+                        <th role="rowheader" scope="row"> {{ item.year }} </th>
                         <td role="cell" class="td-number"> {{ item.artsobsCount | numberProxy }} </td>
                         <td role="cell" class="td-number"> {{ item.artsobsYearlyIncrease | numberProxy }} </td>
                         <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>

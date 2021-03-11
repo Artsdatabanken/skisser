@@ -105,7 +105,7 @@
         "tableHeading_riskGroup": "Risk category",
         "tableHeading_sightingsCount": "Sightings count",
         "tableHeading_aggregatedSightingsCount": "Aggregate (total) sightings count",
-        "tableHeading_newSightingsCount": "New sightings count",
+        "tableHeading_newSightingsCount": "New sightings count in",
         "tableHeading_validated": "Validated*",
         "tableHeading_sharedValidatedSightings": "Percent validated",
         "tableHeading_validatedAndApproved": "Validated and approved**",

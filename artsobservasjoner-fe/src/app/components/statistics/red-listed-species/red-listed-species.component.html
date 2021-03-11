@@ -46,8 +46,8 @@
 
                 <tbody role="rowgroup" *ngFor="let species of redlistedSpecies | keyvalue">
                     <tr role="row" *ngFor="let data of species.value.data; let i = index">
-                        <th role="rowheader" scope="row"
-                            [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
+                        
+                        <th role="rowheader" scope="row">
 
                             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
@@ -67,7 +67,7 @@
                             </ng-container>
 
                         </th>
-                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_riskGroup' | translate">
+                        <td role="cell">
                             {{ data.assessmentCategory.code }}
 
                             <span class="sr-only">
@@ -84,20 +84,16 @@
                             </span>
 
                         </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate">
+                        <td class="td-number" role="cell">
                             {{ data.sightingsCount | numberProxy }}
                         </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_withMedia' | translate">
+                        <td class="td-number" role="cell">
                             {{ data.imagesCount | numberProxy }}
                         </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_validated' | translate">
+                        <td class="td-number" role="cell">
                             {{ data.validatedCount | numberProxy }}
                         </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate">
+                        <td class="td-number" role="cell">
                             {{ data.approvedCount | numberProxy }}
                         </td>
                     </tr>
