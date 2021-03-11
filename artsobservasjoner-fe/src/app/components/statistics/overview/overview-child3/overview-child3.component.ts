@@ -67,11 +67,14 @@ export class OverviewChild3Component implements OnInit {
 
             let result: number;
 
-            if (index > 0) {
-              result = current - previous;
-              console.log('RESULT', result)
+            if (index > 0) { 
+              result = current - previous; 
+            }
+            else {
+              result = current;
             }
 
+            console.log()
             return result;
           }
 
@@ -82,16 +85,7 @@ export class OverviewChild3Component implements OnInit {
             previousValueArtskart = artskart[index - 1].count;
           }
 
-          // if (index > 0) previousValue = artsobs[index - 1].count;
-          // currentValue = aoElement.count;
-
-          // console.log('previousValue', previousValue)
-          // console.log('currentValue', currentValue)
-          // console.log('RESULT', currentValue - previousValue)
-
-          // if (index > 0) {
-          //   result = currentValue - previousValue;      
-          // }
+          // ---------------------------------------- ***
 
           artskart.forEach(akElement => {
 
@@ -123,8 +117,6 @@ export class OverviewChild3Component implements OnInit {
 
         });
 
-        console.log('temp', this.graphValues1)
-        console.log('temp', this.graphValues2)
         this.buildChart(this.graphLabels, this.graphValues1, this.graphValues2);
         return tempArray;
 
@@ -139,8 +131,8 @@ export class OverviewChild3Component implements OnInit {
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontStyle = '500';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.legend.position = 'left';
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.legend.position = 'bottom';
 
     this.chart = new Chart('myCanvas', {
       type: 'line',
