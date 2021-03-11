@@ -4,9 +4,17 @@
 
     <div class="section">
 
+        <p class="body-text">
+            {{ 'statistics.tableDescription_sightingCountArtsobsVsArtskart' | translate }}
+
+            <br><br>
+
+            {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}
+        </p>
+
         <div *ngIf="data$ | async as data; else noData">
 
-            <table style="min-width: 60%; width: auto;">
+            <table>
                 <caption *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
                 <thead>
                     <tr>
@@ -14,27 +22,28 @@
                             {{ 'statistics.tableHeading_year' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }} Artsobservasjoner
+                            {{ 'statistics.tableHeading_aggregatedSightingsCount' | translate }} Artsobservasjoner
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }} Artskart
+                            {{ 'statistics.tableHeading_newSightingsCount' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_aggregatedSightingsCount' | translate }} Artskart
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_newSightingsCount' | translate }}
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of data">
                         <td role="cell">
-
                             {{ item.year }}
-
                         </td>
-                        <td role="cell" class="td-number">
-                            {{ item.artsobsCount | numberProxy }}
-                        </td>
-
-                        <td role="cell" class="td-number">
-                            {{ item.artskartCount | numberProxy }}
-                        </td>
+                        <td role="cell" class="td-number"> {{ item.artsobsCount | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artsobsYearlyIncrease | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artskartYearlyIncrease | numberProxy }} </td>
                     </tr>
                 </tbody>
 
@@ -46,7 +55,7 @@
             <canvas id="myCanvas" #myCanvas></canvas>
         </div>
 
-         <ng-template #noData>
+        <ng-template #noData>
             <app-error-response></app-error-response>
         </ng-template>
 

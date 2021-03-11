@@ -43,7 +43,6 @@ export class OverviewChild3Component implements OnInit {
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.getData();
 
-    console.log('graf', this.canvasRef)
   }
 
   getData(): void {
@@ -56,33 +55,70 @@ export class OverviewChild3Component implements OnInit {
       map(([artsobs, artskart]) => {
 
         let tempArray: any[] = [];
+        let previousValueArtsobs: number;
+        let previousValueArtskart: number;
 
-        artsobs.forEach(element => {
 
-          artskart.forEach(elem => {
+        artsobs.forEach((aoElement, index) => {
 
-            if (element.id === elem.id) {
+          // ---------------------------------------- ***
+
+          const getYearlyIncrease = (current: number, previous: number): number => {
+
+            let result: number;
+
+            if (index > 0) {
+              result = current - previous;
+              console.log('RESULT', result)
+            }
+
+            return result;
+          }
+
+          // ---------------------------------------- ***
+
+          if (index > 0) {
+            previousValueArtsobs = artsobs[index - 1].count;
+            previousValueArtskart = artskart[index - 1].count;
+          }
+
+          // if (index > 0) previousValue = artsobs[index - 1].count;
+          // currentValue = aoElement.count;
+
+          // console.log('previousValue', previousValue)
+          // console.log('currentValue', currentValue)
+          // console.log('RESULT', currentValue - previousValue)
+
+          // if (index > 0) {
+          //   result = currentValue - previousValue;      
+          // }
+
+          artskart.forEach(akElement => {
+
+            if (aoElement.id === akElement.id) {
 
               tempArray.push({
-                year: element.id,
-                artsobsCount: element.count,
-                artskartCount: elem.count
+                year: aoElement.id,
+                artsobsCount: aoElement.count,
+                artsobsYearlyIncrease: getYearlyIncrease(aoElement.count, previousValueArtsobs),
+                artskartCount: akElement.count,
+                artskartYearlyIncrease: getYearlyIncrease(akElement.count, previousValueArtskart)
               });
 
             }
 
-            if (!this.graphValues2.includes(elem.count)) {
-              this.graphValues2.push(elem.count);
+            if (!this.graphValues2.includes(akElement.count)) {
+              this.graphValues2.push(akElement.count);
             }
 
           });
 
-          if (!this.graphLabels.includes(element.id.toString())) {
-            this.graphLabels.push(element.id.toString());
+          if (!this.graphLabels.includes(aoElement.id.toString())) {
+            this.graphLabels.push(aoElement.id.toString());
           }
 
-          if (!this.graphValues1.includes(element.count)) {
-            this.graphValues1.push(element.count);
+          if (!this.graphValues1.includes(aoElement.count)) {
+            this.graphValues1.push(aoElement.count);
           }
 
         });
