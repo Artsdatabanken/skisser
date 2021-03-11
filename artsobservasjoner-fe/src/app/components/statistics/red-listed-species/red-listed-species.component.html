@@ -16,10 +16,10 @@
         <br>
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
 
-        <div *ngIf="data$ | async as redlistedSpecies; else noData">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as redlistedSpecies; else noData">
 
             <table class="custom-table" aria-describedby="redlist">
-                <caption>{{ 'statistics.tableCaption_redlistedSpeciesData' | translate }}</caption>
+                <caption id="caption1">{{ 'statistics.tableCaption_redlistedSpeciesData' | translate }}</caption>
                 <thead role="rowgroup">
                     <tr role="row">
                         <th scope="col" role="columnheader">

@@ -10,123 +10,137 @@
 
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }} </p>
 
-        <div *ngIf="data$ | async as data; else noData">
+        <ng-container *ngIf="data$ | async as data; else noData">
 
-            <table>
-                <caption>{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}</caption>
-                <thead role="rowgroup">
-                    <tr role="row">
-                        <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_withMedia' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_validated' |
-                            translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                        </th>
-                    </tr>
-                </thead>
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
 
-                <tbody role="rowgroup">
-                    <tr role="row" *ngFor="let item of data">
-                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
+                <table>
+                    <caption id="caption1">{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}</caption>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_withMedia' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validated' |
+                                translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
 
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                    <tbody role="rowgroup">
+                        <tr role="row" *ngFor="let item of data">
+                            <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 
-                                <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}</ng-container>
-                                <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}</ng-container>
+                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                            </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}
+                                    </ng-container>
 
-                        </td>
-                        <td role="cell" class="td-number"
-                            [attr.data-heading]="'statistics.tableHeading_sightedTaxonCount' | translate"> {{
-                            item.sightingTaxonCount | numberProxy }} </td>
-                        <td role="cell" class="td-number"
-                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{ item.count |
-                            numberProxy }}</td>
-                        <td role="cell" class="td-number"
-                            [attr.data-heading]="'statistics.tableHeading_withMedia' | translate"> {{
-                            item.sightingWithMediaCount | numberProxy }} </td>
-                        <td role="cell" class="td-number" [attr.data-heading]="'statistics.tableHeading_validated' |
+                                </ng-container>
+
+                            </td>
+                            <td role="cell" class="td-number"
+                                [attr.data-heading]="'statistics.tableHeading_sightedTaxonCount' | translate"> {{
+                                item.sightingTaxonCount | numberProxy }} </td>
+                            <td role="cell" class="td-number"
+                                [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{
+                                item.count |
+                                numberProxy }}</td>
+                            <td role="cell" class="td-number"
+                                [attr.data-heading]="'statistics.tableHeading_withMedia' | translate"> {{
+                                item.sightingWithMediaCount | numberProxy }} </td>
+                            <td role="cell" class="td-number" [attr.data-heading]="'statistics.tableHeading_validated' |
                         translate"> {{ item.validatedSightingCount | numberProxy }} </td>
-                        <td role="cell" class="td-number"
-                            [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
-                            item.approvedSightingCount | numberProxy }} </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td role="cell" class="td-number"
+                                [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
+                                item.approvedSightingCount | numberProxy }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
 
             <br><br>
 
-            <table>
-                <caption>{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
-                <thead role="rowgroup">
-                    <tr>
-                        <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_validated' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
-                        </th>
-                    </tr>
-                </thead>
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption2">
 
-                <tbody role="rowgroup">
-                    <tr role="row" *ngFor="let item of data">
-                        <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
+                <table>
+                    <caption id="caption2">{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
+                    <thead role="rowgroup">
+                        <tr>
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validated' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
 
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                    <tbody role="rowgroup">
+                        <tr role="row" *ngFor="let item of data">
+                            <td role="cell" [attr.data-heading]="'statistics.tableHeading_speciesGroup' | translate">
 
-                                <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}</ng-container>
-                                <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}</ng-container>
+                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                            </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}
+                                    </ng-container>
 
-                        </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{ item.count |
-                            numberProxy }} </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_validated' | translate"> {{
-                            item.validatedSightingCount | numberProxy }} </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_sharedValidatedSightings' | translate"> {{
-                            item.percentageSightedVsValidated }} %</td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
-                            item.approvedSightingCount | numberProxy }} </td>
-                        <td class="td-number" role="cell"
-                            [attr.data-heading]="'statistics.tableHeading_shareValidatedAndApproved' | translate"> {{
-                            item.percentageValidatedVsApproved }} %</td>
-                    </tr>
-                </tbody>
+                                </ng-container>
 
-            </table>
+                            </td>
+                            <td class="td-number" role="cell"
+                                [attr.data-heading]="'statistics.tableHeading_sightingsCount' | translate"> {{
+                                item.count |
+                                numberProxy }} </td>
+                            <td class="td-number" role="cell"
+                                [attr.data-heading]="'statistics.tableHeading_validated' | translate"> {{
+                                item.validatedSightingCount | numberProxy }} </td>
+                            <td class="td-number" role="cell"
+                                [attr.data-heading]="'statistics.tableHeading_sharedValidatedSightings' | translate"> {{
+                                item.percentageSightedVsValidated }} %</td>
+                            <td class="td-number" role="cell"
+                                [attr.data-heading]="'statistics.tableHeading_validatedAndApproved' | translate"> {{
+                                item.approvedSightingCount | numberProxy }} </td>
+                            <td class="td-number" role="cell"
+                                [attr.data-heading]="'statistics.tableHeading_shareValidatedAndApproved' | translate">
+                                {{
+                                item.percentageValidatedVsApproved }} %</td>
+                        </tr>
+                    </tbody>
 
+                </table>
+
+            </div>
             <p>
                 {{ 'statistics.shared_tableDescription_excluded' | translate }}
                 <br />
@@ -142,103 +156,109 @@
                 <li>Godkjent, funnet er sannsynlig</li>
             </ul>
 
-        </div>
+        </ng-container>
 
         <br><br>
 
-        <div *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
+        <ng-container *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
 
-            <table class="custom-table">
-                <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
 
-                <thead role="rowgroup">
-                    <tr role="row">
-                        <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_validationCategory' | translate }}
-                        </th>
-                        <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
-                            <th *ngFor="let speciesGroup of speciesGroups">
+                <table class="custom-table">
+                    <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_validationCategory' | translate }}
+                            </th>
+                            <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
+                                <th *ngFor="let speciesGroup of speciesGroups">
+
+                                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                                        <ng-container *ngIf="currentLanguage === 'en'">{{ speciesGroup.en }}
+                                        </ng-container>
+                                        <ng-container *ngIf="currentLanguage === 'no'">{{ speciesGroup.no }}
+                                        </ng-container>
+
+                                    </ng-container>
+
+                                </th>
+                            </ng-container>
+                        </tr>
+
+                    </thead>
+
+                    <tbody role="rowgroup" *ngFor="let validatedDataItem of validatedDataByStatus | keyvalue">
+                        <tr role="row" *ngFor="let item of validatedDataItem.value.data; let i = index">
+
+                            <th role="rowheader" scope="row">
 
                                 <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                                    <ng-container *ngIf="currentLanguage === 'en'">{{ speciesGroup.en }}</ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">{{ speciesGroup.no }}</ng-container>
+                                    <span *ngIf="i === 0">
+                                        <ng-container *ngIf="currentLanguage === 'en'">
+                                            {{ validatedDataItem.key.en }}
+                                        </ng-container>
+                                        <ng-container *ngIf="currentLanguage === 'no'">
+                                            {{ validatedDataItem.key.no }}
+                                        </ng-container>
+                                    </span>
+
+
+                                    <!--for screen readers-->
+                                    <span *ngIf="i > 0" class="td-hidden">
+                                        <ng-container *ngIf="currentLanguage === 'en'">
+                                            {{ validatedDataItem.key.en }}
+                                        </ng-container>
+                                        <ng-container *ngIf="currentLanguage === 'no'">
+                                            {{ validatedDataItem.key.no }}
+                                        </ng-container>
+                                    </span>
+                                    <!--for screen readers-->
 
                                 </ng-container>
 
                             </th>
-                        </ng-container>
-                    </tr>
 
-                </thead>
+                            <td role="cell">
 
-                <tbody role="rowgroup" *ngFor="let validatedDataItem of validatedDataByStatus | keyvalue">
-                    <tr role="row" *ngFor="let item of validatedDataItem.value.data; let i = index">
+                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                        <th role="rowheader" scope="row">
-
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                <span *ngIf="i === 0">
                                     <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ validatedDataItem.key.en }}
+                                        {{ item.speciesGroup.en }}
                                     </ng-container>
                                     <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ validatedDataItem.key.no }}
+                                        {{ item.speciesGroup.no }}
                                     </ng-container>
-                                </span>
 
-
-                                <!--for screen readers-->
-                                <span *ngIf="i > 0" class="td-hidden">
-                                    <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ validatedDataItem.key.en }}
-                                    </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ validatedDataItem.key.no }}
-                                    </ng-container>
-                                </span>
-                                <!--for screen readers-->
-
-                            </ng-container>
-
-                        </th>
-
-                        <td role="cell">
-
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                <ng-container *ngIf="currentLanguage === 'en'">
-                                    {{ item.speciesGroup.en }}
-                                </ng-container>
-                                <ng-container *ngIf="currentLanguage === 'no'">
-                                    {{ item.speciesGroup.no }}
                                 </ng-container>
 
-                            </ng-container>
+                            </td>
 
-                        </td>
+                            <td class="td-number" role="cell">
+                                {{ item.count | numberProxy }}
+                            </td>
 
-                        <td class="td-number" role="cell">
-                            {{ item.count | numberProxy }}
-                        </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
 
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        </tr>
+                    </tbody>
 
-                    </tr>
-                </tbody>
+                </table>
 
-            </table>
+            </div>
 
-        </div>
+        </ng-container>
 
 
         <br><br><br><br><br><br><br><br><br><br>

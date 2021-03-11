@@ -16,10 +16,10 @@
         <br>
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
 
-        <ng-container *ngIf="data$ | async as alienSpecies; else noData">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as alienSpecies; else noData">
 
             <table class="custom-table">
-                <caption>{{ 'statistics.tableCaption_alienSpeciesData' | translate }}</caption>
+                <caption id="caption1">{{ 'statistics.tableCaption_alienSpeciesData' | translate }}</caption>
                 <thead role="rowgroup">
                     <tr role="row">
                         <th scope="col" role="columnheader">
@@ -119,7 +119,7 @@
                 <li>Godkjent, funnet er sannsynlig</li>
             </ul>
 
-        </ng-container>
+        </div>
 
         <ng-template #noData>
             <app-error-response></app-error-response>

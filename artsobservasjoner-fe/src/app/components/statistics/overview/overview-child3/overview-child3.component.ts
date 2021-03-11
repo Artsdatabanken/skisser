@@ -71,7 +71,7 @@ export class OverviewChild3Component implements OnInit {
               result = current - previous; 
             }
             else {
-              result = current;
+              result = null;
             }
 
             console.log()

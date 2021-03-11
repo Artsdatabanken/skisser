@@ -796,6 +796,9 @@ main {
     }
 
     &__content {
+        @media screen and (max-width: 1200px) {
+           padding: 30px 0 0;
+        }
     }
 
     &__footer {

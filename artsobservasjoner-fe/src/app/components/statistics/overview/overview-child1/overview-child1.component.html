@@ -4,10 +4,10 @@
 
     <div class="section">
 
-        <div *ngIf="data$ | async as data; else noData">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as data; else noData">
 
             <table style="min-width: 60%; width: auto;">
-                <caption *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
+                <caption id="caption1" *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
                 <thead>
                     <tr>
                         <th scope="col" role="columnheader">

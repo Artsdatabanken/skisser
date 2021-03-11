@@ -18,6 +18,15 @@ table {
         margin: 0 auto 20px;
         padding: 0 0 10px;
         width: auto;
+
+        @media screen and (max-width: 1200px) {
+            border-bottom: 2px solid transparent;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            text-align: left;
+            width: 60%;
+        }
     }
 
     th {
@@ -30,8 +39,9 @@ table {
         text-align: left;
 
         @media screen and (max-width: 1200px) {
+            border-top: 2px solid rgba(240, 240, 240);
             font-size: 17px;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         &[scope="row"] {
@@ -67,50 +77,50 @@ table {
     }
 
     @media screen and (max-width: 1024px) {
-        table,
-        tr,
-        td {
-            display: block;
-        }
+        // table,
+        // tr,
+        // td {
+        //     display: block;
+        // }
 
-        caption {
-            @include customVar(background-color, clrShadow);
-            @include customVar(font-family, fontSecondary);
-            border: none;
-            font-size: 20px;
-            font-weight: 500;
-            padding: 10px 15px;
-            text-align: left;
-        }
+        // caption {
+        //     @include customVar(background-color, clrShadow);
+        //     @include customVar(font-family, fontSecondary);
+        //     border: none;
+        //     font-size: 20px;
+        //     font-weight: 500;
+        //     padding: 10px 15px;
+        //     text-align: left;
+        // }
 
-        tr {
-            //border: 2px solid red;
-            margin-bottom: 20px;
-        }
+        // tr {
+        //     //border: 2px solid red;
+        //     margin-bottom: 20px;
+        // }
 
-        thead {
-            display: none;
-        }
+        // thead {
+        //     display: none;
+        // }
 
-        th,
-        td {
-            display: grid;
-            font-weight: 600;
-            grid-template-columns: 2fr 3fr;
-            grid-gap: 1em 2em;
+        // th,
+        // td {
+        //     display: grid;
+        //     font-weight: 600;
+        //     grid-template-columns: 2fr 3fr;
+        //     grid-gap: 1em 2em;
 
-            &::before {
-                @include customVar(font-family, fontSecondary);
-                content: attr(data-heading);
-                display: inline;
-                font-size: 16px;
-                font-weight: 600;
-            }
+        //     &::before {
+        //         @include customVar(font-family, fontSecondary);
+        //         content: attr(data-heading);
+        //         display: inline;
+        //         font-size: 16px;
+        //         font-weight: 600;
+        //     }
 
-            tr:nth-child(even) & {
-                @include customVar(background-color, clrShadow);
-            }
-        }
+        //     tr:nth-child(even) & {
+        //         @include customVar(background-color, clrShadow);
+        //     }
+        // }
     }
 }
 
@@ -118,9 +128,13 @@ table {
 
 // helpers
 
+.table-container {
+    overflow: auto;
+}
+
 .td-hidden {
     visibility: hidden;
-    
+
     @media screen and (max-width: 1024px) {
         visibility: visible;
     }

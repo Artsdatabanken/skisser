@@ -12,12 +12,13 @@
             {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}
         </p>
 
-        <div *ngIf="data$ | async as data; else noData">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            *ngIf="data$ | async as data; else noData">
 
             <table>
-                <caption *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
-                <thead>
-                    <tr>
+                <caption id="caption1" *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
+                <thead role="rowgroup">
+                    <tr role="row">
                         <th scope="col" role="columnheader">
                             {{ 'statistics.tableHeading_year' | translate }}
                         </th>
@@ -35,15 +36,13 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let item of data">
-                        <td role="cell">
-                            {{ item.year }}
-                        </td>
+                <tbody role="rowgroup">
+                    <tr role="row" *ngFor="let item of data">
+                        <td role="cell"> {{ item.year }} </td>
                         <td role="cell" class="td-number"> {{ item.artsobsCount | numberProxy }} </td>
-                        <td role="cell" class="td-number td-increase"> {{ item.artsobsYearlyIncrease | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artsobsYearlyIncrease | numberProxy }} </td>
                         <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>
-                        <td role="cell" class="td-number td-increase"> {{ item.artskartYearlyIncrease | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artskartYearlyIncrease | numberProxy }} </td>
                     </tr>
                 </tbody>
 
