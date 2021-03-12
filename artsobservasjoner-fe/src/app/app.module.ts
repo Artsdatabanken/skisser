@@ -106,6 +106,7 @@ import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
 import { LanguageSwitcherComponent } from './components/shared/language-switcher/language-switcher.component';
 import { ValidationStatusComponent } from './components/shared/validation-status/validation-status.component';
+import { IconBadgeComponent } from './components/shared/icon-badge/icon-badge.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -205,7 +206,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     LocalizedDatePipe,
     StripHtmlPipe,
     PressComponent,
-    ValidationStatusComponent
+    ValidationStatusComponent,
+    IconBadgeComponent
   ],
   imports: [
     BrowserModule,
