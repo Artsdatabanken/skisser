@@ -105,6 +105,8 @@
         "tableHeading_riskGroup": "Risk category",
         "tableHeading_sightingsCount": "Sightings count",
         "tableHeading_aggregatedSightingsCount": "Aggregate (total) sightings count",
+        "tableHeading_aggregatedSightingsCount1": "Aggregate (total) sightings count in Artsobservasjoner",
+        "tableHeading_aggregatedSightingsCount2": "Aggregate (total) sightings count in Artskart",
         "tableHeading_newSightingsCount": "New sightings count in",
         "tableHeading_validated": "Validated*",
         "tableHeading_sharedValidatedSightings": "Percent validated",
