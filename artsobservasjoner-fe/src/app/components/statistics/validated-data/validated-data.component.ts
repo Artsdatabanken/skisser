@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category } from 'src/app/models/shared';
-import { StatisticsItem, ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
+import { ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 

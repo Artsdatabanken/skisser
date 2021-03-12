@@ -141,12 +141,13 @@
             background-image: url(../images/gallery/statsBinoculars.png);
         }
 
-        &--users {
+        &--thisYear,
+        &--lastYear {
             background-image: url(../images/iconUsers.png);
             background-size: 45px;
-        }        
-        
-        &--new-users {
+        }
+
+        &--last7 {
             background-image: url(../images/iconNewUsers.png);
             background-size: 45px;
         }

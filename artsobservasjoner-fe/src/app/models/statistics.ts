@@ -81,3 +81,9 @@ export enum SIGHTINGS_PER_YEAR {
     artsobs = 'artsobs',
     artskart = 'artskart'
 }
+
+export enum USERS_COUNT {
+    thisYear = 'thisYear',
+    lastYear = 'lastYear',
+    last7Days = 'last7'
+}

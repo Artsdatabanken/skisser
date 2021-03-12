@@ -8,32 +8,15 @@
 
         <div class="loop loop--stats">
 
-            <div class="numbers-box numbers-box--list">
-                <div class="numbers-box__icon numbers-box__icon--users"></div>
+            <app-total-count-statistics [statistics]="usersCount.lastYear" [style]="'list'"
+                [text]="'statistics.usersCount_lastYear' | translate" [icon]="true"></app-total-count-statistics>
 
-                <div class="numbers-box__wrapper">
-                    <div class="numbers-box__item"> 3456 </div>
-                    <div class="numbers-box__text"> Antall brukere ifjor </div>
-                </div>
-            </div>
+            <app-total-count-statistics [statistics]="usersCount.thisYear" [style]="'list'"
+                [text]="'statistics.usersCount_thisYear' | translate" [icon]="true"></app-total-count-statistics>
 
-            <div class="numbers-box numbers-box--list">
-                <div class="numbers-box__icon numbers-box__icon--users"></div>
+            <app-total-count-statistics [statistics]="usersCount.last7Days" [style]="'list'"
+                [text]="'statistics.usersCount_last7' | translate" [icon]="true"></app-total-count-statistics>
 
-                <div class="numbers-box__wrapper">
-                    <div class="numbers-box__item"> 37 </div>
-                    <div class="numbers-box__text"> Antall bruker <br>nåværende år </div>
-                </div>
-            </div>
-
-            <div class="numbers-box numbers-box--list">
-                <div class="numbers-box__icon numbers-box__icon--new-users"></div>
-
-                <div class="numbers-box__wrapper">
-                    <div class="numbers-box__item"> 4 </div>
-                    <div class="numbers-box__text"> Antall brukere i <br> de siste 7 dagene </div>
-                </div>
-            </div>
 
         </div>
 

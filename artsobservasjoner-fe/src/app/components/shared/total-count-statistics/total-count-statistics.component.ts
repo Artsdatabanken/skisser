@@ -18,27 +18,11 @@ export class TotalCountStatisticsComponent implements OnInit {
   @Input() style?: string | null = 'grid';
 
   totalCount$: Observable<TotalCountStatistic>;
-  api: string;
-
-  // TODO: These should be in a config file of some sorts
-  apis: object = {
-    totalSightings: 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount',
-    totalSpecies: 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount',
-    totalImages: 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount',
-    totalUsers: 'https://ap-ao3-statisticsapi-staging.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount'
-  };
 
   constructor(private statisticsService: StatisticsService) { }
 
   ngOnInit(): void {
-
-    // if (this.statistics === Object.keys(this.apis).find(stats => stats === this.statistics)) {
-    //   this.api = this.apis[this.statistics];
-    // }
-
-    // this.totalCount$ = this.statisticsService.getTotalCount(this.api);
     this.getData();
-
   }
 
   getData(): void {

@@ -4,7 +4,20 @@ import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { AssessmentCategory, AssessedSpeciesItem, ValidatedDataItem, StatisticsItem, TotalCountStatistic, ImageStatisticsItem, TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORY_TYPES, AssessedSpeciesItemStats, ValidatedDataItemByStatus, SIGHTINGS_PER_YEAR } from '../models/statistics';
+import {
+  AssessmentCategory,
+  AssessedSpeciesItem,
+  ValidatedDataItem,
+  StatisticsItem,
+  TotalCountStatistic,
+  ImageStatisticsItem,
+  TOTAL_COUNT_STATISTICS,
+  ASSESSMENT_CATEGORY_TYPES,
+  AssessedSpeciesItemStats,
+  ValidatedDataItemByStatus,
+  SIGHTINGS_PER_YEAR,
+  USERS_COUNT
+} from '../models/statistics';
 import { Category } from '../models/shared';
 
 @Injectable({
@@ -18,6 +31,7 @@ export class StatisticsService {
   totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
+  usersCount: typeof USERS_COUNT = USERS_COUNT;
 
   // API
 
@@ -33,6 +47,10 @@ export class StatisticsService {
   OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
   OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYear';
   OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
+
+  USER_COUNT1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountThisYear';
+  USER_COUNT2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLastYear';
+  USER_COUNT3_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLast7Days';
 
   TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
   TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
@@ -140,7 +158,7 @@ export class StatisticsService {
 
           //let tempArray = [];
           let validationStatusObject: object = {};
-          let validationStatusObjectData: object =  {};
+          let validationStatusObjectData: object = {};
           let validationStatusObjectDataItems: object[] = [];
 
           validatedDataItem.data.forEach(element => {
@@ -154,13 +172,13 @@ export class StatisticsService {
 
             // statisticsItems.push(statisticsItem);
 
-      
+
 
 
             validationStatusObject[validatedDataItem['id']] = [];
             validationStatusObjectData[element['speciesGroupId']] = element['sightingCount'];
             validationStatusObjectDataItems.push(validationStatusObjectData);
-            
+
             validationStatusObject[validatedDataItem['id']] = validationStatusObjectDataItems;
 
             console.log('validationStatusObjectDataItems', validationStatusObjectDataItems)
@@ -495,6 +513,18 @@ export class StatisticsService {
         api = this.TOTAL_COUNT_USERS_API;
         break;
 
+      case this.usersCount.thisYear:
+        api = this.USER_COUNT1_API;
+        break;
+
+      case this.usersCount.lastYear:
+        api = this.USER_COUNT2_API;
+        break;
+
+      case this.usersCount.last7Days:
+        api = this.USER_COUNT3_API;
+        break;
+
       default:
         console.log();
     }
@@ -644,5 +674,46 @@ export class StatisticsService {
 
   }
 
+  getUserCount(variant: string): Observable<TotalCountStatistic> {
+
+    console.log('do we come here');
+    console.log('variant', variant);
+
+    let api: string;
+
+    switch (variant) {
+      case this.usersCount.thisYear:
+        api = this.USER_COUNT1_API;
+        break;
+
+      case this.usersCount.lastYear:
+        api = this.USER_COUNT2_API;
+        break;
+
+      case this.usersCount.last7Days:
+        api = this.USER_COUNT3_API;
+        break;
+
+      default:
+        console.log();
+    }
+
+    let totalCount: TotalCountStatistic;
+
+    return this.httpClient.get(api).pipe(
+      map((response: any) => {
+
+        totalCount = {
+          count: response.count
+        }
+
+        return totalCount;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
 
 }
