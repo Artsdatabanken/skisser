@@ -111,6 +111,7 @@
         "tableHeading_validatedAndApproved": "Validated and approved**",
         "tableHeading_shareValidatedAndApproved": "Percent validated and approved",
         "tableHeading_sightedTaxonCount": "Sighted taxon count",
-        "tableHeading_withMedia": "With media"
+        "tableHeading_withMedia": "With media",        
+        "tableHeading_percentArtsobsInArtskart": "Percent of data from Artsobservasjoner in Artskart"
     }
 }

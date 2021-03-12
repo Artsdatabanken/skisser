@@ -111,6 +111,7 @@
         "tableHeading_validatedAndApproved": "Kvalitetssjekket og godkjent***",
         "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
         "tableHeading_sightedTaxonCount": "Antall taxa observert",
-        "tableHeading_withMedia": "Med bilder"
+        "tableHeading_withMedia": "Med bilder",
+        "tableHeading_percentArtsobsInArtskart": "Andel data fra Artsobservasjoner i Artskart"
     }
 }

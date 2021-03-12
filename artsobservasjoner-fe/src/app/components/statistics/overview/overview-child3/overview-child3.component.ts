@@ -69,15 +69,31 @@ export class OverviewChild3Component implements OnInit {
 
             let result: number;
 
-            if (index > 0) { 
-              result = current - previous; 
-            }
-            else {
-              result = null;
+            if (index > 0) {
+              result = current - previous;
             }
 
-            console.log()
             return result;
+          }
+
+          const getYearlyIncreaseInPercentage = (current: number, original: number): number => {
+
+            let difference: number;
+            let result: number;
+
+            if (index > 0) {
+              difference = current - original;
+              result = (difference / original) * 100;
+            }
+            else {
+              result = 0;
+            }
+
+            // Nytt tall - originalt tall = differanse
+            // ( Differanse / originalt tall ) * 100 = Prosentøkning (%)
+
+            console.log('res', result);
+            return +result.toFixed(2);
           }
 
           // ---------------------------------------- ***
@@ -97,8 +113,10 @@ export class OverviewChild3Component implements OnInit {
                 year: aoElement.id,
                 artsobsCount: aoElement.count,
                 artsobsYearlyIncrease: getYearlyIncrease(aoElement.count, previousValueArtsobs),
+                artsobsPercentageIncrease: getYearlyIncreaseInPercentage(aoElement.count, previousValueArtsobs),
                 artskartCount: akElement.count,
-                artskartYearlyIncrease: getYearlyIncrease(akElement.count, previousValueArtskart),
+                artskartYearlyIncrease: getYearlyIncrease(akElement.count, previousValueArtskart),                
+                artskartPercentageIncrease: getYearlyIncreaseInPercentage(akElement.count, previousValueArtskart),
                 percent: this.utilitiesService.getPercentage(akElement.count, aoElement.count)
               });
 
