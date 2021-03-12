@@ -76,7 +76,7 @@ export class OverviewChild3Component implements OnInit {
             return result;
           }
 
-          const getYearlyIncreaseInPercentage = (current: number, original: number): number => {
+          const getYearlyIncreaseInPercentage = (current: number, original: number): number| null => {
 
             let difference: number;
             let result: number;
@@ -89,11 +89,8 @@ export class OverviewChild3Component implements OnInit {
               result = 0;
             }
 
-            // Nytt tall - originalt tall = differanse
-            // ( Differanse / originalt tall ) * 100 = Prosentøkning (%)
-
-            console.log('res', result);
-            return +result.toFixed(2);
+            console.log('res', +result.toFixed(4));
+            return +result.toFixed(3);
           }
 
           // ---------------------------------------- ***

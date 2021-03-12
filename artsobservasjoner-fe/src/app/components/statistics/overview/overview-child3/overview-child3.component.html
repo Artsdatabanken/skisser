@@ -6,10 +6,6 @@
 
         <p class="body-text">
             {{ 'statistics.tableDescription_sightingCountArtsobsVsArtskart' | translate }}
-
-            <br><br>
-
-            {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}
         </p>
 
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
@@ -34,9 +30,9 @@
                         <th scope="col" role="columnheader" class="th-number">
                             {{ 'statistics.tableHeading_newSightingsCount' | translate }} Artskart
                         </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            % {{ 'statistics.tableHeading_percentArtsobsInArtskart' | translate }}
-
+                        <th scope="col" role="columnheader" class="th-number"
+                            [innerHTML]="'statistics.tableHeading_percentArtsobsInArtskart' | translate">
+                            <!-- % {{ 'statistics.tableHeading_percentArtsobsInArtskart' | translate }} -->
                         </th>
                     </tr>
                 </thead>
@@ -47,13 +43,22 @@
                         <td role="cell" class="td-number">
                             <small>
                                 {{ item.artsobsYearlyIncrease | numberProxy }}
-                                <br>
-                                {{ item.artsobsPercentageIncrease }} %
+                                <ng-container *ngIf="item.artsobsPercentageIncrease">
+                                    {{ ' / ' + item.artsobsPercentageIncrease + ' %'}}
+                                </ng-container>
+                            </small>
+                        </td>
+                        <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>
+                        <td role="cell" class="td-number">
+                            <small>
+
+                                {{ item.artskartYearlyIncrease | numberProxy }}
+                                <ng-container *ngIf="item.artskartPercentageIncrease">
+                                    {{ ' / ' + item.artskartPercentageIncrease + ' %'}}
+                                </ng-container>
                             </small>
 
                         </td>
-                        <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>
-                        <td role="cell" class="td-number"> {{ item.artskartYearlyIncrease | numberProxy }} </td>
                         <td role="cell" class="td-number"> {{ item.percent | numberProxy }} %</td>
                     </tr>
                 </tbody>
