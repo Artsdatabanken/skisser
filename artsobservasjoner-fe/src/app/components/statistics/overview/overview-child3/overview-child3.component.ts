@@ -90,7 +90,7 @@ export class OverviewChild3Component implements OnInit {
             }
 
             console.log('res', +result.toFixed(4));
-            return +result.toFixed(3);
+            return +result.toFixed(2);
           }
 
           // ---------------------------------------- ***
