@@ -141,6 +141,16 @@
             background-image: url(../images/gallery/statsBinoculars.png);
         }
 
+        &--users {
+            background-image: url(../images/iconUsers.png);
+            background-size: 45px;
+        }        
+        
+        &--new-users {
+            background-image: url(../images/iconNewUsers.png);
+            background-size: 45px;
+        }
+
         @media screen and (max-width: 1200px) {
             background-size: 35px;
             margin: 0 auto 10px;
@@ -196,6 +206,11 @@
         .numbers-box--small & {
             font-size: 18px;
             font-weight: 500;
+        }
+
+        .numbers-box--list & {
+            line-height: 1.2;
+            margin-top: 10px;
         }
     }
 
