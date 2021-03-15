@@ -29,8 +29,4 @@ export class TotalCountStatisticsComponent implements OnInit {
     this.totalCount$ = this.statisticsService.getTotalCount(this.statistics);
   }
 
-  getCountIcon(statistics: string): string {
-    return `numbers-box__icon--${statistics}`;
-  }
-
 }

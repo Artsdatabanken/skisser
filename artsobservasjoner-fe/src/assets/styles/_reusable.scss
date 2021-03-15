@@ -1059,6 +1059,33 @@
             background-size: 40px;
         }
 
+        &--totalSightings {
+            background-image: url(../images/gallery/statsBinoculars.png);
+        }
+
+        &--totalSpecies {
+            background-image: url(../images/gallery/statsLeaf.png);
+        }
+
+        &--totalImages {
+            background-image: url(../images/gallery/statsCamera.png);
+        }
+
+        &--totalUsers {
+            background-image: url(../images/gallery/statsBinoculars.png);
+        }
+
+        &--thisYear,
+        &--lastYear {
+            background-image: url(../images/iconUsers.png);
+            background-size: 45px;
+        }
+
+        &--last7 {
+            background-image: url(../images/iconNewUsers.png);
+            background-size: 45px;
+        }
+
         @media screen and (max-width: 1200px) {
             background-size: 35px;
             margin: 0 auto 10px;
@@ -1093,7 +1120,7 @@
             font-size: 32px;
         }
 
-        .numbers-box--small & {
+        .icon-badge--small & {
             font-size: 24px;
         }
     }
@@ -1111,12 +1138,12 @@
             font-size: 20px;
         }
 
-        .numbers-box--small & {
+        .icon-badge--small & {
             font-size: 18px;
             font-weight: 500;
         }
 
-        .numbers-box--list & {
+        .icon-badge--list & {
             line-height: 1.2;
             margin-top: 10px;
         }

@@ -2,6 +2,21 @@
 
     <div class="loop loop--stats loop--stats-sm" style=" margin: 0 0 70px;">
 
+        <!-- <ng-container *ngIf="data$ | async as data">
+            <app-icon-badge [data]="data.totalSightings" [text]="'statistics.overviewNumbers_sightings' | translate"
+                [size]="'sm'"></app-icon-badge>
+
+            <app-icon-badge [data]="totalCountStatistics.totalSpecies"
+                [text]="'statistics.overviewNumbers_species' | translate" [size]="'sm'"></app-icon-badge>
+
+            <app-icon-badge [data]="totalCountStatistics.totalUsers"
+                [text]="'statistics.overviewNumbers_users' | translate" [size]="'sm'"></app-icon-badge>
+
+            <app-icon-badge [data]="totalCountStatistics.totalImages"
+                [text]="'statistics.overviewNumbers_images' | translate" [size]="'sm'"></app-icon-badge>
+
+        </ng-container> -->
+
         <app-total-count-statistics [statistics]="totalCountStatistics.totalSightings"
             [text]="'statistics.overviewNumbers_sightings' | translate" [size]="'sm'"></app-total-count-statistics>
 

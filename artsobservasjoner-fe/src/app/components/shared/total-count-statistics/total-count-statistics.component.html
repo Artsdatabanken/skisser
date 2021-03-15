@@ -2,29 +2,15 @@
 
 <div class="non-dummy">
 
-    <div class="numbers-box" [ngClass]="{'numbers-box--small': size === 'sm', 'numbers-box--list': style === 'list'}"
+    <div class="icon-badge" [ngClass]="{'icon-badge--small': size === 'sm', 'icon-badge--list': style === 'list'}"
         *ngIf="totalCount$ | async as total">
-        <div class="numbers-box__icon" [class]="getCountIcon(statistics)" *ngIf="icon"></div>
+        <div class="icon-badge__icon" [class]="'icon-badge__icon--' + statistics" *ngIf="icon"></div>
 
-        <div class="numbers-box__wrapper">
-            <div class="numbers-box__item"> {{ total.count | numberProxy }} </div>
-            <div class="numbers-box__text" [innerHTML]="text | lowercase"> </div>
+        <div class="icon-badge__wrapper">
+            <div class="icon-badge__item"> {{ total.count | numberProxy }} </div>
+            <div class="icon-badge__text" [innerHTML]="text | lowercase"> </div>
         </div>
     </div>
-
-    <!-- <figure class="infographic" *ngIf="totalCount$ | async as total">
-
-         <div class="infographic__image">
-            <img src="/assets/images/gallery/statsLeaf.png" alt="" class="infographic__img">
-        </div>
-
-        <figcaption class="infographic__text" [ngClass]="{'infographic__text--sm': size}">             
-            <strong>{{ total.count | numberProxy }}</strong>
-            <span>{{ text | lowercase }}</span>
-        </figcaption>
-
-    </figure> -->
-
 
 </div>
 
