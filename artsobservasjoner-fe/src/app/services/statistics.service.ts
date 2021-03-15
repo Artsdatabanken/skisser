@@ -150,58 +150,38 @@ export class StatisticsService {
 
         // ---------------------------------------- ***
 
-        const map = new Map();
-        let statisticsItem: ValidatedDataItemByStatus;
-        let statisticsItems: ValidatedDataItemByStatus[] = [];
-
-        validatedData.forEach(validatedDataItem => {
-
-          //let tempArray = [];
-          let validationStatusObject: object = {};
-          let validationStatusObjectData: object = {};
-          let validationStatusObjectDataItems: object[] = [];
-
-          validatedDataItem.data.forEach(element => {
-
-            // statisticsItem = {
-            //   id: validatedDataItem['id'],
-            //   validationStatus: getValidationStatus(validatedDataItem['id']),
-            //   speciesGroup: getSpeciesGroup(element['speciesGroupId']),
-            //   count: element['sightingCount']
-            // }
-
-            // statisticsItems.push(statisticsItem);
+        let statusObject: object = {};
+        let statusObjectData: object = {};
 
 
+        speciesGroups.forEach(speciesGroup => {
 
-
-            validationStatusObject[validatedDataItem['id']] = [];
-            validationStatusObjectData[element['speciesGroupId']] = element['sightingCount'];
-            validationStatusObjectDataItems.push(validationStatusObjectData);
-
-            validationStatusObject[validatedDataItem['id']] = validationStatusObjectDataItems;
-
-            console.log('validationStatusObjectDataItems', validationStatusObjectDataItems)
-            //console.log('validationStatusObject', validationStatusObject)
-            //console.log('validationStatusObjectData', validationStatusObjectData)
-
-            //if (validatedDataItem.id == element.id) {
-            // tempArray.push({
-            //   speciesGroup: getSpeciesGroup(element['speciesGroupId']),
-            //   count: element['sightingCount']
-            // });
-            //}
-
-            //map.set(getValidationStatus(validatedDataItem.id), { data: tempArray });
-
-          });
+          statusObjectData[speciesGroup.id] = 0;
 
         });
 
-        // console.log('map', map)
-        // console.log('statisticsItems', statisticsItems)
-        //return map;
-        return statisticsItems;
+        validatedData.forEach(item => {
+
+          let statusObjectDataItems: object[] = [];
+
+          statusObject[item['id']] = [];
+
+          item.data.forEach(element => {
+
+            statusObjectData[element['speciesGroupId']] = element['sightingCount'];
+
+            console.log('element', statusObjectData)
+
+            statusObjectDataItems.push(statusObjectData);
+          });
+
+          statusObject[item['id']] = statusObjectDataItems;
+
+        });
+        
+        console.log('TEST', statusObject)
+
+        return null;
 
       })
     );
