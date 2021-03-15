@@ -17,8 +17,13 @@
             <app-total-count-statistics [statistics]="usersCount.last7Days" [style]="'list'"
                 [text]="'statistics.usersCount_last7' | translate" [icon]="true"></app-total-count-statistics>
 
-
         </div>
+
+        <br>
+
+        <small>
+            * {{ 'statistics.usersCount_dataDescription' | translate }}
+        </small>
 
     </div>
 

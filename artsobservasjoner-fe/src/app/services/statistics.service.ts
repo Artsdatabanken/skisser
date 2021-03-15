@@ -67,6 +67,7 @@ export class StatisticsService {
   // ------------------------------------------------------------ ***
 
   // VALIDATED DATA / KVALITETSSIKREDE DATA
+  
   getValidatedData(): Observable<ValidatedDataItem[]> {
 
     return this.httpClient.get(this.VALIDATED_DATA_API).pipe(

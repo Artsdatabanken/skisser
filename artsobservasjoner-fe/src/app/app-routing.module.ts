@@ -441,22 +441,22 @@ const sightingsRoutes: Routes = [
           hidden: false
         }
       },
-      {
-        path: 'overview-10',
-        component: OverviewChild10Component,
-        data: {
-          text: 'Månedlige registreringer per artsgruppe totalt og per år',
-          title: 'statistics.overviewStats_heading_10',
-          id: 'overview-10',
-          layout: 'spa',
-          rank: 'secondary',
-          parent: 'overview',
-          menu: '',
-          metatitle: 'r',
-          metaDescription: '',
-          hidden: false
-        }
-      },
+      // {
+      //   path: 'overview-10',
+      //   component: OverviewChild10Component,
+      //   data: {
+      //     text: 'Månedlige registreringer per artsgruppe totalt og per år',
+      //     title: 'statistics.overviewStats_heading_10',
+      //     id: 'overview-10',
+      //     layout: 'spa',
+      //     rank: 'secondary',
+      //     parent: 'overview',
+      //     menu: '',
+      //     metatitle: 'r',
+      //     metaDescription: '',
+      //     hidden: false
+      //   }
+      // },
       // {
       //   path: 'overview-11',
       //   component: OverviewChild11Component,
@@ -511,10 +511,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Fremmede arter',
       title: 'menu_statistics_alienSpecies',
-      translation: {
-        no: 'Fremmede arter',
-        en: 'Alien species'
-      },
       id: 'alien-species',
       layout: 'page',
       rank: 'secondary',
@@ -530,10 +526,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Kunnskapshull',
       title: 'menu_statistics_knowledgeGaps',
-      translation: {
-        no: 'Kunnskapshull',
-        en: 'Knowledge gaps'
-      },
       id: 'knowledge-gaps',
       layout: 'page',
       rank: 'secondary',
@@ -549,10 +541,6 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Brukerstatistikk',
       title: 'menu_statistics_userStatistics',
-      translation: {
-        no: 'Brukerstatistikk',
-        en: 'User statistics'
-      },
       id: 'user-statistics',
       layout: 'wide',
       rank: 'secondary',
@@ -587,10 +575,6 @@ const userDataRoutes: Routes = [
     data: {
       text: 'Mine observasjoner',
       title: 'menu_myData_myObservations',
-      translation: {
-        no: 'Mine observasjoner',
-        en: 'My sightings'
-      },
       id: 'my-observations',
       layout: 'page',
       rank: 'primary',
@@ -607,10 +591,6 @@ const userDataRoutes: Routes = [
     data: {
       text: 'Min statistikk',
       title: 'menu_myData_myStatistics',
-      translation: {
-        no: 'Min statistikk',
-        en: 'My stats'
-      },
       id: 'my-statistics',
       layout: 'page',
       rank: 'secondary',
@@ -627,10 +607,6 @@ const userDataRoutes: Routes = [
     data: {
       text: 'Mine prosjekter',
       title: 'menu_myData_myProjects',
-      translation: {
-        no: 'Mine prosjekter',
-        en: 'My projects'
-      },
       id: 'my-projects',
       layout: 'page',
       rank: 'secondary',
@@ -647,10 +623,6 @@ const userDataRoutes: Routes = [
     data: {
       text: 'Mine lokaliteter',
       title: 'menu_myData_myLocations',
-      translation: {
-        no: 'Mine lokaliteter',
-        en: 'My locations'
-      },
       id: 'my-locations',
       layout: 'page',
       rank: 'secondary',
@@ -667,10 +639,6 @@ const userDataRoutes: Routes = [
     data: {
       text: 'Medobservatører',
       title: 'menu_myData__myCoObservers',
-      translation: {
-        no: 'Medobservatører',
-        en: 'Co-observers'
-      },
       id: 'co-observers',
       layout: 'page',
       rank: 'secondary',
