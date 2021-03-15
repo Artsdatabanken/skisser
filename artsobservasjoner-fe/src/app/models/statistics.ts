@@ -23,10 +23,12 @@ export interface ValidatedDataItem extends StatisticsItem {
     percentageValidatedVsApproved: number;
 }
 
-export interface ValidatedDataItemByStatus extends StatisticsItem {
+export interface ValidatedDataItemByStatus {
+    validationStatusId: number;
+    speciesGroupId: number;
     validationStatus?: Category,
     speciesGroup?: Category;
-    count?: number;
+    count: number;
 }
 
 export interface AssessedSpeciesItem extends StatisticsItem {

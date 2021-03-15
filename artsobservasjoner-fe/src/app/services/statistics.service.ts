@@ -67,7 +67,7 @@ export class StatisticsService {
   // ------------------------------------------------------------ ***
 
   // VALIDATED DATA / KVALITETSSIKREDE DATA
-  
+
   getValidatedData(): Observable<ValidatedDataItem[]> {
 
     return this.httpClient.get(this.VALIDATED_DATA_API).pipe(
@@ -102,20 +102,21 @@ export class StatisticsService {
 
   }
 
-  getValidatedDataCountByStatus(): Observable<StatisticsItem[]> {
+  getValidatedDataCountByStatus(): Observable<ValidatedDataItemByStatus[]> {
 
     return this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).pipe(
       tap(t => console.log('t', t)),
       map(response => {
 
-        let statisticsItem: StatisticsItem;
-        let statisticsItems: StatisticsItem[] = [];
+        let statisticsItem: ValidatedDataItemByStatus;
+        let statisticsItems: ValidatedDataItemByStatus[] = [];
 
         response['sightingsValidated'].forEach(element => {
 
           statisticsItem = {
-            id: element.validationStatusId,
-            data: element.data
+            validationStatusId: element.validationStatusId,
+            speciesGroupId: element.speciesGroupId,
+            count: element.sightingCount
           }
 
           statisticsItems.push(statisticsItem);
@@ -123,6 +124,7 @@ export class StatisticsService {
         });
 
         return statisticsItems;
+
       }),
       publishReplay(1),
       refCount()
@@ -154,33 +156,59 @@ export class StatisticsService {
         let statusObject: object = {};
         let statusObjectData: object = {};
 
+        validatedData.forEach(element => {
 
-        speciesGroups.forEach(speciesGroup => {
-
-          statusObjectData[speciesGroup.id] = 0;
-
-        });
-
-        validatedData.forEach(item => {
-
-          let statusObjectDataItems: object[] = [];
-
-          statusObject[item['id']] = [];
-
-          item.data.forEach(element => {
-
-            statusObjectData[element['speciesGroupId']] = element['sightingCount'];
-
-            console.log('element', statusObjectData)
-
-            statusObjectDataItems.push(statusObjectData);
+          speciesGroups.forEach(sp => {
+            statusObjectData[sp.id] = 0;
           });
 
-          statusObject[item['id']] = statusObjectDataItems;
+          let tempArray: object[] = [];
 
+          statusObject[element.validationStatusId] = [];
+          statusObjectData[element.speciesGroupId] = element.count;
+
+          console.log('element.count', element.speciesGroupId, element.count,  statusObjectData[element.speciesGroupId])
+          //console.log('TTT', element.speciesGroupId, statusObjectData[element.speciesGroupId])
+          tempArray.push(statusObjectData)
+          //statusObject[element.validationStatusId] = tempArray;
+
+          
         });
-        
-        console.log('TEST', statusObject)
+
+        // console.log('ZZZ', tempArray)
+        console.log('XXX', statusObject)
+        //console.log('YYY', statusObjectData)
+
+        // let statusObject: object = {};
+        // let statusObjectData: object = {};
+
+
+        // speciesGroups.forEach(speciesGroup => {
+
+        //   statusObjectData[speciesGroup.id] = 0;
+
+        // });
+
+        // validatedData.forEach(item => {
+
+        //   let statusObjectDataItems: object[] = [];
+
+        //   statusObject[item['id']] = [];
+
+        //   item.data.forEach(element => {
+
+        //     statusObjectData[element['speciesGroupId']] = element['sightingCount'];
+
+        //     console.log('element', statusObjectData)
+
+        //     statusObjectDataItems.push(statusObjectData);
+        //   });
+
+        //   statusObject[item['id']] = statusObjectDataItems;
+
+        // });
+
+        // console.log('TEST', statusObject)
 
         return null;
 
@@ -190,56 +218,56 @@ export class StatisticsService {
     return data$;
   }
 
-  getValidatedDataByStatus2(): Observable<Map<Category, ValidatedDataItemByStatus[]>> {
+  // getValidatedDataByStatus2(): Observable<Map<Category, ValidatedDataItemByStatus[]>> {
 
-    const data$ = forkJoin([
-      this.getValidatedDataCountByStatus(),
-      this.getSpeciesGroups(),
-      this.getValidationStatus()
-    ]).pipe(
-      map(([validatedData, speciesGroups, validationStatuses]) => {
+  //   const data$ = forkJoin([
+  //     this.getValidatedDataCountByStatus(),
+  //     this.getSpeciesGroups(),
+  //     this.getValidationStatus()
+  //   ]).pipe(
+  //     map(([validatedData, speciesGroups, validationStatuses]) => {
 
-        // ---------------------------------------- ***
+  //       // ---------------------------------------- ***
 
-        const getValidationStatus = (id: number): Category => {
-          return validationStatuses.find(valStatus => valStatus.id === id);
-        }
+  //       const getValidationStatus = (id: number): Category => {
+  //         return validationStatuses.find(valStatus => valStatus.id === id);
+  //       }
 
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
+  //       const getSpeciesGroup = (id: number): Category => {
+  //         return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+  //       }
 
-        // ---------------------------------------- ***
+  //       // ---------------------------------------- ***
 
-        const map = new Map();
+  //       const map = new Map();
 
-        validatedData.forEach(validatedDataItem => {
+  //       validatedData.forEach(validatedDataItem => {
 
-          let tempArray = [];
+  //         let tempArray = [];
 
-          validatedDataItem.data.forEach(element => {
+  //         validatedDataItem.data.forEach(element => {
 
-            if (validatedDataItem.id == validatedDataItem.id) {
-              tempArray.push({
-                speciesGroup: getSpeciesGroup(element['speciesGroupId']),
-                count: element['sightingCount']
-              });
-            }
+  //           if (validatedDataItem.id == validatedDataItem.id) {
+  //             tempArray.push({
+  //               speciesGroup: getSpeciesGroup(element['speciesGroupId']),
+  //               count: element['sightingCount']
+  //             });
+  //           }
 
-            map.set(getValidationStatus(validatedDataItem.id), { data: tempArray });
+  //           map.set(getValidationStatus(validatedDataItem.id), { data: tempArray });
 
-          });
+  //         });
 
-        });
+  //       });
 
-        console.log('map', map)
-        return map;
+  //       console.log('map', map)
+  //       return map;
 
-      })
-    );
+  //     })
+  //   );
 
-    return data$;
-  }
+  //   return data$;
+  // }
 
 
   getAssessedSpeciesStats(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
