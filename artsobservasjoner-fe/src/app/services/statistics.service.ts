@@ -15,8 +15,7 @@ import {
   ASSESSMENT_CATEGORY_TYPES,
   AssessedSpeciesItemStats,
   ValidatedDataItemByStatus,
-  SIGHTINGS_PER_YEAR,
-  USERS_COUNT
+  SIGHTINGS_PER_YEAR
 } from '../models/statistics';
 import { Category } from '../models/shared';
 
@@ -31,7 +30,6 @@ export class StatisticsService {
   totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
-  usersCount: typeof USERS_COUNT = USERS_COUNT;
 
   // API
 
@@ -56,6 +54,7 @@ export class StatisticsService {
   TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
   TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
   TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
+  TOTAL_COUNT_PROJECTS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetProjectData';
 
   // ------------------------------------------------------------ ***
 
@@ -167,12 +166,12 @@ export class StatisticsService {
           statusObject[element.validationStatusId] = [];
           statusObjectData[element.speciesGroupId] = element.count;
 
-          console.log('element.count', element.speciesGroupId, element.count,  statusObjectData[element.speciesGroupId])
+          console.log('element.count', element.speciesGroupId, element.count, statusObjectData[element.speciesGroupId])
           //console.log('TTT', element.speciesGroupId, statusObjectData[element.speciesGroupId])
           tempArray.push(statusObjectData)
           //statusObject[element.validationStatusId] = tempArray;
 
-          
+
         });
 
         // console.log('ZZZ', tempArray)
@@ -522,15 +521,15 @@ export class StatisticsService {
         api = this.TOTAL_COUNT_USERS_API;
         break;
 
-      case this.usersCount.thisYear:
+      case this.totalCountStatistics.usersThisYear:
         api = this.USER_COUNT1_API;
         break;
 
-      case this.usersCount.lastYear:
+      case this.totalCountStatistics.usersLastYear:
         api = this.USER_COUNT2_API;
         break;
 
-      case this.usersCount.last7Days:
+      case this.totalCountStatistics.usersLast7Days:
         api = this.USER_COUNT3_API;
         break;
 
@@ -683,41 +682,18 @@ export class StatisticsService {
 
   }
 
-  getUserCount(variant: string): Observable<TotalCountStatistic> {
+  getProjectsCount(): Observable<object> {
 
-    console.log('do we come here');
-    console.log('variant', variant);
-
-    let api: string;
-
-    switch (variant) {
-      case this.usersCount.thisYear:
-        api = this.USER_COUNT1_API;
-        break;
-
-      case this.usersCount.lastYear:
-        api = this.USER_COUNT2_API;
-        break;
-
-      case this.usersCount.last7Days:
-        api = this.USER_COUNT3_API;
-        break;
-
-      default:
-        console.log();
-    }
-
-    let totalCount: TotalCountStatistic;
-
-    return this.httpClient.get(api).pipe(
+    return this.httpClient.get(this.TOTAL_COUNT_PROJECTS_API).pipe(
       map((response: any) => {
 
-        totalCount = {
-          count: response.count
-        }
-
-        return totalCount;
-
+        const projectsCount: object = {
+          totalProjectsCount: response['projectDataStatistics'].projectCount,
+          publicProjectsCount: response['projectDataStatistics'].publicProjectCount,
+          privateProjectsCount: response['projectDataStatistics'].hiddenProjectCount 
+        } 
+        
+        return projectsCount;
       }),
       publishReplay(1),
       refCount()

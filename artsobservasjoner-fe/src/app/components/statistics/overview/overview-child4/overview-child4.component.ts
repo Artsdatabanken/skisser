@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { USERS_COUNT } from 'src/app/models/statistics';
+import { TOTAL_COUNT_STATISTICS } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -14,7 +14,7 @@ export class OverviewChild4Component implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
-  usersCount: typeof USERS_COUNT = USERS_COUNT;
+  totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
 
   constructor(
     private layoutService: LayoutService,

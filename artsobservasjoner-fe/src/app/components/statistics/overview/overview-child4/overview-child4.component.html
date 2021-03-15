@@ -8,13 +8,13 @@
 
         <div class="loop loop--stats">
 
-            <app-total-count-statistics [statistics]="usersCount.lastYear" [style]="'list'"
+            <app-total-count-statistics [statistics]="totalCountStatistics.usersLastYear" [style]="'list'"
                 [text]="'statistics.usersCount_lastYear' | translate" [icon]="true"></app-total-count-statistics>
 
-            <app-total-count-statistics [statistics]="usersCount.thisYear" [style]="'list'"
+            <app-total-count-statistics [statistics]="totalCountStatistics.usersThisYear" [style]="'list'"
                 [text]="'statistics.usersCount_thisYear' | translate" [icon]="true"></app-total-count-statistics>
 
-            <app-total-count-statistics [statistics]="usersCount.last7Days" [style]="'list'"
+            <app-total-count-statistics [statistics]="totalCountStatistics.usersLast7Days" [style]="'list'"
                 [text]="'statistics.usersCount_last7' | translate" [icon]="true"></app-total-count-statistics>
 
         </div>

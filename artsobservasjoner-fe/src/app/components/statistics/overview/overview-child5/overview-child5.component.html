@@ -4,7 +4,26 @@
 
     <div class="section">
 
-    
+        <br>
+
+        <div class="loop loop--stats">
+
+            <ng-container *ngIf="data$ | async as data">
+
+                <app-icon-badge [data]="data.totalProjectsCount" [style]="'list'"
+                    [text]="'statistics.projects_totalCount' | translate" [icon]="true" [iconType]="'project'"></app-icon-badge>
+
+                <app-icon-badge [data]="data.publicProjectsCount" [style]="'list'"
+                    [text]="'statistics.projects_publicCount' | translate" [icon]="true" [iconType]="'project'"></app-icon-badge>
+
+                <app-icon-badge [data]="data.privateProjectsCount" [style]="'list'"
+                    [text]="'statistics.projects_privateCount' | translate" [icon]="true" [iconType]="'project'"></app-icon-badge>
+
+            </ng-container>
+
+        </div>
+
+        <br>
 
     </div>
 

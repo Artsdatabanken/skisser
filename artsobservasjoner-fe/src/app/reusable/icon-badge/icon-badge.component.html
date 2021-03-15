@@ -1,0 +1,31 @@
+<!--shareable non dummy component-->
+
+<div class="non-dummy">
+
+    <div class="icon-badge" [ngClass]="{'icon-badge--small': size === 'sm', 'icon-badge--list': style === 'list'}"
+        *ngIf="data">
+        <div class="icon-badge__icon" [class]="'icon-badge__icon--' + iconType" *ngIf="icon"></div>
+
+        <div class="icon-badge__wrapper">
+            <div class="icon-badge__item"> {{ data | numberProxy }} </div>
+            <div class="icon-badge__text" [innerHTML]="text | lowercase"> </div>
+        </div>
+    </div>
+
+    <!-- <figure class="infographic" *ngIf="totalCount$ | async as total">
+
+         <div class="infographic__image">
+            <img src="/assets/images/gallery/statsLeaf.png" alt="" class="infographic__img">
+        </div>
+
+        <figcaption class="infographic__text" [ngClass]="{'infographic__text--sm': size}">             
+            <strong>{{ total.count | numberProxy }}</strong>
+            <span>{{ text | lowercase }}</span>
+        </figcaption>
+
+    </figure> -->
+
+
+</div>
+
+<!--shareable non dummy component-->

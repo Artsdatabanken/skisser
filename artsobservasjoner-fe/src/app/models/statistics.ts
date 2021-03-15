@@ -63,7 +63,11 @@ export enum TOTAL_COUNT_STATISTICS {
     totalSightings = 'totalSightings',
     totalSpecies = 'totalSpecies',
     totalImages = 'totalImages',
-    totalUsers = 'totalUsers'
+    totalUsers = 'totalUsers',
+    projects = 'projects',
+    usersThisYear = 'thisYear',
+    usersLastYear = 'lastYear',
+    usersLast7Days = 'last7'
 }
 
 export enum VALIDATION_STATUS {
@@ -84,8 +88,3 @@ export enum SIGHTINGS_PER_YEAR {
     artskart = 'artskart'
 }
 
-export enum USERS_COUNT {
-    thisYear = 'thisYear',
-    lastYear = 'lastYear',
-    last7Days = 'last7'
-}
