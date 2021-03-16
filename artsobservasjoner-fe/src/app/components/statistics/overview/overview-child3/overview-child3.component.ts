@@ -160,7 +160,8 @@ export class OverviewChild3Component implements OnInit {
           {
             data: gValues1,
             label: 'Artsobservasjoner',
-            borderColor: this.graphColors[7],
+            //borderColor: this.graphColors[7],
+            borderColor: '#f5b7b1',
             borderWidth: 2,
             fill: false
           },
