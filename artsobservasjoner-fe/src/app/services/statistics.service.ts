@@ -154,7 +154,6 @@ export class StatisticsService {
 
         // ---------------------------------------- ***
 
-
         let statusObject: object = {};
 
         validationStatuses.forEach(validationStatus => {
