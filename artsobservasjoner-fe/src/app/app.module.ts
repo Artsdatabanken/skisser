@@ -107,6 +107,7 @@ import { PressComponent } from './components/press/press.component';
 import { LanguageSwitcherComponent } from './components/shared/language-switcher/language-switcher.component';
 import { ValidationStatusComponent } from './components/shared/validation-status/validation-status.component';
 import { IconBadgeComponent } from './reusable/icon-badge/icon-badge.component';
+import { FormatNumberPipe } from './pipes/format-number.pipe';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -207,7 +208,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     StripHtmlPipe,
     PressComponent,
     ValidationStatusComponent,
-    IconBadgeComponent
+    IconBadgeComponent,
+    FormatNumberPipe
   ],
   imports: [
     BrowserModule,
