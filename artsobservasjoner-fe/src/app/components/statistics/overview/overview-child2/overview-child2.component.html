@@ -39,10 +39,10 @@
                             </ng-container>
                         </td>
                         <td role="cell" class="td-number">
-                            {{ item.imageCount | numberProxy }}
+                            {{ item.imageCount | formatNumber }}
                         </td>
                         <td role="cell" class="td-number">
-                            {{ item.imageCountWithOpenLicence | numberProxy }}
+                            {{ item.imageCountWithOpenLicence | formatNumber }}
                         </td>
                         <td role="cell" class="td-number">
                             {{ getPercentage(item.imageCount, item.imageCountWithOpenLicence) }} %

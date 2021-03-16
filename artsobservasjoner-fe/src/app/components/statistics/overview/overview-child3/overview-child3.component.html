@@ -39,27 +39,27 @@
                 <tbody role="rowgroup">
                     <tr role="row" *ngFor="let item of data">
                         <th role="rowheader" scope="row"> {{ item.year }} </th>
-                        <td role="cell" class="td-number"> {{ item.artsobsCount | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artsobsCount | formatNumber }} </td>
                         <td role="cell" class="td-number">
                             <small>
-                                {{ item.artsobsYearlyIncrease | numberProxy }}
+                                {{ item.artsobsYearlyIncrease | formatNumber }}
                                 <ng-container *ngIf="item.artsobsPercentageIncrease">
                                     {{ ' / ' + item.artsobsPercentageIncrease + ' %'}}
                                 </ng-container>
                             </small>
                         </td>
-                        <td role="cell" class="td-number"> {{ item.artskartCount | numberProxy }} </td>
+                        <td role="cell" class="td-number"> {{ item.artskartCount | formatNumber }} </td>
                         <td role="cell" class="td-number">
                             <small>
 
-                                {{ item.artskartYearlyIncrease | numberProxy }}
+                                {{ item.artskartYearlyIncrease | formatNumber }}
                                 <ng-container *ngIf="item.artskartPercentageIncrease">
                                     {{ ' / ' + item.artskartPercentageIncrease + ' %'}}
                                 </ng-container>
                             </small>
 
                         </td>
-                        <td role="cell" class="td-number"> {{ item.percent | numberProxy }} %</td>
+                        <td role="cell" class="td-number"> {{ item.percent | formatNumber }} %</td>
                     </tr>
                 </tbody>
 

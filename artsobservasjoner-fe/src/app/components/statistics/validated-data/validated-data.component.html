@@ -57,11 +57,11 @@
                                 </ng-container>
 
                             </th>
-                            <td role="cell" class="td-number"> {{ item.sightingTaxonCount | numberProxy }} </td>
-                            <td role="cell" class="td-number"> {{ item.count | numberProxy }}</td>
-                            <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | numberProxy }} </td>
-                            <td role="cell" class="td-number"> {{ item.validatedSightingCount | numberProxy }} </td>
-                            <td role="cell" class="td-number"> {{ item.approvedSightingCount | numberProxy }} </td>
+                            <td role="cell" class="td-number"> {{ item.sightingTaxonCount | formatNumber }} </td>
+                            <td role="cell" class="td-number"> {{ item.count | formatNumber }}</td>
+                            <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | formatNumber }} </td>
+                            <td role="cell" class="td-number"> {{ item.validatedSightingCount | formatNumber }} </td>
+                            <td role="cell" class="td-number"> {{ item.approvedSightingCount | formatNumber }} </td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,10 +114,10 @@
                                 </ng-container>
 
                             </th>
-                            <td class="td-number" role="cell"> {{ item.count | numberProxy }} </td>
-                            <td class="td-number" role="cell"> {{ item.validatedSightingCount | numberProxy }} </td>
+                            <td class="td-number" role="cell"> {{ item.count | formatNumber }} </td>
+                            <td class="td-number" role="cell"> {{ item.validatedSightingCount | formatNumber }} </td>
                             <td class="td-number" role="cell"> {{ item.percentageSightedVsValidated }} %</td>
-                            <td class="td-number" role="cell"> {{ item.approvedSightingCount | numberProxy }} </td>
+                            <td class="td-number" role="cell"> {{ item.approvedSightingCount | formatNumber }} </td>
                             <td class="td-number" role="cell"> {{ item.percentageValidatedVsApproved }} %</td>
                         </tr>
                     </tbody>
@@ -131,7 +131,7 @@
                 {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
 
-            <app-validation-status [validationStatusType]="validationStatuses.approved"></app-validation-status>
+            <app-validation-status [validationStatusType]="validationStatuses.approved" style="margin: auto;"></app-validation-status>
 
         </ng-container>
 
@@ -194,7 +194,7 @@
 
                             </th>
                             <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
-                                {{ element.value }}
+                                {{ element.value | formatNumber }}
                             </td>
                         </tr>
 
