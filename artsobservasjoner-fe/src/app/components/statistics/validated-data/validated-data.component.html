@@ -137,7 +137,7 @@
 
         <br><br>
 
-        <ng-container *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
+        <ng-container *ngIf="validatedDataByStatus$ | async as validatedData; else noData2">
 
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
 
@@ -145,90 +145,43 @@
                     <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
 
                     <thead role="rowgroup">
+
                         <tr role="row">
-                            <th scope="col" role="columnheader">
+
+                            <th role="columnheader" scope="column">
                                 {{ 'statistics.tableHeading_validationCategory' | translate }}
                             </th>
+
                             <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
-                                <th *ngFor="let speciesGroup of speciesGroups">
-
-                                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                        <ng-container *ngIf="currentLanguage === 'en'">{{ speciesGroup.en }}
-                                        </ng-container>
-                                        <ng-container *ngIf="currentLanguage === 'no'">{{ speciesGroup.no }}
-                                        </ng-container>
-
-                                    </ng-container>
-
-                                </th>
+                                <!-- <ng-container *ngFor="let sp of speciesGroups | newKeyValue">
+                                    <td *ngFor="let item of sp.value | newKeyValue">{{ item.key }} --- {{ item.value }}</td>
+                                </ng-container> -->
+                                <!-- <ng-container *ngFor="let sp of speciesGroups">
+                                    <td>{{ sp.en }} --- {{ sp.no }}</td>
+                                </ng-container> -->
                             </ng-container>
+
+                            <ng-container *ngFor="let item of validatedData | newKeyValue | slice: 0: 1">
+                                <ng-container *ngFor="let element of item.value | newKeyValue">
+                                    <th role="columnheader" class="th-number">{{ element.key }}</th>
+                                </ng-container>
+                            </ng-container>
+
                         </tr>
 
                     </thead>
 
-                    <tbody role="rowgroup" *ngFor="let validatedDataItem of validatedDataByStatus | keyvalue">
-                        <tr role="row" *ngFor="let item of validatedDataItem.value.data; let i = index">
+                    <tbody role="rowgroup" *ngFor="let item of validatedData | newKeyValue">
 
-                            <th role="rowheader" scope="row">
-
-                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                    <span *ngIf="i === 0">
-                                        <ng-container *ngIf="currentLanguage === 'en'">
-                                            {{ validatedDataItem.key.en }}
-                                        </ng-container>
-                                        <ng-container *ngIf="currentLanguage === 'no'">
-                                            {{ validatedDataItem.key.no }}
-                                        </ng-container>
-                                    </span>
-
-
-                                    <!--for screen readers-->
-                                    <span *ngIf="i > 0" class="td-hidden">
-                                        <ng-container *ngIf="currentLanguage === 'en'">
-                                            {{ validatedDataItem.key.en }}
-                                        </ng-container>
-                                        <ng-container *ngIf="currentLanguage === 'no'">
-                                            {{ validatedDataItem.key.no }}
-                                        </ng-container>
-                                    </span>
-                                    <!--for screen readers-->
-
-                                </ng-container>
-
-                            </th>
-
-                            <td role="cell">
-
-                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                    <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ item.speciesGroup.en }}
-                                    </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ item.speciesGroup.no }}
-                                    </ng-container>
-
-                                </ng-container>
-
+                        <tr role="row">
+                            <th role="rowheader" scope="row">{{ item.key }}</th>
+                            <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
+                                <!-- {{ element.key }}
+                                <br> -->
+                                {{ element.value }}
                             </td>
-
-                            <td class="td-number" role="cell">
-                                {{ item.count | numberProxy }}
-                            </td>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
                         </tr>
+
                     </tbody>
 
                 </table>
@@ -237,11 +190,9 @@
 
         </ng-container>
 
-
-        <br><br><br><br><br><br><br><br><br><br>
-
-        <div id="tabletest"></div>
-        <br><br><br><br><br><br><br><br><br><br>
+        <ng-template #noData2>
+            Waaaaaaaa
+        </ng-template>
 
 
         <!-- <table class="tbl tbl--lg">
