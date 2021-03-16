@@ -41,17 +41,6 @@ export class NavigationService {
     return menuItems;
   }
 
-  getStyle(style: string | null, classification: string | null): string {
-
-    if (classification === 'section') {
-      return `navigation__section--${style}`;
-    }
-    else if (classification === 'link') {
-      return `navigation__link--${style}`;
-    }
-
-  }
-
   getRoutes(): any[] {
 
     let routes: any[] = this.router.config.filter(route => route.data);
