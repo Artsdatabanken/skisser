@@ -131,7 +131,8 @@
                 {{ 'statistics.shared_tableDescription_approved' | translate }}
             </p>
 
-            <app-validation-status [validationStatusType]="validationStatuses.approved" style="margin: auto;"></app-validation-status>
+            <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">
+            </app-validation-status-list>
 
         </ng-container>
 
@@ -177,22 +178,12 @@
                     <tbody role="rowgroup" *ngFor="let item of validatedData | newKeyValue">
 
                         <tr role="row">
+
                             <th role="rowheader" scope="row">
-
-                                {{ item.key }}
-
-                                <!-- <ng-container *ngIf="validationStatuses$ | async as validationStatuses">
-                                    <ng-container *ngFor="let vs of validationStatuses">
-                                        <ng-container *ngIf="currentLanguage$ | async as cl">
-
-                                            <ng-container *ngIf="cl === 'no'"> {{ vs.no }} </ng-container>
-                                            <ng-container *ngIf="cl === 'en'"> {{ vs.en }} </ng-container>
-
-                                        </ng-container>
-                                    </ng-container>
-                                </ng-container> -->
-
+                                {{ item.key }} ::: {{ validationStatusName }}
+                               
                             </th>
+
                             <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
                                 {{ element.value | formatNumber }}
                             </td>
@@ -209,10 +200,6 @@
         <ng-template #noData2>
             Waaaaaaaa
         </ng-template>
-
-        <ng-container *ngIf="data2$ | async as data2">
-            {{ data2 }}
-        </ng-container>
 
         <!-- <table class="tbl tbl--lg">
             <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category } from 'src/app/models/shared';
@@ -21,7 +20,7 @@ export class ValidatedDataComponent implements OnInit {
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   speciesGroups$: Observable<Category[]>;
   validationStatuses$: Observable<Category[]>;
-  data2$;
+  validationStatusName: any;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -89,36 +88,60 @@ export class ValidatedDataComponent implements OnInit {
     this.validationStatuses$ = this.statisticsService.getValidationStatus();
     this.validatedDataByStatus$ = this.statisticsService.getValidatedDataByStatus();
 
-    // this.data2$ = forkJoin([
-    //   this.statisticsService.getSpeciesGroups(),
-    //   this.statisticsService.getValidationStatus(),
-    //   this.statisticsService.getValidatedDataByStatus()
-    // ]).pipe(
-    //   map(([speciesGroups, validationStatuses, validatedData]) => {
+  }
 
-    //     // ---------------------------------------- ***
+  getSpeciesGroup(id: number): any {
 
-    //     const getValidationStatus = (id: number): Category => {
-    //       return validationStatuses.find(valStatus => valStatus.id === id);
-    //     }
+    const data$ = forkJoin([
+      this.currentLanguage$,
+      this.statisticsService.getSpeciesGroups()
+    ]).pipe(
+      map(([currentLanguage, speciesGroups]) => {
 
-    //     const getSpeciesGroup = (id: number): Category => {
-    //       return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-    //     }
+        const speciesGroup: Category = speciesGroups.find(sp => sp.id === id);
+        let result: string;
 
-    //     // ---------------------------------------- ***
+        if (currentLanguage == 'no') result = speciesGroup.no;
+        if (currentLanguage == 'en') result = speciesGroup.en;
 
-    //     Object.keys(validatedData).forEach(element => {
-    //       console.log('elem', element);
-    //     });
+        return result;
 
-    //   })
-    // );
+      })
+    );
+
+    console.log('data', data$)
+
+    return data$;
 
   }
 
-  getValidationStatus(id: number): any {
-    console.log('validation status', id);
+  //   get percentage() {
+  //     return this.totalMarks / 600;
+  // }
+
+  set validationStatus(id: number) {
+
+    console.log('validation status id', id);
+    let result: string;
+
+    forkJoin([
+      this.currentLanguage$,
+      this.statisticsService.getValidationStatus()
+    ]).pipe(
+      map(([currentLanguage, validationStatuses]) => {
+
+        const validationStatus: Category = validationStatuses.find(sp => sp.id === id);
+
+
+        if (currentLanguage == 'no') result = validationStatus.no;
+        if (currentLanguage == 'en') result = validationStatus.en;
+
+
+        console.log('validation status', this.validationStatusName, result);
+        this.validationStatusName = result;
+      })
+    );
+
   }
 
 }
