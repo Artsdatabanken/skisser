@@ -425,22 +425,22 @@ const sightingsRoutes: Routes = [
           hidden: false
         }
       },
-      {
-        path: 'overview-9',
-        component: OverviewChild9Component,
-        data: {
-          text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
-          title: 'statistics.overviewStats_heading_9',
-          id: 'overview-9',
-          layout: 'spa',
-          rank: 'secondary',
-          parent: 'overview',
-          menu: '',
-          metatitle: '',
-          metaDescription: '',
-          hidden: false
-        }
-      },
+      // {
+      //   path: 'overview-9',
+      //   component: OverviewChild9Component,
+      //   data: {
+      //     text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
+      //     title: 'statistics.overviewStats_heading_9',
+      //     id: 'overview-9',
+      //     layout: 'spa',
+      //     rank: 'secondary',
+      //     parent: 'overview',
+      //     menu: '',
+      //     metatitle: '',
+      //     metaDescription: '',
+      //     hidden: false
+      //   }
+      // },
       // {
       //   path: 'overview-10',
       //   component: OverviewChild10Component,

@@ -2,226 +2,210 @@
 
     <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
 
-    <div class="loop">
+    <div class="section">
 
-        <div class="filter">
+        <table class="tbl-number">
+            <caption></caption>
+            <thead>
+                <tr role="row">
+                    <th scope="col" role="columnheader">Fylke</th>
+                    <th scope="col" role="columnheader">Alger</th>
+                    <th scope="col" role="columnheader">Amfibier og reptiler</th>
+                    <th scope="col" role="columnheader">Fisk</th>
+                    <th scope="col" role="columnheader">Flaggermus</th>
+                    <th scope="col" role="columnheader">Fugler</th>
+                    <th scope="col" role="columnheader">Karplanter</th>
+                    <th scope="col" role="columnheader">Lav</th>
+                    <th scope="col" role="columnheader">Moser</th>
+                    <th scope="col" role="columnheader">Pattedyr</th>
+                    <th scope="col" role="columnheader">Sopp</th>
+                    <th scope="col" role="columnheader">Virvelløse dyr</th>
+                    <th scope="col" role="columnheader">TOTALT</th>
+                </tr>
+            </thead>
 
-            <select name="" id="speciesGroup">
-                <option value="All">Alle år</option>
-                <option value="">2020</option>
-                <option value="">2019</option>
-                <option value="">2018</option>
-                <option value="">2017</option>
-            </select>
+            <tbody>
 
-        </div>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Agder</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-    </div>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Innlandet</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-    <br><br>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Møre og Romsdal</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-    <table class="tbl-number">
-        <caption></caption>
-        <thead>
-            <tr role="row">
-                <th scope="col" role="columnheader">Fylke</th>
-                <th scope="col" role="columnheader">Alger</th>
-                <th scope="col" role="columnheader">Amfibier og reptiler</th>
-                <th scope="col" role="columnheader">Fisk</th>
-                <th scope="col" role="columnheader">Flaggermus</th>
-                <th scope="col" role="columnheader">Fugler</th>
-                <th scope="col" role="columnheader">Karplanter</th>
-                <th scope="col" role="columnheader">Lav</th>
-                <th scope="col" role="columnheader">Moser</th>
-                <th scope="col" role="columnheader">Pattedyr</th>
-                <th scope="col" role="columnheader">Sopp</th>
-                <th scope="col" role="columnheader">Virvelløse dyr</th>
-                <th scope="col" role="columnheader">TOTALT</th>
-            </tr>
-        </thead>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Nordland</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-        <tbody>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Oslo</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Agder</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Rogaland</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Innlandet</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Troms og Finnmark</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Møre og Romsdal</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Trøndelag</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Nordland</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Vestfold og Telemark</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Oslo</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Vestland</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Rogaland</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+                <tr role="row">
+                    <th scope="row" role="rowheader">Viken</th>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 13</td>
+                    <td role="cell"> 17</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 1</td>
+                    <td role="cell"> 87</td>
+                    <td role="cell"> 29</td>
+                    <td role="cell"> 2</td>
+                    <td role="cell"> 0</td>
+                    <td role="cell"> 36</td>
+                    <td role="cell"> 6</td>
+                    <td role="cell"> <strong>187</strong></td>
+                </tr>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Troms og Finnmark</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
+            </tbody>
+        </table>
 
-            <tr role="row">
-                <th scope="row" role="rowheader">Trøndelag</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
-
-            <tr role="row">
-                <th scope="row" role="rowheader">Vestfold og Telemark</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
-
-            <tr role="row">
-                <th scope="row" role="rowheader">Vestland</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
-
-            <tr role="row">
-                <th scope="row" role="rowheader">Viken</th>
-                <td role="cell"> 1</td>
-                <td role="cell"> 13</td>
-                <td role="cell"> 17</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 1</td>
-                <td role="cell"> 87</td>
-                <td role="cell"> 29</td>
-                <td role="cell"> 2</td>
-                <td role="cell"> 0</td>
-                <td role="cell"> 36</td>
-                <td role="cell"> 6</td>
-                <td role="cell"> <strong>187</strong></td>
-            </tr>
-
-        </tbody>
-    </table>
-
-    <!-- <table class="tbl-number">
+        <!-- <table class="tbl-number">
         <caption>{{ pageTitle }}</caption>
         <thead>
             <tr role="row">
@@ -421,5 +405,7 @@
 
         </tbody>
     </table> -->
+
+    </div>
 
 </div>

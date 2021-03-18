@@ -21,6 +21,7 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
   currentLanguage$: Observable<string>;
   data$;
   subscription: Subscription;
+  translationParam: Date | number;
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
   chart: any[] = [];
@@ -40,6 +41,8 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_1');
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.getData();
+
+    this.translationParam = new Date().getFullYear();
 
   }
 

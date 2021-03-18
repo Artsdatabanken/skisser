@@ -14,7 +14,13 @@
                             {{ 'statistics.tableHeading_speciesGroup' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            {{ 'statistics.tableHeading_totalSightingsCount' | translate }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_totalSightingsCountThisYear1' | translate: { value: translationParam } }}
+                        </th>
+                        <th scope="col" role="columnheader" class="th-number">
+                            {{ 'statistics.tableHeading_totalSightingsCountThisYear2' | translate: { value: translationParam } }}
                         </th>
                     </tr>
                 </thead>
@@ -33,6 +39,8 @@
                         <td role="cell" class="td-number">
                             {{ item.count | formatNumber }}
                         </td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
         
