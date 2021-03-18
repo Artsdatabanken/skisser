@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GRAPHCOLORS } from 'src/app/data/graphs';
+import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { ImageStatisticsItem } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { StatisticsService } from 'src/app/services/statistics.service';

@@ -7,7 +7,7 @@
         <div class="icon-badge__icon" [class]="'icon-badge__icon--' + iconType" *ngIf="icon"></div>
 
         <div class="icon-badge__wrapper">
-            <div class="icon-badge__item"> {{ data | numberProxy }} </div>
+            <div class="icon-badge__item"> {{ data | formatNumber }} </div>
             <div class="icon-badge__text" [innerHTML]="text | lowercase"> </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         </div>
 
         <figcaption class="infographic__text" [ngClass]="{'infographic__text--sm': size}">             
-            <strong>{{ total.count | numberProxy }}</strong>
+            <strong>{{ total.count | formatNumber }}</strong>
             <span>{{ text | lowercase }}</span>
         </figcaption>
 

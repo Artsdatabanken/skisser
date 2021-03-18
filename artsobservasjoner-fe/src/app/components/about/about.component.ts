@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import Settings from 'src/app/data/settings.json';
+import Settings from 'src/app/config/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
 

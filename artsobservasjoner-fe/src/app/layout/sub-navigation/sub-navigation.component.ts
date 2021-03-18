@@ -1,9 +1,6 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
-import { ActionSequence } from 'protractor';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import Settings from 'src/app/data/settings.json';
+import Settings from 'src/app/config/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
 import { DataService } from 'src/app/services/data.service';
 

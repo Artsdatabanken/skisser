@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 import { StatisticsItem } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { LayoutService } from 'src/app/services/layout.service';
-import { GRAPHCOLORS } from 'src/app/data/graphs';
+import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { TranslationService } from 'src/app/services/translation.service';
 import { Category } from 'src/app/models/shared';
 
