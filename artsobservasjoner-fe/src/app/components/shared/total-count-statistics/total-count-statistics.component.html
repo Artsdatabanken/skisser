@@ -7,7 +7,7 @@
         <div class="icon-badge__icon" [class]="'icon-badge__icon--' + statistics" *ngIf="icon"></div>
 
         <div class="icon-badge__wrapper">
-            <div class="icon-badge__item"> {{ total.count | numberProxy }} </div>
+            <div class="icon-badge__item"> {{ total.count | formatNumber }} </div>
             <div class="icon-badge__text" [innerHTML]="text | lowercase"> </div>
         </div>
     </div>

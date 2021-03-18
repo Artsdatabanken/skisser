@@ -1,0 +1,18 @@
+<!--shareable non dummy component-->
+
+<ul class="hightlighted-list" *ngIf="validationStatuses$ | async as validationStatuses">
+    <li *ngFor="let validationStatus of validationStatuses">
+        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+            <ng-container *ngIf="currentLanguage === 'en'">
+                {{ validationStatus.en }}
+            </ng-container>
+            <ng-container *ngIf="currentLanguage === 'no'">
+                {{ validationStatus.no }}
+            </ng-container>
+
+        </ng-container>
+    </li>
+</ul>
+
+<!--shareable non dummy component-->
