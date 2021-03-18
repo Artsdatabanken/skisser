@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import UserSettings from '../data/fakeUsers.json';
+import UserSettings from '../config/fakeUsers.json';
 
 @Injectable({
   providedIn: 'root'

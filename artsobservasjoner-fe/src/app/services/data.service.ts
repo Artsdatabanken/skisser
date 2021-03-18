@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
-import Settings from '../data/settings.json';
+import Settings from '../config/settings.json';
 import { AboutPage } from '../models/aboutPage';
 import { Announcement, NewsItem } from '../models/news';
 

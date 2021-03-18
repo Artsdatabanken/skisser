@@ -22,7 +22,6 @@ import { AlienSpeciesComponent } from './components/statistics/alien-species/ali
 import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
-import { TrimPipe } from './pipes/trim.pipe';
 import { DesignComponent } from './misc/design/design.component';
 import { CardComponent } from './reusable/card/card.component';
 import { ButtonComponent } from './reusable/button/button.component';
@@ -84,7 +83,6 @@ import localeNor from '@angular/common/locales/nb';
 import localeNorExtra from '@angular/common/locales/nb';
 import { SimplifiedMenuComponent } from './layout/simplified-menu/simplified-menu.component';
 import { AccountComponent } from './components/account/account.component';
-import { NumberProxyPipe } from './pipes/number-proxy.pipe';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 import { TotalCountStatisticsComponent } from './components/shared/total-count-statistics/total-count-statistics.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
@@ -108,6 +106,7 @@ import { LanguageSwitcherComponent } from './components/shared/language-switcher
 import { ValidationStatusComponent } from './components/shared/validation-status/validation-status.component';
 import { IconBadgeComponent } from './reusable/icon-badge/icon-badge.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
+import { GetObjectsNamePipe } from './pipes/get-objects-name.pipe';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -127,7 +126,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     UserStatisticsComponent,
     UserListsComponent,
     BreadcrumbsComponent,
-    TrimPipe,
     LanguageSwitcherComponent,
     DesignComponent,
     CardComponent,
@@ -187,7 +185,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     CoObserversComponent,
     SimplifiedMenuComponent,
     AccountComponent,
-    NumberProxyPipe,
     ValidatedDataComponent,
     TotalCountStatisticsComponent,
     AlertsComponent,
@@ -209,7 +206,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     PressComponent,
     ValidationStatusComponent,
     IconBadgeComponent,
-    FormatNumberPipe
+    FormatNumberPipe,
+    GetObjectsNamePipe
   ],
   imports: [
     BrowserModule,
