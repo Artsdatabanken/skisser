@@ -51,54 +51,41 @@ export class OverviewChild2Component implements OnInit {
 
   getData(): void {
 
-    this.data$ = forkJoin([
-      this.statisticsService.getImageCountPerSpeciesGroup(),
-      this.statisticsService.getSpeciesGroups()
-    ]).pipe(
-      map(([species, speciesGroups]) => {
+    this.data$ = this.statisticsService.getImageCountPerSpeciesGroup();
 
-        // ---------------------------------------- ***
+    // this.data$ = forkJoin([
+    //   this.statisticsService.getImageCountPerSpeciesGroup(),
+    //   this.statisticsService.getSpeciesGroups()
+    // ]).pipe(
+    //   map(([species, speciesGroups]) => {
 
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
+    //     let statisticsItem: ImageStatisticsItem;
+    //     let statisticsItems: ImageStatisticsItem[] = [];
 
-        // ---------------------------------------- ***
+    //     species.forEach(speciesItem => {
 
-        let statisticsItem: ImageStatisticsItem;
-        let statisticsItems: ImageStatisticsItem[] = [];
+    //       // this.graphValues1.push(speciesItem.imageCount);
+    //       // this.graphValues2.push(speciesItem.imageCountWithOpenLicence);
 
-        species.forEach(speciesItem => {
+    //       statisticsItems.push(statisticsItem);
 
-          statisticsItem = {
-            id: speciesItem.id,
-            speciesGroup: getSpeciesGroup(speciesItem.id),
-            imageCount: speciesItem.imageCount,
-            imageCountWithOpenLicence: speciesItem.imageCountWithOpenLicence,
-          }
+    //     });
 
-          this.graphValues1.push(speciesItem.imageCount);
-          this.graphValues2.push(speciesItem.imageCountWithOpenLicence);
+    //     // build chart by language TODO: refactor
 
-          statisticsItems.push(statisticsItem);
+    //     // this.translationService.currentLanguage$.subscribe(language => {
+    //     //   if (language === 'no') {
+    //     //     this.buildChart(speciesGroups.map(sg => sg.no));
+    //     //   }
+    //     //   else {
+    //     //     this.buildChart(speciesGroups.map(sg => sg.en));
+    //     //   }
+    //     // });
 
-        });
+    //     return statisticsItems.sort((a, b) => b.imageCount - a.imageCount);
 
-        // build chart by language TODO: refactor
-
-        this.translationService.currentLanguage$.subscribe(language => {
-          if (language === 'no') {
-            this.buildChart(speciesGroups.map(sg => sg.no));
-          }
-          else {
-            this.buildChart(speciesGroups.map(sg => sg.en));
-          }
-        });
-  
-        return statisticsItems.sort((a, b) => b.imageCount - a.imageCount);
-
-      })
-    );
+    //   })
+    // );
 
   }
 

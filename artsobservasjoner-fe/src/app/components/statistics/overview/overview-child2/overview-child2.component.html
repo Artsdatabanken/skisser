@@ -30,14 +30,16 @@
                 </thead>
                 <tbody role="rowgroup">
                     <tr *ngFor="let item of data">
-                        <td role="cell">
+                        <th role="rowheader" scope="row">
+
                             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                                <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}</ng-container>
-                                <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}</ng-container>
+                                <app-species-group [speciesGroupId]="item.id" [language]="currentLanguage">
+                                </app-species-group>
 
                             </ng-container>
-                        </td>
+
+                        </th>
                         <td role="cell" class="td-number">
                             {{ item.imageCount | formatNumber }}
                         </td>
@@ -53,14 +55,13 @@
 
         </div>
 
-
-        <div class="chart-container">
+        <!-- <div class="chart-container">
             <canvas id="canvas1" #canvas1></canvas>
         </div>
 
         <div class="chart-container">
             <canvas id="canvas2" #canvas2></canvas>
-        </div>
+        </div> -->
 
         <ng-template #noData>
             <app-error-response></app-error-response>

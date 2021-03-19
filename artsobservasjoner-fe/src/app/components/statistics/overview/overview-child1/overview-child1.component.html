@@ -4,7 +4,8 @@
 
     <div class="section">
 
-        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as data; else noData">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            *ngIf="data$ | async as data; else noData">
 
             <table style="min-width: 60%; width: auto;">
                 <caption id="caption1" *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</caption>
@@ -17,33 +18,39 @@
                             {{ 'statistics.tableHeading_totalSightingsCount' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_totalSightingsCountThisYear1' | translate: { value: translationParam } }}
+                            {{ 'statistics.tableHeading_totalSightingsCountThisYear1' | translate: { value:
+                            translationParam } }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_totalSightingsCountThisYear2' | translate: { value: translationParam } }}
+                            {{ 'statistics.tableHeading_totalSightingsCountThisYear2' | translate: { value:
+                            translationParam } }}
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of data">
-                        <td role="cell">
-                            
+                        <th role="rowheader" scope="row">
+
                             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                                <ng-container *ngIf="currentLanguage === 'en'">{{ item.speciesGroup.en }}</ng-container>
-                                <ng-container *ngIf="currentLanguage === 'no'">{{ item.speciesGroup.no }}</ng-container>
+                                <app-species-group [speciesGroupId]="item.id" [language]="currentLanguage">
+                                </app-species-group>
 
                             </ng-container>
 
+                        </th>
+                        <td role="cell" class="td-number">
+                            {{ item.totalCount | formatNumber }}
                         </td>
                         <td role="cell" class="td-number">
-                            {{ item.count | formatNumber }}
+                            {{ item.totalPublished | formatNumber }}
                         </td>
-                        <td></td>
-                        <td></td>
+                        <td role="cell" class="td-number">
+                            {{ item.totalSighted | formatNumber }}
+                        </td>
                     </tr>
                 </tbody>
-        
+
             </table>
 
         </div>

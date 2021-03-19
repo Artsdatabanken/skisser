@@ -2,12 +2,10 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Chart } from 'chart.js';
-import { StatisticsItem } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { TranslationService } from 'src/app/services/translation.service';
-import { Category } from 'src/app/models/shared';
 
 @Component({
   selector: 'app-overview-child1',
@@ -50,45 +48,26 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
 
   getData(): void {
 
+    this.data$ = this.statisticsService.getSightingsCountPerSpeciesGroup();
+
     this.data$ = forkJoin([
       this.statisticsService.getSightingsCountPerSpeciesGroup(),
       this.statisticsService.getSpeciesGroups()
     ]).pipe(
-      map(([species, speciesGroups]) => {
+      map(([speciesData, speciesGroups]) => {
 
-        // ---------------------------------------- ***
-
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
-
-        // ---------------------------------------- ***
-
-        let statisticsItem: StatisticsItem;
-        let statisticsItems: StatisticsItem[] = [];
-
-        species.forEach(speciesItem => {
-
-          statisticsItem = {
-            id: speciesItem.id,
-            speciesGroup: getSpeciesGroup(speciesItem.id),
-            count: speciesItem.count
-          }
-
-          this.graphValues.push(speciesItem.count);
-
-          statisticsItems.push(statisticsItem);
-
+        speciesData.sort((a, b) => a['id'] - b['id']).forEach(speciesItem => {
+          this.graphValues.push(speciesItem['totalCount']);
         });
 
         // build chart by language TODO: refactor
+        // Denne kunne taes ut av this.data$; man bør da hente og loope gjennom speciesGroups separat
 
         this.translationService.currentLanguage$.subscribe(language => {
-          this.buildChart(speciesGroups.map(sg => sg[language]));
+          this.buildChart(speciesGroups.map(sg => sg[language]).sort((a, b) => a['id'] - b['id']));
         });
 
-        //this.buildChart();
-        return statisticsItems.sort((a, b) => b.count - a.count);
+        return speciesData.sort((a, b) => b['totalCount'] - a['totalCount']);
 
       })
     );

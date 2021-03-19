@@ -161,7 +161,7 @@ export class StatisticsService {
           statusObject[validationStatus.id] = {};
 
           speciesGroups.forEach(speciesGroup => {
-            statusObject[validationStatus.id][speciesGroup.id] = 0; 
+            statusObject[validationStatus.id][speciesGroup.id] = 0;
           });
 
         });
@@ -298,7 +298,6 @@ export class StatisticsService {
 
         });
 
-        console.log('map', map)
         return map;
 
       })
@@ -483,13 +482,13 @@ export class StatisticsService {
 
   // OVERVIEW STATISTICS
 
-  getSightingsCountPerSpeciesGroup(): Observable<StatisticsItem[]> {
+  getSightingsCountPerSpeciesGroup(): Observable<object[]> {
 
     return this.httpClient.get(this.OVERVIEW_STATS_1_API).pipe(
       map((response: any) => {
 
-        let statisticsItem: StatisticsItem;
-        let statisticsItems: StatisticsItem[] = [];
+        let statisticsItem: object;
+        let statisticsItems: object[] = [];
 
         response.sightingsCountPerSpeciesGroupStatistics.forEach(element => {
 
@@ -497,7 +496,9 @@ export class StatisticsService {
 
             statisticsItem = {
               id: element.speciesGroupId,
-              count: element.sightingCount
+              totalCount: element.sightingCount,
+              totalPublished: element.publishedThisYear,
+              totalSighted: element.observedThisYear
             }
 
             statisticsItems.push(statisticsItem);
@@ -506,7 +507,7 @@ export class StatisticsService {
 
         });
 
-        return statisticsItems;
+        return statisticsItems.sort((a, b) => b['totalCount'] - a['totalCount']);
 
       }),
       publishReplay(1),
