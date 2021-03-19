@@ -10,42 +10,44 @@
 
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }} </p>
 
-        <ng-container *ngIf="data$ | async as data; else noData">
+        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+            
+            <ng-container *ngIf="data$ | async as data; else noData">
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
+                <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
 
-                <table>
-                    <caption id="caption1">{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}</caption>
-                    <thead role="rowgroup">
-                        <tr role="row">
-                            <th scope="col" role="columnheader">
-                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_withMedia' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validated' |
-                                translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                            </th>
-                        </tr>
-                    </thead>
+                    <table>
+                        <caption id="caption1">{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}
+                        </caption>
+                        <thead role="rowgroup">
+                            <tr role="row">
+                                <th scope="col" role="columnheader">
+                                    {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_withMedia' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_validated' |
+                                    translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                                </th>
+                            </tr>
+                        </thead>
 
-                    <tbody role="rowgroup">
-                        <tr role="row" *ngFor="let item of data">
+                        <tbody role="rowgroup">
+                            <tr role="row" *ngFor="let item of data">
 
-                            <th role="rowheader" scope="row">
+                                <th role="rowheader" scope="row">
 
-                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
                                     <ng-container *ngIf="currentLanguage === 'en'">
                                         {{ item.speciesGroup.en }}
@@ -54,92 +56,90 @@
                                         {{ item.speciesGroup.no }}
                                     </ng-container>
 
-                                </ng-container>
 
-                            </th>
-                            <td role="cell" class="td-number"> {{ item.sightingTaxonCount | formatNumber }} </td>
-                            <td role="cell" class="td-number"> {{ item.count | formatNumber }}</td>
-                            <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | formatNumber }} </td>
-                            <td role="cell" class="td-number"> {{ item.validatedSightingCount | formatNumber }} </td>
-                            <td role="cell" class="td-number"> {{ item.approvedSightingCount | formatNumber }} </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </th>
+                                <td role="cell" class="td-number"> {{ item.sightingTaxonCount | formatNumber }} </td>
+                                <td role="cell" class="td-number"> {{ item.count | formatNumber }}</td>
+                                <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | formatNumber }}
+                                </td>
+                                <td role="cell" class="td-number"> {{ item.validatedSightingCount | formatNumber }}
+                                </td>
+                                <td role="cell" class="td-number"> {{ item.approvedSightingCount | formatNumber }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            </div>
+                </div>
+
+                <br><br>
+
+                <div class="table-container" tabindex="0" role="region" aria-labelledby="caption2">
+
+                    <table>
+                        <caption id="caption2">{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
+                        <thead role="rowgroup">
+                            <tr>
+                                <th scope="col" role="columnheader">
+                                    {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_validated' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                                </th>
+                                <th scope="col" role="columnheader" class="th-number">
+                                    {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody role="rowgroup">
+                            <tr role="row" *ngFor="let item of data">
+
+                                <th role="rowheader" scope="row">
+
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ item.speciesGroup.en }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ item.speciesGroup.no }}
+                                    </ng-container>
+
+                                </th>
+                                <td class="td-number" role="cell"> {{ item.count | formatNumber }} </td>
+                                <td class="td-number" role="cell"> {{ item.validatedSightingCount | formatNumber }}
+                                </td>
+                                <td class="td-number" role="cell"> {{ item.percentageSightedVsValidated }} %</td>
+                                <td class="td-number" role="cell"> {{ item.approvedSightingCount | formatNumber }} </td>
+                                <td class="td-number" role="cell"> {{ item.percentageValidatedVsApproved }} %</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p>
+                    {{ 'statistics.shared_tableDescription_excluded' | translate }}
+                    <br />
+                    {{ 'statistics.shared_tableDescription_approved' | translate }}
+                </p>
+
+                <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">
+                </app-validation-status-list>
+
+            </ng-container>
 
             <br><br>
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption2">
-
-                <table>
-                    <caption id="caption2">{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
-                    <thead role="rowgroup">
-                        <tr>
-                            <th scope="col" role="columnheader">
-                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validated' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                            </th>
-                            <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
-                            </th>
-                        </tr>
-                    </thead>
-
-                    <tbody role="rowgroup">
-                        <tr role="row" *ngFor="let item of data">
-
-                            <th role="rowheader" scope="row">
-
-                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                    <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ item.speciesGroup.en }}
-                                    </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ item.speciesGroup.no }}
-                                    </ng-container>
-
-                                </ng-container>
-
-                            </th>
-                            <td class="td-number" role="cell"> {{ item.count | formatNumber }} </td>
-                            <td class="td-number" role="cell"> {{ item.validatedSightingCount | formatNumber }} </td>
-                            <td class="td-number" role="cell"> {{ item.percentageSightedVsValidated }} %</td>
-                            <td class="td-number" role="cell"> {{ item.approvedSightingCount | formatNumber }} </td>
-                            <td class="td-number" role="cell"> {{ item.percentageValidatedVsApproved }} %</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-
-            </div>
-            <p>
-                {{ 'statistics.shared_tableDescription_excluded' | translate }}
-                <br />
-                {{ 'statistics.shared_tableDescription_approved' | translate }}
-            </p>
-
-            <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">
-            </app-validation-status-list>
-
-        </ng-container>
-
-        <br><br>
-
-        <ng-container *ngIf="validatedDataByStatus$ | async as validatedData; else noData2">
-            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+            <ng-container *ngIf="validatedDataByStatus$ | async as validatedData; else noData">
 
                 <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
 
@@ -196,195 +196,8 @@
                 </div>
 
             </ng-container>
+
         </ng-container>
-
-        <ng-template #noData2>
-            Waaaaaaaa
-        </ng-template>
-
-        <!-- <table class="tbl tbl--lg">
-            <caption>{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
-            <thead role="rowgroup">
-                <tr role="row">
-                    <th scope="col" role="columnheader">{{ 'statistics.tableHeading_validationCategory' | translate }}
-                    </th>
-                    <th scope="col" role="columnheader" class="th-number">Karplanter</th>
-                    <th scope="col" role="columnheader" class="th-number">Alger</th>
-                    <th scope="col" role="columnheader" class="th-number">Pattedyr</th>
-                    <th scope="col" role="columnheader" class="th-number">Amfibier og reptiler</th>
-                    <th scope="col" role="columnheader" class="th-number">Flaggermus</th>
-                    <th scope="col" role="columnheader" class="th-number">Moser</th>
-                    <th scope="col" role="columnheader" class="th-number">Lav</th>
-                    <th scope="col" role="columnheader" class="th-number">Fugler</th>
-                    <th scope="col" role="columnheader" class="th-number">Sopp</th>
-                    <th scope="col" role="columnheader" class="th-number">Virvelløse dyr</th>
-                    <th scope="col" role="columnheader" class="th-number">Fisk</th>
-
-                </tr>
-            </thead>
-
-            <tbody role="rowgroup">
-                <tr role="row">
-                    <th scope="row" role="rowheader">Godkjent basert på observatørens opplysninger</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Godkjent. Belegg gransket av validator</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Godkjent. Foto eller lyd godkjent av validator</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Godkjent basert på determinators verifisering</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Godkjent, basert på en tidligere sjeldenhetsrapport</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Godkjent, funnet er sannsynlig</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Kontrollert, behøver ikke valideres</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Kontrollert, kan ikke valideres</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Ufullstendig rapportering</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th scope="row" role="rowheader">Underkjent</th>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Karplanter'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Alger'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Pattedyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Amfibier og reptiler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Flaggermus'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Moser'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Lav'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fugler'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Sopp'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Virvelløse dyr'">314</td>
-                    <td role="cell" class="td-number" [attr.data-heading]="'Fisk'">314</td>
-                </tr>
-            </tbody>
-
-        </table> -->
 
         <ng-template #noData>
             <app-error-response></app-error-response>
