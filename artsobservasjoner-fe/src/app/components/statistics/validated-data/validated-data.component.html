@@ -139,62 +139,63 @@
         <br><br>
 
         <ng-container *ngIf="validatedDataByStatus$ | async as validatedData; else noData2">
+            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
+                <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
 
-                <table class="custom-table">
-                    <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+                    <table class="custom-table">
+                        <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
 
-                    <thead role="rowgroup">
+                        <thead role="rowgroup">
 
-                        <tr role="row">
+                            <tr role="row">
 
-                            <th role="columnheader" scope="column">
-                                {{ 'statistics.tableHeading_validationCategory' | translate }}
-                            </th>
+                                <th role="columnheader" scope="column">
+                                    {{ 'statistics.tableHeading_validationCategory' | translate }}
+                                </th>
 
-                            <!-- TODO: lage funksjon som returnerer riktig artsgruppe basert på språk -->
-                            <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
-                                <ng-container *ngFor="let sp of speciesGroups">
-                                    <ng-container *ngIf="currentLanguage$ | async as cl">
+                                <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
+                                    <ng-container *ngFor="let sp of speciesGroups">
+
                                         <th role="columnheader" class="th-number">
-                                            <ng-container *ngIf="cl === 'no'"> {{ sp.no }} </ng-container>
-                                            <ng-container *ngIf="cl === 'en'"> {{ sp.en }} </ng-container>
+                                            <ng-container *ngIf="currentLanguage === 'no'"> {{ sp.no }} </ng-container>
+                                            <ng-container *ngIf="currentLanguage === 'en'"> {{ sp.en }} </ng-container>
                                         </th>
+
                                     </ng-container>
                                 </ng-container>
-                            </ng-container>
 
-                            <!-- <ng-container *ngFor="let item of validatedData | newKeyValue | slice: 0: 1">
-                                <ng-container *ngFor="let element of item.value | newKeyValue">
-                                    <th role="columnheader" class="th-number">{{ element.key }}</th>
-                                </ng-container>
-                            </ng-container> -->
+                                <!-- <app-species-group [speciesGroupId]="item.key" [language]="currentLanguage">
+                                </app-species-group> -->
 
-                        </tr>
+                            </tr>
 
-                    </thead>
+                        </thead>
 
-                    <tbody role="rowgroup" *ngFor="let item of validatedData | newKeyValue">
+                        <tbody role="rowgroup" *ngFor="let item of validatedData | newKeyValue">
 
-                        <tr role="row">
+                            <tr role="row">
 
-                            <th role="rowheader" scope="row">
-                                {{ item.key }} ::: {{ validationStatusName }}
-                               
-                            </th>
+                                <th role="rowheader" scope="row">
+                                    <!-- {{ item.key }} -->
 
-                            <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
-                                {{ element.value | formatNumber }}
-                            </td>
-                        </tr>
+                                    <app-validation-status [validationStatusId]="item.key" [language]="currentLanguage">
+                                    </app-validation-status>
 
-                    </tbody>
+                                </th>
 
-                </table>
+                                <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
+                                    {{ element.value | formatNumber }}
+                                </td>
+                            </tr>
 
-            </div>
+                        </tbody>
 
+                    </table>
+
+                </div>
+
+            </ng-container>
         </ng-container>
 
         <ng-template #noData2>

@@ -108,6 +108,7 @@ import { IconBadgeComponent } from './reusable/icon-badge/icon-badge.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
 import { GetObjectsNamePipe } from './pipes/get-objects-name.pipe';
 import { ValidationStatusListComponent } from './components/shared/validation-status-list/validation-status-list.component';
+import { SpeciesGroupComponent } from './components/shared/species-group/species-group.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -209,7 +210,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     IconBadgeComponent,
     FormatNumberPipe,
     GetObjectsNamePipe,
-    ValidationStatusListComponent
+    ValidationStatusListComponent,
+    SpeciesGroupComponent
   ],
   imports: [
     BrowserModule,
