@@ -53,21 +53,13 @@
 
                                 <span *ngIf="i === 0">
                                     <app-species-group [speciesGroupId]="species.key.id" [language]="currentLanguage">
-                                    </app-species-group>
-                                    <!-- 
-                                        <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
-                                        <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
-                                    -->
+                                    </app-species-group>                                
                                 </span>
 
                                 <!--for screen readers-->
                                 <span *ngIf="i > 0" class="td-hidden">
                                     <app-species-group [speciesGroupId]="species.key.id" [language]="currentLanguage">
-                                    </app-species-group>
-                                    <!-- 
-                                        <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
-                                        <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container> 
-                                    -->
+                                    </app-species-group>                                   
                                 </span>
                                 <!--for screen readers-->
 
