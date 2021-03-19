@@ -4,7 +4,64 @@
 
     <div class="section">
 
-    
+        <ng-container *ngIf="data$ | async as data">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
+
+                <table>
+                    <caption id="caption1"></caption>
+                    <thead>
+                        <tr>
+                            <th role="columnheader" scope="col">
+                                {{ 'statistics.tableHeading_reportingMethod' | translate }}
+                            </th>
+                            <th role="columnheader" scope="col">
+                                {{ 'statistics.tableHeading_reportingMethod' | translate }}
+                            </th>
+                            <th role="columnheader" scope="col" class="th-number">
+                                {{ 'statistics.tableHeading_usersCount' | translate }}
+                            </th>
+                            <th role="columnheader" scope="col" class="th-number">
+                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            </th>
+                            <th role="columnheader" scope="col" class="th-number">
+                                {{ 'statistics.tableHeading_totalPercentage' | translate }} **
+                            </th>
+                            <th role="columnheader" scope="col" class="th-number">
+                                {{ 'statistics.tableHeading_nullFindingsTotal' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                            <tr *ngFor="let item of data">
+
+                                <th role="rowheader" scope="row">
+
+                                    <ng-container *ngIf="currentLanguage === 'no'">
+                                        {{ item.dataSource.no }}
+                                    </ng-container>
+                                    <ng-container *ngIf="currentLanguage === 'en'">
+                                        {{ item.dataSource.en }}
+                                    </ng-container>
+
+                                </th>
+                                <td role="cell">
+                                    {{ item.apiDataSource?.name }}
+                                </td>
+                                <td role="cell" class="td-number">{{ item.reportersCount | formatNumber }}</td>
+                                <td role="cell" class="td-number">{{ item.sightingsCount | formatNumber }}</td>
+                                <td role="cell"></td>
+                                <td role="cell" class="td-number">{{ item.nullFindingsCount | formatNumber }}</td>
+
+                            </tr>
+
+                        </ng-container>
+                    </tbody>
+                </table>
+
+            </div>
+        </ng-container>
 
     </div>
 

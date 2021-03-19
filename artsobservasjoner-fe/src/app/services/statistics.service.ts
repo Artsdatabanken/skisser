@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { map, publishReplay, refCount, tap } from 'rxjs/operators';
+import { map, observeOn, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
@@ -42,11 +42,15 @@ export class StatisticsService {
   SPECIES_GROUP_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
   ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
   VALIDATION_STATUS_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
+  DATA_SOURCE_LIST_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetDatasourceTypeList';
+  DATA_SOURCE_LIS2_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetApiList';
 
   OVERVIEW_STATS_1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
   OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
   OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYear';
   OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
+
+  SIGHTINGS_PER_SOURCE_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsDataPerDataSource';
 
   USER_COUNT1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountThisYear';
   USER_COUNT2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLastYear';
@@ -410,6 +414,60 @@ export class StatisticsService {
 
   }
 
+  // DATA SOURCE LIST
+
+  getDataSourceList(): Observable<Category[]> {
+
+    return this.httpClient.get(this.DATA_SOURCE_LIST_API).pipe(
+      map((response: any) => {
+
+        console.log('r', response)
+
+        let objs: Category[] = [];
+
+        response.forEach(element => {
+          const obj: Category = {
+            id: element.dataSourceTypeId,
+            label: element.type,
+            en: element.resourceLabels[0].label,
+            no: element.resourceLabels[1].label,
+          }
+
+          objs.push(obj);
+        });
+
+        return objs;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getApiDataSourceList(): Observable<object[]> {
+
+    return this.httpClient.get(this.DATA_SOURCE_LIS2_API).pipe(
+      map((response: any) => {
+
+        let objs: object[] = [];
+
+        response.forEach(element => {
+          objs.push({
+            id: element.id,
+            name: element.name
+          })
+        });
+
+        return objs;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
   // NUMBERS STATISTICS
 
   getTotalCount(stats: string): Observable<TotalCountStatistic> {
@@ -608,6 +666,38 @@ export class StatisticsService {
         }
 
         return projectsCount;
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getSightingsPerDataSource(): Observable<object[]> {
+
+    return this.httpClient.get(this.SIGHTINGS_PER_SOURCE_API).pipe(
+      map((response: any) => {
+
+        let sightingsPerDataSource: object[] = [];
+
+        response['sightingDataPerDataSourceStatistics'].forEach(element => {
+
+
+          let obj: object = {
+            dataSourceId: element.dataSourceTypeId,
+            apiId: element.apiId,
+            reportersCount: element.reportersCount,
+            sightingsCount: element.sightingCount,
+            nullFindingsCount: element.notPresentOrRecoveredCount
+          };
+
+          sightingsPerDataSource.push(obj);
+
+        });
+
+        console.log('sightingsPerDataSource', sightingsPerDataSource);
+        return sightingsPerDataSource;
+
       }),
       publishReplay(1),
       refCount()

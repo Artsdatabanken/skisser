@@ -123,6 +123,10 @@
         "tableHeading_shareValidatedAndApproved": "Andel kvalitetssjekket og godkjent",
         "tableHeading_sightedTaxonCount": "Antall taxa observert",
         "tableHeading_withMedia": "Med bilder",
-        "tableHeading_percentArtsobsInArtskart": "Andel data fra Artsobservasjoner<br> i Artskart"
+        "tableHeading_percentArtsobsInArtskart": "Andel data fra Artsobservasjoner<br> i Artskart",
+        "tableHeading_reportingMethod": "Registreringsmetode",
+        "tableHeading_usersCount": "Antall brukere",
+        "tableHeading_totalPercentage": "Andel (%) av totalen",
+        "tableHeading_nullFindingsTotal": "Antall nullfunn***"
     }
 }
