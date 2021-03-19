@@ -29,19 +29,18 @@ export class SpeciesGroupComponent implements OnInit {
 
     this.speciesGroup$ = combineLatest([
       this.currentLanguage$,
-      this.statisticsService.getValidationStatus()
+      this.statisticsService.getSpeciesGroups()
     ]).pipe(
-      map(([ currentLanguage, speciesGroups ]) => {
+      map(([currentLanguage, speciesGroups]) => {
 
-        console.log('speciesGroups', speciesGroups);
+        const speciesGroupObject: Category = speciesGroups.find(sg => sg.id == this.speciesGroupId);
 
-        const speciesGroupObject: Category = speciesGroups.find(vs => vs.id == this.speciesGroupId);
-        let result: string;
+        let result: string = '';
 
-        if (currentLanguage == 'no') result = speciesGroupObject.no;
-        if (currentLanguage == 'en') result = speciesGroupObject.en;
-
-        console.log('speciesGroups', result);
+        if (speciesGroupObject) {
+          if (currentLanguage == 'no') result = speciesGroupObject.no;
+          if (currentLanguage == 'en') result = speciesGroupObject.en;
+        }
 
         return result;
 

@@ -19,60 +19,64 @@
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
             *ngIf="data$ | async as alienSpecies; else noData">
 
-            <table class="custom-table">
-                <caption id="caption1">{{ 'statistics.tableCaption_alienSpeciesData' | translate }}</caption>
-                <thead role="rowgroup">
-                    <tr role="row">
-                        <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_riskGroup' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_withMedia' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_validated' | translate }}
-                        </th>
-                        <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                        </th>
-                    </tr>
-                </thead>
+            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
-                <tbody role="rowgroup" *ngFor="let species of alienSpecies | keyvalue">
-                    <tr role="row" *ngFor="let data of species.value.data; let i = index">
-                        
-                        <th scope="row" role="rowheader">
+                <table class="custom-table">
+                    <caption id="caption1">{{ 'statistics.tableCaption_alienSpeciesData' | translate }}</caption>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_riskGroup' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_withMedia' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validated' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
 
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                    <tbody role="rowgroup" *ngFor="let species of alienSpecies | keyvalue">
+                        <tr role="row" *ngFor="let data of species.value.data; let i = index">
+
+                            <th scope="row" role="rowheader">
 
                                 <span *ngIf="i === 0">
-                                    <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
+                                    <app-species-group [speciesGroupId]="species.key.id" [language]="currentLanguage">
+                                    </app-species-group>
+                                    <!-- 
+                                        <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
+                                        <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
+                                    -->
                                 </span>
-
 
                                 <!--for screen readers-->
                                 <span *ngIf="i > 0" class="td-hidden">
-                                    <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container>
+                                    <app-species-group [speciesGroupId]="species.key.id" [language]="currentLanguage">
+                                    </app-species-group>
+                                    <!-- 
+                                        <ng-container *ngIf="currentLanguage === 'en'">{{ species.key.en }}</ng-container>
+                                        <ng-container *ngIf="currentLanguage === 'no'">{{ species.key.no }}</ng-container> 
+                                    -->
                                 </span>
                                 <!--for screen readers-->
 
-                            </ng-container>
+                            </th>
+                            <td role="cell">
 
-                        </th>
-                        <td role="cell">
+                                {{ data.assessmentCategory.code }}
 
-                            {{ data.assessmentCategory.code }}
-
-                            <span class="sr-only">
-                                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                                <span class="sr-only">
 
                                     <ng-container *ngIf="currentLanguage === 'en'">
                                         {{ data.assessmentCategory.en }}
@@ -81,26 +85,27 @@
                                         {{ data.assessmentCategory.no }}
                                     </ng-container>
 
-                                </ng-container>
-                            </span>
+                                </span>
 
-                        </td>
-                        <td class="td-number" role="cell">
-                            {{ data.sightingsCount | formatNumber }}
-                        </td>
-                        <td class="td-number" role="cell">
-                            {{ data.imagesCount | formatNumber }}
-                        </td>
-                        <td class="td-number" role="cell">
-                            {{ data.validatedCount | formatNumber }}
-                        </td>
-                        <td class="td-number" role="cell">
-                            {{ data.approvedCount | formatNumber }}
-                        </td>
-                    </tr>
-                </tbody>
+                            </td>
+                            <td class="td-number" role="cell">
+                                {{ data.sightingsCount | formatNumber }}
+                            </td>
+                            <td class="td-number" role="cell">
+                                {{ data.imagesCount | formatNumber }}
+                            </td>
+                            <td class="td-number" role="cell">
+                                {{ data.validatedCount | formatNumber }}
+                            </td>
+                            <td class="td-number" role="cell">
+                                {{ data.approvedCount | formatNumber }}
+                            </td>
+                        </tr>
+                    </tbody>
 
-            </table>
+                </table>
+
+            </ng-container>
 
             <p>
                 {{ 'statistics.shared_tableDescription_excluded' | translate }}
