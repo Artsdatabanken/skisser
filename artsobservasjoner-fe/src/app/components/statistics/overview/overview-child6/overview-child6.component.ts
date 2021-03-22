@@ -5,6 +5,7 @@ import { Category } from 'src/app/models/shared';
 import { LayoutService } from 'src/app/services/layout.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-overview-child6',
@@ -17,11 +18,14 @@ export class OverviewChild6Component implements OnInit {
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
   data$;
+  sum: number;
+  partialSum: number;
 
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
-    private statisticsService: StatisticsService
+    private statisticsService: StatisticsService,
+    private utilitiesService: UtilitiesService
   ) { }
 
   ngOnInit(): void {
@@ -54,17 +58,20 @@ export class OverviewChild6Component implements OnInit {
 
         sightingsPerDataSource.forEach(element => {
 
+          this.sum = sightingsPerDataSource.reduce((sum, current) => sum + current['sightingsCount'], 0);
+
           let obj: object = {
             dataSource: getDataSource1(element['dataSourceId']),
             apiDataSource: getDataSource2(element['apiId']),
             reportersCount: element['reportersCount'],
             sightingsCount: element['sightingsCount'],
-            nullFindingsCount: element['nullFindingsCount']
+            percent: this.utilitiesService.getPercentage(this.sum, element['sightingsCount']),
+            nullFindingsCount: element['nullFindingsCount'],
           }
 
-          const sum = sightingsPerDataSource.reduce((sum, current) => sum + current['sightingsCount'], 0);
 
-          console.log('XXXXXXXXXX', sum)
+
+          console.log('XXXXXXXXXX', this.sum)
 
           objs.push(obj);
 

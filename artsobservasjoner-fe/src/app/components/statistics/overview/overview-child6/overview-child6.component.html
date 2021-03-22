@@ -51,15 +51,29 @@
                                 </td>
                                 <td role="cell" class="td-number">{{ item.reportersCount | formatNumber }}</td>
                                 <td role="cell" class="td-number">{{ item.sightingsCount | formatNumber }}</td>
-                                <td role="cell"></td>
+                                <td role="cell" class="td-number">{{ item.percent }}</td>
                                 <td role="cell" class="td-number">{{ item.nullFindingsCount | formatNumber }}</td>
 
                             </tr>
 
                         </ng-container>
                     </tbody>
+                    <tfoot role="rowgroup">
+                        <tr>
+                            <th role="rowheader" scope="row">{{ 'statistics.tableHeading_totalSightingsCount' | translate }}*</th>
+                            <td></td>
+                            <td></td>
+                            <td role="cell" class="td-number">{{ sum | formatNumber }}</td>
+                            <td role="cell" class="td-number">100</td>
+                            <td role="cell"></td>
+                        </tr>
+                    </tfoot>
                 </table>
 
+            </div>
+
+            <div class="footnote">
+                
             </div>
         </ng-container>
 
