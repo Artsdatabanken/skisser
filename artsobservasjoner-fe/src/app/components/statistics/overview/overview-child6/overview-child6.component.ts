@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Footnote } from 'src/app/models/footnote';
 import { Category } from 'src/app/models/shared';
 import { LayoutService } from 'src/app/services/layout.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
@@ -19,7 +20,7 @@ export class OverviewChild6Component implements OnInit {
   currentLanguage$: Observable<string>;
   data$;
   sum: number;
-  partialSum: number;
+  footnotes: Footnote[];
 
   constructor(
     private layoutService: LayoutService,
@@ -33,7 +34,13 @@ export class OverviewChild6Component implements OnInit {
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_6');
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
-    this.data$ = this.statisticsService.getSightingsPerDataSource();
+    this.getData();
+
+  }
+
+  //document.querySelectorAll('.special').length
+
+  getData(): void {
 
     this.data$ = forkJoin([
       this.statisticsService.getSightingsPerDataSource(),
@@ -69,10 +76,6 @@ export class OverviewChild6Component implements OnInit {
             nullFindingsCount: element['nullFindingsCount'],
           }
 
-
-
-          console.log('XXXXXXXXXX', this.sum)
-
           objs.push(obj);
 
         });
@@ -82,6 +85,6 @@ export class OverviewChild6Component implements OnInit {
       })
     );
 
-
   }
+
 }

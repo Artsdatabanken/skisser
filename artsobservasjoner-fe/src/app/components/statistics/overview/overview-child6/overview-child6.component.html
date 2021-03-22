@@ -4,6 +4,10 @@
 
     <div class="section">
 
+        <p class="body-text">
+            {{ 'statistics.tableDescription_sightsByRegisterType' | translate }}
+        </p>
+
         <ng-container *ngIf="data$ | async as data">
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
 
@@ -27,7 +31,7 @@
                                 {{ 'statistics.tableHeading_totalPercentage' | translate }} **
                             </th>
                             <th role="columnheader" scope="col" class="th-number">
-                                {{ 'statistics.tableHeading_nullFindingsTotal' | translate }}
+                                {{ 'statistics.tableHeading_nullFindingsTotal' | translate }} ***
                             </th>
                         </tr>
                     </thead>
@@ -51,7 +55,7 @@
                                 </td>
                                 <td role="cell" class="td-number">{{ item.reportersCount | formatNumber }}</td>
                                 <td role="cell" class="td-number">{{ item.sightingsCount | formatNumber }}</td>
-                                <td role="cell" class="td-number">{{ item.percent }}</td>
+                                <td role="cell" class="td-number">{{ item.percent }} %</td>
                                 <td role="cell" class="td-number">{{ item.nullFindingsCount | formatNumber }}</td>
 
                             </tr>
@@ -60,11 +64,12 @@
                     </tbody>
                     <tfoot role="rowgroup">
                         <tr>
-                            <th role="rowheader" scope="row">{{ 'statistics.tableHeading_totalSightingsCount' | translate }}*</th>
+                            <th role="rowheader" scope="row">{{ 'statistics.tableHeading_totalSightingsCount' |
+                                translate }} *
                             <td></td>
                             <td></td>
                             <td role="cell" class="td-number">{{ sum | formatNumber }}</td>
-                            <td role="cell" class="td-number">100</td>
+                            <td role="cell" class="td-number">100 %</td>
                             <td role="cell"></td>
                         </tr>
                     </tfoot>
@@ -72,9 +77,13 @@
 
             </div>
 
-            <div class="footnote">
-                
-            </div>
+            <ol class="footnotes">
+                <li><span>*</span> <span>{{ 'statistics.tableFootnote_totalSightinsDifference' | translate }}</span></li>
+                <li><span>**</span> <span>{{ 'statistics.tableFootnote_percentByRegisterType' | translate }}</span></li>
+                <li><span>***</span> <span>{{ 'statistics.tableFootnote_nullFindings' | translate }}</span></li>
+
+                <!-- <app-footnotes *ngFor="let footnote of footnotes" [element]="footnote"></app-footnotes> -->
+            </ol>
         </ng-container>
 
     </div>

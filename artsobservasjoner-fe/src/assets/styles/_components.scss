@@ -110,3 +110,25 @@
     }
 }
 
+// footnotes
+
+.footnotes {
+    font-size: 16px;
+    font-weight: 600;
+
+    li {
+        display: grid;
+        grid-template-columns: 50px auto;
+        list-style-type: none;
+
+        text-align: left;
+
+        span {        
+            &:first-child {
+                @include customVar(color, clrBlack);
+                font-weight: 800;
+            }
+        
+        }
+    }
+}

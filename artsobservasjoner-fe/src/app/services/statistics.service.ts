@@ -421,8 +421,6 @@ export class StatisticsService {
     return this.httpClient.get(this.DATA_SOURCE_LIST_API).pipe(
       map((response: any) => {
 
-        console.log('r', response)
-
         let objs: Category[] = [];
 
         response.forEach(element => {
@@ -695,7 +693,6 @@ export class StatisticsService {
 
         });
 
-        console.log('sightingsPerDataSource', sightingsPerDataSource);
         return sightingsPerDataSource;
 
       }),

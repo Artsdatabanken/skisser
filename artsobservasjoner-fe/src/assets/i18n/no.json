@@ -97,6 +97,7 @@
         "tableDescription_validatedData": "Tabellen(e) viser antall taxa observert og antall observasjoner per artsgruppe.",
         "tableDescription_sightingCountArtsobsVsArtskart": "Grafen viser antall observasjoner i Artsobservasjoner sammenstilt med antall funn i Artskart. Artskart samler stedfestet informasjon om arter i Norge fra alle datakilder, inkludert Artsobservasjoner.",
         "tableDescription_imageCountPerSpeciesGroup": "Tabellen viser antall bilder per artsgruppe og antall bilder per artsgruppe der bildet har en åpen lisens. En åpen lisens er en av følgende Creative Commons-lisenser:<ul><li>CC BY 4.0 - Navngivelse</li><li>CC BY-SA - Navngivelse-DelPåSammeVilkår </li><li>CC BY-NC-SA - Navngivelse-IkkeKommersiell-DelPåSammeVilkår</li></ul><br>Alternativet til de tre åpne lisensene er <em>Alle rettigheter forbeholdt</em>.",
+        "tableDescription_sightsByRegisterType": "Tabellen viser antall brukere som har registrert observasjoner via de ulike registreringsmåtene nettskjema, Excelimport, mobilløsningen, Sabimas Artsjakten app og prosjekter. Tabellen viser også antall observasjoner som er registrert per registreringsmåte.",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",
@@ -127,6 +128,9 @@
         "tableHeading_reportingMethod": "Registreringsmetode",
         "tableHeading_usersCount": "Antall brukere",
         "tableHeading_totalPercentage": "Andel (%) av totalen",
-        "tableHeading_nullFindingsTotal": "Antall nullfunn***"
+        "tableHeading_nullFindingsTotal": "Antall nullfunn",
+        "tableFootnote_totalSightinsDifference": "Totalen viser færre observasjoner enn annen statistikk på grunn av at noen observasjoner ikke har en bruker knyttet til seg",
+        "tableFootnote_percentByRegisterType": "Hvor mange av alle artsobservasjonene er registrert på denne måten",
+        "tableFootnote_nullFindings": "Arten er lett etter, men ikke funnet eller ikke gjenfunnet"
     }
 }
