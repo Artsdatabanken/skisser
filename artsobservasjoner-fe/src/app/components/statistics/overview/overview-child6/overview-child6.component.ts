@@ -53,7 +53,6 @@ export class OverviewChild6Component implements OnInit {
         let objs: object[] = [];
 
         sightingsPerDataSource.forEach(element => {
-          console.log('elem', element)
 
           let obj: object = {
             dataSource: getDataSource1(element['dataSourceId']),
@@ -62,6 +61,10 @@ export class OverviewChild6Component implements OnInit {
             sightingsCount: element['sightingsCount'],
             nullFindingsCount: element['nullFindingsCount']
           }
+
+          const sum = sightingsPerDataSource.reduce((sum, current) => sum + current['sightingsCount'], 0);
+
+          console.log('XXXXXXXXXX', sum)
 
           objs.push(obj);
 
