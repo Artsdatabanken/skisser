@@ -37,9 +37,22 @@
         "menu_statusPage": "Driftsmeldinger"
     },
     "shared": {
+        "month_january": "",
+        "month_february": "",
+        "month_march": "",
+        "month_april": "",
+        "month_may": "",
+        "month_june": "",
+        "month_july": "",
+        "month_august": "",
+        "month_september": "",
+        "month_october": "",
+        "month_november": "",
+        "month_december": "",
         "footnotes": "Fotnoter",
         "at": "kl.",
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."
+    
     },
     "headings": {
         "announcements": "Flere kunngjøringer",

@@ -4,6 +4,8 @@
 
     <div class="section">
 
+        <div *ngIf="data$ | async as data">{{ data }}</div>
+
         <div class="chart-container">
             <canvas id="myCanvas" #myCanvas></canvas>
         </div>

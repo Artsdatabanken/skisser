@@ -1,0 +1,585 @@
+[
+	{
+		"SpeciesGroupId": 1,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 14723
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 7392
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 11515
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 40467
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 155706
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 400567
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 619164
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 295750
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 108655
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 60928
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 24522
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 10731
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 2,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 3997
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 3670
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 5670
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 11356
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 12801
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 9153
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 11697
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 11604
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 12424
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 10815
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 5755
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 3018
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 3,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 6370
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 5060
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 8168
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 11677
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 10364
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 10593
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 13461
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 12875
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 11670
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 9626
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 6926
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 4747
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 4,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 8647
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 6827
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 12199
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 15885
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 14390
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 13336
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 22931
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 78516
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 100101
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 41896
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 18383
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 8044
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 5,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 453
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 241
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 659
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 680
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 526
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 723
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 799
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 809
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 408
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 463
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 298
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 228
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 7,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 3366
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 2732
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 9938
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 32909
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 71004
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 124971
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 172670
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 116834
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 49092
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 18068
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 7025
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 2427
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 8,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 1108458
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 775498
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 1304429
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 2304197
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 2748026
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 1584274
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 1261142
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 1445277
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 1477934
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 1447012
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 870201
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 740031
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 9,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 30
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 26
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 375
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 2714
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 6500
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 3095
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 2927
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 2221
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 1147
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 266
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 22
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 13
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 11,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 9278
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 8056
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 9062
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 9979
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 11507
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 8869
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 8412
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 6968
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 6042
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 5878
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 4965
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 5156
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 12,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 69
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 55
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 32
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 125
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 404
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 532
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 2528
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 1337
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 631
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 206
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 54
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 16
+			}
+		]
+	},
+	{
+		"SpeciesGroupId": 14,
+		"Data": [
+			{
+				"monthNumber": 1,
+				"SightingCount": 456
+			},
+			{
+				"monthNumber": 2,
+				"SightingCount": 612
+			},
+			{
+				"monthNumber": 3,
+				"SightingCount": 610
+			},
+			{
+				"monthNumber": 4,
+				"SightingCount": 912
+			},
+			{
+				"monthNumber": 5,
+				"SightingCount": 1294
+			},
+			{
+				"monthNumber": 6,
+				"SightingCount": 1561
+			},
+			{
+				"monthNumber": 7,
+				"SightingCount": 2261
+			},
+			{
+				"monthNumber": 8,
+				"SightingCount": 1932
+			},
+			{
+				"monthNumber": 9,
+				"SightingCount": 1570
+			},
+			{
+				"monthNumber": 10,
+				"SightingCount": 1044
+			},
+			{
+				"monthNumber": 11,
+				"SightingCount": 472
+			},
+			{
+				"monthNumber": 12,
+				"SightingCount": 291
+			}
+		]
+	}
+]

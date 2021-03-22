@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
-import { map, observeOn, publishReplay, refCount, tap } from 'rxjs/operators';
+import { forkJoin, Observable, of } from 'rxjs';
+import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
+import { Category } from '../models/shared';
+import MonthlySightingsCount from '../data/SightingCountMonth2.json';
+
 import {
   AssessmentCategory,
   AssessedSpeciesItem,
@@ -18,7 +21,7 @@ import {
   SIGHTINGS_PER_YEAR,
   VALIDATION_STATUS
 } from '../models/statistics';
-import { Category } from '../models/shared';
+
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +35,10 @@ export class StatisticsService {
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
+
+  // JSON
+
+  monthlySightings: any = MonthlySightingsCount;
 
   // API
 
@@ -700,6 +707,33 @@ export class StatisticsService {
       refCount()
     );
 
+  }
+
+  getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<object[]> {
+    return of(this.monthlySightings).pipe(
+      tap(t => console.log('t', t)),
+      map((response: any) => {
+
+        let items: object[] = [];
+
+        response.forEach(element => {
+
+          let item: object = {
+            speciesGroupId: element.SpeciesGroupId,
+            month: element.monthNumber,
+            count: element.sightingsCount
+          }
+
+          items.push(item);
+
+        });
+
+        return items;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
   }
 
 }

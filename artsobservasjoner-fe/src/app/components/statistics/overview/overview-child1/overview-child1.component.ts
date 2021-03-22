@@ -13,7 +13,7 @@ import { TranslationService } from 'src/app/services/translation.service';
   styleUrls: ['./overview-child1.component.scss']
 })
 
-export class OverviewChild1Component implements OnInit, AfterViewInit {
+export class OverviewChild1Component implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
@@ -44,11 +44,7 @@ export class OverviewChild1Component implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit() { }
-
   getData(): void {
-
-    this.data$ = this.statisticsService.getSightingsCountPerSpeciesGroup();
 
     this.data$ = forkJoin([
       this.statisticsService.getSightingsCountPerSpeciesGroup(),
