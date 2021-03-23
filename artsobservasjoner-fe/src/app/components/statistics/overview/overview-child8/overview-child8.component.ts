@@ -22,7 +22,7 @@ export class OverviewChild8Component implements OnInit {
   months: typeof MONTHS = MONTHS;
 
   graphLabels: string[] = [];
-  graphValues: number[] = [];
+  // graphValues: number[] = [];
   graphColors: string[] = GRAPHCOLORS;
 
   constructor(
@@ -56,29 +56,40 @@ export class OverviewChild8Component implements OnInit {
         const tempMonths: any[] = data.map(d => d['month']);
         const months: any[] = [...new Set(tempMonths)];
 
+        const generateRandomColor = (): string => {
+          let length = 6;
+          const chars = '0123456789ABCDEF';
+          let hex = '#';
+          while (length--) hex += chars[(Math.random() * 16) | 0];
+          return hex;
+        }
+
         // ---------------------------------------- ***
 
         let datasets: object[] = [];
 
         data.forEach(d => {
 
-          //const countBySpeciesGroup: number[] = 
+          //const countBySpeciesGroup: number[] = [];
 
           const graphObject: object = {
 
             data: [12, 14, 16, 17, 3, 0, 11],
             label: getSpeciesGroup(d['speciesGroupId']),
-            borderColor: '#f50000',
+            borderColor: generateRandomColor(),
             borderWidth: 2,
             fill: false
-  
+
           }
+
+          console.log('graphObject', graphObject)
+          datasets.push(graphObject);
         });
 
 
+        //this.buildChart(null, datasets)
 
-
-        console.log('data', data)
+        //console.log('data', datasets)
 
         return data;
 
@@ -88,7 +99,7 @@ export class OverviewChild8Component implements OnInit {
   }
 
 
-  buildChart(labels?: string[], gValues1?: number[], gValues2?: number[]): void {
+  buildChart(labels?: string[], datasets?: object[]): void {
 
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
@@ -100,29 +111,30 @@ export class OverviewChild8Component implements OnInit {
       type: 'line',
       data: {
         labels: ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
-        datasets: [
-          {
-            data: [12, 14, 16, 17, 3, 0, 11],
-            label: 'Karplanter',
-            borderColor: '#f50000',
-            borderWidth: 2,
-            fill: false
-          },
-          {
-            data: [7, 12, 17, 5, 4, 21],
-            label: 'Pattedyr',
-            borderColor: this.graphColors[5],
-            borderWidth: 2,
-            fill: false
-          },
-          {
-            data: [1, 4, 7, 11, 2, 8],
-            label: 'Alger',
-            borderColor: '#330055',
-            borderWidth: 2,
-            fill: false
-          }
-        ]
+        datasets: datasets
+        // datasets: [
+        //   {
+        //     data: [12, 14, 16, 17, 3, 0, 11],
+        //     label: 'Karplanter',
+        //     borderColor: '#f50000',
+        //     borderWidth: 2,
+        //     fill: false
+        //   },
+        //   {
+        //     data: [7, 12, 17, 5, 4, 21],
+        //     label: 'Pattedyr',
+        //     borderColor: this.graphColors[5],
+        //     borderWidth: 2,
+        //     fill: false
+        //   },
+        //   {
+        //     data: [1, 4, 7, 11, 2, 8],
+        //     label: 'Alger',
+        //     borderColor: '#330055',
+        //     borderWidth: 2,
+        //     fill: false
+        //   }
+        // ]
       },
       options: {
         legend: {

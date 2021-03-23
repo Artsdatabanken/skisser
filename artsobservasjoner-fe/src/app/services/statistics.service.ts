@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
 import { Category } from '../models/shared';
-import MonthlySightingsCount from '../data/SightingCountMonth2.json';
+import MonthlySightingsCount from '../data/SightingCountMonth.json';
 
 import {
   AssessmentCategory,
@@ -709,19 +709,18 @@ export class StatisticsService {
 
   }
 
-  getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<object[]> {
+  getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<StatisticsItem[]> {
     return of(this.monthlySightings).pipe(
       tap(t => console.log('t', t)),
       map((response: any) => {
 
-        let items: object[] = [];
+        let items: StatisticsItem[] = [];
 
         response.forEach(element => {
 
-          let item: object = {
-            speciesGroupId: element.SpeciesGroupId,
-            month: element.monthNumber,
-            count: element.sightingsCount
+          let item: StatisticsItem = {
+            id: element.SpeciesGroupId,
+            data: element.data
           }
 
           items.push(item);
@@ -735,5 +734,32 @@ export class StatisticsService {
       refCount()
     );
   }
+
+  // getMonthlySightingsOrRegistrationsBySpeciesGroup2(): Observable<object[]> {
+  //   return of(this.monthlySightings).pipe(
+  //     tap(t => console.log('t', t)),
+  //     map((response: any) => {
+
+  //       let items: object[] = [];
+
+  //       response.forEach(element => {
+
+  //         let item: object = {
+  //           speciesGroupId: element.SpeciesGroupId,
+  //           month: element.monthNumber,
+  //           count: element.sightingsCount
+  //         }
+
+  //         items.push(item);
+
+  //       });
+
+  //       return items;
+
+  //     }),
+  //     publishReplay(1),
+  //     refCount()
+  //   );
+  // }
 
 }
