@@ -720,13 +720,14 @@ export class StatisticsService {
 
           let item: StatisticsItem = {
             id: element.SpeciesGroupId,
-            data: element.data
+            data: element.Data
           }
 
           items.push(item);
 
         });
 
+        console.log('items', items)
         return items;
 
       }),

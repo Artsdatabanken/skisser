@@ -1,11 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin, Observable, Subscription } from 'rxjs';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { LayoutService } from 'src/app/services/layout.service';
 import { Chart } from 'chart.js';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { map } from 'rxjs/operators';
 import { Category, MONTHS } from 'src/app/models/shared';
+import { TranslationService } from 'src/app/services/translation.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-overview-child8',
@@ -16,27 +18,39 @@ import { Category, MONTHS } from 'src/app/models/shared';
 export class OverviewChild8Component implements OnInit {
 
   pageTitle$: Observable<string>;
-  @ViewChild('myCanvas') canvasRef: ElementRef;
   data$;
-  chart: any[] = [];
+
+  @ViewChild('myCanvas') canvasRef: ElementRef;
+  @ViewChild('myCanvas2') canvasRef2: ElementRef;
+
+  chart: any;
+  chart2: any;
   months: typeof MONTHS = MONTHS;
+  subscription: Subscription;
 
   graphLabels: string[] = [];
-  // graphValues: number[] = [];
   graphColors: string[] = GRAPHCOLORS;
+  currentLanguage$: Observable<string>;
 
   constructor(
     private layoutService: LayoutService,
+    private utilitiesService: UtilitiesService,
+    private translationService: TranslationService,
     private statisticsService: StatisticsService
   ) { }
 
   ngOnInit(): void {
 
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_8');
+    this.currentLanguage$ = this.translationService.currentLanguage$;
 
     this.buildChart();
     this.getData();
 
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   getData(): void {
@@ -45,7 +59,7 @@ export class OverviewChild8Component implements OnInit {
       this.statisticsService.getSpeciesGroups(),
       this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup()
     ]).pipe(
-      map(([speciesGroups, data]) => {
+      map(([speciesGroups, monthlySightings]) => {
 
         // ---------------------------------------- ***
 
@@ -53,8 +67,9 @@ export class OverviewChild8Component implements OnInit {
           return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
-        const tempMonths: any[] = data.map(d => d['month']);
+        const tempMonths: any[] = monthlySightings.map(d => d['month']);
         const months: any[] = [...new Set(tempMonths)];
+        console.log('TEST', months);
 
         const generateRandomColor = (): string => {
           let length = 6;
@@ -67,31 +82,47 @@ export class OverviewChild8Component implements OnInit {
         // ---------------------------------------- ***
 
         let datasets: object[] = [];
+        let datasets2: object[] = [];
 
-        data.forEach(d => {
+        monthlySightings.forEach(ms => {
 
-          //const countBySpeciesGroup: number[] = [];
+          // console.log('TEST', ms.data.map(elem => elem['SightingCount']));
+          console.log('TEST', ms.data);
+          console.log('TEST', ms.data.map(elem => elem['monthNumber']));
+
+          const monthsOriginal = ms.data.map(elem => elem['monthNumber']);
+          let months: string[] = [];
+
+          monthsOriginal.forEach(month => {
+
+            return `{}`
+          });
 
           const graphObject: object = {
-
-            data: [12, 14, 16, 17, 3, 0, 11],
-            label: getSpeciesGroup(d['speciesGroupId']),
-            borderColor: generateRandomColor(),
-            borderWidth: 2,
-            fill: false
-
+            id: ms['id'],
+            data: ms.data.map(elem => elem['SightingCount']),
+            label: getSpeciesGroup(ms['id']),
+            backgroundColor: this.utilitiesService.generateRandomColor()
           }
 
-          console.log('graphObject', graphObject)
+          const graphObject2: object = {
+            id: ms['id'],
+            data: ms.data.map(elem => elem['SightingCount']),
+            label: getSpeciesGroup(ms['id']),
+            borderColor: this.utilitiesService.generateRandomColor(),
+            borderWidth: 2,
+            fill: false
+          }
+
           datasets.push(graphObject);
+
+          datasets2.push(graphObject2);
+
         });
 
+        this.buildChart(null, datasets, datasets2)
 
-        //this.buildChart(null, datasets)
-
-        //console.log('data', datasets)
-
-        return data;
+        return monthlySightings;
 
       })
     );
@@ -99,7 +130,7 @@ export class OverviewChild8Component implements OnInit {
   }
 
 
-  buildChart(labels?: string[], datasets?: object[]): void {
+  buildChart(labels?: string[], datasets?: object[], datasets2?: object[]): void {
 
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
@@ -108,33 +139,31 @@ export class OverviewChild8Component implements OnInit {
     Chart.defaults.global.legend.position = 'bottom';
 
     this.chart = new Chart('myCanvas', {
-      type: 'line',
+      type: 'bar',
       data: {
         labels: ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
         datasets: datasets
-        // datasets: [
-        //   {
-        //     data: [12, 14, 16, 17, 3, 0, 11],
-        //     label: 'Karplanter',
-        //     borderColor: '#f50000',
-        //     borderWidth: 2,
-        //     fill: false
-        //   },
-        //   {
-        //     data: [7, 12, 17, 5, 4, 21],
-        //     label: 'Pattedyr',
-        //     borderColor: this.graphColors[5],
-        //     borderWidth: 2,
-        //     fill: false
-        //   },
-        //   {
-        //     data: [1, 4, 7, 11, 2, 8],
-        //     label: 'Alger',
-        //     borderColor: '#330055',
-        //     borderWidth: 2,
-        //     fill: false
-        //   }
-        // ]
+      },
+      options: {
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            display: true
+          }],
+        }
+      }
+    });
+
+    this.chart2 = new Chart('myCanvas2', {
+      type: 'line',
+      data: {
+        labels: ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
+        datasets: datasets2
       },
       options: {
         legend: {

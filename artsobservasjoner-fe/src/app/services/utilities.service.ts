@@ -19,6 +19,24 @@ export class UtilitiesService {
     return this.subject.asObservable();
   }
 
+  generateRandomColor(): string {
+    let length = 6;
+    const chars = '0123456789ABCDEF';
+    let hex = '#';
+    while (length--) hex += chars[(Math.random() * 16) | 0];
+    return hex;
+  }
+
+  generateRandomColors(amount: number): string[] {
+    let colors: string[] = [];
+
+    for (let i = 1; i < amount; i++) {
+      colors.push(this.generateRandomColor());
+    }
+
+    return colors;
+  }
+
   getPercentage(total: number, partial: number): number {
     let percentage: number = partial * 100 / total;
     percentage = +percentage.toFixed(1)
@@ -28,7 +46,7 @@ export class UtilitiesService {
   getPercentageIncrease(current: number, original: number): number {
 
     // TODO: ta hensyn at det ene tallet kan være null
-    
+
     let difference: number;
     let result: number;
 

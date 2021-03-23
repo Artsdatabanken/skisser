@@ -6,6 +6,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { TranslationService } from 'src/app/services/translation.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-overview-child1',
@@ -22,7 +23,7 @@ export class OverviewChild1Component implements OnInit {
   translationParam: Date | number;
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
-  chart: any[] = [];
+  chart: any;
 
   graphLabels: string[] = [];
   graphValues: number[] = [];
@@ -30,6 +31,7 @@ export class OverviewChild1Component implements OnInit {
 
   constructor(
     private layoutService: LayoutService,
+    private utilitiesService: UtilitiesService,
     private statisticsService: StatisticsService,
     private translationService: TranslationService
   ) { }
@@ -59,7 +61,7 @@ export class OverviewChild1Component implements OnInit {
         // build chart by language TODO: refactor
         // Denne kunne taes ut av this.data$; man bør da hente og loope gjennom speciesGroups separat
 
-        this.translationService.currentLanguage$.subscribe(language => {
+        this.subscription = this.translationService.currentLanguage$.subscribe(language => {
           this.buildChart(speciesGroups.map(sg => sg[language]).sort((a, b) => a['id'] - b['id']));
         });
 
@@ -69,6 +71,10 @@ export class OverviewChild1Component implements OnInit {
     );
 
   }
+
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 
   buildChart(labels: string[]): void {
 
@@ -85,9 +91,9 @@ export class OverviewChild1Component implements OnInit {
         datasets: [
           {
             data: this.graphValues,
-            borderColor: '#fff',
+            borderColor: 'transparent',
             borderWidth: 0,
-            backgroundColor: this.graphColors,
+            backgroundColor: this.utilitiesService.generateRandomColors(12),
             fill: true
           }
         ]

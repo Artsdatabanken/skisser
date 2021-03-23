@@ -4,10 +4,14 @@
 
     <div class="section">
 
-        <div *ngIf="data$ | async as data">{{ data }}</div>
+        <ng-container *ngIf="data$ | async as data"></ng-container>
 
         <div class="chart-container">
             <canvas id="myCanvas" #myCanvas></canvas>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="myCanvas2" #myCanvas2></canvas>
         </div>
 
     </div>
