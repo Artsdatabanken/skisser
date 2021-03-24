@@ -5,14 +5,31 @@
     <div class="section">
 
         <ng-container *ngIf="data$ | async as data"></ng-container>
+        <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
 
-        <div class="chart-container">
+            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+
+                <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
+                    (ngModelChange)="onSelection($event)">
+
+                    <option [ngValue]="null">{{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}</option>
+                    <option [value]="sg.id" *ngFor="let sg of speciesGroups;">
+                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                    </option>
+
+                </select>
+
+            </ng-container>
+
+        </ng-container>
+
+        <div class="chart-container" *ngIf="selectedSpeciesGroup">
             <canvas id="myCanvas" #myCanvas></canvas>
         </div>
 
-        <div class="chart-container">
+        <!-- <div class="chart-container">
             <canvas id="myCanvas2" #myCanvas2></canvas>
-        </div>
+        </div> -->
 
     </div>
 

@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { Category, MONTHS } from 'src/app/models/shared';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { StatisticsItem } from 'src/app/models/statistics';
 
 @Component({
   selector: 'app-overview-child8',
@@ -18,7 +19,12 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 export class OverviewChild8Component implements OnInit {
 
   pageTitle$: Observable<string>;
+  currentLanguage$: Observable<string>;
+  subscription: Subscription;
   data$;
+  speciesGroups$: Observable<Category[]>;
+  selectedSpeciesGroup: number | null = null;
+  isSelected: boolean = true;
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
   @ViewChild('myCanvas2') canvasRef2: ElementRef;
@@ -26,11 +32,9 @@ export class OverviewChild8Component implements OnInit {
   chart: any;
   chart2: any;
   months: typeof MONTHS = MONTHS;
-  subscription: Subscription;
 
   graphLabels: string[] = [];
   graphColors: string[] = GRAPHCOLORS;
-  currentLanguage$: Observable<string>;
 
   constructor(
     private layoutService: LayoutService,
@@ -44,13 +48,20 @@ export class OverviewChild8Component implements OnInit {
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_8');
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
+    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
+
     this.buildChart();
-    this.getData();
+    // this.getData();
 
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  onSelection(event: Event): void {
+    console.log('TEST', event, typeof event);
+    this.getData()
   }
 
   getData(): void {
@@ -67,60 +78,32 @@ export class OverviewChild8Component implements OnInit {
           return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
-        const tempMonths: any[] = monthlySightings.map(d => d['month']);
-        const months: any[] = [...new Set(tempMonths)];
-        console.log('TEST', months);
-
-        const generateRandomColor = (): string => {
-          let length = 6;
-          const chars = '0123456789ABCDEF';
-          let hex = '#';
-          while (length--) hex += chars[(Math.random() * 16) | 0];
-          return hex;
+        const getMonthlySightingsBySpeciesGroup = (id: number): StatisticsItem => {
+          return monthlySightings.find(ms => ms.id === id);
         }
+
+        // const tempMonths: any[] = monthlySightings.map(d => d['month']);
+        // const months: any[] = [...new Set(tempMonths)];
+        // console.log('TEST', months);
 
         // ---------------------------------------- ***
 
         let datasets: object[] = [];
-        let datasets2: object[] = [];
+        //const monthlySightingObject: StatisticsItem = monthlySightings.find(ms => ms.id === +this.selectedSpeciesGroup);
+        const monthlySightingObject: StatisticsItem = getMonthlySightingsBySpeciesGroup(+this.selectedSpeciesGroup);
 
-        monthlySightings.forEach(ms => {
+        const graphObject: object = {
+          id: monthlySightingObject['id'],
+          data: monthlySightingObject.data.map(elem => elem['SightingCount']),
+          label: getSpeciesGroup(monthlySightingObject['id']),
+          backgroundColor: this.utilitiesService.generateRandomColor()
+        }
 
-          // console.log('TEST', ms.data.map(elem => elem['SightingCount']));
-          console.log('TEST', ms.data);
-          console.log('TEST', ms.data.map(elem => elem['monthNumber']));
+        console.log('graphObject', graphObject);
 
-          const monthsOriginal = ms.data.map(elem => elem['monthNumber']);
-          let months: string[] = [];
+        datasets.push(graphObject);
 
-          monthsOriginal.forEach(month => {
-
-            return `{}`
-          });
-
-          const graphObject: object = {
-            id: ms['id'],
-            data: ms.data.map(elem => elem['SightingCount']),
-            label: getSpeciesGroup(ms['id']),
-            backgroundColor: this.utilitiesService.generateRandomColor()
-          }
-
-          const graphObject2: object = {
-            id: ms['id'],
-            data: ms.data.map(elem => elem['SightingCount']),
-            label: getSpeciesGroup(ms['id']),
-            borderColor: this.utilitiesService.generateRandomColor(),
-            borderWidth: 2,
-            fill: false
-          }
-
-          datasets.push(graphObject);
-
-          datasets2.push(graphObject2);
-
-        });
-
-        this.buildChart(null, datasets, datasets2)
+        this.buildChart(null, datasets)
 
         return monthlySightings;
 
@@ -181,5 +164,73 @@ export class OverviewChild8Component implements OnInit {
     });
 
   }
+
+  // getData(): void {
+
+  //   this.data$ = forkJoin([
+  //     this.statisticsService.getSpeciesGroups(),
+  //     this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup()
+  //   ]).pipe(
+  //     map(([speciesGroups, monthlySightings]) => {
+
+  //       // ---------------------------------------- ***
+
+  //       const getSpeciesGroup = (id: number): Category => {
+  //         return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+  //       }
+
+  //       const tempMonths: any[] = monthlySightings.map(d => d['month']);
+  //       const months: any[] = [...new Set(tempMonths)];
+  //       console.log('TEST', months);
+
+  //       // ---------------------------------------- ***
+
+  //       let datasets: object[] = [];
+  //       let datasets2: object[] = [];
+
+  //       monthlySightings.forEach(ms => {
+
+  //         // console.log('TEST', ms.data.map(elem => elem['SightingCount']));
+  //         console.log('TEST', ms.data);
+  //         console.log('TEST', ms.data.map(elem => elem['monthNumber']));
+
+  //         const monthsOriginal = ms.data.map(elem => elem['monthNumber']);
+  //         let months: string[] = [];
+
+  //         monthsOriginal.forEach(month => {
+
+  //           return `{}`
+  //         });
+
+  //         const graphObject: object = {
+  //           id: ms['id'],
+  //           data: ms.data.map(elem => elem['SightingCount']),
+  //           label: getSpeciesGroup(ms['id']),
+  //           backgroundColor: this.utilitiesService.generateRandomColor()
+  //         }
+
+  //         const graphObject2: object = {
+  //           id: ms['id'],
+  //           data: ms.data.map(elem => elem['SightingCount']),
+  //           label: getSpeciesGroup(ms['id']),
+  //           borderColor: this.utilitiesService.generateRandomColor(),
+  //           borderWidth: 2,
+  //           fill: false
+  //         }
+
+  //         datasets.push(graphObject);
+
+  //         datasets2.push(graphObject2);
+
+  //       });
+
+  //       this.buildChart(null, datasets, datasets2)
+
+  //       return monthlySightings;
+
+  //     })
+  //   );
+
+  // }
 
 }

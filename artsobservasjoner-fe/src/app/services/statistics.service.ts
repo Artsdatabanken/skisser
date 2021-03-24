@@ -711,7 +711,6 @@ export class StatisticsService {
 
   getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<StatisticsItem[]> {
     return of(this.monthlySightings).pipe(
-      tap(t => console.log('t', t)),
       map((response: any) => {
 
         let items: StatisticsItem[] = [];
@@ -727,7 +726,6 @@ export class StatisticsService {
 
         });
 
-        console.log('items', items)
         return items;
 
       }),
