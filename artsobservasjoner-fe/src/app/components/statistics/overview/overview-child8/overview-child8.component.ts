@@ -48,10 +48,6 @@ export class OverviewChild8Component implements OnInit {
 
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   onSelection(event: Event): void {
     this.getData()
   }
@@ -90,7 +86,7 @@ export class OverviewChild8Component implements OnInit {
 
         //this.buildChart(this.graphLabels, datasets);
 
-        this.subscription = this.currentLanguage$.subscribe(language => {
+        this.currentLanguage$.subscribe(language => {
 
           if (language === 'no') this.graphLabels = this.months.no;
           if (language === 'en') this.graphLabels = this.months.en;

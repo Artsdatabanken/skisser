@@ -4,8 +4,8 @@ import { map, publishReplay, refCount, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { Category } from '../models/shared';
-import MonthlySightingsCount from '../data/SightingCountMonth.json';
+import { Category, OLD_COUNTIES } from '../models/shared';
+import Geographic from '../data/Geografisk_fordeling2.json';
 
 import {
   AssessmentCategory,
@@ -38,7 +38,8 @@ export class StatisticsService {
 
   // JSON
 
-  monthlySightings: any = MonthlySightingsCount;
+  geographic: any = Geographic;
+  counties: typeof OLD_COUNTIES = OLD_COUNTIES;
 
   // API
 
@@ -710,6 +711,87 @@ export class StatisticsService {
 
   }
 
+  getSightingsByArea(): Observable<object[]> {
+
+    return of(this.geographic).pipe(
+      tap(t => console.log('t', t)),
+      map((response: any) => {
+
+        let item: object;
+        let items: object[] = [];
+
+        response.forEach(element => {
+
+          item = {
+            areaId: element.AreaId,
+            areaName: element.AreaName,
+            data: element.data
+          }
+
+          items.push(item);
+
+        });
+
+        return items;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
+  getSightingsGeographicalDistribution(): Observable<any> {
+
+    const data$ = forkJoin([
+      this.getSightingsByArea(),
+      this.getSpeciesGroups()
+    ]).pipe(
+      map(([sightingsByArea, speciesGroups]) => {
+
+        let statusObject: object = {};
+
+        // ---------------------------------------- ***
+
+        // for (const value in this.counties) {
+        //   log(value);
+        // }
+
+        for (const value in Object.keys(this.counties)) {
+          if (typeof this.counties[value] !== 'string') {
+            continue;
+          }
+
+          statusObject[this.counties[Number(value)]] = {};
+
+          speciesGroups.forEach(speciesGroup => {
+            statusObject[this.counties[Number(value)]][speciesGroup.id] = 0;
+          });
+
+
+        }
+
+        // ---------------------------------------- ***
+
+        console.log('statusObject', statusObject);
+
+        sightingsByArea.forEach(data => {
+
+          statusObject[data['areaName']][data['speciesGroupId']] = data['sightingsCount'];
+
+        });
+
+
+        console.log('statusObject', statusObject);
+
+        return statusObject;
+      })
+    );
+
+    return data$;
+
+  }
+
   getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<StatisticsItem[]> {
     return this.httpClient.get(this.MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API).pipe(
       map((response: any) => {
@@ -734,32 +816,5 @@ export class StatisticsService {
       refCount()
     );
   }
-
-  // getMonthlySightingsOrRegistrationsBySpeciesGroup2(): Observable<object[]> {
-  //   return of(this.monthlySightings).pipe(
-  //     tap(t => console.log('t', t)),
-  //     map((response: any) => {
-
-  //       let items: object[] = [];
-
-  //       response.forEach(element => {
-
-  //         let item: object = {
-  //           speciesGroupId: element.SpeciesGroupId,
-  //           month: element.monthNumber,
-  //           count: element.sightingsCount
-  //         }
-
-  //         items.push(item);
-
-  //       });
-
-  //       return items;
-
-  //     }),
-  //     publishReplay(1),
-  //     refCount()
-  //   );
-  // }
 
 }
