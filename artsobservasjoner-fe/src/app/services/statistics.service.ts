@@ -58,6 +58,7 @@ export class StatisticsService {
   OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
 
   SIGHTINGS_PER_SOURCE_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsDataPerDataSource';
+  MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingCountObservedPerMonth';
 
   USER_COUNT1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountThisYear';
   USER_COUNT2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLastYear';
@@ -710,16 +711,16 @@ export class StatisticsService {
   }
 
   getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<StatisticsItem[]> {
-    return of(this.monthlySightings).pipe(
+    return this.httpClient.get(this.MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API).pipe(
       map((response: any) => {
 
         let items: StatisticsItem[] = [];
 
-        response.forEach(element => {
+        response.sightingCountPerMonthStatistics.forEach(element => {
 
           let item: StatisticsItem = {
-            id: element.SpeciesGroupId,
-            data: element.Data
+            id: element.speciesGroupId,
+            data: element.data
           }
 
           items.push(item);

@@ -34,7 +34,8 @@
         "menu_account_login": "Logg inn",
         "menu_account": "Min side",
         "menu_account_messages": "Meldinger",
-        "menu_statusPage": "Driftsmeldinger"
+        "menu_statusPage": "Driftsmeldinger",
+        "menu_search": "Søk"
     },
     "months": {
         "1": "Januar",
@@ -54,7 +55,6 @@
         "footnotes": "Fotnoter",
         "at": "kl.",
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."
-    
     },
     "headings": {
         "announcements": "Flere kunngjøringer",
@@ -102,18 +102,18 @@
         "overviewStats_heading_5": "Antall prosjekter",
         "overviewStats_heading_6": "Antall registrerte observasjoner etter registreringsmåte",
         "overviewStats_heading_7": "Geografisk fordeling",
-        "overviewStats_heading_8": "Månedlige observasjoner eller rapporteringer per artsgruppe",
-        "overviewStats_heading_9": "Rapporteringsoversikt per artsgruppe totalt og per år",
+        "overviewStats_heading_8": "Månedlige observasjoner per artsgruppe",
         "shared_tableDescription_content": "Tabellen viser antall observasjoner av {{ value }} etter artsgruppe, med en av kategoriene nedenfor. ",
         "shared_tableDescription_includedData": "Kategorier uten artsobservasjoner er utelatt fra tabellen.",
         "shared_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen(e), se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
         "shared_tableDescription_excluded": "* Inkluderer alle valideringskategorier bortsett fra 'Ikke validert (funnet er ikke kvalitetssikret)'. ",
         "shared_tableDescription_approved": "** Har en av følgende valideringskategorier:",
-        "tableDescription_overviewStats": "Datatabellene nedenfor viser diverse data fra Artsobservasjoner. Bruk nedtrekksmenyen nedenfor for å velge hvilke datasett du vil se.",
+        "tableDescription_overviewStats": "Datatabellene nedenfor viser diverse data fra Artsobservasjoner. Bruk nedtrekksmenyen nedenfor for å velge hvilket datasett du vil se.",
         "tableDescription_validatedData": "Tabellen(e) viser antall taxa observert og antall observasjoner per artsgruppe.",
         "tableDescription_sightingCountArtsobsVsArtskart": "Grafen viser antall observasjoner i Artsobservasjoner sammenstilt med antall funn i Artskart. Artskart samler stedfestet informasjon om arter i Norge fra alle datakilder, inkludert Artsobservasjoner.",
         "tableDescription_imageCountPerSpeciesGroup": "Tabellen viser antall bilder per artsgruppe og antall bilder per artsgruppe der bildet har en åpen lisens. En åpen lisens er en av følgende Creative Commons-lisenser:<ul><li>CC BY 4.0 - Navngivelse</li><li>CC BY-SA - Navngivelse-DelPåSammeVilkår </li><li>CC BY-NC-SA - Navngivelse-IkkeKommersiell-DelPåSammeVilkår</li></ul><br>Alternativet til de tre åpne lisensene er <em>Alle rettigheter forbeholdt</em>.",
         "tableDescription_sightsByRegisterType": "Tabellen viser antall brukere som har registrert observasjoner via de ulike registreringsmåtene nettskjema, Excelimport, mobilløsningen, Sabimas Artsjakten app og prosjekter. Tabellen viser også antall observasjoner som er registrert per registreringsmåte.",
+        "tableDescription_monthlySightings": "Tabellen viser antall observasjoner som er gjort hver måned per artsgruppe. Merk at det er uavhengig av når observasjonen ble rapportert (du kan f.eks. observere en art i mars, men du rapporterte observasjonen to måneder senere). For mer detaljert oversikt over en artsgruppe, vennligst gå til <a href=\"/search\">søket</a>.",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",

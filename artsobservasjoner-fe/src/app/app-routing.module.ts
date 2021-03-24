@@ -49,6 +49,7 @@ import { StatusPageComponent } from './components/status-page/status-page.compon
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 import { PressComponent } from './components/press/press.component';
+import { SearchComponent } from './components/search/search.component';
 
 /*
 
@@ -919,6 +920,22 @@ const extraRoutes: Routes = [
       rank: '',
       parent: '',
       menu: 'extraMenu',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    data: {
+      text: 'Søk',
+      title: 'menu_search',
+      id: 'search',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
       metatitle: '',
       metaDescription: '',
       hidden: false

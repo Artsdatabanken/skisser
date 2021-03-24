@@ -5,7 +5,7 @@ import { LayoutService } from 'src/app/services/layout.service';
 import { Chart } from 'chart.js';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { map } from 'rxjs/operators';
-import { Category, MONTHS } from 'src/app/models/shared';
+import { Category, MONTHS_NO, MONTHS_EN, Months } from 'src/app/models/shared';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { StatisticsItem } from 'src/app/models/statistics';
@@ -21,17 +21,14 @@ export class OverviewChild8Component implements OnInit {
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
   subscription: Subscription;
-  data$;
+  data$: Observable<object[]>;
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
-  isSelected: boolean = true;
+
+  months: Months = new Months();
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
-  @ViewChild('myCanvas2') canvasRef2: ElementRef;
-
   chart: any;
-  chart2: any;
-  months: typeof MONTHS = MONTHS;
 
   graphLabels: string[] = [];
   graphColors: string[] = GRAPHCOLORS;
@@ -47,11 +44,7 @@ export class OverviewChild8Component implements OnInit {
 
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_8');
     this.currentLanguage$ = this.translationService.currentLanguage$;
-
     this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
-
-    this.buildChart();
-    // this.getData();
 
   }
 
@@ -60,7 +53,6 @@ export class OverviewChild8Component implements OnInit {
   }
 
   onSelection(event: Event): void {
-    console.log('TEST', event, typeof event);
     this.getData()
   }
 
@@ -68,7 +60,7 @@ export class OverviewChild8Component implements OnInit {
 
     this.data$ = forkJoin([
       this.statisticsService.getSpeciesGroups(),
-      this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup()
+      this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup(),
     ]).pipe(
       map(([speciesGroups, monthlySightings]) => {
 
@@ -82,38 +74,39 @@ export class OverviewChild8Component implements OnInit {
           return monthlySightings.find(ms => ms.id === id);
         }
 
-        // const tempMonths: any[] = monthlySightings.map(d => d['month']);
-        // const months: any[] = [...new Set(tempMonths)];
-        // console.log('TEST', months);
-
         // ---------------------------------------- ***
 
         let datasets: object[] = [];
-        //const monthlySightingObject: StatisticsItem = monthlySightings.find(ms => ms.id === +this.selectedSpeciesGroup);
-        const monthlySightingObject: StatisticsItem = getMonthlySightingsBySpeciesGroup(+this.selectedSpeciesGroup);
+        const monthlySightingObject: StatisticsItem = getMonthlySightingsBySpeciesGroup(+this.selectedSpeciesGroup)
 
         const graphObject: object = {
           id: monthlySightingObject['id'],
-          data: monthlySightingObject.data.map(elem => elem['SightingCount']),
+          data: monthlySightingObject.data.map(elem => elem['sightingCount']),
           label: getSpeciesGroup(monthlySightingObject['id']),
           backgroundColor: this.utilitiesService.generateRandomColor()
         }
 
-        console.log('graphObject', graphObject);
-
         datasets.push(graphObject);
 
-        this.buildChart(null, datasets)
+        //this.buildChart(this.graphLabels, datasets);
 
-        return monthlySightings;
+        this.subscription = this.currentLanguage$.subscribe(language => {
+
+          if (language === 'no') this.graphLabels = this.months.no;
+          if (language === 'en') this.graphLabels = this.months.en;
+
+          this.buildChart(this.graphLabels, datasets);
+
+        });
+
+        return datasets;
 
       })
     );
 
   }
 
-
-  buildChart(labels?: string[], datasets?: object[], datasets2?: object[]): void {
+  buildChart(labels?: string[], datasets?: object[]): void {
 
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
@@ -124,29 +117,8 @@ export class OverviewChild8Component implements OnInit {
     this.chart = new Chart('myCanvas', {
       type: 'bar',
       data: {
-        labels: ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
+        labels: labels,
         datasets: datasets
-      },
-      options: {
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [{
-            display: true
-          }],
-          yAxes: [{
-            display: true
-          }],
-        }
-      }
-    });
-
-    this.chart2 = new Chart('myCanvas2', {
-      type: 'line',
-      data: {
-        labels: ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
-        datasets: datasets2
       },
       options: {
         legend: {

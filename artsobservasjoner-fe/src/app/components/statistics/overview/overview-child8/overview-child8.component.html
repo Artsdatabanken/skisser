@@ -4,7 +4,13 @@
 
     <div class="section">
 
-        <ng-container *ngIf="data$ | async as data"></ng-container>
+        <p class="body-text" [innerHTML]="'statistics.tableDescription_monthlySightings' | translate"></p>
+       
+        <ng-container *ngIf="data$ | async as data">
+        </ng-container>
+
+        <br><br>
+
         <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
 
             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">

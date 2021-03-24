@@ -111,6 +111,7 @@ import { ValidationStatusListComponent } from './components/shared/validation-st
 import { SpeciesGroupComponent } from './components/shared/species-group/species-group.component';
 import { FootnotesComponent } from './reusable/footnotes/footnotes.component';
 import { FootnoteComponent } from './reusable/footnotes/footnote/footnote.component';
+import { SearchComponent } from './components/search/search.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -215,7 +216,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ValidationStatusListComponent,
     SpeciesGroupComponent,
     FootnotesComponent,
-    FootnoteComponent
+    FootnoteComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

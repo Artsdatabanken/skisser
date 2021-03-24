@@ -34,7 +34,8 @@
         "menu_account_login": "Login",
         "menu_account": "My account",
         "menu_account_messages": "Messages",
-        "menu_statusPage": "Status page"
+        "menu_statusPage": "Status page",
+        "menu_search": "Search"
     },
     "months": {
         "1": "January",
@@ -101,9 +102,7 @@
         "overviewStats_heading_5": "Project count",
         "overviewStats_heading_6": "Sightings count by reporting method",
         "overviewStats_heading_7": "Geographical distribution",
-        "overviewStats_heading_8": "Monthly sightings or registrations per species group",
-        "overviewStats_heading_9": "Reporting overview per species group in total and per year",
-        "overviewStats_heading_10": "Monthly registrations per species group in total and per year",
+        "overviewStats_heading_8": "Monthly sightings per species group",
         "shared_tableDescription_content": "The following table shows number of observations of {{ value }} by species group in each of the categories below. ",
         "shared_tableDescription_includedData": "Categories without observations are omitted from the table.",
         "shared_tableDescription_includedDataExplanation": "A description of the data included may be found at [xxxxx]. Statistics are updated daily.",
@@ -114,6 +113,7 @@
         "tableDescription_sightingCountArtsobsVsArtskart": "The graph shows the number of sightings in Artsobservasjoner compared with the number of finds in Artskart. Artskart collects localized information about species in Norway from all data sources, including Artsobservasjoner.",
         "tableDescription_imageCountPerSpeciesGroup": "The table shows the number of images per species group and the number of images per species group where the image has an open license. An open license is one of the following Creative Commons licenses: <ul> <li> CC BY 4.0 - Attribution </li> <li> CC BY-SA - Creative Commons Attribution-ShareAlike </li> <li> CC BY-NC-SA - Creative Commons Non-Commercial Share-alike </li> </ul> <br> The alternative to the three open licenses is <em> All rights reserved </em>. ",
         "tableDescription_sightsByRegisterType": "The table shows the number of users who have registered sightings via the various registration methods, web form, Excelimport, the mobile app, Sabimas Artsjakten app and projects. The table also shows the number of sightings registered per registration method",
+        "tableDescription_monthlySightings": "The table shows the number of sightings made each month per species group. Note that it is regardless of when the observation was registered (for example, you can observe a species in March, but you registered the observation two months later). For a more detailed overview of a species group, please go to the <a href=\"/search\">search page</a>.",
         "tableCaption_validatedData": "Number of validated observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_validatedData2": "Validated sightings count by validation category",
