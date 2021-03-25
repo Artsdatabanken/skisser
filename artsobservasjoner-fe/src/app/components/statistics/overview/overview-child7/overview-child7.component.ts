@@ -49,7 +49,7 @@ export class OverviewChild7Component implements OnInit {
 
     this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
     this.data$ = this.statisticsService.getSightingsGeographicalDistribution();
-    this.areas$ = this.statisticsService.getAreas();
+    //this.areas$ = this.statisticsService.getAreas();
 
   }
 

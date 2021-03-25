@@ -6,11 +6,11 @@
 
         <div role="region" tabindex="0" aria-labelledby="caption1">
 
-            <table>
+            <table class="tbl tbl--x">
                 <caption id="caption1">{{ 'statistics.tableCaption_geographicalDistribution' | translate }}</caption>
                 <thead role="rowgroup">
                     <tr role="row">
-                        <th scope="col" role="columnheader"></th>
+                        <th scope="col" role="columnheader">{{ 'statistics.tableHeading_county' | translate }}</th>
 
                         <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
                             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">

@@ -123,6 +123,7 @@
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
         "tableCaption_geographicalDistribution": "Sightings count per species group per area (county)",
         "tableHeading_year": "Year",
+        "tableHeading_county": "Area",
         "tableHeading_yearlyIncrease": "Yearly increase",
         "tableHeading_speciesGroup": "Species group",
         "tableHeading_imageCount": "Image count",

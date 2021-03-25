@@ -180,6 +180,15 @@ table {
             @include customVar(background-color, clrShadow);
         }
     }
+
+    &--x {
+        tr:nth-child(even) {
+            th,
+            td {
+                @include customVar(background-color, clrShadow);
+            }
+        }
+    }
 }
 
 .custom-table {
