@@ -1,0 +1,1355 @@
+[
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 261115
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 6212
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 4919
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 37379
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 465
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 65713
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 1023986
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 1218
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 4819
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 91
+	},
+	{
+		"AreaId": 94148,
+		"AreaName": "Østfold",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 2167
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 59319
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 8540
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 5667
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 6967
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 314
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 65252
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 2024364
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 3542
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 7023
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 176
+	},
+	{
+		"AreaId": 94149,
+		"AreaName": "Vest-Agder",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 1355
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 88742
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 16543
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 12608
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 20994
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 805
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 69021
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 1768474
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 827
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 4461
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 693
+	},
+	{
+		"AreaId": 94150,
+		"AreaName": "Rogaland",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 1245
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SightingsCount": 1
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 51977
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 5838
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 5182
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 7506
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 416
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 46611
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 1251637
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 613
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 5738
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 119
+	},
+	{
+		"AreaId": 94151,
+		"AreaName": "Hordaland",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 1166
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 64065
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 3382
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 6783
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 12788
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 29
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 17928
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 561221
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 497
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 3981
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 99
+	},
+	{
+		"AreaId": 94152,
+		"AreaName": "Hedmark",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 216
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 130706
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 11388
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 23043
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 22715
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 90
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 24659
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 475400
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 223
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 4170
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 180
+	},
+	{
+		"AreaId": 94153,
+		"AreaName": "Oppland",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 147
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 136422
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 3279
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 7088
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 19411
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 320
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 28573
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 2438612
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 1230
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 16717
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 750
+	},
+	{
+		"AreaId": 94154,
+		"AreaName": "Trøndelag",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 1152
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 81821
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 3353
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 7171
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 35620
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 132
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 26932
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 613597
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 792
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 3079
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 90
+	},
+	{
+		"AreaId": 94155,
+		"AreaName": "Buskerud",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 296
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 55864
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 1280
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 1823
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 63185
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 447
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 73953
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 1991382
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 1119
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 3738
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 1612
+	},
+	{
+		"AreaId": 94156,
+		"AreaName": "Vestfold",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 500
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 95622
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 4142
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 3959
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 13098
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 164
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 19909
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 1280695
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 836
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 1759
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 82
+	},
+	{
+		"AreaId": 94157,
+		"AreaName": "Telemark",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 222
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SightingsCount": 2
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 31145
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 1425
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 2105
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 13763
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 429
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 23164
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 473555
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 775
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 1941
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 88
+	},
+	{
+		"AreaId": 94158,
+		"AreaName": "Aust-Agder",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 927
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 10
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 4
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 21
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 1
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 68
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 17082
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 75
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 1
+	},
+	{
+		"AreaId": 94159,
+		"AreaName": "Norskekysten hav S",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 20
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 28855
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 7072
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 4798
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 5216
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 153
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 9646
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 185597
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 99
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 1858
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 61
+	},
+	{
+		"AreaId": 94160,
+		"AreaName": "Sogn og Fjordane",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 125
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 258877
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 16703
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 14133
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 20894
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 1229
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 27304
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 418432
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 968
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 7832
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 1241
+	},
+	{
+		"AreaId": 94161,
+		"AreaName": "Møre og Romsdal",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 1122
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 240842
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 2175
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 4603
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 8792
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 504
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 21852
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 698895
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 413
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 9725
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 74
+	},
+	{
+		"AreaId": 94162,
+		"AreaName": "Nordland",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 379
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 32408
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 1992
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 1045
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 2075
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 347
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 6389
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 204026
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 203
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 5803
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 16
+	},
+	{
+		"AreaId": 94163,
+		"AreaName": "Troms",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 409
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SightingsCount": 1
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 78054
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 5492
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 4438
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 23923
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 242
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 61674
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 837553
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 5110
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 5107
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 427
+	},
+	{
+		"AreaId": 94164,
+		"AreaName": "Akershus",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 973
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 14997
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 642
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 1173
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 8197
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 118
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 5592
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 293253
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 71
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 1821
+	},
+	{
+		"AreaId": 94165,
+		"AreaName": "Finnmark",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 317
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 2377
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 1130
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 127
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 66
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 3
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 1338
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 66221
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 1493
+	},
+	{
+		"AreaId": 94166,
+		"AreaName": "Svalbard med sjøområder",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 132
+	},
+	{
+		"AreaId": 94167,
+		"AreaName": "Jan Mayen",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 1674
+	},
+	{
+		"AreaId": 94167,
+		"AreaName": "Jan Mayen",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 4
+	},
+	{
+		"AreaId": 94168,
+		"AreaName": "Norskekysten hav N",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 35
+	},
+	{
+		"AreaId": 94168,
+		"AreaName": "Norskekysten hav N",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 1
+	},
+	{
+		"AreaId": 94168,
+		"AreaName": "Norskekysten hav N",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 5
+	},
+	{
+		"AreaId": 94168,
+		"AreaName": "Norskekysten hav N",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 647
+	},
+	{
+		"AreaId": 94168,
+		"AreaName": "Norskekysten hav N",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 55
+	},
+	{
+		"AreaId": 94168,
+		"AreaName": "Norskekysten hav N",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 13
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 1,
+		"SightingsCount": 36670
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 2,
+		"SightingsCount": 1364
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 3,
+		"SightingsCount": 841
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 4,
+		"SightingsCount": 18458
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 5,
+		"SightingsCount": 74
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 7,
+		"SightingsCount": 15446
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 8,
+		"SightingsCount": 440115
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 9,
+		"SightingsCount": 757
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 11,
+		"SightingsCount": 2921
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 12,
+		"SightingsCount": 189
+	},
+	{
+		"AreaId": 94169,
+		"AreaName": "Oslo",
+		"SpeciesGroupId": 14,
+		"SightingsCount": 132
+	}
+]

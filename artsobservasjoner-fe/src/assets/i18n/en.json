@@ -121,6 +121,7 @@
         "tableCaption_validatedData2": "Validated sightings count by validation category",
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
+        "tableCaption_geographicalDistribution": "Sightings count per species group per area (county)",
         "tableHeading_year": "Year",
         "tableHeading_yearlyIncrease": "Yearly increase",
         "tableHeading_speciesGroup": "Species group",

@@ -5,7 +5,7 @@ import { LayoutService } from 'src/app/services/layout.service';
 import { Chart } from 'chart.js';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { map } from 'rxjs/operators';
-import { Category, MONTHS_NO, MONTHS_EN, Months } from 'src/app/models/shared';
+import { Category, Months } from 'src/app/models/shared';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { StatisticsItem } from 'src/app/models/statistics';

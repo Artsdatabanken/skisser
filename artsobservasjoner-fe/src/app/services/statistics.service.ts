@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
 import { Category, OLD_COUNTIES } from '../models/shared';
-import Geographic from '../data/Geografisk_fordeling2.json';
+import Geographic from '../data/Geografisk_fordeling3.json';
 
 import {
   AssessmentCategory,
@@ -712,7 +712,6 @@ export class StatisticsService {
   getSightingsByArea(): Observable<object[]> {
 
     return of(this.geographic).pipe(
-      tap(t => console.log('t', t)),
       map((response: any) => {
 
         let item: object;
@@ -723,7 +722,8 @@ export class StatisticsService {
           item = {
             areaId: element.AreaId,
             areaName: element.AreaName,
-            data: element.Data
+            speciesGroupId: element.SpeciesGroupId,
+            count: element.SightingsCount
           }
 
           items.push(item);
@@ -739,7 +739,7 @@ export class StatisticsService {
 
   }
 
-  getSightingsGeographicalDistribution(): Observable<any> {
+  getSightingsGeographicalDistribution(): Observable<object> {
 
     const data$ = forkJoin([
       this.getSightingsByArea(),
@@ -748,29 +748,27 @@ export class StatisticsService {
       map(([sightingsByArea, speciesGroups]) => {
 
         let obj: object = {};
-        let objCountData: object[] = [];
-        let objSpData: object[] = [];
 
         sightingsByArea.forEach(element => {
           obj[element['areaName']] = {};
 
           speciesGroups.forEach(speciesGroup => {
-            obj[element['areaName']][speciesGroup.id] = 0;
+            obj[element['areaName']][speciesGroup.id] = 0;  
           });
 
-          let tempSp: object[] = element['data'].map(el => el['SpeciesGroupId']);
-          objSpData = [...new Set(tempSp)];
+        });
 
-          let tempCount: object[] = element['data'].map(el => el['SightingsCount']);
-          objCountData = [...new Set(tempCount)];
-          
-          console.log('objData', objCountData);
-          console.log('objData', objSpData);
+        // obj['Xtotal'] = {};
+       
+
+        sightingsByArea.forEach(element => {
+
+          obj[element['areaName']][element['speciesGroupId']] = element['count'];
+          //obj['Xtotal'][element['speciesGroupId']] = 0;
 
         });
 
 
-        // ---------------------------------------- ***
 
         console.log('obj', obj);
 
