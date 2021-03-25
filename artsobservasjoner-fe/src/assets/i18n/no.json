@@ -17,6 +17,8 @@
         "menu_statistics_alienSpecies": "Fremmede arter",
         "menu_statistics_knowledgeGaps": "Kunnskapshull",
         "menu_statistics_userStatistics": "Brukerstatistikk",
+        "menu_statistics_userStatistics_topObservers": "Toppobservatører",
+        "menu_statistics_userStatistics_areaLeague": "Fylkesliga",
         "menu_myData": "Min data",
         "menu_myData_myObservations": "Mine observasjoner",
         "menu_myData_myStatistics": "Min statistik",

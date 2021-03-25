@@ -3,7 +3,7 @@
     <header class="page__header">
         <app-artsobs-numbers></app-artsobs-numbers>
 
-        <h1 class="page-title">{{ pageTitle | translate }}</h1>
+        <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h1>
     </header>
 
     <div class="page__intro">

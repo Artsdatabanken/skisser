@@ -185,8 +185,6 @@ export class StatisticsService {
 
         });
 
-        console.log('TEST', statusObject)
-
         return statusObject;
 
       })
@@ -725,7 +723,7 @@ export class StatisticsService {
           item = {
             areaId: element.AreaId,
             areaName: element.AreaName,
-            data: element.data
+            data: element.Data
           }
 
           items.push(item);
@@ -749,42 +747,34 @@ export class StatisticsService {
     ]).pipe(
       map(([sightingsByArea, speciesGroups]) => {
 
-        let statusObject: object = {};
+        let obj: object = {};
+        let objCountData: object[] = [];
+        let objSpData: object[] = [];
 
-        // ---------------------------------------- ***
-
-        // for (const value in this.counties) {
-        //   log(value);
-        // }
-
-        for (const value in Object.keys(this.counties)) {
-          if (typeof this.counties[value] !== 'string') {
-            continue;
-          }
-
-          statusObject[this.counties[Number(value)]] = {};
+        sightingsByArea.forEach(element => {
+          obj[element['areaName']] = {};
 
           speciesGroups.forEach(speciesGroup => {
-            statusObject[this.counties[Number(value)]][speciesGroup.id] = 0;
+            obj[element['areaName']][speciesGroup.id] = 0;
           });
 
+          let tempSp: object[] = element['data'].map(el => el['SpeciesGroupId']);
+          objSpData = [...new Set(tempSp)];
 
-        }
-
-        // ---------------------------------------- ***
-
-        console.log('statusObject', statusObject);
-
-        sightingsByArea.forEach(data => {
-
-          statusObject[data['areaName']][data['speciesGroupId']] = data['sightingsCount'];
+          let tempCount: object[] = element['data'].map(el => el['SightingsCount']);
+          objCountData = [...new Set(tempCount)];
+          
+          console.log('objData', objCountData);
+          console.log('objData', objSpData);
 
         });
 
 
-        console.log('statusObject', statusObject);
+        // ---------------------------------------- ***
 
-        return statusObject;
+        console.log('obj', obj);
+
+        return obj;
       })
     );
 

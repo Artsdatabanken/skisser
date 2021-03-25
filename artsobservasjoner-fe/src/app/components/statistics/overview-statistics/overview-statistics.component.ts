@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { DropdownOption } from 'src/app/models/reusable';
 import { LayoutService } from 'src/app/services/layout.service';
 
@@ -14,7 +12,7 @@ import { LayoutService } from 'src/app/services/layout.service';
 
 export class OverviewStatisticsComponent implements OnInit {
 
-  pageTitle: string;
+  pageTitle$: Observable<string>;
   children: any[] = [];
   subscription: Subscription;
   subscriptions: Subscription[] = [];
@@ -23,16 +21,9 @@ export class OverviewStatisticsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private titleService: Title,
-    private translate: TranslateService,
     private layoutService: LayoutService
   ) {
-
-    this.layoutService.setPageTitle('menu.menu_statistics_overview').subscribe(res => {
-      this.pageTitle = res;
-    });
-
-    //this.setPageTitle();
+    this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_overview');
   }
 
   ngOnInit(): void { 

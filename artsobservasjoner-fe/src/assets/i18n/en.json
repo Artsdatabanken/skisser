@@ -17,6 +17,8 @@
         "menu_statistics_alienSpecies": "Alien species",
         "menu_statistics_knowledgeGaps": "Knowledge gaps",
         "menu_statistics_userStatistics": "User statistics",
+        "menu_statistics_userStatistics_topObservers": "Top observers",
+        "menu_statistics_userStatistics_areaLeague": "Area league",
         "menu_myData": "My data",
         "menu_myData_myObservations": "My sightings",
         "menu_myData_myStatistics": "My statistics",

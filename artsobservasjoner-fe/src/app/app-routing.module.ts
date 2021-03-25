@@ -50,6 +50,8 @@ import { AnnouncementsComponent } from './components/announcements/announcements
 import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
 import { PressComponent } from './components/press/press.component';
 import { SearchComponent } from './components/search/search.component';
+import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
+import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
 
 /*
 
@@ -543,13 +545,47 @@ const sightingsRoutes: Routes = [
       text: 'Brukerstatistikk',
       title: 'menu_statistics_userStatistics',
       id: 'user-statistics',
-      layout: 'wide',
+      layout: 'spa',
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
       metatitle: '',
       metaDescription: ''
-    }
+    },
+    children: [
+      {
+        path: 'top-observers',
+        component: TopObserversComponent,
+        data: {
+          text: 'Toppobservatører',
+          title: 'menu.menu_statistics_userStatistics_topObservers',
+          id: 'top-observers',
+          layout: 'spa',
+          rank: 'secondary',
+          parent: 'statistics',
+          menu: '',
+          metatitle: '',
+          metaDescription: '',
+          hidden: false
+        }
+      },
+      {
+        path: 'area-league',
+        component: AreaLeagueComponent,
+        data: {
+          text: 'Fylkesligaen',
+          title: 'menu.menu_statistics_userStatistics_areaLeague',
+          id: 'area-league',
+          layout: 'spa',
+          rank: 'secondary',
+          parent: 'statistics',
+          menu: '',
+          metatitle: '',
+          metaDescription: '',
+          hidden: false
+        }
+      },
+    ]
   }
 ];
 

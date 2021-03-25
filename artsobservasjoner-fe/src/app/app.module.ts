@@ -112,6 +112,8 @@ import { SpeciesGroupComponent } from './components/shared/species-group/species
 import { FootnotesComponent } from './reusable/footnotes/footnotes.component';
 import { FootnoteComponent } from './reusable/footnotes/footnote/footnote.component';
 import { SearchComponent } from './components/search/search.component';
+import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
+import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -217,7 +219,9 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     SpeciesGroupComponent,
     FootnotesComponent,
     FootnoteComponent,
-    SearchComponent
+    SearchComponent,
+    TopObserversComponent,
+    AreaLeagueComponent
   ],
   imports: [
     BrowserModule,
