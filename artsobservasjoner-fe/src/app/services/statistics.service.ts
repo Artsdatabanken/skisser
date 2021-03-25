@@ -739,6 +739,34 @@ export class StatisticsService {
 
   }
 
+  getAreas(): Observable<any> {
+
+    return of(this.geographic).pipe(
+      map((response: any) => {
+
+        let area: object;
+        let areas: object[] = [];
+
+        response.forEach(element => {
+
+          area = {
+            areaName: element.AreaName
+          }
+
+          areas.push(area);
+
+        });
+
+        console.log('areas', areas);
+        return areas;
+
+      }),
+      publishReplay(1),
+      refCount()
+    );
+
+  }
+
   getSightingsGeographicalDistribution(): Observable<object> {
 
     const data$ = forkJoin([
@@ -749,17 +777,19 @@ export class StatisticsService {
 
         let obj: object = {};
 
+        sightingsByArea = sightingsByArea.sort((a, b) => a['areaName'].localeCompare(b['areaName']));
+
         sightingsByArea.forEach(element => {
           obj[element['areaName']] = {};
 
           speciesGroups.forEach(speciesGroup => {
-            obj[element['areaName']][speciesGroup.id] = 0;  
+            obj[element['areaName']][speciesGroup.id] = 0;
           });
 
         });
 
         // obj['Xtotal'] = {};
-       
+
 
         sightingsByArea.forEach(element => {
 
