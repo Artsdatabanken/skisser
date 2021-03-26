@@ -34,11 +34,9 @@
             <canvas id="myCanvas" #myCanvas></canvas>
         </div>
 
-        TEST {{ spLabel }}
-
-        <!-- <div class="chart-container">
-            <canvas id="myCanvas2" #myCanvas2></canvas>
-        </div> -->
+        <ng-template #noData>
+            <app-error-response></app-error-response>
+        </ng-template>
 
     </div>
 

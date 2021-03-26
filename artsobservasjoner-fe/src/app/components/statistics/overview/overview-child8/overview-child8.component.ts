@@ -21,7 +21,7 @@ export class OverviewChild8Component implements OnInit {
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
   subscription: Subscription;
-  data$: Observable<object[]>;
+  data$: Observable<StatisticsItem>;
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
 
@@ -30,7 +30,6 @@ export class OverviewChild8Component implements OnInit {
   @ViewChild('myCanvas') canvasRef: ElementRef;
   chart: any;
 
-  graphLabels: string[] = [];
   graphColors: string[] = GRAPHCOLORS;
 
   spLabel: string;
@@ -50,8 +49,12 @@ export class OverviewChild8Component implements OnInit {
 
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   onSelection(event: Event): void {
-    this.getData()
+    this.getData();
   }
 
   getData(): void {
@@ -68,58 +71,43 @@ export class OverviewChild8Component implements OnInit {
           return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
-        const getSpeciesGroupByLanguage = (id: number): string => {
-          const obj: Category = speciesGroups.find(speciesGroup => speciesGroup.id === id);
-          let sp: string;
-
-          this.currentLanguage$.subscribe(language => {
-            if (language === 'no') sp = obj.no;
-            if (language === 'en') sp = obj.en;
-
-            if (language === 'no') this.spLabel = obj.no;
-            if (language === 'en') this.spLabel = obj.en;
-          });
-
-          return sp;
-        }
-
         const getMonthlySightingsBySpeciesGroup = (id: number): StatisticsItem => {
           return monthlySightings.find(ms => ms.id === id);
         }
 
         // ---------------------------------------- ***
 
-        let datasets: object[] = [];
         const monthlySightingObject: StatisticsItem = getMonthlySightingsBySpeciesGroup(+this.selectedSpeciesGroup)
+      
+        this.subscription = this.currentLanguage$.subscribe(language => {    
 
-        const graphObject: object = {
-          id: monthlySightingObject['id'],
-          data: monthlySightingObject.data.map(elem => elem['sightingCount']),
-          label: getSpeciesGroupByLanguage(monthlySightingObject['id']),
-          backgroundColor: this.utilitiesService.generateRandomColor()
-        }
+          const graphData: number[] = monthlySightingObject.data.map(elem => elem['sightingCount']);
 
-        datasets.push(graphObject);
+          const graphLabelObject: Category = getSpeciesGroup(monthlySightingObject['id']);
+          let graphLabel: string;
+          let graphLabels: string[];
 
-        //this.buildChart(this.graphLabels, datasets);
+          if (language === 'no') graphLabel = graphLabelObject.no;
+          if (language === 'en') graphLabel = graphLabelObject.en;
 
-        this.currentLanguage$.subscribe(language => {
+          if (language === 'no') graphLabels = this.months.no;
+          if (language === 'en') graphLabels = this.months.en;
 
-          if (language === 'no') this.graphLabels = this.months.no;
-          if (language === 'en') this.graphLabels = this.months.en;
+          this.buildChart(graphData, graphLabel, graphLabels);
 
-          this.buildChart(this.graphLabels, datasets);
+        }); 
 
-        });
-
-        return datasets;
+        return monthlySightingObject;
 
       })
     );
 
   }
 
-  buildChart(labels?: string[], datasets?: object[]): void {
+  buildChart(data: number[], label: string, labels?: string[]): void {
+
+    console.log('graph', data, label);
+
 
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
@@ -127,13 +115,23 @@ export class OverviewChild8Component implements OnInit {
     Chart.defaults.global.defaultFontSize = 16;
     Chart.defaults.global.legend.position = 'bottom';
 
+    // OBS we have to destroy old chart in order to create a new one
+    
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
     this.chart = new Chart('myCanvas', {
       type: 'bar',
       data: {
         labels: labels,
         // datasets: datasets,
         datasets: [
-          
+          {
+            data: data,
+            label: label,
+            backgroundColor: this.utilitiesService.generateRandomColor()
+          }
         ]
       },
       options: {
@@ -152,6 +150,45 @@ export class OverviewChild8Component implements OnInit {
     });
 
   }
+
+  // buildChart(labels?: string[], datasets?: object[]): void {
+
+  //   Chart.defaults.global.defaultFontFamily = 'zabal';
+  //   Chart.defaults.global.defaultFontColor = 'black';
+  //   Chart.defaults.global.defaultFontStyle = '500';
+  //   Chart.defaults.global.defaultFontSize = 16;
+  //   Chart.defaults.global.legend.position = 'bottom';
+
+  //   this.chart = new Chart('myCanvas', {
+  //     type: 'bar',
+  //     data: {
+  //       labels: labels,
+  //       // datasets: datasets,
+  //       datasets: [
+  //         {
+
+  //           data: monthlySightingObject.data.map(elem => elem['sightingCount']),
+  //           label: getSpeciesGroupByLanguage(monthlySightingObject['id']),
+  //           backgroundColor: this.utilitiesService.generateRandomColor()
+  //         }
+  //       ]
+  //     },
+  //     options: {
+  //       legend: {
+  //         display: true
+  //       },
+  //       scales: {
+  //         xAxes: [{
+  //           display: true
+  //         }],
+  //         yAxes: [{
+  //           display: true
+  //         }],
+  //       }
+  //     }
+  //   });
+
+  // }
 
   // getData(): void {
 

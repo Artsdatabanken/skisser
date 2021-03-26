@@ -9,7 +9,6 @@ import { TranslationService } from 'src/app/services/translation.service';
 
 import { Chart } from 'chart.js';
 import { UtilitiesService } from 'src/app/services/utilities.service';
-import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-overview-child3',
