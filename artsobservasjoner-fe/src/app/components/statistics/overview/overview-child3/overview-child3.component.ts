@@ -9,6 +9,7 @@ import { TranslationService } from 'src/app/services/translation.service';
 
 import { Chart } from 'chart.js';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-overview-child3',
@@ -160,14 +161,14 @@ export class OverviewChild3Component implements OnInit {
             data: gValues1,
             label: 'Artsobservasjoner',
             //borderColor: this.graphColors[7],
-            borderColor: '#f5b7b1',
+            borderColor: this.utilitiesService.generateRandomColor(),
             borderWidth: 2,
             fill: false
           },
           {
             data: gValues2,
             label: 'Artskart',
-            borderColor: this.graphColors[5],
+            borderColor: this.utilitiesService.generateRandomColor(),
             borderWidth: 2,
             fill: false
           }

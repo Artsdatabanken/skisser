@@ -33,6 +33,8 @@ export class OverviewChild8Component implements OnInit {
   graphLabels: string[] = [];
   graphColors: string[] = GRAPHCOLORS;
 
+  spLabel: string;
+
   constructor(
     private layoutService: LayoutService,
     private utilitiesService: UtilitiesService,
@@ -66,6 +68,21 @@ export class OverviewChild8Component implements OnInit {
           return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
+        const getSpeciesGroupByLanguage = (id: number): string => {
+          const obj: Category = speciesGroups.find(speciesGroup => speciesGroup.id === id);
+          let sp: string;
+
+          this.currentLanguage$.subscribe(language => {
+            if (language === 'no') sp = obj.no;
+            if (language === 'en') sp = obj.en;
+
+            if (language === 'no') this.spLabel = obj.no;
+            if (language === 'en') this.spLabel = obj.en;
+          });
+
+          return sp;
+        }
+
         const getMonthlySightingsBySpeciesGroup = (id: number): StatisticsItem => {
           return monthlySightings.find(ms => ms.id === id);
         }
@@ -78,7 +95,7 @@ export class OverviewChild8Component implements OnInit {
         const graphObject: object = {
           id: monthlySightingObject['id'],
           data: monthlySightingObject.data.map(elem => elem['sightingCount']),
-          label: getSpeciesGroup(monthlySightingObject['id']),
+          label: getSpeciesGroupByLanguage(monthlySightingObject['id']),
           backgroundColor: this.utilitiesService.generateRandomColor()
         }
 
@@ -114,7 +131,10 @@ export class OverviewChild8Component implements OnInit {
       type: 'bar',
       data: {
         labels: labels,
-        datasets: datasets
+        // datasets: datasets,
+        datasets: [
+          
+        ]
       },
       options: {
         legend: {
