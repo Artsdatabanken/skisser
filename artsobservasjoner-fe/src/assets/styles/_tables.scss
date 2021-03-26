@@ -29,6 +29,15 @@ table {
         }
     }
 
+    tr {
+        &:hover {            
+            th[role="rowheader"],
+            td {
+                background: #ffee58 !important;
+            }
+        }
+    }
+
     th {
         @include customVar(border-bottom-color, clrAccent);
         @include customVar(font-family, fontSecondary);
@@ -48,7 +57,6 @@ table {
             @include customVar(background-color, clrWash2);
             @include customVar(font-family, fontPrimary);
             @include customVar(border-bottom-color, clrWhite);
-            //border: none;
             font-size: 17px;
             font-weight: 600;
 

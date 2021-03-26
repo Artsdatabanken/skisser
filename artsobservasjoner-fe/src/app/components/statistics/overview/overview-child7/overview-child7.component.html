@@ -4,10 +4,12 @@
 
     <div class="section">
 
-        <div role="region" tabindex="0" aria-labelledby="caption1">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            *ngIf="data$ | async as data; else noData">
 
             <table class="tbl tbl--x">
-                <caption id="caption1">{{ 'statistics.tableCaption_geographicalDistribution' | translate }}</caption>
+                <caption id="caption1">{{ 'statistics.tableCaption_geographicalDistribution' | translate }}
+                </caption>
                 <thead role="rowgroup">
                     <tr role="row">
                         <th scope="col" role="columnheader">{{ 'statistics.tableHeading_county' | translate }}</th>
@@ -20,9 +22,10 @@
                                 </th>
                             </ng-container>
                         </ng-container>
+
                     </tr>
                 </thead>
-                <tbody role="rowgroup" *ngIf="data$ | async as data">
+                <tbody role="rowgroup">
                     <tr role="row" *ngFor="let item of data | newKeyValue">
                         <th scope="row" role="rowheader">{{ item.key }}</th>
 
@@ -41,6 +44,9 @@
 
         </div>
 
+        <ng-template #noData>
+            <app-error-response></app-error-response>
+        </ng-template>
 
         <br><br><br><br><br>
 
