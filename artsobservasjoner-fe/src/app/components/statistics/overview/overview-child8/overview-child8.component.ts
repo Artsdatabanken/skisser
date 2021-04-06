@@ -32,8 +32,6 @@ export class OverviewChild8Component implements OnInit {
 
   graphColors: string[] = GRAPHCOLORS;
 
-  spLabel: string;
-
   constructor(
     private layoutService: LayoutService,
     private utilitiesService: UtilitiesService,
@@ -59,6 +57,8 @@ export class OverviewChild8Component implements OnInit {
 
   getData(): void {
 
+    console.log('getData has been activated');
+
     this.data$ = forkJoin([
       this.statisticsService.getSpeciesGroups(),
       this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup(),
@@ -78,8 +78,8 @@ export class OverviewChild8Component implements OnInit {
         // ---------------------------------------- ***
 
         const monthlySightingObject: StatisticsItem = getMonthlySightingsBySpeciesGroup(+this.selectedSpeciesGroup)
-      
-        this.subscription = this.currentLanguage$.subscribe(language => {    
+
+        this.subscription = this.currentLanguage$.subscribe(language => {
 
           const graphData: number[] = monthlySightingObject.data.map(elem => elem['sightingCount']);
 
@@ -95,7 +95,7 @@ export class OverviewChild8Component implements OnInit {
 
           this.buildChart(graphData, graphLabel, graphLabels);
 
-        }); 
+        });
 
         return monthlySightingObject;
 
@@ -106,9 +106,6 @@ export class OverviewChild8Component implements OnInit {
 
   buildChart(data: number[], label: string, labels?: string[]): void {
 
-    console.log('graph', data, label);
-
-
     Chart.defaults.global.defaultFontFamily = 'zabal';
     Chart.defaults.global.defaultFontColor = 'black';
     Chart.defaults.global.defaultFontStyle = '500';
@@ -116,16 +113,20 @@ export class OverviewChild8Component implements OnInit {
     Chart.defaults.global.legend.position = 'bottom';
 
     // OBS we have to destroy old chart in order to create a new one
-    
+
     if (this.chart) {
-      this.chart.destroy();
+      this.chart.destroy(); // denne er kostbart, bedre å retegne
+
+      // this.chart.data.labels = labels;
+      // this.chart.data.datasets = graphDataset;
+      // this.chart.update();
     }
 
     this.chart = new Chart('myCanvas', {
       type: 'bar',
       data: {
         labels: labels,
-        // datasets: datasets,
+        //datasets: graphDataset,
         datasets: [
           {
             data: data,

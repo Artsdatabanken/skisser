@@ -59,6 +59,7 @@ export class StatisticsService {
   OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
   OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYear';
   OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
+  OVERVIEW_STATS_SIGHTINGS_PER_AREA_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingPerCountyData';
 
   SIGHTINGS_PER_SOURCE_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsDataPerDataSource';
   MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingCountObservedPerMonth';
@@ -713,49 +714,19 @@ export class StatisticsService {
 
   getSightingsByArea(): Observable<object[]> {
 
-    return of(this.geographic2).pipe(
+    return this.httpClient.get(this.OVERVIEW_STATS_SIGHTINGS_PER_AREA_API).pipe(
       tap(t => console.log('t', t)),
       map((response: any) => {
 
         let item: object;
         let items: object[] = [];
 
-        response.forEach(element => {
+        response.sightingPerCountyStatistics.forEach(element => {
 
           item = {
-            areaId: element.AreaId,
-            areaName: element.AreaName,
-            data: element.Data
-          }
-
-          items.push(item);
-
-        });
-
-        return items;
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
-  }
-
-  getSightingsByArea2(): Observable<object[]> {
-
-    return of(this.geographic).pipe(
-      map((response: any) => {
-
-        let item: object;
-        let items: object[] = [];
-
-        response.forEach(element => {
-
-          item = {
-            areaId: element.AreaId,
-            areaName: element.AreaName,
-            speciesGroupId: element.SpeciesGroupId,
-            count: element.SightingsCount
+            areaId: element.areaId,
+            areaName: element.areaName,
+            data: element.data
           }
 
           items.push(item);
@@ -795,8 +766,8 @@ export class StatisticsService {
         sightingsByArea.forEach(element => {
 
           element['data'].forEach(item => {
-            if (item.hasOwnProperty('SpeciesGroupId')) {
-              obj[element['areaName']][item['SpeciesGroupId']] = item['SightingsCount'];
+            if (item.hasOwnProperty('speciesGroupId') && item['speciesGroupId'] !== 0) {
+              obj[element['areaName']][item['speciesGroupId']] = item['sightingCount'];
             }
           });
 
@@ -812,48 +783,6 @@ export class StatisticsService {
 
   }
 
-  getSightingsGeographicalDistribution2(): Observable<object> {
-
-    const data$ = forkJoin([
-      this.getSightingsByArea(),
-      this.getSpeciesGroups()
-    ]).pipe(
-      map(([sightingsByArea, speciesGroups]) => {
-
-        let obj: object = {};
-
-        sightingsByArea = sightingsByArea.sort((a, b) => a['areaName'].localeCompare(b['areaName']));
-
-        sightingsByArea.forEach(element => {
-          obj[element['areaName']] = {};
-
-          speciesGroups.forEach(speciesGroup => {
-            obj[element['areaName']][speciesGroup.id] = 0;
-          });
-
-        });
-
-        // obj['Xtotal'] = {};
-
-
-        sightingsByArea.forEach(element => {
-
-          obj[element['areaName']][element['speciesGroupId']] = element['count'];
-          //obj['Xtotal'][element['speciesGroupId']] = 0;
-
-        });
-
-
-
-        console.log('obj', obj);
-
-        return obj;
-      })
-    );
-
-    return data$;
-
-  }
   getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<StatisticsItem[]> {
     return this.httpClient.get(this.MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API).pipe(
       map((response: any) => {
