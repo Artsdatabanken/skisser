@@ -52,14 +52,12 @@
                             <th scope="row" role="rowheader">
 
                                 <span *ngIf="i === 0">
-                                    <app-species-group [speciesGroupId]="species.key.id" [language]="currentLanguage">
-                                    </app-species-group>                                
+                                    <app-species-group [speciesGroupId]="species.key.id"></app-species-group>
                                 </span>
 
                                 <!--for screen readers-->
                                 <span *ngIf="i > 0" class="td-hidden">
-                                    <app-species-group [speciesGroupId]="species.key.id" [language]="currentLanguage">
-                                    </app-species-group>                                   
+                                    <app-species-group [speciesGroupId]="species.key.id"></app-species-group>
                                 </span>
                                 <!--for screen readers-->
 

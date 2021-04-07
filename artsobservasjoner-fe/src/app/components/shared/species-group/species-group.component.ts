@@ -14,9 +14,8 @@ import { TranslationService } from 'src/app/services/translation.service';
 export class SpeciesGroupComponent implements OnInit {
 
   @Input() speciesGroupId: number;
-  @Input() language: string;
+  speciesGroupLabel$: Observable<string>;
   currentLanguage$: Observable<string>;
-  speciesGroup$: Observable<string>;
 
   constructor(
     private statisticsService: StatisticsService,
@@ -27,7 +26,7 @@ export class SpeciesGroupComponent implements OnInit {
 
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
-    this.speciesGroup$ = combineLatest([
+    this.speciesGroupLabel$ = combineLatest([
       this.currentLanguage$,
       this.statisticsService.getSpeciesGroups()
     ]).pipe(

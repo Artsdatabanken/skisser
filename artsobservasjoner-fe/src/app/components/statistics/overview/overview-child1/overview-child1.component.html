@@ -31,12 +31,7 @@
                     <tr *ngFor="let item of data">
                         <th role="rowheader" scope="row">
 
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-
-                                <app-species-group [speciesGroupId]="item.id" [language]="currentLanguage">
-                                </app-species-group>
-
-                            </ng-container>
+                            <app-species-group [speciesGroupId]="item.id"></app-species-group>
 
                         </th>
                         <td role="cell" class="td-number">

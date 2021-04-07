@@ -4,32 +4,28 @@
 
     <div class="section">
 
-        <!-- DENNE MÅ VÆRE MED -->
+        <!-- DENNE MÅ VÆRE MED. TODO REFACTOR -->
         <ng-container *ngIf="data$ | async"></ng-container>
-        <!-- DENNE MÅ VÆRE MED --> 
+        <!-- DENNE MÅ VÆRE MED -->
 
         <p class="body-text" [innerHTML]="'statistics.tableDescription_monthlySightings' | translate"></p>
 
         <br><br>
 
-        <ng-container *ngIf="speciesGroups$ | async as speciesGroups; else noData">
+        <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
+            (ngModelChange)="onSelection($event)">
 
-            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+            <option [ngValue]="null">
+                {{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}
+            </option>
 
-                <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
-                    (ngModelChange)="onSelection($event)">
+            <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
+                <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                    {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                </ng-container>
+            </option>
 
-                    <option [ngValue]="null">{{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}
-                    </option>
-                    <option [value]="sg.id" *ngFor="let sg of speciesGroups;">
-                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
-                    </option>
-
-                </select>
-
-            </ng-container>
-
-        </ng-container>
+        </select>
 
         <div class="chart-container" *ngIf="selectedSpeciesGroup">
             <canvas id="myCanvas" #myCanvas></canvas>

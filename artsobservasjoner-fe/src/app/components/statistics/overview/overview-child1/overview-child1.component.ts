@@ -18,7 +18,7 @@ export class OverviewChild1Component implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
-  data$;
+  data$: Observable<object[]>;
   subscription: Subscription;
   translationParam: Date | number;
 
@@ -27,7 +27,6 @@ export class OverviewChild1Component implements OnInit {
 
   graphLabels: string[] = [];
   graphValues: number[] = [];
-  graphColors: string[] = GRAPHCOLORS;
 
   constructor(
     private layoutService: LayoutService,

@@ -11,7 +11,7 @@
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }} </p>
 
         <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-            
+
             <ng-container *ngIf="data$ | async as data; else noData">
 
                 <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
@@ -154,15 +154,14 @@
                                     {{ 'statistics.tableHeading_validationCategory' | translate }}
                                 </th>
 
-                                <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
-                                    <ng-container *ngFor="let sp of speciesGroups">
 
-                                        <th role="columnheader" class="th-number">
-                                            <ng-container *ngIf="currentLanguage === 'no'"> {{ sp.no }} </ng-container>
-                                            <ng-container *ngIf="currentLanguage === 'en'"> {{ sp.en }} </ng-container>
-                                        </th>
+                                <ng-container *ngFor="let sp of speciesGroups$ | async">
 
-                                    </ng-container>
+                                    <th role="columnheader" class="th-number">
+                                        <ng-container *ngIf="currentLanguage === 'no'"> {{ sp.no }} </ng-container>
+                                        <ng-container *ngIf="currentLanguage === 'en'"> {{ sp.en }} </ng-container>
+                                    </th>
+
                                 </ng-container>
 
                                 <!-- <app-species-group [speciesGroupId]="item.key" [language]="currentLanguage">

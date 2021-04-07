@@ -12,16 +12,12 @@
                 </caption>
                 <thead role="rowgroup">
                     <tr role="row">
+                        
                         <th scope="col" role="columnheader">{{ 'statistics.tableHeading_county' | translate }}</th>
 
-                        <ng-container *ngIf="speciesGroups$ | async as speciesGroups">
-                            <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-                                <th class="th-number" *ngFor="let speciesGroup of speciesGroups">
-                                    <app-species-group [speciesGroupId]="speciesGroup.id" [language]="currentLanguage">
-                                    </app-species-group>
-                                </th>
-                            </ng-container>
-                        </ng-container>
+                        <th class="th-number" *ngFor="let speciesGroup of speciesGroups$ | async">
+                            <app-species-group [speciesGroupId]="speciesGroup.id"></app-species-group>
+                        </th>
 
                     </tr>
                 </thead>

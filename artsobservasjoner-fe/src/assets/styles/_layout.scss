@@ -797,7 +797,7 @@ main {
 
     &__content {
         @media screen and (max-width: 1200px) {
-           padding: 30px 0 0;
+            padding: 30px 0 0;
         }
     }
 
@@ -1234,5 +1234,23 @@ main {
                 padding: 60px 70px;
             }
         }
+    }
+}
+
+// breadcrumbs
+
+.breadcrumbs {
+    padding: 30px;
+}
+
+.breadcrumb {
+    @include customVar(border-bottom-color, clrAccent);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    font-size: 16px;
+    font-weight: 600;
+
+    &--active {
+        @include customVar(border-bottom-color, transparent);
     }
 }
