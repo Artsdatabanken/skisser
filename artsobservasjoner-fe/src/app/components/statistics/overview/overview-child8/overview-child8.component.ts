@@ -20,7 +20,6 @@ export class OverviewChild8Component implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
-  subscription: Subscription;
   data$: Observable<StatisticsItem>;
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
@@ -45,10 +44,6 @@ export class OverviewChild8Component implements OnInit {
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
 
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
   onSelection(event: Event): void {
@@ -79,7 +74,7 @@ export class OverviewChild8Component implements OnInit {
 
         const monthlySightingObject: StatisticsItem = getMonthlySightingsBySpeciesGroup(+this.selectedSpeciesGroup)
 
-        this.subscription = this.currentLanguage$.subscribe(language => {
+        this.currentLanguage$.subscribe(language => {
 
           const graphData: number[] = monthlySightingObject.data.map(elem => elem['sightingCount']);
 

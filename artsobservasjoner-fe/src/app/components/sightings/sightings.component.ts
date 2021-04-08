@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
-  selector: 'app-observations',
-  templateUrl: './observations.component.html',
-  styleUrls: ['./observations.component.scss']
+  selector: 'app-sightings',
+  templateUrl: './sightings.component.html',
+  styleUrls: ['./sightings.component.scss']
 })
 
-export class ObservationsComponent implements OnInit {
+export class SightingsComponent implements OnInit {
 
   subMenu: any[];
 

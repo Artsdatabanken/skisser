@@ -2,12 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-sightings',
-  templateUrl: './sightings.component.html',
-  styleUrls: ['./sightings.component.scss']
+  selector: 'app-sightings-collection',
+  templateUrl: './sightings-collection.component.html',
+  styleUrls: ['./sightings-collection.component.scss']
 })
 
-export class SightingsComponent implements OnInit {
+export class SightingsCollectionComponent implements OnInit {
 
   isActive: boolean = false;
   display: string = 'card';

@@ -41,7 +41,7 @@ export class UserStatisticsComponent implements OnInit {
 
       let item: DropdownOption = {
         text: child.data.title,
-        url: `/observations/statistics/user-statistics/${child.path}`
+        url: `/sightings/statistics/user-statistics/${child.path}`
       }
 
       this.dropdownOptions.push(item);

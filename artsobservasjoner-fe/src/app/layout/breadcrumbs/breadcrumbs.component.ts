@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Breadcrumb } from '../../models/breadcrumb';
-import { Router, ActivatedRoute, NavigationEnd, Route, PRIMARY_OUTLET } from '@angular/router';
-import { filter, distinctUntilChanged, map, mergeMap } from 'rxjs/operators';
-import { NavigationService } from 'src/app/services/navigation.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -12,10 +10,9 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class BreadcrumbsComponent implements OnInit {
 
-  breadcrumbs: Array<{ label: string; url: string }>;
+  breadcrumbs: Array<{ parentKey: string | any; label: string; url: string }>;
   deliminator: string = ' > ';
-
-  isHome: boolean;
+  translationParentKey: string;
 
   constructor(
     private router: Router,
@@ -37,14 +34,14 @@ export class BreadcrumbsComponent implements OnInit {
 
           childrenRoutes.forEach(route => {
 
-
-            console.log('route', this.breadcrumbs, route.snapshot.data);
-
             if (route.outlet === 'primary') {
               const routeSnapshot = route.snapshot;
               url += '/' + routeSnapshot.url.map(segment => segment.path).join('/');
+              
+              console.log('route.data', route.snapshot.url);
 
               this.breadcrumbs.push({
+                parentKey: route.snapshot.data.parent,
                 label: route.snapshot.data.title,
                 url: url
               });

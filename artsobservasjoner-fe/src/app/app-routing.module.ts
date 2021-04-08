@@ -10,20 +10,16 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { DesignComponent } from './misc/design/design.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { SightingsComponent } from './components/observations/sightings/sightings.component';
-import { SightingComponent } from './components/observations/sighting/sighting.component';
-import { ObservationsComponent } from './components/observations/observations.component';
+import { SightingComponent } from './components/sightings/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
 import { MapComponent } from './misc/map/map.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MyDataComponent } from './components/my-data/my-data.component';
-import { MyObservationsComponent } from './components/my-data/my-observations/my-observations.component';
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
 import { MyProjectsComponent } from './components/my-data/my-projects/my-projects.component';
 import { MyLocationsComponent } from './components/my-data/my-locations/my-locations.component';
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
-import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
@@ -52,6 +48,10 @@ import { PressComponent } from './components/press/press.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
+import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
+import { SightingsComponent } from './components/sightings/sightings.component';
+import { SightingsCollectionComponent } from './components/sightings/sightings-collection/sightings-collection.component';
+import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
 
 /*
 
@@ -103,7 +103,7 @@ const reportRoutes: Routes = [
     }
   },
   {
-    path: 'report/add-observation',
+    path: 'report/add-sighting',
     component: AddSightingComponent,
     data: {
       text: 'Legg til observasjon',
@@ -123,7 +123,7 @@ const reportRoutes: Routes = [
     }
   },
   {
-    path: 'report/checklist-observation',
+    path: 'report/checklist-sightings',
     component: ChecklistComponent,
     data: {
       text: 'Sjekkliste observasjoner',
@@ -143,8 +143,8 @@ const reportRoutes: Routes = [
     }
   },
   {
-    path: 'report/import-observations',
-    component: ImportObservationsComponent,
+    path: 'report/import-sightings',
+    component: ImportSightingsComponent,
     data: {
       text: 'Importere observasjoner',
       title: 'menu_report_importSightings',
@@ -206,12 +206,12 @@ const reportRoutes: Routes = [
 
 const sightingsRoutes: Routes = [
   {
-    path: 'observations',
-    component: ObservationsComponent,
+    path: 'sightings',
+    component: SightingsComponent,
     data: {
       text: 'Observasjonsdata',
-      title: 'menu_observations',
-      id: 'observations',
+      title: 'menu_sightings',
+      id: 'sightings',
       layout: 'landing',
       rank: 'primary',
       parent: '',
@@ -222,15 +222,15 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/sightings',
-    component: SightingsComponent,
+    path: 'sightings/sightings-collection',
+    component: SightingsCollectionComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
-      title: 'menu_observations_sightings',
+      title: 'menu_sightingsCollection',
       id: 'sightings',
       layout: 'page',
       rank: 'primary',
-      parent: 'observations',
+      parent: 'sightings',
       menu: 'mainMenu',
       metatitle: '',
       metaDescription: '',
@@ -238,11 +238,11 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/sightings/sighting',
+    path: 'sightings/sightings-collection/sighting',
     component: SightingComponent,
     data: {
       text: 'Observasjon',
-      title: 'menu_observations_sighting',
+      title: 'menu_sightings_sighting',
       id: 'sighting',
       layout: 'page',
       rank: '',
@@ -254,7 +254,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics',
+    path: 'sightings/statistics',
     component: StatisticsComponent,
     data: {
       text: 'Tall og statistikk',
@@ -262,7 +262,7 @@ const sightingsRoutes: Routes = [
       id: 'statistics',
       layout: 'landing',
       rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
-      parent: 'observations',
+      parent: 'sightings',
       menu: 'mainMenu',
       metatitle: '',
       metaDescription: '',
@@ -270,7 +270,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/overview-statistics',
+    path: 'sightings/statistics/overview-statistics',
     component: OverviewStatisticsComponent,
     data: {
       text: 'Volumstatistikk',
@@ -286,7 +286,7 @@ const sightingsRoutes: Routes = [
     },
     children: [
       {
-        path: 'observations/statistics/overview-statistics/:id',
+        path: 'sightings/statistics/overview-statistics/:id',
         component: OverviewItemComponent,
         data: {
           text: 'Oversikt stats item',
@@ -479,7 +479,7 @@ const sightingsRoutes: Routes = [
     ]
   },
   {
-    path: 'observations/statistics/validated-data',
+    path: 'sightings/statistics/validated-data',
     component: ValidatedDataComponent,
     data: {
       text: 'Kvalitetssikrede data',
@@ -494,7 +494,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/redlisted-species',
+    path: 'sightings/statistics/redlisted-species',
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',
@@ -509,7 +509,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/alien-species',
+    path: 'sightings/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',
@@ -524,7 +524,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/knowledge-gaps',
+    path: 'sightings/statistics/knowledge-gaps',
     component: KnowledgeGapComponent,
     data: {
       text: 'Kunnskapshull',
@@ -539,7 +539,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'observations/statistics/user-statistics',
+    path: 'sightings/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',
@@ -607,12 +607,12 @@ const userDataRoutes: Routes = [
     }
   },
   {
-    path: 'my-data/my-observations',
-    component: MyObservationsComponent,
+    path: 'my-data/my-sightings',
+    component: MySightingsComponent,
     data: {
       text: 'Mine observasjoner',
-      title: 'menu_myData_myObservations',
-      id: 'my-observations',
+      title: 'menu_myData_mysightings',
+      id: 'my-sightings',
       layout: 'page',
       rank: 'primary',
       parent: 'my-data',
@@ -1031,8 +1031,8 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-//const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
-const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

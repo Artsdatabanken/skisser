@@ -28,11 +28,9 @@ import { ButtonComponent } from './reusable/button/button.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
-import { SightingsComponent } from './components/observations/sightings/sightings.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
-import { ObservationsComponent } from './components/observations/observations.component';
-import { SightingComponent } from './components/observations/sighting/sighting.component';
+import { SightingComponent } from './components/sightings/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
 import { TeaserComponent } from './reusable/teaser/teaser.component';
 import { MapComponent } from './misc/map/map.component';
@@ -41,13 +39,11 @@ import { MessageComponent } from './components/messages/message/message.componen
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { MenuDirective } from './directives/menu.directive';
 import { MyDataComponent } from './components/my-data/my-data.component';
-import { MyObservationsComponent } from './components/my-data/my-observations/my-observations.component';
 import { MyProjectsComponent } from './components/my-data/my-projects/my-projects.component';
 import { MyLocationsComponent } from './components/my-data/my-locations/my-locations.component';
 import { MyObserversComponent } from './components/my-data/my-observers/my-observers.component';
 import { MyStatisticsComponent } from './components/my-data/my-statistics/my-statistics.component';
 import { ChecklistComponent } from './components/report/checklist/checklist.component';
-import { ImportObservationsComponent } from './components/report/import-observations/import-observations.component';
 import { SurveyProjectComponent } from './components/report/survey-project/survey-project.component';
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { ExtraNavigationComponent } from './layout/extra-navigation/extra-navigation.component';
@@ -70,7 +66,6 @@ import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
-import { SightingsMapComponent } from './components/observations/sightings-map/sightings-map.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { AccordionComponent } from './reusable/accordion/accordion.component';
@@ -114,6 +109,11 @@ import { FootnoteComponent } from './reusable/footnotes/footnote/footnote.compon
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
+import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
+import { SightingsCollectionComponent } from './components/sightings/sightings-collection/sightings-collection.component';
+import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
+import { SightingsComponent } from './components/sightings/sightings.component';
+import { SightingsMapComponent } from './components/sightings/sightings-collection/sightings-map/sightings-map.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -144,7 +144,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     SightingComponent,
     MenuComponent,
     LoginButtonComponent,
-    ObservationsComponent,
     ReportComponent,
     TeaserComponent,
     MapComponent,
@@ -153,13 +152,11 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     SitemapComponent,
     MenuDirective,
     MyDataComponent,
-    MyObservationsComponent,
     MyProjectsComponent,
     MyLocationsComponent,
     MyObserversComponent,
     MyStatisticsComponent,
     ChecklistComponent,
-    ImportObservationsComponent,
     SurveyProjectComponent,
     EventProjectComponent,
     ExtraNavigationComponent,
@@ -182,7 +179,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     NewsComponent,
     NewsItemComponent,
     TruncateTextPipe,
-    SightingsMapComponent,
     AboutPageComponent,
     KnowledgeGapComponent,
     AccordionComponent,
@@ -221,7 +217,11 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     FootnoteComponent,
     SearchComponent,
     TopObserversComponent,
-    AreaLeagueComponent
+    AreaLeagueComponent,
+    ImportSightingsComponent,
+    SightingsCollectionComponent,
+    MySightingsComponent,
+    SightingsMapComponent
   ],
   imports: [
     BrowserModule,
