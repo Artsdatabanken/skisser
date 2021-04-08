@@ -8,7 +8,7 @@
 
         <div class="loop loop--stats">
 
-            <ng-container *ngIf="data$ | async as data">
+            <ng-container *ngIf="data$ | async as data; else noData">
 
                 <app-icon-badge [data]="data.totalProjectsCount" [style]="'list'"
                     [text]="'statistics.projects_totalCount' | translate" [icon]="true" [iconType]="'project'"></app-icon-badge>
@@ -22,6 +22,10 @@
             </ng-container>
 
         </div>
+
+        <ng-template #noData>
+            <app-error-response></app-error-response>
+        </ng-template>
 
         <br>
 

@@ -20,8 +20,14 @@
 <nav class="breadcrumbs" *ngIf="breadcrumbs">
     <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/">Forsiden</a>
 
-    <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/{{ item.breadcrumb.path }}"
-        *ngFor="let item of breadcrumbs">{{ item.breadcrumb.data.text }}</a>
+    <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/{{ breadcrumb.url }}"
+        *ngFor="let breadcrumb of breadcrumbs; let i = index">
+ 
+        <span>{{ 'menu.' + breadcrumb.label | translate }}</span>
+
+        <span><small> &raquo; </small></span>
+        <span *ngIf="i !== breadcrumbs.length - 1"><small> &raquo; </small></span>
+    </a>
 </nav>
 
 <!--layout component-->
