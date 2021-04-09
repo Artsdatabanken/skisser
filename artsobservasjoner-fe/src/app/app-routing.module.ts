@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
@@ -10,7 +11,7 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { DesignComponent } from './misc/design/design.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { SightingComponent } from './components/sightings/sighting/sighting.component';
+import { SightingComponent } from './components/sightings-data/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
 import { MapComponent } from './misc/map/map.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
@@ -23,16 +24,13 @@ import { ChecklistComponent } from './components/report/checklist/checklist.comp
 import { EventProjectComponent } from './components/report/event-project/event-project.component';
 import { OverviewChild1Component } from './components/statistics/overview/overview-child1/overview-child1.component';
 import { OverviewChild2Component } from './components/statistics/overview/overview-child2/overview-child2.component';
-import { OverviewChild9Component } from './components/statistics/overview/overview-child9/overview-child9.component';
 import { OverviewChild8Component } from './components/statistics/overview/overview-child8/overview-child8.component';
 import { OverviewChild3Component } from './components/statistics/overview/overview-child3/overview-child3.component';
 import { OverviewChild4Component } from './components/statistics/overview/overview-child4/overview-child4.component';
 import { OverviewChild6Component } from './components/statistics/overview/overview-child6/overview-child6.component';
 import { OverviewChild7Component } from './components/statistics/overview/overview-child7/overview-child7.component';
-import { OverviewChild10Component } from './components/statistics/overview/overview-child10/overview-child10.component';
-import { OverviewChild11Component } from './components/statistics/overview/overview-child11/overview-child11.component';
 import { NewsComponent } from './components/news/news.component';
-import { NewsItemComponent } from './components/news/news-item/news-item.component';
+import { NewsItemComponent } from './components/news-item/news-item.component';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
@@ -43,15 +41,15 @@ import { OverviewItemComponent } from './components/statistics/overview/overview
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
-import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { PressComponent } from './components/press/press.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
 import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
-import { SightingsComponent } from './components/sightings/sightings.component';
-import { SightingsCollectionComponent } from './components/sightings/sightings-collection/sightings-collection.component';
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
+import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
+import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
 
 /*
 
@@ -206,8 +204,8 @@ const reportRoutes: Routes = [
 
 const sightingsRoutes: Routes = [
   {
-    path: 'sightings',
-    component: SightingsComponent,
+    path: 'sightings-data',
+    component: SightingsDataComponent,
     data: {
       text: 'Observasjonsdata',
       title: 'menu_sightings',
@@ -222,8 +220,8 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/sightings-collection',
-    component: SightingsCollectionComponent,
+    path: 'sightings-data/sightings',
+    component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
       title: 'menu_sightingsCollection',
@@ -238,7 +236,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/sightings-collection/sighting',
+    path: 'sightings-data/sightings/sighting',
     component: SightingComponent,
     data: {
       text: 'Observasjon',
@@ -254,7 +252,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics',
+    path: 'sightings-data/statistics',
     component: StatisticsComponent,
     data: {
       text: 'Tall og statistikk',
@@ -270,7 +268,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/overview-statistics',
+    path: 'sightings-data/statistics/overview-statistics',
     component: OverviewStatisticsComponent,
     data: {
       text: 'Volumstatistikk',
@@ -286,7 +284,7 @@ const sightingsRoutes: Routes = [
     },
     children: [
       {
-        path: 'sightings/statistics/overview-statistics/:id',
+        path: 'sightings-data/statistics/overview-statistics/:id',
         component: OverviewItemComponent,
         data: {
           text: 'Oversikt stats item',
@@ -479,7 +477,7 @@ const sightingsRoutes: Routes = [
     ]
   },
   {
-    path: 'sightings/statistics/validated-data',
+    path: 'sightings-data/statistics/validated-data',
     component: ValidatedDataComponent,
     data: {
       text: 'Kvalitetssikrede data',
@@ -494,7 +492,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/redlisted-species',
+    path: 'sightings-data/statistics/redlisted-species',
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',
@@ -509,7 +507,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/alien-species',
+    path: 'sightings-data/statistics/alien-species',
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',
@@ -524,7 +522,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/knowledge-gaps',
+    path: 'sightings-data/statistics/knowledge-gaps',
     component: KnowledgeGapComponent,
     data: {
       text: 'Kunnskapshull',
@@ -539,7 +537,7 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings/statistics/user-statistics',
+    path: 'sightings-data/statistics/user-statistics',
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',
@@ -849,9 +847,25 @@ const accountRoutes: Routes = [
   },
 ];
 
-const extraRoutes: Routes = [
+const pressRoutes: Routes = [
   {
-    path: 'news',
+    path: 'press',
+    component: PressComponent,
+    data: {
+      text: 'Presse',
+      title: 'menu_press',
+      id: 'press',
+      layout: 'full-width',
+      rank: 'secondary',
+      parent: '',
+      menu: 'extraMenu',
+      metatitle: '',
+      metaDescription: '',
+      hidden: true
+    }
+  },
+  {
+    path: 'press/news',
     component: NewsComponent,
     data: {
       text: 'Aktuelle saker',
@@ -867,7 +881,7 @@ const extraRoutes: Routes = [
     }
   },
   {
-    path: 'news/:id',
+    path: 'press/news/:id',
     component: NewsItemComponent,
     data: {
       text: 'News item',
@@ -882,7 +896,7 @@ const extraRoutes: Routes = [
     }
   },
   {
-    path: 'announcements',
+    path: 'press/announcements',
     component: AnnouncementsComponent,
     data: {
       text: 'Kunngjøringer',
@@ -898,7 +912,7 @@ const extraRoutes: Routes = [
     }
   },
   {
-    path: 'announcements/:id',
+    path: 'press/announcements/:id',
     component: AnnouncementComponent,
     data: {
       text: 'Kunngjøring',
@@ -912,7 +926,73 @@ const extraRoutes: Routes = [
       metaDescription: '',
       hidden: true
     }
-  },
+  }
+];
+
+const extraRoutes: Routes = [
+  // {
+  //   path: 'news',
+  //   component: NewsComponent,
+  //   data: {
+  //     text: 'Aktuelle saker',
+  //     title: 'menu_news',
+  //     id: 'news',
+  //     layout: 'wide',
+  //     rank: 'secondary',
+  //     parent: '',
+  //     menu: 'extraMenu',
+  //     metatitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'news/:id',
+  //   component: NewsItemComponent,
+  //   data: {
+  //     text: 'News item',
+  //     id: 'news',
+  //     layout: 'article',
+  //     rank: '',
+  //     parent: 'news',
+  //     menu: '',
+  //     metatitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'announcements',
+  //   component: AnnouncementsComponent,
+  //   data: {
+  //     text: 'Kunngjøringer',
+  //     title: 'menu_announcements',
+  //     id: 'announcements',
+  //     layout: 'page',
+  //     rank: 'secondary',
+  //     parent: '',
+  //     menu: 'extraMenu',
+  //     metatitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
+  // {
+  //   path: 'announcements/:id',
+  //   component: AnnouncementComponent,
+  //   data: {
+  //     text: 'Kunngjøring',
+  //     title: 'menu_announcement',
+  //     id: 'announcement',
+  //     layout: 'article',
+  //     rank: 'secondary',
+  //     parent: '',
+  //     menu: '',
+  //     metatitle: '',
+  //     metaDescription: '',
+  //     hidden: true
+  //   }
+  // },
   {
     path: 'press',
     component: PressComponent,
@@ -1031,7 +1111,7 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 //const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({

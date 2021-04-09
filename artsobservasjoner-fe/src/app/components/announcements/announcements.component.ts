@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Announcement } from 'src/app/models/news';
+import { Announcement } from 'src/app/models/press';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class AnnouncementsComponent implements OnInit {
   errorMessage: string;
   announcements$: Observable<Announcement[]>;
   
-  @Input() take: number | null = 0;
+  @Input() take: number;
   @Input() location: string;
 
   constructor(private dataService: DataService) { }

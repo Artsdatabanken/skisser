@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { NewsItem } from 'src/app/models/news';
+import { Announcement } from 'src/app/models/press';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-news-item',
-  templateUrl: './news-item.component.html',
-  styleUrls: ['./news-item.component.scss']
+  selector: 'app-announcement',
+  templateUrl: './announcement.component.html',
+  styleUrls: ['./announcement.component.scss']
 })
 
-export class NewsItemComponent implements OnInit {
+export class AnnouncementComponent implements OnInit {
 
   pageTitle: string;
-  newsItemId: number;
-  newsItem: NewsItem;
+  announcementId: number;
+  announcement: Announcement;
   subscription: Subscription;
 
   constructor(
@@ -23,13 +23,15 @@ export class NewsItemComponent implements OnInit {
     private dataService: DataService,
     private titleService: Title
   ) {
-    this.newsItemId = this.route.snapshot.params["id"];
+    this.announcementId = this.route.snapshot.params["id"];
+
+    console.log('ann id', this.announcementId)
   }
 
   ngOnInit(): void {
 
-    this.subscription = this.dataService.getNewsItemById(this.newsItemId).subscribe(ni => {
-      this.newsItem = ni;
+    this.subscription = this.dataService.getNewsItemById(this.announcementId).subscribe(ni => {
+      this.announcement = ni;
       this.pageTitle = ni.title;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);
     });
@@ -39,4 +41,6 @@ export class NewsItemComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+
 }

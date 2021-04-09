@@ -30,7 +30,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
-import { SightingComponent } from './components/sightings/sighting/sighting.component';
+import { SightingComponent } from './components/sightings-data/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
 import { TeaserComponent } from './reusable/teaser/teaser.component';
 import { MapComponent } from './misc/map/map.component';
@@ -64,7 +64,6 @@ import { ClickElsewhereDirective } from './directives/click-elsewhere.directive'
 import { ShortcutsComponent } from './layout/shortcuts/shortcuts.component';
 import { ArtsobsNumbersComponent } from './components/statistics/artsobs-numbers/artsobs-numbers.component';
 import { NewsComponent } from './components/news/news.component';
-import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
@@ -91,7 +90,7 @@ import { IntersectionComponent } from './reusable/intersection/intersection.comp
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { CloseDropdownDirective, DropdownComponent } from './reusable/dropdown/dropdown.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
-import { AnnouncementComponent } from './components/announcements/announcement/announcement.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
@@ -110,10 +109,10 @@ import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
 import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
-import { SightingsCollectionComponent } from './components/sightings/sightings-collection/sightings-collection.component';
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
-import { SightingsComponent } from './components/sightings/sightings.component';
-import { SightingsMapComponent } from './components/sightings/sightings-collection/sightings-map/sightings-map.component';
+import { NewsItemComponent } from './components/news-item/news-item.component';
+import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
+import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -219,9 +218,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     TopObserversComponent,
     AreaLeagueComponent,
     ImportSightingsComponent,
-    SightingsCollectionComponent,
     MySightingsComponent,
-    SightingsMapComponent
+    SightingsDataComponent
   ],
   imports: [
     BrowserModule,

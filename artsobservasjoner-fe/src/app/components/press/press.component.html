@@ -23,7 +23,7 @@
               *ngFor="let item of announcements | slice: 0 : 6"
               [type]="'icon'" 
               [icon]="item.tags" 
-              [url]="'/announcements/' + item.url"
+              [url]="'/press/announcements/' + item.url"
               [tag]="'news.currently' | translate" 
               [date]="item.published" 
               [title]="item.heading | stripHtml"> 
@@ -35,7 +35,7 @@
         <br>
         <br>
         
-        <a routerLink="/announcements" class="button button--cta button--centered">{{ 'headings.announcements' | translate }}</a>
+        <a routerLink="/press/announcements" class="button button--cta button--centered">{{ 'headings.announcements' | translate }}</a>
        
       </ng-container>
 
@@ -52,7 +52,7 @@
             *ngFor="let item of news | slice: 0 : 6"
             [type]="'img'" 
             [source]="item.imgUrl" 
-            [url]="'/news/' + item.url" 
+            [url]="'/press/news/' + item.url" 
             [tag]="'news.currently' | translate"
             [date]="item.created" 
             [title]="item.heading | stripHtml" 
@@ -63,7 +63,7 @@
 
         <br><br>
 
-        <a routerLink="/news" class="button button--cta button--centered">{{ 'headings.news' | translate }}</a>
+        <a routerLink="/press/news" class="button button--cta button--centered">{{ 'headings.news' | translate }}</a>
 
       </div>
 

@@ -22,9 +22,9 @@
 
     <a class="breadcrumb" routerLinkActive="breadcrumb--active" routerLink="/{{ breadcrumb.url }}"
         *ngFor="let breadcrumb of breadcrumbs; let i = index">
- 
+
         <span style="color: red;">{{ breadcrumb.parentKey }}</span>
-        //// 
+        /
         <span>{{ 'menu.' + breadcrumb.label | translate }}</span>
 
         <!-- <span><small> &raquo; </small></span> -->

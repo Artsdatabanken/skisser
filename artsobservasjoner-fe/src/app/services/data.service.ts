@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 import Settings from '../config/settings.json';
 import { AboutPage } from '../models/aboutPage';
-import { Announcement, NewsItem } from '../models/news';
+import { Announcement, NewsItem } from '../models/press';
 
 @Injectable({
   providedIn: 'root'

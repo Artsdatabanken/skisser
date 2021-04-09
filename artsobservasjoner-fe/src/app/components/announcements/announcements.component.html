@@ -12,13 +12,13 @@
 
         <div *ngIf="announcements$ | async as announcements; else noData">
 
-            <div class="loop loop--2x">
+            <div class="loop loop--2x">    
 
                 <app-teaser 
-                    *ngFor="let item of announcements | slice: 0 : 4"
+                    *ngFor="let item of announcements | slice: 0 : take"
                     [type]="'icon'" 
                     [icon]="item.tags" 
-                    [url]="'/announcements/' + item.url"
+                    [url]="'/press/announcements/' + item.url"
                     [tag]="'news.currently' | translate" 
                     [date]="item.published" 
                     [title]="item.heading | stripHtml"

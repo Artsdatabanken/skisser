@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SightingsMapComponent } from './sightings-map.component';
+import { SightingsDataComponent } from './sightings-data.component';
 
-describe('SightingsMapComponent', () => {
-  let component: SightingsMapComponent;
-  let fixture: ComponentFixture<SightingsMapComponent>;
+describe('SightingsDataComponent', () => {
+  let component: SightingsDataComponent;
+  let fixture: ComponentFixture<SightingsDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SightingsMapComponent ]
+      declarations: [ SightingsDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SightingsMapComponent);
+    fixture = TestBed.createComponent(SightingsDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
