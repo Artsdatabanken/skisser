@@ -37,7 +37,6 @@ import { AddSightingComponent } from './components/report/add-sighting/add-sight
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
 import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
-import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
@@ -283,21 +282,6 @@ const sightingsRoutes: Routes = [
       hidden: false
     },
     children: [
-      {
-        path: 'sightings-data/statistics/overview-statistics/:id',
-        component: OverviewItemComponent,
-        data: {
-          text: 'Oversikt stats item',
-          id: 'overviewStatsItem',
-          layout: 'spa',
-          rank: 'secondary',
-          parent: 'overview',
-          menu: '',
-          metatitle: '',
-          metaDescription: '',
-          hidden: true
-        }
-      },
       {
         path: 'overview-1',
         component: OverviewChild1Component,

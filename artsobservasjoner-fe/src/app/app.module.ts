@@ -23,8 +23,6 @@ import { UserStatisticsComponent } from './components/statistics/user-statistics
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
 import { DesignComponent } from './misc/design/design.component';
-import { CardComponent } from './reusable/card/card.component';
-import { ButtonComponent } from './reusable/button/button.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SubNavigationComponent } from './layout/sub-navigation/sub-navigation.component';
@@ -32,7 +30,6 @@ import { MenuComponent } from './layout/menu/menu.component';
 import { LoginButtonComponent } from './layout/login-button/login-button.component';
 import { SightingComponent } from './components/sightings-data/sighting/sighting.component';
 import { ReportComponent } from './components/report/report.component';
-import { TeaserComponent } from './reusable/teaser/teaser.component';
 import { MapComponent } from './misc/map/map.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageComponent } from './components/messages/message/message.component';
@@ -67,8 +64,6 @@ import { NewsComponent } from './components/news/news.component';
 import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { KnowledgeGapComponent } from './components/statistics/knowledge-gap/knowledge-gap.component';
-import { AccordionComponent } from './reusable/accordion/accordion.component';
-import { AccordionItemComponent } from './reusable/accordion/accordion-item/accordion-item.component';
 import { AddSightingComponent } from './components/report/add-sighting/add-sighting.component';
 import { OverviewStatisticsComponent } from './components/statistics/overview-statistics/overview-statistics.component';
 import { CoObserversComponent } from './components/my-data/co-observers/co-observers.component';
@@ -78,33 +73,19 @@ import localeNorExtra from '@angular/common/locales/nb';
 import { SimplifiedMenuComponent } from './layout/simplified-menu/simplified-menu.component';
 import { AccountComponent } from './components/account/account.component';
 import { ValidatedDataComponent } from './components/statistics/validated-data/validated-data.component';
-import { TotalCountStatisticsComponent } from './components/shared/total-count-statistics/total-count-statistics.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
-import { AssessmentCategoryComponent } from './components/shared/assessment-category/assessment-category.component';
-import { OverviewItemComponent } from './components/statistics/overview/overview-item/overview-item.component';
-import { TableComponent } from './reusable/table/table.component';
 import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
 import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
-import { IntersectionComponent } from './reusable/intersection/intersection.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
-import { CloseDropdownDirective, DropdownComponent } from './reusable/dropdown/dropdown.component';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
-import { ErrorResponseComponent } from './components/shared/error-response/error-response.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
 import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
-import { LanguageSwitcherComponent } from './components/shared/language-switcher/language-switcher.component';
-import { ValidationStatusComponent } from './components/shared/validation-status/validation-status.component';
-import { IconBadgeComponent } from './reusable/icon-badge/icon-badge.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
 import { GetObjectsNamePipe } from './pipes/get-objects-name.pipe';
-import { ValidationStatusListComponent } from './components/shared/validation-status-list/validation-status-list.component';
-import { SpeciesGroupComponent } from './components/shared/species-group/species-group.component';
-import { FootnotesComponent } from './reusable/footnotes/footnotes.component';
-import { FootnoteComponent } from './reusable/footnotes/footnote/footnote.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
@@ -113,6 +94,25 @@ import { MySightingsComponent } from './components/my-data/my-sightings/my-sight
 import { NewsItemComponent } from './components/news-item/news-item.component';
 import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
 import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
+import { AssessmentCategoryComponent } from './shared-and-reusable/smart-components/assessment-category/assessment-category.component';
+import { AccordionItemComponent } from './shared-and-reusable/dummy-components/accordion/accordion-item/accordion-item.component';
+import { AccordionComponent } from './shared-and-reusable/dummy-components/accordion/accordion.component';
+import { ButtonComponent } from './shared-and-reusable/dummy-components/button/button.component';
+import { CardComponent } from './shared-and-reusable/dummy-components/card/card.component';
+import { DropdownComponent, CloseDropdownDirective } from './shared-and-reusable/dummy-components/dropdown/dropdown.component';
+import { FootnoteComponent } from './shared-and-reusable/dummy-components/footnotes/footnote/footnote.component';
+import { FootnotesComponent } from './shared-and-reusable/dummy-components/footnotes/footnotes.component';
+import { IconBadgeComponent } from './shared-and-reusable/dummy-components/icon-badge/icon-badge.component';
+import { IntersectionComponent } from './shared-and-reusable/dummy-components/intersection/intersection.component';
+import { TableComponent } from './shared-and-reusable/dummy-components/table/table.component';
+import { TeaserComponent } from './shared-and-reusable/dummy-components/teaser/teaser.component';
+import { ErrorResponseComponent } from './shared-and-reusable/smart-components/error-response/error-response.component';
+import { LanguageSwitcherComponent } from './shared-and-reusable/smart-components/language-switcher/language-switcher.component';
+import { SpeciesGroupComponent } from './shared-and-reusable/smart-components/species-group/species-group.component';
+import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-components/total-count-statistics/total-count-statistics.component';
+import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
+import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
+
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -191,7 +191,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     TotalCountStatisticsComponent,
     AlertsComponent,
     AssessmentCategoryComponent,
-    OverviewItemComponent,
     TableComponent,
     NewKeyValuePipe,
     GraphComponent,
