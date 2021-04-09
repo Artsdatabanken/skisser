@@ -88,7 +88,7 @@
                 <tr>
                     <th>Posisjon</th>
                     <th>Navn</th>
-                    <th class="td-number">Antall observasjoner</th>
+                    <th class="th-number">Antall observasjoner</th>
                 </tr>
             </thead>
             <tbody>
@@ -115,15 +115,9 @@
 
             <div class="grid__cell">
 
-                <!-- <div class="stats">
-                    <div class="stats__number">23 000 000</div>
-                    <div class="stats__text">total observasjoner</div>
-                </div> -->
-
                 <app-total-count-statistics [statistics]="totalCountStatistics.totalSightings" [style]="'list'"
                     [text]="'statistics.overviewNumbers_sightings' | translate" [icon]="true" [size]="'sm'">
                 </app-total-count-statistics>
-
 
             </div>
 
@@ -145,17 +139,12 @@
 
             <div class="grid__cell">
 
-                <!-- <div class="stats">
-                    <div class="stats__number">5897</div>
-                    <div class="stats__text">aktive brukere</div>
-                </div> -->
-
                 <app-total-count-statistics [statistics]="totalCountStatistics.totalUsers" [style]="'list'"
                     [text]="'statistics.overviewNumbers_users' | translate" [icon]="true" [size]="'sm'">
                 </app-total-count-statistics>
 
-
             </div>
+
         </div>
 
         <!---->

@@ -20,7 +20,7 @@
         <div class="loop loop--2x">
 
           <app-teaser 
-              *ngFor="let item of announcements | slice: 0 : 4"
+              *ngFor="let item of announcements | slice: 0 : 6"
               [type]="'icon'" 
               [icon]="item.tags" 
               [url]="'/announcements/' + item.url"

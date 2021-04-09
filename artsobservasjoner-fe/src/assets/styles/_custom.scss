@@ -569,6 +569,10 @@
         }
     }
 
+    & > .button {
+        padding: 0 22px;
+    }
+
     // &__grid {
     //     display: grid;
     //     grid-template-columns: 2fr 1fr;
