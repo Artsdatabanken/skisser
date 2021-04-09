@@ -33,7 +33,7 @@ export class OverviewStatisticsComponent implements OnInit {
 
       let item: DropdownOption = {
         text: child.data.title, 
-        url: `/sightings/statistics/overview-statistics/${child.path}`
+        url: `/sightings-data/statistics/overview-statistics/${child.path}`
       }
 
       this.dropdownOptions.push(item);
