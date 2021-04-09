@@ -1086,6 +1086,12 @@
             background-size: 45px;
         }
 
+        .icon-badge--small & {
+            background-size: 25px;  
+            height: 50px;
+            width: 50px;
+        }
+
         @media screen and (max-width: 1200px) {
             background-size: 35px;
             margin: 0 auto 10px;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DropdownOption } from 'src/app/models/reusable';
+import { TOTAL_COUNT_STATISTICS } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserService } from 'src/app/services/user.service';
@@ -14,7 +16,8 @@ export class TopObserversComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
-
+  public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
+  
   fakeUsers$: Observable<any[]>;
   toggle: boolean = false;
 

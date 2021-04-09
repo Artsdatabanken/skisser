@@ -4,7 +4,7 @@
 
     <div class="section">
 
-     
+
         <!--toppobservatører-->
 
         <p>
@@ -65,7 +65,7 @@
         </div>
 
         <br><br><br><br>
-<!-- 
+        <!-- 
         <div class="league league--primary">
 
             <div class="league__item" [class]="getRank(i)"
@@ -115,10 +115,15 @@
 
             <div class="grid__cell">
 
-                <div class="stats">
+                <!-- <div class="stats">
                     <div class="stats__number">23 000 000</div>
                     <div class="stats__text">total observasjoner</div>
-                </div>
+                </div> -->
+
+                <app-total-count-statistics [statistics]="totalCountStatistics.totalSightings" [style]="'list'"
+                    [text]="'statistics.overviewNumbers_sightings' | translate" [icon]="true" [size]="'sm'">
+                </app-total-count-statistics>
+
 
             </div>
 
@@ -129,7 +134,8 @@
                     <div class="stats__number stats__number--main"><span class="badge badge--xl">374</span></div>
                     <div class="stats__text"> plass med <strong>1784</strong>
                         <br>
-                        rapporterte observasjoner</div>
+                        rapporterte observasjoner
+                    </div>
                 </div>
                 <br>
                 <div style="text-align: center;"><small style="font-size: 16px;">Se <a href="">din
@@ -139,10 +145,15 @@
 
             <div class="grid__cell">
 
-                <div class="stats">
+                <!-- <div class="stats">
                     <div class="stats__number">5897</div>
                     <div class="stats__text">aktive brukere</div>
-                </div>
+                </div> -->
+
+                <app-total-count-statistics [statistics]="totalCountStatistics.totalUsers" [style]="'list'"
+                    [text]="'statistics.overviewNumbers_users' | translate" [icon]="true" [size]="'sm'">
+                </app-total-count-statistics>
+
 
             </div>
         </div>
