@@ -1,6 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import Norwegian from '../../assets/i18n/no.json';
+import English from '../../assets/i18n/en.json';
+import { catchError, map, tap } from 'rxjs/operators';
+
+export interface LanguageItem {
+  languageCode?: string;
+  group?: string;
+  label?: string;
+  value?: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +19,24 @@ import { BehaviorSubject } from 'rxjs';
 
 export class TranslationService {
 
+  translationApi: string = 'https://ao3-resourcesapi-test.azurewebsites.net/api/v1/Resources';
+  errorMessage: string;
+
+  norwegian = Norwegian;
+  english = English;
+
+  /*
+  {
+  "languageCode": "nb",
+  "group": "string",
+  "label": "string",
+  "value": "string"
+}
+*/
+
   public currentLanguage$ = new BehaviorSubject(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
 
-  constructor(private translate: TranslateService) { }
+  constructor(private translate: TranslateService, private httpClient: HttpClient) { }
 
   switchLanguage(selectedLanguageCode: string): void {
     localStorage.setItem('LANGUAGE', selectedLanguageCode);
@@ -48,5 +74,63 @@ export class TranslationService {
 
   //   return this.currentLanguage$;
   // }
+
+  getLanguageItem(): Observable<LanguageItem[]> {
+
+    let languageItem: LanguageItem = {};
+    let languageItems: LanguageItem[] = [];
+
+    return of(this.english).pipe(
+      map((response: any) => {
+
+        for (let [key, value] of Object.entries(response)) {
+          // console.log('TEST', `${key}: ${value}`);
+
+          for (let [key2, value2] of Object.entries(value)) {
+
+            languageItem = {
+              languageCode: 'en',
+              group: key,
+              label: key2,
+              value: value2
+            }
+
+            this.setLanguageKey(languageItem);
+
+            languageItems.push(languageItem);
+
+          }
+
+        }
+
+        // console.log('language item', languageItem)
+        // console.log('language items', languageItems)
+
+        return languageItems;
+      })
+    );
+
+  }
+
+  setLanguageKey(languageItem: LanguageItem): Observable<any | null> {
+
+    return this.httpClient.put(this.translationApi, JSON.stringify(languageItem)).pipe(
+      tap(t => {
+        console.log('t', t);
+        return t
+      }),
+      catchError(
+        this.handleError('addLanguageKey', languageItem)
+      )
+    );
+
+  }
+
+  handleError(arg0: string, arg1: LanguageItem): any {
+    // console.log('arg0', arg0);
+    // console.log('arg1', arg1);
+    console.log('Something went wrong');
+
+  }
 
 }
