@@ -49,6 +49,7 @@ import { ImportSightingsComponent } from './components/report/import-sightings/i
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
 import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
 import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
+import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 
 /*
 
@@ -552,10 +553,10 @@ const sightingsRoutes: Routes = [
         }
       },
       {
-        path: 'area-league',
-        component: AreaLeagueComponent,
+        path: 'bird-area-league',
+        component: BirdAreaLeagueComponent,
         data: {
-          text: 'Fylkesligaen',
+          text: 'Fuglelokalitetsliga',
           title: 'menu.menu_statistics_userStatistics_areaLeague',
           id: 'area-league',
           layout: 'spa',

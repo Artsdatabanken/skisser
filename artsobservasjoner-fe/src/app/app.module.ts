@@ -112,6 +112,7 @@ import { SpeciesGroupComponent } from './shared-and-reusable/smart-components/sp
 import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-components/total-count-statistics/total-count-statistics.component';
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
+import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -218,7 +219,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AreaLeagueComponent,
     ImportSightingsComponent,
     MySightingsComponent,
-    SightingsDataComponent
+    SightingsDataComponent,
+    BirdAreaLeagueComponent
   ],
   imports: [
     BrowserModule,
