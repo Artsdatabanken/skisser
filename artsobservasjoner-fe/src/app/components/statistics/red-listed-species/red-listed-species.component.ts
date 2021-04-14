@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from 'src/app/models/statistics';
+import { AssessedSpeciesItemStats, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -12,8 +12,8 @@ import { TranslationService } from 'src/app/services/translation.service';
 
 export class RedListedSpeciesComponent implements OnInit {
 
-  currentLanguage$: Observable<string>;  
-  data$;
+  currentLanguage$: Observable<string>;
+  data$: Observable<Map<number, AssessedSpeciesItemStats[]>>;
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   translationParamValue: string;
@@ -31,14 +31,13 @@ export class RedListedSpeciesComponent implements OnInit {
     });
 
     this.currentLanguage$ = this.translationService.currentLanguage$;
-      this.getData();
+    this.getData();
 
   }
 
   getData(): void {
 
     this.data$ = this.statisticsService.getAssessedSpeciesData(this.assessmentCategoryTypes.redlist);
-    // this.data$ = this.statisticsService.getAssessedSpeciesStatistics(this.assessmentCategoryTypes.redlist);
 
   }
 

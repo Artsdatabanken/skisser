@@ -238,7 +238,7 @@ export class StatisticsService {
   }
 
   // denne joiner de forskjellige datasett og sender videre til komponentene som konsumerer dataen
-  getAssessedSpeciesData(categoryVariant: string): Observable<any> {
+  getAssessedSpeciesData(categoryVariant: string): Observable<Map<number, AssessedSpeciesItemStats[]>> {
 
     let assessmentCategory: string;
 
@@ -301,6 +301,7 @@ export class StatisticsService {
 
         });
 
+        //console.log('map', map)
         return map;
 
       })
