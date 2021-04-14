@@ -38,6 +38,7 @@ export class RedListedSpeciesComponent implements OnInit {
   getData(): void {
 
     this.data$ = this.statisticsService.getAssessedSpeciesData(this.assessmentCategoryTypes.redlist);
+    // this.data$ = this.statisticsService.getAssessedSpeciesStatistics(this.assessmentCategoryTypes.redlist);
 
   }
 

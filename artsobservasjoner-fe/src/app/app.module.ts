@@ -112,7 +112,7 @@ import { SpeciesGroupComponent } from './shared-and-reusable/smart-components/sp
 import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-components/total-count-statistics/total-count-statistics.component';
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
-
+import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -218,7 +218,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AreaLeagueComponent,
     ImportSightingsComponent,
     MySightingsComponent,
-    SightingsDataComponent
+    SightingsDataComponent,
+    AssessmentCategoriesComponent
   ],
   imports: [
     BrowserModule,

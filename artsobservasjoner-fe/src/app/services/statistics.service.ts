@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable, of } from 'rxjs';
-import { map, publishReplay, refCount, tap } from 'rxjs/operators';
+import { map, publishReplay, refCount, shareReplay, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
@@ -22,6 +22,7 @@ import {
   SIGHTINGS_PER_YEAR,
   VALIDATION_STATUS
 } from '../models/statistics';
+import { SpeciesService } from './species.service';
 
 
 @Injectable({
@@ -78,6 +79,7 @@ export class StatisticsService {
 
   constructor(
     private httpClient: HttpClient,
+    private speciesService: SpeciesService,
     private utilitiesService: UtilitiesService
   ) { }
 
@@ -97,7 +99,7 @@ export class StatisticsService {
 
           validatedSighting = {
             id: element.speciesGroupId,
-            speciesGroup: null,
+            speciesGroup: element.speciesGroupId,
             count: element.sightingCount,
             sightingTaxonCount: element.sightingTaxonCount,
             sightingWithMediaCount: element.sightingWithMediaCount,
@@ -113,8 +115,7 @@ export class StatisticsService {
 
         return validatedSightings;
       }),
-      publishReplay(1),
-      refCount()
+     shareReplay()
     );
 
   }
@@ -143,8 +144,7 @@ export class StatisticsService {
         return statisticsItems;
 
       }),
-      publishReplay(1),
-      refCount()
+      shareReplay()
     );
 
   }
@@ -153,30 +153,20 @@ export class StatisticsService {
 
     const data$ = forkJoin([
       this.getValidatedDataCountByStatus(),
-      this.getSpeciesGroups(),
+      this.speciesService.speciesGroups,
       this.getValidationStatus(this.validationStatuses.validated)
     ]).pipe(
       map(([validatedData, speciesGroups, validationStatuses]) => {
-
-        // ---------------------------------------- ***
-
-        const getValidationStatus = (id: number): Category => {
-          return validationStatuses.find(valStatus => valStatus.id === id);
-        }
-
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
-
-        // ---------------------------------------- ***
 
         let statusObject: object = {};
 
         validationStatuses.forEach(validationStatus => {
 
+          statusObject['0'] = {};
           statusObject[validationStatus.id] = {};
 
           speciesGroups.forEach(speciesGroup => {
+            statusObject['0'][speciesGroup.id]= speciesGroup.id;
             statusObject[validationStatus.id][speciesGroup.id] = 0;
           });
 
@@ -188,6 +178,7 @@ export class StatisticsService {
 
         });
 
+        console.log();
         return statusObject;
 
       })
@@ -196,7 +187,10 @@ export class StatisticsService {
     return data$;
   }
 
-  getAssessedSpeciesStats(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
+  // REDLISTED AND ALIEN STATS
+  
+  // denne henter fra DB
+  getAssessedSpeciesStatistics(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
 
     let api: string;
 
@@ -238,12 +232,12 @@ export class StatisticsService {
 
 
       }),
-      publishReplay(1),
-      refCount()
+      shareReplay()
     );
 
   }
 
+  // denne joiner de forskjellige datasett og sender videre til komponentene som konsumerer dataen
   getAssessedSpeciesData(categoryVariant: string): Observable<any> {
 
     let assessmentCategory: string;
@@ -262,11 +256,10 @@ export class StatisticsService {
     }
 
     const data$ = forkJoin([
-      this.getAssessedSpeciesStats(assessmentCategory),
-      this.getAssessmentCategories(assessmentCategory),
-      this.getSpeciesGroups()
+      this.getAssessedSpeciesStatistics(assessmentCategory),
+      this.getAssessmentCategories(assessmentCategory)
     ]).pipe(
-      map(([species, categories, speciesGroups]) => {
+      map(([species, categories]) => {
 
         let assessedSpeciesItemStats: AssessedSpeciesItemStats;
 
@@ -274,10 +267,6 @@ export class StatisticsService {
 
         const getCategory = (id: number): AssessmentCategory => {
           return categories.find(category => category.id === id);
-        }
-
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
         }
 
         // ---------------------------------------- ***
@@ -293,7 +282,6 @@ export class StatisticsService {
             assessedSpeciesItemStats = {
               id: speciesItem.id,
               speciesGroupId: speciesItem.id,
-              speciesGroup: getSpeciesGroup(speciesItem.id),
               assessmentCategoryId: data['redlistId'],
               assessmentCategory: getCategory(data['redlistId']),
               sightingsCount: data['sightingCount'],
@@ -306,7 +294,8 @@ export class StatisticsService {
               tempArray.push(assessedSpeciesItemStats)
             }
 
-            map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
+            //map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
+            map.set(speciesItem.id, { data: tempArray });
 
           });
 

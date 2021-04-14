@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { combineLatest, Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Category } from 'src/app/models/shared';
-import { StatisticsService } from 'src/app/services/statistics.service';
+import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class SpeciesGroupComponent implements OnInit {
   currentLanguage$: Observable<string>;
 
   constructor(
-    private statisticsService: StatisticsService,
+    private speciesService: SpeciesService,
     private translationService: TranslationService
   ) { }
 
@@ -28,7 +28,7 @@ export class SpeciesGroupComponent implements OnInit {
 
     this.speciesGroupLabel$ = combineLatest([
       this.currentLanguage$,
-      this.statisticsService.getSpeciesGroups()
+      this.speciesService.speciesGroups
     ]).pipe(
       map(([currentLanguage, speciesGroups]) => {
 
@@ -43,8 +43,7 @@ export class SpeciesGroupComponent implements OnInit {
 
         return result;
 
-      }),
-      shareReplay({ refCount: true, bufferSize: 1 })
+      })
     );
 
   }

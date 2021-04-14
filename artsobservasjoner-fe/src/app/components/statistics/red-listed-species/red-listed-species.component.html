@@ -11,7 +11,7 @@
             {{ 'statistics.shared_tableDescription_includedData' | translate }}
         </p>
 
-        <app-assessment-category [categoryVariant]="assessmentCategoryTypes.redlist"></app-assessment-category>
+        <app-assessment-categories [categoryVariant]="assessmentCategoryTypes.redlist"></app-assessment-categories>
 
         <br>
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
@@ -50,29 +50,25 @@
                         <tr role="row" *ngFor="let data of species.value.data; let i = index">
 
                             <th role="rowheader" scope="row">
-
                                 <span *ngIf="i === 0">
-                                    <app-species-group [speciesGroupId]="species.key.id"></app-species-group>     
+                                    <app-species-group [speciesGroupId]="species.key"></app-species-group>
                                 </span>
 
                                 <!--for screen readers-->
                                 <span *ngIf="i > 0" class="td-hidden">
-                                    <app-species-group [speciesGroupId]="species.key.id"></app-species-group>     
+                                    <app-species-group [speciesGroupId]="species.key"></app-species-group>
                                 </span>
                                 <!--for screen readers-->
-
                             </th>
+
                             <td role="cell">
                                 {{ data.assessmentCategory.code }}
 
                                 <span class="sr-only">
 
-                                    <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ data.assessmentCategory.en }}
-                                    </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ data.assessmentCategory.no }}
-                                    </ng-container>
+                                    <app-assessment-category [categoryVariant]="assessmentCategoryTypes.redlist"
+                                        [assessmentCategoryId]="data.assessmentCategoryId">
+                                    </app-assessment-category>
 
                                 </span>
 

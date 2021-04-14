@@ -48,15 +48,17 @@ export class ValidationStatusComponent implements OnInit {
       this.currentLanguage$,
       this.statisticsService.getValidationStatus()
     ]).pipe(
-      map(([ currentLanguage, validationStatuses ]) => {
+      map(([currentLanguage, validationStatuses]) => {
 
         console.log('validationStatuses', validationStatuses);
 
         const validationStatusObject: Category = validationStatuses.find(vs => vs.id == this.validationStatusId);
         let result: string;
 
-        if (currentLanguage == 'no') result = validationStatusObject.no;
-        if (currentLanguage == 'en') result = validationStatusObject.en;
+        if (validationStatusObject) {
+          if (currentLanguage == 'no') result = validationStatusObject.no;
+          if (currentLanguage == 'en') result = validationStatusObject.en;
+        }
 
         return result;
 

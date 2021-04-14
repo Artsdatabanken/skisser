@@ -10,191 +10,169 @@
 
         <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }} </p>
 
-        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+        <ng-container *ngIf="data$ | async as data; else noData">
 
-            <ng-container *ngIf="data$ | async as data; else noData">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
 
-                <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
+                <table>
+                    <caption id="caption1">{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}
+                    </caption>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_withMedia' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validated' |
+                                translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
 
-                    <table>
-                        <caption id="caption1">{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}
-                        </caption>
-                        <thead role="rowgroup">
-                            <tr role="row">
-                                <th scope="col" role="columnheader">
-                                    {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_withMedia' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_validated' |
-                                    translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                                </th>
-                            </tr>
-                        </thead>
+                    <tbody role="rowgroup">
+                        <tr role="row" *ngFor="let item of data">
 
-                        <tbody role="rowgroup">
-                            <tr role="row" *ngFor="let item of data">
+                            <th role="rowheader" scope="row">
 
-                                <th role="rowheader" scope="row">
+                                <app-species-group [speciesGroupId]="item.speciesGroup"></app-species-group>
 
+                            </th>
+                            <td role="cell" class="td-number"> {{ item.sightingTaxonCount | formatNumber }} </td>
+                            <td role="cell" class="td-number"> {{ item.count | formatNumber }}</td>
+                            <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | formatNumber }}
+                            </td>
+                            <td role="cell" class="td-number"> {{ item.validatedSightingCount | formatNumber }}
+                            </td>
+                            <td role="cell" class="td-number"> {{ item.approvedSightingCount | formatNumber }} </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                                    <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ item.speciesGroup.en }}
-                                    </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ item.speciesGroup.no }}
-                                    </ng-container>
-
-
-                                </th>
-                                <td role="cell" class="td-number"> {{ item.sightingTaxonCount | formatNumber }} </td>
-                                <td role="cell" class="td-number"> {{ item.count | formatNumber }}</td>
-                                <td role="cell" class="td-number"> {{ item.sightingWithMediaCount | formatNumber }}
-                                </td>
-                                <td role="cell" class="td-number"> {{ item.validatedSightingCount | formatNumber }}
-                                </td>
-                                <td role="cell" class="td-number"> {{ item.approvedSightingCount | formatNumber }} </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-
-                <br><br>
-
-                <div class="table-container" tabindex="0" role="region" aria-labelledby="caption2">
-
-                    <table>
-                        <caption id="caption2">{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
-                        <thead role="rowgroup">
-                            <tr>
-                                <th scope="col" role="columnheader">
-                                    {{ 'statistics.tableHeading_speciesGroup' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_sightingsCount' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_validated' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
-                                </th>
-                                <th scope="col" role="columnheader" class="th-number">
-                                    {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody role="rowgroup">
-                            <tr role="row" *ngFor="let item of data">
-
-                                <th role="rowheader" scope="row">
-
-                                    <ng-container *ngIf="currentLanguage === 'en'">
-                                        {{ item.speciesGroup.en }}
-                                    </ng-container>
-                                    <ng-container *ngIf="currentLanguage === 'no'">
-                                        {{ item.speciesGroup.no }}
-                                    </ng-container>
-
-                                </th>
-                                <td class="td-number" role="cell"> {{ item.count | formatNumber }} </td>
-                                <td class="td-number" role="cell"> {{ item.validatedSightingCount | formatNumber }}
-                                </td>
-                                <td class="td-number" role="cell"> {{ item.percentageSightedVsValidated }} %</td>
-                                <td class="td-number" role="cell"> {{ item.approvedSightingCount | formatNumber }} </td>
-                                <td class="td-number" role="cell"> {{ item.percentageValidatedVsApproved }} %</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <p>
-                    {{ 'statistics.shared_tableDescription_excluded' | translate }}
-                    <br />
-                    {{ 'statistics.shared_tableDescription_approved' | translate }}
-                </p>
-
-                <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">
-                </app-validation-status-list>
-
-            </ng-container>
+            </div>
 
             <br><br>
 
-            <ng-container *ngIf="validatedDataByStatus$ | async as validatedData; else noData">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption2">
 
-                <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
+                <table>
+                    <caption id="caption2">{{ 'statistics.tableCaption_validatedData' | translate }}</caption>
+                    <thead role="rowgroup">
+                        <tr>
+                            <th scope="col" role="columnheader">
+                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validated' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_sharedValidatedSightings' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                            </th>
+                            <th scope="col" role="columnheader" class="th-number">
+                                {{ 'statistics.tableHeading_shareValidatedAndApproved' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
 
-                    <table class="custom-table">
-                        <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+                    <tbody role="rowgroup">
+                        <tr role="row" *ngFor="let item of data">
 
-                        <thead role="rowgroup">
+                            <th role="rowheader" scope="row">
 
-                            <tr role="row">
+                                <app-species-group [speciesGroupId]="item.speciesGroup"></app-species-group>
 
-                                <th role="columnheader" scope="column">
-                                    {{ 'statistics.tableHeading_validationCategory' | translate }}
+                            </th>
+                            <td class="td-number" role="cell"> {{ item.count | formatNumber }} </td>
+                            <td class="td-number" role="cell"> {{ item.validatedSightingCount | formatNumber }}
+                            </td>
+                            <td class="td-number" role="cell"> {{ item.percentageSightedVsValidated }} %</td>
+                            <td class="td-number" role="cell"> {{ item.approvedSightingCount | formatNumber }} </td>
+                            <td class="td-number" role="cell"> {{ item.percentageValidatedVsApproved }} %</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p>
+                {{ 'statistics.shared_tableDescription_excluded' | translate }}
+                <br />
+                {{ 'statistics.shared_tableDescription_approved' | translate }}
+            </p>
+
+            <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">
+            </app-validation-status-list>
+
+        </ng-container>
+
+        <br><br>
+
+        <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+        <ng-container *ngIf="validatedDataByStatus$ | async as validatedData; else noData">
+
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
+
+                <table class="custom-table">
+                    <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+
+                    <thead role="rowgroup">
+
+                        <tr role="row">
+
+                            <th role="columnheader" scope="column">
+                                {{ 'statistics.tableHeading_validationCategory' | translate }}
+                            </th>
+
+                            <ng-container *ngFor="let item of validatedData | newKeyValue | slice: 0 : 1">
+                                <th role="columnheader" class="th-number"
+                                    *ngFor="let element of item.value | newKeyValue">
+                                    <app-species-group [speciesGroupId]="element.value"> </app-species-group>
                                 </th>
+                            </ng-container>
 
+                        </tr>
 
-                                <ng-container *ngFor="let sp of speciesGroups$ | async">
+                    </thead>
 
-                                    <th role="columnheader" class="th-number">
-                                        <ng-container *ngIf="currentLanguage === 'no'"> {{ sp.no }} </ng-container>
-                                        <ng-container *ngIf="currentLanguage === 'en'"> {{ sp.en }} </ng-container>
-                                    </th>
+                    <tbody role="rowgroup" *ngFor="let item of validatedData | newKeyValue | slice: 1">
 
-                                </ng-container>
+                        <tr role="row">
 
-                                <!-- <app-species-group [speciesGroupId]="item.key" [language]="currentLanguage">
-                                </app-species-group> -->
+                            <th role="rowheader" scope="row">
 
-                            </tr>
+                                <app-validation-status [validationStatusId]="item.key"> </app-validation-status>
 
-                        </thead>
+                            </th>
 
-                        <tbody role="rowgroup" *ngFor="let item of validatedData | newKeyValue">
+                            <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
+                                {{ element.value | formatNumber }}
+                            </td>
+                        </tr>
 
-                            <tr role="row">
+                    </tbody>
 
-                                <th role="rowheader" scope="row">
-                                    <!-- {{ item.key }} -->
+                </table>
 
-                                    <app-validation-status [validationStatusId]="item.key" [language]="currentLanguage">
-                                    </app-validation-status>
-
-                                </th>
-
-                                <td role="cell" class="td-number" *ngFor="let element of item.value | newKeyValue">
-                                    {{ element.value | formatNumber }}
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </ng-container>
+            </div>
 
         </ng-container>
 
