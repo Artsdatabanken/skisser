@@ -85,7 +85,6 @@ import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
-import { GetObjectsNamePipe } from './pipes/get-objects-name.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
@@ -208,7 +207,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ValidationStatusComponent,
     IconBadgeComponent,
     FormatNumberPipe,
-    GetObjectsNamePipe,
     ValidationStatusListComponent,
     SpeciesGroupComponent,
     FootnotesComponent,

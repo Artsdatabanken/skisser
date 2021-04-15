@@ -31,41 +31,19 @@ export class ValidationStatusComponent implements OnInit {
   ngOnInit(): void {
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
-    // this.statisticsService.getValidationStatus().pipe(
-    //   map((data: any) => {
-
-    //     const obj: Category = data.find(d => d.id == this.validationStatusId);
-
-    //     this.validationStatus = this.language === 'no' ? obj.no : obj.en;
-    //     console.log('this.validationStatus', this.validationStatus);
-    //     //console.log('XXXXXXXXXX', data, this.validationStatusId, data.id === this.validationStatusId);
-
-
-    //     return this.validationStatus;
-
-    //   })
-    // ).subscribe();
-
     this.validationStatus$ = combineLatest([
       this.currentLanguage$,
-      this.speciesService.getValidationStatus(),
-      this.statisticsService.getValidationStatus()
+      this.speciesService.getValidationStatus()
     ]).pipe(
-      map(([currentLanguage, validationStatuses, validationStatuses2]) => {
+      map(([currentLanguage, validationStatuses]) => {
 
         const validationStatusObject: Category = validationStatuses.find(vs => vs.id == this.validationStatusId);
         let result: string;
-
-        //console.log('validationStatusObject', validationStatusObject);
 
         if (validationStatusObject) {
           if (currentLanguage == 'no') result = validationStatusObject.no;
           if (currentLanguage == 'en') result = validationStatusObject.en;
         }
-
-
-        console.log('spec service', validationStatuses);
-        console.log('stats service', validationStatuses2);
 
         return result;
 

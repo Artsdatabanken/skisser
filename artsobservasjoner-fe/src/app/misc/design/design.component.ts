@@ -13,7 +13,7 @@ export class DesignComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.translationService.getLanguageItem().subscribe(r => console.log('r', r));
+    //this.translationService.getLanguageItem().subscribe(r => console.log('r', r));
 
   }
 

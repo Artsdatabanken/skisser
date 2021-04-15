@@ -19,6 +19,10 @@ export class UtilitiesService {
     return this.subject.asObservable();
   }
 
+  getTime(date?: Date) {
+    return date != null ? new Date(date).getTime() : 0;
+  }
+
   generateRandomColor(): string {
     let length = 6;
     const chars = '0123456789ABCDEF';

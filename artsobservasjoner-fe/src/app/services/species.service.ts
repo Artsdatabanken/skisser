@@ -125,34 +125,7 @@ export class SpeciesService {
   // VALIDATION STATUS & CATEGORIES
 
   getValidationStatus(group?: string): Observable<Category[]> {
-
-    let apiUrl: string;
-    apiUrl = group ? apiUrl = this.VALIDATION_STATUS_API + '?group=' + group : apiUrl = this.VALIDATION_STATUS_API;
-
-    return this.httpClient.get(apiUrl).pipe(
-      map((response: any) => {
-
-        const statuses: Category[] = [];
-
-        response.forEach(data => {
-
-          let status: Category = {
-            id: data.validationStatusId,
-            en: data.speciesGroupResourceLabels[0].label,
-            no: data.speciesGroupResourceLabels[1].label
-          }
-
-          statuses.push(status);
-
-        });
-
-        return statuses;
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
+    return this.requestValidationStatus(group).pipe(shareReplay(CACHE_SIZE)); 
   }
 
   getCacheValidationStatus(group?: string): Observable<Category[]> {
@@ -172,7 +145,6 @@ export class SpeciesService {
     apiUrl = group ? apiUrl = this.VALIDATION_STATUS_API + '?group=' + group : apiUrl = this.VALIDATION_STATUS_API;
 
     return this.httpClient.get(apiUrl).pipe(
-      tap(t => console.log('t', t)),
       map((response: any) => {
 
         const statuses: Category[] = [];

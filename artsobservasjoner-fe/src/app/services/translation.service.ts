@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import Norwegian from '../../assets/i18n/no.json';
 import English from '../../assets/i18n/en.json';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -113,15 +113,30 @@ export class TranslationService {
   }
 
   setLanguageKey(languageItem: LanguageItem): Observable<any | null> {
+    
+    //console.log('are we even coming here?', JSON.stringify(languageItem));
 
-    return this.httpClient.put(this.translationApi, JSON.stringify(languageItem)).pipe(
+    return this.httpClient.post(this.translationApi, "{\"languageCode\":\"nb\",\"group\":\"test\",\"label\":\"test_test2\",\"value\":\"Dette er en test nr 2\"}").pipe(
       tap(t => {
         console.log('t', t);
         return t
       }),
-      catchError(
-        this.handleError('addLanguageKey', languageItem)
-      )
+      // catchError(
+      //   this.handleError('addLanguageKey', languageItem)
+      // ),
+      catchError(error => {
+
+        console.log('translationservice error', error);
+
+        if (error.error instanceof ErrorEvent) {
+          this.errorMessage = `Error: ${error.error.message}`;
+        }
+        else {
+          //this.errorMessage = this.apiService.getServerErrorMessage(error);
+        }
+
+        return throwError(this.errorMessage);
+      })
     );
 
   }

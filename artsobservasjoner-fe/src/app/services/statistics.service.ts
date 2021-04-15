@@ -5,8 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
 import { Category, OLD_COUNTIES } from '../models/shared';
-import Geographic from '../data/Geografisk_fordeling3.json';
-import Geographic2 from '../data/Geografisk_fordeling2.json';
+
 
 import {
   AssessmentCategory,
@@ -40,8 +39,6 @@ export class StatisticsService {
 
   // JSON
 
-  geographic: any = Geographic;
-  geographic2: any = Geographic2;
   counties: typeof OLD_COUNTIES = OLD_COUNTIES;
 
   // API
@@ -115,7 +112,7 @@ export class StatisticsService {
 
         return validatedSightings;
       }),
-     shareReplay()
+      shareReplay()
     );
 
   }
@@ -153,7 +150,7 @@ export class StatisticsService {
     const data$ = forkJoin([
       this.getValidatedDataCountByStatus(),
       this.speciesService.speciesGroups,
-      this.getValidationStatus(this.validationStatuses.validated)
+      this.speciesService.getValidationStatus(this.validationStatuses.validated)
     ]).pipe(
       map(([validatedData, speciesGroups, validationStatuses]) => {
 
@@ -165,7 +162,7 @@ export class StatisticsService {
           statusObject[validationStatus.id] = {};
 
           speciesGroups.forEach(speciesGroup => {
-            statusObject[0][speciesGroup.id]= speciesGroup.id;
+            statusObject[0][speciesGroup.id] = speciesGroup.id;
             statusObject[validationStatus.id][speciesGroup.id] = 0;
           });
 
@@ -187,7 +184,7 @@ export class StatisticsService {
   }
 
   // REDLISTED AND ALIEN STATS
-  
+
   // denne henter fra DB
   getAssessedSpeciesStatistics(categoryVariant: string): Observable<AssessedSpeciesItem[]> {
 
@@ -256,7 +253,7 @@ export class StatisticsService {
 
     const data$ = forkJoin([
       this.getAssessedSpeciesStatistics(assessmentCategory),
-      this.getAssessmentCategories(assessmentCategory)
+      this.speciesService.getAssessmentCategories(assessmentCategory)
     ]).pipe(
       map(([species, categories]) => {
 
@@ -307,110 +304,6 @@ export class StatisticsService {
     );
 
     return data$;
-  }
-
-  // SPECIES GROUPS / ARTSGRUPPER
-
-  getSpeciesGroups(): Observable<Category[]> {
-    return this.httpClient.get(this.SPECIES_GROUP_API).pipe(
-      map((response: any) => {
-
-        const speciesGroups: Category[] = [];
-
-        response.forEach(data => {
-
-          let speciesGroup: Category = {
-            id: data.speciesGroupId,
-            en: data.speciesGroupResourceLabels[0].label,
-            no: data.speciesGroupResourceLabels[1].label
-          }
-
-          speciesGroups.push(speciesGroup);
-
-        });
-
-        return speciesGroups;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  // ASSESSMENT CATEGORIES
-
-  getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
-
-    let api: string;
-
-    switch (categoryVariant) {
-      case this.assessmentCategoryTypes.redlist:
-        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.redlist;
-        break;
-
-      case this.assessmentCategoryTypes.alienlist:
-        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.alienlist;
-        break;
-
-      default:
-        console.log('');
-    }
-
-    return this.httpClient.get(api).pipe(
-      map((response: any) => {
-
-        const categories: AssessmentCategory[] = [];
-
-        response.forEach(data => {
-
-          let category: AssessmentCategory = {
-            id: data.redListCategoryId,
-            code: data.redListCategoryCode,
-            en: data.redListCategoryResourceLabels[0].label,
-            no: data.redListCategoryResourceLabels[1].label
-          }
-
-          categories.push(category);
-
-        });
-
-        return categories;
-      }),
-      publishReplay(1),
-      refCount()
-    );
-  }
-
-  // VALIDATION CATEGORIES
-
-  getValidationStatus(group?: string): Observable<Category[]> {
-
-    let apiUrl: string;
-    apiUrl = group ? apiUrl = this.VALIDATION_STATUS_API + '?group=' + group : apiUrl = this.VALIDATION_STATUS_API;
-
-    return this.httpClient.get(apiUrl).pipe(
-      map((response: any) => {
-
-        const statuses: Category[] = [];
-
-        response.forEach(data => {
-
-          let status: Category = {
-            id: data.validationStatusId,
-            en: data.speciesGroupResourceLabels[0].label,
-            no: data.speciesGroupResourceLabels[1].label
-          }
-
-          statuses.push(status);
-
-        });
-
-        return statuses;
-
-      }),
-      publishReplay(1),
-      refCount()
-    );
-
   }
 
   // DATA SOURCE LIST
@@ -704,8 +597,7 @@ export class StatisticsService {
   getSightingsByArea(): Observable<object[]> {
 
     return this.httpClient.get(this.OVERVIEW_STATS_SIGHTINGS_PER_AREA_API).pipe(
-      tap(t => console.log('t', t)),
-      map((response: any) => {
+       map((response: any) => {
 
         let item: object;
         let items: object[] = [];
@@ -735,7 +627,7 @@ export class StatisticsService {
 
     const data$ = forkJoin([
       this.getSightingsByArea(),
-      this.getSpeciesGroups()
+      this.speciesService.speciesGroups
     ]).pipe(
       map(([sightingsByArea, speciesGroups]) => {
 
