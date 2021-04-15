@@ -123,7 +123,6 @@ export class StatisticsService {
   getValidatedDataCountByStatus(): Observable<ValidatedDataItemByStatus[]> {
 
     return this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).pipe(
-      tap(t => console.log('t', t)),
       map(response => {
 
         let statisticsItem: ValidatedDataItemByStatus;

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/shared';
 import { VALIDATION_STATUS } from 'src/app/models/statistics';
-import { StatisticsService } from 'src/app/services/statistics.service';
+import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
@@ -19,13 +19,15 @@ export class ValidationStatusListComponent implements OnInit {
   validationStatuses$: Observable<Category[]>;
 
   constructor(
-    private statisticsService: StatisticsService,
+    private speciesService: SpeciesService,
     private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
+  
     this.currentLanguage$ = this.translationService.currentLanguage$;
-    this.validationStatuses$ = this.statisticsService.getValidationStatus(this.validationStatusType);
+    this.validationStatuses$ = this.speciesService.getCacheValidationStatus(this.validationStatusType);
+
   }
 
 }

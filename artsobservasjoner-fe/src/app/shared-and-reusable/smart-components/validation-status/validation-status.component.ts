@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { combineLatest, forkJoin, Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Category } from 'src/app/models/shared';
 import { VALIDATION_STATUS } from 'src/app/models/statistics';
+import { SpeciesService } from 'src/app/services/species.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -22,6 +23,7 @@ export class ValidationStatusComponent implements OnInit {
   validationStatus$: Observable<string>;
 
   constructor(
+    private speciesService: SpeciesService,
     private statisticsService: StatisticsService,
     private translationService: TranslationService
   ) { }
@@ -46,24 +48,28 @@ export class ValidationStatusComponent implements OnInit {
 
     this.validationStatus$ = combineLatest([
       this.currentLanguage$,
+      this.speciesService.getValidationStatus(),
       this.statisticsService.getValidationStatus()
     ]).pipe(
-      map(([currentLanguage, validationStatuses]) => {
-
-        console.log('validationStatuses', validationStatuses);
+      map(([currentLanguage, validationStatuses, validationStatuses2]) => {
 
         const validationStatusObject: Category = validationStatuses.find(vs => vs.id == this.validationStatusId);
         let result: string;
+
+        //console.log('validationStatusObject', validationStatusObject);
 
         if (validationStatusObject) {
           if (currentLanguage == 'no') result = validationStatusObject.no;
           if (currentLanguage == 'en') result = validationStatusObject.en;
         }
 
+
+        console.log('spec service', validationStatuses);
+        console.log('stats service', validationStatuses2);
+
         return result;
 
-      }),
-      shareReplay({ refCount: true, bufferSize: 1 })
+      })
     );
 
   }

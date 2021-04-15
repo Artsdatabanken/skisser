@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, publishReplay, refCount, shareReplay } from 'rxjs/operators';
+import { map, publishReplay, refCount, shareReplay, tap } from 'rxjs/operators';
 import { Category } from '../models/shared';
 import { AssessmentCategory, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from '../models/statistics';
 
@@ -15,6 +15,7 @@ export class SpeciesService {
 
   private speciesGroupsCache$: Observable<Category[]>;
   private assessmentCategoriesCache$: Observable<AssessmentCategory[]>;
+  private validationStatusesCache$: Observable<Category[]>;
 
   // API
   SPECIES_GROUP_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
@@ -68,47 +69,6 @@ export class SpeciesService {
   }
 
   // ASSESSMENT CATEGORIES
-
-  // getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
-
-  //   let api: string;
-
-  //   switch (categoryVariant) {
-  //     case this.assessmentCategoryTypes.redlist:
-  //       api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.redlist;
-  //       break;
-
-  //     case this.assessmentCategoryTypes.alienlist:
-  //       api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.alienlist;
-  //       break;
-
-  //     default:
-  //       console.log('');
-  //   }
-
-  //   return this.httpClient.get(api).pipe(
-  //     map((response: any) => {
-
-  //       const categories: AssessmentCategory[] = [];
-
-  //       response.forEach(data => {
-
-  //         let category: AssessmentCategory = {
-  //           id: data.redListCategoryId,
-  //           code: data.redListCategoryCode,
-  //           en: data.redListCategoryResourceLabels[0].label,
-  //           no: data.redListCategoryResourceLabels[1].label
-  //         }
-
-  //         categories.push(category);
-
-  //       });
-
-  //       return categories;
-  //     }),
-  //     shareReplay()
-  //   );
-  // }
 
   getAssessmentCategories(categoryVariant: string): Observable<AssessmentCategory[]> {
 
@@ -195,5 +155,45 @@ export class SpeciesService {
 
   }
 
+  getCacheValidationStatus(group?: string): Observable<Category[]> {
+
+    if (!this.validationStatusesCache$) {
+      this.validationStatusesCache$ = this.requestValidationStatus(group).pipe(shareReplay(CACHE_SIZE));
+    }
+
+    console.log('validationStatusesCache', this.validationStatusesCache$)
+    return this.validationStatusesCache$;
+
+  }
+
+  private requestValidationStatus(group?: string): Observable<Category[]> {
+
+    let apiUrl: string;
+    apiUrl = group ? apiUrl = this.VALIDATION_STATUS_API + '?group=' + group : apiUrl = this.VALIDATION_STATUS_API;
+
+    return this.httpClient.get(apiUrl).pipe(
+      tap(t => console.log('t', t)),
+      map((response: any) => {
+
+        const statuses: Category[] = [];
+
+        response.forEach(data => {
+
+          let status: Category = {
+            id: data.validationStatusId,
+            en: data.speciesGroupResourceLabels[0].label,
+            no: data.speciesGroupResourceLabels[1].label
+          }
+
+          statuses.push(status);
+
+        });
+
+        return statuses;
+
+      })
+    );
+
+  }
 
 }

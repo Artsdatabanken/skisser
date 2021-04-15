@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Category } from 'src/app/models/shared';
+import { Observable } from 'rxjs';
 import { ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
-import { SpeciesService } from 'src/app/services/species.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
-import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-validated-data',
@@ -18,7 +14,6 @@ export class ValidatedDataComponent implements OnInit {
   data$: Observable<ValidatedDataItem[]>;
   validatedDataByStatus$: Observable<any>;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
-  validationStatuses$: Observable<Category[]>;
 
   constructor(private statisticsService: StatisticsService) { }
 
