@@ -7,6 +7,7 @@ import { LayoutService } from 'src/app/services/layout.service';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { SpeciesService } from 'src/app/services/species.service';
 
 @Component({
   selector: 'app-overview-child1',
@@ -30,9 +31,10 @@ export class OverviewChild1Component implements OnInit {
 
   constructor(
     private layoutService: LayoutService,
+    private translationService: TranslationService,
     private utilitiesService: UtilitiesService,
     private statisticsService: StatisticsService,
-    private translationService: TranslationService
+    private speciesService: SpeciesService
   ) { }
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class OverviewChild1Component implements OnInit {
 
     this.data$ = forkJoin([
       this.statisticsService.getSightingsCountPerSpeciesGroup(),
-      this.statisticsService.getSpeciesGroups()
+      this.speciesService.speciesGroups
     ]).pipe(
       map(([speciesData, speciesGroups]) => {
 

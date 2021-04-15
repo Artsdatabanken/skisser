@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AssessmentCategory } from 'src/app/models/statistics';
-import { StatisticsService } from 'src/app/services/statistics.service';
+import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
@@ -17,14 +17,14 @@ export class AssessmentCategoriesComponent implements OnInit {
   currentLanguage$: Observable<string> = this.translationService.currentLanguage$;
 
   constructor(
-    private statisticsService: StatisticsService,
+    private speciesService: SpeciesService,
     private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
     if (this.categoryVariant !== null) {
-      this.categories$ = this.statisticsService.getAssessmentCategories(this.categoryVariant);
+      this.categories$ = this.speciesService.getAssessmentCategories(this.categoryVariant);
     }
     else {
       this.categories$ = null;
