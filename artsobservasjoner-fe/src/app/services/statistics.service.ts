@@ -162,11 +162,11 @@ export class StatisticsService {
 
         validationStatuses.forEach(validationStatus => {
 
-          statusObject['0'] = {};
+          statusObject[0] = {};
           statusObject[validationStatus.id] = {};
 
           speciesGroups.forEach(speciesGroup => {
-            statusObject['0'][speciesGroup.id]= speciesGroup.id;
+            statusObject[0][speciesGroup.id]= speciesGroup.id;
             statusObject[validationStatus.id][speciesGroup.id] = 0;
           });
 

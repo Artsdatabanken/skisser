@@ -15,7 +15,12 @@ export class NewKeyValuePipe implements PipeTransform {
 
   constructor(public differs: KeyValueDiffers) { }
 
-  public transform(value, compareFn = UNORDERED): unknown {
+  // public transform(value, compareFn = UNORDERED): unknown {
+  //   const pipe = new KeyValuePipe(this.differs);
+  //   return pipe.transform(value, compareFn);
+  // }
+
+  public transform(value: any, compareFn = UNORDERED): unknown {
     const pipe = new KeyValuePipe(this.differs);
     return pipe.transform(value, compareFn);
   }
