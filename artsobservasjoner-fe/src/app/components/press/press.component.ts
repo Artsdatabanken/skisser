@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BUTTON_STYLES } from 'src/app/models/layout';
 import { NewsItem, Announcement } from 'src/app/models/press';
-import { DataService } from 'src/app/services/data.service';
+import { PressService } from 'src/app/services/press.service';
 
 @Component({
   selector: 'app-press',
@@ -16,12 +16,12 @@ export class PressComponent implements OnInit {
   announcements$: Observable<Announcement[]>;
   public buttonStyles: typeof BUTTON_STYLES = BUTTON_STYLES;
 
-  constructor(private dataService: DataService) { }
+  constructor(private pressService: PressService) { }
 
   ngOnInit(): void {
 
-    this.news$ = this.dataService.getNews();
-    this.announcements$ = this.dataService.getAnnouncements();
+    this.news$ = this.pressService.getNews();
+    this.announcements$ = this.pressService.getAnnouncements();
 
   }
 

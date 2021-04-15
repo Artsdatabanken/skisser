@@ -654,9 +654,8 @@ export class StatisticsService {
 
         });
 
-        console.log('obj', obj);
-
         return obj;
+     
       })
     );
 

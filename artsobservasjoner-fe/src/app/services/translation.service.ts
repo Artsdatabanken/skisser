@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import Norwegian from '../../assets/i18n/no.json';
 import English from '../../assets/i18n/en.json';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export interface LanguageItem {
   languageCode?: string;
@@ -25,18 +25,12 @@ export class TranslationService {
   norwegian = Norwegian;
   english = English;
 
-  /*
-  {
-  "languageCode": "nb",
-  "group": "string",
-  "label": "string",
-  "value": "string"
-}
-*/
-
   public currentLanguage$ = new BehaviorSubject(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
 
-  constructor(private translate: TranslateService, private httpClient: HttpClient) { }
+  constructor(
+    private translate: TranslateService,
+    private httpClient: HttpClient
+  ) { }
 
   switchLanguage(selectedLanguageCode: string): void {
     localStorage.setItem('LANGUAGE', selectedLanguageCode);
@@ -95,7 +89,9 @@ export class TranslationService {
               value: value2
             }
 
-            this.setLanguageKey(languageItem);
+            this.setLanguageKey(languageItem).subscribe(xx => {
+              console.log('lets see if this works', xx);
+            });
 
             languageItems.push(languageItem);
 
@@ -113,38 +109,11 @@ export class TranslationService {
   }
 
   setLanguageKey(languageItem: LanguageItem): Observable<any | null> {
-    
-    //console.log('are we even coming here?', JSON.stringify(languageItem));
 
-    return this.httpClient.post(this.translationApi, "{\"languageCode\":\"nb\",\"group\":\"test\",\"label\":\"test_test2\",\"value\":\"Dette er en test nr 2\"}").pipe(
-      tap(t => {
-        console.log('t', t);
-        return t
-      }),
-      // catchError(
-      //   this.handleError('addLanguageKey', languageItem)
-      // ),
-      catchError(error => {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let options = { headers: headers } // Create a request option
 
-        console.log('translationservice error', error);
-
-        if (error.error instanceof ErrorEvent) {
-          this.errorMessage = `Error: ${error.error.message}`;
-        }
-        else {
-          //this.errorMessage = this.apiService.getServerErrorMessage(error);
-        }
-
-        return throwError(this.errorMessage);
-      })
-    );
-
-  }
-
-  handleError(arg0: string, arg1: LanguageItem): any {
-    // console.log('arg0', arg0);
-    // console.log('arg1', arg1);
-    console.log('Something went wrong');
+    return this.httpClient.post(this.translationApi, JSON.stringify(languageItem), options);
 
   }
 

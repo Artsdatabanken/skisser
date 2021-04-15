@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -112,6 +113,7 @@ import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-compo
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
+import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -233,6 +235,10 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
         }
       }
     ),
+    // ToastrModule.forRoot({
+    //   timeOut: 5000,
+    //   positionClass: "toast-bottom-left",
+    // }),
     AppRoutingModule
   ],
   providers: [

@@ -4,11 +4,12 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { catchError, map, retry } from 'rxjs/operators';
 
 export class HttpError {
   static BadRequest = 400;
@@ -25,10 +26,34 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) { }
 
+  // public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+  //   return new Observable((observer) => {
+  //     next.handle(req).subscribe(
+  //       (res: HttpResponse<any>) => {
+  //         console.log('RESPONSE', res);
+  //         if (res instanceof HttpResponse) {
+  //           observer.next(res);
+  //         }
+  //       },
+  //       (err: HttpErrorResponse) => {
+  //         this.apiService.handleError(err);
+  //         console.error(err);
+  //       }
+
+  //     );
+  //   });
+
+  // }
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(
         retry(2),
+        map((res: HttpResponse<any>) => {
+          console.log('RESPONSE', res);
+          return res;
+        }),
         catchError((error: HttpErrorResponse) => {
 
           let errorMsg: string = '';
@@ -69,11 +94,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           }
 
           if (error.error instanceof ErrorEvent) {
-            console.log('Client side error', logFormat);
+            //console.error('Client side error', logFormat);
             errorMsg = `Error: ${error.error.message}`;
           }
           else {
-            console.log('Server side error', logFormat);
+            //console.error('Server side error', logFormat);
             errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
           }
 
@@ -85,23 +110,23 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       )
   }
 
-  getServerErrorMessage(error: HttpErrorResponse): string {
-    
-    switch (error.status) {
-      case 404: {
-        return `Not Found: ${error.message}`;
-      }
-      case 403: {
-        return `Access Denied: ${error.message}`;
-      }
-      case 500: {
-        return `Internal Server Error: ${error.message}`;
-      }
-      default: {
-        return `Unknown Server Error: ${error.message}`;
-      }
+  // getServerErrorMessage(error: HttpErrorResponse): string {
 
-    }
-  }
+  //   switch (error.status) {
+  //     case 404: {
+  //       return `Not Found: ${error.message}`;
+  //     }
+  //     case 403: {
+  //       return `Access Denied: ${error.message}`;
+  //     }
+  //     case 500: {
+  //       return `Internal Server Error: ${error.message}`;
+  //     }
+  //     default: {
+  //       return `Unknown Server Error: ${error.message}`;
+  //     }
+
+  //   }
+  // }
 
 }
