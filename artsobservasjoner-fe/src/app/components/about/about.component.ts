@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import Settings from 'src/app/config/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
-import { DataService } from 'src/app/services/data.service';
+import { AboutService } from 'src/app/services/about.service';
 
 @Component({
   selector: 'app-about',
@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
   subscription: Subscription;
 
   constructor(
-    private dataService: DataService,
+    private aboutService: AboutService,
     private translate: TranslateService
   ) { }
 
@@ -38,7 +38,7 @@ export class AboutComponent implements OnInit {
 
     this.ids.forEach(id => {
 
-      this.subscription = this.dataService.getAboutPagesById(+id).subscribe(res => {
+      this.subscription = this.aboutService.getAboutPagesById(+id).subscribe(res => {
 
         console.log('TEST', res)
 

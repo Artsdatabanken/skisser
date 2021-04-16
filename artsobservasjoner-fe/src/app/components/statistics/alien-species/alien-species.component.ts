@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from 'src/app/models/statistics';
+import { AssessedSpeciesItemStats, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -12,7 +12,7 @@ import { TranslationService } from 'src/app/services/translation.service';
 
 export class AlienSpeciesComponent implements OnInit {
 
-  data$;
+  data$: Observable<Map<number, AssessedSpeciesItemStats[]>>;
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   currentLanguage$: Observable<string>;

@@ -38,7 +38,7 @@ export class BreadcrumbsComponent implements OnInit {
               const routeSnapshot = route.snapshot;
               url += '/' + routeSnapshot.url.map(segment => segment.path).join('/');
               
-              console.log('route.data', route.snapshot.url);
+              //console.log('route.data', route.snapshot.url);
 
               this.breadcrumbs.push({
                 parentKey: route.snapshot.data.parent,
@@ -53,7 +53,7 @@ export class BreadcrumbsComponent implements OnInit {
 
         } while (currentRoute);
 
-        console.log('breadcrumbs', this.breadcrumbs);
+        //console.log('breadcrumbs', this.breadcrumbs);
 
       });
 

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AssessmentCategory } from 'src/app/models/statistics';
+import { SpeciesService } from 'src/app/services/species.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
@@ -14,22 +15,35 @@ import { TranslationService } from 'src/app/services/translation.service';
 export class AssessmentCategoryComponent implements OnInit {
 
   @Input() categoryVariant: string | null;
-  categories$: Observable<AssessmentCategory[]>;
-  currentLanguage$: Observable<string> = this.translationService.currentLanguage$;
+  @Input() assessmentCategoryId: number;
+  assessmentCategoryLabel$: Observable<string>;
 
   constructor(
-    private statisticsService: StatisticsService,
+    private speciesService: SpeciesService,
     private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
 
-    if (this.categoryVariant !== null) {
-      this.categories$ = this.statisticsService.getAssessmentCategories(this.categoryVariant);
-    }
-    else {
-      this.categories$ = null;
-    }
+    this.assessmentCategoryLabel$ = combineLatest([
+      this.translationService.currentLanguage$,
+      this.speciesService.getAssessmentCategories(this.categoryVariant)
+    ]).pipe(
+      map(([currentLanguage, assessmentCategories]) => {
+
+        const assessmentCategoryObject: AssessmentCategory = assessmentCategories.find(sg => sg.id == this.assessmentCategoryId);
+
+        let result: string = '';
+
+        if (assessmentCategoryObject) {
+          if (currentLanguage == 'no') result = assessmentCategoryObject.no;
+          if (currentLanguage == 'en') result = assessmentCategoryObject.en;
+        }
+
+        return result;
+
+      })
+    );
 
   }
 

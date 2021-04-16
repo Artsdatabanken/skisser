@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NewsItem } from 'src/app/models/press';
-import { DataService } from 'src/app/services/data.service';
+import { PressService } from 'src/app/services/press.service';
 
 @Component({
   selector: 'app-news',
@@ -17,11 +17,11 @@ export class NewsComponent implements OnInit {
   @Input() take: number | null = 0;
   @Input() location: string;
 
-  constructor(private dataService: DataService) { }
+  constructor(private pressService: PressService) { }
 
   ngOnInit(): void {
   
-    this.news$ = this.dataService.getNews();
+    this.news$ = this.pressService.getNews();
 
   }
 

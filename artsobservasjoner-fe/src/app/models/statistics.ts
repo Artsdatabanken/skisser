@@ -5,7 +5,7 @@ import { Category } from "./shared";
 export interface StatisticsItem {
     id: number;
     data?: object[];
-    speciesGroup?: Category;
+    speciesGroup?: Category | number;
     count?: number;
 }
 
@@ -38,9 +38,9 @@ export interface AssessedSpeciesItem extends StatisticsItem {
 export interface AssessedSpeciesItemStats {
     id: number;
     speciesGroupId: number;
-    speciesGroup: string | Category;
+    speciesGroup?: Category;
     assessmentCategoryId: number;
-    assessmentCategory: AssessmentCategory;
+    assessmentCategory?: AssessmentCategory;
     sightingsCount: number;
     imagesCount: number;
     validatedCount: number;

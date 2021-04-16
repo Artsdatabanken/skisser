@@ -14,7 +14,7 @@ export class SightingsDataComponent implements OnInit {
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.subMenu = this.navigationService.getSubMenu('observations');
+    this.subMenu = this.navigationService.getSubMenu('sightings-data');
   }
 
 }

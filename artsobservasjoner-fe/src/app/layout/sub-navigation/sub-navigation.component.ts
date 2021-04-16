@@ -28,39 +28,39 @@ export class SubNavigationComponent implements OnInit {
 
   getAboutPages(): void {
 
-    this.ids.forEach(id => {
+    // this.ids.forEach(id => {
 
-      this.subscription = this.dataService.getAboutPagesById(+id).subscribe(res => {
+    //   this.subscription = this.dataService.getAboutPagesById(+id).subscribe(res => {
 
-        let aboutPage: AboutPage;
+    //     let aboutPage: AboutPage;
 
-        res.forEach(r => {
+    //     res.forEach(r => {
 
-          aboutPage = {
-            id: r.id,
-            url: r.url,
-            heading: r.heading,
-            intro: r.intro,
-            body: r.body,
-            content: r.content,
-            title: r.title,
-            languages: null,
-            order: r.order
-          };
+    //       aboutPage = {
+    //         id: r.id,
+    //         url: r.url,
+    //         heading: r.heading,
+    //         intro: r.intro,
+    //         body: r.body,
+    //         content: r.content,
+    //         title: r.title,
+    //         languages: null,
+    //         order: r.order
+    //       };
 
-          this.aboutPages.push(aboutPage);
+    //       this.aboutPages.push(aboutPage);
 
-        });
+    //     });
 
-        this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
+    //     this.aboutPages = this.aboutPages.sort((a: AboutPage, b: AboutPage) => a.order - b.order);
 
-      });
+    //   });
 
-    });
+    // });
 
   }
 
   ngOndestroy(): void {
-    this.subscription.unsubscribe();
+    //this.subscription.unsubscribe();
   }
 }

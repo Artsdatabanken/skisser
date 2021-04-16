@@ -8,7 +8,7 @@
             {{ 'statistics.tableDescription_sightsByRegisterType' | translate }}
         </p>
 
-        <ng-container *ngIf="data$ | async as data">
+        <ng-container *ngIf="data$ | async as data; else noData">
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
 
                 <table>
@@ -85,6 +85,10 @@
                 <!-- <app-footnotes *ngFor="let footnote of footnotes" [element]="footnote"></app-footnotes> -->
             </ol>
         </ng-container>
+
+        <ng-template #noData>
+            <app-error-response></app-error-response>
+        </ng-template>
 
     </div>
 

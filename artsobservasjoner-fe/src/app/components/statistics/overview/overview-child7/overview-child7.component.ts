@@ -20,6 +20,7 @@ import { fromLonLat } from 'ol/proj';
 
 import { DragPan, MouseWheelZoom, defaults } from 'ol/interaction';
 import { platformModifierKeyOnly } from 'ol/events/condition';
+import { SpeciesService } from 'src/app/services/species.service';
 
 @Component({
   selector: 'app-overview-child7',
@@ -38,8 +39,9 @@ export class OverviewChild7Component implements OnInit {
 
   constructor(
     private layoutService: LayoutService,
+    private translationService: TranslationService,
+    private speciesService: SpeciesService,
     private statisticsService: StatisticsService,
-    private translationService: TranslationService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class OverviewChild7Component implements OnInit {
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_7');
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
-    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
+    this.speciesGroups$ = this.speciesService.speciesGroups;
     this.data$ = this.statisticsService.getSightingsGeographicalDistribution();
     //this.areas$ = this.statisticsService.getAreas();
 

@@ -209,7 +209,7 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Observasjonsdata',
       title: 'menu_sightings',
-      id: 'sightings',
+      id: 'sightings-data',
       layout: 'landing',
       rank: 'primary',
       parent: '',
@@ -225,10 +225,10 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Se, søk og filtrer observasjoner',
       title: 'menu_sightingsCollection',
-      id: 'sightings',
+      id: 'sightings-data',
       layout: 'page',
       rank: 'primary',
-      parent: 'sightings',
+      parent: 'sightings-data',
       menu: 'mainMenu',
       metatitle: '',
       metaDescription: '',
@@ -260,7 +260,7 @@ const sightingsRoutes: Routes = [
       id: 'statistics',
       layout: 'landing',
       rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
-      parent: 'sightings',
+      parent: 'sightings-data',
       menu: 'mainMenu',
       metatitle: '',
       metaDescription: '',

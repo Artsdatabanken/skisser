@@ -85,7 +85,6 @@ import { LocalizedDatePipe } from './pipes/localized-date.pipe';
 import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
-import { GetObjectsNamePipe } from './pipes/get-objects-name.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
@@ -113,7 +112,7 @@ import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-compo
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
 import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
-
+import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -209,7 +208,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ValidationStatusComponent,
     IconBadgeComponent,
     FormatNumberPipe,
-    GetObjectsNamePipe,
     ValidationStatusListComponent,
     SpeciesGroupComponent,
     FootnotesComponent,
@@ -220,7 +218,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ImportSightingsComponent,
     MySightingsComponent,
     SightingsDataComponent,
-    BirdAreaLeagueComponent
+    BirdAreaLeagueComponent,
+    AssessmentCategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -236,6 +235,10 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
         }
       }
     ),
+    // ToastrModule.forRoot({
+    //   timeOut: 5000,
+    //   positionClass: "toast-bottom-left",
+    // }),
     AppRoutingModule
   ],
   providers: [

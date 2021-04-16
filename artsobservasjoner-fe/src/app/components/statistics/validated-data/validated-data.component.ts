@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Category } from 'src/app/models/shared';
+import { Observable } from 'rxjs';
 import { ValidatedDataItem, VALIDATION_STATUS } from 'src/app/models/statistics';
 import { StatisticsService } from 'src/app/services/statistics.service';
-import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-validated-data',
@@ -16,20 +13,12 @@ export class ValidatedDataComponent implements OnInit {
 
   data$: Observable<ValidatedDataItem[]>;
   validatedDataByStatus$: Observable<any>;
-  currentLanguage$: Observable<string>;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
-  speciesGroups$: Observable<Category[]>;
-  validationStatuses$: Observable<Category[]>;
-  validationStatusName: any;
 
-  constructor(
-    private statisticsService: StatisticsService,
-    private translationService: TranslationService
-  ) { }
+  constructor(private statisticsService: StatisticsService) { }
 
   ngOnInit(): void {
 
-    this.currentLanguage$ = this.translationService.currentLanguage$;
     this.getValidatedData();
     this.getValidatedDataByStatus();
 
@@ -37,55 +26,53 @@ export class ValidatedDataComponent implements OnInit {
 
   getValidatedData(): void {
 
-    this.data$ = forkJoin([
-      this.statisticsService.getValidatedData(),
-      this.statisticsService.getSpeciesGroups()
-    ]).pipe(
-      map(([species, speciesGroups]) => {
+    this.data$ = this.statisticsService.getValidatedData();
 
-        // ---------------------------------------- ***
+    // this.data$ = forkJoin([
+    //   this.statisticsService.getValidatedData(),
+    //   this.speciesService.speciesGroups
+    // ]).pipe(
+    //   map(([species, speciesGroups]) => {
 
-        const getSpeciesGroup = (id: number): Category => {
-          return speciesGroups.find(speciesGroup => speciesGroup.id === id);
-        }
+    //     // ---------------------------------------- ***
 
-        // ---------------------------------------- ***
+    //     // const getSpeciesGroup = (id: number): Category => {
+    //     //   return speciesGroups.find(speciesGroup => speciesGroup.id === id);
+    //     // }
 
-        let validatedDataItem: ValidatedDataItem;
-        let validatedData: ValidatedDataItem[] = [];
+    //     // ---------------------------------------- ***
 
-        species.forEach(speciesItem => {
+    //     let validatedDataItem: ValidatedDataItem;
+    //     let validatedData: ValidatedDataItem[] = [];
 
-          validatedDataItem = {
-            id: speciesItem.id,
-            speciesGroup: getSpeciesGroup(speciesItem.id),
-            count: speciesItem.count,
-            sightingTaxonCount: speciesItem.sightingTaxonCount,
-            sightingWithMediaCount: speciesItem.sightingWithMediaCount,
-            validatedSightingCount: speciesItem.validatedSightingCount,
-            approvedSightingCount: speciesItem.approvedSightingCount,
-            percentageSightedVsValidated: speciesItem.percentageSightedVsValidated,
-            percentageValidatedVsApproved: speciesItem.percentageValidatedVsApproved,
-          }
+    //     species.forEach(speciesItem => {
 
-          validatedData.push(validatedDataItem);
+    //       validatedDataItem = {
+    //         id: speciesItem.id,
+    //         // speciesGroup: getSpeciesGroup(speciesItem.id),
+    //         speciesGroup: speciesItem.id,
+    //         count: speciesItem.count,
+    //         sightingTaxonCount: speciesItem.sightingTaxonCount,
+    //         sightingWithMediaCount: speciesItem.sightingWithMediaCount,
+    //         validatedSightingCount: speciesItem.validatedSightingCount,
+    //         approvedSightingCount: speciesItem.approvedSightingCount,
+    //         percentageSightedVsValidated: speciesItem.percentageSightedVsValidated,
+    //         percentageValidatedVsApproved: speciesItem.percentageValidatedVsApproved,
+    //       }
 
-        });
+    //       validatedData.push(validatedDataItem);
 
-        this.translationService.currentLanguage$.subscribe(lang => {
-          validatedData = validatedData.sort((a, b) => a.speciesGroup[lang].localeCompare(b.speciesGroup[lang]));
-        });
+    //     });
 
-        return validatedData;
+    //     return validatedData;
 
-      })
-    );
+    //   })
+    // );
+
   }
 
   getValidatedDataByStatus(): void {
 
-    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
-    this.validationStatuses$ = this.statisticsService.getValidationStatus();
     this.validatedDataByStatus$ = this.statisticsService.getValidatedDataByStatus();
 
   }

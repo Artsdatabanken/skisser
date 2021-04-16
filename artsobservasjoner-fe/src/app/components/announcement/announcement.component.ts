@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Announcement } from 'src/app/models/press';
 import { DataService } from 'src/app/services/data.service';
+import { PressService } from 'src/app/services/press.service';
 
 @Component({
   selector: 'app-announcement',
@@ -20,7 +21,7 @@ export class AnnouncementComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService,
+    private pressService: PressService,
     private titleService: Title
   ) {
     this.announcementId = this.route.snapshot.params["id"];
@@ -30,7 +31,7 @@ export class AnnouncementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.subscription = this.dataService.getNewsItemById(this.announcementId).subscribe(ni => {
+    this.subscription = this.pressService.getNewsItemById(this.announcementId).subscribe(ni => {
       this.announcement = ni;
       this.pageTitle = ni.title;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);

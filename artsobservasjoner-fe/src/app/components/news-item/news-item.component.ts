@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NewsItem } from 'src/app/models/press';
-import { DataService } from 'src/app/services/data.service';
+import { PressService } from 'src/app/services/press.service';
 
 @Component({
   selector: 'app-news-item',
@@ -20,7 +20,7 @@ export class NewsItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService,
+    private pressService: PressService,
     private titleService: Title
   ) {
     this.newsItemId = this.route.snapshot.params["id"];
@@ -28,7 +28,7 @@ export class NewsItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.subscription = this.dataService.getNewsItemById(this.newsItemId).subscribe(ni => {
+    this.subscription = this.pressService.getNewsItemById(this.newsItemId).subscribe(ni => {
       this.newsItem = ni;
       this.pageTitle = ni.title;
       this.titleService.setTitle(`${this.pageTitle} - Artsobservasjoner`);

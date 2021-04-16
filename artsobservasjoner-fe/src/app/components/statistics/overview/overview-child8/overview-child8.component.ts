@@ -9,6 +9,7 @@ import { Category, Months } from 'src/app/models/shared';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { StatisticsItem } from 'src/app/models/statistics';
+import { SpeciesService } from 'src/app/services/species.service';
 
 @Component({
   selector: 'app-overview-child8',
@@ -35,6 +36,7 @@ export class OverviewChild8Component implements OnInit {
     private layoutService: LayoutService,
     private utilitiesService: UtilitiesService,
     private translationService: TranslationService,
+    private speciesService: SpeciesService,
     private statisticsService: StatisticsService
   ) { }
 
@@ -42,7 +44,7 @@ export class OverviewChild8Component implements OnInit {
 
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_8');
     this.currentLanguage$ = this.translationService.currentLanguage$;
-    this.speciesGroups$ = this.statisticsService.getSpeciesGroups();
+    this.speciesGroups$ = this.speciesService.speciesGroups;
 
   }
 
@@ -55,7 +57,7 @@ export class OverviewChild8Component implements OnInit {
     console.log('getData has been activated');
 
     this.data$ = forkJoin([
-      this.statisticsService.getSpeciesGroups(),
+      this.speciesService.speciesGroups,
       this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup(),
     ]).pipe(
       map(([speciesGroups, monthlySightings]) => {
