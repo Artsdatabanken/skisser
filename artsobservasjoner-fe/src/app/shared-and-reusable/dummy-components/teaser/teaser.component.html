@@ -17,7 +17,7 @@
                 <h1 class="teaser__heading">{{ title }}</h1>
                 <div class="teaser__details">
                     {{ date | localizedDate }},
-                    {{ 'shared.at' | translate }} {{ date | date: 'hh:mm' }}
+                    {{ 'shared.time_at' | translate }} {{ date | date: 'hh:mm' }}
                 </div>
                 <div class="teaser__text" [innerHTML]="text"></div>
 

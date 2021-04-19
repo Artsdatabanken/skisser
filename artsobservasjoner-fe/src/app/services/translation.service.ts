@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
@@ -69,10 +69,9 @@ export class TranslationService {
   //   return this.currentLanguage$;
   // }
 
-  getLanguageItem(): Observable<LanguageItem[]> {
+  getLanguageItem(): Observable<LanguageItem> {
 
     let languageItem: LanguageItem = {};
-    let languageItems: LanguageItem[] = [];
 
     return of(this.english).pipe(
       map((response: any) => {
@@ -89,20 +88,13 @@ export class TranslationService {
               value: value2
             }
 
-            this.setLanguageKey(languageItem).subscribe(xx => {
-              console.log('lets see if this works', xx);
-            });
-
-            languageItems.push(languageItem);
+            this.setLanguageKey(languageItem).subscribe();
 
           }
 
         }
 
-        // console.log('language item', languageItem)
-        // console.log('language items', languageItems)
-
-        return languageItems;
+        return languageItem;
       })
     );
 
@@ -111,10 +103,14 @@ export class TranslationService {
   setLanguageKey(languageItem: LanguageItem): Observable<any | null> {
 
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    let options = { headers: headers } // Create a request option
+    let options = { headers: headers } 
 
     return this.httpClient.post(this.translationApi, JSON.stringify(languageItem), options);
 
   }
+
+  // getLanguageKeys(): Observable<any> {
+  //   return this.httpClient.get()
+  // }
 
 }

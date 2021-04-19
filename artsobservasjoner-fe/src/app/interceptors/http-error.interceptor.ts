@@ -22,36 +22,19 @@ export class HttpError {
 }
 
 @Injectable()
+
 export class HttpErrorInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) { }
 
   // public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  //   return new Observable((observer) => {
-  //     next.handle(req).subscribe(
-  //       (res: HttpResponse<any>) => {
-  //         console.log('RESPONSE', res);
-  //         if (res instanceof HttpResponse) {
-  //           observer.next(res);
-  //         }
-  //       },
-  //       (err: HttpErrorResponse) => {
-  //         this.apiService.handleError(err);
-  //         console.error(err);
-  //       }
-
-  //     );
-  //   });
-
-  // }
-
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(
         retry(2),
         map((res: HttpResponse<any>) => {
-          console.log('RESPONSE', res);
+          console.log('INTERCEPTED RESPONSE', res, res.body);
           return res;
         }),
         catchError((error: HttpErrorResponse) => {
@@ -79,7 +62,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 break;
 
               case HttpError.TimeOut:
-                // Handled in AnalyticsExceptionHandler
                 console.error('%c TimeOut 408', logFormat);
                 break;
 
@@ -102,7 +84,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
           }
 
-          console.log('ERROR: ', errorMsg);
+          //console.log('ERROR: ', errorMsg);
           return throwError(errorMsg);
 
         }),
