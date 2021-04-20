@@ -78,7 +78,6 @@ import { AlertsComponent } from './components/alerts/alerts.component';
 import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
 import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
-import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
@@ -113,7 +112,7 @@ import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-compo
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
-import { ToastrModule } from 'ngx-toastr';
+import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -246,7 +245,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     // { provide: LOCALE_ID, useValue: 'no' },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorInterceptor,
+      useClass: HttpResponseInterceptor,
       multi: true
     },
   ],

@@ -8,8 +8,7 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Router } from '@angular/router';
-import { catchError, map, retry } from 'rxjs/operators';
+import { retry, map, catchError } from 'rxjs/operators';
 
 export class HttpError {
   static BadRequest = 400;
@@ -22,12 +21,9 @@ export class HttpError {
 }
 
 @Injectable()
+export class HttpResponseInterceptor implements HttpInterceptor {
 
-export class HttpErrorInterceptor implements HttpInterceptor {
-
-  constructor(private router: Router) { }
-
-  // public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
@@ -43,6 +39,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           const logFormat = 'background: black; color: white; padding: 10px';
 
           if (error instanceof HttpErrorResponse) {
+
             switch (error.status) {
 
               case HttpError.BadRequest:
@@ -55,10 +52,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 break;
 
               case HttpError.NotFound:
-                //show error toast message
                 console.error('%c Not Found 404', logFormat);
 
-                this.router.navigate(['']);
+                //this.router.navigate(['']);
                 break;
 
               case HttpError.TimeOut:
@@ -76,39 +72,35 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           }
 
           if (error.error instanceof ErrorEvent) {
-            //console.error('Client side error', logFormat);
-            errorMsg = `Error: ${error.error.message}`;
+            errorMsg = `Client error: ${error.error.message}`;
           }
           else {
-            //console.error('Server side error', logFormat);
             errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+            console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
           }
 
           //console.log('ERROR: ', errorMsg);
           return throwError(errorMsg);
 
-        }),
+        })
 
       )
   }
 
-  // getServerErrorMessage(error: HttpErrorResponse): string {
-
-  //   switch (error.status) {
-  //     case 404: {
-  //       return `Not Found: ${error.message}`;
-  //     }
-  //     case 403: {
-  //       return `Access Denied: ${error.message}`;
-  //     }
-  //     case 500: {
-  //       return `Internal Server Error: ${error.message}`;
-  //     }
-  //     default: {
-  //       return `Unknown Server Error: ${error.message}`;
-  //     }
-
+  // private handleError(error: HttpErrorResponse) {
+  //   if (error.error instanceof ErrorEvent) {
+  //     // A client-side or network error occurred. Handle it accordingly.
+  //     console.error('An error occurred:', error.error.message);
+  //   } else {
+  //     // The backend returned an unsuccessful response code.
+  //     // The response body may contain clues as to what went wrong.
+  //     console.error(
+  //       `Backend returned code ${error.status}, ` +
+  //       `body was: ${error.error}`);
   //   }
+  //   // Return an observable with a user-facing error message.
+  //   return throwError(
+  //     'Something bad happened; please try again later.');
   // }
 
 }
