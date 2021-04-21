@@ -151,14 +151,14 @@ table {
 .th-number,
 .td-number {
     text-align: right;
-
-    @media screen and (max-width: 1024px) {
-        text-align: left;
-    }
 }
 
 .td-number {
     @include customVar(font-family, fontAccent);
+
+    &--lg {
+        font-size: 18px;
+    }
 }
 
 .td-highlighted {

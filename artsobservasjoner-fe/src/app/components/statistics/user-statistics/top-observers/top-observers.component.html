@@ -84,26 +84,31 @@
 
         <table>
             <caption>Brukere med flest observasjoner på tvers av artsgrupper gjennom tidene</caption>
-            <thead>
-                <tr>
-                    <th>Posisjon</th>
-                    <th>Navn</th>
-                    <th class="th-number">Antall observasjoner</th>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader">Posisjon</th>
+                    <th role="columnheader">Navn</th>
+                    <th role="columnheader" class="th-number">Antall observasjoner</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let user of fakeUsers$ | async; let i = index" [class]="getRank(i)">
 
-                    <td><span class="badge" [ngClass]="{'badge--top': i < 3}">{{ i + 1 }}</span></td>
-                    <td>
-                        <strong style="font-size: 1.2em">{{ user.name }}</strong>
+            <tbody role="rowgroup">
+
+                <tr role="row" *ngFor="let topObserver of topObservers$ | async; let i = index" [class]="getRank(i)">
+
+                    <td role="cell"><span class="badge" [ngClass]="{'badge--top': i < 3}">{{ i + 1 }}</span></td>
+                    <td role="cell">
+                        <strong style="font-size: 1.175em">{{ topObserver.name }}</strong>
                         <br>
-                        <span>{{ user.address.city }}</span>
+                        <span style="font-size: 0.9em">{{ topObserver.city }}</span>
                     </td>
-                    <td class="td-number"> {{ user.address.zipcode }}</td>
+                    <td role="cell" class="td-number td-number--lg"> {{ topObserver.sightingsCount | formatNumber }}
+                    </td>
 
                 </tr>
+
             </tbody>
+
         </table>
 
         <br>

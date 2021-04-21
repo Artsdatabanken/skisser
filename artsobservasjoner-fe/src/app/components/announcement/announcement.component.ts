@@ -3,7 +3,6 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Announcement } from 'src/app/models/press';
-import { DataService } from 'src/app/services/data.service';
 import { PressService } from 'src/app/services/press.service';
 
 @Component({
