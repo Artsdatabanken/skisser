@@ -1033,8 +1033,8 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-//const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
-const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
