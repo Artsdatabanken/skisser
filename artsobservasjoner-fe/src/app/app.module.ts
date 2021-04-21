@@ -77,7 +77,6 @@ import { AlertsComponent } from './components/alerts/alerts.component';
 import { NewKeyValuePipe } from './pipes/new-key-value.pipe';
 import { GraphComponent } from './components/graph/graph.component';
 import { OverviewChild5Component } from './components/statistics/overview/overview-child5/overview-child5.component';
-import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { StatusPageComponent } from './components/status-page/status-page.component';
@@ -113,6 +112,8 @@ import { ValidationStatusListComponent } from './shared-and-reusable/smart-compo
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
 import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
+import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
+
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -235,18 +236,13 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
         }
       }
     ),
-    // ToastrModule.forRoot({
-    //   timeOut: 5000,
-    //   positionClass: "toast-bottom-left",
-    // }),
     AppRoutingModule
   ],
   providers: [
     { provide: DatePipe },
-    // { provide: LOCALE_ID, useValue: 'no' },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorInterceptor,
+      useClass: HttpResponseInterceptor,
       multi: true
     },
   ],
@@ -256,6 +252,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
 export class AppModule { }
 
 // AoT (ahead of time) requires an exported function for factories
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }

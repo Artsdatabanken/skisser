@@ -597,7 +597,7 @@ export class StatisticsService {
   getSightingsByArea(): Observable<object[]> {
 
     return this.httpClient.get(this.OVERVIEW_STATS_SIGHTINGS_PER_AREA_API).pipe(
-       map((response: any) => {
+      map((response: any) => {
 
         let item: object;
         let items: object[] = [];
@@ -655,7 +655,7 @@ export class StatisticsService {
         });
 
         return obj;
-     
+
       })
     );
 
