@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LayoutService } from 'src/app/services/layout.service';
-import { StatisticsService } from 'src/app/services/statistics.service';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
@@ -19,14 +19,14 @@ export class OverviewChild5Component implements OnInit {
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
-    private statisticsService: StatisticsService
+    private overviewStatisticsService: OverviewStatisticsService,
   ) { }
 
   ngOnInit(): void {
   
     this.pageTitle$ = this.layoutService.setPageTitle('statistics.overviewStats_heading_5');
     this.currentLanguage$ = this.translationService.currentLanguage$;
-    this.data$ = this.statisticsService.getProjectsCount();
+    this.data$ = this.overviewStatisticsService.getProjectsCount();
     
   }
 

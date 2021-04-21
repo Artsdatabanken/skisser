@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/shared';
 import { LayoutService } from 'src/app/services/layout.service';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 import Map from 'ol/Map';
@@ -18,9 +17,8 @@ import OlFeature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import { fromLonLat } from 'ol/proj';
 
-import { DragPan, MouseWheelZoom, defaults } from 'ol/interaction';
-import { platformModifierKeyOnly } from 'ol/events/condition';
 import { SpeciesService } from 'src/app/services/species.service';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 
 @Component({
   selector: 'app-overview-child7',
@@ -41,7 +39,7 @@ export class OverviewChild7Component implements OnInit {
     private layoutService: LayoutService,
     private translationService: TranslationService,
     private speciesService: SpeciesService,
-    private statisticsService: StatisticsService,
+    private overviewStatisticsService: OverviewStatisticsService,
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +48,7 @@ export class OverviewChild7Component implements OnInit {
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
     this.speciesGroups$ = this.speciesService.speciesGroups;
-    this.data$ = this.statisticsService.getSightingsGeographicalDistribution();
+    this.data$ = this.overviewStatisticsService.getSightingsGeographicalDistribution();
     //this.areas$ = this.statisticsService.getAreas();
 
   }

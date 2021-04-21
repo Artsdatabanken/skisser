@@ -301,12 +301,13 @@
 
 .badge {
     @include customVar(font-family, fontSecondary);
-    background: #d5f5e3;
-    border-radius: 50px;
+    // background: #d5f5e3;
+    // border-radius: 50px;
     display: block;
+    font-size: 24px;
     font-weight: 700;
-    height: 50px;
-    line-height: 50px;
+    // height: 50px;
+    // line-height: 50px;
     margin: 0;
     text-align: center;
     width: 50px;
@@ -330,10 +331,11 @@
         background-size: contain;
         border: none;
         border-radius: 0;
-        font-size: 24px;
-        height: 90px;
-        line-height: 70px;
-        width: 71px;
+        font-size: 18px;
+        height: 63px;
+        line-height: 47px;
+        text-align: center;
+        width: 50px;
     }
 }
 

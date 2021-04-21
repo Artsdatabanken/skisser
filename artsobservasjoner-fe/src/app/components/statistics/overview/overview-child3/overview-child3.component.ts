@@ -4,11 +4,11 @@ import { map } from 'rxjs/operators';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { SIGHTINGS_PER_YEAR } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 
 import { Chart } from 'chart.js';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 
 @Component({
   selector: 'app-overview-child3',
@@ -34,7 +34,7 @@ export class OverviewChild3Component implements OnInit {
 
   constructor(
     private layoutService: LayoutService,
-    private statisticsService: StatisticsService,
+    private overviewStatisticsService: OverviewStatisticsService,
     private translationService: TranslationService,
     private utilitiesService: UtilitiesService
   ) { }
@@ -48,11 +48,11 @@ export class OverviewChild3Component implements OnInit {
   }
 
   getData(): void {
-    this.data$ = this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs);
+    this.data$ = this.overviewStatisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs);
 
     this.data$ = forkJoin([
-      this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs),
-      this.statisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artskart)
+      this.overviewStatisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artsobs),
+      this.overviewStatisticsService.getSightinsCountSumPerYear(this.sightingsCountPerYear.artskart)
     ]).pipe(
       map(([artsobs, artskart]) => {
 
