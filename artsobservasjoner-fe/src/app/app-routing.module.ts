@@ -557,7 +557,7 @@ const sightingsRoutes: Routes = [
         component: BirdAreaLeagueComponent,
         data: {
           text: 'Fuglelokalitetsliga',
-          title: 'menu.menu_statistics_userStatistics_areaLeague',
+          title: 'menu.menu_statistics_userStatistics_birdAreaLeague',
           id: 'area-league',
           layout: 'spa',
           rank: 'secondary',
