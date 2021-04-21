@@ -85,7 +85,7 @@ const reportRoutes: Routes = [
     component: ReportComponent,
     data: {
       text: 'Rapportere observasjoner',
-      title: 'menu_report',
+      title: 'menu.menu_report',
       translation: {
         no: 'Rapportere observasjoner',
         en: 'Sightings register'
@@ -105,7 +105,7 @@ const reportRoutes: Routes = [
     component: AddSightingComponent,
     data: {
       text: 'Legg til observasjon',
-      title: 'menu_report_addSighting',
+      title: 'menu.menu_report_addSighting',
       translation: {
         no: 'Legg til observasjon',
         en: 'Add sighting'
@@ -125,7 +125,7 @@ const reportRoutes: Routes = [
     component: ChecklistComponent,
     data: {
       text: 'Sjekkliste observasjoner',
-      title: 'menu_report_addByChecklist',
+      title: 'menu.menu_report_addByChecklist',
       translation: {
         no: 'Sjekkliste observasjoner',
         en: 'Sightings checklist registration'
@@ -145,7 +145,7 @@ const reportRoutes: Routes = [
     component: ImportSightingsComponent,
     data: {
       text: 'Importere observasjoner',
-      title: 'menu_report_importSightings',
+      title: 'menu.menu_report_importSightings',
       translation: {
         no: 'Importere observasjoner',
         en: 'Sightings import'
@@ -165,7 +165,7 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Arrangementer',
-      title: 'menu_report_events',
+      title: 'menu.menu_report_events',
       translation: {
         no: 'Arrangementer',
         en: 'Sighting registration events'
@@ -185,7 +185,7 @@ const reportRoutes: Routes = [
     component: EventProjectComponent,
     data: {
       text: 'Kartleggingsprosjekter',
-      title: 'menu_report_projects',
+      title: 'menu.menu_report_projects',
       translation: {
         no: 'Kartleggingsprosjekter',
         en: 'Survey sightings registration'
@@ -208,7 +208,7 @@ const sightingsRoutes: Routes = [
     component: SightingsDataComponent,
     data: {
       text: 'Observasjonsdata',
-      title: 'menu_sightings',
+      title: 'menu.menu_sightings',
       id: 'sightings-data',
       layout: 'landing',
       rank: 'primary',
@@ -224,7 +224,7 @@ const sightingsRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
-      title: 'menu_sightingsCollection',
+      title: 'menu.menu_sightingsCollection',
       id: 'sightings-data',
       layout: 'page',
       rank: 'primary',
@@ -240,7 +240,7 @@ const sightingsRoutes: Routes = [
     component: SightingComponent,
     data: {
       text: 'Observasjon',
-      title: 'menu_sightings_sighting',
+      title: 'menu.menu_sightings_sighting',
       id: 'sighting',
       layout: 'page',
       rank: '',
@@ -256,7 +256,7 @@ const sightingsRoutes: Routes = [
     component: StatisticsComponent,
     data: {
       text: 'Tall og statistikk',
-      title: 'menu_statistics',
+      title: 'menu.menu_statistics',
       id: 'statistics',
       layout: 'landing',
       rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
@@ -272,7 +272,7 @@ const sightingsRoutes: Routes = [
     component: OverviewStatisticsComponent,
     data: {
       text: 'Volumstatistikk',
-      title: 'menu_statistics_overview',
+      title: 'menu.menu_statistics_overview',
       id: 'overview-statistics',
       layout: 'spa',
       rank: 'secondary',
@@ -466,7 +466,7 @@ const sightingsRoutes: Routes = [
     component: ValidatedDataComponent,
     data: {
       text: 'Kvalitetssikrede data',
-      title: 'menu_statistics_validatedData',
+      title: 'menu.menu_statistics_validatedData',
       id: 'validated-data',
       layout: 'page',
       rank: 'secondary',
@@ -481,7 +481,7 @@ const sightingsRoutes: Routes = [
     component: RedListedSpeciesComponent,
     data: {
       text: 'Rødlistede arter',
-      title: 'menu_statistics_redlistedSpecies',
+      title: 'menu.menu_statistics_redlistedSpecies',
       id: 'redlisted-species',
       layout: 'page',
       rank: 'secondary',
@@ -496,7 +496,7 @@ const sightingsRoutes: Routes = [
     component: AlienSpeciesComponent,
     data: {
       text: 'Fremmede arter',
-      title: 'menu_statistics_alienSpecies',
+      title: 'menu.menu_statistics_alienSpecies',
       id: 'alien-species',
       layout: 'page',
       rank: 'secondary',
@@ -511,7 +511,7 @@ const sightingsRoutes: Routes = [
     component: KnowledgeGapComponent,
     data: {
       text: 'Kunnskapshull',
-      title: 'menu_statistics_knowledgeGaps',
+      title: 'menu.menu_statistics_knowledgeGaps',
       id: 'knowledge-gaps',
       layout: 'page',
       rank: 'secondary',
@@ -526,7 +526,7 @@ const sightingsRoutes: Routes = [
     component: UserStatisticsComponent,
     data: {
       text: 'Brukerstatistikk',
-      title: 'menu_statistics_userStatistics',
+      title: 'menu.menu_statistics_userStatistics',
       id: 'user-statistics',
       layout: 'spa',
       rank: 'secondary',
@@ -578,7 +578,7 @@ const userDataRoutes: Routes = [
     component: MyDataComponent,
     data: {
       text: 'Min data',
-      title: 'menu_myData',
+      title: 'menu.menu_myData',
       id: 'my-data',
       layout: 'landing',
       rank: 'primary',
@@ -594,7 +594,7 @@ const userDataRoutes: Routes = [
     component: MySightingsComponent,
     data: {
       text: 'Mine observasjoner',
-      title: 'menu_myData_mysightings',
+      title: 'menu.menu_myData_mySightings',
       id: 'my-sightings',
       layout: 'page',
       rank: 'primary',
@@ -610,7 +610,7 @@ const userDataRoutes: Routes = [
     component: MyStatisticsComponent,
     data: {
       text: 'Min statistikk',
-      title: 'menu_myData_myStatistics',
+      title: 'menu.menu_myData_myStatistics',
       id: 'my-statistics',
       layout: 'page',
       rank: 'secondary',
@@ -626,7 +626,7 @@ const userDataRoutes: Routes = [
     component: MyProjectsComponent,
     data: {
       text: 'Mine prosjekter',
-      title: 'menu_myData_myProjects',
+      title: 'menu.menu_myData_myProjects',
       id: 'my-projects',
       layout: 'page',
       rank: 'secondary',
@@ -642,7 +642,7 @@ const userDataRoutes: Routes = [
     component: MyLocationsComponent,
     data: {
       text: 'Mine lokaliteter',
-      title: 'menu_myData_myLocations',
+      title: 'menu.menu_myData_myLocations',
       id: 'my-locations',
       layout: 'page',
       rank: 'secondary',
@@ -658,7 +658,7 @@ const userDataRoutes: Routes = [
     component: CoObserversComponent,
     data: {
       text: 'Medobservatører',
-      title: 'menu_myData__myCoObservers',
+      title: 'menu.menu_myData__myCoObservers',
       id: 'co-observers',
       layout: 'page',
       rank: 'secondary',
@@ -677,7 +677,7 @@ const aboutRoutes: Routes = [
     component: AboutComponent,
     data: {
       text: 'Om tjenesten',
-      title: 'menu_about',
+      title: 'menu.menu_about',
       id: 'about',
       layout: 'landing',
       rank: 'primary',
@@ -787,7 +787,7 @@ const accountRoutes: Routes = [
     component: RegistrationComponent,
     data: {
       text: 'Registrer deg',
-      title: 'menu_account_register',
+      title: 'menu.menu_account_register',
       id: 'register',
       layout: 'page',
       rank: '',
@@ -803,7 +803,7 @@ const accountRoutes: Routes = [
     component: LoginComponent,
     data: {
       text: 'Logg inn',
-      title: 'menu_account_login',
+      title: 'menu.menu_account_login',
       id: 'login',
       layout: 'page',
       rank: '',
@@ -819,7 +819,7 @@ const accountRoutes: Routes = [
     component: MessagesComponent,
     data: {
       text: 'Meldinger',
-      title: 'menu_account_messages',
+      title: 'menu.menu_account_messages',
       id: 'messages',
       layout: 'page',
       rank: 'primary',
@@ -838,12 +838,12 @@ const pressRoutes: Routes = [
     component: PressComponent,
     data: {
       text: 'Presse',
-      title: 'menu_press',
+      title: 'menu.menu_press',
       id: 'press',
       layout: 'full-width',
       rank: 'secondary',
       parent: '',
-      menu: 'extraMenu',
+      menu: '',
       metatitle: '',
       metaDescription: '',
       hidden: true
@@ -854,12 +854,12 @@ const pressRoutes: Routes = [
     component: NewsComponent,
     data: {
       text: 'Aktuelle saker',
-      title: 'menu_news',
+      title: 'menu.menu_news',
       id: 'news',
       layout: 'wide',
       rank: 'secondary',
       parent: '',
-      menu: 'extraMenu',
+      menu: '',
       metatitle: '',
       metaDescription: '',
       hidden: false
@@ -885,12 +885,12 @@ const pressRoutes: Routes = [
     component: AnnouncementsComponent,
     data: {
       text: 'Kunngjøringer',
-      title: 'menu_announcements',
+      title: 'menu.menu_announcements',
       id: 'announcements',
       layout: 'page',
       rank: 'secondary',
       parent: '',
-      menu: 'extraMenu',
+      menu: '',
       metatitle: '',
       metaDescription: '',
       hidden: false
@@ -901,7 +901,7 @@ const pressRoutes: Routes = [
     component: AnnouncementComponent,
     data: {
       text: 'Kunngjøring',
-      title: 'menu_announcement',
+      title: 'menu.menu_announcement',
       id: 'announcement',
       layout: 'article',
       rank: 'secondary',
@@ -915,83 +915,20 @@ const pressRoutes: Routes = [
 ];
 
 const extraRoutes: Routes = [
-  // {
-  //   path: 'news',
-  //   component: NewsComponent,
-  //   data: {
-  //     text: 'Aktuelle saker',
-  //     title: 'menu_news',
-  //     id: 'news',
-  //     layout: 'wide',
-  //     rank: 'secondary',
-  //     parent: '',
-  //     menu: 'extraMenu',
-  //     metatitle: '',
-  //     metaDescription: '',
-  //     hidden: false
-  //   }
-  // },
-  // {
-  //   path: 'news/:id',
-  //   component: NewsItemComponent,
-  //   data: {
-  //     text: 'News item',
-  //     id: 'news',
-  //     layout: 'article',
-  //     rank: '',
-  //     parent: 'news',
-  //     menu: '',
-  //     metatitle: '',
-  //     metaDescription: '',
-  //     hidden: false
-  //   }
-  // },
-  // {
-  //   path: 'announcements',
-  //   component: AnnouncementsComponent,
-  //   data: {
-  //     text: 'Kunngjøringer',
-  //     title: 'menu_announcements',
-  //     id: 'announcements',
-  //     layout: 'page',
-  //     rank: 'secondary',
-  //     parent: '',
-  //     menu: 'extraMenu',
-  //     metatitle: '',
-  //     metaDescription: '',
-  //     hidden: false
-  //   }
-  // },
-  // {
-  //   path: 'announcements/:id',
-  //   component: AnnouncementComponent,
-  //   data: {
-  //     text: 'Kunngjøring',
-  //     title: 'menu_announcement',
-  //     id: 'announcement',
-  //     layout: 'article',
-  //     rank: 'secondary',
-  //     parent: '',
-  //     menu: '',
-  //     metatitle: '',
-  //     metaDescription: '',
-  //     hidden: true
-  //   }
-  // },
   {
     path: 'press',
     component: PressComponent,
     data: {
       text: 'Presse',
-      title: 'menu_press',
+      title: 'menu.menu_press',
       id: 'press',
       layout: 'full-width',
-      rank: 'secondary',
+      rank: '',
       parent: '',
       menu: 'extraMenu',
       metatitle: '',
       metaDescription: '',
-      hidden: true
+      hidden: false
     }
   },
   {
@@ -999,7 +936,7 @@ const extraRoutes: Routes = [
     component: SitemapComponent,
     data: {
       text: 'Innholdskart fra A-Å',
-      title: 'menu_sitemap',
+      title: 'menu.menu_sitemap',
       id: 'sitemap',
       layout: 'page',
       rank: '',
@@ -1015,7 +952,7 @@ const extraRoutes: Routes = [
     component: StatusPageComponent,
     data: {
       text: 'Driftsmeldinger',
-      title: 'menu_statusPage',
+      title: 'menu.menu_statusPage',
       id: 'statusPage',
       layout: 'page',
       rank: '',
@@ -1031,7 +968,7 @@ const extraRoutes: Routes = [
     component: SearchComponent,
     data: {
       text: 'Søk',
-      title: 'menu_search',
+      title: 'menu.menu_search',
       id: 'search',
       layout: 'page',
       rank: '',
@@ -1096,8 +1033,8 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
-//const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

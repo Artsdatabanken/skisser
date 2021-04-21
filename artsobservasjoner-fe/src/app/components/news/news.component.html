@@ -3,7 +3,7 @@
     <header class="page__header"></header>
 
     <div class="page__intro" *ngIf="!location">
-        <p>Ingress og annen nødvendig tekst</p>
+        <p [innerHTML]="'press.intro_news' | translate"></p>
     </div>
 
     <div class="page__content">
@@ -15,7 +15,7 @@
                 [type]="'img'" 
                 [source]="item.imgUrl" 
                 [url]="'/news/' + item.url" 
-                [tag]="'news.currently' | translate"
+                [tag]="'press.currently' | translate"
                 [date]="item.created" 
                 [title]="item.heading | stripHtml"
                 [text]="item.body | truncateText: 150 | stripHtml"> 

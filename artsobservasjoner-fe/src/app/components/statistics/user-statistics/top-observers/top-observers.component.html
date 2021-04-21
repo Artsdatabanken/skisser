@@ -94,7 +94,8 @@
 
             <tbody role="rowgroup">
 
-                <tr role="row" *ngFor="let topObserver of topObservers$ | async; let i = index" [class]="getRank(i)">
+                <tr role="row" *ngFor="let topObserver of topObservers$ | async as topObservers; let i = index"
+                    [class]="getRank(i)">
 
                     <td role="cell"><span class="badge" [ngClass]="{'badge--top': i < 3}">{{ i + 1 }}</span></td>
                     <td role="cell">

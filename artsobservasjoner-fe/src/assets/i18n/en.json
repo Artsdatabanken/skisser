@@ -20,7 +20,7 @@
         "menu_statistics_userStatistics_topObservers": "Top observers",
         "menu_statistics_userStatistics_birdAreaLeague": "Bird league",
         "menu_myData": "My data",
-        "menu_myData_myObservations": "My sightings",
+        "menu_myData_mySightings": "My sightings",
         "menu_myData_myStatistics": "My statistics",
         "menu_myData_myProjects": "My projects",
         "menu_myData_myLocations": "My locations",
@@ -44,10 +44,7 @@
         "time_at": "at",
         "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
     },
-    "headings": {
-        "announcements": "More announcements",
-        "news": "Go to news"
-    },
+    "headings": {},
     "account": {
         "account_register": "Register",
         "account_login": "Login",
@@ -56,7 +53,7 @@
     },
     "frontpage": {
         "title": "Translation demo",
-        "frontpage_introText1": "Join and help us survey Norwegian nature!",
+        "frontpage_introText1": "Join in! Report species you have seen",
         "frontpage_introText2": "Learn more about how you can contribute",
         "frontpage_introText3": "Want to help us ensure the quality of our sightings' data?",
         "frontpage_text_4": "More news",
@@ -65,11 +62,22 @@
         "frontpage_headings_statistics": "Statistics",
         "frontpage_headings_news": "News"
     },
-    "news": {
-        "currently": "Currently",
-        "announcements": "Announcements"
+    "about": {
+        "intro": "Below you can find information on the Norwegian Species Observations System and how to contact us with questions."
+    },
+    "press": {
+        "intro": "",
+        "intro_announcements": "",
+        "intro_news": "This page presents news related to the Species Observations System. Other news articles from the Norwegian Biodiversity Information Centre may also be listed, if it is relevant for this system. Most (or all) of the information will be in Norwegian.",
+        "announcements": "More announcements",
+        "news": "Go to news",
+        "currently": "Currently"
     },
     "statistics": {
+        "intro": "",
+        "intro_validatedData": "A number of observations are quality checked by validators. Both the species identification, time and locality, as well as the provided documentation, are checked. Red-listed species, alien species and other species important for nature management, are prioritized for validation. Read more about <a href=\"/about/305407\">data validation</a> under 'About'.",
+        "outro_alienSpecies": "Are you interested in knowing more about impact assessments on alien species in Norway? See information on <a href=\"https://www.biodiversity.no/alien-species?Key=452\">alien species</a> and search our <a href=\"https://www.biodiversity.no/alien-species-2018\">Alien Species List from 2018</a>.",
+        "outro_redlistedSpecies": "Are you interested in knowing more about our Red List assessments? See our <a href=\"https://www.biodiversity.no/Pages/135380/Norwegian_Red_List_for_Species?Key=452\">information and results from 2015</a>.",
         "overviewNumbers_sightings": "Sightings",
         "overviewNumbers_species": "Registered species",
         "overviewNumbers_images": "Added images",

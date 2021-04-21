@@ -792,6 +792,15 @@ main {
             font-weight: inherit;
             line-height: 1.5;
             margin: 0;
+            width: 47ch;
+
+            @media screen and (max-width: 1200px) {
+                width: 60ch;
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
         }
     }
 

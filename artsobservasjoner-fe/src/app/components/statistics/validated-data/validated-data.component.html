@@ -2,7 +2,9 @@
 
     <header class="page__header"></header>
 
-    <div class="page__intro"></div>
+    <div class="page__intro">
+        <p [innerHTML]="'statistics.intro_validatedData' | translate"></p>
+    </div>
 
     <div class="page__content">
 
@@ -63,6 +65,8 @@
             </div>
 
             <br><br>
+
+            <h2>{{ 'statistics.tableCaption_validatedData' | translate }}</h2>
 
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption2">
 
@@ -128,6 +132,8 @@
         <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
         <ng-container *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
+
+            <h2>{{ 'statistics.tableCaption_validatedData2' | translate }}</h2>
 
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
 

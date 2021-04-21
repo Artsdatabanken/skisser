@@ -67,7 +67,7 @@ export class NavigationService {
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: `menu.${item.data.title}`,
+        heading: `${item.data.title}`,
         text: item.data.text,
         id: item.path,
         parent: item.data.parent,
@@ -100,7 +100,7 @@ export class NavigationService {
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: `menu.${item.data.title}`,
+        heading: `${item.data.title}`,
         text: item.data.text,
         id: item.path,
         parent: item.data.parent,
@@ -124,7 +124,7 @@ export class NavigationService {
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: `menu.${item.data.title}`,
+        heading: `${item.data.title}`,
         text: item.data.text,
         id: item.path,
         parent: item.data.parent,
@@ -152,7 +152,7 @@ export class NavigationService {
 
       const menuItem: MenuItem = {
         path: item.path,
-        heading: `menu.${item.data.title}`,
+        heading: `${item.data.title}`,
         text: item.data.text,
         id: item.path,
         parent: item.data.parent,

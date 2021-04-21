@@ -14,8 +14,8 @@
         <app-assessment-categories [categoryVariant]="assessmentCategoryTypes.alienlist"></app-assessment-categories>
 
         <br>
-        <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>
-
+        <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}</p>        
+      
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
             *ngIf="data$ | async as alienSpecies; else noData">
 
@@ -108,6 +108,9 @@
         <ng-template #noData>
             <app-error-response></app-error-response>
         </ng-template>
+
+        <br>
+        <p class="body-text" [innerHTML]="'statistics.outro_alienSpecies' | translate"> </p>
 
     </div>
 
