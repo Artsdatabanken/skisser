@@ -346,6 +346,56 @@
     }
 }
 
+.stripe {
+    @include customVar(background-color, clrWash2);
+    display: grid;
+    grid-template-columns: 100px auto 100px;
+    font-size: 18px;
+    margin: 0 auto 3px;
+    max-width: 65%;
+    width: auto;
+
+    &__cell {
+        // border: 1px solid red;
+        align-self: center;
+        padding: 10px;
+
+        &:nth-child(1) {
+            justify-self: center;
+        }
+
+        &:nth-child(2) {
+            justify-self: start;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        &:nth-child(3) {
+            @include customVar(font-family, fontAccent);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            justify-self: end;
+            padding-right: 30px;
+            text-align: right;
+        }
+
+        // gjelder for alle children of stripe--dummy
+        .stripe--dummy & {
+            @include customVar(font-family, fontSecondary);
+            font-size: 19px;
+            font-weight: 600;
+        }
+    }
+
+    &--dummy {
+        @include customVar(border-bottom-color, clrAccent);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        margin-bottom: 0;
+    }
+}
+
 .stats {
     text-align: center;
 

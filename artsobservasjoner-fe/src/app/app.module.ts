@@ -113,6 +113,8 @@ import { ValidationStatusComponent } from './shared-and-reusable/smart-component
 import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
 import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
+import { StripeComponent } from './shared-and-reusable/dummy-components/stripe/stripe.component';
+import { UserStatsStripeComponent } from './shared-and-reusable/smart-components/user-stats-stripe/user-stats-stripe.component';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -220,7 +222,9 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     MySightingsComponent,
     SightingsDataComponent,
     BirdAreaLeagueComponent,
-    AssessmentCategoriesComponent
+    AssessmentCategoriesComponent,
+    StripeComponent,
+    UserStatsStripeComponent
   ],
   imports: [
     BrowserModule,
