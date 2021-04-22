@@ -30,7 +30,7 @@ export class HttpResponseInterceptor implements HttpInterceptor {
       .pipe(
         retry(2),
         map((res: HttpResponse<any>) => {
-          console.log('INTERCEPTED RESPONSE', res, res.body);
+          //console.log('INTERCEPTED RESPONSE', res, res.body);
           return res;
         }),
         catchError((error: HttpErrorResponse) => {

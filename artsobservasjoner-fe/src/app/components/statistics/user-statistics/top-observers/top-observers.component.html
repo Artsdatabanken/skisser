@@ -111,6 +111,36 @@
 
         <br><br><br><br><br><br><br><br><br><br>
 
+        <div class="pagination">
+
+            <button (click)="pagination.first()" [disabled]="pagination.isFirst">
+                &laquo;
+            </button>
+
+            <button (click)="pagination.prev()" [disabled]="pagination.isFirst">
+                &lsaquo;
+            </button>
+
+            <input appPagination #pagination="appPagination" [totalPages]="10" (pageChange)="onPageChange($event, pagination.totalPages)" />
+
+            <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
+
+            <button (click)="pagination.next()" [disabled]="pagination.isLast">
+                &rsaquo;
+            </button>
+
+            <button (click)="pagination.last()" [disabled]="pagination.isLast">
+                &raquo;
+            </button>
+
+            <br>
+            <br>
+
+            <div class="pagination__item" style="border: none;">{{ pagination.pageNo }}</div>
+
+
+        </div>
+
         <!-- <table style="min-width: 60%; width: auto;">
             <caption>Brukere med flest observasjoner på tvers av artsgrupper gjennom tidene</caption>
             <thead role="rowgroup">
@@ -145,20 +175,7 @@
 
         </table> -->
 
-        <br>
-        <br>
-        <div class="pagination">
-            <div class="pagination__item">1</div>
-            <div class="pagination__item">2</div>
-            <div class="pagination__item">3</div>
-            <div class="pagination__item">4</div>
-            <div class="pagination__item">5</div>
-            <div class="pagination__item">6</div>
-            <div class="pagination__item">7</div>
-            <div class="pagination__item">8</div>
-            <div class="pagination__item" style="border: none;">...</div>
-            <div class="pagination__item">&raquo;</div>
-        </div>
+      
         <br>
         <br>
         <br>

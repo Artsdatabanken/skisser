@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DropdownOption } from 'src/app/models/reusable';
 import { TopObserver, TOTAL_COUNT_STATISTICS } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-top-observers',
@@ -21,11 +19,7 @@ export class TopObserversComponent implements OnInit {
 
   topObservers$: Observable<TopObserver[]>;
 
-  fakeUsers$: Observable<any[]>;
-  toggle: boolean = false;
-
   constructor(
-    private userService: UserService,
     private layoutService: LayoutService,
     private translationService: TranslationService,
     private userStatisticsService: UserStatisticsService
@@ -35,29 +29,17 @@ export class TopObserversComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.topObservers$ = this.userStatisticsService.getTopObservers(15);
+  }
 
-
-    this.fakeUsers$ = this.userService.getFakeUsers();
-
-    this.topObservers$ = this.userStatisticsService.getTopObservers();
-
-
+  onPageChange(pageNo: number, pageSize: number) {
+    console.log("Current page: ", pageNo, pageSize);
+    this.topObservers$ = this.userStatisticsService.getTopObservers2(pageNo, pageSize);
   }
 
   getRank(index: number): string {
 
     const rank: number = index;
-
-    // switch (rank) {
-    //   case 0:
-    //     return 'league__item--first';
-    //   case 1:
-    //     return 'league__item--second';
-    //   case 2:
-    //     return 'league__item--third';
-    //   default:
-    //     return '';
-    // }
 
     switch (rank) {
       case 0:
@@ -72,9 +54,7 @@ export class TopObserversComponent implements OnInit {
 
   }
 
-  toggleWinners(): void {
-    this.toggle = !this.toggle;
-  }
+
 
 
 }

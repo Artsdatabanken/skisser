@@ -115,6 +115,7 @@ import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-compo
 import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
 import { StripeComponent } from './shared-and-reusable/dummy-components/stripe/stripe.component';
 import { UserStatsStripeComponent } from './shared-and-reusable/smart-components/user-stats-stripe/user-stats-stripe.component';
+import { PaginationDirective } from './directives/pagination.directive';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -224,7 +225,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     BirdAreaLeagueComponent,
     AssessmentCategoriesComponent,
     StripeComponent,
-    UserStatsStripeComponent
+    UserStatsStripeComponent,
+    PaginationDirective
   ],
   imports: [
     BrowserModule,

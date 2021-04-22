@@ -15,13 +15,12 @@ export class UserStatisticsService {
 
   constructor() { }
 
-  getTopObservers(): Observable<TopObserver[]> {
+  getTopObservers(take?: number): Observable<TopObserver[]> {
 
     let topObserver: TopObserver;
     let topObservers: TopObserver[] = [];
 
     this.topObservers.result.forEach(element => {
-      console.log('ele', element)
 
       topObserver = {
         id: element.userId,
@@ -32,9 +31,33 @@ export class UserStatisticsService {
       };
 
       topObservers.push(topObserver);
+
     });
 
-    return of(topObservers).pipe();
+    return of(topObservers.slice(0, take)).pipe();
+
+  }
+
+  getTopObservers2(pageNumber: number, pageSize: number): Observable<TopObserver[]> {
+
+    let topObserver: TopObserver;
+    let topObservers: TopObserver[] = [];
+
+    this.topObservers.result.forEach(element => {
+
+      topObserver = {
+        id: element.userId,
+        name: element.userName,
+        alias: element.userAlias,
+        city: element.city,
+        sightingsCount: element.count
+      };
+
+      topObservers.push(topObserver);
+
+    });
+
+    return of(topObservers.slice(pageNumber, pageSize)).pipe();
 
   }
 
