@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -234,10 +233,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
         }
       }
     ),
-    // ToastrModule.forRoot({
-    //   timeOut: 5000,
-    //   positionClass: "toast-bottom-left",
-    // }),
     AppRoutingModule
   ],
   providers: [
@@ -255,6 +250,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
 export class AppModule { }
 
 // AoT (ahead of time) requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
 }

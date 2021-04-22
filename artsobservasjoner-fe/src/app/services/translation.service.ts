@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import Norwegian from '../../assets/i18n/no.json';
 import English from '../../assets/i18n/en.json';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 
 export interface LanguageItem {
   languageCode?: string;
@@ -32,12 +32,6 @@ export class TranslationService {
     private httpClient: HttpClient
   ) { }
 
-  switchLanguage(selectedLanguageCode: string): void {
-    localStorage.setItem('LANGUAGE', selectedLanguageCode);
-    this.translate.use(selectedLanguageCode); // IMPORTANT 
-    this.currentLanguage$.next(selectedLanguageCode);
-  }
-
   handleLanguage(): void {
 
     // DEFINE SUPPORTED LANGUAGES
@@ -58,6 +52,12 @@ export class TranslationService {
 
   }
 
+  switchLanguage(selectedLanguageCode: string): void {
+    localStorage.setItem('LANGUAGE', selectedLanguageCode);
+    this.translate.use(selectedLanguageCode); // IMPORTANT 
+    this.currentLanguage$.next(selectedLanguageCode);
+  }
+
   // getCurrentLanguage(): Observable<string> {
 
   //   this.currentLanguage$.next(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
@@ -69,7 +69,7 @@ export class TranslationService {
   //   return this.currentLanguage$;
   // }
 
-  getLanguageItem(): Observable<LanguageItem> {
+  getLanguageItemFromJson(): Observable<LanguageItem> {
 
     let languageItem: LanguageItem = {};
 
@@ -88,7 +88,7 @@ export class TranslationService {
               value: value2
             }
 
-            this.setLanguageKey(languageItem).subscribe();
+            this.setLanguageItem(languageItem).subscribe();
 
           }
 
@@ -100,10 +100,10 @@ export class TranslationService {
 
   }
 
-  setLanguageKey(languageItem: LanguageItem): Observable<any | null> {
+  setLanguageItem(languageItem: LanguageItem): Observable<any | null> {
 
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    let options = { headers: headers } 
+    let options = { headers: headers }
 
     return this.httpClient.post(this.translationApi, JSON.stringify(languageItem), options);
 
@@ -113,4 +113,25 @@ export class TranslationService {
   //   return this.httpClient.get()
   // }
 
+  getTranslations(languageCode: string): Observable<any> {
+
+    let lCode: string;
+
+    if (languageCode === 'no') lCode = 'nb';
+    if (languageCode === 'en') lCode = 'en'; 
+
+    return this.httpClient.get(this.translationApi + '?languageCode=' + lCode).pipe(
+      map((response: any) => {
+
+        console.log('språk', response)
+
+
+      }),
+      shareReplay()
+    );
+
+  }
+
 }
+
+

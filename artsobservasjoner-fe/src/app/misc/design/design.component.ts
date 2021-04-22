@@ -13,6 +13,8 @@ export class DesignComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.translationService.getTranslations('no').subscribe();
+
     // this.translationService.getLanguageItem().subscribe(r => {
     //   //console.log('r', r)
     // });
