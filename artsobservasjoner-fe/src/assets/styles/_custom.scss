@@ -301,8 +301,9 @@
 
 .badge {
     @include customVar(font-family, fontSecondary);
+    @include customVar(font-family, fontPrimary);
     display: block;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     margin: 0;
     text-align: center;
@@ -311,17 +312,37 @@
     &--top {
         @include customVar(color, clrWhite);
         background-color: transparent;
-        background-image: url(../images/iconBadge.png);
+        background-image: url(../images/iconMedal.png);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
         border: none;
         border-radius: 0;
-        font-size: 18px;
-        height: 63px;
-        line-height: 47px;
+        font-size: 19px;
+        font-weight: 800;
+        height: 65px;
+        line-height: 83px;
+        margin: 0 auto;
         text-align: center;
         width: 50px;
+    }
+
+    &--top10 {
+        @include customVar(color, clrBlack);
+        background-color: transparent;
+        background-image: url(../images/iconAward.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: none;
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: 700;
+        height: 50px;
+        line-height: 42px;
+        margin: 0 auto;
+        text-align: center;
+        width: 42px;
     }
 }
 

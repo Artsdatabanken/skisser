@@ -157,7 +157,9 @@ table {
     @include customVar(font-family, fontAccent);
 
     &--lg {
-        font-size: 18px;
+        font-size: 21px;
+        font-weight: 600;
+        letter-spacing: -1px;
     }
 }
 

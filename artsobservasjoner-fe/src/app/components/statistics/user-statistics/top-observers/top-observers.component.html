@@ -40,7 +40,7 @@
 
             <div class="filter">
 
-                <select name="" id="speciesGroup">
+                <select name="" id="years">
                     <option value="All">Alle år</option>
                     <option value="">2019</option>
                     <option value="">2018</option>
@@ -52,8 +52,20 @@
 
             <div class="filter">
 
-                <select name="" id="speciesGroup">
-                    <option value="All">Hele landet</option>
+                <select name="" id="counties">
+                    <option value="All">Alle fylker</option>
+                    <option value="">Trøndelag</option>
+                    <option value="">Nordland</option>
+                    <option value="">Rogaland</option>
+                    <option value="">...</option>
+                </select>
+
+            </div>
+
+            <div class="filter">
+
+                <select name="" id="municipalities">
+                    <option value="All">Alle kommuner</option>
                     <option value="">Trøndelag</option>
                     <option value="">Nordland</option>
                     <option value="">Rogaland</option>
@@ -82,7 +94,7 @@
 
         </div> -->
 
-        <table>
+        <table style="min-width: 60%; width: auto;">
             <caption>Brukere med flest observasjoner på tvers av artsgrupper gjennom tidene</caption>
             <thead role="rowgroup">
                 <tr role="row">
@@ -97,7 +109,7 @@
                 <tr role="row" *ngFor="let topObserver of topObservers$ | async as topObservers; let i = index"
                     [class]="getRank(i)">
 
-                    <td role="cell"><span class="badge" [ngClass]="{'badge--top': i < 3}">{{ i + 1 }}</span></td>
+                    <td role="cell" style="width: 100px;"><span class="badge" [ngClass]="{'badge--top': i < 3, 'badge--top10': i < 10 && i > 2}">{{ i + 1 }}</span></td>
                     <td role="cell">
                         <strong style="font-size: 1.175em">{{ topObserver.name }}</strong>
                         <br>
