@@ -57,6 +57,22 @@ export interface TotalCountStatistic {
     text?: string;
 }
 
+export interface TopObserver {
+    /*
+     "count": 1227,
+      "userId": 19028,
+      "userAlias": "Gundersen",
+      "userName": "Anette Gundersen",
+      "city": "Paradis"
+    */
+
+    id: number;
+    alias: string;
+    name: string;
+    city: string;
+    sightingsCount: number;
+}
+
 // ENUMS
 
 export enum TOTAL_COUNT_STATISTICS {

@@ -1,0 +1,707 @@
+{
+  "page": 3,
+  "pageSize": 100,
+  "totalCount": 15784,
+  "result": [
+    {
+      "count": 1227,
+      "userId": 19028,
+      "userAlias": "Gundersen",
+      "userName": "Anette Gundersen",
+      "city": "Paradis"
+    },
+    {
+      "count": 1226,
+      "userId": 15896,
+      "userAlias": "torbjornal",
+      "userName": "Torbjørn Alm",
+      "city": "Tromsø"
+    },
+    {
+      "count": 1226,
+      "userId": 16924,
+      "userAlias": "Accipiter",
+      "userName": "Trond Berg",
+      "city": "Elverum"
+    },
+    {
+      "count": 1222,
+      "userId": 18333,
+      "userAlias": "gautemohn",
+      "userName": "Gaute Mohn Jenssen",
+      "city": "Eidsvoll"
+    },
+    {
+      "count": 1216,
+      "userId": 15643,
+      "userAlias": "fjarbu",
+      "userName": "Rolf Jørn Fjærbu",
+      "city": "Grimstad"
+    },
+    {
+      "count": 1214,
+      "userId": 26550,
+      "userAlias": "Røsok",
+      "userName": "Øystein Røsok",
+      "city": "Asker"
+    },
+    {
+      "count": 1213,
+      "userId": 16864,
+      "userAlias": "28feBRuar",
+      "userName": "Åge Sten Fredriksen",
+      "city": "Kråkerøy"
+    },
+    {
+      "count": 1205,
+      "userId": 16249,
+      "userAlias": "flips",
+      "userName": "Merete Stava",
+      "city": "Stol"
+    },
+    {
+      "count": 1202,
+      "userId": 17005,
+      "userAlias": "trogstad",
+      "userName": "Kirsten Trogstad",
+      "city": "Enebakk"
+    },
+    {
+      "count": 1196,
+      "userId": 16433,
+      "userAlias": "perm",
+      "userName": "Per Madsen",
+      "city": "Finstadjordet"
+    },
+    {
+      "count": 1195,
+      "userId": 21838,
+      "userAlias": "Garex",
+      "userName": "Gunnar Nyhus",
+      "city": "Hunndalen"
+    },
+    {
+      "count": 1195,
+      "userId": 15660,
+      "userAlias": "HAUKEN",
+      "userName": "Eric Francois Roualet",
+      "city": "Hakadal"
+    },
+    {
+      "count": 1192,
+      "userId": 16667,
+      "userAlias": "kristin",
+      "userName": "Kristin Bjartnes",
+      "city": "Bekkestua"
+    },
+    {
+      "count": 1189,
+      "userId": 15682,
+      "userAlias": "SimenHH",
+      "userName": "Simen Hyll Hansen",
+      "city": "Oslo"
+    },
+    {
+      "count": 1188,
+      "userId": 16788,
+      "userAlias": "Randid",
+      "userName": "Randi Holmsen Dalen",
+      "city": "Ølensvåg"
+    },
+    {
+      "count": 1188,
+      "userId": 16731,
+      "userAlias": "trudestarholm",
+      "userName": "Trude Starholm",
+      "city": "Leirsund"
+    },
+    {
+      "count": 1183,
+      "userId": 17565,
+      "userAlias": "Torbjorn",
+      "userName": "Torbjørn Kloster",
+      "city": "Holum"
+    },
+    {
+      "count": 1169,
+      "userId": 19210,
+      "userAlias": "anette13",
+      "userName": "Anette E. Jakobsen",
+      "city": "Haugesund"
+    },
+    {
+      "count": 1161,
+      "userId": 15491,
+      "userAlias": "HeikoLiebel",
+      "userName": "Heiko Liebel",
+      "city": "Asker"
+    },
+    {
+      "count": 1160,
+      "userId": 16596,
+      "userAlias": "tost",
+      "userName": "Torill Stubberud",
+      "city": "Askim"
+    },
+    {
+      "count": 1159,
+      "userId": 15639,
+      "userAlias": "mervillmark",
+      "userName": "Bård E. Andersen",
+      "city": "Aremark"
+    },
+    {
+      "count": 1155,
+      "userId": 15566,
+      "userAlias": "torsnes",
+      "userName": "Svein Åstrøm",
+      "city": "Fredrikstad"
+    },
+    {
+      "count": 1151,
+      "userId": 15711,
+      "userAlias": "janik",
+      "userName": "Jan Erik Røer",
+      "city": "Nesoddtangen"
+    },
+    {
+      "count": 1143,
+      "userId": 16696,
+      "userAlias": "StVa",
+      "userName": "Steinar Vatne",
+      "city": "Rennebu"
+    },
+    {
+      "count": 1127,
+      "userId": 15756,
+      "userAlias": "Terje1",
+      "userName": "Terje Sødal",
+      "city": "Kristiansand"
+    },
+    {
+      "count": 1122,
+      "userId": 24050,
+      "userAlias": "Elviraz1993",
+      "userName": "Siv Elvira Johansen",
+      "city": "Fjerdingby"
+    },
+    {
+      "count": 1121,
+      "userId": 17002,
+      "userAlias": "rolfe",
+      "userName": "Rolf Ergon",
+      "city": "Porsgrunn"
+    },
+    {
+      "count": 1116,
+      "userId": 17192,
+      "userAlias": "blomstervenn",
+      "userName": "Åse Johanne Halvorsen",
+      "city": "Skien"
+    },
+    {
+      "count": 1115,
+      "userId": 15653,
+      "userAlias": "andreas",
+      "userName": "Andreas Winnem",
+      "city": "Trondheim"
+    },
+    {
+      "count": 1112,
+      "userId": 23194,
+      "userAlias": "blaastrupen",
+      "userName": "Stein Erik Busengdal",
+      "city": "Stordal"
+    },
+    {
+      "count": 1109,
+      "userId": 15955,
+      "userAlias": "OlaMoen",
+      "userName": "Ola Moen",
+      "city": "Alversund"
+    },
+    {
+      "count": 1108,
+      "userId": 15595,
+      "userAlias": "trondso",
+      "userName": "Trond Sørhuus",
+      "city": "Verdal"
+    },
+    {
+      "count": 1108,
+      "userId": 17767,
+      "userAlias": "To-Om",
+      "userName": "Torhild Omestad",
+      "city": "Kristiansand"
+    },
+    {
+      "count": 1100,
+      "userId": 19541,
+      "userAlias": "psned",
+      "userName": "Per Sigve Nedreberg",
+      "city": "Drøbak"
+    },
+    {
+      "count": 1095,
+      "userId": 25305,
+      "userAlias": "Nilsestokke",
+      "userName": "Nils Edvard Stokke",
+      "city": "Reinsvoll"
+    },
+    {
+      "count": 1091,
+      "userId": 15835,
+      "userAlias": "TWA400",
+      "userName": "Truls WeXhal Andersen",
+      "city": "Oslo"
+    },
+    {
+      "count": 1090,
+      "userId": 23547,
+      "userAlias": "Hjortefot",
+      "userName": "Øivind Kortner",
+      "city": "Skien"
+    },
+    {
+      "count": 1087,
+      "userId": 23135,
+      "userAlias": "HåvardLauk",
+      "userName": "Håvard Laukeland",
+      "city": "Bygstad"
+    },
+    {
+      "count": 1084,
+      "userId": 16143,
+      "userAlias": "7ert",
+      "userName": "Syvert  Åsland",
+      "city": "Kristiansand"
+    },
+    {
+      "count": 1083,
+      "userId": 15772,
+      "userAlias": "OyLars",
+      "userName": "Øyvind Nyvold Larsen",
+      "city": "Sauda"
+    },
+    {
+      "count": 1082,
+      "userId": 18832,
+      "userAlias": "Alf_Harry",
+      "userName": "Alf Harry Øygarden",
+      "city": "Førresfjorden"
+    },
+    {
+      "count": 1079,
+      "userId": 21214,
+      "userAlias": "AlexanderNilsson",
+      "userName": "Alexander Nilsson",
+      "city": "Tolvsrød"
+    },
+    {
+      "count": 1076,
+      "userId": 17242,
+      "userAlias": "Gajic",
+      "userName": "Tijana Gajic",
+      "city": "Trondheim"
+    },
+    {
+      "count": 1076,
+      "userId": 16561,
+      "userAlias": "AICO",
+      "userName": "Svein Svendsen",
+      "city": "Birkeland"
+    },
+    {
+      "count": 1072,
+      "userId": 15481,
+      "userAlias": "JMAM",
+      "userName": "John Martin Mjelde",
+      "city": "Ytre Enebakk "
+    },
+    {
+      "count": 1069,
+      "userId": 16079,
+      "userAlias": "Frank",
+      "userName": "Frank Robert Lyngvær",
+      "city": "Melandsjø"
+    },
+    {
+      "count": 1068,
+      "userId": 16520,
+      "userAlias": "kagge",
+      "userName": "Erik Kagge",
+      "city": "Oslo"
+    },
+    {
+      "count": 1066,
+      "userId": 17045,
+      "userAlias": "Marthe",
+      "userName": "Marthe Seem",
+      "city": "Tyristrand"
+    },
+    {
+      "count": 1059,
+      "userId": 15436,
+      "userAlias": "Annema",
+      "userName": "Anne Ma Brox",
+      "city": "Nøtterøy"
+    },
+    {
+      "count": 1054,
+      "userId": 15741,
+      "userAlias": "pomarine",
+      "userName": "Morten Venås",
+      "city": "Meråker"
+    },
+    {
+      "count": 1045,
+      "userId": 19078,
+      "userAlias": "Asen",
+      "userName": "Asbjørn Knutsen",
+      "city": "Mosterhamn"
+    },
+    {
+      "count": 1042,
+      "userId": 19026,
+      "userAlias": "Sylvelin",
+      "userName": "Sylvelin Tellnes",
+      "city": "Bergen"
+    },
+    {
+      "count": 1041,
+      "userId": 15952,
+      "userAlias": "siroho",
+      "userName": "Sissel Rohølhaugen",
+      "city": "SELJORD"
+    },
+    {
+      "count": 1040,
+      "userId": 17949,
+      "userAlias": "OddStabbetorp",
+      "userName": "Odd Egil Stabbetorp",
+      "city": "Oslo"
+    },
+    {
+      "count": 1036,
+      "userId": 16581,
+      "userAlias": "Leilu",
+      "userName": "Leif Bjørn Lunde",
+      "city": "Nærbø"
+    },
+    {
+      "count": 1034,
+      "userId": 21210,
+      "userAlias": "veop",
+      "userName": "Vemund Opedal",
+      "city": "Stavanger"
+    },
+    {
+      "count": 1033,
+      "userId": 21304,
+      "userAlias": "konrad",
+      "userName": "Ole Konrad Kostøl",
+      "city": "Moss"
+    },
+    {
+      "count": 1033,
+      "userId": 16367,
+      "userAlias": "jeb66",
+      "userName": "Jan Erik Berglihn",
+      "city": "Oslo"
+    },
+    {
+      "count": 1030,
+      "userId": 19094,
+      "userAlias": "Bryum",
+      "userName": "John Inge Johnsen",
+      "city": "Rennesøy"
+    },
+    {
+      "count": 1027,
+      "userId": 15958,
+      "userAlias": "ArneReitan",
+      "userName": "Arne Reitan",
+      "city": "Stadsbygd"
+    },
+    {
+      "count": 1021,
+      "userId": 25176,
+      "userAlias": "AndersHelle",
+      "userName": "Anders Gunnar Helle",
+      "city": "Borgenhaugen"
+    },
+    {
+      "count": 1021,
+      "userId": 18462,
+      "userAlias": "aslbr",
+      "userName": "Asle Bruserud",
+      "city": "Brumunddal"
+    },
+    {
+      "count": 1021,
+      "userId": 16126,
+      "userAlias": "Mariken",
+      "userName": "Mariken Kjøhl-Røsand",
+      "city": "Skien"
+    },
+    {
+      "count": 1020,
+      "userId": 15537,
+      "userAlias": "PålK",
+      "userName": "Pål Klevan",
+      "city": "Trondheim"
+    },
+    {
+      "count": 1017,
+      "userId": 16157,
+      "userAlias": "Espensommer",
+      "userName": "Espen Sommer Værland",
+      "city": "Grimstad"
+    },
+    {
+      "count": 1015,
+      "userId": 22498,
+      "userAlias": "lilleoern",
+      "userName": "Steffen Adler",
+      "city": "Tingvoll"
+    },
+    {
+      "count": 1007,
+      "userId": 22366,
+      "userAlias": "Toya2008",
+      "userName": "Arne Vatten",
+      "city": "Stord"
+    },
+    {
+      "count": 1007,
+      "userId": 15948,
+      "userAlias": "Bubobubo",
+      "userName": "Trine Brevig",
+      "city": "Oslo"
+    },
+    {
+      "count": 1005,
+      "userId": 16397,
+      "userAlias": "Tomas",
+      "userName": "Tomas Husdal",
+      "city": "Bodø"
+    },
+    {
+      "count": 1002,
+      "userId": 18611,
+      "userAlias": "Snorre",
+      "userName": "Snorre Sundsbø",
+      "city": "Oslo"
+    },
+    {
+      "count": 1001,
+      "userId": 17930,
+      "userAlias": "hakonholi",
+      "userName": "Håkon Holien",
+      "city": "Steinkjer"
+    },
+    {
+      "count": 1000,
+      "userId": 18749,
+      "userAlias": "jeffblincow",
+      "userName": "Jeff Blincow",
+      "city": "Indre Billefjord"
+    },
+    {
+      "count": 995,
+      "userId": 15499,
+      "userAlias": "mecinus",
+      "userName": "Jan Schreiber",
+      "city": "Horten"
+    },
+    {
+      "count": 992,
+      "userId": 17896,
+      "userAlias": "Torp",
+      "userName": "Henrik Andreas Torp",
+      "city": "Eiksmarka"
+    },
+    {
+      "count": 991,
+      "userId": 25223,
+      "userAlias": "Martheg",
+      "userName": "Marthe Gjestland",
+      "city": "Trondheim"
+    },
+    {
+      "count": 989,
+      "userId": 18868,
+      "userAlias": "Marthaka",
+      "userName": "Martha Karijord",
+      "city": "Hakadal"
+    },
+    {
+      "count": 987,
+      "userId": 15926,
+      "userAlias": "Oddvark",
+      "userName": "Oddvar Åsland",
+      "city": "Krstiansand"
+    },
+    {
+      "count": 983,
+      "userId": 15807,
+      "userAlias": "JonR",
+      "userName": "Jon Grunde  Roland",
+      "city": "Lillehammer "
+    },
+    {
+      "count": 980,
+      "userId": 15570,
+      "userAlias": "sgoodgame",
+      "userName": "Sissel Goodgame",
+      "city": "Lakselv"
+    },
+    {
+      "count": 977,
+      "userId": 15735,
+      "userAlias": "broms",
+      "userName": "Fredrik Broms",
+      "city": "Kvaløya"
+    },
+    {
+      "count": 973,
+      "userId": 19742,
+      "userAlias": "Leila",
+      "userName": "Leila S. Berg",
+      "city": "Porsgrunn"
+    },
+    {
+      "count": 971,
+      "userId": 15721,
+      "userAlias": "jony",
+      "userName": "Jan Olav Nybo",
+      "city": "Oslo"
+    },
+    {
+      "count": 970,
+      "userId": 15708,
+      "userAlias": "971borrevannet",
+      "userName": "Bjørnar Olsen",
+      "city": "Horten"
+    },
+    {
+      "count": 966,
+      "userId": 17584,
+      "userAlias": "ElinVT",
+      "userName": "Elin Viker Thorkildsen",
+      "city": "Haslum"
+    },
+    {
+      "count": 964,
+      "userId": 16276,
+      "userAlias": "jomo",
+      "userName": "Jostein Moldsvor",
+      "city": "Norheimsund"
+    },
+    {
+      "count": 961,
+      "userId": 17371,
+      "userAlias": "leiga",
+      "userName": "Leif  Galten",
+      "city": "Trondheim"
+    },
+    {
+      "count": 960,
+      "userId": 18685,
+      "userAlias": "Oyrud",
+      "userName": "Øystein Ruden",
+      "city": "Ås"
+    },
+    {
+      "count": 960,
+      "userId": 15840,
+      "userAlias": "Tom1",
+      "userName": "Tom Roger Østerås",
+      "city": "Stjørdal"
+    },
+    {
+      "count": 959,
+      "userId": 15833,
+      "userAlias": "MariaHertzberg",
+      "userName": "Maria Knagenhjelm Hertzberg",
+      "city": "Oslo"
+    },
+    {
+      "count": 957,
+      "userId": 18645,
+      "userAlias": "Thyra",
+      "userName": "Thyra Solem",
+      "city": "Trondheim"
+    },
+    {
+      "count": 956,
+      "userId": 21024,
+      "userAlias": "odasdahle",
+      "userName": "Oda Dahle",
+      "city": "Oslo"
+    },
+    {
+      "count": 952,
+      "userId": 18238,
+      "userAlias": "Jytte",
+      "userName": "Jytte Birk Kaas",
+      "city": "Kristiansand"
+    },
+    {
+      "count": 946,
+      "userId": 15600,
+      "userAlias": "JanWesenberg",
+      "userName": "Jan Wesenberg",
+      "city": "Oslo"
+    },
+    {
+      "count": 943,
+      "userId": 15779,
+      "userAlias": "JTJohnsen",
+      "userName": "Jon Trygve Johnsen",
+      "city": "Vikersund"
+    },
+    {
+      "count": 940,
+      "userId": 22844,
+      "userAlias": "Askedalen",
+      "userName": "Bernhard Kløw Askedalen",
+      "city": "Stokke"
+    },
+    {
+      "count": 939,
+      "userId": 15440,
+      "userAlias": "arjencl",
+      "userName": "Arjen Leendertse",
+      "city": "Røyneberg"
+    },
+    {
+      "count": 936,
+      "userId": 22734,
+      "userAlias": "Hanneedv",
+      "userName": "Hanne Edvardsen",
+      "city": "Jakobsli"
+    },
+    {
+      "count": 933,
+      "userId": 21498,
+      "userAlias": "ZM-Wold",
+      "userName": "Øystein Settem Wold",
+      "city": "Lyngstad"
+    },
+    {
+      "count": 932,
+      "userId": 18538,
+      "userAlias": "Ulla-Britt",
+      "userName": "Ulla-Britt Bøe",
+      "city": "Steinkjer"
+    },
+    {
+      "count": 930,
+      "userId": 25590,
+      "userAlias": "ashildhas",
+      "userName": "Åshild Hasvik",
+      "city": "Oslo"
+    }
+  ]
+}

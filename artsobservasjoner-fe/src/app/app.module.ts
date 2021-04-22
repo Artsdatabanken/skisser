@@ -110,8 +110,10 @@ import { SpeciesGroupComponent } from './shared-and-reusable/smart-components/sp
 import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-components/total-count-statistics/total-count-statistics.component';
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
+import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
 import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
+
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -217,6 +219,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ImportSightingsComponent,
     MySightingsComponent,
     SightingsDataComponent,
+    BirdAreaLeagueComponent,
     AssessmentCategoriesComponent
   ],
   imports: [
@@ -237,7 +240,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
   ],
   providers: [
     { provide: DatePipe },
-    // { provide: LOCALE_ID, useValue: 'no' },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpResponseInterceptor,
@@ -250,6 +252,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
 export class AppModule { }
 
 // AoT (ahead of time) requires an exported function for factories
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient);
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }

@@ -4,7 +4,7 @@
 
     <div class="page__intro" *ngIf="!location">
 
-        <p>Ingress og annen nødvendig tekst</p>
+        <p></p>
 
     </div>
 
@@ -19,7 +19,7 @@
                     [type]="'icon'" 
                     [icon]="item.tags" 
                     [url]="'/press/announcements/' + item.url"
-                    [tag]="'news.currently' | translate" 
+                    [tag]="'press.currently' | translate" 
                     [date]="item.published" 
                     [title]="item.heading | stripHtml"
                     [text]="item.body | truncateText: 120 | stripHtml"> 

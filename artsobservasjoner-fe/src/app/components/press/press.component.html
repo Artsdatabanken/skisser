@@ -24,7 +24,7 @@
               [type]="'icon'" 
               [icon]="item.tags" 
               [url]="'/press/announcements/' + item.url"
-              [tag]="'news.currently' | translate" 
+              [tag]="'press.currently' | translate" 
               [date]="item.published" 
               [title]="item.heading | stripHtml"> 
           </app-teaser>
@@ -35,7 +35,7 @@
         <br>
         <br>
         
-        <a routerLink="/press/announcements" class="button button--cta button--centered">{{ 'headings.announcements' | translate }}</a>
+        <a routerLink="/press/announcements" class="button button--cta button--centered">{{ 'press.announcements' | translate }}</a>
        
       </ng-container>
 
@@ -53,7 +53,7 @@
             [type]="'img'" 
             [source]="item.imgUrl" 
             [url]="'/press/news/' + item.url" 
-            [tag]="'news.currently' | translate"
+            [tag]="'press.currently' | translate"
             [date]="item.created" 
             [title]="item.heading | stripHtml" 
             [text]="item.body | truncateText: 150 | stripHtml"> 
@@ -63,7 +63,7 @@
 
         <br><br>
 
-        <a routerLink="/press/news" class="button button--cta button--centered">{{ 'headings.news' | translate }}</a>
+        <a routerLink="/press/news" class="button button--cta button--centered">{{ 'press.news' | translate }}</a>
 
       </div>
 

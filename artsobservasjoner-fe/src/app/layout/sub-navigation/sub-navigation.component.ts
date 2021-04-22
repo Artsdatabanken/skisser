@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Settings from 'src/app/config/settings.json';
 import { AboutPage } from 'src/app/models/aboutPage';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-subnavigation',
@@ -18,9 +17,7 @@ export class SubNavigationComponent implements OnInit {
   ids: string[] = Settings.drupalIds;
   aboutPages: AboutPage[] = [];
 
-  constructor(
-    private dataService: DataService   
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.getAboutPages();

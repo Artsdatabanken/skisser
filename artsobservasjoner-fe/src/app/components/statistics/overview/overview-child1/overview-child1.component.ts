@@ -1,13 +1,12 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { forkJoin, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Chart } from 'chart.js';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { LayoutService } from 'src/app/services/layout.service';
-import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { SpeciesService } from 'src/app/services/species.service';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 
 @Component({
   selector: 'app-overview-child1',
@@ -33,7 +32,7 @@ export class OverviewChild1Component implements OnInit {
     private layoutService: LayoutService,
     private translationService: TranslationService,
     private utilitiesService: UtilitiesService,
-    private statisticsService: StatisticsService,
+    private overviewStatisticsService: OverviewStatisticsService,
     private speciesService: SpeciesService
   ) { }
 
@@ -50,7 +49,7 @@ export class OverviewChild1Component implements OnInit {
   getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getSightingsCountPerSpeciesGroup(),
+      this.overviewStatisticsService.getSightingsCountPerSpeciesGroup(),
       this.speciesService.speciesGroups
     ]).pipe(
       map(([speciesData, speciesGroups]) => {

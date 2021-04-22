@@ -76,9 +76,9 @@ export class AppComponent {
 
           this.pageId = routeData.id;
 
-          this.translate.stream(['menu.' + routeData.title]).subscribe(res => {
+          this.translate.stream([routeData.title]).subscribe(res => {
 
-            this.pageTitle = res[`menu.${routeData.title}`];
+            this.pageTitle = res[routeData.title];
 
             if (this.pageId === 'frontpage') {
               this.titleService.setTitle(`Artsobservasjoner - Rapporteringssytem for arter`);

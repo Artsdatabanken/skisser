@@ -301,24 +301,27 @@
 
 .badge {
     @include customVar(font-family, fontSecondary);
-    background: #d5f5e3;
-    border-radius: 50px;
     display: block;
+    font-size: 22px;
     font-weight: 700;
-    height: 50px;
-    line-height: 50px;
     margin: 0;
     text-align: center;
     width: 50px;
 
-    &--xl {
-        border-radius: 50%;
-        font-size: 60px;
-        height: 140px;
-        line-height: 130px;
-        margin: 10px auto;
-        padding: 5px;
-        width: 140px;
+    &--top {
+        @include customVar(color, clrWhite);
+        background-color: transparent;
+        background-image: url(../images/iconBadge.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: none;
+        border-radius: 0;
+        font-size: 18px;
+        height: 63px;
+        line-height: 47px;
+        text-align: center;
+        width: 50px;
     }
 }
 
@@ -582,4 +585,28 @@
     //         border: 2px dotted red;
     //     }
     // }
+}
+
+// pagination
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__item {
+        @include customVar(border-color, clrBlack);
+        @include customVar(font-family, fontSecondary);
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 700;
+        height: 50px;
+        line-height: 48px;
+        margin: 0 10px;
+        //padding: 10px;
+        text-align: center;
+        width: 50px;
+    }
 }

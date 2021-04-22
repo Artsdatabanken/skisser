@@ -1,15 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { forkJoin, Observable, Subscription } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
 import { LayoutService } from 'src/app/services/layout.service';
 import { Chart } from 'chart.js';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { map } from 'rxjs/operators';
 import { Category, Months } from 'src/app/models/shared';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { StatisticsItem } from 'src/app/models/statistics';
 import { SpeciesService } from 'src/app/services/species.service';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 
 @Component({
   selector: 'app-overview-child8',
@@ -37,7 +37,7 @@ export class OverviewChild8Component implements OnInit {
     private utilitiesService: UtilitiesService,
     private translationService: TranslationService,
     private speciesService: SpeciesService,
-    private statisticsService: StatisticsService
+    private overviewStatisticsService: OverviewStatisticsService,
   ) { }
 
   ngOnInit(): void {
@@ -54,11 +54,9 @@ export class OverviewChild8Component implements OnInit {
 
   getData(): void {
 
-    console.log('getData has been activated');
-
     this.data$ = forkJoin([
       this.speciesService.speciesGroups,
-      this.statisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup(),
+      this.overviewStatisticsService.getMonthlySightingsOrRegistrationsBySpeciesGroup(),
     ]).pipe(
       map(([speciesGroups, monthlySightings]) => {
 

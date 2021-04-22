@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { Footnote } from 'src/app/models/footnote';
 import { Category } from 'src/app/models/shared';
 import { LayoutService } from 'src/app/services/layout.service';
-import { StatisticsService } from 'src/app/services/statistics.service';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 
@@ -25,7 +25,7 @@ export class OverviewChild6Component implements OnInit {
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
-    private statisticsService: StatisticsService,
+    private overviewStatisticsService: OverviewStatisticsService,
     private utilitiesService: UtilitiesService
   ) { }
 
@@ -43,9 +43,9 @@ export class OverviewChild6Component implements OnInit {
   getData(): void {
 
     this.data$ = forkJoin([
-      this.statisticsService.getSightingsPerDataSource(),
-      this.statisticsService.getDataSourceList(),
-      this.statisticsService.getApiDataSourceList(),
+      this.overviewStatisticsService.getSightingsPerDataSource(),
+      this.overviewStatisticsService.getDataSourceList(),
+      this.overviewStatisticsService.getApiDataSourceList(),
     ]).pipe(
       map(([sightingsPerDataSource, dataSourceList, apiSourceList]) => {
 

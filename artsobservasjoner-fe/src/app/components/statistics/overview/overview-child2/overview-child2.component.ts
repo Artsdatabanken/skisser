@@ -1,14 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
-import { forkJoin, Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
 import { GRAPHCOLORS } from 'src/app/config/graphs';
-import { ImageStatisticsItem } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { TranslationService } from 'src/app/services/translation.service';
-import { Category } from 'src/app/models/shared';
+import { OverviewStatisticsService } from 'src/app/services/overview-statistics.service';
 
 @Component({
   selector: 'app-overview-child2',
@@ -36,7 +33,7 @@ export class OverviewChild2Component implements OnInit {
 
   constructor(
     private layoutService: LayoutService,
-    private statisticsService: StatisticsService,
+    private overviewStatisticsService: OverviewStatisticsService,
     private utilitiesService: UtilitiesService,
     private translationService: TranslationService
   ) { }
@@ -51,7 +48,7 @@ export class OverviewChild2Component implements OnInit {
 
   getData(): void {
 
-    this.data$ = this.statisticsService.getImageCountPerSpeciesGroup();
+    this.data$ = this.overviewStatisticsService.getImageCountPerSpeciesGroup();
 
     // this.data$ = forkJoin([
     //   this.statisticsService.getImageCountPerSpeciesGroup(),

@@ -18,10 +18,10 @@
         "menu_statistics_knowledgeGaps": "Kunnskapshull",
         "menu_statistics_userStatistics": "Brukerstatistikk",
         "menu_statistics_userStatistics_topObservers": "Toppobservatører",
-        "menu_statistics_userStatistics_areaLeague": "Fylkesliga",
+        "menu_statistics_userStatistics_birdAreaLeague": "Fuglelokalitetsliga",
         "menu_myData": "Min data",
-        "menu_myData_myObservations": "Mine observasjoner",
-        "menu_myData_myStatistics": "Min statistik",
+        "menu_myData_mySightings": "Mine observasjoner",
+        "menu_myData_myStatistics": "Min statistikk",
         "menu_myData_myProjects": "Mine prosjekter",
         "menu_myData_myLocations": "Mine lokaliteter",
         "menu_myData__myCoObservers": "Mine medobservatører",
@@ -44,10 +44,7 @@
         "time_at": "kl.",
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."
     },
-    "headings": {
-        "announcements": "Flere kunngjøringer",
-        "news": "Gå til nyhetsoversikt"
-    },
+    "headings": {},
     "account": {
         "account_register": "Registrer deg",
         "account_login": "Logg inn",
@@ -56,7 +53,7 @@
     },
     "frontpage": {
         "title": "Translation demo",
-        "frontpage_introText1": "Bli med og hjelp oss å kartlegge norsk natur!",
+        "frontpage_introText1": "Bli med å kartlegge norsk natur!",
         "frontpage_introText2": "Lær mer om hvordan du kan bidra",
         "frontpage_introText3": "Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?",
         "frontpage_text_4": "Flere nyheter og aktuelle saker",
@@ -65,11 +62,22 @@
         "frontpage_headings_statistics": "Statistikk",
         "frontpage_headings_news": "Siste nytt"
     },
-    "news": {
-        "currently": "Aktuelt",
-        "announcements": "Kunngjøringer"
+    "about": {
+        "intro": "På denne siden finner du informasjon om ulike deler <br>av tjenesten Artsobservasjoner og hvordan du kan kontakte oss."
+    },
+    "press": {
+        "intro": "",
+        "intro_announcements": "",
+        "intro_news": "Denne siden samler nyhetssaker som omhandler Artsobservasjoner.no. <br>Du kan også finne nyhetssaker fra andre aktiviteter i Artsdatabanken, som kan være relevante for vår tjeneste.",
+        "announcements": "Flere kunngjøringer",
+        "news": "Gå til nyhetsoversikt",
+        "currently": "Aktuelt"
     },
     "statistics": {
+        "intro": "",
+        "intro_validatedData": "En andel av observasjonene som blir rapportert, blir kvalitetssjekket av utpekte artskjennere som kalles validatorer. Både artsbestemmelsen, tidspunkt og plassering og bakgrunnsdokumentasjonen på observasjonen, blir sjekket. Det er spesielt rødlistede arter, fremmede arter og andre forvaltningsrelevante arter som prioriteres for kvalitetssjekk. Du finner mer informasjon om <a href=\"/about/305425\">kvalitetssikringen av data</a> under 'Om tjenesten'.",
+        "outro_alienSpecies": "Interessert i å vite mer om Artsdatabankens vurderinger av fremmede arter? Se våre sider om <a href=\"https://www.artsdatabanken.no/fremmedearter\">fremmede arter</a> og <a href=\"https://www.artsdatabanken.no/fremmedartslista2018\">Fremmedartslista 2018</a>.",
+        "outro_redlistedSpecies": "Interessert i å vite mer om Artsdatabankens arbeid med Norsk Rødliste for arter? Se våre sider om <a href=\"https://www.artsdatabanken.no/Rodliste\">Rødlista</a> og <a href=\"https://www.artsdatabanken.no/Rodliste/Sok\">søk blant artene</a>.",
         "overviewNumbers_sightings": "Observasjoner",
         "overviewNumbers_species": "Registrerte arter",
         "overviewNumbers_images": "Bilder lagt inn",
