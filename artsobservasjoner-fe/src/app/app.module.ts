@@ -117,6 +117,7 @@ import { StripeComponent } from './shared-and-reusable/dummy-components/stripe/s
 import { UserStatsStripeComponent } from './shared-and-reusable/smart-components/user-stats-stripe/user-stats-stripe.component';
 import { PaginationDirective } from './directives/pagination.directive';
 import { PaginationComponent } from './shared-and-reusable/dummy-components/pagination/pagination.component';
+import { TestComponent } from './misc/test/test.component';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -228,7 +229,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     StripeComponent,
     UserStatsStripeComponent,
     PaginationDirective,
-    PaginationComponent
+    PaginationComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

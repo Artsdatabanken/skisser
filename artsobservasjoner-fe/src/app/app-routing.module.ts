@@ -50,6 +50,7 @@ import { MySightingsComponent } from './components/my-data/my-sightings/my-sight
 import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
 import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
 import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
+import { TestComponent } from './misc/test/test.component';
 
 /*
 
@@ -993,6 +994,21 @@ const testRoutes: Routes = [  // for testing purposes
       parent: '',
       menu: '',
       metatitle: 'menu_Artsobservasjoner',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'test',
+    component: TestComponent,
+    data: {
+      text: 'Test',
+      id: '',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metatitle: 'Test',
       metaDescription: '',
       hidden: false
     }

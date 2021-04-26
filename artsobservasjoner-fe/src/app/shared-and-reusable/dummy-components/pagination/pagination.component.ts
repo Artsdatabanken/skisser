@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
+
 export class PaginationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  }
+  
+  onPageChange(pageNo: number, pageSize: number) {
+    console.log("Current page: ", pageNo, pageSize);
   }
 
 }
