@@ -1,0 +1,114 @@
+{
+    "scientificNameId": 4332,
+    "taxonId": 4244,
+    "scientificNames": [
+        {
+            "id": 4332,
+            "taxonId": 4244,
+            "scientificName": "alba",
+            "scientificNameAuthorship": "Linnaeus, 1758",
+            "taxonRank": "Species",
+            "taxonomicStatus": "accepted"
+        }
+    ],
+    "vernacularNames": [
+        {
+            "id": 217187,
+            "taxonId": 4244,
+            "vernacularName": "linerle",
+            "nomenclaturalStatus": "preffered",
+            "languageCultureCode": "nb-NO",
+            "languageIsoCode": "nb"
+        },
+        {
+            "id": 253360,
+            "taxonId": 4244,
+            "vernacularName": "linerle",
+            "nomenclaturalStatus": "preffered",
+            "languageCultureCode": "nn-NO",
+            "languageIsoCode": "nn"
+        },
+        {
+            "id": 272522,
+            "taxonId": 4244,
+            "vernacularName": "liidnelláš",
+            "nomenclaturalStatus": "synonym",
+            "languageCultureCode": "se-NO",
+            "languageIsoCode": "se"
+        },
+        {
+            "id": 272523,
+            "taxonId": 4244,
+            "vernacularName": "beštor",
+            "nomenclaturalStatus": "preffered",
+            "languageCultureCode": "se-NO",
+            "languageIsoCode": "se"
+        }
+    ],
+    "higherClassification": [
+        {
+            "scientificNameId": 1,
+            "taxonId": 1,
+            "scientificName": "Animalia",
+            "scientificNameAuthorship": "",
+            "rankId": 1,
+            "taxonRank": "Kingdom"
+        },
+        {
+            "scientificNameId": 196,
+            "taxonId": 196,
+            "scientificName": "Chordata",
+            "scientificNameAuthorship": "",
+            "rankId": 3,
+            "taxonRank": "Phylum"
+        },
+        {
+            "scientificNameId": 127715,
+            "taxonId": 84544,
+            "scientificName": "Vertebrata",
+            "scientificNameAuthorship": "",
+            "rankId": 4,
+            "taxonRank": "Subphylum"
+        },
+        {
+            "scientificNameId": 252,
+            "taxonId": 252,
+            "scientificName": "Aves",
+            "scientificNameAuthorship": "",
+            "rankId": 6,
+            "taxonRank": "Class"
+        },
+        {
+            "scientificNameId": 266,
+            "taxonId": 266,
+            "scientificName": "Passeriformes",
+            "scientificNameAuthorship": "",
+            "rankId": 11,
+            "taxonRank": "Order"
+        },
+        {
+            "scientificNameId": 4310,
+            "taxonId": 4222,
+            "scientificName": "Motacillidae",
+            "scientificNameAuthorship": "",
+            "rankId": 15,
+            "taxonRank": "Family"
+        },
+        {
+            "scientificNameId": 4331,
+            "taxonId": 4243,
+            "scientificName": "Motacilla",
+            "scientificNameAuthorship": "Linnaeus, 1758",
+            "rankId": 19,
+            "taxonRank": "Genus"
+        },
+        {
+            "scientificNameId": 4332,
+            "taxonId": 4244,
+            "scientificName": "alba",
+            "scientificNameAuthorship": "Linnaeus, 1758",
+            "rankId": 22,
+            "taxonRank": "Species"
+        }
+    ]
+}
