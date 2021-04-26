@@ -20,7 +20,7 @@ export class UserStatisticsService {
     let topObserver: TopObserver;
     let topObservers: TopObserver[] = [];
 
-    this.topObservers.result.forEach(element => {
+    this.topObservers.result.forEach((element, index) => {
 
       topObserver = {
         id: element.userId,
@@ -43,12 +43,13 @@ export class UserStatisticsService {
     let topObserver: TopObserver;
     let topObservers: TopObserver[] = [];
 
-    this.topObservers.result.forEach(element => {
+    this.topObservers.result.forEach((element, index) => {
 
       topObserver = {
         id: element.userId,
         name: element.userName,
         alias: element.userAlias,
+        position: index,
         city: element.city,
         sightingsCount: element.count
       };
@@ -57,7 +58,7 @@ export class UserStatisticsService {
 
     });
 
-    return of(topObservers.slice(pageNumber, pageSize)).pipe();
+    return of(topObservers.slice(0, pageSize)).pipe();
 
   }
 

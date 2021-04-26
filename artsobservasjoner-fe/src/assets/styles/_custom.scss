@@ -665,8 +665,8 @@
     flex-direction: row;
     justify-content: center;
 
-    &>* {
-        border: 2px solid red
+    & > * {
+        border: 2px solid red;
     }
 
     button {
@@ -682,6 +682,15 @@
         padding: 0 0 5px;
         text-align: center;
         width: 50px;
+    }
+
+    input {
+        @extend button;
+        @include customVar(background-color, clrDanger);
+        font-size: 20px;
+        padding: 0 0 0 30px;
+        text-align: left;
+        width: auto;
     }
 
     &__item {

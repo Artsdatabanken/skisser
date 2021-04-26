@@ -75,7 +75,8 @@
             </app-total-count-statistics>
 
             <app-total-count-statistics [statistics]="totalCountStatistics.totalImages" [style]="'list'"
-                [text]="'statistics.overviewNumbers_images' | translate" [icon]="true"></app-total-count-statistics>
+                [text]="'statistics.overviewNumbers_images' | translate" [icon]="true">
+            </app-total-count-statistics>
 
         </div>
 
@@ -105,7 +106,7 @@
             <app-intersection [url]="'/sightings-data/statistics/validated-data'"
                 [text]="'menu.menu_statistics_validatedData' | translate">
             </app-intersection>
-            <app-intersection [url]="'/sightings-data/statistics/knowledge-gaps'"
+            <app-intersection [url]="'/sightings-data/statistics/user-statistics'"
                 [text]="'menu.menu_statistics_knowledgeGaps' | translate">
             </app-intersection>
 

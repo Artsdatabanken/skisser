@@ -69,6 +69,7 @@ export interface TopObserver {
     id: number;
     alias: string;
     name: string;
+    position?: number;
     city: string;
     sightingsCount: number;
 }

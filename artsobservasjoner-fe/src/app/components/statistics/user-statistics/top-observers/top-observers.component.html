@@ -105,6 +105,7 @@
                 Antall observasjoner
             </div>
         </div>
+        
         <div *ngFor="let topObserver of topObservers$ | async as topObservers; let i = index">
             <app-user-stats-stripe [position]="i + 1" [topObserver]="topObserver"></app-user-stats-stripe>
         </div>
@@ -121,7 +122,8 @@
                 &lsaquo;
             </button>
 
-            <input appPagination #pagination="appPagination" [totalPages]="10" (pageChange)="onPageChange($event, pagination.totalPages)" />
+            <input appPagination #pagination="appPagination" [totalPages]="10"
+                (pageChange)="onPageChange($event, pagination.totalPages)" />
 
             <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
 
@@ -175,7 +177,7 @@
 
         </table> -->
 
-      
+
         <br>
         <br>
         <br>
