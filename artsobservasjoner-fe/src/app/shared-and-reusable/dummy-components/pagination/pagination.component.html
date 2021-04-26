@@ -1,0 +1,33 @@
+<!--REUSABLE COMPONENT-->
+
+ <div class="pagination">
+
+    <button (click)="pagination.first()" [disabled]="pagination.isFirst">
+        &laquo;
+    </button>
+
+    <button (click)="pagination.prev()" [disabled]="pagination.isFirst">
+        &lsaquo;
+    </button>
+
+    <input appPagination #pagination="appPagination" [totalPages]="10"
+        (pageChange)="onPageChange($event, pagination.totalPages)" />
+
+    <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
+
+    <button (click)="pagination.next()" [disabled]="pagination.isLast">
+        &rsaquo;
+    </button>
+
+    <button (click)="pagination.last()" [disabled]="pagination.isLast">
+        &raquo;
+    </button>
+
+    <br>
+    <br>
+
+    <div class="pagination__item" style="border: none;">{{ pagination.pageNo }}</div>
+
+</div>
+
+<!--REUSABLE COMPONENT-->

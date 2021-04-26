@@ -1,1 +1,98 @@
-<p>bird-area-league works!</p>
+<div class="child">
+
+    <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
+
+    <div class="section">
+
+        <!--fuglelokalitetsligae-->
+
+        <div class="loop">
+
+            <div class="filter">
+
+                <label for="speciesGroup">Filtrer</label>
+
+                <select name="" id="years">
+                    <option value="All">Alle år</option>
+                    <option value="">2019</option>
+                    <option value="">2018</option>
+                    <option value="">2017</option>
+                </select>
+
+            </div>
+
+            <div class="filter">
+
+                <select name="" id="counties">
+                    <option value="All">Alle fylker</option>
+                    <option value="">Trøndelag</option>
+                    <option value="">Nordland</option>
+                    <option value="">Rogaland</option>
+                    <option value="">...</option>
+                </select>
+
+            </div>
+
+            <div class="filter">
+
+                <select name="" id="municipalities">
+                    <option value="All">Alle kommuner</option>
+                    <option value="">Trøndelag</option>
+                    <option value="">Nordland</option>
+                    <option value="">Rogaland</option>
+                    <option value="">...</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <br><br><br><br>
+
+        <div class="stripe stripe--dummy">
+            <div class="stripe__cell">
+                Posisjon
+            </div>
+            <div class="stripe__cell">
+                Observatør
+            </div>
+            <div class="stripe__cell">
+                Antall observasjoner
+            </div>
+        </div>
+
+        <br><br><br><br>
+
+        <div class="pagination">
+
+            <button (click)="pagination.first()" [disabled]="pagination.isFirst">
+                &laquo;
+            </button>
+
+            <button (click)="pagination.prev()" [disabled]="pagination.isFirst">
+                &lsaquo;
+            </button>
+
+            <input appPagination #pagination="appPagination" [totalPages]="10"
+                (pageChange)="onPageChange($event, pagination.totalPages)" />
+
+            <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
+
+            <button (click)="pagination.next()" [disabled]="pagination.isLast">
+                &rsaquo;
+            </button>
+
+            <button (click)="pagination.last()" [disabled]="pagination.isLast">
+                &raquo;
+            </button>
+
+            <br>
+            <br>
+
+            <div class="pagination__item" style="border: none;">{{ pagination.pageNo }}</div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -116,6 +116,7 @@ import { HttpResponseInterceptor } from './interceptors/http-response.intercepto
 import { StripeComponent } from './shared-and-reusable/dummy-components/stripe/stripe.component';
 import { UserStatsStripeComponent } from './shared-and-reusable/smart-components/user-stats-stripe/user-stats-stripe.component';
 import { PaginationDirective } from './directives/pagination.directive';
+import { PaginationComponent } from './shared-and-reusable/dummy-components/pagination/pagination.component';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -226,7 +227,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AssessmentCategoriesComponent,
     StripeComponent,
     UserStatsStripeComponent,
-    PaginationDirective
+    PaginationDirective,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
