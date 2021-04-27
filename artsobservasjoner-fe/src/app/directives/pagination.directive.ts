@@ -7,7 +7,7 @@ import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Rende
 
 export class PaginationDirective {
 
-  @Input() pageNo: number = 1;
+  @Input() pageNumber: number = 1;
   @Input() totalPages: number = 1;
   @Input() pageSize: number = 1;
   
@@ -17,17 +17,17 @@ export class PaginationDirective {
 
   ngOnInit() {
     // In case no value is passed
-    this.setValue(this.pageNo);
+    this.setValue(this.pageNumber);
   }
 
-  ngOnChanges({ pageNo, totalPages }: SimpleChanges) {
-    // Needs to be checked before pageNo
+  ngOnChanges({ pageNumber, totalPages }: SimpleChanges) {
+    // Needs to be checked before pageNumber
     if (totalPages) {
       this.onTotalPagesInput();
     }
 
-    if (pageNo) {
-      this.onPageNoInput();
+    if (pageNumber) {
+      this.onpageNumberInput();
     }
   }
 
@@ -44,16 +44,16 @@ export class PaginationDirective {
       this.setValue(this.totalPages);
     }
 
-    this.pageNo = Number(this.el.nativeElement.value);
-    this.pageChange.emit(this.pageNo);
+    this.pageNumber = Number(this.el.nativeElement.value);
+    this.pageChange.emit(this.pageNumber);
   }
 
   get isFirst(): boolean {
-    return this.pageNo === 1;
+    return this.pageNumber === 1;
   }
 
   get isLast(): boolean {
-    return this.pageNo === this.totalPages;
+    return this.pageNumber === this.totalPages;
   }
 
   first() {
@@ -61,11 +61,11 @@ export class PaginationDirective {
   }
 
   prev() {
-    this.setPage(Math.max(1, this.pageNo - 1));
+    this.setPage(Math.max(1, this.pageNumber - 1));
   }
 
   next() {
-    this.setPage(Math.min(this.totalPages, this.pageNo + 1));
+    this.setPage(Math.min(this.totalPages, this.pageNumber + 1));
   }
 
   last() {
@@ -77,9 +77,9 @@ export class PaginationDirective {
   }
 
   private setPage(val: number) {
-    this.pageNo = val;
-    this.setValue(this.pageNo);
-    this.pageChange.emit(this.pageNo);
+    this.pageNumber = val;
+    this.setValue(this.pageNumber);
+    this.pageChange.emit(this.pageNumber);
   }
 
   private getParsedValue(val: string): string {
@@ -96,16 +96,16 @@ export class PaginationDirective {
     }
   }
 
-  private onPageNoInput() {
+  private onpageNumberInput() {
     if (
-      typeof this.pageNo !== 'number' ||
-      this.pageNo < 1 ||
-      this.pageNo > this.totalPages
+      typeof this.pageNumber !== 'number' ||
+      this.pageNumber < 1 ||
+      this.pageNumber > this.totalPages
     ) {
-      this.pageNo = 1;
+      this.pageNumber = 1;
     }
 
-    this.setValue(this.pageNo);
+    this.setValue(this.pageNumber);
   }
 
 }

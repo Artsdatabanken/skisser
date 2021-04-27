@@ -1,5 +1,6 @@
 // VIEWMODELS FOR ALL STATISTICS ITEMS
 
+import { Observable } from "rxjs";
 import { Category } from "./shared";
 
 export interface StatisticsItem {
@@ -57,6 +58,15 @@ export interface TotalCountStatistic {
     text?: string;
 }
 
+// USER STATISTICS
+
+export interface UserStatistics {
+    pageNumber: number;
+    pageSize: number;
+    topObservers: TopObserver[] | Observable<TopObserver[]>;
+    totalCount: number;
+}
+
 export interface TopObserver {
     /*
      "count": 1227,
@@ -67,7 +77,6 @@ export interface TopObserver {
     */
 
     id: number;
-    alias: string;
     name: string;
     position?: number;
     city: string;

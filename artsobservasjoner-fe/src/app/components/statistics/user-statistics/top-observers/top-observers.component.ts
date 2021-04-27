@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TopObserver, TOTAL_COUNT_STATISTICS } from 'src/app/models/statistics';
+import { TopObserver, TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
@@ -16,8 +16,8 @@ export class TopObserversComponent implements OnInit {
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
-
-  topObservers$: Observable<TopObserver[]>;
+  userStatistics$: Observable<UserStatistics>;
+  totalPages: number;
 
   constructor(
     private layoutService: LayoutService,
@@ -29,32 +29,17 @@ export class TopObserversComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.topObservers$ = this.userStatisticsService.getTopObservers(30);
+    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, 20);
+    
+    this.userStatisticsService.getTopUsersStatistics().subscribe(response => {
+      this.totalPages = Math.trunc(response.totalCount / response.pageSize);
+    });
+ 
   }
 
-  onPageChange(pageNo: number, pageSize: number) {
-    console.log("Current page: ", pageNo, pageSize);
-    this.topObservers$ = this.userStatisticsService.getTopObservers2(pageNo, pageSize);
+  onPageChange(event: number) {
+    console.log('event on change', event)
+    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(event, 20);
   }
-
-  getRank(index: number): string {
-
-    const rank: number = index;
-
-    switch (rank) {
-      case 0:
-        return 'league league--first';
-      case 1:
-        return 'league league--second';
-      case 2:
-        return 'league league--third';
-      default:
-        return '';
-    }
-
-  }
-
-
-
 
 }

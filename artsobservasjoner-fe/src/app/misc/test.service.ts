@@ -19,8 +19,6 @@ export class TestService {
       map((response: any) => {
 
         let obj: object;
-
-        console.log('XXX', response)
         const grouped = this.groupBy(response.vernacularNames, vernacularName => vernacularName.languageIsoCode);
 
         obj = {
@@ -29,9 +27,8 @@ export class TestService {
           scientificNames: response.scientificNames,
           vernacularNames: grouped,
           higherClassification: response.higherClassification
-        }
+        };
 
-        console.log('ZZZ', obj)
         return obj;
 
       })
