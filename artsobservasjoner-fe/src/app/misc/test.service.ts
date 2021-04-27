@@ -14,6 +14,30 @@ export class TestService {
 
   constructor() { }
 
+  getData(): Observable<any> {
+    return of(this.taxonInfo).pipe(
+      map((response: any) => {
+
+        let obj: object;
+
+        console.log('XXX', response)
+        const grouped = this.groupBy(response.vernacularNames, vernacularName => vernacularName.languageIsoCode);
+
+        obj = {
+          scientificNameId: response.scientificNameId,
+          taxonId: response.taxonId,
+          scientificNames: response.scientificNames,
+          vernacularNames: grouped,
+          higherClassification: response.higherClassification
+        }
+
+        console.log('ZZZ', obj)
+        return obj;
+
+      })
+    );
+  }
+
   getTaxonInfo(): Observable<any> {
 
     return of(this.taxonInfo).pipe(
@@ -39,7 +63,7 @@ export class TestService {
       const key = keyGetter(item);
 
       const collection = map.get(key);
-      
+
       if (!collection) {
         map.set(key, [item]);
       }

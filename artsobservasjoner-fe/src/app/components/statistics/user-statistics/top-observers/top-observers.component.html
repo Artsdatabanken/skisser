@@ -105,7 +105,7 @@
                 Antall observasjoner
             </div>
         </div>
-        
+
         <div *ngFor="let topObserver of topObservers$ | async as topObservers; let i = index">
             <app-user-stats-stripe [position]="i + 1" [topObserver]="topObserver"></app-user-stats-stripe>
         </div>
@@ -114,12 +114,14 @@
 
         <div class="pagination">
 
-            <button (click)="pagination.first()" [disabled]="pagination.isFirst">
-                &laquo;
+            <button class="pagination__button pagination__button--first" (click)="pagination.first()"
+                [disabled]="pagination.isFirst">
+
             </button>
 
-            <button (click)="pagination.prev()" [disabled]="pagination.isFirst">
-                &lsaquo;
+            <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
+                [disabled]="pagination.isFirst">
+
             </button>
 
             <input appPagination #pagination="appPagination" [totalPages]="10"
@@ -127,12 +129,14 @@
 
             <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
 
-            <button (click)="pagination.next()" [disabled]="pagination.isLast">
-                &rsaquo;
+            <button class="pagination__button pagination__button--next" (click)="pagination.next()"
+                [disabled]="pagination.isLast">
+
             </button>
 
-            <button (click)="pagination.last()" [disabled]="pagination.isLast">
-                &raquo;
+            <button class="pagination__button pagination__button--last" (click)="pagination.last()"
+                [disabled]="pagination.isLast">
+
             </button>
 
             <br>

@@ -13,6 +13,7 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.testService.getData().subscribe();
     this.testService.getTaxonInfo().subscribe();
 
   }

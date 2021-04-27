@@ -29,7 +29,7 @@ export class TopObserversComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.topObservers$ = this.userStatisticsService.getTopObservers(15);
+    this.topObservers$ = this.userStatisticsService.getTopObservers(30);
   }
 
   onPageChange(pageNo: number, pageSize: number) {
