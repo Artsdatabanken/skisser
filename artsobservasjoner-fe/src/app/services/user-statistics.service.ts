@@ -11,13 +11,20 @@ import { TopObserver, UserStatistics } from '../models/statistics';
 export class UserStatisticsService {
 
   TOPOBSERVERS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/ObserverSpeciesCount?';
-  
+
   constructor(private httpClient: HttpClient) { }
 
-  getTopUsersStatistics(pageNumber: number = 1, pageSize: number = 10): Observable<UserStatistics> {
+  getTopUsersStatistics(pageNumber: number = 1, pageSize: number = 10, speciesGroupId?: number): Observable<UserStatistics> {
 
     let api: string;
-    api = this.TOPOBSERVERS_API + 'PageNumber=' + pageNumber + '&PageSize=' + pageSize;
+
+    if (speciesGroupId) {
+      api = this.TOPOBSERVERS_API + 'SpeciesGroupId=' + speciesGroupId + '&PageNumber=' + pageNumber + '&PageSize=' + pageSize;
+    }
+    else {
+      api = this.TOPOBSERVERS_API + 'PageNumber=' + pageNumber + '&PageSize=' + pageSize;
+    }
+
     console.log('api', api)
 
     return this.httpClient.get(api).pipe(

@@ -21,19 +21,19 @@
 
                 <label for="speciesGroup">Filtrer</label>
 
-                <select name="" id="speciesGroup">
-                    <option value="All">Alle artsgrupper</option>
-                    <option value="">Karplanter</option>
-                    <option value="">Moser</option>
-                    <option value="">Lav</option>
-                    <option value="">Sopp</option>
-                    <option value="">Alger</option>
-                    <option value="">Virvelløse dyr</option>
-                    <option value="">Fugler</option>
-                    <option value="">Amfibier og reptiler</option>
-                    <option value="">Pattedyr</option>
-                    <option value="">Flaggermus</option>
-                    <option value="">Fisk</option>
+                <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
+                    (ngModelChange)="onSpeciesGroupSelection($event)">
+
+                    <option [ngValue]="null">
+                        {{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}
+                    </option>
+
+                    <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
+                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                            {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                        </ng-container>
+                    </option>
+
                 </select>
 
             </div>
@@ -115,9 +115,6 @@
 
             </button>
 
-            <!-- <input appPagination #pagination="appPagination" [totalPages]="10"
-                (pageChange)="onPageChange($event, pagination.totalPages)" /> -->
-
             <input appPagination #pagination="appPagination" [totalPages]="totalPages"
                 (pageChange)="onPageChange($event)" />
 
@@ -140,7 +137,7 @@
 
         </div>
 
-     
+
         <br>
         <br>
         <br>

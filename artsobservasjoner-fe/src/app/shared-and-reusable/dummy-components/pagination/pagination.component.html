@@ -1,6 +1,6 @@
 <!--REUSABLE COMPONENT-->
 
- <div class="pagination">
+<div class="pagination">
 
     <button (click)="pagination.first()" [disabled]="pagination.isFirst">
         &laquo;
@@ -10,8 +10,9 @@
         &lsaquo;
     </button>
 
-    <input appPagination #pagination="appPagination" [totalPages]="10"
-        (pageChange)="onPageChange($event, pagination.totalPages)" />
+    <input appPagination #pagination="appPagination" [totalPages]="10" (pageChange)="onPageChange($event)" />
+
+    <!-- <ng-content></ng-content> -->
 
     <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
 

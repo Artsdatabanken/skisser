@@ -53,7 +53,7 @@
     },
     "frontpage": {
         "title": "Translation demo",
-        "frontpage_introText1": "Bli med å kartlegge norsk natur!",
+        "frontpage_introText1": "Bli med å kartlegge<br> norsk natur!",
         "frontpage_introText2": "Lær mer om hvordan du kan bidra",
         "frontpage_introText3": "Lyst til å hjelpe oss å kvalitetssikre artsobservasjoner?",
         "frontpage_text_4": "Flere nyheter og aktuelle saker",
