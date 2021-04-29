@@ -11,6 +11,7 @@ import { TopObserver, UserStatistics } from '../models/statistics';
 export class UserStatisticsService {
 
   TOPOBSERVERS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/ObserverSpeciesCount?';
+  totalPages$ = new BehaviorSubject(0);
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,7 +26,7 @@ export class UserStatisticsService {
       api = this.TOPOBSERVERS_API + 'PageNumber=' + pageNumber + '&PageSize=' + pageSize;
     }
 
-    console.log('api', api)
+    // console.log('api', api)
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -54,7 +55,9 @@ export class UserStatisticsService {
           totalCount: response.totalCount
         }
 
-        console.log('userStatisticsObject', userStatisticsObject)
+        this.totalPages$.next(Math.trunc(response.totalCount / pageSize));
+
+        //console.log('userStatisticsObject', userStatisticsObject)
         return userStatisticsObject;
 
       }),

@@ -25,7 +25,7 @@ export class TranslationService {
   norwegian = Norwegian;
   english = English;
 
-  public currentLanguage$ = new BehaviorSubject(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
+  public currentLanguage$: BehaviorSubject<string> = new BehaviorSubject(localStorage.getItem('LANGUAGE') || this.translate.currentLang);
 
   constructor(
     private translate: TranslateService,

@@ -20,18 +20,7 @@ export class MenuItem {
 
 export class NavigationService {
 
-  siteLanguage: any;
-  translatedMenuItem: string;
-
-  constructor(
-    private router: Router,
-    private translate: TranslateService
-  ) {
-
-    this.siteLanguage = this.translate.currentLang;
-    this.translate.onLangChange.subscribe(res => this.siteLanguage = res.lang);
-
-  }
+  constructor(private router: Router) { }
 
   // ------------------------------------------------------------------------------------------ //
 
