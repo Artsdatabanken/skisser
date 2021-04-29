@@ -55,7 +55,7 @@ export class UserStatisticsService {
           totalCount: response.totalCount
         }
 
-        this.totalPages$.next(Math.trunc(response.totalCount / pageSize));
+        this.totalPages$.next(Math.trunc(response.totalCount / pageSize) + 1); // + 1 for å ta hensyn til vi fjerner desimaler fra totalPages with Math.trunc
 
         //console.log('userStatisticsObject', userStatisticsObject)
         return userStatisticsObject;

@@ -90,31 +90,23 @@
             </div>
         </div>
 
-        <!-- <div *ngFor="let topObserver of topObservers$ | async as topObservers; let i = index">
-            <app-user-stats-stripe [position]="i + 1" [topObserver]="topObserver"></app-user-stats-stripe>
-        </div> -->
 
         <div *ngIf="userStatistics$ | async as userStatistics">
-
-
-            <h1 style="color: red">{{ userStatistics.totalCount }}</h1>
-            <h1 style="color: blue" *ngIf="totalPages$ | async as totalPages">{{ totalPages }}</h1>
 
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
                 <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)" [topObserver]="topObserver"></app-user-stats-stripe>
             </ng-container>
-
 
         </div>
 
 
         <br><br><br><br>
 
-        <app-pagination *ngIf="totalPages$ | async as totalPages" [events]="eventsSubject.asObservable()" [totalPages]="totalPages"></app-pagination>
+        <app-pagination *ngIf="totalPages$ | async as totalPages" [events]="eventsSubject.asObservable()" [totalPages]="totalPages" (switchedPage)="onPageChange($event)"></app-pagination>
 
-        <div class="pagination" *ngIf="totalPages$ | async as totalPages">
+        <!-- <div class="pagination" *ngIf="totalPages$ | async as totalPages">
 
-            <!--buttons-->
+        
 
             <button class="pagination__button pagination__button--first" (click)="pagination.first()"
                 [disabled]="pagination.isFirst"> </button>
@@ -122,18 +114,15 @@
             <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
                 [disabled]="pagination.isFirst"> </button>
 
-            <!--buttons-->
-
-            <!-- input -->
 
             <input appPagination #pagination="appPagination" [totalPages]="totalPages"
                 (pageChange)="onPageChange($event)" />
 
-            <!-- input -->
+        
 
             <div class="pagination__item" style="border: none;">/ {{ totalPages }}</div>
 
-            <!--buttons-->
+         
 
             <button class="pagination__button pagination__button--next" (click)="pagination.next()"
                 [disabled]="pagination.isLast"> </button>
@@ -141,49 +130,16 @@
             <button class="pagination__button pagination__button--last" (click)="pagination.last()"
                 [disabled]="pagination.isLast"> </button>
 
-            <!--buttons-->
-
-            <br>
-            <br>
-
-            <div class="pagination__item" style="border: none;">{{ pagination.pageNumber }}</div>
-
-        </div>
-
-        <!-- <div class="pagination">
-
-         
-
-            <button class="pagination__button pagination__button--first" (click)="pagination.first()"
-                [disabled]="pagination.isFirst"> </button>
-
-            <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
-                [disabled]="pagination.isFirst"> </button>
-
-           
-
-            <input appPagination #pagination="appPagination" [totalPages]="totalPages"
-                (pageChange)="onPageChange($event)" />
-
-           
-
-            <div class="pagination__item" style="border: none;">/ {{ totalPages }}</div>
-         
           
 
-            <button class="pagination__button pagination__button--next" (click)="pagination.next()"
-                [disabled]="pagination.isLast"> </button>
-
-            <button class="pagination__button pagination__button--last" (click)="pagination.last()"
-                [disabled]="pagination.isLast"> </button>
-
-         
+            <br>
+            <br>
 
             <div class="pagination__item" style="border: none;">{{ pagination.pageNumber }}</div>
 
         </div> -->
 
-
+      
         <br>
         <br>
         <br>

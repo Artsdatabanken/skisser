@@ -70,12 +70,7 @@ export class TopObserversComponent implements OnInit {
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
 
-    console.log('XXX', index, pageNumber, pageSize);
-
-    let position: number;
-
-    position = (pageNumber - 1) * pageSize + index + 1;
-
+    const position: number = (pageNumber - 1) * pageSize + index + 1;
     return +position;
 
   }
