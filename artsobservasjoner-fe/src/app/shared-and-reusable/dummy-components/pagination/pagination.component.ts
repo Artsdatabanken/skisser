@@ -9,7 +9,6 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 export class PaginationComponent implements OnInit {
 
-  // private eventsSubscription: Subscription;
   @Input() events: Observable<void>;
   @Input() totalPages: number = 1;
 
@@ -17,23 +16,13 @@ export class PaginationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    //this.eventsSubscription = this.events.subscribe((event) => this.doSomething(event));
-  }
-
-  ngOnDestroy() {
-    //this.eventsSubscription.unsubscribe();
-  }
+  ngOnInit(): void {}
 
   onPageChange(event: number) {
     // console.log("Current page: ", event);
     
     // here we have to emit that this has been clicked
     this.switchedPage.emit(event);
-  }
-
-  doSomething(event: any): void {
-    console.log('event', event);
   }
 
 }

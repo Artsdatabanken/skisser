@@ -7,7 +7,7 @@ import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 
-const PAGE_SIZE: number = 10;
+const PAGE_SIZE: number = 15;
 
 @Component({
   selector: 'app-top-observers',
@@ -26,16 +26,6 @@ export class TopObserversComponent implements OnInit {
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
   position: number;
-
-
-  eventsSubject: Subject<void> = new Subject<void>();
-
-  emitEventToChild() {
-    this.eventsSubject.next();
-  }
-
-
-
 
   constructor(
     private layoutService: LayoutService,

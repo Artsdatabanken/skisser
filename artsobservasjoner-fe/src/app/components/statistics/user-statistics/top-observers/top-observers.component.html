@@ -102,7 +102,7 @@
 
         <br><br><br><br>
 
-        <app-pagination *ngIf="totalPages$ | async as totalPages" [events]="eventsSubject.asObservable()" [totalPages]="totalPages" (switchedPage)="onPageChange($event)"></app-pagination>
+        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages" (switchedPage)="onPageChange($event)"></app-pagination>
 
         <!-- <div class="pagination" *ngIf="totalPages$ | async as totalPages">
 
