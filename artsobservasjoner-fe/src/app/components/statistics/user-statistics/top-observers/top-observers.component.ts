@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Category } from 'src/app/models/shared';
-import { TopObserver, TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
+import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
+
+const PAGE_SIZE: number = 10;
 
 @Component({
   selector: 'app-top-observers',
@@ -20,9 +22,20 @@ export class TopObserversComponent implements OnInit {
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
   userStatistics$: Observable<UserStatistics>;
   totalPages: number;
+  totalPages$: BehaviorSubject<number>;
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
-  PAGE_SIZE: number = 20;
+  position: number;
+
+
+  eventsSubject: Subject<void> = new Subject<void>();
+
+  emitEventToChild() {
+    this.eventsSubject.next();
+  }
+
+
+
 
   constructor(
     private layoutService: LayoutService,
@@ -36,22 +49,35 @@ export class TopObserversComponent implements OnInit {
 
   ngOnInit(): void {
     this.speciesGroups$ = this.speciesService.speciesGroups;
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, this.PAGE_SIZE);
+    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE);
 
     this.userStatisticsService.getTopUsersStatistics().subscribe(response => {
-      this.totalPages = Math.trunc(response.totalCount / response.pageSize);
+      this.totalPages = Math.trunc(response.totalCount / PAGE_SIZE);
     });
+
+    this.totalPages$ = this.userStatisticsService.totalPages$;
 
   }
 
   onPageChange(event: number): void {
-    console.log('event on change', event)
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(event, this.PAGE_SIZE, this.selectedSpeciesGroup);
+    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(event, PAGE_SIZE, this.selectedSpeciesGroup);
   }
 
   onSpeciesGroupSelection(event: Event): void {
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, this.PAGE_SIZE, this.selectedSpeciesGroup);
+    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE, this.selectedSpeciesGroup);
     console.log('sg', event)
+  }
+
+  getPosition(index: number, pageNumber: number, pageSize: number): number {
+
+    console.log('XXX', index, pageNumber, pageSize);
+
+    let position: number;
+
+    position = (pageNumber - 1) * pageSize + index + 1;
+
+    return +position;
+
   }
 
 }

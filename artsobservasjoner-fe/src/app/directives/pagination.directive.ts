@@ -1,4 +1,5 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, SimpleChanges } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Directive({
   selector: '[appPagination]',
@@ -9,19 +10,23 @@ export class PaginationDirective {
 
   @Input() pageNumber: number = 1;
   @Input() totalPages: number = 1;
+  //@Input() totalPages: BehaviorSubject<number> = new BehaviorSubject(1);
   @Input() pageSize: number = 1;
-  
+
   @Output() pageChange = new EventEmitter<number>();
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
-    // In case no value is passed
+    // in case no value is passed
     this.setValue(this.pageNumber);
   }
 
   ngOnChanges({ pageNumber, totalPages }: SimpleChanges) {
-    // Needs to be checked before pageNumber
+
+    console.log('on changes totalPages', this.totalPages);
+
+    // needs to be checked before pageNumber
     if (totalPages) {
       this.onTotalPagesInput();
     }
@@ -29,6 +34,7 @@ export class PaginationDirective {
     if (pageNumber) {
       this.onpageNumberInput();
     }
+
   }
 
   @HostListener('input', ['$event.target.value']) onInput(val) {

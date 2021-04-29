@@ -1,28 +1,33 @@
 <!--REUSABLE COMPONENT-->
 
 <div class="pagination">
+    <!--buttons-->
 
-    <button (click)="pagination.first()" [disabled]="pagination.isFirst">
-        &laquo;
-    </button>
+    <button class="pagination__button pagination__button--first" (click)="pagination.first()"
+        [disabled]="pagination.isFirst"> </button>
 
-    <button (click)="pagination.prev()" [disabled]="pagination.isFirst">
-        &lsaquo;
-    </button>
+    <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
+        [disabled]="pagination.isFirst"> </button>
 
-    <input appPagination #pagination="appPagination" [totalPages]="10" (pageChange)="onPageChange($event)" />
+    <!--buttons-->
 
-    <!-- <ng-content></ng-content> -->
+    <!-- input -->
 
-    <div class="pagination__item" style="border: none;">/ {{ pagination.totalPages }}</div>
+    <input appPagination #pagination="appPagination" [totalPages]="totalPages" (pageChange)="onPageChange($event)" />
 
-    <button (click)="pagination.next()" [disabled]="pagination.isLast">
-        &rsaquo;
-    </button>
+    <!-- input -->
 
-    <button (click)="pagination.last()" [disabled]="pagination.isLast">
-        &raquo;
-    </button>
+    <div class="pagination__item" style="border: none;">/ {{ totalPages }}</div>
+
+    <!--buttons-->
+
+    <button class="pagination__button pagination__button--next" (click)="pagination.next()"
+        [disabled]="pagination.isLast"> </button>
+
+    <button class="pagination__button pagination__button--last" (click)="pagination.last()"
+        [disabled]="pagination.isLast"> </button>
+
+    <!--buttons-->
 
     <br>
     <br>
