@@ -7,7 +7,7 @@ import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 
-const PAGE_SIZE: number = 15;
+const PAGE_SIZE: number = 20;
 
 @Component({
   selector: 'app-top-observers',
@@ -21,7 +21,6 @@ export class TopObserversComponent implements OnInit {
   currentLanguage$: Observable<string>;
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
   userStatistics$: Observable<UserStatistics>;
-  totalPages: number;
   totalPages$: BehaviorSubject<number>;
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
@@ -38,13 +37,9 @@ export class TopObserversComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE);
-
-    this.userStatisticsService.getTopUsersStatistics().subscribe(response => {
-      this.totalPages = Math.trunc(response.totalCount / PAGE_SIZE);
-    });
-
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
   }
@@ -55,7 +50,6 @@ export class TopObserversComponent implements OnInit {
 
   onSpeciesGroupSelection(event: Event): void {
     this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE, this.selectedSpeciesGroup);
-    console.log('sg', event)
   }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {

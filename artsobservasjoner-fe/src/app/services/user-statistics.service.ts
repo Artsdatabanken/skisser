@@ -15,12 +15,16 @@ export class UserStatisticsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getTopUsersStatistics(pageNumber: number = 1, pageSize: number = 10, speciesGroupId?: number): Observable<UserStatistics> {
+  getTopUsersStatistics(pageNumber: number = 1, pageSize: number, speciesGroupId?: number, year?: number): Observable<UserStatistics> {
 
+    console.log('service', pageSize)
     let api: string;
 
     if (speciesGroupId) {
       api = this.TOPOBSERVERS_API + 'SpeciesGroupId=' + speciesGroupId + '&PageNumber=' + pageNumber + '&PageSize=' + pageSize;
+    }
+    else if (year) {
+      api = this.TOPOBSERVERS_API + 'Year=' + year + 'PageNumber=' + pageNumber + '&PageSize=' + pageSize;
     }
     else {
       api = this.TOPOBSERVERS_API + 'PageNumber=' + pageNumber + '&PageSize=' + pageSize;
@@ -55,7 +59,7 @@ export class UserStatisticsService {
           totalCount: response.totalCount
         }
 
-        this.totalPages$.next(Math.trunc(response.totalCount / pageSize) + 1); // + 1 for å ta hensyn til vi fjerner desimaler fra totalPages with Math.trunc
+        this.totalPages$.next(Math.ceil(response.totalCount / pageSize)); 
 
         //console.log('userStatisticsObject', userStatisticsObject)
         return userStatisticsObject;

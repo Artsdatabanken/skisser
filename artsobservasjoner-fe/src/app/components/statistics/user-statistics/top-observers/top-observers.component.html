@@ -93,8 +93,12 @@
 
         <div *ngIf="userStatistics$ | async as userStatistics">
 
+            <h1 style="color: red">{{ userStatistics.totalCount }}</h1>
+            <h1 *ngIf="totalPages$ | async as totalPages" style="color: blue">{{ totalPages }}</h1>
+
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
-                <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)" [topObserver]="topObserver"></app-user-stats-stripe>
+                <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
+                    [topObserver]="topObserver"></app-user-stats-stripe>
             </ng-container>
 
         </div>
@@ -102,7 +106,8 @@
 
         <br><br><br><br>
 
-        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages" (switchedPage)="onPageChange($event)"></app-pagination>
+        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+            (switchedPage)="onPageChange($event)"></app-pagination>
 
         <!-- <div class="pagination" *ngIf="totalPages$ | async as totalPages">
 
@@ -139,7 +144,7 @@
 
         </div> -->
 
-      
+
         <br>
         <br>
         <br>
