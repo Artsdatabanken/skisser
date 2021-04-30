@@ -65,6 +65,17 @@ export class UtilitiesService {
 
   }
 
+  generateYears(): number[] {
+    const max = new Date().getFullYear()
+    const min = max - 100
+    const years: number[] = []
+  
+    for (let i = max; i >= min; i--) {
+      years.push(i)
+    }
+    return years
+  }
+
   groupBy(list, keyGetter): Map<any, any> {
 
     const map = new Map();

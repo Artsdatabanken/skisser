@@ -19,13 +19,13 @@
 
             <div class="filter">
 
-                <label for="speciesGroup">Filtrer</label>
+                <label for="speciesGroups">Filtrer</label>
 
                 <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
                     (ngModelChange)="onSpeciesGroupSelection($event)">
 
                     <option [ngValue]="null">
-                        {{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}
+                        {{ 'shared.select_speciesGroups' | translate }}
                     </option>
 
                     <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
@@ -40,13 +40,20 @@
 
             <div class="filter">
 
-                <select name="" id="years">
-                    <option value="All">Alle år</option>
-                    <option value="">2019</option>
-                    <option value="">2018</option>
-                    <option value="">2017</option>
-                </select>
+                <label for="years">Filtrer</label>
 
+                <select name="yearSelector" id="years" [(ngModel)]="selectedYear"
+                    (ngModelChange)="onYearSelection($event)">
+
+                    <option [ngValue]="null">
+                        {{ 'shared.select_years' | translate }}
+                    </option>
+
+                    <option [value]="year" *ngFor="let year of years">
+                        {{ year }}
+                    </option>
+
+                </select>
 
             </div>
 
@@ -77,6 +84,10 @@
         </div>
 
         <br><br><br><br>
+    
+        <h1 style="color: green"> {{ selectedYear }} </h1>
+        
+        <br><br><br><br>
 
         <div *ngIf="userStatistics$ | async as userStatistics">
 
@@ -85,21 +96,22 @@
                     {{ totalPages }}
                 </span>
             </h1>
-            
+
         </div>
 
         <br>
 
         <div class="stripe stripe--dummy">
             <div class="stripe__cell">
-                Posisjon
+                {{ 'statistics.userStats_position' | translate }}
             </div>
             <div class="stripe__cell">
-                Observatør
+                {{ 'statistics.userStats_observer' | translate }}
             </div>
             <div class="stripe__cell">
-                Antall observasjoner
+                {{ 'statistics.userStats_sightingsCount' | translate }}
             </div>
+
         </div>
 
         <div *ngIf="userStatistics$ | async as userStatistics">
@@ -116,7 +128,7 @@
         <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
             (switchedPage)="onPageChange($event)"></app-pagination>
 
-     
+
         <br>
         <br>
         <br>

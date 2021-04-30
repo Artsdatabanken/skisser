@@ -42,7 +42,10 @@
     "shared": {
         "footnotes": "Fotnoter",
         "time_at": "kl.",
-        "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer."
+        "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer.",
+        "select_speciesGroups": "Alle artsgrupper",
+        "select_years": "Alle år",
+        "select_area": "Hele Norge"
     },
     "headings": {},
     "account": {
@@ -145,6 +148,9 @@
         "tableHeading_nullFindingsTotal": "Antall nullfunn",
         "tableFootnote_totalSightinsDifference": "Totalen viser færre observasjoner enn annen statistikk på grunn av at noen observasjoner ikke har en bruker knyttet til seg",
         "tableFootnote_percentByRegisterType": "Hvor mange av alle artsobservasjonene er registrert på denne måten",
-        "tableFootnote_nullFindings": "Arten er lett etter, men ikke funnet eller ikke gjenfunnet"
+        "tableFootnote_nullFindings": "Arten er lett etter, men ikke funnet eller ikke gjenfunnet",
+        "userStats_position": "Posisjon",
+        "userStats_observer": "Observatør",
+        "userStats_sightingsCount": "Antall observasjoner"
     }
 }

@@ -42,8 +42,10 @@
     "shared": {
         "footnotes": "Footnotes",
         "time_at": "at",
-        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates."
-    },
+        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates.",    
+        "select_speciesGroups": "All species groups",
+        "select_years": "All years",
+        "select_area": "All areas"},
     "headings": {},
     "account": {
         "account_register": "Register",
@@ -145,6 +147,9 @@
         "tableHeading_nullFindingsTotal": "Null findings total",
         "tableFootnote_totalSightinsDifference": "The total shows fewer sightings than other statistics because of some sightings might not have a user attached to them",
         "tableFootnote_percentByRegisterType": "How many of all sightings are registered this way",
-        "tableFootnote_nullFindings": "The species individual is been search for but not found"
+        "tableFootnote_nullFindings": "The species individual is been search for but not found",
+        "userStats_position": "Position",
+        "userStats_observer": "Observer",
+        "userStats_sightingsCount": "Sightings count"
     }
 }
