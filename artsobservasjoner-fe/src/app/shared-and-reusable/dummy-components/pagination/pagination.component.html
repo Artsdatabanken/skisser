@@ -1,7 +1,7 @@
 <!--REUSABLE COMPONENT-->
 
 <div class="pagination">
-    <!--buttons-->
+    <!--back buttons-->
 
     <button class="pagination__button pagination__button--first" (click)="pagination.first()"
         [disabled]="pagination.isFirst"> </button>
@@ -9,7 +9,7 @@
     <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
         [disabled]="pagination.isFirst"> </button>
 
-    <!--buttons-->
+    <!--back buttons-->
 
     <!-- input -->
 
@@ -19,7 +19,7 @@
 
     <div class="pagination__item" style="border: none;">/ {{ totalPages }}</div>
 
-    <!--buttons-->
+    <!--forward buttons-->
 
     <button class="pagination__button pagination__button--next" (click)="pagination.next()"
         [disabled]="pagination.isLast"> </button>
@@ -27,7 +27,7 @@
     <button class="pagination__button pagination__button--last" (click)="pagination.last()"
         [disabled]="pagination.isLast"> </button>
 
-    <!--buttons-->
+    <!--forward buttons-->
 
     <br>
     <br>

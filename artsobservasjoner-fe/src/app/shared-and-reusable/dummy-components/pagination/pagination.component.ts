@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pagination',
@@ -16,11 +16,11 @@ export class PaginationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onPageChange(event: number) {
     // console.log("Current page: ", event);
-    
+
     // here we have to emit that this has been clicked
     this.switchedPage.emit(event);
   }

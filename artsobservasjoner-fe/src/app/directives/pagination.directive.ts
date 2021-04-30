@@ -29,6 +29,7 @@ export class PaginationDirective {
     // needs to be checked before pageNumber
     if (totalPages) {
       this.onTotalPagesInput();
+      this.setPage(1); // for when we change filter, we go back to the start cause pageNumber will differ
     }
 
     if (pageNumber) {

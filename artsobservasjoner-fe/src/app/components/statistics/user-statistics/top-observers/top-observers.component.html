@@ -78,6 +78,18 @@
 
         <br><br><br><br>
 
+        <div *ngIf="userStatistics$ | async as userStatistics">
+
+            <h1 style="color: red">{{ userStatistics.totalCount }} &nbsp; / &nbsp;
+                <span *ngIf="totalPages$ | async as totalPages" style="color: blue">
+                    {{ totalPages }}
+                </span>
+            </h1>
+            
+        </div>
+
+        <br>
+
         <div class="stripe stripe--dummy">
             <div class="stripe__cell">
                 Posisjon
@@ -90,11 +102,7 @@
             </div>
         </div>
 
-
         <div *ngIf="userStatistics$ | async as userStatistics">
-
-            <h1 style="color: red">{{ userStatistics.totalCount }}</h1>
-            <h1 *ngIf="totalPages$ | async as totalPages" style="color: blue">{{ totalPages }}</h1>
 
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
                 <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
@@ -103,48 +111,12 @@
 
         </div>
 
-
         <br><br><br><br>
 
         <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
             (switchedPage)="onPageChange($event)"></app-pagination>
 
-        <!-- <div class="pagination" *ngIf="totalPages$ | async as totalPages">
-
-        
-
-            <button class="pagination__button pagination__button--first" (click)="pagination.first()"
-                [disabled]="pagination.isFirst"> </button>
-
-            <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
-                [disabled]="pagination.isFirst"> </button>
-
-
-            <input appPagination #pagination="appPagination" [totalPages]="totalPages"
-                (pageChange)="onPageChange($event)" />
-
-        
-
-            <div class="pagination__item" style="border: none;">/ {{ totalPages }}</div>
-
-         
-
-            <button class="pagination__button pagination__button--next" (click)="pagination.next()"
-                [disabled]="pagination.isLast"> </button>
-
-            <button class="pagination__button pagination__button--last" (click)="pagination.last()"
-                [disabled]="pagination.isLast"> </button>
-
-          
-
-            <br>
-            <br>
-
-            <div class="pagination__item" style="border: none;">{{ pagination.pageNumber }}</div>
-
-        </div> -->
-
-
+     
         <br>
         <br>
         <br>
