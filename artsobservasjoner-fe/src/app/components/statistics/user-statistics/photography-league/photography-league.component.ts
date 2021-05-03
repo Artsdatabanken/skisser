@@ -44,4 +44,20 @@ export class PhotographyLeagueComponent implements OnInit {
     this.counties = this.areasService.generateCounties();
   }
 
+  onPageChange(event: number): void {
+   }
+
+  onSpeciesGroupSelection(event: Event): void {
+  }
+
+  onYearSelection(event: Event): void {
+   }
+
+  getPosition(index: number, pageNumber: number, pageSize: number): number {
+
+    const position: number = (pageNumber - 1) * pageSize + index + 1;
+    return +position;
+
+  }
+
 }
