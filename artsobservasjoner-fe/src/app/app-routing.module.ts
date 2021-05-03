@@ -44,13 +44,12 @@ import { AnnouncementComponent } from './components/announcement/announcement.co
 import { PressComponent } from './components/press/press.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
-import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
 import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
 import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
 import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
-import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 import { TestComponent } from './misc/test/test.component';
+import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
 
 /*
 
@@ -554,12 +553,12 @@ const sightingsRoutes: Routes = [
         }
       },
       {
-        path: 'bird-area-league',
-        component: BirdAreaLeagueComponent,
+        path: 'photography-league',
+        component: PhotographyLeagueComponent,
         data: {
-          text: 'Fuglelokalitetsliga',
-          title: 'menu.menu_statistics_userStatistics_birdAreaLeague',
-          id: 'area-league',
+          text: 'Fotograferingsliga',
+          title: 'menu.menu_statistics_userStatistics_photographyLeague',
+          id: 'photography-league',
           layout: 'spa',
           rank: 'secondary',
           parent: 'statistics',

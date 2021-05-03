@@ -86,7 +86,6 @@ import { PressComponent } from './components/press/press.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
-import { AreaLeagueComponent } from './components/statistics/user-statistics/area-league/area-league.component';
 import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
 import { NewsItemComponent } from './components/news-item/news-item.component';
@@ -110,7 +109,6 @@ import { SpeciesGroupComponent } from './shared-and-reusable/smart-components/sp
 import { TotalCountStatisticsComponent } from './shared-and-reusable/smart-components/total-count-statistics/total-count-statistics.component';
 import { ValidationStatusListComponent } from './shared-and-reusable/smart-components/validation-status-list/validation-status-list.component';
 import { ValidationStatusComponent } from './shared-and-reusable/smart-components/validation-status/validation-status.component';
-import { BirdAreaLeagueComponent } from './components/statistics/user-statistics/bird-area-league/bird-area-league.component';
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
 import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
 import { StripeComponent } from './shared-and-reusable/dummy-components/stripe/stripe.component';
@@ -118,6 +116,7 @@ import { UserStatsStripeComponent } from './shared-and-reusable/smart-components
 import { PaginationDirective } from './directives/pagination.directive';
 import { PaginationComponent } from './shared-and-reusable/dummy-components/pagination/pagination.component';
 import { TestComponent } from './misc/test/test.component';
+import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -220,17 +219,16 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     FootnoteComponent,
     SearchComponent,
     TopObserversComponent,
-    AreaLeagueComponent,
     ImportSightingsComponent,
     MySightingsComponent,
     SightingsDataComponent,
-    BirdAreaLeagueComponent,
     AssessmentCategoriesComponent,
     StripeComponent,
     UserStatsStripeComponent,
     PaginationDirective,
     PaginationComponent,
-    TestComponent
+    TestComponent,
+    PhotographyLeagueComponent
   ],
   imports: [
     BrowserModule,

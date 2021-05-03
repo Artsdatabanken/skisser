@@ -18,7 +18,7 @@
         "menu_statistics_knowledgeGaps": "Knowledge gaps",
         "menu_statistics_userStatistics": "User statistics",
         "menu_statistics_userStatistics_topObservers": "Top observers",
-        "menu_statistics_userStatistics_birdAreaLeague": "Bird league",
+        "menu_statistics_userStatistics_photographyLeague": "Photography league",
         "menu_myData": "My data",
         "menu_myData_mySightings": "My sightings",
         "menu_myData_myStatistics": "My statistics",
@@ -42,10 +42,11 @@
     "shared": {
         "footnotes": "Footnotes",
         "time_at": "at",
-        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates.",    
+        "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates.",
         "select_speciesGroups": "All species groups",
         "select_years": "All years",
-        "select_area": "All areas"},
+        "select_area": "All areas"
+    },
     "headings": {},
     "account": {
         "account_register": "Register",
