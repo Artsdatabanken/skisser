@@ -43,6 +43,7 @@
         "footnotes": "Footnotes",
         "time_at": "at",
         "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates.",
+        "filter": "Filter by",
         "select_speciesGroups": "All species groups",
         "select_years": "All years",
         "select_area": "All areas"

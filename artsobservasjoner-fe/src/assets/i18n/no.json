@@ -43,6 +43,7 @@
         "footnotes": "Fotnoter",
         "time_at": "kl.",
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer.",
+        "filter": "Filtrer",
         "select_speciesGroups": "Alle artsgrupper",
         "select_years": "Alle år",
         "select_area": "Hele Norge"

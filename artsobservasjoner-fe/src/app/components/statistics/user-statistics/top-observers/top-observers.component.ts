@@ -69,6 +69,10 @@ export class TopObserversComponent implements OnInit {
     this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
+  onAreaSelection(event: Event): void {
+    console.log('selected area', event)
+   }
+
   getPosition(index: number, pageNumber: number, pageSize: number): number {
 
     const position: number = (pageNumber - 1) * pageSize + index + 1;
