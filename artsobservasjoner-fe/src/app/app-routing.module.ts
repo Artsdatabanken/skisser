@@ -50,6 +50,7 @@ import { SightingsDataComponent } from './components/sightings-data/sightings-da
 import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
 import { TestComponent } from './misc/test/test.component';
 import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
+import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
 
 /*
 
@@ -224,8 +225,24 @@ const sightingsRoutes: Routes = [
     component: SightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
-      title: 'menu.menu_sightingsCollection',
-      id: 'sightings-data',
+      title: 'menu.menu_sightings_sightingsCollection',
+      id: 'sightings',
+      layout: 'page',
+      rank: 'primary',
+      parent: 'sightings-data',
+      menu: 'mainMenu',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'sightings-data/explore-sightings',
+    component: ExploreSightingsComponent,
+    data: {
+      text: 'Utforsk observasjoner',
+      title: 'menu.menu_sightings_exploreSightings',
+      id: 'expore-sightings',
       layout: 'page',
       rank: 'primary',
       parent: 'sightings-data',
@@ -1048,8 +1065,8 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
-//const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

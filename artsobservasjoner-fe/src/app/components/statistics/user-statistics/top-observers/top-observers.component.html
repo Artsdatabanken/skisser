@@ -79,17 +79,15 @@
 
         </div>
 
-        <h1 style="color: green"> {{ selectedYear }} </h1>
-
-        <br><br>
+        <h3 style="color: green; margin: 25px 0 0">Selected {{ selectedSpeciesGroup }} / {{ selectedYear }} / {{ selectedArea }} </h3>
 
         <div *ngIf="userStatistics$ | async as userStatistics">
 
-            <h1 style="color: red">{{ userStatistics.totalCount }} &nbsp; / &nbsp;
+            <h3 style="color: red; margin: 0">tc: {{ userStatistics.totalCount }} &nbsp; / &nbsp;
                 <span *ngIf="totalPages$ | async as totalPages" style="color: blue">
-                    {{ totalPages }}
+                    tp: {{ totalPages }}
                 </span>
-            </h1>
+            </h3>
 
         </div>
 

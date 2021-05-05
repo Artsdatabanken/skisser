@@ -1,0 +1,338 @@
+<div class="page">
+
+    <header class="page__header">
+
+        <!--filter-->
+
+        <div class="grid">
+            <div class="grid__cell grid__cell--left">
+
+                <!-- filter-->
+
+                <div class="loop loop--buttons loop--left">
+
+                    <button class="button button--dropdown button--display button--filter hidden hidden--desktop"
+                        aria-label="Flere filtre">Filtre
+                    </button>
+
+                    <div class="hidden hidden--mobile loop loop--buttons loop--left">
+
+                        <button class="button button--dropdown" aria-label="filtrer etter Artsgruppe ">
+
+                            <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Artsgruppe"> Artsgruppe </span>
+                            <!--<span class="button__icon"> </span>-->
+
+                            <!-- </div> -->
+
+                        </button>
+
+
+                        <button class="button button--dropdown" aria-label="filtrer etter Dato ">
+
+                            <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Dato"> Dato </span>
+                            <!--<span class="button__icon"> </span>-->
+
+                            <!-- </div> -->
+
+                        </button>
+
+                        <button class="button button--dropdown" aria-label="filtrer etter Region ">
+
+                            <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Region"> Region </span>
+                            <!--<span class="button__icon"> </span>-->
+
+                            <!-- </div> -->
+
+                        </button>
+
+                        <button class="button button--dropdown" aria-label="filtrer etter Filter ">
+
+                            <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Filter"> Filter </span>
+                            <!--<span class="button__icon"> </span>-->
+
+                            <!-- </div> -->
+
+                        </button>
+
+                        <button class="button button--dropdown" aria-label="filtrer etter Filter ">
+
+                            <!-- <div class="button__container"> -->
+
+                            <span class="button__label" data-label="Filter"> Filter </span>
+                            <!--<span class="button__icon"> </span>-->
+
+                            <!-- </div> -->
+
+                        </button>
+
+                        <button class="button button--filter" aria-label="Flere filtre">Flere filtre
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!--filter-->
+            </div>
+            <div class="grid__cell grid__cell--right">
+
+                <!--display-->
+                <div class="loop loop--buttons loop--right">
+
+                    <!-- <app-button [cssClass]="'button--display button--display-1'" [text]="'Vis i kart'"
+                        (click)="chooseDisplay('map')"></app-button>
+                    <app-button [cssClass]="'button--display button--display-2'" [text]="'Tabellvisning'"
+                        (click)="chooseDisplay('table')"></app-button>
+                    <app-button [cssClass]="'button--display button--display-3'" [text]="'Gallerivisning'"
+                        (click)="chooseDisplay('card')"></app-button> -->
+
+                </div>
+
+                <!--display-->
+            </div>
+        </div>
+
+        <br><br>
+        <!--filter-->
+
+    </header>
+
+    <div class="page__content">
+
+        <!-- <app-date></app-date> -->
+
+        <!--display-->
+
+        <div *ngIf="display === 'table'">
+
+            <table class="">
+                <thead class="table__header">
+                    <tr>
+                        <th scope="col" class="table__column-header">Art</th>
+                        <th scope="col" class="table__column-header">Artsgruppe</th>
+                        <th scope="col" class="table__column-header">Dato</th>
+                        <th scope="col" class="table__column-header">Sted</th>
+                        <!-- <th scope="col" class="table__column-header">Bilde</th> -->
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+
+                    <tr scope="row" class="table__row-header" *ngFor="let mammal of marineMammals">
+                        <th>{{ mammal.species }}</th>
+                        <td>{{ mammal.sighted_at | date: 'dd.MM.yyyy' }}</td>
+                        <td>{{ mammal }}</td>
+                        <td>{{ mammal }}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="table__row-header"><a routerLink="">...</a></th>
+                        <td><span class="">...</span></td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div *ngIf="display === 'card'">
+
+            <div class="loop loop--gallery gallery">
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Panda</h1>
+                    <h2 class="item__subtitle item__category">Ailuropoda melanoleuca</h2>
+
+                    <div class="item__img-wrapper">
+                        <div class="item__image item__image--1"></div>
+                    </div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Ole Olesen </div>
+                        <div class="details__date">20.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Atlanterhavshvalross</h1>
+                    <h2 class="item__subtitle item__category">Odobenus rosmarus rosmarus</h2>
+
+                    <div class="item__img-wrapper">
+                        <div class="item__image item__image--8"></div>
+                    </div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Ole Olesen </div>
+                        <div class="details__date">20.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Leopard</h1>
+                    <h2 class="item__subtitle item__category">Panthera pardus</h2>
+
+                    <div class="item__img-wrapper">
+                        <div class="item__image item__image--2"></div>
+                    </div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Johannes Johannesen </div>
+                        <div class="details__date">17.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Frosk</h1>
+                    <h2 class="item__subtitle item__category">Hyalinobatrachium ruedai</h2>
+                    
+                    <div class="item__img-wrapper">
+                        <div class="item__image item__image--3"></div>
+                    </div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Magnus Magnusson </div>
+                        <div class="details__date">17.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Spekkhogger</h1>
+                    <h2 class="item__subtitle item__category"> Orcinus orca</h2>
+
+                    <div class="item__image item__image--noImg"></div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Inga Ingasdottir </div>
+                        <div class="details__date">20.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Brunbjørn</h1>
+                    <h2 class="item__subtitle item__category">Ursus arctos</h2>
+
+                    <div class="item__img-wrapper">
+                        <div class="item__image item__image--5"></div>
+                    </div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Rodrigo Rodriguez </div>
+                        <div class="details__date">13.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Furu</h1>
+                    <h2 class="item__subtitle item__category">Pinus sylvestris</h2>
+
+                    <div class="item__image item__image--noImg"></div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Markus Markussen </div>
+                        <div class="details__date">17.09.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Komodovaran</h1>
+                    <h2 class="item__subtitle item__category">Varanus komodoensis</h2>
+
+                    <div class="item__image item__image--noImg"></div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Navn Navnesen </div>
+                        <div class="details__date">16.08.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Katt</h1>
+                    <h2 class="item__subtitle item__category">Felis catus</h2>
+
+                    <div class="item__image item__image--noImg"></div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Navn Navnesen </div>
+                        <div class="details__date">16.08.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Leopard</h1>
+                    <h2 class="item__subtitle item__category">Panthera pardus</h2>
+
+                    <div class="item__img-wrapper">
+                        <div class="item__image item__image--4"></div>
+                    </div>
+
+                    <div class="item__details details">
+                        <div class="item__copyright"> Navn Navnesen </div>
+                        <div class="details__date">16.08.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+                <a class="gallery__item item" [routerLink]="['/observations/sightings/sighting']">
+                    <h1 class="item__title">Padde</h1>
+                    <h2 class="item__subtitle item__category">Bufo Bufo</h2>
+
+                    <div class="item__image item__image--noImg"></div>
+                    
+                    <div class="item__details details">
+                        <div class="item__copyright"> Navn Navnesen </div>
+                        <div class="details__date">16.08.2020</div>
+                        <div class="details__location">Trondheim</div>
+                        <!--<div class="icon"> <img src="/assets/images/iconComment.png" alt=""> </div>-->
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div *ngIf="display === 'map'">
+            <app-sightings-map></app-sightings-map>
+        </div>
+
+        <!--display-->
+
+    </div>
+
+    <footer class="page__footer">
+
+    </footer>
+
+
+</div>

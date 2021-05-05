@@ -117,6 +117,7 @@ import { PaginationDirective } from './directives/pagination.directive';
 import { PaginationComponent } from './shared-and-reusable/dummy-components/pagination/pagination.component';
 import { TestComponent } from './misc/test/test.component';
 import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
+import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
 
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -228,7 +229,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     PaginationDirective,
     PaginationComponent,
     TestComponent,
-    PhotographyLeagueComponent
+    PhotographyLeagueComponent,
+    ExploreSightingsComponent
   ],
   imports: [
     BrowserModule,
