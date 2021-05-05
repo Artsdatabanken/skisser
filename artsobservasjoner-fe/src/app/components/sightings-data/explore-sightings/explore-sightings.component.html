@@ -126,12 +126,12 @@
                 </thead>
                 <tbody class="table__body">
 
-                    <tr scope="row" class="table__row-header" *ngFor="let mammal of marineMammals">
+                    <!-- <tr scope="row" class="table__row-header" *ngFor="let mammal of marineMammals">
                         <th>{{ mammal.species }}</th>
                         <td>{{ mammal.sighted_at | date: 'dd.MM.yyyy' }}</td>
                         <td>{{ mammal }}</td>
                         <td>{{ mammal }}</td>
-                    </tr>
+                    </tr> -->
 
                     <tr>
                         <th scope="row" class="table__row-header"><a routerLink="">...</a></th>
@@ -322,9 +322,9 @@
 
         </div>
 
-        <div *ngIf="display === 'map'">
+        <!-- <div *ngIf="display === 'map'">
             <app-sightings-map></app-sightings-map>
-        </div>
+        </div> -->
 
         <!--display-->
 
