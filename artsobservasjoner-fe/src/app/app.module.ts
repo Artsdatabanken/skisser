@@ -118,7 +118,9 @@ import { PaginationComponent } from './shared-and-reusable/dummy-components/pagi
 import { TestComponent } from './misc/test/test.component';
 import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
 import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
-
+import { AboutStatisticsComponent } from './components/statistics/about-statistics/about-statistics.component';
+import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
+import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -230,7 +232,10 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     PaginationComponent,
     TestComponent,
     PhotographyLeagueComponent,
-    ExploreSightingsComponent
+    ExploreSightingsComponent,
+    AboutStatisticsComponent,
+    SearchSightingsComponent,
+    CompareSightingsComponent
   ],
   imports: [
     BrowserModule,

@@ -51,6 +51,9 @@ import { SightingsComponent } from './components/sightings-data/sightings/sighti
 import { TestComponent } from './misc/test/test.component';
 import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
 import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
+import { AboutStatisticsComponent } from './components/statistics/about-statistics/about-statistics.component';
+import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
+import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 
 /*
 
@@ -220,9 +223,25 @@ const sightingsRoutes: Routes = [
       hidden: false
     }
   },
+  // {
+  //   path: 'sightings-data/sightings',
+  //   component: SightingsComponent,
+  //   data: {
+  //     text: 'Se, søk og filtrer observasjoner',
+  //     title: 'menu.menu_sightings_sightingsCollection',
+  //     id: 'sightings',
+  //     layout: 'page',
+  //     rank: 'primary',
+  //     parent: 'sightings-data',
+  //     menu: 'mainMenu',
+  //     metatitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
   {
-    path: 'sightings-data/sightings',
-    component: SightingsComponent,
+    path: 'sightings-data/search-sightings',
+    component: SearchSightingsComponent,
     data: {
       text: 'Se, søk og filtrer observasjoner',
       title: 'menu.menu_sightings_sightingsCollection',
@@ -242,7 +261,7 @@ const sightingsRoutes: Routes = [
     data: {
       text: 'Utforsk observasjoner',
       title: 'menu.menu_sightings_exploreSightings',
-      id: 'expore-sightings',
+      id: 'explore-sightings',
       layout: 'page',
       rank: 'primary',
       parent: 'sightings-data',
@@ -269,6 +288,22 @@ const sightingsRoutes: Routes = [
     }
   },
   {
+    path: 'sightings-data/compare-sightings',
+    component: CompareSightingsComponent,
+    data: {
+      text: 'Sammenlikn observasjonsstatistikk',
+      title: 'menu.menu_sightings_compareSightings',
+      id: 'compare-sightings',
+      layout: 'page',
+      rank: 'primary',
+      parent: 'sightings-data',
+      menu: 'mainMenu',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
     path: 'sightings-data/statistics',
     component: StatisticsComponent,
     data: {
@@ -279,6 +314,22 @@ const sightingsRoutes: Routes = [
       rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
       parent: 'sightings-data',
       menu: 'mainMenu',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'sightings-data/statistics/about-statistics',
+    component: AboutStatisticsComponent,
+    data: {
+      text: 'Om statistikk',
+      title: 'menu.menu_statistics_about',
+      id: 'about_statistics',
+      layout: 'landing',
+      rank: 'secondary', 
+      parent: 'statistics',
+      menu: '',
       metatitle: '',
       metaDescription: '',
       hidden: false
