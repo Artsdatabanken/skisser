@@ -63,24 +63,20 @@ export interface TotalCountStatistic {
 export interface UserStatistics {
     pageNumber: number;
     pageSize: number;
-    topObservers: TopObserver[] | Observable<TopObserver[]>;
+    topObservers: TopObserver[] | TopPhotographer[];
     totalCount: number;
 }
 
 export interface TopObserver {
-    /*
-     "count": 1227,
-      "userId": 19028,
-      "userAlias": "Gundersen",
-      "userName": "Anette Gundersen",
-      "city": "Paradis"
-    */
-
     id: number;
     name: string;
     position?: number;
     city: string;
     sightingsCount: number;
+}
+
+export interface TopPhotographer extends TopObserver {
+    mediaCount: number;
 }
 
 // ENUMS

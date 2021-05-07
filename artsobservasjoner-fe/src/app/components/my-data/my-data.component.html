@@ -3,22 +3,18 @@
     <header class="page__header"></header>
 
 
-    <div class="page__intro">
-        <p>
-            Tekst
-        </p>
-    </div>
+    <div class="page__intro">    </div>
 
     <div class="page__content">
 
         <div class="loop loop--intersections">
 
-            <app-intersection
-                *ngFor="let menuItem of subMenu"
-                [url]="menuItem.path" 
-                [text]="menuItem" >
+            <app-intersection 
+                *ngFor="let menuItem of subMenu" 
+                [url]="menuItem.path"
+                [text]="menuItem.heading | translate">
             </app-intersection>
-            
+
         </div>
 
     </div>

@@ -19,7 +19,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
-import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { UserListsComponent } from './components/statistics/user-lists/user-lists.component';
 import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
 import { DesignComponent } from './misc/design/design.component';
@@ -85,7 +84,6 @@ import { StripHtmlPipe } from './pipes/strip-html.pipe';
 import { PressComponent } from './components/press/press.component';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
 import { SearchComponent } from './components/search/search.component';
-import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
 import { NewsItemComponent } from './components/news-item/news-item.component';
@@ -116,11 +114,13 @@ import { UserStatsStripeComponent } from './shared-and-reusable/smart-components
 import { PaginationDirective } from './directives/pagination.directive';
 import { PaginationComponent } from './shared-and-reusable/dummy-components/pagination/pagination.component';
 import { TestComponent } from './misc/test/test.component';
-import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
 import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
 import { AboutStatisticsComponent } from './components/statistics/about-statistics/about-statistics.component';
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
 import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
+import { PhotographyLeagueComponent } from './components/user-statistics/photography-league/photography-league.component';
+import { TopObserversComponent } from './components/user-statistics/top-observers/top-observers.component';
+import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 

@@ -155,6 +155,7 @@
         "tableFootnote_nullFindings": "Arten er lett etter, men ikke funnet eller ikke gjenfunnet",
         "userStats_position": "Posisjon",
         "userStats_observer": "Observatør",
-        "userStats_sightingsCount": "Antall observasjoner"
+        "userStats_sightingsCount": "Antall observasjoner",
+        "userStats_mediaCount": "Antall bilder"
     }
 }

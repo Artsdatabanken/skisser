@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { AreasService } from 'src/app/services/areas.service';
@@ -12,12 +12,12 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 const PAGE_SIZE: number = 20;
 
 @Component({
-  selector: 'app-top-observers',
-  templateUrl: './top-observers.component.html',
-  styleUrls: ['./top-observers.component.scss']
+  selector: 'app-photography-league',
+  templateUrl: './photography-league.component.html',
+  styleUrls: ['./photography-league.component.scss']
 })
 
-export class TopObserversComponent implements OnInit {
+export class PhotographyLeagueComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
@@ -42,7 +42,7 @@ export class TopObserversComponent implements OnInit {
     private areasService: AreasService,
     private userStatisticsService: UserStatisticsService
   ) {
-    this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_topObservers');
+    this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_photographyLeague');
     this.currentLanguage$ = this.translationService.currentLanguage$;
   }
 
@@ -51,33 +51,31 @@ export class TopObserversComponent implements OnInit {
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.years = this.utilitiesService.generateYears();
     this.counties = this.areasService.generateCounties();
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE);
+    this.userStatistics$ = this.userStatisticsService.getTopPhotographers(1, PAGE_SIZE);
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
   }
 
   onPageChange(event: number): void {
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(event, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+    this.userStatistics$ = this.userStatisticsService.getTopPhotographers(event, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
   onSpeciesGroupSelection(event: Event): void {
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+    this.userStatistics$ = this.userStatisticsService.getTopPhotographers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
   onYearSelection(event: Event): void {
     console.log('selected year', event)
-    this.userStatistics$ = this.userStatisticsService.getTopUsersStatistics(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+    this.userStatistics$ = this.userStatisticsService.getTopPhotographers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
   onAreaSelection(event: Event): void {
     console.log('selected area', event)
-   }
+  }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
-
-    const position: number = (pageNumber - 1) * pageSize + index + 1;
-    return +position;
-
+    return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
   }
+
 
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TopObserver } from 'src/app/models/statistics';
+import { TopObserver, TopPhotographer } from 'src/app/models/statistics';
 
 @Component({
   selector: 'app-user-stats-stripe',
@@ -9,7 +9,7 @@ import { TopObserver } from 'src/app/models/statistics';
 
 export class UserStatsStripeComponent implements OnInit {
 
-  @Input() topObserver: TopObserver;
+  @Input() topObserver: TopObserver | TopPhotographer;
   @Input() position: number;
 
   constructor() { }

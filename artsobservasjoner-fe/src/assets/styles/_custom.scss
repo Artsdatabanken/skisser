@@ -355,8 +355,12 @@
     max-width: 65%;
     width: auto;
 
+    &--special {
+        grid-template-columns: 100px auto 100px 140px;
+    }
+
     &__cell {
-        // border: 1px solid red;
+        border: 1px solid red;
         align-self: center;
         padding: 10px;
 
@@ -371,6 +375,15 @@
         }
 
         &:nth-child(3) {
+            @include customVar(font-family, fontAccent);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            justify-self: end;
+            text-align: right;
+        }
+
+        &:nth-child(4) {
             @include customVar(font-family, fontAccent);
             font-size: 20px;
             font-weight: 700;

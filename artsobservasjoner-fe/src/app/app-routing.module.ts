@@ -7,7 +7,6 @@ import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.co
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { RedListedSpeciesComponent } from './components/statistics/red-listed-species/red-listed-species.component';
 import { AlienSpeciesComponent } from './components/statistics/alien-species/alien-species.component';
-import { UserStatisticsComponent } from './components/statistics/user-statistics/user-statistics.component';
 import { DesignComponent } from './misc/design/design.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -43,17 +42,17 @@ import { AnnouncementsComponent } from './components/announcements/announcements
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { PressComponent } from './components/press/press.component';
 import { SearchComponent } from './components/search/search.component';
-import { TopObserversComponent } from './components/statistics/user-statistics/top-observers/top-observers.component';
 import { ImportSightingsComponent } from './components/report/import-sightings/import-sightings.component';
 import { MySightingsComponent } from './components/my-data/my-sightings/my-sightings.component';
 import { SightingsDataComponent } from './components/sightings-data/sightings-data.component';
-import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
 import { TestComponent } from './misc/test/test.component';
-import { PhotographyLeagueComponent } from './components/statistics/user-statistics/photography-league/photography-league.component';
 import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
 import { AboutStatisticsComponent } from './components/statistics/about-statistics/about-statistics.component';
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
 import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
+import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
+import { TopObserversComponent } from './components/user-statistics/top-observers/top-observers.component';
+import { PhotographyLeagueComponent } from './components/user-statistics/photography-league/photography-league.component';
 
 /*
 
@@ -223,22 +222,6 @@ const sightingsRoutes: Routes = [
       hidden: false
     }
   },
-  // {
-  //   path: 'sightings-data/sightings',
-  //   component: SightingsComponent,
-  //   data: {
-  //     text: 'Se, søk og filtrer observasjoner',
-  //     title: 'menu.menu_sightings_sightingsCollection',
-  //     id: 'sightings',
-  //     layout: 'page',
-  //     rank: 'primary',
-  //     parent: 'sightings-data',
-  //     menu: 'mainMenu',
-  //     metatitle: '',
-  //     metaDescription: '',
-  //     hidden: false
-  //   }
-  // },
   {
     path: 'sightings-data/search-sightings',
     component: SearchSightingsComponent,
