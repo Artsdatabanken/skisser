@@ -93,7 +93,7 @@
 
         <br>
 
-        <div class="stripe stripe--dummy">
+        <div class="stripe stripe--dummy stripe--special">
             <div class="stripe__cell">
                 {{ 'statistics.userStats_position' | translate }}
             </div>
@@ -115,7 +115,7 @@
 
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
                 <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
-                    [topObserver]="topObserver"></app-user-stats-stripe>
+                    [topObserver]="topObserver" [styleClass]="'special'"></app-user-stats-stripe>
             </ng-container>
 
         </div>

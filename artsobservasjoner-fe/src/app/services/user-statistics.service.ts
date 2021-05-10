@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { TopObserver, TopPhotographer, UserStatistics } from '../models/statistics';
+import { TopObserver, UserStatistics } from '../models/statistics';
 
 @Injectable({
   providedIn: 'root'
@@ -82,16 +82,16 @@ export class UserStatisticsService {
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
-        console.log('response', response)
+        console.log('response photographers', response)
 
         let userStatisticsObject: UserStatistics;
 
-        let topPhotographer: TopPhotographer;
-        let topPhotographers: TopPhotographer[] = [];
+        let topObserver: TopObserver;
+        let topObservers: TopObserver[] = [];
 
         response.result.forEach((element) => {
 
-          topPhotographer = {
+          topObserver = {
             id: element.userId,
             name: element.userName,
             city: element.city,
@@ -99,14 +99,14 @@ export class UserStatisticsService {
             mediaCount: element.mediaCount
           };
 
-          topPhotographers.push(topPhotographer);
+          topObservers.push(topObserver);
 
         });
 
         userStatisticsObject = {
           pageNumber: response.pageNumber,
           pageSize: response.pageSize,
-          topObservers: topPhotographers,
+          topObservers: topObservers,
           totalCount: response.totalCount
         }
 

@@ -9,8 +9,9 @@ import { TopObserver, TopPhotographer } from 'src/app/models/statistics';
 
 export class UserStatsStripeComponent implements OnInit {
 
-  @Input() topObserver: TopObserver | TopPhotographer;
+  @Input() topObserver: TopObserver;
   @Input() position: number;
+  @Input() styleClass?: string;
 
   constructor() { }
 

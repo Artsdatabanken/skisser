@@ -384,13 +384,13 @@
         }
 
         &:nth-child(4) {
+            border: 1px solid blue;
             @include customVar(font-family, fontAccent);
             font-size: 20px;
             font-weight: 700;
             line-height: 1.2;
             justify-self: end;
-            padding-right: 30px;
-            text-align: right;
+            text-align: right !important;
         }
 
         // gjelder for alle children of stripe--dummy

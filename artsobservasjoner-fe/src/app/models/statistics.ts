@@ -73,6 +73,7 @@ export interface TopObserver {
     position?: number;
     city: string;
     sightingsCount: number;
+    mediaCount?: number;
 }
 
 export interface TopPhotographer extends TopObserver {
