@@ -25,7 +25,7 @@ export class SearchService {
     onlyReportable?: boolean
   ): Observable<Taxon[]> {
 
-    const api: string = this.createApiUrl(this.taxonSearchApi, 'spekkhogger', speciesGroupId, includeSubSpecies, onlyReportable);
+    const api: string = this.createApiUrl(this.taxonSearchApi, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -35,41 +35,76 @@ export class SearchService {
         let taxon: Taxon;
         let taxons: Taxon[] = [];
 
-        let scientificNameSynonym: TaxonName;
+        let scientificName: TaxonName | null;
+        let vernacularName: TaxonName | null;
+
+        let scientificNameSynonym: TaxonName | null;
         let scientificNameSynonyms: TaxonName[] = [];
 
-        let vernacularNameSynonym: TaxonName;
+        let vernacularNameSynonym: TaxonName | null;
         let vernacularNameSynonyms: TaxonName[] = [];
 
         response.forEach(element => {
 
           //--------------------***
 
-          element['scientificNameSynonyms'].forEach(element => {
+          if (element['scientificNameSynonyms']) {
 
-            scientificNameSynonym = {
-              name: element.name,
-              author: element.auctor,
-              taxonLanguage: element.taxonNameLanguage
-            }
+            element['scientificNameSynonyms'].forEach(element => {
 
-            scientificNameSynonyms.push(scientificNameSynonym);
+              scientificNameSynonym = {
+                name: element.name,
+                author: element.auctor,
+                taxonLanguage: element.taxonNameLanguage
+              }
 
-          });
+              scientificNameSynonyms.push(scientificNameSynonym);
+
+            });
+
+          }
 
           //--------------------***
 
-          element['vernacularNameSynonyms'].forEach(element => {
+          if (element['vernacularNameSynonyms']) {
 
-            vernacularNameSynonym = {
-              name: element.name,
-              author: element.auctor,
-              taxonLanguage: element.taxonNameLanguage
+            element['vernacularNameSynonyms'].forEach(element => {
+
+              vernacularNameSynonym = {
+                name: element.name,
+                author: element.auctor,
+                taxonLanguage: element.taxonNameLanguage
+              }
+
+              vernacularNameSynonyms.push(vernacularNameSynonym);
+
+            });
+
+          }
+
+          //--------------------***
+
+          if (element['scientificName']) {
+            scientificName = {
+              name: element.scientificName.name,
+              author: element.scientificName.auctor,
+              taxonLanguage: element.scientificName.taxonNameLanguage
             }
+          }
+          else {
+            scientificName = null;
+          }
 
-            vernacularNameSynonyms.push(vernacularNameSynonym);
-
-          });
+          if (element['vernacularName']) {
+            vernacularName = {
+              name: element.vernacularName.name,
+              author: element.vernacularName.auctor,
+              taxonLanguage: element.vernacularName.taxonNameLanguage
+            }
+          }
+          else {
+            vernacularName = null;
+          }
 
           //--------------------***
 
@@ -78,8 +113,10 @@ export class SearchService {
             taxonCategoryId: element.taxonCategoryId,
             speciesGroupId: element.speciesGroupId,
             protectionLevelId: element.protectionLevelId,
-            scientificName: { name: element.scientificName.name, author: element.scientificName.auctor, taxonLanguage: element.scientificName.taxonNameLanguage },
-            vernacularName: { name: element.vernacularName.name, author: element.vernacularName.auctor, taxonLanguage: element.vernacularName.taxonNameLanguage },
+            // scientificName: { name: element.scientificName?.name, author: element.scientificName?.auctor, taxonLanguage: element.scientificName?.taxonNameLanguage },
+            // vernacularName: { name: element.vernacularName?.name, author: element.vernacularName?.auctor, taxonLanguage: element.vernacularName?.taxonNameLanguage },
+            scientificName: scientificName,
+            vernacularName: vernacularName,
             scientificNameSynonyms: scientificNameSynonyms,
             vernacularNameSynonyms: vernacularNameSynonyms
 
