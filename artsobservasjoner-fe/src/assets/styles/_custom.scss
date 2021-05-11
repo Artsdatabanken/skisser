@@ -311,6 +311,7 @@
 
     &--top {
         @include customVar(color, clrWhite);
+        @include customVar(color, clrBlack);
         background-color: transparent;
         background-image: url(../images/iconMedal.png);
         background-position: center center;
@@ -360,7 +361,6 @@
     }
 
     &__cell {
-        border: 1px solid red;
         align-self: center;
         padding: 10px;
 
@@ -384,7 +384,6 @@
         }
 
         &:nth-child(4) {
-            border: 1px solid blue;
             @include customVar(font-family, fontAccent);
             font-size: 20px;
             font-weight: 700;
