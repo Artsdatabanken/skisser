@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotographyLeagueComponent } from './photography-league.component';
+import { TaxonSearchComponent } from './taxon-search.component';
 
-describe('PhotographyLeagueComponent', () => {
-  let component: PhotographyLeagueComponent;
-  let fixture: ComponentFixture<PhotographyLeagueComponent>;
+describe('TaxonSearchComponent', () => {
+  let component: TaxonSearchComponent;
+  let fixture: ComponentFixture<TaxonSearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhotographyLeagueComponent ]
+      declarations: [ TaxonSearchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PhotographyLeagueComponent);
+    fixture = TestBed.createComponent(TaxonSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

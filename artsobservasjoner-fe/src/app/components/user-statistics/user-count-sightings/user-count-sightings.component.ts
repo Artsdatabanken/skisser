@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { AreasService } from 'src/app/services/areas.service';
@@ -12,12 +12,12 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 const PAGE_SIZE: number = 20;
 
 @Component({
-  selector: 'app-top-observers',
-  templateUrl: './top-observers.component.html',
-  styleUrls: ['./top-observers.component.scss']
+  selector: 'app-user-count-sightings',
+  templateUrl: './user-count-sightings.component.html',
+  styleUrls: ['./user-count-sightings.component.scss']
 })
 
-export class TopObserversComponent implements OnInit {
+export class UserCountSightingsComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
@@ -78,5 +78,4 @@ export class TopObserversComponent implements OnInit {
    return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
 
   }
-
 }

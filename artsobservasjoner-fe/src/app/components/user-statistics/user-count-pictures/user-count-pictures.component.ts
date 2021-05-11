@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { AreasService } from 'src/app/services/areas.service';
@@ -12,12 +12,12 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 const PAGE_SIZE: number = 20;
 
 @Component({
-  selector: 'app-photography-league',
-  templateUrl: './photography-league.component.html',
-  styleUrls: ['./photography-league.component.scss']
+  selector: 'app-user-count-pictures',
+  templateUrl: './user-count-pictures.component.html',
+  styleUrls: ['./user-count-pictures.component.scss']
 })
 
-export class PhotographyLeagueComponent implements OnInit {
+export class UserCountPicturesComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
@@ -76,6 +76,5 @@ export class PhotographyLeagueComponent implements OnInit {
   getPosition(index: number, pageNumber: number, pageSize: number): number {
     return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
   }
-
 
 }

@@ -51,9 +51,9 @@ import { AboutStatisticsComponent } from './components/statistics/about-statisti
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
 import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
-import { TopObserversComponent } from './components/user-statistics/top-observers/top-observers.component';
-import { PhotographyLeagueComponent } from './components/user-statistics/photography-league/photography-league.component';
 import { SearchTaxonComponent } from './components/search/search-taxon/search-taxon.component';
+import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
+import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 
 /*
 
@@ -589,10 +589,10 @@ const sightingsRoutes: Routes = [
     },
     children: [
       {
-        path: 'top-observers',
-        component: TopObserversComponent,
+        path: 'sightings-count-per-user',
+        component: UserCountSightingsComponent,
         data: {
-          text: 'Toppobservatører',
+          text: 'Antall observasjoner per bruker',
           title: 'menu.menu_statistics_userStatistics_topObservers',
           id: 'top-observers',
           layout: 'spa',
@@ -605,12 +605,12 @@ const sightingsRoutes: Routes = [
         }
       },
       {
-        path: 'photography-league',
-        component: PhotographyLeagueComponent,
+        path: 'media-count-per-user',
+        component: UserCountPicturesComponent,
         data: {
-          text: 'Fotograferingsliga',
-          title: 'menu.menu_statistics_userStatistics_photographyLeague',
-          id: 'photography-league',
+          text: 'Antall bilder per bruker',
+          title: 'menu.menu_statistics_userStatistics_topPhotographers',
+          id: 'top-photographers',
           layout: 'spa',
           rank: 'secondary',
           parent: 'statistics',

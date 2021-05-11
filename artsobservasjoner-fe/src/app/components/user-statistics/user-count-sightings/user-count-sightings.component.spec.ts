@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopObserversComponent } from './top-observers.component';
+import { UserCountSightingsComponent } from './user-count-sightings.component';
 
-describe('TopObserversComponent', () => {
-  let component: TopObserversComponent;
-  let fixture: ComponentFixture<TopObserversComponent>;
+describe('UserCountSightingsComponent', () => {
+  let component: UserCountSightingsComponent;
+  let fixture: ComponentFixture<UserCountSightingsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopObserversComponent ]
+      declarations: [ UserCountSightingsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopObserversComponent);
+    fixture = TestBed.createComponent(UserCountSightingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
