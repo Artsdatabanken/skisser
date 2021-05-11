@@ -58,3 +58,99 @@
     font-weight: 300;
     margin-top: -45px;
 }
+
+// pagination
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__button {
+        @include customVar(background-color, clrWhite);
+        @include customVar(border-color, clrBlack);
+        @include customVar(font-family, fontPrimary);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 50px;
+        font-size: 30px;
+        font-weight: 700;
+        height: 50px;
+        margin: 0 10px;
+        text-align: center;
+        width: 50px;
+
+        &--first {
+            background-image: url(../images/iconDoubleChevronLeft.png);
+        }
+
+        &--prev {
+            background-image: url(../images/iconChevronLeft.png);
+            background-size: 8px;
+        }
+
+        &--next {
+            background-image: url(../images/iconChevronRight.png);
+            background-size: 8px;
+        }
+
+        &--last {
+            background-image: url(../images/iconDoubleChevronRight.png);
+        }
+
+        &:hover {
+            @include customVar(background-color, clrAccent);
+            @include customVar(border-color, clrAccent);
+            cursor: pointer;
+        }
+
+        &:disabled {
+            @include customVar(background-color, clrWash);
+            cursor: initial;
+            opacity: 0.5;
+
+            &:hover {
+                @include customVar(border-color, clrWash);
+            }
+        }
+    }
+
+    input {
+        @extend button;
+        @include customVar(border-color, clrBlack);
+        @include customVar(background-color, clrShadow);
+        font-size: 20px;
+        height: 46px;
+        margin: 0 10px;
+        padding: 1px 0 0 30px;
+        text-align: left;
+        width: 100px;
+    }
+
+    &__item {
+        @include customVar(border-color, clrBlack);
+        @include customVar(font-family, fontSecondary);
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 700;
+        height: 50px;
+        line-height: 48px;
+        margin: 0 10px;
+        text-align: center;
+        width: 50px;
+    }
+}
+
+// tags
+
+.tag {
+    @include customVar(color, clrBlack);
+    @include customVar(font-family, fontAccent);
+    font-size: 12px;
+    font-weight: 600;
+}

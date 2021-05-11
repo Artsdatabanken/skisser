@@ -49,7 +49,8 @@
         "filter": "Filter by",
         "select_speciesGroups": "All species groups",
         "select_years": "All years",
-        "select_area": "All areas"
+        "select_area": "All areas",
+        "synonyms": "Synonym(s)"
     },
     "headings": {},
     "account": {

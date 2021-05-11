@@ -1,1 +1,23 @@
-<p>taxon-search works!</p>
+<!--shareable non dummy component-->
+
+<div class="search-box">
+
+    <br><br>
+
+    Taxon: {{ taxon }}
+
+    <input class="search-box__input" [(ngModel)]="taxon" (keyup)="getTaxon($event.target.value)"
+        placeholder="Søk takson">
+
+    <div class="search-box__field" *ngIf="taxons$ | async as taxons">
+        <div *ngFor="let taxon of taxons">
+            <div><i>{{ taxon.scientificName.name }}</i></div>
+            <div>{{ taxon.vernacularName.name | lowercase }}</div>
+            <br>
+        </div>
+    </div>
+
+</div>
+
+
+<!--shareable non dummy component-->

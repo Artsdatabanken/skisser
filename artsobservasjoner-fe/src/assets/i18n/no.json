@@ -49,7 +49,8 @@
         "filter": "Filtrer",
         "select_speciesGroups": "Alle artsgrupper",
         "select_years": "Alle år",
-        "select_area": "Hele Norge"
+        "select_area": "Hele Norge",
+        "synonyms": "Synonym(er)"
     },
     "headings": {},
     "account": {

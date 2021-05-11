@@ -25,6 +25,7 @@ export class SearchService {
     onlyReportable?: boolean
   ): Observable<Taxon[]> {
 
+    //const api: string = this.createApiUrl(this.taxonSearchApi, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
     const api: string = this.createApiUrl(this.taxonSearchApi, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
 
     return this.httpClient.get(api).pipe(
@@ -38,19 +39,28 @@ export class SearchService {
         let scientificName: TaxonName | null;
         let vernacularName: TaxonName | null;
 
-        let scientificNameSynonym: TaxonName | null;
-        let scientificNameSynonyms: TaxonName[] = [];
+        // let scientificNameSynonym: TaxonName | null;
+        // let scientificNameSynonyms: TaxonName[] = [];
 
-        let vernacularNameSynonym: TaxonName | null;
-        let vernacularNameSynonyms: TaxonName[] = [];
+        // let vernacularNameSynonym: TaxonName | null;
+        // let vernacularNameSynonyms: TaxonName[] = [];
 
         response.forEach(element => {
 
+          let scientificNameSynonym: TaxonName | null;
+          let scientificNameSynonyms: TaxonName[] = [];
+  
+          let vernacularNameSynonym: TaxonName | null;
+          let vernacularNameSynonyms: TaxonName[] = [];
+
           //--------------------***
+          //console.log('scientificNameSynonyms', element['scientificNameSynonyms'])
 
           if (element['scientificNameSynonyms']) {
 
             element['scientificNameSynonyms'].forEach(element => {
+
+            
 
               scientificNameSynonym = {
                 name: element.name,
@@ -129,7 +139,7 @@ export class SearchService {
         });
 
 
-        console.log('taxons', taxons);
+        //console.log('taxons', taxons);
 
 
         return taxons;

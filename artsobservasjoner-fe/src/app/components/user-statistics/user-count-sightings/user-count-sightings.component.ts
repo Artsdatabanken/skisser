@@ -3,6 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { AreasService } from 'src/app/services/areas.service';
+import { CoreService } from 'src/app/services/core.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
@@ -27,19 +28,22 @@ export class UserCountSightingsComponent implements OnInit {
   position: number;
   speciesGroups$: Observable<Category[]>;
   years: number[];
-  counties: string[];
+  counties$: Observable<any>;
+  municipalities$: Observable<object[]>;
 
   selectedYear: number | null = null;
   selectedSpeciesGroup: number | null = null;
   selectedTaxon: number | null = null;
-  selectedArea: number | null = null;
+  selectedCounty: number | null = null;
+  selectedMunicipality: number | null = null;
+  selectedArea: number;
 
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
     private speciesService: SpeciesService,
     private utilitiesService: UtilitiesService,
-    private areasService: AreasService,
+    private coreService: CoreService,
     private userStatisticsService: UserStatisticsService
   ) {
     this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_topObservers');
@@ -50,7 +54,7 @@ export class UserCountSightingsComponent implements OnInit {
 
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.years = this.utilitiesService.generateYears();
-    this.counties = this.areasService.generateCounties();
+    this.counties$ = this.coreService.getCounties();
     this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
@@ -65,17 +69,30 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   onYearSelection(event: Event): void {
-    console.log('selected year', event)
     this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
-  onAreaSelection(event: Event): void {
-    console.log('selected area', event)
-   }
+  onCountySelection(event: Event): void {
+    this.selectedArea = this.selectedCounty;
+    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+  }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
-
-   return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
-
+    return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
   }
+
+  onMunicipalitySelection(event: number): void {  
+    console.log('sfkjjgdsfjhgsdjhdfs', event)
+    this.selectedArea = this.selectedMunicipality;
+    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, null);
+  }
+
+  getUsersStatistics(): void {
+      this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+  }
+
+  getMunicipality(event: any): void {
+    this.municipalities$ = this.coreService.getMunicipality(event);
+  }
+
 }

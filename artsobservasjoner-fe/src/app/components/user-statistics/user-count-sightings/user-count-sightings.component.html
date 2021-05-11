@@ -48,17 +48,17 @@
 
             </div>
 
-            <div class="filter">
+            <div class="filter" *ngIf="counties$ | async as counties">
 
-                <select name="countiesSelector" id="counties" [(ngModel)]="selectedArea"
-                    (ngModelChange)="onAreaSelection($event)">
+                <select name="countiesSelector" id="counties" [(ngModel)]="selectedCounty"
+                    (ngModelChange)="onCountySelection($event)">
 
                     <option [ngValue]="null">
                         {{ 'shared.select_area' | translate }}
                     </option>
 
-                    <option [value]="area" *ngFor="let area of counties">
-                        {{ area }}
+                    <option [value]="county.id" *ngFor="let county of counties">
+                        {{ county.name }}
                     </option>
 
                 </select>
@@ -66,20 +66,35 @@
             </div>
 
             <div class="filter">
+                <input class="search-box__input" placeholder="Søk takson">
+            </div>
 
-                <select name="" id="municipalities">
-                    <option value="All">Alle kommuner</option>
-                    <option value="">Trøndelag</option>
-                    <option value="">Nordland</option>
-                    <option value="">Rogaland</option>
-                    <option value="">...</option>
-                </select>
+            <div class="filter">
+
+                <div class="search-box">
+
+                    <input class="search-box__input" [(ngModel)]="selectedMunicipality"
+                        (keyup)="getMunicipality($event)" placeholder="Søk kommune">
+
+                    <div class="search-box__field" *ngIf="municipalities$ | async as municipalities">
+                        <div class="search-box__stripe" *ngFor="let municipality of municipalities"
+                            (click)="onMunicipalitySelection(municipality.id)">
+                            {{ municipality.name }}
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-        <h3 style="color: green; margin: 25px 0 0">Selected {{ selectedSpeciesGroup }} / {{ selectedYear }} / {{ selectedArea }} </h3>
+        <h5 style="color: green; margin: 25px 0 0">Selected: <br>
+            artsgruppe {{ selectedSpeciesGroup }} <br>
+            år {{ selectedYear }} <br>
+            fylke {{ selectedCounty }} <br>
+            kommune {{ selectedMunicipality }} <br>
+        </h5>
 
         <div *ngIf="userStatistics$ | async as userStatistics">
 

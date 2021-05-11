@@ -1,17 +1,84 @@
 <p>search-taxon works!</p>
 
-<input [(ngModel)]="taxon" (keyup)="getTaxon($event.target.value)" placeholder="Søk takson">
+<div class="search-box">
 
-<br><br>
+    <br><br>
 
-Taxon: {{ taxon }}
+    Taxon: {{ taxon }}
 
-<br><br>
+    <br><br>
 
-<div *ngIf="taxons$ | async as taxons">
-    <div *ngFor="let taxon of taxons">
-        <div>{{taxon.scientificName.name}}</div>
-        <div>{{taxon.vernacularName.name}}</div>
-        <br>
+    <input class="search-box__input" [(ngModel)]="taxon" (keyup)="getTaxon($event.target.value)"
+        placeholder="Søk takson">
+
+    <div class="search-box__field" *ngIf="taxons$ | async as taxons">
+        <div class="search-box__stripe" *ngFor="let taxon of taxons">
+
+            <h2>
+                <i>{{ taxon.scientificName.name }}</i>
+                <small *ngIf="taxon.scientificName.author" style="text-transform: uppercase;">
+                    {{ taxon.scientificName.author }}
+                </small>
+            </h2>
+            <h3>
+                {{ taxon.vernacularName.name | lowercase }}
+                <small *ngIf="taxon.vernacularName.author" style="text-transform: uppercase;">
+                    {{ taxon.vernacularName.author }}
+                </small>
+            </h3>
+
+            <div class="search-box__details">
+
+                <div *ngIf="taxon.scientificNameSynonyms.length > 0">
+
+                    <span class="tag">{{ 'shared.synonyms' | translate }}</span>
+
+                    <div *ngFor="let synonym of taxon.scientificNameSynonyms">
+                        <small> {{ synonym.name }}</small>
+                    </div>
+
+                    <br>
+                </div>
+
+                <div *ngIf="taxon.vernacularNameSynonyms.length > 0">
+
+                    <span class="tag">{{ 'shared.synonyms' | translate }}</span>
+
+                    <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
+                        <small> {{ synonym.name }}</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
+
+</div>
+
+
+
+<div class="search-box">
+
+    <br><br>
+
+    Municipality: {{ municipality }}
+
+    <br><br>
+
+    <input class="search-box__input" [(ngModel)]="municipality" (keyup)="getMunicipality($event.target.value)"
+        placeholder="Søk kommune">
+
+    <div class="search-box__field" *ngIf="municipalities$ | async as municipalities">
+        <div class="search-box__stripe" *ngFor="let municipality of municipalities">
+
+
+            <div class="search-box__details">
+                {{ municipality.name }}
+            </div>
+
+        </div>
+    </div>
+
 </div>

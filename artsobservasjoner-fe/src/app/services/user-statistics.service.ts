@@ -29,7 +29,8 @@ export class UserStatisticsService {
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
-        console.log('response observers', response)
+        //console.log('response observers', response)
+        console.log('areaId', areaId)
 
         let userStatisticsObject: UserStatistics;
 

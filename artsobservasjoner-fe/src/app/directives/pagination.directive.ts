@@ -24,8 +24,6 @@ export class PaginationDirective {
 
   ngOnChanges({ pageNumber, totalPages }: SimpleChanges) {
 
-    console.log('on changes totalPages', this.totalPages);
-
     // needs to be checked before pageNumber
     if (totalPages) {
       this.onTotalPagesInput();

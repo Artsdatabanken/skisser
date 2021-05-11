@@ -295,10 +295,6 @@
 
 // league / awards / user statistics
 
-.league {
-    background-color: #edf9f7;
-}
-
 .badge {
     @include customVar(font-family, fontSecondary);
     @include customVar(font-family, fontSecondary);
@@ -307,44 +303,6 @@
     font-weight: 600;
     margin: 0;
     text-align: center;
-    //width: 50px;
-
-    &--top {
-        // @include customVar(color, clrBlack);
-        // // background-color: transparent;
-        // // background-image: url(../images/iconMedal.png);
-        // // background-position: center center;
-        // // background-repeat: no-repeat;
-        // // background-size: contain;
-        // border: none;
-        // border-radius: 0;
-        // // font-size: 19px;
-        // font-weight: 800;
-        // // height: 65px;
-        // // line-height: 83px;
-        // margin: 0 auto;
-        // text-align: center;
-        // width: 50px;
-
-    }
-
-    &--top10 {
-        // @include customVar(color, clrBlack);
-        // background-color: transparent;
-        // // background-image: url(../images/iconAward.png);
-        // // background-position: center center;
-        // // background-repeat: no-repeat;
-        // // background-size: contain;
-        // border: none;
-        // border-radius: 0;
-        // // font-size: 16px;
-        // // font-weight: 700;
-        // // height: 50px;
-        // // line-height: 42px;
-        // margin: 0 auto;
-        // text-align: center;
-        // width: 42px;
-    }
 }
 
 .stripe {
@@ -670,90 +628,3 @@
     // }
 }
 
-// pagination
-
-.pagination {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    &__button {
-        @include customVar(background-color, clrWhite);
-        @include customVar(border-color, clrBlack);
-        @include customVar(font-family, fontPrimary);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 25px;
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 50px;
-        font-size: 30px;
-        font-weight: 700;
-        height: 50px;
-        margin: 0 10px;
-        padding: 0 0 5px;
-        text-align: center;
-        width: 50px;
-
-        &--first {
-            background-image: url(../images/iconDoubleChevronLeft.png);
-        }
-
-        &--prev {
-            background-image: url(../images/iconChevronLeft.png);
-            background-size: 8px;
-        }
-
-        &--next {
-            background-image: url(../images/iconChevronRight.png);
-            background-size: 8px;
-        }
-
-        &--last {
-            background-image: url(../images/iconDoubleChevronRight.png);
-        }
-
-        &:hover {
-            @include customVar(background-color, clrAccent);
-            @include customVar(border-color, clrAccent);
-            cursor: pointer;
-        }
-
-        &:disabled {
-            @include customVar(background-color, clrWash);
-            cursor: initial;
-            opacity: 0.5;
-
-            &:hover {
-                @include customVar(border-color, clrWash);
-            }
-        }
-    }
-
-    input {
-        @extend button;
-        @include customVar(border-color, clrBlack);
-        @include customVar(background-color, clrShadow);
-        font-size: 20px;
-        height: 50px;
-        padding: 0 0 0 30px;
-        text-align: left;
-        width: auto;
-    }
-
-    &__item {
-        @include customVar(border-color, clrBlack);
-        @include customVar(font-family, fontSecondary);
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 50px;
-        font-size: 18px;
-        font-weight: 700;
-        height: 50px;
-        line-height: 48px;
-        margin: 0 10px;
-        //padding: 10px;
-        text-align: center;
-        width: 50px;
-    }
-}
