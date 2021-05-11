@@ -53,6 +53,7 @@ import { CompareSightingsComponent } from './components/sightings-data/compare-s
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
 import { TopObserversComponent } from './components/user-statistics/top-observers/top-observers.component';
 import { PhotographyLeagueComponent } from './components/user-statistics/photography-league/photography-league.component';
+import { SearchTaxonComponent } from './components/search/search-taxon/search-taxon.component';
 
 /*
 
@@ -1059,6 +1060,21 @@ const testRoutes: Routes = [  // for testing purposes
       parent: '',
       menu: '',
       metatitle: 'Test',
+      metaDescription: '',
+      hidden: false
+    }
+  },  
+  {
+    path: 'search-taxon',
+    component: SearchTaxonComponent,
+    data: {
+      text: 'Søk takson',
+      id: '',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metatitle: '',
       metaDescription: '',
       hidden: false
     }

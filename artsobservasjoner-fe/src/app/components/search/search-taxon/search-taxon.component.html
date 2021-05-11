@@ -1,0 +1,17 @@
+<p>search-taxon works!</p>
+
+<input [(ngModel)]="taxon" (keyup)="getTaxon($event.target.value)" placeholder="Søk takson">
+
+<br><br>
+
+Taxon: {{ taxon }}
+
+<br><br>
+
+<div *ngIf="taxons$ | async as taxons">
+    <div *ngFor="let taxon of taxons">
+        <div>{{taxon.scientificName.name}}</div>
+        <div>{{taxon.vernacularName.name}}</div>
+        <br>
+    </div>
+</div>

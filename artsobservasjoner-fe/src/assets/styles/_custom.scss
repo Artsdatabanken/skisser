@@ -301,56 +301,56 @@
 
 .badge {
     @include customVar(font-family, fontSecondary);
-    @include customVar(font-family, fontPrimary);
+    @include customVar(font-family, fontSecondary);
     display: block;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 600;
     margin: 0;
     text-align: center;
-    width: 50px;
+    //width: 50px;
 
     &--top {
-        @include customVar(color, clrWhite);
-        @include customVar(color, clrBlack);
-        background-color: transparent;
-        background-image: url(../images/iconMedal.png);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        border: none;
-        border-radius: 0;
-        font-size: 19px;
-        font-weight: 800;
-        height: 65px;
-        line-height: 83px;
-        margin: 0 auto;
-        text-align: center;
-        width: 50px;
+        // @include customVar(color, clrBlack);
+        // // background-color: transparent;
+        // // background-image: url(../images/iconMedal.png);
+        // // background-position: center center;
+        // // background-repeat: no-repeat;
+        // // background-size: contain;
+        // border: none;
+        // border-radius: 0;
+        // // font-size: 19px;
+        // font-weight: 800;
+        // // height: 65px;
+        // // line-height: 83px;
+        // margin: 0 auto;
+        // text-align: center;
+        // width: 50px;
+
     }
 
     &--top10 {
-        @include customVar(color, clrBlack);
-        background-color: transparent;
-        background-image: url(../images/iconAward.png);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        border: none;
-        border-radius: 0;
-        font-size: 16px;
-        font-weight: 700;
-        height: 50px;
-        line-height: 42px;
-        margin: 0 auto;
-        text-align: center;
-        width: 42px;
+        // @include customVar(color, clrBlack);
+        // background-color: transparent;
+        // // background-image: url(../images/iconAward.png);
+        // // background-position: center center;
+        // // background-repeat: no-repeat;
+        // // background-size: contain;
+        // border: none;
+        // border-radius: 0;
+        // // font-size: 16px;
+        // // font-weight: 700;
+        // // height: 50px;
+        // // line-height: 42px;
+        // margin: 0 auto;
+        // text-align: center;
+        // width: 42px;
     }
 }
 
 .stripe {
     @include customVar(background-color, clrWash2);
     display: grid;
-    grid-template-columns: 100px auto 100px;
+    grid-template-columns: 120px auto 100px;
     font-size: 18px;
     margin: 0 auto 3px;
     max-width: 65%;

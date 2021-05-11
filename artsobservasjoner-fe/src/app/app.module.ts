@@ -121,6 +121,7 @@ import { CompareSightingsComponent } from './components/sightings-data/compare-s
 import { PhotographyLeagueComponent } from './components/user-statistics/photography-league/photography-league.component';
 import { TopObserversComponent } from './components/user-statistics/top-observers/top-observers.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
+import { SearchTaxonComponent } from './components/search/search-taxon/search-taxon.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -235,7 +236,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ExploreSightingsComponent,
     AboutStatisticsComponent,
     SearchSightingsComponent,
-    CompareSightingsComponent
+    CompareSightingsComponent,
+    SearchTaxonComponent
   ],
   imports: [
     BrowserModule,

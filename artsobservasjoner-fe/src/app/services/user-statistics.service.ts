@@ -29,7 +29,7 @@ export class UserStatisticsService {
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
-        console.log('response', response)
+        console.log('response observers', response)
 
         let userStatisticsObject: UserStatistics;
 
@@ -40,7 +40,7 @@ export class UserStatisticsService {
 
           topObserver = {
             id: element.userId,
-            name: element.userName,
+            name: element.userName.replace(/ *\[[^\]]*]/g, '').replace(/ *\([^)]*\) */g, ""),
             city: element.city,
             sightingsCount: element.count
           };
@@ -134,12 +134,12 @@ export class UserStatisticsService {
     let api: string;
     let params: URLSearchParams = new URLSearchParams();
 
-    console.log('params XXX', yearParam);
-    console.log('params XXX', speciesGroupParam);
-    console.log('params XXX', taxonParam);
-    console.log('params XXX', areaParam);
-    console.log('params XXX', pageNumberParam);
-    console.log('params XXX', pageSizeParam);
+    // console.log('params XXX', yearParam);
+    // console.log('params XXX', speciesGroupParam);
+    // console.log('params XXX', taxonParam);
+    // console.log('params XXX', areaParam);
+    // console.log('params XXX', pageNumberParam);
+    // console.log('params XXX', pageSizeParam);
 
     if (yearParam) params.append('Year', yearParam.toString());
     if (speciesGroupParam) params.append('SpeciesGroupId', speciesGroupParam.toString());
