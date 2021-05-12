@@ -1,6 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Category } from 'src/app/models/shared';
+import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { AreasService } from 'src/app/services/areas.service';
 import { CoreService } from 'src/app/services/core.service';
@@ -28,14 +29,12 @@ export class UserCountSightingsComponent implements OnInit {
   position: number;
   speciesGroups$: Observable<Category[]>;
   years: number[];
-  counties$: Observable<any>;
-  municipalities$: Observable<object[]>;
+  areas$: Observable<Area[]>;
+  areaType: typeof AREA_TYPE = AREA_TYPE;
 
   selectedYear: number | null = null;
   selectedSpeciesGroup: number | null = null;
   selectedTaxon: number | null = null;
-  selectedCounty: number | null = null;
-  selectedMunicipality: number | null = null;
   selectedArea: number;
 
   constructor(
@@ -54,7 +53,6 @@ export class UserCountSightingsComponent implements OnInit {
 
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.years = this.utilitiesService.generateYears();
-    this.counties$ = this.coreService.getCounties();
     this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
@@ -72,27 +70,21 @@ export class UserCountSightingsComponent implements OnInit {
     this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
-  onCountySelection(event: Event): void {
-    this.selectedArea = this.selectedCounty;
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+  onAreaSelection(event: number): void {  
+    console.log('valgte område')
+    console.log('ON AREA SELECTION', event)
+    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, event);
+  }
+
+  getArea(event: any): void {
+    console.log('get area', event);
+    if (event.length > 0) {
+      this.areas$ = this.coreService.getArea(event);
+    }
   }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
     return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
-  }
-
-  onMunicipalitySelection(event: number): void {  
-    console.log('sfkjjgdsfjhgsdjhdfs', event)
-    this.selectedArea = this.selectedMunicipality;
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, null);
-  }
-
-  getUsersStatistics(): void {
-      this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
-  }
-
-  getMunicipality(event: any): void {
-    this.municipalities$ = this.coreService.getMunicipality(event);
   }
 
 }

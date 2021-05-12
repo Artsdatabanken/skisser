@@ -48,7 +48,7 @@
 
             </div>
 
-            <div class="filter" *ngIf="counties$ | async as counties">
+            <!-- <div class="filter" *ngIf="counties$ | async as counties">
 
                 <select name="countiesSelector" id="counties" [(ngModel)]="selectedCounty"
                     (ngModelChange)="onCountySelection($event)">
@@ -63,23 +63,26 @@
 
                 </select>
 
-            </div>
+            </div> -->
 
             <div class="filter">
-                <input class="search-box__input" placeholder="Søk takson">
-            </div>
-
-            <div class="filter">
-
                 <div class="search-box">
 
-                    <input class="search-box__input" [(ngModel)]="selectedMunicipality"
-                        (keyup)="getMunicipality($event)" placeholder="Søk kommune">
+                    <input class="search-box__input" [(ngModel)]="selectedArea" (keyup)="getArea($event.target.value)"
+                        placeholder="Søk område">
 
-                    <div class="search-box__field" *ngIf="municipalities$ | async as municipalities">
-                        <div class="search-box__stripe" *ngFor="let municipality of municipalities"
-                            (click)="onMunicipalitySelection(municipality.id)">
-                            {{ municipality.name }}
+                    <div class="search-box__field" *ngIf="areas$ | async as areas">
+                        <div class="search-box__stripe" *ngFor="let area of areas">
+
+                            <div class="search-box__details" (click)="onAreaSelection(area.id)">
+                                {{ area.name }}  {{ area.id }}
+                                <ng-container *ngIf="area.name == 'Oslo'">
+                                    <small *ngIf="area.type == areaType.county">
+                                        ({{ 'shared.area_county' | translate | lowercase }})
+                                    </small>
+                                </ng-container>
+                            </div>
+
                         </div>
                     </div>
 
@@ -87,13 +90,16 @@
 
             </div>
 
+            <div class="filter">
+                <input class="search-box__input" placeholder="Søk takson">
+            </div>
+
         </div>
 
         <h5 style="color: green; margin: 25px 0 0">Selected: <br>
             artsgruppe {{ selectedSpeciesGroup }} <br>
             år {{ selectedYear }} <br>
-            fylke {{ selectedCounty }} <br>
-            kommune {{ selectedMunicipality }} <br>
+            område {{ selectedArea }} <br>
         </h5>
 
         <div *ngIf="userStatistics$ | async as userStatistics">

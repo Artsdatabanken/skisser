@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Area } from '../models/shared';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,38 @@ import { map, shareReplay } from 'rxjs/operators';
 
 export class CoreService {
 
+  areaApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/Search?search=';
   countiesApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Name/County';
   municipalitySearchApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Name/Municipality/';
 
   constructor(private http: HttpClient) { }
+
+  getArea(searchString: string): Observable<Area[]> {
+    return this.http.get(this.areaApi + searchString).pipe(
+      map((response: any) => {
+
+        let area: Area;
+        let areas: Area[] = [];
+
+        response.forEach(element => {
+
+          area = {
+            id: element.id,
+            name: element.name,
+            type: element.areaDataset
+          }
+
+          areas.push(area);
+
+        });
+
+        return areas.sort((a, b) => a.name.localeCompare(b.name));
+
+      }),
+      shareReplay()
+    );
+
+  }
 
   getCounties(): Observable<object[]> {
 

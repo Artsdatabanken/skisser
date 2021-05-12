@@ -138,7 +138,7 @@ export class UserStatisticsService {
     // console.log('params XXX', yearParam);
     // console.log('params XXX', speciesGroupParam);
     // console.log('params XXX', taxonParam);
-    // console.log('params XXX', areaParam);
+    console.log('params XXX', areaParam);
     // console.log('params XXX', pageNumberParam);
     // console.log('params XXX', pageSizeParam);
 
@@ -150,6 +150,8 @@ export class UserStatisticsService {
     if (pageSizeParam) params.append('PageSize', pageSizeParam.toString());
 
     api = baseUrl + params.toString();
+
+    console.log('api', api)
 
     return api;
 

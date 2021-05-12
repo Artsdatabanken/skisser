@@ -4,16 +4,14 @@ import { map, publishReplay, refCount, shareReplay, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { UtilitiesService } from './utilities.service';
-import { Category, OLD_COUNTIES } from '../models/shared';
+import { Category } from '../models/shared';
 
 
 import {
   AssessmentCategory,
   AssessedSpeciesItem,
   ValidatedDataItem,
-  StatisticsItem,
   TotalCountStatistic,
-  ImageStatisticsItem,
   TOTAL_COUNT_STATISTICS,
   ASSESSMENT_CATEGORY_TYPES,
   AssessedSpeciesItemStats,
@@ -21,6 +19,7 @@ import {
   SIGHTINGS_PER_YEAR,
   VALIDATION_STATUS
 } from '../models/statistics';
+
 import { SpeciesService } from './species.service';
 
 
@@ -34,10 +33,6 @@ export class StatisticsService {
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
-
-  // JSON
-
-  counties: typeof OLD_COUNTIES = OLD_COUNTIES;
 
   // API
 

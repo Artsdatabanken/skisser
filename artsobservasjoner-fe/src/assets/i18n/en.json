@@ -50,7 +50,11 @@
         "select_speciesGroups": "All species groups",
         "select_years": "All years",
         "select_area": "All areas",
-        "synonyms": "Synonym(s)"
+        "synonyms": "Synonym(s)",
+        "area_county": "County",
+        "area_municipality": "Municipality",
+        "area_protected": "Protected area",
+        "searchHits": "Hits"
     },
     "headings": {},
     "account": {

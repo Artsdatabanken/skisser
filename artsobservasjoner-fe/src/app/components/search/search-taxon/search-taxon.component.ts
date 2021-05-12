@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AREA_TYPE } from 'src/app/models/shared';
 import { Taxon } from 'src/app/models/taxon';
 import { CoreService } from 'src/app/services/core.service';
 import { SearchService } from 'src/app/services/search.service';
@@ -14,8 +15,9 @@ export class SearchTaxonComponent implements OnInit {
 
   taxons$: Observable<Taxon[]>;
   taxon: string | null = null;
-  municipalities$: Observable<object[]>;
-  municipality: string | null = null;
+  areas$: Observable<object[]>;
+  area: string | null = null;
+  areaType: typeof AREA_TYPE = AREA_TYPE;
 
   constructor(
     private searchService: SearchService,
@@ -33,11 +35,11 @@ export class SearchTaxonComponent implements OnInit {
     }
   }
 
-  getMunicipality(event: any): void {
+  getArea(event: any): void {
     console.log('input', event);
-    // if (event.length > 2) {
-      this.municipalities$ = this.coreService.getMunicipality(event);
-    //}
+    if (event.length > 0) {
+      this.areas$ = this.coreService.getArea(event);
+    }
   }
 
 }

@@ -50,7 +50,11 @@
         "select_speciesGroups": "Alle artsgrupper",
         "select_years": "Alle år",
         "select_area": "Hele Norge",
-        "synonyms": "Synonym(er)"
+        "synonyms": "Synonym(er)",
+        "area_county": "Fylke",
+        "area_municipality": "Kommune",
+        "area_protected": "Verneområde",
+        "searchHits": "Treff"
     },
     "headings": {},
     "account": {

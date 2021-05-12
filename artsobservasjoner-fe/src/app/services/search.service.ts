@@ -141,6 +141,7 @@ export class SearchService {
 
         //console.log('taxons', taxons);
 
+        //taxons = taxons.sort((a, b) => a.scientificName.name.localeCompare(b.scientificName.name));
 
         return taxons;
 
