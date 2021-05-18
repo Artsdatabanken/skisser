@@ -78,7 +78,7 @@ export class UserCountSightingsComponent implements OnInit {
       byTaxon: taxonFilter,
       byArea: areaFilter
     }
-    
+
   }
 
   onPaginationClick(event: number): void {
@@ -90,6 +90,7 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   onYearSelection(event: Event): void {
+    this.updateFilter();
     //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
