@@ -1,9 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
-import { AreasService } from 'src/app/services/areas.service';
 import { CoreService } from 'src/app/services/core.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesService } from 'src/app/services/species.service';
@@ -12,6 +10,13 @@ import { UserStatisticsService } from 'src/app/services/user-statistics.service'
 import { UtilitiesService } from 'src/app/services/utilities.service';
 
 const PAGE_SIZE: number = 20;
+
+export interface Filter {
+  bySpeciesGroup?: number;
+  byYear?: number;
+  byTaxon?: number;
+  byArea?: number;
+}
 
 @Component({
   selector: 'app-user-count-sightings',
@@ -37,11 +42,7 @@ export class UserCountSightingsComponent implements OnInit {
   selectedTaxon: number | null = null;
   selectedArea: number;
 
-  filter: object = {
-    selectedSpeciesGroup: null, 
-    selectedYear: null, 
-    selectedArea: null
-  };
+  filter: Filter;
 
   constructor(
     private layoutService: LayoutService,
@@ -64,9 +65,21 @@ export class UserCountSightingsComponent implements OnInit {
 
   }
 
-  // updateFilter(): void {
-  //   this.filter = {}
-  // }
+  updateFilter(
+    speciesGroupFilter?: number,
+    yearFilter?: number,
+    taxonFilter?: number,
+    areaFilter?: number
+  ): void {
+
+    this.filter = {
+      bySpeciesGroup: speciesGroupFilter,
+      byYear: yearFilter,
+      byTaxon: taxonFilter,
+      byArea: areaFilter
+    }
+    
+  }
 
   onPaginationClick(event: number): void {
     this.userStatistics$ = this.userStatisticsService.getTopObservers(event, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
@@ -80,7 +93,7 @@ export class UserCountSightingsComponent implements OnInit {
     //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
-  onAreaSelection(event: number): void {  
+  onAreaSelection(event: number): void {
     console.log('ON AREA SELECTION', event)
     //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, event);
   }
