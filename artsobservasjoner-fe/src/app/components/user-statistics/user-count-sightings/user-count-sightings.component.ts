@@ -37,6 +37,12 @@ export class UserCountSightingsComponent implements OnInit {
   selectedTaxon: number | null = null;
   selectedArea: number;
 
+  filter: object = {
+    selectedSpeciesGroup: null, 
+    selectedYear: null, 
+    selectedArea: null
+  };
+
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
@@ -58,26 +64,29 @@ export class UserCountSightingsComponent implements OnInit {
 
   }
 
-  onPageChange(event: number): void {
+  // updateFilter(): void {
+  //   this.filter = {}
+  // }
+
+  onPaginationClick(event: number): void {
     this.userStatistics$ = this.userStatisticsService.getTopObservers(event, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
   onSpeciesGroupSelection(event: Event): void {
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
   onYearSelection(event: Event): void {
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
   }
 
   onAreaSelection(event: number): void {  
-    console.log('valgte område')
     console.log('ON AREA SELECTION', event)
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, event);
+    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, event);
   }
 
   getArea(event: any): void {
-    console.log('get area', event);
+    //console.log('get area', event);
     if (event.length > 0) {
       this.areas$ = this.coreService.getArea(event);
     }

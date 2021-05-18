@@ -68,14 +68,18 @@
             <div class="filter">
                 <div class="search-box">
 
-                    <input class="search-box__input" [(ngModel)]="selectedArea" (keyup)="getArea($event.target.value)"
-                        placeholder="Søk område">
+                    <!-- <input class="search-box__input" [(ngModel)]="selectedArea" (keyup)="getArea($event.target.value)"
+                        placeholder="Søk område"> -->
+
+                    <input class="search-box__input" #area (keyup)="getArea(area.value)" placeholder="Søk område">
+
+                    {{ area.value }}
 
                     <div class="search-box__field" *ngIf="areas$ | async as areas">
                         <div class="search-box__stripe" *ngFor="let area of areas">
 
                             <div class="search-box__details" (click)="onAreaSelection(area.id)">
-                                {{ area.name }}  {{ area.id }}
+                                {{ area.name }} {{ area.id }}
                                 <ng-container *ngIf="area.name == 'Oslo'">
                                     <small *ngIf="area.type == areaType.county">
                                         ({{ 'shared.area_county' | translate | lowercase }})
@@ -88,10 +92,6 @@
 
                 </div>
 
-            </div>
-
-            <div class="filter">
-                <input class="search-box__input" placeholder="Søk takson">
             </div>
 
         </div>
@@ -139,7 +139,7 @@
         <br><br><br><br>
 
         <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
-            (switchedPage)="onPageChange($event)"></app-pagination>
+            (switchedPage)="onPaginationClick($event)"></app-pagination>
 
 
         <br>

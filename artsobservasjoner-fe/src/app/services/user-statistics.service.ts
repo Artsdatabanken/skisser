@@ -22,15 +22,15 @@ export class UserStatisticsService {
     taxonId?: number,
     areaId?: number): Observable<UserStatistics> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/ObserverSpeciesCount?';
+    console.log('areaId', areaId)
 
+    const baseUrl: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/ObserverSpeciesCount?';
     const api: string = this.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
         //console.log('response observers', response)
-        console.log('areaId', areaId)
 
         let userStatisticsObject: UserStatistics;
 
@@ -59,7 +59,8 @@ export class UserStatisticsService {
 
         this.totalPages$.next(Math.ceil(response.totalCount / pageSize));
 
-        console.log('userStatisticsObject', userStatisticsObject)
+        //console.log('userStatisticsObject', userStatisticsObject)
+
         return userStatisticsObject;
 
       }),
@@ -138,7 +139,7 @@ export class UserStatisticsService {
     // console.log('params XXX', yearParam);
     // console.log('params XXX', speciesGroupParam);
     // console.log('params XXX', taxonParam);
-    console.log('params XXX', areaParam);
+    console.log('params OMRÅDE', areaParam);
     // console.log('params XXX', pageNumberParam);
     // console.log('params XXX', pageSizeParam);
 
