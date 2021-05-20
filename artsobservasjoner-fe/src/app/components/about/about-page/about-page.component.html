@@ -20,9 +20,17 @@
 
         <!--ACCORDION if parent page has children in the form of attachments-->
 
-        <app-accordion *ngIf="aboutPage.content">
+        <!-- <app-accordion *ngIf="aboutPage.content">
             <app-accordion-item *ngFor="let content of aboutPage.content" [heading]="content.heading"
                 [headerId]="getAccordionHeaderId(content.id)" [panelId]="getAccordionPanelId(content.id)"
+                [shouldCloseOtherItems]="true">
+                <div [innerHtml]="content.body"></div>
+            </app-accordion-item>
+        </app-accordion> -->
+
+        <app-accordion *ngIf="aboutPage.content">
+            <app-accordion-item *ngFor="let content of aboutPage.content" [heading]="content.heading"
+                [headerId]="'accordion-header-' +content.id" [panelId]="'accordion-panel-' + content.id"
                 [shouldCloseOtherItems]="true">
                 <div [innerHtml]="content.body"></div>
             </app-accordion-item>

@@ -6,16 +6,29 @@
 
         <!--toppobservatører-->
 
-        <p> Observatører med flest observasjoner gjennom tidene. </p>
-
         <h3>{{ 'shared.filter' | translate }}</h3>
 
         <div class="loop">
 
             <div class="filter">
 
-                <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
+                <!-- <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
                     (ngModelChange)="onSpeciesGroupSelection($event)">
+
+                    <option [ngValue]="null">
+                        {{ 'shared.select_speciesGroups' | translate }}
+                    </option>
+
+                    <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
+                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                            {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                        </ng-container>
+                    </option>
+
+                </select> -->
+
+                <select name="speciesGroupsSelector" id="speciesGroups"
+                    (change)="onSpeciesGroupSelection($event.target.value)">
 
                     <option [ngValue]="null">
                         {{ 'shared.select_speciesGroups' | translate }}
@@ -34,7 +47,7 @@
             <div class="filter">
 
                 <select name="yearSelector" id="years" [(ngModel)]="selectedYear"
-                    (ngModelChange)="onYearSelection($event)">
+                    (change)="onYearSelection($event.target.value)">
 
                     <option [ngValue]="null">
                         {{ 'shared.select_years' | translate }}
@@ -48,24 +61,8 @@
 
             </div>
 
-            <!-- <div class="filter" *ngIf="counties$ | async as counties">
-
-                <select name="countiesSelector" id="counties" [(ngModel)]="selectedCounty"
-                    (ngModelChange)="onCountySelection($event)">
-
-                    <option [ngValue]="null">
-                        {{ 'shared.select_area' | translate }}
-                    </option>
-
-                    <option [value]="county.id" *ngFor="let county of counties">
-                        {{ county.name }}
-                    </option>
-
-                </select>
-
-            </div> -->
-
             <div class="filter">
+
                 <div class="search-box">
 
                     <!-- <input class="search-box__input" [(ngModel)]="selectedArea" (keyup)="getArea($event.target.value)"
@@ -96,21 +93,11 @@
 
         </div>
 
-        <h5 style="color: green; margin: 25px 0 0">Selected: <br>
+        <!-- <h5 style="color: green; margin: 25px 0 0">Selected: <br>
             artsgruppe {{ selectedSpeciesGroup }} <br>
             år {{ selectedYear }} <br>
             område {{ selectedArea }} <br>
-        </h5>
-
-        <div *ngIf="userStatistics$ | async as userStatistics">
-
-            <h3 style="color: red; margin: 0">tc: {{ userStatistics.totalCount }} &nbsp; / &nbsp;
-                <span *ngIf="totalPages$ | async as totalPages" style="color: blue">
-                    tp: {{ totalPages }}
-                </span>
-            </h3>
-
-        </div>
+        </h5> -->
 
         <br>
 
@@ -129,9 +116,20 @@
 
         <div *ngIf="userStatistics$ | async as userStatistics">
 
+            <!-- <h3 style="color: red; margin: 0">tc: {{ userStatistics.totalCount }} &nbsp; / &nbsp;
+                <span *ngIf="totalPages$ | async as totalPages" style="color: blue">
+                    tp: {{ totalPages }}
+                </span>
+            </h3> -->
+
+            <br><br><br><br><br>
+
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
+                
                 <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
-                    [topObserver]="topObserver"></app-user-stats-stripe>
+                    [topObserver]="topObserver">
+                
+                </app-user-stats-stripe>
             </ng-container>
 
         </div>

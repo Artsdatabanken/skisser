@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, publishReplay, refCount, shareReplay } from 'rxjs/operators';
 import { TopObserver, UserStatistics } from '../models/statistics';
 
 @Injectable({
@@ -21,8 +21,6 @@ export class UserStatisticsService {
     speciesGroupId?: number,
     taxonId?: number,
     areaId?: number): Observable<UserStatistics> {
-
-    console.log('areaId', areaId)
 
     const baseUrl: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/ObserverSpeciesCount?';
     const api: string = this.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
@@ -64,7 +62,8 @@ export class UserStatisticsService {
         return userStatisticsObject;
 
       }),
-      shareReplay()
+      publishReplay(1),
+      refCount()
     );
 
   }
@@ -136,12 +135,12 @@ export class UserStatisticsService {
     let api: string;
     let params: URLSearchParams = new URLSearchParams();
 
-    // console.log('params XXX', yearParam);
-    // console.log('params XXX', speciesGroupParam);
-    // console.log('params XXX', taxonParam);
+    console.log('params year', yearParam);
+    console.log('params species group', speciesGroupParam);
+    console.log('params taxon', taxonParam);
     console.log('params OMRÅDE', areaParam);
-    // console.log('params XXX', pageNumberParam);
-    // console.log('params XXX', pageSizeParam);
+    console.log('params XXX', pageNumberParam);
+    console.log('params XXX', pageSizeParam);
 
     if (yearParam) params.append('Year', yearParam.toString());
     if (speciesGroupParam) params.append('SpeciesGroupId', speciesGroupParam.toString());

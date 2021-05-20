@@ -54,6 +54,7 @@ import { UserStatisticsComponent } from './components/user-statistics/user-stati
 import { SearchTaxonComponent } from './components/search/search-taxon/search-taxon.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
+import { AreaListComponent } from './components/statistics/area-list/area-list.component';
 
 /*
 
@@ -288,6 +289,39 @@ const sightingsRoutes: Routes = [
     }
   },
   {
+    path: 'sightings-data/statistics/alien-species',
+    component: AlienSpeciesComponent,
+    data: {
+      text: 'Fremmede arter',
+      title: 'menu.menu_statistics_alienSpecies',
+      id: 'alien-species',
+      layout: 'page',
+      rank: 'secondary',
+      parent: 'statistics',
+      menu: '',
+      metatitle: '',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'sightings-data/statistics/knowledge-gaps',
+    component: KnowledgeGapComponent,
+    data: {
+      text: 'Kunnskapshull',
+      title: 'menu.menu_statistics_knowledgeGaps',
+      id: 'knowledge-gaps',
+      layout: 'page',
+      rank: 'secondary',
+      parent: 'statistics',
+      menu: '',
+      metatitle: '',
+      metaDescription: ''
+    }
+  }
+];
+
+const statisticsRoutes: Routes = [
+  {
     path: 'sightings-data/statistics',
     component: StatisticsComponent,
     data: {
@@ -311,7 +345,7 @@ const sightingsRoutes: Routes = [
       title: 'menu.menu_statistics_about',
       id: 'about_statistics',
       layout: 'landing',
-      rank: 'secondary', 
+      rank: 'secondary',
       parent: 'statistics',
       menu: '',
       metatitle: '',
@@ -544,12 +578,12 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings-data/statistics/alien-species',
-    component: AlienSpeciesComponent,
+    path: 'sightings-data/statistics/area-lists',
+    component: AreaListComponent,
     data: {
-      text: 'Fremmede arter',
-      title: 'menu.menu_statistics_alienSpecies',
-      id: 'alien-species',
+      text: 'Områdelister',
+      title: 'menu.menu_statistics_areaLists',
+      id: 'area-lists',
       layout: 'page',
       rank: 'secondary',
       parent: 'statistics',
@@ -557,22 +591,10 @@ const sightingsRoutes: Routes = [
       metatitle: '',
       metaDescription: ''
     }
-  },
-  {
-    path: 'sightings-data/statistics/knowledge-gaps',
-    component: KnowledgeGapComponent,
-    data: {
-      text: 'Kunnskapshull',
-      title: 'menu.menu_statistics_knowledgeGaps',
-      id: 'knowledge-gaps',
-      layout: 'page',
-      rank: 'secondary',
-      parent: 'statistics',
-      menu: '',
-      metatitle: '',
-      metaDescription: ''
-    }
-  },
+  }
+];
+
+const userStatisticsRoutes: Routes = [
   {
     path: 'sightings-data/statistics/user-statistics',
     component: UserStatisticsComponent,
@@ -1063,7 +1085,7 @@ const testRoutes: Routes = [  // for testing purposes
       metaDescription: '',
       hidden: false
     }
-  },  
+  },
   {
     path: 'search-taxon',
     component: SearchTaxonComponent,
@@ -1115,8 +1137,8 @@ const wildcardRoutes: Routes = [
   }
 ];
 
-//const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
-const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+//const routes: Routes = [...homeRoutes, ...sightingsRoutes, ...statisticsRoutes, ...userStatisticsRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
+const routes: Routes = [...homeRoutes, ...reportRoutes, ...sightingsRoutes, ...statisticsRoutes, ...userStatisticsRoutes, ...userDataRoutes, ...aboutRoutes, ...accountRoutes, ...pressRoutes, ...extraRoutes, ...testRoutes, ...wildcardRoutes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

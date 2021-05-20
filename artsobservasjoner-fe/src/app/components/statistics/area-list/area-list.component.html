@@ -1,0 +1,146 @@
+<div class="page">
+
+    <header class="page__header"></header>
+
+    <div class="page__intro">
+
+    </div>
+
+    <div class="page__content" style="min-height: 90vh;">
+
+        <table class="accordion-table">
+            <caption>Ingen caption for øyeblikket</caption>
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th>{{ 'shared.area_county' | translate }}</th>
+                    <th class="th-number">Antall arter</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <ng-container *ngIf="counties$ | async as counties">
+
+                <tbody role="rowgroup" *ngFor="let county of counties; let i = index">
+
+                    <tr role="row" class="accordion-table__view">
+                        <th scope="row" role="rowheader">{{ county.name }}</th>
+                        <td class="td-number">441</td>
+                        <td class="td-right">
+
+                            <div class="alignright">
+                                <button class="accordion-table__opener" [appToggleRow]="speciesRow">
+                                    Se detaljert artsliste
+                                </button>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr role="row" class="accordion-table__fold" #speciesRow [attr.id]="'speciesRow' + i">
+
+                        <td colspan="6">
+
+                            <app-accordion>
+
+                                <app-accordion-item *ngFor="let speciesItem of species | slice: 3:7; let i = index"
+                                    [style]="'sm'" [heading]="speciesItem.scientificName"
+                                    [headerId]="'accordion-header-id' + speciesItem.id"
+                                    [panelId]="'accordion-panel-id' + speciesItem.id" [shouldCloseOtherItems]="true">
+                                    <div class="accordion-table__body">
+
+                                        <i><strong>{{ speciesItem.scientificName }}</strong></i>
+                                        <span *ngIf="speciesItem.vernacularName">
+                                            &mdash; {{ speciesItem.vernacularName }}
+                                        </span>
+
+                                        <div class="accordion-table__list">
+
+                                            <h1>Klassifisering</h1>
+
+                                            <br>
+
+                                            <div>
+                                                <strong>Rot: </strong>
+                                                <span>Biota (Biota)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Rike: </strong>
+                                                <span>Animalia (Dyreriket)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Organismegruppe: </strong>
+                                                <span>Mangler vitenskapelig navn - Småkryp (Småkryp)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Rekke: </strong>
+                                                <span>Arthropoda (Leddyr)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Klasse: </strong>
+                                                <span>Insecta (Insekter)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Orden: </strong>
+                                                <span>Coleoptera (Biller)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Underorden: </strong>
+                                                <span>Polyphaga (Polyphaga)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Infraorden: </strong>
+                                                <span>Staphyliniformia (Staphyliniformia)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Overfamilie: </strong>
+                                                <span>Staphylinoidea (Staphylinoidea)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Familie: </strong>
+                                                <span>Staphylinidae (Kortvinger)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Underfamilie: </strong>
+                                                <span>Omaliinae (Punktøyekortvinger)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Tribus: </strong>
+                                                <span>Omaliini (Omaliini)</span>
+                                            </div>
+                                            <div>
+                                                <strong>Slekt: </strong>
+                                                <span>Phloeonomus (Phloeonomus)</span>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </app-accordion-item>
+
+                            </app-accordion>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </ng-container>
+
+        </table>
+
+
+        <!-- <app-dropdown [title]="'statistics.overviewStats_buttonText' | translate" [options]="dropdownOptions"
+            [icon]="'stats'">
+        </app-dropdown>
+
+        <router-outlet></router-outlet> -->
+
+    </div>
+
+
+    <div class="page__footer">
+
+
+
+    </div>
+</div>

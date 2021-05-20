@@ -44,5 +44,3 @@ export class AccordionComponent implements AfterContentInit {
   }
 
 }
-
-// (panel: QueryList<AccordionItemComponent>)

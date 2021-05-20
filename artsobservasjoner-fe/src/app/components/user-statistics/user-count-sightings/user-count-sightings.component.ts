@@ -12,6 +12,7 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 const PAGE_SIZE: number = 20;
 
 export interface Filter {
+  pagination?: number;
   bySpeciesGroup?: number;
   byYear?: number;
   byTaxon?: number;
@@ -37,10 +38,10 @@ export class UserCountSightingsComponent implements OnInit {
   areas$: Observable<Area[]>;
   areaType: typeof AREA_TYPE = AREA_TYPE;
 
-  selectedYear: number | null = null;
-  selectedSpeciesGroup: number | null = null;
-  selectedTaxon: number | null = null;
-  selectedArea: number;
+  // selectedYear: number | null = null;
+  // selectedSpeciesGroup: number | null = null;
+  // selectedTaxon: number | null = null;
+  // selectedArea: number;
 
   filter: Filter;
 
@@ -54,53 +55,68 @@ export class UserCountSightingsComponent implements OnInit {
   ) {
     this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_topObservers');
     this.currentLanguage$ = this.translationService.currentLanguage$;
+    
+    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
   }
 
   ngOnInit(): void {
 
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.years = this.utilitiesService.generateYears();
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
+    // this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
     this.totalPages$ = this.userStatisticsService.totalPages$;
+
+    this.updateFilter(1, null, null, null, null);
 
   }
 
   updateFilter(
-    speciesGroupFilter?: number,
-    yearFilter?: number,
-    taxonFilter?: number,
-    areaFilter?: number
+    paginationFilter: number | null,
+    yearFilter: number | null,
+    speciesGroupFilter: number | null,
+    taxonFilter: number | null,
+    areaFilter: number | null
   ): void {
 
     this.filter = {
-      bySpeciesGroup: speciesGroupFilter,
+      pagination: paginationFilter,
       byYear: yearFilter,
+      bySpeciesGroup: speciesGroupFilter,
       byTaxon: taxonFilter,
       byArea: areaFilter
     }
 
+    this.userStatistics$ = this.userStatisticsService.getTopObservers(
+      this.filter.pagination,
+      PAGE_SIZE,
+      this.filter.byYear,
+      this.filter.bySpeciesGroup,
+      null,
+      this.filter.byArea
+    );
+
   }
 
   onPaginationClick(event: number): void {
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(event, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+    this.updateFilter(event, null, null, null, null);
   }
 
-  onSpeciesGroupSelection(event: Event): void {
-    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+  onYearSelection(event: number): void {
+    console.log('year', event)
+    this.updateFilter(null, event, null, null, null);
   }
 
-  onYearSelection(event: Event): void {
-    this.updateFilter();
-    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, this.selectedArea);
+  onSpeciesGroupSelection(event: number): void {
+    console.log('species group', event)
+    this.updateFilter(null, null, event, null, null);
   }
 
   onAreaSelection(event: number): void {
-    console.log('ON AREA SELECTION', event)
-    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, this.selectedYear, this.selectedSpeciesGroup, this.selectedTaxon, event);
+    console.log('area', event);
+    this.updateFilter(null, null, null, null, event);
   }
 
   getArea(event: any): void {
-    //console.log('get area', event);
     if (event.length > 0) {
       this.areas$ = this.coreService.getArea(event);
     }

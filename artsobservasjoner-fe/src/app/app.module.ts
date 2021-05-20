@@ -123,6 +123,10 @@ import { SearchTaxonComponent } from './components/search/search-taxon/search-ta
 import { TaxonSearchComponent } from './shared-and-reusable/smart-components/taxon-search/taxon-search.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
+import { AreaListComponent } from './components/statistics/area-list/area-list.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterComponent } from './shared-and-reusable/smart-components/filter/filter.component';
+import { ToggleRowDirective } from './directives/toggle-row.directive';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -239,7 +243,11 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     SearchTaxonComponent,
     TaxonSearchComponent,
     UserCountSightingsComponent,
-    UserCountPicturesComponent
+    UserCountPicturesComponent,
+    AreaListComponent,
+    FilterPipe,
+    FilterComponent,
+    ToggleRowDirective
   ],
   imports: [
     BrowserModule,

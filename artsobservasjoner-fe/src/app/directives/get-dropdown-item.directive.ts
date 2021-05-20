@@ -1,5 +1,4 @@
 import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { LayoutService } from '../services/layout.service';
 
 @Directive({
     selector: '[getDropdownItem]'
@@ -12,8 +11,7 @@ export class GetDropdownItemDirective implements OnInit {
 
     constructor(
         private elemRef: ElementRef,
-        private renderer: Renderer2,
-        private layoutService: LayoutService
+        private renderer: Renderer2
     ) { }
 
     ngOnInit(): void {

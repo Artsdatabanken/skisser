@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class AccordionItemComponent implements OnInit {
 
   @Input() opened: boolean = false;
+  @Input() style?: string;
   @Input() headerId: string;
   @Input() panelId: string;
   @Input() heading: string;

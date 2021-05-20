@@ -30,7 +30,7 @@ table {
     }
 
     tr {
-        &:hover {            
+        &:hover {
             th[role="rowheader"],
             td {
                 background: #ffee58 !important;
@@ -167,6 +167,11 @@ table {
     @include customVar(background-color, clrShadow);
 }
 
+.td-right {
+    margin: auto 0 auto auto !important;
+    text-align: right !important;
+}
+
 // reusable and custom tables
 
 .tbl {
@@ -220,4 +225,68 @@ table {
             @include customVar(background-color, clrShadow);
         }
     }
+}
+
+.accordion-table {
+    &__view {
+    }
+
+    &__fold {
+        display: none;
+        width: 100%;
+
+        &--open {
+            display: table-row;
+        }
+
+        td {
+            background-color: white;
+            padding: 15px 0 70px;
+        }
+
+        &:hover {
+            th[role="rowheader"],
+            td {
+                background: transparent !important;
+            }
+        }
+    }
+
+    &__opener {
+        @extend .button;
+        background-image: url(../images/iconChevronDown.png);
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 12px;
+        padding: 0 45px 0 30px !important;
+
+        &:hover {
+            background-image: url(../images/iconChevronWhiteDown.png);
+        }
+
+        &--active {
+            background-image: url(../images/iconChevronWhiteUp.png) !important;
+            display: inline-block !important; // do not delete
+
+            &:hover {
+                background-image: url(../images/iconChevronWhiteDown.png);
+            }
+        }
+    }
+
+    &__body {
+    }
+
+    &__list {
+        h1 {
+            @extend h4;
+            font-size: 15px;
+            margin: 10px 0;
+        }
+
+        div {
+            font-size: 16px;
+        }
+    }
+
 }

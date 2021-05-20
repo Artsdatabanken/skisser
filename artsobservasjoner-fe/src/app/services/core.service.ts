@@ -11,7 +11,7 @@ import { Area } from '../models/shared';
 export class CoreService {
 
   areaApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/Search?search=';
-  countiesApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Name/County';
+  countiesApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/County';
   municipalitySearchApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Name/Municipality/';
 
   constructor(private http: HttpClient) { }
@@ -43,7 +43,7 @@ export class CoreService {
 
   }
 
-  getCounties(): Observable<object[]> {
+  getCounties(): Observable<Area[]> {
 
     return this.http.get(this.countiesApi).pipe(
       map((response: any) => {
@@ -61,8 +61,24 @@ export class CoreService {
         //   }
         // });
 
-        // console.log('counties', response)
-        return response.sort((a, b) => a.name.localeCompare(b.name));
+
+        let area: Area;
+        let areas: Area[] = [];
+
+        response.forEach(element => {
+
+          area = {
+            id: element.id,
+            name: element.name,
+            type: element.areaDataset
+          }
+
+          areas.push(area);
+
+        });
+
+        return areas.sort((a, b) => a.name.localeCompare(b.name));
+
       }),
       shareReplay()
     );
