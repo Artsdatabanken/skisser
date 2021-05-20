@@ -12,6 +12,22 @@
 
             <div class="filter">
 
+                <select name="yearSelector" id="years" (change)="onYearSelection($event.target.value)">
+
+                    <option [ngValue]="null">
+                        {{ 'shared.select_years' | translate }}
+                    </option>
+
+                    <option [value]="year" *ngFor="let year of years">
+                        {{ year }}
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="filter">
+
                 <!-- <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
                     (ngModelChange)="onSpeciesGroupSelection($event)">
 
@@ -44,22 +60,7 @@
 
             </div>
 
-            <div class="filter">
 
-                <select name="yearSelector" id="years" [(ngModel)]="selectedYear"
-                    (change)="onYearSelection($event.target.value)">
-
-                    <option [ngValue]="null">
-                        {{ 'shared.select_years' | translate }}
-                    </option>
-
-                    <option [value]="year" *ngFor="let year of years">
-                        {{ year }}
-                    </option>
-
-                </select>
-
-            </div>
 
             <div class="filter">
 
@@ -125,10 +126,10 @@
             <br><br><br><br><br>
 
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
-                
+
                 <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
                     [topObserver]="topObserver">
-                
+
                 </app-user-stats-stripe>
             </ng-container>
 

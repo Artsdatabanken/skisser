@@ -1,7 +1,6 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { DropdownOption } from 'src/app/models/reusable';
 import { Area, Category } from 'src/app/models/shared';
 import { CoreService } from 'src/app/services/core.service';
@@ -24,8 +23,6 @@ export class AreaListComponent implements OnInit {
   counties$: Observable<Area[]>;
   speciesGroups$: Observable<Category[]>;
 
-  @ViewChildren('speciesRow') rows: QueryList<any>;
-
   species: object[] = [
     {
       id: '1',
@@ -35,6 +32,7 @@ export class AreaListComponent implements OnInit {
 
     {
       id: '2',
+      vernacularName: '',
       scientificName: 'Elaphrus uliginosus'
     },
 
@@ -46,6 +44,7 @@ export class AreaListComponent implements OnInit {
 
     {
       id: '4',
+      vernacularName: '',
       scientificName: 'Phloeonomus pusillus'
     },
 
@@ -63,18 +62,17 @@ export class AreaListComponent implements OnInit {
 
     {
       id: '7',
+      vernacularName: '',
       scientificName: 'Boreotrophon truncatus'
     },
 
     {
-
       id: '8',
       vernacularName: 'perleberberis ',
       scientificName: 'Berberis aggregata'
     },
 
     {
-
       id: '9',
       vernacularName: 'askeskål ',
       scientificName: 'Episphaeria fraxinicola'
@@ -94,60 +92,59 @@ export class AreaListComponent implements OnInit {
 
     {
       id: '12',
+      vernacularName: '',
       scientificName: 'Nypeta brincki'
     },
 
     {
       id: '13',
+      vernacularName: '',
       scientificName: 'Corticeus suturalis'
     },
 
     {
       id: '14',
+      vernacularName: '',
       scientificName: 'Dendrodochium citrinum'
     },
 
     {
-
       id: '15',
       vernacularName: 'kuhegre',
       scientificName: 'Bubulcus ibis'
     },
 
     {
-
       id: '16',
       vernacularName: 'grå furuskuddvikler ',
       scientificName: 'Rhyacionia duplana'
     },
 
     {
-
       id: '17',
+      vernacularName: '',
       scientificName: 'Myrmechixenus subterraneus'
     },
 
     {
-
       id: '18',
+      vernacularName: '',
       scientificName: 'Atheta atramentaria'
     },
 
     {
-
       id: '19',
       vernacularName: 'leopardskrubbedderkopp',
       scientificName: 'Arctosa leopardus'
     },
 
     {
-
       id: '20',
+      vernacularName: '',
       scientificName: 'Thiasophila angulata'
     },
 
     {
-
       id: '21',
       vernacularName: 'engeitermaur ',
       scientificName: 'Myrmica schencki',
@@ -170,37 +167,19 @@ export class AreaListComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    // print array of CustomComponent objects
-    console.log('ROWS', this.rows.toArray());
-  }
+  getSpeciesLabel(scientificName: string, vernacularName: string): string {
 
-  toggleInfo(elem: any): void {
-    console.log('row', elem)
-  }
-
-
-  getSpeciesGroupLabel(id: number): Observable<string> {
-
-    const label = combineLatest([this.currentLanguage$, this.speciesGroups$]).pipe(
-      map(([currentLanguage, speciesGroups]) => {
-
-        const speciesGroupObject: Category = speciesGroups.find(sg => sg.id == id);
-
-        let result: string = '';
-
-        if (speciesGroupObject) {
-          if (currentLanguage == 'no') result = speciesGroupObject.no;
-          if (currentLanguage == 'en') result = speciesGroupObject.en;
-        }
-
-        return result;
-
-      })
-    );
-
-    return label;
+    if (vernacularName) {
+      return `${scientificName} &mdash; ${vernacularName}`;
+    }
+    else {
+      return scientificName;
+    }
 
   }
+
+  // public get speciesLabel( ): string {
+  //   return `${this.code} - ${this.title}`;
+  // }
 
 }
