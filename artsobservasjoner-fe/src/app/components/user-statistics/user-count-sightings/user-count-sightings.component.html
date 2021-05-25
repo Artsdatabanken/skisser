@@ -8,6 +8,7 @@
 
         <h3>{{ 'shared.filter' | translate }}</h3>
 
+
         <div class="loop">
 
             <div class="filter">
@@ -28,21 +29,6 @@
 
             <div class="filter">
 
-                <!-- <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
-                    (ngModelChange)="onSpeciesGroupSelection($event)">
-
-                    <option [ngValue]="null">
-                        {{ 'shared.select_speciesGroups' | translate }}
-                    </option>
-
-                    <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
-                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-                            {{ currentLanguage === 'no' ? sg.no : sg.en }}
-                        </ng-container>
-                    </option>
-
-                </select> -->
-
                 <select name="speciesGroupsSelector" id="speciesGroups"
                     (change)="onSpeciesGroupSelection($event.target.value)">
 
@@ -60,18 +46,65 @@
 
             </div>
 
+            <div class="filter">
 
+                <div class="search-box">
+
+                    <input class="search-box__input" #taxon (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
+
+                    <div class="search-box__field" *ngIf="taxons$ | async as taxons">
+
+                        <div class="search-box__stripe" *ngFor="let taxon of taxons"
+                            (click)="onTaxonSelection(taxon.taxonId)">
+
+                            <h2>
+                                <i>{{ taxon.scientificName.name }}</i>
+                                <small *ngIf="taxon.scientificName.author" style="text-transform: uppercase;">
+                                    {{ taxon.scientificName.author }}
+                                </small>
+                            </h2>
+                            <h3>
+                                {{ taxon.vernacularName?.name | lowercase }}
+                                <small *ngIf="taxon.vernacularName?.author" style="text-transform: uppercase;">
+                                    {{ taxon.vernacularName.author }}
+                                </small>
+                            </h3>
+
+                            <div class="search-box__details">
+
+                                <div *ngIf="taxon.scientificNameSynonyms.length > 0">
+
+                                    <span class="tag">{{ 'shared.synonyms' | translate }}</span>
+
+                                    <div *ngFor="let synonym of taxon.scientificNameSynonyms">
+                                        <small><i> {{ synonym.name }} </i></small>
+                                    </div>
+
+                                </div>
+
+                                <div *ngIf="taxon.vernacularNameSynonyms.length > 0">
+
+                                    <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
+                                        <small> {{ synonym.name }}</small>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
             <div class="filter">
 
                 <div class="search-box">
 
-                    <!-- <input class="search-box__input" [(ngModel)]="selectedArea" (keyup)="getArea($event.target.value)"
-                        placeholder="Søk område"> -->
-
                     <input class="search-box__input" #area (keyup)="getArea(area.value)" placeholder="Søk område">
-
-                    {{ area.value }}
 
                     <div class="search-box__field" *ngIf="areas$ | async as areas">
                         <div class="search-box__stripe" *ngFor="let area of areas">
@@ -94,15 +127,32 @@
 
         </div>
 
-        <!-- <h5 style="color: green; margin: 25px 0 0">Selected: <br>
-            artsgruppe {{ selectedSpeciesGroup }} <br>
-            år {{ selectedYear }} <br>
-            område {{ selectedArea }} <br>
-        </h5> -->
+        <div style="display: none;">
+            <p>
+                {{ 'shared.search_chosenFilters' | translate }}:
 
+                <br>
+                <ng-container *ngIf="filters$ | async as filters">
+                    <ng-container *ngFor="let filter of filters | keyvalue">
+                        <!-- {{ filter.key }} | {{ filter.value }} -->
+
+                        <br><br>
+
+                        <span *ngFor="let item  of filter.value | keyvalue">
+                            {{item.key}} | {{item.value}}
+                        </span>
+
+                    </ng-container>
+                </ng-container>
+
+            </p>
+        </div>
+        
+        <br>
         <br>
 
         <div class="stripe stripe--dummy">
+
             <div class="stripe__cell">
                 {{ 'statistics.userStats_position' | translate }}
             </div>
@@ -116,14 +166,6 @@
         </div>
 
         <div *ngIf="userStatistics$ | async as userStatistics">
-
-            <!-- <h3 style="color: red; margin: 0">tc: {{ userStatistics.totalCount }} &nbsp; / &nbsp;
-                <span *ngIf="totalPages$ | async as totalPages" style="color: blue">
-                    tp: {{ totalPages }}
-                </span>
-            </h3> -->
-
-            <br><br><br><br><br>
 
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
 

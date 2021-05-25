@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
-import { CoreService } from 'src/app/services/core.service';
+import { Taxon } from 'src/app/models/taxon';
+import { AreasService } from 'src/app/services/areas.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesService } from 'src/app/services/species.service';
+import { TaxonService } from 'src/app/services/taxon.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 
 const PAGE_SIZE: number = 20;
-
-export interface Filter {
-  pagination?: number;
-  bySpeciesGroup?: number;
-  byYear?: number;
-  byTaxon?: number;
-  byArea?: number;
-}
 
 @Component({
   selector: 'app-user-count-sightings',
@@ -30,95 +25,108 @@ export class UserCountSightingsComponent implements OnInit {
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
-  userStatistics$: Observable<UserStatistics>;
   totalPages$: BehaviorSubject<number>;
   position: number;
-  speciesGroups$: Observable<Category[]>;
+
   years: number[];
+  speciesGroups$: Observable<Category[]>;
+  taxons$: Observable<Taxon[]>;
   areas$: Observable<Area[]>;
   areaType: typeof AREA_TYPE = AREA_TYPE;
 
-  // selectedYear: number | null = null;
-  // selectedSpeciesGroup: number | null = null;
-  // selectedTaxon: number | null = null;
-  // selectedArea: number;
+  userStatistics$: Observable<UserStatistics>;
+  filters$: Observable<object[]>;
 
-  filter: Filter;
+  filterPage$: BehaviorSubject<number> = new BehaviorSubject(1);
+  filterYear$: BehaviorSubject<string> = new BehaviorSubject(null);
+  filterSpeciesGroup$: BehaviorSubject<string> = new BehaviorSubject(null);
+  filterTaxon$: BehaviorSubject<string> = new BehaviorSubject(null);
+  filterArea$: BehaviorSubject<string> = new BehaviorSubject(null);
 
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
     private speciesService: SpeciesService,
+    private areaService: AreasService,
+    private taxonService: TaxonService,
     private utilitiesService: UtilitiesService,
-    private coreService: CoreService,
     private userStatisticsService: UserStatisticsService
   ) {
+
     this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_topObservers');
     this.currentLanguage$ = this.translationService.currentLanguage$;
-    
-    //this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
+
   }
 
   ngOnInit(): void {
 
-    this.speciesGroups$ = this.speciesService.speciesGroups;
     this.years = this.utilitiesService.generateYears();
-    // this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE);
+    this.speciesGroups$ = this.speciesService.speciesGroups;
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
-    this.updateFilter(1, null, null, null, null);
+    this.filters$ = combineLatest([
+      this.filterYear$,
+      this.filterSpeciesGroup$,
+      this.filterTaxon$,
+      this.filterArea$,
+      this.filterPage$
+    ]).pipe(
+      map(([year, speciesGroup, taxon, area, pageNumber]) => {
 
-  }
+        const filters: object[] = [];
+        const activeFilters: object[] = [];
 
-  updateFilter(
-    paginationFilter: number | null,
-    yearFilter: number | null,
-    speciesGroupFilter: number | null,
-    taxonFilter: number | null,
-    areaFilter: number | null
-  ): void {
+        filters.push(
+          { year: year },
+          { speciesGroup: speciesGroup },
+          { taxon: taxon },
+          { area: area },
+          { pageNumber: +pageNumber }
+        )
 
-    this.filter = {
-      pagination: paginationFilter,
-      byYear: yearFilter,
-      bySpeciesGroup: speciesGroupFilter,
-      byTaxon: taxonFilter,
-      byArea: areaFilter
-    }
+        filters.forEach(filter => {
+          console.log('filter', filter)
+        });
 
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(
-      this.filter.pagination,
-      PAGE_SIZE,
-      this.filter.byYear,
-      this.filter.bySpeciesGroup,
-      null,
-      this.filter.byArea
+        this.userStatistics$ = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
+
+        console.log('filters', filters)
+        return filters;
+
+      })
     );
 
   }
 
   onPaginationClick(event: number): void {
-    this.updateFilter(event, null, null, null, null);
+    this.filterPage$.next(event);
   }
 
-  onYearSelection(event: number): void {
-    console.log('year', event)
-    this.updateFilter(null, event, null, null, null);
+  onYearSelection(event: string): void {
+    this.filterYear$.next(event);
   }
 
-  onSpeciesGroupSelection(event: number): void {
-    console.log('species group', event)
-    this.updateFilter(null, null, event, null, null);
+  onSpeciesGroupSelection(event: string): void {
+    this.filterSpeciesGroup$.next(event);
   }
 
-  onAreaSelection(event: number): void {
-    console.log('area', event);
-    this.updateFilter(null, null, null, null, event);
+  onTaxonSelection(event: string): void {
+    this.filterTaxon$.next(event);
+  }
+
+  onAreaSelection(event: string): void {
+    this.filterArea$.next(event);
+  }
+
+  getTaxon(event: any): void {
+    if (event.length > 2) {
+      this.taxons$ = this.taxonService.getTaxon(event);
+    }
   }
 
   getArea(event: any): void {
     if (event.length > 0) {
-      this.areas$ = this.coreService.getArea(event);
+      this.areas$ = this.areaService.getArea(event);
     }
   }
 

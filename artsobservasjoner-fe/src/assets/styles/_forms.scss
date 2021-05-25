@@ -277,11 +277,14 @@ input {
 // search box
 
 .search-box {
+    position: relative;
+
     &__input {
         min-width: 15vw;
     }
 
     &__field {
+        border: 1px solid red;
         min-width: 20vw;
         padding: 10px;
     }
@@ -290,7 +293,7 @@ input {
         @include customVar(background-color, clrShadow);
         font-size: 16px;
         margin-top: 10px;
-        margin-left: 30px;
+        //margin-left: 30px;
         padding: 10px;
 
         &:hover {

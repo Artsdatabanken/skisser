@@ -55,7 +55,8 @@
         "area_county": "County",
         "area_municipality": "Municipality",
         "area_protected": "Protected area",
-        "searchHits": "Hits"
+        "searchHits": "Hits",
+        "search_chosenFilters": "You have filtered by"
     },
     "headings": {},
     "account": {

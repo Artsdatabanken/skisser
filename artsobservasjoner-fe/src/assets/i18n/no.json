@@ -55,7 +55,8 @@
         "area_county": "Fylke",
         "area_municipality": "Kommune",
         "area_protected": "Verneområde",
-        "searchHits": "Treff"
+        "searchHits": "Treff",
+        "search_chosenFilters": "Du har søkt på"
     },
     "headings": {},
     "account": {

@@ -19,6 +19,17 @@ export interface Area {
 }
 
 export enum AREA_TYPE {
-    county =  'County',
+    county = 'County',
     municipality = 'Municipality'
+}
+
+export interface Filter {
+    id: string | string;
+    title: string;
+    active?: boolean;
+}
+
+export interface ActiveFilter {
+    id: number | string;
+    parameter: string;
 }

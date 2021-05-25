@@ -119,11 +119,11 @@ import { AboutStatisticsComponent } from './components/statistics/about-statisti
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
 import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
-import { SearchTaxonComponent } from './components/search/search-taxon/search-taxon.component';
 import { TaxonSearchComponent } from './shared-and-reusable/smart-components/taxon-search/taxon-search.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
+import { FilterComponent } from './shared-and-reusable/smart-components/filter/filter.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -237,11 +237,11 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AboutStatisticsComponent,
     SearchSightingsComponent,
     CompareSightingsComponent,
-    SearchTaxonComponent,
     TaxonSearchComponent,
     UserCountSightingsComponent,
     UserCountPicturesComponent,
-    AreaListComponent
+    AreaListComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

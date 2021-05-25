@@ -51,7 +51,6 @@ import { AboutStatisticsComponent } from './components/statistics/about-statisti
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
 import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
-import { SearchTaxonComponent } from './components/search/search-taxon/search-taxon.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
@@ -1086,21 +1085,21 @@ const testRoutes: Routes = [  // for testing purposes
       hidden: false
     }
   },
-  {
-    path: 'search-taxon',
-    component: SearchTaxonComponent,
-    data: {
-      text: 'Søk takson',
-      id: '',
-      layout: 'page',
-      rank: '',
-      parent: '',
-      menu: '',
-      metatitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
+  // {
+  //   path: 'search-taxon',
+  //   component: SearchTaxonComponent,
+  //   data: {
+  //     text: 'Søk takson',
+  //     id: '',
+  //     layout: 'page',
+  //     rank: '',
+  //     parent: '',
+  //     menu: '',
+  //     metatitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
   {
     path: 'design',
     component: DesignComponent,
