@@ -3,11 +3,6 @@
 form {
     width: 100%;
 
-    ::placeholder {
-        @include customVar(color, clrDark);
-        font-size: 19px;
-    }
-
     label {
         @include customVar(font-family, fontSecondary);
         display: block;
@@ -123,7 +118,8 @@ select {
 
     &:focus,
     &:active {
-        background: #ffee58;
+        background: #eee8aa;
+        @include customVar(background-color, clrFocus);
         @include customVar(border-color, clrBlack);
         border-style: solid;
         border-width: 2px;
@@ -140,6 +136,38 @@ select {
 input {
     @extend select;
     padding: 9px 15px;
+}
+
+::placeholder {
+    @include customVar(color, clrDark);
+    color: #666;
+    font-size: inherit;
+
+    &:focus,
+    &:active {
+        @include customVar(color, clrDark);
+    }
+}
+
+input:focus::-webkit-input-placeholder {
+    @include customVar(color, clrDark);
+}
+
+/* Firefox < 19 */
+
+input:-moz-placeholder {
+}
+
+input:focus:-moz-placeholder {
+    @include customVar(color, clrDark);
+}
+
+/* Firefox > 19 */
+input::-moz-placeholder {
+}
+
+input:focus::-moz-placeholder {
+    @include customVar(color, clrDark);
 }
 
 //----------------------------------------custom form elements
@@ -229,18 +257,6 @@ input {
     }
 }
 
-.filter {
-    label {
-        font-size: 0.85em;
-        font-weight: 600;
-        margin-right: 15px;
-    }
-
-    select {
-        margin: 0 30px 0 0;
-    }
-}
-
 .search {
     background-image: url(../images/iconSearch.png);
     background-position: right 12px center;
@@ -276,51 +292,77 @@ input {
 
 // search box
 
+.filter {
+    border: 1px solid red;
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+
+    & > * {
+        border: 1px solid blue;
+    }
+}
+
 .search-box {
+    border: 1px solid green;
     position: relative;
+    width: 100%;
 
     &__input {
-        min-width: 15vw;
+        //min-width: 15vw;
+        //width: initial;
     }
 
     &__field {
-        border: 1px solid red;
-        min-width: 20vw;
-        padding: 10px;
+        margin-top: 10px;
+        position: absolute;
+        width: 100%;
     }
 
     &__stripe {
-        @include customVar(background-color, clrShadow);
+        @include customVar(background-color, clrFocus);
+        @include customVar(border-bottom-color, clrWhite);
+        @include customVar(color, clrBlack);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
         font-size: 16px;
-        margin-top: 10px;
-        //margin-left: 30px;
+        overflow-wrap: break-word;
         padding: 10px;
 
         &:hover {
+            @include customVar(background-color, paletteColor1);
             cursor: pointer;
         }
     }
 
     &__details {
         margin-top: 10px;
+
+        &:empty {
+            margin: 0;
+        }
     }
 
     h2 {
         @include customVar(font-family, fontPrimary);
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 600;
         margin: 0;
+        overflow-wrap: break-word;
 
         small {
             font-size: 11px;
-            font-weight: 500;
+            font-weight: 600;
             margin-left: 4px;
+            overflow-wrap: break-word;
         }
     }
 
     h3 {
         @include customVar(font-family, fontPrimary);
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 600;
         margin: 0;
     }

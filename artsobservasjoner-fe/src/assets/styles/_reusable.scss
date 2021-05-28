@@ -975,13 +975,6 @@
     }
 
     &__pane {
-        @include customVar(background-color, clrWash1);
-        //background: #d5f5e3;
-
-        border-color: transparent;
-        border-top-style: solid;
-        border-style: solid;
-        border-width: 2px;
         display: none;
         margin-top: 25px;
         opacity: 1;
@@ -994,9 +987,10 @@
         &:before,
         &::before {
             @include customVar(border-bottom-color, clrWash1);
+            @include customVar(border-bottom-color, clrFocus);
             border-left: 18px solid transparent;
             border-right: 18px solid transparent;
-            border-bottom: 18px solid rgb(245, 245, 245);
+            border-bottom: 18px solid #eef2aa;
             content: "";
             height: 0;
             width: 0;
@@ -1014,8 +1008,8 @@
     }
 
     &__link {
+        @include customVar(background-color, clrFocus);
         @include customVar(border-bottom-color, clrWhite);
-        @include customVar(color, clrAccent);
         @include customVar(color, clrBlack);
         border-bottom-style: solid;
         border-bottom-width: 2px;
@@ -1040,6 +1034,7 @@
         &:focus,
         &:active,
         &--active {
+            @include customVar(background-color, clrFocus);
             @include customVar(background-color, paletteColor1);
             display: block;
             width: 100%;

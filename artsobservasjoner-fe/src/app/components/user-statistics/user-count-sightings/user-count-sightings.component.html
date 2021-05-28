@@ -25,10 +25,6 @@
 
                 </select>
 
-            </div>
-
-            <div class="filter">
-
                 <select name="speciesGroupsSelector" id="speciesGroups"
                     (change)="onSpeciesGroupSelection($event.target.value)">
 
@@ -43,10 +39,6 @@
                     </option>
 
                 </select>
-
-            </div>
-
-            <div class="filter">
 
                 <div class="search-box">
 
@@ -98,25 +90,21 @@
 
                 </div>
 
-            </div>
-
-            <div class="filter">
-
                 <div class="search-box">
 
                     <input class="search-box__input" #area (keyup)="getArea(area.value)" placeholder="Søk område">
 
                     <div class="search-box__field" *ngIf="areas$ | async as areas">
-                        <div class="search-box__stripe" *ngFor="let area of areas">
+                        <div class="search-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id)">
 
-                            <div class="search-box__details" (click)="onAreaSelection(area.id)">
-                                {{ area.name }} {{ area.id }}
+                            <h2>
+                                <span> {{ area.name }} {{ area.id }}</span>
                                 <ng-container *ngIf="area.name == 'Oslo'">
                                     <small *ngIf="area.type == areaType.county">
                                         ({{ 'shared.area_county' | translate | lowercase }})
                                     </small>
                                 </ng-container>
-                            </div>
+                            </h2>
 
                         </div>
                     </div>
@@ -147,7 +135,7 @@
 
             </p>
         </div>
-        
+
         <br>
         <br>
 

@@ -31,9 +31,11 @@ table {
 
     tr {
         &:hover {
+
             th[role="rowheader"],
             td {
-                background: #ffee58 !important;
+                //background: #ffee58 !important;
+                @include customVar(background-color, clrFocus, !important);
             }
         }
     }
