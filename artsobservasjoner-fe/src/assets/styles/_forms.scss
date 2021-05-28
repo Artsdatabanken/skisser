@@ -316,12 +316,20 @@ input:focus::-moz-placeholder {
         background-repeat: no-repeat;
         background-size: 20px;
         width: calc(100% - 34px);
+
+        &--active {
+            @include customVar(background-color, clrFocus);
+        }
     }
 
     &__field {
         margin-top: 10px;
         position: absolute;
         width: 100%;
+
+        &--hidden {
+            display: none;
+        }
     }
 
     &__stripe {

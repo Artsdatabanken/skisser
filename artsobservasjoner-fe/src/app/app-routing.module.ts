@@ -54,6 +54,7 @@ import { UserStatisticsComponent } from './components/user-statistics/user-stati
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
+import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
 
 /*
 
@@ -230,7 +231,7 @@ const sightingsRoutes: Routes = [
       text: 'Se, søk og filtrer observasjoner',
       title: 'menu.menu_sightings_sightingsCollection',
       id: 'sightings',
-      layout: 'page',
+      layout: 'landing',
       rank: 'primary',
       parent: 'sightings-data',
       menu: 'mainMenu',
@@ -288,35 +289,22 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings-data/statistics/alien-species',
-    component: AlienSpeciesComponent,
+    path: 'sightings-data/species-inventory',
+    component: SpeciesInventoryComponent,
     data: {
-      text: 'Fremmede arter',
-      title: 'menu.menu_statistics_alienSpecies',
-      id: 'alien-species',
+      text: 'Artsinventar',
+      title: 'menu.menu_sightings_speciesInventory',
+      id: 'species-inventory',
       layout: 'page',
-      rank: 'secondary',
-      parent: 'statistics',
-      menu: '',
+      rank: 'primary',
+      parent: 'sightings-data',
+      menu: 'mainMenu',
       metatitle: '',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'sightings-data/statistics/knowledge-gaps',
-    component: KnowledgeGapComponent,
-    data: {
-      text: 'Kunnskapshull',
-      title: 'menu.menu_statistics_knowledgeGaps',
-      id: 'knowledge-gaps',
-      layout: 'page',
-      rank: 'secondary',
-      parent: 'statistics',
-      menu: '',
-      metatitle: '',
-      metaDescription: ''
+      metaDescription: '',
+      hidden: false
     }
   }
+
 ];
 
 const statisticsRoutes: Routes = [
@@ -568,6 +556,36 @@ const statisticsRoutes: Routes = [
       text: 'Rødlistede arter',
       title: 'menu.menu_statistics_redlistedSpecies',
       id: 'redlisted-species',
+      layout: 'page',
+      rank: 'secondary',
+      parent: 'statistics',
+      menu: '',
+      metatitle: '',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'sightings-data/statistics/alien-species',
+    component: AlienSpeciesComponent,
+    data: {
+      text: 'Fremmede arter',
+      title: 'menu.menu_statistics_alienSpecies',
+      id: 'alien-species',
+      layout: 'page',
+      rank: 'secondary',
+      parent: 'statistics',
+      menu: '',
+      metatitle: '',
+      metaDescription: ''
+    }
+  },
+  {
+    path: 'sightings-data/statistics/knowledge-gaps',
+    component: KnowledgeGapComponent,
+    data: {
+      text: 'Kunnskapshull',
+      title: 'menu.menu_statistics_knowledgeGaps',
+      id: 'knowledge-gaps',
       layout: 'page',
       rank: 'secondary',
       parent: 'statistics',

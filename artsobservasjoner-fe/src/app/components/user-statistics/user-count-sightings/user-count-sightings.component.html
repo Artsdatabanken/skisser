@@ -42,9 +42,11 @@
 
                 <div class="search-box">
 
-                    <input class="search-box__input" #taxon (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
+                    <input class="search-box__input" [ngClass]="{'search-box__input--active': activeTaxon}" #taxon
+                        (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
 
-                    <div class="search-box__field" *ngIf="taxons$ | async as taxons">
+                    <div class="search-box__field" [ngClass]="{'search-box__field--hidden': activeTaxon}"
+                        *ngIf="taxons$ | async as taxons">
 
                         <div class="search-box__stripe" *ngFor="let taxon of taxons"
                             (click)="onTaxonSelection(taxon.taxonId)">
@@ -92,9 +94,11 @@
 
                 <div class="search-box">
 
-                    <input class="search-box__input" #area (keyup)="getArea(area.value)" placeholder="Søk område">
+                    <input class="search-box__input" [ngClass]="{'search-box__input--active': activeArea}" #area
+                        (keyup)="getArea(area.value)" placeholder="Søk område">
 
-                    <div class="search-box__field" *ngIf="areas$ | async as areas">
+                    <div class="search-box__field" [ngClass]="{'search-box__field--hidden': activeArea}"
+                        *ngIf="areas$ | async as areas">
                         <div class="search-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id)">
 
                             <h2>
@@ -139,31 +143,41 @@
         <br>
         <br>
 
-        <div class="stripe stripe--dummy">
+        <div *ngIf="userStatistics$ | async as userStatistics; else noData">
 
-            <div class="stripe__cell">
-                {{ 'statistics.userStats_position' | translate }}
-            </div>
-            <div class="stripe__cell">
-                {{ 'statistics.userStats_observer' | translate }}
-            </div>
-            <div class="stripe__cell">
-                {{ 'statistics.userStats_sightingsCount' | translate }}
-            </div>
+            <ng-container *ngIf="userStatistics.totalCount === 0">
+                <!-- {{ userStatistics.totalCount }} -->
+                {{ 'shared.noResults' | translate }}
+                <br><br>
+            </ng-container>
 
-        </div>
+            <div class="stripe stripe--dummy" *ngIf="userStatistics.totalCount > 0">
 
-        <div *ngIf="userStatistics$ | async as userStatistics">
+                <div class="stripe__cell">
+                    {{ 'statistics.userStats_position' | translate }}
+                </div>
+                <div class="stripe__cell">
+                    {{ 'statistics.userStats_observer' | translate }}
+                </div>
+                <div class="stripe__cell">
+                    {{ 'statistics.userStats_sightingsCount' | translate }}
+                </div>
+
+            </div>
 
             <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
 
                 <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
                     [topObserver]="topObserver">
-
                 </app-user-stats-stripe>
+
             </ng-container>
 
         </div>
+
+        <ng-template #noData>
+
+        </ng-template>
 
         <br><br><br><br>
 

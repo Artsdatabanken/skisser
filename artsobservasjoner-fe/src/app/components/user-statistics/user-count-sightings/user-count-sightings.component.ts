@@ -43,6 +43,9 @@ export class UserCountSightingsComponent implements OnInit {
   filterTaxon$: BehaviorSubject<string> = new BehaviorSubject(null);
   filterArea$: BehaviorSubject<string> = new BehaviorSubject(null);
 
+  activeTaxon: boolean;
+  activeArea: boolean;
+
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
@@ -112,10 +115,12 @@ export class UserCountSightingsComponent implements OnInit {
 
   onTaxonSelection(event: string): void {
     this.filterTaxon$.next(event);
+    this.activeTaxon = true;
   }
 
   onAreaSelection(event: string): void {
     this.filterArea$.next(event);
+    this.activeArea = true;
   }
 
   getTaxon(event: any): void {
