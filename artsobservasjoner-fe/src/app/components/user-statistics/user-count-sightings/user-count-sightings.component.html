@@ -8,80 +8,76 @@
 
         <h3>{{ 'shared.filter' | translate }}</h3>
 
+        <div class="filter">
 
-        <div class="loop">
+            <select name="yearSelector" id="years" (change)="onYearSelection($event.target.value)">
 
-            <div class="filter">
+                <option [ngValue]="null">
+                    {{ 'shared.select_years' | translate }}
+                </option>
 
-                <select name="yearSelector" id="years" (change)="onYearSelection($event.target.value)">
+                <option [value]="year" *ngFor="let year of years">
+                    {{ year }}
+                </option>
 
-                    <option [ngValue]="null">
-                        {{ 'shared.select_years' | translate }}
-                    </option>
+            </select>
 
-                    <option [value]="year" *ngFor="let year of years">
-                        {{ year }}
-                    </option>
+            <select name="speciesGroupsSelector" id="speciesGroups"
+                (change)="onSpeciesGroupSelection($event.target.value)">
 
-                </select>
+                <option [ngValue]="null">
+                    {{ 'shared.select_speciesGroups' | translate }}
+                </option>
 
-                <select name="speciesGroupsSelector" id="speciesGroups"
-                    (change)="onSpeciesGroupSelection($event.target.value)">
+                <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
+                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                    </ng-container>
+                </option>
 
-                    <option [ngValue]="null">
-                        {{ 'shared.select_speciesGroups' | translate }}
-                    </option>
+            </select>
 
-                    <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
-                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-                            {{ currentLanguage === 'no' ? sg.no : sg.en }}
-                        </ng-container>
-                    </option>
+            <div class="search-box">
 
-                </select>
+                <span *ngIf="taxons$ | async as taxons">{{ taxons.length }}</span>
 
-                <div class="search-box">
+                <input class="search-box__input" [ngClass]="{'search-box__input--active': showTaxonPane}" #taxon
+                    (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
 
-                    <input class="search-box__input" [ngClass]="{'search-box__input--active': activeTaxon}" #taxon
-                        (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
+                <div class="search-box__field" [ngClass]="{'search-box__field--hidden': showTaxonPane}"
+                    *ngIf="taxons$ | async as taxons">
 
-                    <div class="search-box__field" [ngClass]="{'search-box__field--hidden': activeTaxon}"
-                        *ngIf="taxons$ | async as taxons">
+                    <div class="search-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
 
-                        <div class="search-box__stripe" *ngFor="let taxon of taxons"
-                            (click)="onTaxonSelection(taxon.taxonId)">
+                        <h2>
+                            <i>{{ taxon.scientificName.name }}</i>
+                            <small *ngIf="taxon.scientificName.author" style="text-transform: uppercase;">
+                                {{ taxon.scientificName.author }}
+                            </small>
+                        </h2>
+                        <h3>
+                            {{ taxon.vernacularName?.name | lowercase }}
+                            <small *ngIf="taxon.vernacularName?.author" style="text-transform: uppercase;">
+                                {{ taxon.vernacularName.author }}
+                            </small>
+                        </h3>
 
-                            <h2>
-                                <i>{{ taxon.scientificName.name }}</i>
-                                <small *ngIf="taxon.scientificName.author" style="text-transform: uppercase;">
-                                    {{ taxon.scientificName.author }}
-                                </small>
-                            </h2>
-                            <h3>
-                                {{ taxon.vernacularName?.name | lowercase }}
-                                <small *ngIf="taxon.vernacularName?.author" style="text-transform: uppercase;">
-                                    {{ taxon.vernacularName.author }}
-                                </small>
-                            </h3>
+                        <div class="search-box__details">
 
-                            <div class="search-box__details">
+                            <div *ngIf="taxon.scientificNameSynonyms.length > 0">
 
-                                <div *ngIf="taxon.scientificNameSynonyms.length > 0">
+                                <span class="tag">{{ 'shared.synonyms' | translate }}</span>
 
-                                    <span class="tag">{{ 'shared.synonyms' | translate }}</span>
-
-                                    <div *ngFor="let synonym of taxon.scientificNameSynonyms">
-                                        <small><i> {{ synonym.name }} </i></small>
-                                    </div>
-
+                                <div *ngFor="let synonym of taxon.scientificNameSynonyms">
+                                    <small><i> {{ synonym.name }} </i></small>
                                 </div>
 
-                                <div *ngIf="taxon.vernacularNameSynonyms.length > 0">
+                            </div>
 
-                                    <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
-                                        <small> {{ synonym.name }}</small>
-                                    </div>
+                            <div *ngIf="taxon.vernacularNameSynonyms.length > 0">
 
+                                <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
+                                    <small> {{ synonym.name }}</small>
                                 </div>
 
                             </div>
@@ -92,43 +88,41 @@
 
                 </div>
 
-                <div class="search-box">
+            </div>
 
-                    <input class="search-box__input" [ngClass]="{'search-box__input--active': activeArea}" #area
-                        (keyup)="getArea(area.value)" placeholder="Søk område">
+            <div class="search-box">
 
-                    <div class="search-box__field" [ngClass]="{'search-box__field--hidden': activeArea}"
-                        *ngIf="areas$ | async as areas">
-                        <div class="search-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id)">
+                <input class="search-box__input" [ngClass]="{'search-box__input--active': showAreaPane}" #area
+                    (keyup)="getArea(area.value)" placeholder="Søk område">
 
-                            <h2>
-                                <span> {{ area.name }} {{ area.id }}</span>
-                                <ng-container *ngIf="area.name == 'Oslo'">
-                                    <small *ngIf="area.type == areaType.county">
-                                        ({{ 'shared.area_county' | translate | lowercase }})
-                                    </small>
-                                </ng-container>
-                            </h2>
+                <div class="search-box__field" [ngClass]="{'search-box__field--hidden': showAreaPane}"
+                    *ngIf="areas$ | async as areas">
+                    <div class="search-box__stripe" *ngFor="let area of areas"
+                        (click)="onAreaSelection(area.id, area.name)">
 
-                        </div>
+                        <h2>
+                            <span> {{ area.name }} {{ area.id }}</span>
+                            <ng-container *ngIf="area.name == 'Oslo'">
+                                <small *ngIf="area.type == areaType.county">
+                                    ({{ 'shared.area_county' | translate | lowercase }})
+                                </small>
+                            </ng-container>
+                        </h2>
+
                     </div>
-
                 </div>
 
             </div>
 
         </div>
 
-        <div style="display: none;">
-            <p>
-                {{ 'shared.search_chosenFilters' | translate }}:
+        <div>
 
-                <br>
+            <div style="color: red; font-size: 12px;">
+                <br><br>
+                {{ 'shared.search_chosenFilters' | translate }}:
                 <ng-container *ngIf="filters$ | async as filters">
                     <ng-container *ngFor="let filter of filters | keyvalue">
-                        <!-- {{ filter.key }} | {{ filter.value }} -->
-
-                        <br><br>
 
                         <span *ngFor="let item  of filter.value | keyvalue">
                             {{item.key}} | {{item.value}}
@@ -136,17 +130,38 @@
 
                     </ng-container>
                 </ng-container>
+            </div>
 
-            </p>
+            <br>
+
+            <span>{{ 'shared.search_chosenFilters' | translate }}: </span>
+            <span *ngIf="activeYear$ | async as year">
+                {{ year }}
+            </span>
+
+            <span *ngIf="activeSpeciesGroup$ | async as sg">
+                <app-species-group [speciesGroupId]="sg"></app-species-group>
+            </span>
+
+            <span *ngIf="activeTaxon$ | async as taxon">
+                <i> {{ taxon.scientificName }} </i>
+
+                {{ taxon?.vernacularName }}
+            </span>
+
+            <span *ngIf="activeArea$ | async as area">
+                {{ area }}
+            </span>
+
+
         </div>
 
         <br>
         <br>
 
-        <div *ngIf="userStatistics$ | async as userStatistics; else noData">
+        <div *ngIf="userStatistics$ | async as userStatistics">
 
             <ng-container *ngIf="userStatistics.totalCount === 0">
-                <!-- {{ userStatistics.totalCount }} -->
                 {{ 'shared.noResults' | translate }}
                 <br><br>
             </ng-container>
@@ -174,10 +189,6 @@
             </ng-container>
 
         </div>
-
-        <ng-template #noData>
-
-        </ng-template>
 
         <br><br><br><br>
 

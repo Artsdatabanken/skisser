@@ -11,13 +11,14 @@ import { Area } from '../models/shared';
 export class AreasService {
 
   areaApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/Search?search=';
+  countiesAndMunicipalityApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/CountyAndMunicipality/Search?search=';
   countiesApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/County';
   municipalitySearchApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/Municipality/';
 
   constructor(private httpClient: HttpClient) { }
 
   getArea(searchString: string): Observable<Area[]> {
-    return this.httpClient.get(this.areaApi + searchString).pipe(
+    return this.httpClient.get(this.countiesAndMunicipalityApi + searchString).pipe(
       map((response: any) => {
 
         let area: Area;

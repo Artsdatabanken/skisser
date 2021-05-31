@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, publishReplay, refCount, shareReplay, tap } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 import { Category } from '../models/shared';
 import { AssessmentCategory, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from '../models/statistics';
 
@@ -64,6 +64,16 @@ export class SpeciesService {
         return speciesGroups;
       }),
       shareReplay()
+    );
+
+  }
+
+  // species groups by id
+
+  getSpeciesGroupById(id: number): Observable<Category> {
+
+    return this.speciesGroups.pipe(
+      map((speciesGroups: Category[]) => speciesGroups.find(sg => sg.id === id))
     );
 
   }

@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,14 +9,9 @@ export class ApiService {
 
   constructor() { }
 
-  public getHttpResponse(response: HttpResponse<any>): void {
-    console.log('RES', response);
-  }
-
   public handleError(err: HttpErrorResponse) {
 
     let errorMessage: string;
-
 
     if (err.error instanceof ErrorEvent) {
 
@@ -64,5 +59,38 @@ export class ApiService {
 
   }
 
+  createApiUrl(
+    baseUrl: string,
+    pageNumberParam: number,
+    pageSizeParam: number,
+    yearParam?: string,
+    speciesGroupParam?: string,
+    taxonParam?: string,
+    areaParam?: string
+  ): string {
+
+    let api: string;
+    let params: URLSearchParams = new URLSearchParams();
+
+    const addParam = (key, value) => {
+
+      if (value) {
+        params.append(key, value.toString());
+      }
+
+    };
+
+    addParam('Year', yearParam);
+    addParam('SpeciesGroupId', speciesGroupParam);
+    addParam('TaxonId', taxonParam);
+    addParam('AreaId', areaParam);
+    addParam('PageNumber', pageNumberParam);
+    addParam('PageSize', pageSizeParam);
+
+    api = baseUrl + params.toString();
+
+    return api;
+
+  }
 
 }

@@ -125,6 +125,7 @@ import { UserCountPicturesComponent } from './components/user-statistics/user-co
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
 import { FilterComponent } from './shared-and-reusable/smart-components/filter/filter.component';
 import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
+import { SpeciesListComponent } from './components/statistics/species-list/species-list.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -243,7 +244,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     UserCountPicturesComponent,
     AreaListComponent,
     FilterComponent,
-    SpeciesInventoryComponent
+    SpeciesInventoryComponent,
+    SpeciesListComponent
   ],
   imports: [
     BrowserModule,

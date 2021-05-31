@@ -312,13 +312,22 @@ input:focus::-moz-placeholder {
 
     &__input {
         background-image: url(../images/iconSearch.png);
-        background-position: right 10px center;
+        background-position: right 15px center;
         background-repeat: no-repeat;
-        background-size: 20px;
+        background-size: 17px;
         width: calc(100% - 34px);
 
         &--active {
             @include customVar(background-color, clrFocus);
+        }
+
+        &:focus {
+            @include customVar(background-color, clrFocus);
+            // background-image: url(../images/iconSearch.png);
+            // background-position: right 10px center;
+            // background-repeat: no-repeat;
+            // background-size: 20px;
+            @extend .search-box__input;
         }
     }
 

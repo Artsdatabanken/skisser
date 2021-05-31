@@ -21,17 +21,10 @@ export class TaxonService {
     onlyReportable?: boolean
   ): Observable<Taxon[]> {
 
-    console.log('taxon searchString', searchString)
-
     const api: string = this.createApiUrl(this.taxonApi, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
-
-    
-    console.log('taxon API', api)
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
-
-        console.log('response', response)
 
         let taxon: Taxon;
         let taxons: Taxon[] = [];
@@ -123,16 +116,12 @@ export class TaxonService {
 
           }
 
-          console.log('taxon', taxon);
-
           taxons.push(taxon);
 
         });
 
 
-        console.log('taxons', taxons);
-
-        //taxons = taxons.sort((a, b) => a.scientificName.name.localeCompare(b.scientificName.name));
+        //console.log('taxons', taxons);
 
         return taxons;
 

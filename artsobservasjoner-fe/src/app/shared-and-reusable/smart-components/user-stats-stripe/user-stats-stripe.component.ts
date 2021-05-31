@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TopObserver, TopPhotographer } from 'src/app/models/statistics';
+import { TopObserver } from 'src/app/models/statistics';
 
 @Component({
   selector: 'app-user-stats-stripe',

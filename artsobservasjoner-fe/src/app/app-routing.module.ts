@@ -55,6 +55,7 @@ import { UserCountSightingsComponent } from './components/user-statistics/user-c
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
 import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
+import { SpeciesListComponent } from './components/statistics/species-list/species-list.component';
 
 /*
 
@@ -608,7 +609,23 @@ const statisticsRoutes: Routes = [
       metatitle: '',
       metaDescription: ''
     }
-  }
+  },
+  {
+    path: 'sightings-data/statistics/species-list',
+    component: SpeciesListComponent,
+    data: {
+      text: 'Artslister',
+      title: 'menu.menu_statistics_speciesList',
+      id: 'species-list',
+      layout: 'page',
+      rank: 'secondary',
+      parent: 'statistics',
+      menu: '',
+      metatitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
 ];
 
 const userStatisticsRoutes: Routes = [

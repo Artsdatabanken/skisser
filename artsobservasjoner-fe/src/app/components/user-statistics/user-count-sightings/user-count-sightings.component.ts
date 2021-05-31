@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
@@ -28,6 +28,8 @@ export class UserCountSightingsComponent implements OnInit {
   totalPages$: BehaviorSubject<number>;
   position: number;
 
+  subscriptions: Subscription[] = [];
+
   years: number[];
   speciesGroups$: Observable<Category[]>;
   taxons$: Observable<Taxon[]>;
@@ -43,8 +45,13 @@ export class UserCountSightingsComponent implements OnInit {
   filterTaxon$: BehaviorSubject<string> = new BehaviorSubject(null);
   filterArea$: BehaviorSubject<string> = new BehaviorSubject(null);
 
-  activeTaxon: boolean;
-  activeArea: boolean;
+  showTaxonPane: boolean;
+  showAreaPane: boolean;
+
+  activeYear$: BehaviorSubject<string> = new BehaviorSubject(null);
+  activeSpeciesGroup$: BehaviorSubject<string> = new BehaviorSubject(null);
+  activeTaxon$: BehaviorSubject<object> = new BehaviorSubject(null);
+  activeArea$: BehaviorSubject<string> = new BehaviorSubject(null);
 
   constructor(
     private layoutService: LayoutService,
@@ -77,7 +84,6 @@ export class UserCountSightingsComponent implements OnInit {
       map(([year, speciesGroup, taxon, area, pageNumber]) => {
 
         const filters: object[] = [];
-        const activeFilters: object[] = [];
 
         filters.push(
           { year: year },
@@ -87,56 +93,79 @@ export class UserCountSightingsComponent implements OnInit {
           { pageNumber: +pageNumber }
         )
 
-        filters.forEach(filter => {
-          console.log('filter', filter)
-        });
+        const tempUserStatistics$: Observable<UserStatistics> = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
 
-        this.userStatistics$ = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
+        this.userStatistics$ = tempUserStatistics$;
 
-        console.log('filters', filters)
+        //console.log('filters', filters)
         return filters;
 
       })
     );
 
+    this.filters$.subscribe();
+
   }
 
-  onPaginationClick(event: number): void {
-    this.filterPage$.next(event);
+  onPaginationClick(pageNumber: number): void {
+    this.filterPage$.next(pageNumber);
   }
 
-  onYearSelection(event: string): void {
-    this.filterYear$.next(event);
+  onYearSelection(year: string): void {
+    this.filterYear$.next(year);
+    this.activeYear$ = this.filterYear$;
   }
 
-  onSpeciesGroupSelection(event: string): void {
-    this.filterSpeciesGroup$.next(event);
+  onSpeciesGroupSelection(id: string): void {
+    this.filterSpeciesGroup$.next(id);
+
+    this.activeSpeciesGroup$ = this.filterSpeciesGroup$;
+
+    this.activeSpeciesGroup$.subscribe(sg => console.log('sg', sg))
+    // this.subscriptions.push(
+    //   this.speciesService.getSpeciesGroupById(+id).subscribe(sg => {
+    //     this.activeSpeciesGroup$.next(sg);
+    //   })
+    // );
+
   }
 
-  onTaxonSelection(event: string): void {
-    this.filterTaxon$.next(event);
-    this.activeTaxon = true;
+  onTaxonSelection(taxon: Taxon): void {
+
+    this.filterTaxon$.next(taxon.taxonId.toString());
+    this.showTaxonPane = true;
+    this.activeTaxon$.next({ scientificName: taxon.scientificName.name, vernacularName: taxon.vernacularName?.name });
+
+    this.activeTaxon$.subscribe(r => console.log('taxon', r))
+
   }
 
-  onAreaSelection(event: string): void {
-    this.filterArea$.next(event);
-    this.activeArea = true;
+  onAreaSelection(id: string, name: string): void {
+    this.filterArea$.next(id);
+    this.showAreaPane = true;
+    this.activeArea$.next(name);
   }
 
-  getTaxon(event: any): void {
-    if (event.length > 2) {
-      this.taxons$ = this.taxonService.getTaxon(event);
+  getTaxon(searchString: string): void {
+    if (searchString.length > 2) {
+      this.taxons$ = this.taxonService.getTaxon(searchString);
+      this.showTaxonPane = false;
     }
   }
 
-  getArea(event: any): void {
-    if (event.length > 0) {
-      this.areas$ = this.areaService.getArea(event);
+  getArea(searchString: string): void {
+    if (searchString.length > 0) {
+      this.areas$ = this.areaService.getArea(searchString);
+      this.showAreaPane = false;
     }
   }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
     return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
   }
+
+  // ngOnDestroy(): void {
+  //   this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  // }
 
 }
