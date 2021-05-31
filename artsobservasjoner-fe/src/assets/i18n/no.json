@@ -51,6 +51,7 @@
         "noData": "En feil har oppstått. Vennligst prøv igjen i noen sekunder, sjekk igjen senere eller ta en titt på våre <a href=\"/status-page\">driftsmeldinger</a> for oppdateringer.",
         "noResults": "Beklager. Ingen treff med valgte filtre.",
         "filter": "Filtrer",
+        "resetFilters": "Nullstill filtre",
         "select_speciesGroups": "Alle artsgrupper",
         "select_years": "Alle år",
         "select_area": "Hele Norge",

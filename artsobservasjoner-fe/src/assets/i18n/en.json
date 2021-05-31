@@ -51,6 +51,7 @@
         "noData": "An error has occurred. Please try again in a few seconds, check again later or take a look at our <a href=\"/status-page\">status page</a> for updates.",
         "noResults": "Apologier. We couldn't find any hits with the selected filter(s).",
         "filter": "Filter by",
+        "resetFilters": "Reset filters",
         "select_speciesGroups": "All species groups",
         "select_years": "All years",
         "select_area": "All areas",

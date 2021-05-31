@@ -269,16 +269,12 @@
         }
     }
 
-    &--filter {
-        @media screen and (max-width: 1024px) {
-            background-image: url(../images/iconDisplayFilter.png);
-            background-position: left 11px center;
-            //background-size: 28px;
-            font-size: 15px;
-            padding-left: 42px;
-            padding-right: 11px;
-            width: auto;
-        }
+    &--close {
+        background-image: url(../images/iconClose.png);
+        background-position: right 11px center;
+        background-repeat: no-repeat;
+        background-size: 8px;
+        padding-right: 33px;
     }
 
     // elements

@@ -46,12 +46,11 @@ export class TaxonService {
 
             element['scientificNameSynonyms'].forEach(element => {
 
-
-
               scientificNameSynonym = {
                 name: element.name,
                 author: element.auctor,
-                taxonLanguage: element.taxonNameLanguage
+                taxonLanguage: element.taxonNameLanguage,
+                isSearchMatch: element.isSearchMatch
               }
 
               scientificNameSynonyms.push(scientificNameSynonym);
@@ -69,7 +68,8 @@ export class TaxonService {
               vernacularNameSynonym = {
                 name: element.name,
                 author: element.auctor,
-                taxonLanguage: element.taxonNameLanguage
+                taxonLanguage: element.taxonNameLanguage,
+                isSearchMatch: element.isSearchMatch
               }
 
               vernacularNameSynonyms.push(vernacularNameSynonym);
@@ -84,7 +84,8 @@ export class TaxonService {
             scientificName = {
               name: element.scientificName.name,
               author: element.scientificName.auctor,
-              taxonLanguage: element.scientificName.taxonNameLanguage
+              taxonLanguage: element.scientificName.taxonNameLanguage,
+              isSearchMatch: element.isSearchMatch
             }
           }
           else {
@@ -95,7 +96,8 @@ export class TaxonService {
             vernacularName = {
               name: element.vernacularName.name,
               author: element.vernacularName.auctor,
-              taxonLanguage: element.vernacularName.taxonNameLanguage
+              taxonLanguage: element.vernacularName.taxonNameLanguage,
+              isSearchMatch: element.isSearchMatch
             }
           }
           else {
@@ -113,7 +115,6 @@ export class TaxonService {
             vernacularName: vernacularName,
             scientificNameSynonyms: scientificNameSynonyms,
             vernacularNameSynonyms: vernacularNameSynonyms
-
           }
 
           taxons.push(taxon);

@@ -13,4 +13,5 @@ export interface TaxonName {
     name: string;
     author: string;
     taxonLanguage: string;
+    isSearchMatch: boolean;
 }

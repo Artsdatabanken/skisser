@@ -24,17 +24,18 @@ export class UserCountSightingsComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
+  subscriptions: Subscription[] = [];
+
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
+  areaType: typeof AREA_TYPE = AREA_TYPE;
+
   totalPages$: BehaviorSubject<number>;
   position: number;
-
-  subscriptions: Subscription[] = [];
 
   years: number[];
   speciesGroups$: Observable<Category[]>;
   taxons$: Observable<Taxon[]>;
   areas$: Observable<Area[]>;
-  areaType: typeof AREA_TYPE = AREA_TYPE;
 
   userStatistics$: Observable<UserStatistics>;
   filters$: Observable<object[]>;
@@ -118,16 +119,7 @@ export class UserCountSightingsComponent implements OnInit {
 
   onSpeciesGroupSelection(id: string): void {
     this.filterSpeciesGroup$.next(id);
-
     this.activeSpeciesGroup$ = this.filterSpeciesGroup$;
-
-    this.activeSpeciesGroup$.subscribe(sg => console.log('sg', sg))
-    // this.subscriptions.push(
-    //   this.speciesService.getSpeciesGroupById(+id).subscribe(sg => {
-    //     this.activeSpeciesGroup$.next(sg);
-    //   })
-    // );
-
   }
 
   onTaxonSelection(taxon: Taxon): void {
@@ -135,8 +127,6 @@ export class UserCountSightingsComponent implements OnInit {
     this.filterTaxon$.next(taxon.taxonId.toString());
     this.showTaxonPane = true;
     this.activeTaxon$.next({ scientificName: taxon.scientificName.name, vernacularName: taxon.vernacularName?.name });
-
-    this.activeTaxon$.subscribe(r => console.log('taxon', r))
 
   }
 
@@ -146,15 +136,43 @@ export class UserCountSightingsComponent implements OnInit {
     this.activeArea$.next(name);
   }
 
+  resetFilters(): void {
+    console.log('NULLSTILT')
+    this.filterYear$.next(null);
+    this.filterSpeciesGroup$.next(null);
+    this.filterTaxon$.next(null);
+    this.filterArea$.next(null);
+  }
+
+  resetFilter(key): void {
+    console.log('key', key)
+  }
+
+  resetYear(): void {
+    this.activeYear$.next(null);
+  }
+
+  resetSpeciesGroup(): void {
+    this.activeSpeciesGroup$.next(null);
+  }
+
+  resetTaxon(): void {
+    this.activeTaxon$.next(null);
+  }
+
+  resetArea(): void {
+    this.activeArea$.next(null);
+  }
+
   getTaxon(searchString: string): void {
-    if (searchString.length > 2) {
+    if (searchString.length > 1) {
       this.taxons$ = this.taxonService.getTaxon(searchString);
       this.showTaxonPane = false;
     }
   }
 
   getArea(searchString: string): void {
-    if (searchString.length > 0) {
+    if (searchString.length > 1) {
       this.areas$ = this.areaService.getArea(searchString);
       this.showAreaPane = false;
     }

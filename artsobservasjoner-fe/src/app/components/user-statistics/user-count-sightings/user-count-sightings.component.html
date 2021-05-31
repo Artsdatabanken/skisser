@@ -39,8 +39,6 @@
 
             <div class="search-box">
 
-                <span *ngIf="taxons$ | async as taxons">{{ taxons.length }}</span>
-
                 <input class="search-box__input" [ngClass]="{'search-box__input--active': showTaxonPane}" #taxon
                     (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
 
@@ -50,37 +48,44 @@
                     <div class="search-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
 
                         <h2>
-                            <i>{{ taxon.scientificName.name }}</i>
-                            <small *ngIf="taxon.scientificName.author" style="text-transform: uppercase;">
+                            <span [ngClass]="{'text-italics': taxon.taxonCategoryId > 13}">
+                                {{ taxon.scientificName.name }}
+                            </span>
+
+                            <small class="text-uppercase" *ngIf="taxon.scientificName.author">
                                 {{ taxon.scientificName.author }}
                             </small>
                         </h2>
                         <h3>
                             {{ taxon.vernacularName?.name | lowercase }}
-                            <small *ngIf="taxon.vernacularName?.author" style="text-transform: uppercase;">
+                            <small class="text-uppercase" *ngIf="taxon.vernacularName?.author">
                                 {{ taxon.vernacularName.author }}
                             </small>
                         </h3>
 
                         <div class="search-box__details">
 
-                            <div *ngIf="taxon.scientificNameSynonyms.length > 0">
+                            <span class="tag"
+                                *ngIf="taxon.scientificNameSynonyms.length > 0 || taxon.vernacularNameSynonyms.length > 0">
+                                {{ 'shared.synonyms' | translate }}
+                            </span>
 
-                                <span class="tag">{{ 'shared.synonyms' | translate }}</span>
+                            <ng-container *ngIf="taxon.scientificNameSynonyms.length > 0">
 
                                 <div *ngFor="let synonym of taxon.scientificNameSynonyms">
-                                    <small><i> {{ synonym.name }} </i></small>
+                                    <small [ngClass]="{'text-bold': synonym.isSearchMatch}"><i> {{ synonym.name }}
+                                        </i></small>
                                 </div>
 
-                            </div>
+                            </ng-container>
 
-                            <div *ngIf="taxon.vernacularNameSynonyms.length > 0">
+                            <ng-container *ngIf="taxon.vernacularNameSynonyms.length > 0">
 
                                 <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
-                                    <small> {{ synonym.name }}</small>
+                                    <small [ngClass]="{'text-bold': synonym.isSearchMatch}"> {{ synonym.name }} </small>
                                 </div>
 
-                            </div>
+                            </ng-container>
 
                         </div>
 
@@ -114,6 +119,8 @@
 
             </div>
 
+            <button class="button" (click)="resetFilters()">{{ 'shared.resetFilters' | translate }}</button>
+
         </div>
 
         <div>
@@ -135,24 +142,26 @@
             <br>
 
             <span>{{ 'shared.search_chosenFilters' | translate }}: </span>
-            <span *ngIf="activeYear$ | async as year">
+
+            <button class="button button--xs button--close" *ngIf="activeYear$ | async as year" (click)="resetFilter()">
                 {{ year }}
-            </span>
+            </button>
 
-            <span *ngIf="activeSpeciesGroup$ | async as sg">
+            <button class="button button--xs button--close" *ngIf="activeSpeciesGroup$ | async as sg"
+                (click)="resetSpeciesGroup()">
                 <app-species-group [speciesGroupId]="sg"></app-species-group>
-            </span>
+            </button>
 
-            <span *ngIf="activeTaxon$ | async as taxon">
+            <button class="button button--xs button--close" *ngIf="activeTaxon$ | async as taxon"
+                (click)="resetTaxon()">
                 <i> {{ taxon.scientificName }} </i>
 
                 {{ taxon?.vernacularName }}
-            </span>
+            </button>
 
-            <span *ngIf="activeArea$ | async as area">
+            <button class="button button--xs button--close" *ngIf="activeArea$ | async as area" (click)="resetArea()">
                 {{ area }}
-            </span>
-
+            </button>
 
         </div>
 

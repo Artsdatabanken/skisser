@@ -19,6 +19,18 @@
   font-weight: 300;
 }
 
+.text-italics {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 .text-overflow {
   overflow-wrap: break-word;
   word-wrap: break-word;
