@@ -55,7 +55,7 @@ export class UserStatisticsService {
 
         this.totalPages$.next(Math.ceil(response.totalCount / pageSize));
 
-        console.log('userStatisticsObject', userStatisticsObject)
+        //console.log('userStatisticsObject', userStatisticsObject)
 
         return userStatisticsObject;
 

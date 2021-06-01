@@ -54,6 +54,11 @@ export class UserCountSightingsComponent implements OnInit {
   activeTaxon$: BehaviorSubject<object> = new BehaviorSubject(null);
   activeArea$: BehaviorSubject<string> = new BehaviorSubject(null);
 
+  selectedYear: string | null = null;
+  selectedSpeciesGroup: string | null = null;
+  selectedTaxon: string | null = null;
+  selectedArea: string | null = null;
+
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
@@ -75,6 +80,13 @@ export class UserCountSightingsComponent implements OnInit {
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
+    this.getStatistics();
+
+    this.filters$.subscribe();
+
+  }
+
+  getStatistics(): void {
     this.filters$ = combineLatest([
       this.filterYear$,
       this.filterSpeciesGroup$,
@@ -103,9 +115,6 @@ export class UserCountSightingsComponent implements OnInit {
 
       })
     );
-
-    this.filters$.subscribe();
-
   }
 
   onPaginationClick(pageNumber: number): void {
@@ -114,54 +123,68 @@ export class UserCountSightingsComponent implements OnInit {
 
   onYearSelection(year: string): void {
     this.filterYear$.next(year);
-    this.activeYear$ = this.filterYear$;
+    this.selectedYear = year;
   }
 
   onSpeciesGroupSelection(id: string): void {
     this.filterSpeciesGroup$.next(id);
-    this.activeSpeciesGroup$ = this.filterSpeciesGroup$;
+    this.selectedSpeciesGroup = id;
   }
 
   onTaxonSelection(taxon: Taxon): void {
 
     this.filterTaxon$.next(taxon.taxonId.toString());
     this.showTaxonPane = true;
-    this.activeTaxon$.next({ scientificName: taxon.scientificName.name, vernacularName: taxon.vernacularName?.name });
+
+    if (taxon.vernacularName) {
+      this.selectedTaxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
+    }
+    else {
+      this.selectedTaxon = taxon.scientificName.name;
+    }
 
   }
 
   onAreaSelection(id: string, name: string): void {
     this.filterArea$.next(id);
     this.showAreaPane = true;
-    this.activeArea$.next(name);
+    this.selectedArea = name;
   }
 
   resetFilters(): void {
-    console.log('NULLSTILT')
     this.filterYear$.next(null);
     this.filterSpeciesGroup$.next(null);
     this.filterTaxon$.next(null);
     this.filterArea$.next(null);
-  }
-
-  resetFilter(key): void {
-    console.log('key', key)
+    
+    this.selectedYear = null;
+    this.selectedSpeciesGroup = null;
+    this.selectedTaxon = null;
+    this.selectedArea = null;
   }
 
   resetYear(): void {
-    this.activeYear$.next(null);
+    this.filterYear$.next(null);
+    this.selectedYear = null;
+    this.getStatistics();
   }
 
   resetSpeciesGroup(): void {
-    this.activeSpeciesGroup$.next(null);
+    this.filterSpeciesGroup$.next(null);
+    this.selectedSpeciesGroup = null;
+    this.getStatistics();
   }
 
   resetTaxon(): void {
-    this.activeTaxon$.next(null);
+    this.filterTaxon$.next(null);
+    this.selectedTaxon = null;
+    this.getStatistics();
   }
 
   resetArea(): void {
-    this.activeArea$.next(null);
+    this.filterArea$.next(null);
+    this.selectedArea = null;
+    this.getStatistics();
   }
 
   getTaxon(searchString: string): void {

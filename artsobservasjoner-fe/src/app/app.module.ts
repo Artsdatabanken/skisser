@@ -119,7 +119,6 @@ import { AboutStatisticsComponent } from './components/statistics/about-statisti
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
 import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
-import { TaxonSearchComponent } from './shared-and-reusable/smart-components/taxon-search/taxon-search.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
@@ -239,7 +238,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     AboutStatisticsComponent,
     SearchSightingsComponent,
     CompareSightingsComponent,
-    TaxonSearchComponent,
     UserCountSightingsComponent,
     UserCountPicturesComponent,
     AreaListComponent,

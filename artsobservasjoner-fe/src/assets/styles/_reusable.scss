@@ -275,6 +275,10 @@
         background-repeat: no-repeat;
         background-size: 8px;
         padding-right: 33px;
+
+        &:hover {
+            background-image: url(../images/iconCloseWhite.png);
+        }
     }
 
     // elements
