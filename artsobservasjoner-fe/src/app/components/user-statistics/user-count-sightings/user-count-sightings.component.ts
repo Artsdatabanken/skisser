@@ -156,11 +156,14 @@ export class UserCountSightingsComponent implements OnInit {
     this.filterSpeciesGroup$.next(null);
     this.filterTaxon$.next(null);
     this.filterArea$.next(null);
-    
+
     this.selectedYear = null;
     this.selectedSpeciesGroup = null;
     this.selectedTaxon = null;
     this.selectedArea = null;
+    
+    this.showTaxonPane = false;
+    this.showAreaPane = false;
   }
 
   resetYear(): void {
@@ -178,6 +181,7 @@ export class UserCountSightingsComponent implements OnInit {
   resetTaxon(): void {
     this.filterTaxon$.next(null);
     this.selectedTaxon = null;
+    this.showTaxonPane = false;
     this.getStatistics();
   }
 

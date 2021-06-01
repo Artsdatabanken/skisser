@@ -79,8 +79,7 @@
                 <!-- <input class="search-box__input" [ngClass]="{'search-box__input--active': showTaxonPane}" #taxon
                     (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">     -->
 
-                <input class="search-box__input" [ngModel]="selectedTaxon"
-                    [ngClass]="{'search-box__input--active': showTaxonPane}" #taxon (keyup)="getTaxon(taxon.value)"
+                <input class="search-box__input" [ngModel]="selectedTaxon" #taxon (keyup)="getTaxon(taxon.value)"
                     placeholder="Søk takson">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--hidden': showTaxonPane}"
@@ -145,8 +144,7 @@
 
             <div class="search-box">
 
-                <input class="search-box__input" [ngModel]="selectedArea"
-                    [ngClass]="{'search-box__input--active': showAreaPane}" #area (keyup)="getArea(area.value)"
+                <input class="search-box__input" [ngModel]="selectedArea" #area (keyup)="getArea(area.value)"
                     placeholder="Søk område">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--hidden': showAreaPane}"
