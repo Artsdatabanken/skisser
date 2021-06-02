@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { combineLatest, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Category } from '../models/shared';
 import { AssessmentCategory, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from '../models/statistics';

@@ -332,12 +332,13 @@ input:focus::-moz-placeholder {
     }
 
     &__field {
+        display: none;
         margin-top: 10px;
         position: absolute;
         width: 100%;
 
-        &--hidden {
-            display: none;
+        &--show {
+            display: block;
         }
     }
 
