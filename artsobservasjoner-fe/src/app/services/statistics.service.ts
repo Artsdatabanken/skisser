@@ -155,7 +155,6 @@ export class StatisticsService {
 
         });
 
-        console.log();
         return statusObject;
 
       })
@@ -271,14 +270,12 @@ export class StatisticsService {
               tempArray.push(assessedSpeciesItemStats)
             }
 
-            //map.set(getSpeciesGroup(speciesItem.id), { data: tempArray });
             map.set(speciesItem.id, { data: tempArray });
 
           });
 
         });
 
-        //console.log('map', map)
         return map;
 
       })

@@ -1,10 +1,19 @@
 // VIEWMODELS, INTERFACES AND CLASSES FOR FILTERS
 
+import { BehaviorSubject } from "rxjs";
+
 export const PAGE_SIZE: number = 20;
 
+export class Filters {
+  year$: BehaviorSubject<string> = new BehaviorSubject(null); 
+  speciesGroup$: BehaviorSubject<string> = new BehaviorSubject(null); 
+  taxon$: BehaviorSubject<string> = new BehaviorSubject(null); 
+  area$: BehaviorSubject<string> = new BehaviorSubject(null); 
+}
+
 export class Selected {
-    selectedYear: string | null = null;
-    selectedSpeciesGroup: string | null = null;
-    selectedTaxon: string | null = null;
-    selectedArea: string | null = null;
-  }
+  year: string | null = null;
+  speciesGroup: string | null = null;
+  taxon: string | null = null;
+  area: string | null = null;
+}

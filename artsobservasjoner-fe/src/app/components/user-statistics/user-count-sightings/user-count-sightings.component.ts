@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest, Subscription, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
@@ -11,7 +11,7 @@ import { TaxonService } from 'src/app/services/taxon.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
-import { PAGE_SIZE } from 'src/app/models/filter';
+import { Filters, PAGE_SIZE } from 'src/app/models/filter';
 import { Selected } from 'src/app/models/filter';
 
 @Component({
@@ -30,6 +30,7 @@ export class UserCountSightingsComponent implements OnInit {
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
   areaType: typeof AREA_TYPE = AREA_TYPE;
 
+  pageNumber$: BehaviorSubject<number> = new BehaviorSubject(1);
   totalPages$: BehaviorSubject<number>;
   position: number;
 
@@ -39,28 +40,13 @@ export class UserCountSightingsComponent implements OnInit {
   areas$: Observable<Area[]>;
 
   userStatistics$: Observable<UserStatistics>;
-  filters$: Observable<object[]>;
+  filteredData$: Observable<any>;
+  filters: Filters = new Filters();
 
-  filterPage$: BehaviorSubject<number> = new BehaviorSubject(1);
-  filterYear$: BehaviorSubject<string> = new BehaviorSubject(null);
-  filterSpeciesGroup$: BehaviorSubject<string> = new BehaviorSubject(null);
-  filterTaxon$: BehaviorSubject<string> = new BehaviorSubject(null);
-  filterArea$: BehaviorSubject<string> = new BehaviorSubject(null);
+  selected: Selected = new Selected();
 
   showTaxonPane: boolean = false;
   showAreaPane: boolean = false;
-
-  activeYear$: BehaviorSubject<string> = new BehaviorSubject(null);
-  activeSpeciesGroup$: BehaviorSubject<string> = new BehaviorSubject(null);
-  activeTaxon$: BehaviorSubject<object> = new BehaviorSubject(null);
-  activeArea$: BehaviorSubject<string> = new BehaviorSubject(null);
-
-  selectedYear: string | null = null;
-  selectedSpeciesGroup: string | null = null;
-  selectedTaxon: string | null = null;
-  selectedArea: string | null = null;
-
-  selected: Selected = new Selected();
 
   constructor(
     private layoutService: LayoutService,
@@ -83,24 +69,16 @@ export class UserCountSightingsComponent implements OnInit {
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.totalPages$ = this.userStatisticsService.totalPages$;
 
-    this.getStatistics();
-
-    this.filters$.subscribe();
-
-    console.log('selected shit', this.selected)
-
-  }
-
-  getStatistics(): void {
-
-    this.filters$ = combineLatest([
-      this.filterYear$,
-      this.filterSpeciesGroup$,
-      this.filterTaxon$,
-      this.filterArea$,
-      this.filterPage$
+    this.filteredData$ = combineLatest([
+      this.filters.year$,
+      this.filters.speciesGroup$,
+      this.filters.taxon$,
+      this.filters.area$,
+      this.pageNumber$
     ]).pipe(
       map(([year, speciesGroup, taxon, area, pageNumber]) => {
+
+        console.log('F I L T E R S', year, speciesGroup, taxon, area, pageNumber);
 
         const filters: object[] = [];
 
@@ -112,101 +90,81 @@ export class UserCountSightingsComponent implements OnInit {
           { pageNumber: +pageNumber }
         )
 
-        const tempUserStatistics$: Observable<UserStatistics> = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
-
-        this.userStatistics$ = tempUserStatistics$;
-
-        //console.log('filters', filters)
+        this.userStatistics$ = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
+        
         return filters;
 
       })
     );
 
+    this.filteredData$.subscribe();
+
   }
 
   onPaginationClick(pageNumber: number): void {
-    this.filterPage$.next(pageNumber);
+    this.pageNumber$.next(pageNumber);
   }
 
   onYearSelection(year: string): void {
-    this.filterYear$.next(year);
-    // this.selectedYear = year;
-    this.selected.selectedYear = year;
+    this.filters.year$.next(year);
+    this.selected.year = year;
   }
 
   onSpeciesGroupSelection(id: string): void {
-    this.filterSpeciesGroup$.next(id);
-    // this.selectedSpeciesGroup = id;
-    this.selected.selectedSpeciesGroup = id;
+    this.filters.speciesGroup$.next(id);
+    this.selected.speciesGroup = id;
   }
 
   onTaxonSelection(taxon: Taxon): void {
 
-    this.filterTaxon$.next(taxon.taxonId.toString());
+    this.filters.taxon$.next(taxon.taxonId.toString());
     this.showTaxonPane = false;
 
     if (taxon.vernacularName) {
-      // this.selectedTaxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
-      this.selected.selectedTaxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
+      this.selected.taxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
     }
     else {
-      // this.selectedTaxon = taxon.scientificName.name;
-      this.selected.selectedTaxon = taxon.scientificName.name;
+      this.selected.taxon = taxon.scientificName.name;
     }
 
   }
 
   onAreaSelection(id: string, name: string): void {
-    this.filterArea$.next(id);
+    this.filters.area$.next(id);
     this.showAreaPane = false;
-    // this.selectedArea = name;
-    this.selected.selectedArea = name;
+    this.selected.area = name;
   }
 
   resetFilters(): void {
-    this.filterYear$.next(null);
-    this.filterSpeciesGroup$.next(null);
-    this.filterTaxon$.next(null);
-    this.filterArea$.next(null);
+
+    for (let filter in this.filters) {
+      this.filters[filter].next(null);
+    }
 
     for (let property in this.selected) {
-      console.log(`key= ${property} value = ${this.selected[property]}`)
-
       this.selected[property] = null;
     }
 
     this.showTaxonPane = false;
     this.showAreaPane = false;
+
   }
 
-  resetYear(): void {
-    this.filterYear$.next(null);
-    // this.selectedYear = null;
-    this.selected.selectedYear = null;
-    this.getStatistics();
-  }
+  resetFilter(key: string): void {
+    // console.log('TEST key', key, `${key}$`)
+    // console.log('TEST filter', this.filters[`${key}$`])
+    // console.log('TEST selected', this.selected[key])
 
-  resetSpeciesGroup(): void {
-    this.filterSpeciesGroup$.next(null);
-    // this.selectedSpeciesGroup = null;
-    this.selected.selectedSpeciesGroup = null;
-    this.getStatistics();
-  }
+    if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
+      this.filters[`${key}$`].next(null);
+    }
 
-  resetTaxon(): void {
-    this.filterTaxon$.next(null);
-    // this.selectedTaxon = null;
-    this.selected.selectedTaxon = null;
+    if (this.selected[key] || typeof this.selected[key] !== 'undefined') {
+      this.selected[key] = null;
+    }
+
     this.showTaxonPane = false;
-    this.getStatistics();
-  }
-
-  resetArea(): void {
-    this.filterArea$.next(null);
-    // this.selectedArea = null;
-    this.selected.selectedArea = null;
     this.showAreaPane = false;
-    this.getStatistics();
   }
 
   // ----------***

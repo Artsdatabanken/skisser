@@ -25,7 +25,6 @@
                     <tr role="row" *ngFor="let item of data | newKeyValue">
                         <th scope="row" role="rowheader">{{ item.key }}</th>
 
-
                         <ng-container *ngFor="let element of item.value | newKeyValue">
                             <td role="cell" class="td-number">{{ element.value | formatNumber }}</td>
                         </ng-container>

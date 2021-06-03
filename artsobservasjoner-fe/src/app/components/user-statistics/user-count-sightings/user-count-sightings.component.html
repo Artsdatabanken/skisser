@@ -10,36 +10,9 @@
 
         <div class="filter">
 
-            <!-- <select name="yearSelector" id="years" (change)="onYearSelection($event.target.value)">
-
-                <option [ngValue]="null">
-                    {{ 'shared.select_years' | translate }}
-                </option>
-
-                <option [value]="year" *ngFor="let year of years">
-                    {{ year }}
-                </option>
-
-            </select> -->
-
-            <!-- <select name="speciesGroupsSelector" id="speciesGroups"
-                (change)="onSpeciesGroupSelection($event.target.value)">
-
-                <option [ngValue]="null">
-                    {{ 'shared.select_speciesGroups' | translate }}
-                </option>
-
-                <option [value]="sg.id" *ngFor="let sg of speciesGroups$ | async">
-                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
-                    </ng-container>
-                </option>
-
-            </select> -->
-
             <!--years-->
 
-            <select name="yearSelector" id="years" [(ngModel)]="selected.selectedYear"
+            <select name="yearSelector" id="years" [(ngModel)]="selected.year"
                 (ngModelChange)="onYearSelection($event)">
 
                 <option [ngValue]="null">
@@ -56,7 +29,7 @@
 
             <!--species groups-->
 
-            <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selected.selectedSpeciesGroup"
+            <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selected.speciesGroup"
                 (ngModelChange)="onSpeciesGroupSelection($event)">
 
                 <option [ngValue]="null">
@@ -80,8 +53,8 @@
                 <!-- <input class="search-box__input" [ngClass]="{'search-box__input--active': showTaxonPane}" #taxon
                     (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">     -->
 
-                <input class="search-box__input" [ngModel]="selected.selectedTaxon" #taxon
-                    (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">
+                <input class="search-box__input" [ngModel]="selected.taxon" #taxon (keyup)="getTaxon(taxon.value)"
+                    placeholder="Søk takson">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showTaxonPane}"
                     *ngIf="taxons$ | async as taxons">
@@ -148,7 +121,7 @@
                 <!-- <input class="search-box__input" [ngModel]="selectedArea" #area (keyup)="getArea(area.value)"
                     placeholder="Søk område">   -->
 
-                <input class="search-box__input" [ngModel]="selected.selectedArea" #area (keyup)="getArea(area.value)"
+                <input class="search-box__input" [ngModel]="selected.area" #area (keyup)="getArea(area.value)"
                     placeholder="Søk område">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showAreaPane}"
@@ -174,71 +147,30 @@
 
         </div>
 
-        <div>
+        <br>
+        <br>
 
-            <div style="color: red; font-size: 12px;">
-                <br><br>
-                {{ 'shared.search_chosenFilters' | translate }}:
-                <ng-container *ngIf="filters$ | async as filters">
-                    <ng-container *ngFor="let filter of filters | keyvalue">
+        <div *ngIf="selected">
 
-                        <span *ngFor="let item  of filter.value | keyvalue">
-                            {{item.key}} | {{item.value}}
-                        </span>
+            <small>{{ 'shared.search_chosenFilters' | translate }}: </small>
 
+            <ng-container *ngFor="let prop of selected | keyvalue">
+
+                <button class="button button--xs button--close" *ngIf="prop.value !== null"
+                    (click)="resetFilter(prop.key)">
+                    <!-- {{ prop.value }} -->
+
+                    <ng-container *ngIf="prop.key !== 'speciesGroup'">
+                        {{ prop.value }}
                     </ng-container>
-                </ng-container>
-            </div>
 
-            <br>
+                    <ng-container *ngIf="prop.key === 'speciesGroup'">
+                        <app-species-group [speciesGroupId]="prop.value"></app-species-group>
+                    </ng-container>
 
-            <span>{{ 'shared.search_chosenFilters' | translate }}: </span>
-            <!-- 
-            <button class="button button--xs button--close" *ngIf="activeYear$ | async as year" (click)="resetYear()">
-                {{ year }}
-            </button>
+                </button> &nbsp;
 
-            <button class="button button--xs button--close" *ngIf="activeSpeciesGroup$ | async as sg"
-                (click)="resetSpeciesGroup()">
-                <app-species-group [speciesGroupId]="sg"></app-species-group>
-            </button>
-
-            <button class="button button--xs button--close" *ngIf="activeTaxon$ | async as taxon"
-                (click)="resetTaxon()">
-                <i> {{ taxon.scientificName }} </i>
-                {{ taxon?.vernacularName }}
-            </button>
-
-            <button class="button button--xs button--close" *ngIf="activeArea$ | async as area" (click)="resetArea()">
-                {{ area }}
-            </button> -->
-
-            <!------>
-
-            <!-- <ng-container *ngIf=""></ng-container> -->
-     
-
-            <div *ngFor="let prop of selected | keyvalue">
-                XXX {{ key }} {{ value }}
-               
-            </div>
-
-            <button class="button button--xs button--close" *ngIf="selected.selectedYear" (click)="resetYear()">
-                {{ selected.selectedYear }}
-            </button>
-
-            <button class="button button--xs button--close" *ngIf="selected.selectedSpeciesGroup"
-                (click)="resetSpeciesGroup()">
-                <app-species-group [speciesGroupId]="selected.selectedSpeciesGroup"></app-species-group>
-            </button>
-
-            <button class="button button--xs button--close" *ngIf="selected.selectedTaxon" (click)="resetTaxon()">
-                {{ selected.selectedTaxon }}
-            </button>
-
-            <button class="button button--xs button--close" *ngIf="selected.selectedArea" (click)="resetArea()">
-                {{ selected.selectedArea }}
-            </button>
+            </ng-container>
 
             <button class="button button--xs button--close" (click)="resetFilters()">
                 {{ 'shared.resetFilters' | translate }}

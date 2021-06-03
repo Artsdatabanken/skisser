@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ActiveFilter, Filter } from 'src/app/models/shared';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -10,27 +8,17 @@ import { ActiveFilter, Filter } from 'src/app/models/shared';
 
 export class FilterComponent implements OnInit {
 
-  @Input() parameter: string;
-  @Input() filters: Filter[] = [];
 
-  changeFilter: BehaviorSubject<ActiveFilter>;
 
   constructor() { }
 
   ngOnInit() {
 
-    const initialFilter = this.filters.find(f => f.active);
 
-    this.changeFilter = new BehaviorSubject<ActiveFilter>({
-      parameter: this.parameter,
-      id: initialFilter.id
-    });
 
   }
 
-  ngOnDestroy() {
-    this.changeFilter.unsubscribe();
-  }
+
 
 
 }
