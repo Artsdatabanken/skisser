@@ -181,7 +181,7 @@
         <br>
         <br>
 
-        <div *ngIf="userStatistics$ | async as userStatistics">
+        <div *ngIf="filteredData$ | async as userStatistics">
 
             <ng-container *ngIf="userStatistics.totalCount === 0">
                 {{ 'shared.noResults' | translate }}

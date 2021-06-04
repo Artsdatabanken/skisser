@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject, combineLatest, Subscription, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { debounceTime, map, retry, switchMap } from 'rxjs/operators';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { Taxon } from 'src/app/models/taxon';
@@ -40,7 +40,7 @@ export class UserCountSightingsComponent implements OnInit {
   areas$: Observable<Area[]>;
 
   userStatistics$: Observable<UserStatistics>;
-  filteredData$: Observable<any>;
+  filteredData$;
   filters: Filters = new Filters();
 
   selected: Selected = new Selected();
@@ -68,6 +68,36 @@ export class UserCountSightingsComponent implements OnInit {
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
     this.totalPages$ = this.userStatisticsService.totalPages$;
+    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, null, null, null, null);
+
+    // this.filteredData$ = combineLatest([
+    //   this.filters.year$,
+    //   this.filters.speciesGroup$,
+    //   this.filters.taxon$,
+    //   this.filters.area$,
+    //   this.pageNumber$
+    // ]).pipe(
+    //   map(([year, speciesGroup, taxon, area, pageNumber]) => {
+
+    //     console.log('F I L T E R S', year, speciesGroup, taxon, area, pageNumber);
+
+    //     const filters: object[] = [];
+
+    //     filters.push(
+    //       { year: year },
+    //       { speciesGroup: speciesGroup },
+    //       { taxon: taxon },
+    //       { area: area },
+    //       { pageNumber: +pageNumber }
+    //     )
+
+    //     this.userStatistics$ = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
+
+    //     return filters;
+
+    //   })
+    // );
+
 
     this.filteredData$ = combineLatest([
       this.filters.year$,
@@ -76,28 +106,33 @@ export class UserCountSightingsComponent implements OnInit {
       this.filters.area$,
       this.pageNumber$
     ]).pipe(
-      map(([year, speciesGroup, taxon, area, pageNumber]) => {
+      // map(([year, speciesGroup, taxon, area, pageNumber]) => {
 
-        console.log('F I L T E R S', year, speciesGroup, taxon, area, pageNumber);
+      //   console.log('F I L T E R S', year, speciesGroup, taxon, area, pageNumber);
 
-        const filters: object[] = [];
+      //   return [year, speciesGroup, taxon, area, pageNumber]
 
-        filters.push(
-          { year: year },
-          { speciesGroup: speciesGroup },
-          { taxon: taxon },
-          { area: area },
-          { pageNumber: +pageNumber }
-        )
-
-        this.userStatistics$ = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
-        
-        return filters;
-
-      })
+      // }),
+      map(filters => ({
+        year: filters[0],
+        speciesGroup: filters[1],
+        taxon: filters[2],
+        area: filters[3],
+        pageNumber: filters[4]
+      })),
+      debounceTime(0),
+      switchMap(filters => this.userStatisticsService.getTopObservers(
+        +filters.pageNumber,
+        PAGE_SIZE,
+        filters.year,
+        filters.speciesGroup,
+        filters.taxon,
+        filters.area)),
+      map((response: UserStatistics) => {
+        return response;
+      }),
     );
 
-    this.filteredData$.subscribe();
 
   }
 
@@ -105,18 +140,21 @@ export class UserCountSightingsComponent implements OnInit {
     this.pageNumber$.next(pageNumber);
   }
 
-  onYearSelection(year: string): void {
+  onYearSelection(year: string): void {    
+    this.pageNumber$.next(1);
     this.filters.year$.next(year);
     this.selected.year = year;
   }
 
   onSpeciesGroupSelection(id: string): void {
+    this.pageNumber$.next(1);
     this.filters.speciesGroup$.next(id);
     this.selected.speciesGroup = id;
   }
 
   onTaxonSelection(taxon: Taxon): void {
 
+    this.pageNumber$.next(1);
     this.filters.taxon$.next(taxon.taxonId.toString());
     this.showTaxonPane = false;
 
@@ -130,13 +168,16 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   onAreaSelection(id: string, name: string): void {
+    
+    this.pageNumber$.next(1);
     this.filters.area$.next(id);
     this.showAreaPane = false;
     this.selected.area = name;
+
   }
 
   resetFilters(): void {
-
+    
     for (let filter in this.filters) {
       this.filters[filter].next(null);
     }
@@ -151,9 +192,8 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   resetFilter(key: string): void {
-    // console.log('TEST key', key, `${key}$`)
-    // console.log('TEST filter', this.filters[`${key}$`])
-    // console.log('TEST selected', this.selected[key])
+
+
 
     if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
       this.filters[`${key}$`].next(null);
@@ -165,6 +205,7 @@ export class UserCountSightingsComponent implements OnInit {
 
     this.showTaxonPane = false;
     this.showAreaPane = false;
+
   }
 
   // ----------***
