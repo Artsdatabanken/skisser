@@ -36,6 +36,7 @@ export class AreasService {
 
         });
 
+        console.log('areas', areas)
         return areas.sort((a, b) => a.name.localeCompare(b.name));
 
       }),

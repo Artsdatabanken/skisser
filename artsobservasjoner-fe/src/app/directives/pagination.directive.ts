@@ -1,5 +1,4 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, SimpleChanges } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Directive({
   selector: '[appPagination]',

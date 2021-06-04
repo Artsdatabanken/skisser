@@ -54,7 +54,7 @@
                     (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">     -->
 
                 <input class="search-box__input" [ngModel]="selected.taxon" #taxon (keyup)="getTaxon(taxon.value)"
-                    placeholder="Søk takson">
+                    placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showTaxonPane}"
                     *ngIf="taxons$ | async as taxons">
@@ -122,7 +122,7 @@
                     placeholder="Søk område">   -->
 
                 <input class="search-box__input" [ngModel]="selected.area" #area (keyup)="getArea(area.value)"
-                    placeholder="Søk område">
+                placeholder="{{ 'shared.search_searchArea' | translate }}">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showAreaPane}"
                     *ngIf="areas$ | async as areas">
@@ -139,6 +139,10 @@
                         </h2>
 
                     </div>
+
+                    <div class="search-box__stripe" *ngIf="!areas">
+                        {{ 'shared.noHits' | translate }}
+                    </div>
                 </div>
 
             </div>
@@ -150,15 +154,14 @@
         <br>
         <br>
 
-        <div *ngIf="selected">
+        <div>
 
-            <small>{{ 'shared.search_chosenFilters' | translate }}: </small>
+            <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
 
             <ng-container *ngFor="let prop of selected | keyvalue">
 
                 <button class="button button--xs button--close" *ngIf="prop.value !== null"
                     (click)="resetFilter(prop.key)">
-                    <!-- {{ prop.value }} -->
 
                     <ng-container *ngIf="prop.key !== 'speciesGroup'">
                         {{ prop.value }}
@@ -172,13 +175,12 @@
 
             </ng-container>
 
-            <button class="button button--xs button--close" (click)="resetFilters()">
+            <button class="button button--xs button--close" *ngIf="showResetButton" (click)="resetFilters()">
                 {{ 'shared.resetFilters' | translate }}
             </button>
 
         </div>
 
-        <br>
         <br>
 
         <div *ngIf="filteredData$ | async as userStatistics">

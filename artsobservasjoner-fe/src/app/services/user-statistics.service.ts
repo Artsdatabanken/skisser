@@ -10,8 +10,6 @@ import { TopObserver, UserStatistics } from '../models/statistics';
 
 export class UserStatisticsService {
 
-  totalPages$ = new BehaviorSubject(0);
-
   constructor(private httpClient: HttpClient) { }
 
   getTopObservers(
@@ -52,8 +50,6 @@ export class UserStatisticsService {
           topObservers: topObservers,
           totalCount: response.totalCount
         }
-
-        this.totalPages$.next(Math.ceil(response.totalCount / pageSize));
 
         console.log('userStatisticsObject', userStatisticsObject)
 
@@ -109,8 +105,6 @@ export class UserStatisticsService {
           topObservers: topObservers,
           totalCount: response.totalCount
         }
-
-        this.totalPages$.next(Math.ceil(response.totalCount / pageSize));
 
         return userStatisticsObject;
 

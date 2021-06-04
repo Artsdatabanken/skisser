@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject, combineLatest, Subscription, forkJoin } from 'rxjs';
-import { debounceTime, map, retry, switchMap } from 'rxjs/operators';
+import { debounceTime, filter, map, retry, switchMap } from 'rxjs/operators';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { Taxon } from 'src/app/models/taxon';
@@ -13,6 +13,7 @@ import { UserStatisticsService } from 'src/app/services/user-statistics.service'
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Filters, PAGE_SIZE } from 'src/app/models/filter';
 import { Selected } from 'src/app/models/filter';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-user-count-sightings',
@@ -31,7 +32,7 @@ export class UserCountSightingsComponent implements OnInit {
   areaType: typeof AREA_TYPE = AREA_TYPE;
 
   pageNumber$: BehaviorSubject<number> = new BehaviorSubject(1);
-  totalPages$: BehaviorSubject<number>;
+  totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
   position: number;
 
   years: number[];
@@ -47,8 +48,10 @@ export class UserCountSightingsComponent implements OnInit {
 
   showTaxonPane: boolean = false;
   showAreaPane: boolean = false;
+  showResetButton: boolean = false;
 
   constructor(
+    private cdr: ChangeDetectorRef,
     private layoutService: LayoutService,
     private translationService: TranslationService,
     private speciesService: SpeciesService,
@@ -67,7 +70,6 @@ export class UserCountSightingsComponent implements OnInit {
 
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
-    this.totalPages$ = this.userStatisticsService.totalPages$;
     this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, null, null, null, null);
 
     // this.filteredData$ = combineLatest([
@@ -106,13 +108,6 @@ export class UserCountSightingsComponent implements OnInit {
       this.filters.area$,
       this.pageNumber$
     ]).pipe(
-      // map(([year, speciesGroup, taxon, area, pageNumber]) => {
-
-      //   console.log('F I L T E R S', year, speciesGroup, taxon, area, pageNumber);
-
-      //   return [year, speciesGroup, taxon, area, pageNumber]
-
-      // }),
       map(filters => ({
         year: filters[0],
         speciesGroup: filters[1],
@@ -121,6 +116,19 @@ export class UserCountSightingsComponent implements OnInit {
         pageNumber: filters[4]
       })),
       debounceTime(0),
+      map(filters => {
+
+        for (let filter in this.filters) { // hacky; må fikses
+          if (this.filters[filter].getValue() !== null) {
+            this.showResetButton = true;
+          }
+
+          //console.log(' F I L T E R S', this.filters[filter].getValue())
+        }
+
+        return filters;
+
+      }),
       switchMap(filters => this.userStatisticsService.getTopObservers(
         +filters.pageNumber,
         PAGE_SIZE,
@@ -129,32 +137,41 @@ export class UserCountSightingsComponent implements OnInit {
         filters.taxon,
         filters.area)),
       map((response: UserStatistics) => {
+
+        this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
+
         return response;
+
       }),
     );
 
 
   }
 
+  ngAfterContentChecked() {
+    this.cdr.detectChanges(); // might be a dirty tricks but will have to do for now
+  }
+
   onPaginationClick(pageNumber: number): void {
     this.pageNumber$.next(pageNumber);
   }
 
-  onYearSelection(year: string): void {    
-    this.pageNumber$.next(1);
+  onYearSelection(year: string): void {
+
     this.filters.year$.next(year);
     this.selected.year = year;
+
   }
 
   onSpeciesGroupSelection(id: string): void {
-    this.pageNumber$.next(1);
+    
     this.filters.speciesGroup$.next(id);
     this.selected.speciesGroup = id;
+
   }
 
   onTaxonSelection(taxon: Taxon): void {
 
-    this.pageNumber$.next(1);
     this.filters.taxon$.next(taxon.taxonId.toString());
     this.showTaxonPane = false;
 
@@ -168,8 +185,7 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   onAreaSelection(id: string, name: string): void {
-    
-    this.pageNumber$.next(1);
+
     this.filters.area$.next(id);
     this.showAreaPane = false;
     this.selected.area = name;
@@ -177,7 +193,7 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   resetFilters(): void {
-    
+
     for (let filter in this.filters) {
       this.filters[filter].next(null);
     }
@@ -188,12 +204,11 @@ export class UserCountSightingsComponent implements OnInit {
 
     this.showTaxonPane = false;
     this.showAreaPane = false;
+    this.showResetButton = false;
 
   }
 
   resetFilter(key: string): void {
-
-
 
     if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
       this.filters[`${key}$`].next(null);

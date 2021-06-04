@@ -61,7 +61,9 @@
         "area_municipality": "Kommune",
         "area_protected": "Verneområde",
         "searchHits": "Treff",
-        "search_chosenFilters": "Du har søkt på"
+        "search_chosenFilters": "Du har søkt på",
+        "search_searchTaxon": "Søk takson",
+        "search_searchArea": "Søk område"
     },
     "headings": {},
     "account": {

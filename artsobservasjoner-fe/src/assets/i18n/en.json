@@ -61,7 +61,9 @@
         "area_municipality": "Municipality",
         "area_protected": "Protected area",
         "searchHits": "Hits",
-        "search_chosenFilters": "You have filtered by"
+        "search_chosenFilters": "You have filtered by",
+        "search_searchTaxon": "Search taxon",
+        "search_searchArea": "Search area"
     },
     "headings": {},
     "account": {
