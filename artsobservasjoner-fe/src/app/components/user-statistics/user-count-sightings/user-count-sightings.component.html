@@ -122,7 +122,7 @@
                     *ngIf="areas$ | async as areas">
 
                     <div class="search-box__stripe" *ngFor="let area of areas"
-                        (click)="onAreaSelection(area.id, area.name)">
+                        (click)="onAreaSelection(area.id, area.name)" clickElsewhere>
 
                         <h2>
                             <span> {{ area.name }} {{ area.id }}</span>
@@ -147,7 +147,6 @@
 
         </div>
 
-        <br>
         <br>
 
         <div class="loop loop--filters">
@@ -177,6 +176,7 @@
 
         </div>
 
+        <br>
         <br>
 
         <div *ngIf="filteredData$ | async as userStatistics">

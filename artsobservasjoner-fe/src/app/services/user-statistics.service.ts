@@ -51,7 +51,7 @@ export class UserStatisticsService {
           totalCount: response.totalCount
         }
 
-        console.log('userStatisticsObject', userStatisticsObject)
+        //console.log('userStatisticsObject', userStatisticsObject)
 
         return userStatisticsObject;
 

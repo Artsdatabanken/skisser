@@ -52,8 +52,6 @@ export class AreasService {
     return this.httpClient.get(this.countiesAndMunicipalityApi + searchString, { observe: 'response' }).pipe(
       map((response: any) => {
 
-        console.log('areas response.status', response.status)
-
         let area: Area;
         let areas: Area[] = [];
 

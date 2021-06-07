@@ -145,11 +145,10 @@ export class UserCountSightingsComponent implements OnInit {
       }),
     );
 
-
   }
 
   ngAfterContentChecked() {
-    this.cdr.detectChanges(); // might be a dirty tricks but will have to do for now
+    this.cdr.detectChanges(); // force recheck for changes
   }
 
   onPaginationClick(pageNumber: number): void {
@@ -242,9 +241,5 @@ export class UserCountSightingsComponent implements OnInit {
   getPosition(index: number, pageNumber: number, pageSize: number): number {
     return this.userStatisticsService.getPosition(index, pageNumber, pageSize);
   }
-
-  // ngOnDestroy(): void {
-  //   this.subscriptions.forEach(subscription => subscription.unsubscribe());
-  // }
 
 }
