@@ -120,6 +120,7 @@
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showAreaPane}"
                     *ngIf="areas$ | async as areas">
+
                     <div class="search-box__stripe" *ngFor="let area of areas"
                         (click)="onAreaSelection(area.id, area.name)">
 
@@ -134,9 +135,10 @@
 
                     </div>
 
-                    <div class="search-box__stripe" *ngIf="!areas">
+                    <div class="search-box__stripe" *ngIf="areas.length === 0">
                         {{ 'shared.noHits' | translate }}
                     </div>
+
                 </div>
 
             </div>
