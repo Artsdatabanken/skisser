@@ -12,8 +12,7 @@ import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Filters, PAGE_SIZE } from 'src/app/models/filter';
-import { Selected } from 'src/app/models/filter';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { SelectedFilters } from 'src/app/models/filter';
 
 @Component({
   selector: 'app-user-count-sightings',
@@ -44,7 +43,7 @@ export class UserCountSightingsComponent implements OnInit {
   filteredData$;
   filters: Filters = new Filters();
 
-  selected: Selected = new Selected();
+  selectedFilters: SelectedFilters = new SelectedFilters();
 
   showTaxonPane: boolean = false;
   showAreaPane: boolean = false;
@@ -161,14 +160,14 @@ export class UserCountSightingsComponent implements OnInit {
   onYearSelection(year: string): void {
 
     this.filters.year$.next(year);
-    this.selected.year = year;
+    this.selectedFilters.year = year;
 
   }
 
   onSpeciesGroupSelection(id: string): void {
 
     this.filters.speciesGroup$.next(id);
-    this.selected.speciesGroup = id;
+    this.selectedFilters.speciesGroup = id;
 
   }
 
@@ -178,10 +177,10 @@ export class UserCountSightingsComponent implements OnInit {
     this.showTaxonPane = false;
 
     if (taxon.vernacularName) {
-      this.selected.taxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
+      this.selectedFilters.taxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
     }
     else {
-      this.selected.taxon = taxon.scientificName.name;
+      this.selectedFilters.taxon = taxon.scientificName.name;
     }
 
   }
@@ -190,7 +189,7 @@ export class UserCountSightingsComponent implements OnInit {
 
     this.filters.area$.next(id);
     this.showAreaPane = false;
-    this.selected.area = name;
+    this.selectedFilters.area = name;
 
   }
 
@@ -200,8 +199,8 @@ export class UserCountSightingsComponent implements OnInit {
       this.filters[filter].next(null);
     }
 
-    for (let property in this.selected) {
-      this.selected[property] = null;
+    for (let property in this.selectedFilters) {
+      this.selectedFilters[property] = null;
     }
 
     this.showTaxonPane = false;
@@ -216,8 +215,8 @@ export class UserCountSightingsComponent implements OnInit {
       this.filters[`${key}$`].next(null);
     }
 
-    if (this.selected[key] || typeof this.selected[key] !== 'undefined') {
-      this.selected[key] = null;
+    if (this.selectedFilters[key] || typeof this.selectedFilters[key] !== 'undefined') {
+      this.selectedFilters[key] = null;
     }
 
     this.showTaxonPane = false;
@@ -242,7 +241,7 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   closeTaxonPane(pane: any): void {
-    
+
     if (this.showTaxonPane) {
       this.taxonInput.nativeElement.value = '';
       this.showTaxonPane = false;

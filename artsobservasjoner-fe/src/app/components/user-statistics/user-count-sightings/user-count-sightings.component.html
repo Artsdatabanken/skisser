@@ -12,7 +12,7 @@
 
             <!--years-->
 
-            <select name="yearSelector" id="years" [(ngModel)]="selected.year"
+            <select name="yearSelector" id="years" [(ngModel)]="selectedFilters.year"
                 (ngModelChange)="onYearSelection($event)">
 
                 <option [ngValue]="null">
@@ -29,7 +29,7 @@
 
             <!--species groups-->
 
-            <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selected.speciesGroup"
+            <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedFilters.speciesGroup"
                 (ngModelChange)="onSpeciesGroupSelection($event)">
 
                 <option [ngValue]="null">
@@ -50,8 +50,8 @@
 
             <div class="search-box">
 
-                <input class="search-box__input" [ngModel]="selected.taxon" #taxon (keyup)="getTaxon(taxon.value)"
-                    placeholder="{{ 'shared.search_searchTaxon' | translate }}">
+                <input class="search-box__input" [ngModel]="selectedFilters.taxon" #taxon
+                    (keyup)="getTaxon(taxon.value)" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showTaxonPane}"
                     *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
@@ -115,7 +115,7 @@
 
             <div class="search-box">
 
-                <input class="search-box__input" [ngModel]="selected.area" #area (keyup)="getArea(area.value)"
+                <input class="search-box__input" [ngModel]="selectedFilters.area" #area (keyup)="getArea(area.value)"
                     placeholder="{{ 'shared.search_searchArea' | translate }}">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showAreaPane}"
@@ -178,6 +178,12 @@
 
         <br>
         <br>
+
+        <br><br><br><br>
+
+        <app-filter></app-filter>
+
+        <br><br><br><br>
 
         <div *ngIf="filteredData$ | async as userStatistics">
 
