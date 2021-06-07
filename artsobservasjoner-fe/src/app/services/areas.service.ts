@@ -17,26 +17,64 @@ export class AreasService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // getArea(searchString: string): Observable<Area[]> {
+  //   return this.httpClient.get(this.countiesAndMunicipalityApi + searchString).pipe(
+  //     map((response: any) => {
+
+  //       console.log('areas response', response)
+  //       console.log('areas response body', response.body)
+
+  //       let area: Area;
+  //       let areas: Area[] = [];
+
+  //       response.forEach(element => {
+
+  //         area = {
+  //           id: element.id,
+  //           name: element.name,
+  //           type: element.areaDataset
+  //         }
+
+  //         areas.push(area);
+
+  //       });
+
+  //       console.log('areas', areas)
+  //       return areas.sort((a, b) => a.name.localeCompare(b.name));
+
+  //     }),
+  //     shareReplay()
+  //   );
+
+  // }
+
   getArea(searchString: string): Observable<Area[]> {
-    return this.httpClient.get(this.countiesAndMunicipalityApi + searchString).pipe(
+    return this.httpClient.get(this.countiesAndMunicipalityApi + searchString, { observe: 'response' }).pipe(
       map((response: any) => {
+
+        console.log('areas response.status', response.status)
 
         let area: Area;
         let areas: Area[] = [];
 
-        response.forEach(element => {
+        const data = response.body;
 
-          area = {
-            id: element.id,
-            name: element.name,
-            type: element.areaDataset
-          }
+        if (data) {
 
-          areas.push(area);
+          data.forEach(element => {
 
-        });
+            area = {
+              id: element.id,
+              name: element.name,
+              type: element.areaDataset
+            }
 
-        console.log('areas', areas)
+            areas.push(area);
+
+          });
+        
+        }
+
         return areas.sort((a, b) => a.name.localeCompare(b.name));
 
       }),
@@ -103,6 +141,16 @@ export class AreasService {
       shareReplay()
     );
 
+  }
+
+  private extractData(res: Response) {
+    let body = res.json();  // If response is a JSON use json()
+    if (body) {
+      return body['data'] || body;
+    }
+    else {
+      return {};
+    }
   }
 
 

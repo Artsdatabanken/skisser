@@ -50,9 +50,6 @@
 
             <div class="search-box">
 
-                <!-- <input class="search-box__input" [ngClass]="{'search-box__input--active': showTaxonPane}" #taxon
-                    (keyup)="getTaxon(taxon.value)" placeholder="Søk takson">     -->
-
                 <input class="search-box__input" [ngModel]="selected.taxon" #taxon (keyup)="getTaxon(taxon.value)"
                     placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
@@ -118,9 +115,6 @@
 
             <div class="search-box">
 
-                <!-- <input class="search-box__input" [ngModel]="selectedArea" #area (keyup)="getArea(area.value)"
-                    placeholder="Søk område">   -->
-
                 <input class="search-box__input" [ngModel]="selected.area" #area (keyup)="getArea(area.value)"
                 placeholder="{{ 'shared.search_searchArea' | translate }}">
 
@@ -154,7 +148,7 @@
         <br>
         <br>
 
-        <div>
+        <div class="loop loop--filters">
 
             <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
 
@@ -171,10 +165,10 @@
                         <app-species-group [speciesGroupId]="prop.value"></app-species-group>
                     </ng-container>
 
-                </button> &nbsp;
+                </button>
 
             </ng-container>
-
+            
             <button class="button button--xs button--close" *ngIf="showResetButton" (click)="resetFilters()">
                 {{ 'shared.resetFilters' | translate }}
             </button>

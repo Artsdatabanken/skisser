@@ -916,6 +916,7 @@ main {
     width: 100%;
 
     & > * {
+      
     }
 
     &--buttons {
@@ -1073,6 +1074,14 @@ main {
 
         @media screen and (max-width: 1024px) {
             grid-gap: 40px 0;
+        }
+    }
+
+    &--filters {
+        align-items: center;
+
+        & > * {
+            margin-right: 10px;
         }
     }
 }

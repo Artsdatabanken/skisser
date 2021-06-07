@@ -25,7 +25,7 @@ export class UserCountPicturesComponent implements OnInit {
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
-  totalPages$: BehaviorSubject<number>;
+  totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
   position: number;
 
   years: number[];
@@ -65,8 +65,7 @@ export class UserCountPicturesComponent implements OnInit {
 
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
-    this.totalPages$ = this.userStatisticsService.totalPages$;
-
+  
     this.filters$ = combineLatest([
       this.filterYear$,
       this.filterSpeciesGroup$,
