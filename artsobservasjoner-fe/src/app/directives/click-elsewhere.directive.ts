@@ -12,10 +12,10 @@ export class ClickElsewhereDirective {
 
         const targetElement: HTMLElement = event.target as HTMLElement;
 
-        console.log('targetElement', targetElement)
-        console.log('elementRef', this.elementRef)
-        console.log('test 1', !this.elementRef.nativeElement.contains(targetElement))
-        console.log('test 2', targetElement && !this.elementRef.nativeElement.contains(targetElement))
+        // console.log('targetElement', targetElement)
+        // console.log('elementRef', this.elementRef)
+        // console.log('test 1', !this.elementRef.nativeElement.contains(targetElement))
+        // console.log('test 2', targetElement && !this.elementRef.nativeElement.contains(targetElement))
 
         // check if the click was outside the element
         if (targetElement && !this.elementRef.nativeElement.contains(targetElement)) {

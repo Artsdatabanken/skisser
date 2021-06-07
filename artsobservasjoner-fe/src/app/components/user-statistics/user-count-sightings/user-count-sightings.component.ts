@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, BehaviorSubject, combineLatest, Subscription, forkJoin } from 'rxjs';
 import { debounceTime, filter, map, retry, switchMap } from 'rxjs/operators';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
@@ -49,6 +49,9 @@ export class UserCountSightingsComponent implements OnInit {
   showTaxonPane: boolean = false;
   showAreaPane: boolean = false;
   showResetButton: boolean = false;
+
+  @ViewChild('area') areaInput: any;
+  @ViewChild('taxon') taxonInput: any;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -163,7 +166,7 @@ export class UserCountSightingsComponent implements OnInit {
   }
 
   onSpeciesGroupSelection(id: string): void {
-    
+
     this.filters.speciesGroup$.next(id);
     this.selected.speciesGroup = id;
 
@@ -236,6 +239,24 @@ export class UserCountSightingsComponent implements OnInit {
       this.areas$ = this.areaService.getArea(searchString);
       this.showAreaPane = true;
     }
+  }
+
+  closeTaxonPane(pane: any): void {
+    
+    if (this.showTaxonPane) {
+      this.taxonInput.nativeElement.value = '';
+      this.showTaxonPane = false;
+    }
+
+  }
+
+  closeAreaPane(pane: any): void {
+
+    if (this.showAreaPane) {
+      this.areaInput.nativeElement.value = '';
+      this.showAreaPane = false;
+    }
+
   }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {

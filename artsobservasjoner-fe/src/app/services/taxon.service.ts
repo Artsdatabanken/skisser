@@ -121,8 +121,7 @@ export class TaxonService {
 
         });
 
-
-        //console.log('taxons', taxons);
+        console.log('taxons', taxons);
 
         return taxons;
 

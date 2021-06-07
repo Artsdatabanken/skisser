@@ -54,7 +54,7 @@
                     placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showTaxonPane}"
-                    *ngIf="taxons$ | async as taxons">
+                    *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
 
                     <div class="search-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
 
@@ -116,13 +116,13 @@
             <div class="search-box">
 
                 <input class="search-box__input" [ngModel]="selected.area" #area (keyup)="getArea(area.value)"
-                placeholder="{{ 'shared.search_searchArea' | translate }}">
+                    placeholder="{{ 'shared.search_searchArea' | translate }}">
 
                 <div class="search-box__field" [ngClass]="{'search-box__field--show': showAreaPane}"
-                    *ngIf="areas$ | async as areas">
+                    *ngIf="areas$ | async as areas" (clickElsewhere)="closeAreaPane(this)">
 
                     <div class="search-box__stripe" *ngFor="let area of areas"
-                        (click)="onAreaSelection(area.id, area.name)" clickElsewhere>
+                        (click)="onAreaSelection(area.id, area.name)">
 
                         <h2>
                             <span> {{ area.name }} {{ area.id }}</span>
@@ -169,7 +169,7 @@
                 </button>
 
             </ng-container>
-            
+
             <button class="button button--xs button--close" *ngIf="showResetButton" (click)="resetFilters()">
                 {{ 'shared.resetFilters' | translate }}
             </button>
