@@ -20,8 +20,8 @@
 
     <!--species groups-->
 
-    <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="activeFilters.speciesGroup"
-        (ngModelChange)="onSpeciesGroupSelection($event)">
+    <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="activeFilters.speciesGroup" #speciesGroup
+        (ngModelChange)="onSpeciesGroupSelection($event)" [disabled]="isSpeciesGroupDisabled">
 
         <option [ngValue]="null">
             {{ 'shared.select_speciesGroups' | translate }}
@@ -41,7 +41,7 @@
 
     <div class="search-box">
 
-        <input class="search-box__input" [ngModel]="activeFilters.taxon" #taxon (keyup)="getTaxon(taxon.value)"
+        <input class="search-box__input" [ngModel]="activeFilters.taxon" #taxon (keyup)="getTaxon(taxon.value)" [disabled]="isTaxonDisabled"
             placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
         <div class="search-box__field" [ngClass]="{'search-box__field--show': showTaxonPane}"

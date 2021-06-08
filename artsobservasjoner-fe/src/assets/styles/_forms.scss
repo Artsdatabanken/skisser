@@ -26,7 +26,6 @@ form {
         display: block;
         font-size: 18px;
         font-weight: 500;
-        //margin: 5px 0 25px;
         padding: 12px 24px 9px;
         width: 100%;
 
@@ -127,6 +126,19 @@ select {
         outline: none !important;
     }
 
+    &:disabled {
+        @include customVar(border-color, paletteColor1);
+        @include customVar(color, paletteColor2);
+        border-style: solid;
+        border-width: 2px;
+        pointer-events: none;
+
+        ::placeholder {
+            @include customVar(color, paletteColor2);
+            font-size: inherit;
+        }
+    }
+
     option {
         font-weight: 500;
         padding: 15px;
@@ -138,8 +150,9 @@ input {
     padding: 9px 15px;
 }
 
+// PLACEHOLDERS
+
 ::placeholder {
-    @include customVar(color, clrDark);
     color: #666;
     font-size: inherit;
 
@@ -290,11 +303,9 @@ input:focus::-moz-placeholder {
     }
 }
 
-// search box
+// FILTER & SEARCH-BOX
 
 .filter {
-    // border: 1px solid red;
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
@@ -311,11 +322,12 @@ input:focus::-moz-placeholder {
     width: 100%;
 
     &__input {
-        background-image: url(../images/iconSearch.png);
-        background-position: right 15px center;
+        background-image: url(../images/iconSearchRight.png);
+        background-position: left 15px center;
         background-repeat: no-repeat;
         background-size: 17px;
-        width: calc(100% - 34px);
+        padding-left: 42px;
+        width: calc(100% - 60px);
 
         &--active {
             @include customVar(background-color, clrFocus);
@@ -328,6 +340,20 @@ input:focus::-moz-placeholder {
             // background-repeat: no-repeat;
             // background-size: 20px;
             @extend .search-box__input;
+        }
+
+        &:disabled {
+            background-image: url(../images/iconSearchDisabledRight.png);
+            @include customVar(border-color, paletteColor1);
+            @include customVar(color, paletteColor2);
+            border-style: solid;
+            border-width: 2px;
+            pointer-events: none;
+
+            ::placeholder {
+                @include customVar(color, paletteColor2);
+                font-size: inherit;
+            }
         }
     }
 

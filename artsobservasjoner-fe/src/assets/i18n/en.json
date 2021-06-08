@@ -169,7 +169,7 @@
         "tableFootnote_nullFindings": "The species individual is been search for but not found",
         "userStats_position": "Position",
         "userStats_observer": "Observer",
-        "userStats_sightingsCount": "Sightings count",
+        "userStats_sightingsCount": "Number of sightings",
         "userStats_mediaCount": "Media count"
     }
 }

@@ -308,7 +308,7 @@
 .stripe {
     @include customVar(background-color, clrWash2);
     display: grid;
-    grid-template-columns: 120px auto 100px;
+    grid-template-columns: 120px auto auto;
     font-size: 18px;
     margin: 0 auto 3px;
     max-width: 65%;

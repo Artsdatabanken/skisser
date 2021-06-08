@@ -37,8 +37,12 @@ export class FilterComponent implements OnInit {
   showAreaPane: boolean = false;
   showResetButton: boolean = false;
 
-  @ViewChild('area') areaInput: any;
+  @ViewChild('speciesGroup') speciesGroupInput: any;
   @ViewChild('taxon') taxonInput: any;
+  @ViewChild('area') areaInput: any;
+
+  private isSpeciesGroupDisabled: boolean = false;
+  private isTaxonDisabled: boolean = false;
 
   constructor(
     private translationService: TranslationService,
@@ -68,6 +72,7 @@ export class FilterComponent implements OnInit {
 
     this.filterService.updateSpeciesGroup(id);
     this.activeFilters.speciesGroup = id;
+    this.isTaxonDisabled = true;
 
   }
 
@@ -83,13 +88,15 @@ export class FilterComponent implements OnInit {
       this.activeFilters.taxon = taxon.scientificName.name;
     }
 
+    this.isSpeciesGroupDisabled = true;
+
   }
 
   onAreaSelection(id: string, name: string): void {
 
     this.filterService.updateArea(id);
-    this.showAreaPane = false;
     this.activeFilters.area = name;
+    this.showAreaPane = false;
 
   }
 
@@ -105,6 +112,9 @@ export class FilterComponent implements OnInit {
     this.showAreaPane = false;
     this.showResetButton = false;
 
+    this.isSpeciesGroupDisabled = false;
+    this.isTaxonDisabled = false;
+
   }
 
   resetFilter(key: string): void {
@@ -117,6 +127,17 @@ export class FilterComponent implements OnInit {
 
     this.showTaxonPane = false;
     this.showAreaPane = false;
+
+    // this.isSpeciesGroupDisabled = !this.isSpeciesGroupDisabled;
+    // this.isTaxonDisabled = !this.isTaxonDisabled;
+
+    if (this.isSpeciesGroupDisabled === true) {
+      this.isSpeciesGroupDisabled = false;
+    }
+
+    if (this.isTaxonDisabled === true) {
+      this.isTaxonDisabled = false;
+    }
 
   }
 

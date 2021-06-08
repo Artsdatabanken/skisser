@@ -1,18 +1,12 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { Observable, BehaviorSubject, combineLatest, Subscription, forkJoin } from 'rxjs';
-import { debounceTime, filter, map, retry, switchMap } from 'rxjs/operators';
-import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
+import { AREA_TYPE} from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
-import { Taxon } from 'src/app/models/taxon';
-import { AreasService } from 'src/app/services/areas.service';
 import { LayoutService } from 'src/app/services/layout.service';
-import { SpeciesService } from 'src/app/services/species.service';
-import { TaxonService } from 'src/app/services/taxon.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
-import { UtilitiesService } from 'src/app/services/utilities.service';
-import { Filters, PAGE_SIZE } from 'src/app/models/filter';
-import { SelectedFilters } from 'src/app/models/filter';
+import { PAGE_SIZE } from 'src/app/models/filter';
 import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
@@ -24,7 +18,6 @@ import { FilterService } from 'src/app/services/filter.service';
 export class UserCountSightingsComponent implements OnInit {
 
   pageTitle$: Observable<string>;
-  currentLanguage$: Observable<string>;
   subscriptions: Subscription[] = [];
   PAGE_SIZE = PAGE_SIZE;
 
@@ -38,18 +31,15 @@ export class UserCountSightingsComponent implements OnInit {
   userStatistics$: Observable<UserStatistics>;
   filteredData$;
 
-
   constructor(
     private cdr: ChangeDetectorRef,
     private layoutService: LayoutService,
-    private translationService: TranslationService,
     private filterService: FilterService,
     private userStatisticsService: UserStatisticsService
   ) {
 
     this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_topObservers');
-    this.currentLanguage$ = this.translationService.currentLanguage$;
-
+   
   }
 
   ngOnInit(): void {
