@@ -141,7 +141,8 @@
 
 <div class="loop loop--filters">
 
-    <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
+    <!-- <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small> -->
+    <small>{{ 'shared.search_chosenFilters' | translate }}: </small>
 
     <ng-container *ngFor="let prop of activeFilters | keyvalue">
 
@@ -159,7 +160,11 @@
 
     </ng-container>
 
-    <button class="button button--xs button--close" *ngIf="showResetButton" (click)="resetFilters()">
+    <!-- <button class="button button--xs button--close" *ngIf="showResetButton" (click)="resetFilters()">
+        {{ 'shared.resetFilters' | translate }}
+    </button> -->
+
+    <button class="button button--xs button--close" (click)="resetFilters()">
         {{ 'shared.resetFilters' | translate }}
     </button>
 

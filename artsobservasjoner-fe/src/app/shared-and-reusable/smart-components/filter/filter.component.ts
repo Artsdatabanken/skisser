@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Filters, ActiveFilters } from 'src/app/models/filter';
+import { ActiveFilters } from 'src/app/models/filter';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { Taxon } from 'src/app/models/taxon';
 import { AreasService } from 'src/app/services/areas.service';
+import { FilterService } from 'src/app/services/filter.service';
 import { SpeciesService } from 'src/app/services/species.service';
 import { TaxonService } from 'src/app/services/taxon.service';
 import { TranslationService } from 'src/app/services/translation.service';
@@ -30,7 +31,6 @@ export class FilterComponent implements OnInit {
   taxons$: Observable<Taxon[]>;
   areas$: Observable<Area[]>;
 
-  filters: Filters = new Filters();
   activeFilters: ActiveFilters = new ActiveFilters();
 
   showTaxonPane: boolean = false;
@@ -40,15 +40,9 @@ export class FilterComponent implements OnInit {
   @ViewChild('area') areaInput: any;
   @ViewChild('taxon') taxonInput: any;
 
-  @Output() selectedYear = new EventEmitter<string>();
-  @Output() selectedSpeciesGroup = new EventEmitter<string>();
-  @Output() selectedTaxon = new EventEmitter<string>();
-  @Output() selectedArea = new EventEmitter<string>();
-
-  @Output() outputFilters = new EventEmitter<ActiveFilters>();
-
   constructor(
     private translationService: TranslationService,
+    private filterService: FilterService,
     private speciesService: SpeciesService,
     private areaService: AreasService,
     private taxonService: TaxonService,
@@ -65,25 +59,21 @@ export class FilterComponent implements OnInit {
 
   onYearSelection(year: string): void {
 
-    this.filters.year$.next(year);
+    this.filterService.updateYear(year);
     this.activeFilters.year = year;
-    this.selectedYear.emit(year);
-    this.outputFilters.emit(this.activeFilters);
 
   }
 
   onSpeciesGroupSelection(id: string): void {
 
-    this.filters.speciesGroup$.next(id);
+    this.filterService.updateSpeciesGroup(id);
     this.activeFilters.speciesGroup = id;
-    this.selectedSpeciesGroup.emit(id);
-    this.outputFilters.emit(this.activeFilters);
 
   }
 
   onTaxonSelection(taxon: Taxon): void {
 
-    this.filters.taxon$.next(taxon.taxonId.toString());
+    this.filterService.updateTaxon(taxon.taxonId.toString());
     this.showTaxonPane = false;
 
     if (taxon.vernacularName) {
@@ -93,54 +83,37 @@ export class FilterComponent implements OnInit {
       this.activeFilters.taxon = taxon.scientificName.name;
     }
 
-    this.selectedTaxon.emit(taxon.taxonId.toString());
-    this.outputFilters.emit(this.activeFilters);
-
   }
 
   onAreaSelection(id: string, name: string): void {
 
-    this.filters.area$.next(id);
-    this.selectedArea.emit(id);
+    this.filterService.updateArea(id);
     this.showAreaPane = false;
     this.activeFilters.area = name;
-    this.outputFilters.emit(this.activeFilters);
+
   }
 
   resetFilters(): void {
 
-    for (let filter in this.filters) {
-      this.filters[filter].next(null);
-    }
+    this.filterService.resetFilters();
 
     for (let property in this.activeFilters) {
       this.activeFilters[property] = null;
     }
 
-    this.outputFilters.emit(this.activeFilters);
-
     this.showTaxonPane = false;
     this.showAreaPane = false;
     this.showResetButton = false;
-
-    this.selectedYear.emit(null);
-    this.selectedSpeciesGroup.emit(null);
-    this.selectedTaxon.emit(null);
-    this.selectedArea.emit(null);
 
   }
 
   resetFilter(key: string): void {
 
-    if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
-      this.filters[`${key}$`].next(null);
-    }
+    this.filterService.resetFilter(key);
 
     if (this.activeFilters[key] || typeof this.activeFilters[key] !== 'undefined') {
       this.activeFilters[key] = null;
     }
-
-    this.outputFilters.emit(this.activeFilters);
 
     this.showTaxonPane = false;
     this.showAreaPane = false;
@@ -150,17 +123,21 @@ export class FilterComponent implements OnInit {
   // ----------***
 
   getTaxon(searchString: string): void {
+  
     if (searchString.length > 1) {
       this.taxons$ = this.taxonService.getTaxon(searchString);
       this.showTaxonPane = true;
     }
+  
   }
 
   getArea(searchString: string): void {
+
     if (searchString.length > 1) {
       this.areas$ = this.areaService.getArea(searchString);
       this.showAreaPane = true;
     }
+
   }
 
   closeTaxonPane(pane: any): void {

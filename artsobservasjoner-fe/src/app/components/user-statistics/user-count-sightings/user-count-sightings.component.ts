@@ -13,6 +13,7 @@ import { UserStatisticsService } from 'src/app/services/user-statistics.service'
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Filters, PAGE_SIZE } from 'src/app/models/filter';
 import { SelectedFilters } from 'src/app/models/filter';
+import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
   selector: 'app-user-count-sightings',
@@ -34,32 +35,15 @@ export class UserCountSightingsComponent implements OnInit {
   totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
   position: number;
 
-  years: number[];
-  speciesGroups$: Observable<Category[]>;
-  taxons$: Observable<Taxon[]>;
-  areas$: Observable<Area[]>;
-
   userStatistics$: Observable<UserStatistics>;
   filteredData$;
-  filters: Filters = new Filters();
 
-  selectedFilters: SelectedFilters = new SelectedFilters();
-
-  showTaxonPane: boolean = false;
-  showAreaPane: boolean = false;
-  showResetButton: boolean = false;
-
-  @ViewChild('area') areaInput: any;
-  @ViewChild('taxon') taxonInput: any;
 
   constructor(
     private cdr: ChangeDetectorRef,
     private layoutService: LayoutService,
     private translationService: TranslationService,
-    private speciesService: SpeciesService,
-    private areaService: AreasService,
-    private taxonService: TaxonService,
-    private utilitiesService: UtilitiesService,
+    private filterService: FilterService,
     private userStatisticsService: UserStatisticsService
   ) {
 
@@ -70,44 +54,13 @@ export class UserCountSightingsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.years = this.utilitiesService.generateYears();
-    this.speciesGroups$ = this.speciesService.speciesGroups;
     this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, null, null, null, null);
 
-    // this.filteredData$ = combineLatest([
-    //   this.filters.year$,
-    //   this.filters.speciesGroup$,
-    //   this.filters.taxon$,
-    //   this.filters.area$,
-    //   this.pageNumber$
-    // ]).pipe(
-    //   map(([year, speciesGroup, taxon, area, pageNumber]) => {
-
-    //     console.log('F I L T E R S', year, speciesGroup, taxon, area, pageNumber);
-
-    //     const filters: object[] = [];
-
-    //     filters.push(
-    //       { year: year },
-    //       { speciesGroup: speciesGroup },
-    //       { taxon: taxon },
-    //       { area: area },
-    //       { pageNumber: +pageNumber }
-    //     )
-
-    //     this.userStatistics$ = this.userStatisticsService.getTopObservers(+pageNumber, PAGE_SIZE, year, speciesGroup, taxon, area);
-
-    //     return filters;
-
-    //   })
-    // );
-
-
     this.filteredData$ = combineLatest([
-      this.filters.year$,
-      this.filters.speciesGroup$,
-      this.filters.taxon$,
-      this.filters.area$,
+      this.filterService.filters.year$,
+      this.filterService.filters.speciesGroup$,
+      this.filterService.filters.taxon$,
+      this.filterService.filters.area$,
       this.pageNumber$
     ]).pipe(
       map(filters => ({
@@ -120,13 +73,11 @@ export class UserCountSightingsComponent implements OnInit {
       debounceTime(0),
       map(filters => {
 
-        for (let filter in this.filters) { // hacky; må fikses
-          if (this.filters[filter].getValue() !== null) {
-            this.showResetButton = true;
-          }
-
-          //console.log(' F I L T E R S', this.filters[filter].getValue())
-        }
+        // for (let filter in this.filters) { // hacky; må fikses
+        //   if (this.filters[filter].getValue() !== null) {
+        //     this.showResetButton = true;
+        //   }
+        // }
 
         return filters;
 
@@ -155,107 +106,6 @@ export class UserCountSightingsComponent implements OnInit {
 
   onPaginationClick(pageNumber: number): void {
     this.pageNumber$.next(pageNumber);
-  }
-
-  onYearSelection(year: string): void {
-
-    this.filters.year$.next(year);
-    this.selectedFilters.year = year;
-
-  }
-
-  onSpeciesGroupSelection(id: string): void {
-
-    this.filters.speciesGroup$.next(id);
-    this.selectedFilters.speciesGroup = id;
-
-  }
-
-  onTaxonSelection(taxon: Taxon): void {
-
-    this.filters.taxon$.next(taxon.taxonId.toString());
-    this.showTaxonPane = false;
-
-    if (taxon.vernacularName) {
-      this.selectedFilters.taxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
-    }
-    else {
-      this.selectedFilters.taxon = taxon.scientificName.name;
-    }
-
-  }
-
-  onAreaSelection(id: string, name: string): void {
-
-    this.filters.area$.next(id);
-    this.showAreaPane = false;
-    this.selectedFilters.area = name;
-
-  }
-
-  resetFilters(): void {
-
-    for (let filter in this.filters) {
-      this.filters[filter].next(null);
-    }
-
-    for (let property in this.selectedFilters) {
-      this.selectedFilters[property] = null;
-    }
-
-    this.showTaxonPane = false;
-    this.showAreaPane = false;
-    this.showResetButton = false;
-
-  }
-
-  resetFilter(key: string): void {
-
-    if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
-      this.filters[`${key}$`].next(null);
-    }
-
-    if (this.selectedFilters[key] || typeof this.selectedFilters[key] !== 'undefined') {
-      this.selectedFilters[key] = null;
-    }
-
-    this.showTaxonPane = false;
-    this.showAreaPane = false;
-
-  }
-
-  // ----------***
-
-  getTaxon(searchString: string): void {
-    if (searchString.length > 1) {
-      this.taxons$ = this.taxonService.getTaxon(searchString);
-      this.showTaxonPane = true;
-    }
-  }
-
-  getArea(searchString: string): void {
-    if (searchString.length > 1) {
-      this.areas$ = this.areaService.getArea(searchString);
-      this.showAreaPane = true;
-    }
-  }
-
-  closeTaxonPane(pane: any): void {
-
-    if (this.showTaxonPane) {
-      this.taxonInput.nativeElement.value = '';
-      this.showTaxonPane = false;
-    }
-
-  }
-
-  closeAreaPane(pane: any): void {
-
-    if (this.showAreaPane) {
-      this.areaInput.nativeElement.value = '';
-      this.showAreaPane = false;
-    }
-
   }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
