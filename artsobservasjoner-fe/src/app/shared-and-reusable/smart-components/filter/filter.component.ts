@@ -24,6 +24,7 @@ export class FilterComponent implements OnInit {
   @Input() showSpeciesGroups: boolean;
   @Input() showTaxonSearch: boolean;
   @Input() showAreaSearch: boolean;
+  @Input() embeddedIn?: string;
 
   areaType: typeof AREA_TYPE = AREA_TYPE;
   years: number[];
@@ -41,8 +42,8 @@ export class FilterComponent implements OnInit {
   @ViewChild('taxon') taxonInput: any;
   @ViewChild('area') areaInput: any;
 
-  private isSpeciesGroupDisabled: boolean = false;
-  private isTaxonDisabled: boolean = false;
+  isSpeciesGroupDisabled: boolean = false;
+  isTaxonDisabled: boolean = false;
 
   constructor(
     private translationService: TranslationService,
@@ -55,10 +56,16 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log('embeddedIn', this.embeddedIn)
+    
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
 
+  }
+
+  ngOnDestroy(): void {
+    this.filterService.resetFilters(); // reset filters when navigating away
   }
 
   onYearSelection(year: string): void {
@@ -144,12 +151,12 @@ export class FilterComponent implements OnInit {
   // ----------***
 
   getTaxon(searchString: string): void {
-  
+
     if (searchString.length > 1) {
       this.taxons$ = this.taxonService.getTaxon(searchString);
       this.showTaxonPane = true;
     }
-  
+
   }
 
   getArea(searchString: string): void {

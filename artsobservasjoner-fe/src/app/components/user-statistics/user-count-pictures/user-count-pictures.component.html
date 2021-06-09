@@ -4,11 +4,54 @@
 
     <div class="section">
 
-       
+        <!--toppobservatører-->
 
-    
+        <h3>{{ 'shared.filter' | translate }}</h3>
 
-     
+        <app-filter></app-filter>
+
+        <br><br><br><br>
+
+        <div *ngIf="filteredData$ | async as userStatistics">
+
+            <ng-container *ngIf="userStatistics.totalCount === 0">
+                {{ 'shared.noResults' | translate }}
+                <br><br>
+            </ng-container>
+
+            <div class="stripe stripe--special stripe--dummy" *ngIf="userStatistics.totalCount > 0">
+
+                <div class="stripe__cell">
+                    {{ 'statistics.userStats_position' | translate }}
+                </div>
+                <div class="stripe__cell">
+                    {{ 'statistics.userStats_observer' | translate }}
+                </div>
+                <div class="stripe__cell td-number">
+                    {{ 'statistics.userStats_sightingsCount' | translate }}
+                </div>
+                <div class="stripe__cell">
+                    {{ 'statistics.userStats_mediaCount' | translate }}
+                </div>
+
+            </div>
+
+            <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
+
+                <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
+                    [topObserver]="topObserver" [styleClass]="'special'">
+                </app-user-stats-stripe>
+
+            </ng-container>
+
+        </div>
+
+        <br><br><br><br>
+
+        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+            (switchedPage)="onPaginationClick($event)"></app-pagination>
+
+
     </div>
 
 </div>

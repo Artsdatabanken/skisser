@@ -315,7 +315,7 @@
     width: auto;
 
     &--special {
-        grid-template-columns: 100px auto 100px 140px;
+        grid-template-columns: 100px 1fr 1fr 1fr;
     }
 
     &__cell {

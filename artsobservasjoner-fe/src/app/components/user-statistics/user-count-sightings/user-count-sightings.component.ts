@@ -1,13 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { debounceTime, map, switchMap } from 'rxjs/operators';
-import { AREA_TYPE} from 'src/app/models/shared';
+import { AREA_TYPE } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 import { PAGE_SIZE } from 'src/app/models/filter';
 import { FilterService } from 'src/app/services/filter.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-count-sightings',
@@ -27,24 +28,25 @@ export class UserCountSightingsComponent implements OnInit {
   pageNumber$: BehaviorSubject<number> = new BehaviorSubject(1);
   totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
   position: number;
+  pageRouteId: string;
 
-  userStatistics$: Observable<UserStatistics>;
   filteredData$;
 
   constructor(
     private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute,
     private layoutService: LayoutService,
     private filterService: FilterService,
     private userStatisticsService: UserStatisticsService
   ) {
 
     this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_statistics_userStatistics_topObservers');
-   
+
   }
 
   ngOnInit(): void {
 
-    this.userStatistics$ = this.userStatisticsService.getTopObservers(1, PAGE_SIZE, null, null, null, null);
+    this.pageRouteId = this.route.snapshot.data['id'];
 
     this.filteredData$ = combineLatest([
       this.filterService.filters.year$,
