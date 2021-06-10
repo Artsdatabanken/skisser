@@ -57,10 +57,22 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
 
     console.log('embeddedIn', this.embeddedIn)
-    
+
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
+
+    // for (let property in this.activeFilters) {
+    //   console.log(this.activeFilters[property], this.activeFilters[property] === null);
+
+    //   if (this.activeFilters[property] != null) {
+    //     this.showResetButton = true;
+    //   }
+    // }
+
+    if (!this.isEmpty()) {
+      this.showResetButton = true;
+    }
 
   }
 
@@ -73,6 +85,8 @@ export class FilterComponent implements OnInit {
     this.filterService.updateYear(year);
     this.activeFilters.year = year;
 
+    this.showResetButton = true;
+
   }
 
   onSpeciesGroupSelection(id: string): void {
@@ -80,6 +94,8 @@ export class FilterComponent implements OnInit {
     this.filterService.updateSpeciesGroup(id);
     this.activeFilters.speciesGroup = id;
     this.isTaxonDisabled = true;
+
+    this.showResetButton = true;
 
   }
 
@@ -97,6 +113,8 @@ export class FilterComponent implements OnInit {
 
     this.isSpeciesGroupDisabled = true;
 
+    this.showResetButton = true;
+
   }
 
   onAreaSelection(id: string, name: string): void {
@@ -104,6 +122,8 @@ export class FilterComponent implements OnInit {
     this.filterService.updateArea(id);
     this.activeFilters.area = name;
     this.showAreaPane = false;
+
+    this.showResetButton = true;
 
   }
 
@@ -135,9 +155,6 @@ export class FilterComponent implements OnInit {
     this.showTaxonPane = false;
     this.showAreaPane = false;
 
-    // this.isSpeciesGroupDisabled = !this.isSpeciesGroupDisabled;
-    // this.isTaxonDisabled = !this.isTaxonDisabled;
-
     if (this.isSpeciesGroupDisabled === true) {
       this.isSpeciesGroupDisabled = false;
     }
@@ -145,6 +162,22 @@ export class FilterComponent implements OnInit {
     if (this.isTaxonDisabled === true) {
       this.isTaxonDisabled = false;
     }
+
+    //const isEmpty: boolean = Object.values(this.activeFilters).every(x => x === null);
+    // eller mer effektiv: const isEmpty = !Object.values(object).some(x => x !== null);
+
+    if (this.isEmpty()) {
+      this.showResetButton = false;
+    }
+
+  }
+
+  // ----------***
+
+  private isEmpty(): boolean {
+
+    // eller mer effektiv hvis mange properties: const isEmpty = !Object.values(object).some(x => x !== null);
+    return Object.values(this.activeFilters).every(x => x === null);
 
   }
 
