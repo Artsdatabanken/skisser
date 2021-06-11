@@ -30,9 +30,9 @@ export class NavigationService {
     return menuItems;
   }
 
-  getRoutes(): any[] {
+  getRoutes(): Route[] {
 
-    let routes: any[] = this.router.config.filter(route => route.data);
+    let routes: Route[] = this.router.config.filter(route => route.data);
 
     routes = routes.filter(r => {
       return r.data.menu === 'mainMenu';
@@ -129,11 +129,18 @@ export class NavigationService {
     return extraMenuItems;
   }
 
-  getSubMenu(parent: string): any[] {
+  getSubMenu(parent: string): Route[] {
+
+    console.log('submenu parent', parent)
 
     const routes = this.getRoutes().filter(i => {
+
+      console.log('submenu getRoutes', i.data['parent'])
       return i.data['parent'] === parent;
-    });;
+    });
+
+
+    console.log('submenu parent routes', routes)
 
     const menuItems: object[] = [];
 
@@ -153,6 +160,8 @@ export class NavigationService {
       menuItems.push(menuItem);
 
     });
+
+    console.log('subMenu', menuItems)
 
     return menuItems;
 

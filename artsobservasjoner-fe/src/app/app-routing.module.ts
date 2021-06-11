@@ -49,13 +49,13 @@ import { TestComponent } from './misc/test/test.component';
 import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
 import { AboutStatisticsComponent } from './components/statistics/about-statistics/about-statistics.component';
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
-import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
-import { AreaListComponent } from './components/statistics/area-list/area-list.component';
 import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
-import { SpeciesListComponent } from './components/statistics/species-list/species-list.component';
+import { SpeciesDataComponent } from './components/species-data/species-data.component';
+import { CompareDataComponent } from './components/species-data/compare-data/compare-data.component';
+import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
 
 /*
 
@@ -78,7 +78,7 @@ const homeRoutes: Routes = [
       rank: '',
       parent: '',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -101,7 +101,7 @@ const reportRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -121,7 +121,7 @@ const reportRoutes: Routes = [
       rank: 'primary',
       parent: 'report',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -141,7 +141,7 @@ const reportRoutes: Routes = [
       rank: 'primary',
       parent: 'report',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -161,7 +161,7 @@ const reportRoutes: Routes = [
       rank: 'secondary',
       parent: 'report',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -181,7 +181,7 @@ const reportRoutes: Routes = [
       rank: 'secondary',
       parent: 'report',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -201,7 +201,7 @@ const reportRoutes: Routes = [
       rank: 'secondary',
       parent: 'report',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -220,7 +220,7 @@ const sightingsRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -236,7 +236,7 @@ const sightingsRoutes: Routes = [
       rank: 'primary',
       parent: 'sightings-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -252,7 +252,7 @@ const sightingsRoutes: Routes = [
       rank: 'primary',
       parent: 'sightings-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -268,23 +268,7 @@ const sightingsRoutes: Routes = [
       rank: '',
       parent: '',
       menu: '',
-      metatitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'sightings-data/compare-sightings',
-    component: CompareSightingsComponent,
-    data: {
-      text: 'Sammenlikn observasjonsstatistikk',
-      title: 'menu.menu_sightings_compareSightings',
-      id: 'compare-sightings',
-      layout: 'page',
-      rank: 'primary',
-      parent: 'sightings-data',
-      menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -300,12 +284,61 @@ const sightingsRoutes: Routes = [
       rank: 'primary',
       parent: 'sightings-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
+  },
+  {
+    path: 'sightings-data/species-data',
+    component: SpeciesDataComponent,
+    data: {
+      text: 'Artsstatistikk',
+      title: 'menu.menu_sightings_speciesData',
+      id: 'species-data',
+      layout: 'landing',
+      rank: 'primary',
+      parent: 'sightings-data',
+      menu: 'mainMenu',
+      metaTitle: '',
+      metaDescription: '',
+      hidden: false
+    },
+    children: [
+      {
+        path: 'sightings-data/species-data/compare-data',
+        component: CompareDataComponent,
+        data: {
+          text: 'Sammenlikn observasjonsstatistikk',
+          title: 'menu.menu_sightings_speciesData_compareSpeciesStatistics',
+          id: 'compare-data',
+          layout: 'page',
+          rank: '',
+          parent: 'species-data',
+          menu: '',
+          metaTitle: '',
+          metaDescription: '',
+          hidden: false
+        }
+      },
+      {
+        path: 'sightings-data/species-data/species-lists',
+        component: SpeciesListsComponent,
+        data: {
+          text: 'Artslister',
+          title: 'menu.menu_sightings_speciesData_speciesLists',
+          id: 'species-lists',
+          layout: 'page',
+          rank: '',
+          parent: 'species-data',
+          menu: '',
+          metaTitle: '',
+          metaDescription: '',
+          hidden: false
+        }
+      }
+    ]
   }
-
 ];
 
 const statisticsRoutes: Routes = [
@@ -320,7 +353,7 @@ const statisticsRoutes: Routes = [
       rank: 'primary', // må endres til secondary når det begynner å komme mer innhold
       parent: 'sightings-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -336,7 +369,7 @@ const statisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -352,7 +385,7 @@ const statisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     },
@@ -368,7 +401,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -384,7 +417,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Antall arter rapportert per artsgruppe',
+          metaTitle: 'menu_Antall arter rapportert per artsgruppe',
           metaDescription: '',
           hidden: false
         }
@@ -400,7 +433,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: 'menu_Antall bilder per artsgruppe',
+          metaTitle: 'menu_Antall bilder per artsgruppe',
           metaDescription: '',
           hidden: false
         }
@@ -416,7 +449,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -432,7 +465,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -448,7 +481,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -464,7 +497,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -480,7 +513,7 @@ const statisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'overview',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -496,7 +529,7 @@ const statisticsRoutes: Routes = [
       //     rank: 'secondary',
       //     parent: 'overview',
       //     menu: '',
-      //     metatitle: '',
+      //     metaTitle: '',
       //     metaDescription: '',
       //     hidden: false
       //   }
@@ -512,7 +545,7 @@ const statisticsRoutes: Routes = [
       //     rank: 'secondary',
       //     parent: 'overview',
       //     menu: '',
-      //     metatitle: 'r',
+      //     metaTitle: 'r',
       //     metaDescription: '',
       //     hidden: false
       //   }
@@ -528,7 +561,7 @@ const statisticsRoutes: Routes = [
       //     rank: 'secondary',
       //     parent: 'overview',
       //     menu: '',
-      //     metatitle: '',
+      //     metaTitle: '',
       //     metaDescription: '',
       //     hidden: false
       //   }
@@ -546,7 +579,7 @@ const statisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: ''
     }
   },
@@ -561,7 +594,7 @@ const statisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: ''
     }
   },
@@ -576,7 +609,7 @@ const statisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: ''
     }
   },
@@ -591,41 +624,10 @@ const statisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: ''
     }
-  },
-  {
-    path: 'sightings-data/statistics/area-lists',
-    component: AreaListComponent,
-    data: {
-      text: 'Områdelister',
-      title: 'menu.menu_statistics_areaLists',
-      id: 'area-lists',
-      layout: 'page',
-      rank: 'secondary',
-      parent: 'statistics',
-      menu: '',
-      metatitle: '',
-      metaDescription: ''
-    }
-  },
-  {
-    path: 'sightings-data/statistics/species-list',
-    component: SpeciesListComponent,
-    data: {
-      text: 'Artslister',
-      title: 'menu.menu_statistics_speciesList',
-      id: 'species-list',
-      layout: 'page',
-      rank: 'secondary',
-      parent: 'statistics',
-      menu: '',
-      metatitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
+  }
 ];
 
 const userStatisticsRoutes: Routes = [
@@ -640,7 +642,7 @@ const userStatisticsRoutes: Routes = [
       rank: 'secondary',
       parent: 'statistics',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: ''
     },
     children: [
@@ -655,7 +657,7 @@ const userStatisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'statistics',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -671,7 +673,7 @@ const userStatisticsRoutes: Routes = [
           rank: 'secondary',
           parent: 'statistics',
           menu: '',
-          metatitle: '',
+          metaTitle: '',
           metaDescription: '',
           hidden: false
         }
@@ -692,7 +694,7 @@ const userDataRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -708,7 +710,7 @@ const userDataRoutes: Routes = [
       rank: 'primary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -724,7 +726,7 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -740,7 +742,7 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -756,7 +758,7 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -772,7 +774,7 @@ const userDataRoutes: Routes = [
       rank: 'secondary',
       parent: 'my-data',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -791,7 +793,7 @@ const aboutRoutes: Routes = [
       rank: 'primary',
       parent: '',
       menu: 'mainMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -807,7 +809,7 @@ const aboutRoutes: Routes = [
       rank: '',
       parent: 'about',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: true
     }
@@ -822,7 +824,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metatitle: 'menu_Om artsobservasjoner.no',
+  //     metaTitle: 'menu_Om artsobservasjoner.no',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -837,7 +839,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metatitle: 'menu_Kvalitetssikring',
+  //     metaTitle: 'menu_Kvalitetssikring',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -852,7 +854,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metatitle: 'menu_Hvordan du kan bidra',
+  //     metaTitle: 'menu_Hvordan du kan bidra',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -867,7 +869,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metatitle: 'menu_Brukervilkår',
+  //     metaTitle: 'menu_Brukervilkår',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -882,7 +884,7 @@ const aboutRoutes: Routes = [
   //     rank: 'secondary',
   //     parent: 'about',
   //     menu: 'mainMenu',
-  //     metatitle: 'menu_Brukerstøtte',
+  //     metaTitle: 'menu_Brukerstøtte',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -901,7 +903,7 @@ const accountRoutes: Routes = [
       rank: '',
       parent: 'accountMenu',
       menu: 'accountMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -917,7 +919,7 @@ const accountRoutes: Routes = [
       rank: '',
       parent: 'accountMenu',
       menu: 'accountMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -933,7 +935,7 @@ const accountRoutes: Routes = [
       rank: 'primary',
       parent: 'accountMenu',
       menu: 'accountMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -952,7 +954,7 @@ const pressRoutes: Routes = [
       rank: 'secondary',
       parent: '',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: true
     }
@@ -968,7 +970,7 @@ const pressRoutes: Routes = [
       rank: 'secondary',
       parent: '',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -983,7 +985,7 @@ const pressRoutes: Routes = [
       rank: '',
       parent: 'news',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -999,7 +1001,7 @@ const pressRoutes: Routes = [
       rank: 'secondary',
       parent: '',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -1015,7 +1017,7 @@ const pressRoutes: Routes = [
       rank: 'secondary',
       parent: '',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: true
     }
@@ -1034,7 +1036,7 @@ const extraRoutes: Routes = [
       rank: '',
       parent: '',
       menu: 'extraMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -1050,7 +1052,7 @@ const extraRoutes: Routes = [
       rank: '',
       parent: '',
       menu: 'extraMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -1066,7 +1068,7 @@ const extraRoutes: Routes = [
       rank: '',
       parent: '',
       menu: 'extraMenu',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -1082,7 +1084,7 @@ const extraRoutes: Routes = [
       rank: '',
       parent: '',
       menu: '',
-      metatitle: '',
+      metaTitle: '',
       metaDescription: '',
       hidden: false
     }
@@ -1100,7 +1102,7 @@ const testRoutes: Routes = [  // for testing purposes
       rank: '',
       parent: '',
       menu: '',
-      metatitle: 'menu_Artsobservasjoner',
+      metaTitle: 'menu_Artsobservasjoner',
       metaDescription: '',
       hidden: false
     }
@@ -1115,7 +1117,7 @@ const testRoutes: Routes = [  // for testing purposes
       rank: '',
       parent: '',
       menu: '',
-      metatitle: 'Test',
+      metaTitle: 'Test',
       metaDescription: '',
       hidden: false
     }
@@ -1130,7 +1132,7 @@ const testRoutes: Routes = [  // for testing purposes
   //     rank: '',
   //     parent: '',
   //     menu: '',
-  //     metatitle: '',
+  //     metaTitle: '',
   //     metaDescription: '',
   //     hidden: false
   //   }
@@ -1145,7 +1147,7 @@ const testRoutes: Routes = [  // for testing purposes
       rank: '',
       parent: '',
       menu: '',
-      metatitle: 'menu_Artsobservasjoner',
+      metaTitle: 'menu_Artsobservasjoner',
       metaDescription: '',
       hidden: false
     }
@@ -1164,7 +1166,7 @@ const wildcardRoutes: Routes = [
       rank: '',
       parent: '',
       menu: '',
-      metatitle: 'menu_404',
+      metaTitle: 'menu_404',
       metaDescription: '',
       hidden: false
     }

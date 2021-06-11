@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpeciesListComponent } from './species-list.component';
+import { CompareDataComponent } from './compare-data.component';
 
-describe('SpeciesListComponent', () => {
-  let component: SpeciesListComponent;
-  let fixture: ComponentFixture<SpeciesListComponent>;
+describe('CompareDataComponent', () => {
+  let component: CompareDataComponent;
+  let fixture: ComponentFixture<CompareDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpeciesListComponent ]
+      declarations: [ CompareDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpeciesListComponent);
+    fixture = TestBed.createComponent(CompareDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

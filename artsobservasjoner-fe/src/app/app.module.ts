@@ -117,14 +117,15 @@ import { TestComponent } from './misc/test/test.component';
 import { ExploreSightingsComponent } from './components/sightings-data/explore-sightings/explore-sightings.component';
 import { AboutStatisticsComponent } from './components/statistics/about-statistics/about-statistics.component';
 import { SearchSightingsComponent } from './components/sightings-data/search-sightings/search-sightings.component';
-import { CompareSightingsComponent } from './components/sightings-data/compare-sightings/compare-sightings.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { AreaListComponent } from './components/statistics/area-list/area-list.component';
 import { FilterComponent } from './shared-and-reusable/smart-components/filter/filter.component';
 import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
-import { SpeciesListComponent } from './components/statistics/species-list/species-list.component';
+import { SpeciesDataComponent } from './components/species-data/species-data.component';
+import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
+import { CompareDataComponent } from './components/species-data/compare-data/compare-data.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -237,13 +238,14 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     ExploreSightingsComponent,
     AboutStatisticsComponent,
     SearchSightingsComponent,
-    CompareSightingsComponent,
     UserCountSightingsComponent,
     UserCountPicturesComponent,
     AreaListComponent,
     FilterComponent,
     SpeciesInventoryComponent,
-    SpeciesListComponent
+    SpeciesDataComponent,
+    SpeciesListsComponent,
+    CompareDataComponent
   ],
   imports: [
     BrowserModule,

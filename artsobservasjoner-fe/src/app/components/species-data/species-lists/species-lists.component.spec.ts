@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompareSightingsComponent } from './compare-sightings.component';
+import { SpeciesListsComponent } from './species-lists.component';
 
-describe('CompareSightingsComponent', () => {
-  let component: CompareSightingsComponent;
-  let fixture: ComponentFixture<CompareSightingsComponent>;
+describe('SpeciesListsComponent', () => {
+  let component: SpeciesListsComponent;
+  let fixture: ComponentFixture<SpeciesListsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompareSightingsComponent ]
+      declarations: [ SpeciesListsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompareSightingsComponent);
+    fixture = TestBed.createComponent(SpeciesListsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
