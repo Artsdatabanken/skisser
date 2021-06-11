@@ -24,6 +24,8 @@
         "menu_statistics_knowledgeGaps": "Knowledge gaps",
         "menu_statistics_areaLists": "Area lists",
         "menu_statistics_speciesList": "Species lists",
+        "menu_sightings_speciesData_speciesLists_countyData": "County data",
+        "menu_sightings_speciesData_speciesLists_municipalityData": "Municipality data",
         "menu_statistics_userStatistics": "User statistics",
         "menu_statistics_userStatistics_topObservers": "Sightings count per user",
         "menu_statistics_userStatistics_topPhotographers": "Pictures count per user",
@@ -68,6 +70,10 @@
         "search_searchArea": "Search area"
     },
     "headings": {},
+    "buttonText": {        
+        "selectStatistics": "Select statistics",
+        "selectArea": "Select type of area"
+    },
     "account": {
         "account_register": "Register",
         "account_login": "Login",

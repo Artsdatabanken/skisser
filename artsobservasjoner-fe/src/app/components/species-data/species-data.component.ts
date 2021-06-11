@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/router';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { NavigationService } from 'src/app/services/navigation.service';
 
 export class SpeciesDataComponent implements OnInit {
 
-  subMenu: any[];
+  subMenu: Route[];
 
   constructor(private navigationService: NavigationService) { }
 

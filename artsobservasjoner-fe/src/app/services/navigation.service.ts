@@ -131,16 +131,9 @@ export class NavigationService {
 
   getSubMenu(parent: string): Route[] {
 
-    console.log('submenu parent', parent)
-
     const routes = this.getRoutes().filter(i => {
-
-      console.log('submenu getRoutes', i.data['parent'])
       return i.data['parent'] === parent;
     });
-
-
-    console.log('submenu parent routes', routes)
 
     const menuItems: object[] = [];
 
@@ -160,8 +153,6 @@ export class NavigationService {
       menuItems.push(menuItem);
 
     });
-
-    console.log('subMenu', menuItems)
 
     return menuItems;
 

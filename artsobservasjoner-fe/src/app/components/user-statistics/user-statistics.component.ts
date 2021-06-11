@@ -19,9 +19,7 @@ export class UserStatisticsComponent implements OnInit {
   public totalCountStatistics: typeof TOTAL_COUNT_STATISTICS = TOTAL_COUNT_STATISTICS;
 
   children: any[] = [];
-  subscription: Subscription;
   subscriptions: Subscription[] = [];
-
   dropdownOptions: DropdownOption[] = [];
 
   constructor(

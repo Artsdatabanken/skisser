@@ -56,6 +56,8 @@ import { SpeciesInventoryComponent } from './components/sightings-data/species-i
 import { SpeciesDataComponent } from './components/species-data/species-data.component';
 import { CompareDataComponent } from './components/species-data/compare-data/compare-data.component';
 import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
+import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
+import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
 
 /*
 
@@ -303,34 +305,65 @@ const sightingsRoutes: Routes = [
       metaTitle: '',
       metaDescription: '',
       hidden: false
+    }
+  },
+  {
+    path: 'sightings-data/species-data/compare-data',
+    component: CompareDataComponent,
+    data: {
+      text: 'Sammenlikn observasjonsstatistikk',
+      title: 'menu.menu_sightings_speciesData_compareSpeciesStatistics',
+      id: 'compare-data',
+      layout: 'page',
+      rank: '',
+      parent: 'species-data',
+      menu: '',
+      metaTitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'sightings-data/species-data/species-lists',
+    component: SpeciesListsComponent,
+    data: {
+      text: 'Artslister',
+      title: 'menu.menu_sightings_speciesData_speciesLists',
+      id: 'species-lists',
+      layout: 'spa',
+      rank: '',
+      parent: 'species-data',
+      menu: '',
+      metaTitle: '',
+      metaDescription: '',
+      hidden: false
     },
     children: [
       {
-        path: 'sightings-data/species-data/compare-data',
-        component: CompareDataComponent,
+        path: 'county-data',
+        component: CountyDataComponent,
         data: {
-          text: 'Sammenlikn observasjonsstatistikk',
-          title: 'menu.menu_sightings_speciesData_compareSpeciesStatistics',
-          id: 'compare-data',
-          layout: 'page',
+          text: 'Fylkesliga',
+          title: 'menu.menu_sightings_speciesData_speciesLists_countyData',
+          id: 'county-data',
+          layout: 'spa',
           rank: '',
-          parent: 'species-data',
+          parent: '',
           menu: '',
           metaTitle: '',
           metaDescription: '',
           hidden: false
         }
-      },
-      {
-        path: 'sightings-data/species-data/species-lists',
-        component: SpeciesListsComponent,
+      }, {
+        path: 'municipality-data',
+        component: MunicipalityDataComponent,
         data: {
-          text: 'Artslister',
-          title: 'menu.menu_sightings_speciesData_speciesLists',
-          id: 'species-lists',
-          layout: 'page',
+          text: 'Fylkesliga',
+          title: 'menu.menu_sightings_speciesData_speciesLists_municipalityData',
+          id: 'municipality-data',
+          layout: 'spa',
           rank: '',
-          parent: 'species-data',
+          parent: '',
           menu: '',
           metaTitle: '',
           metaDescription: '',
@@ -639,7 +672,7 @@ const userStatisticsRoutes: Routes = [
       title: 'menu.menu_statistics_userStatistics',
       id: 'user-statistics',
       layout: 'spa',
-      rank: 'secondary',
+      rank: '',
       parent: 'statistics',
       menu: '',
       metaTitle: '',
@@ -654,8 +687,8 @@ const userStatisticsRoutes: Routes = [
           title: 'menu.menu_statistics_userStatistics_topObservers',
           id: 'top-observers',
           layout: 'spa',
-          rank: 'secondary',
-          parent: 'statistics',
+          rank: '',
+          parent: '',
           menu: '',
           metaTitle: '',
           metaDescription: '',
@@ -670,8 +703,8 @@ const userStatisticsRoutes: Routes = [
           title: 'menu.menu_statistics_userStatistics_topPhotographers',
           id: 'top-photographers',
           layout: 'spa',
-          rank: 'secondary',
-          parent: 'statistics',
+          rank: '',
+          parent: '',
           menu: '',
           metaTitle: '',
           metaDescription: '',

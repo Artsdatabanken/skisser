@@ -126,6 +126,8 @@ import { SpeciesInventoryComponent } from './components/sightings-data/species-i
 import { SpeciesDataComponent } from './components/species-data/species-data.component';
 import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
 import { CompareDataComponent } from './components/species-data/compare-data/compare-data.component';
+import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
+import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -245,7 +247,9 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     SpeciesInventoryComponent,
     SpeciesDataComponent,
     SpeciesListsComponent,
-    CompareDataComponent
+    CompareDataComponent,
+    CountyDataComponent,
+    MunicipalityDataComponent
   ],
   imports: [
     BrowserModule,

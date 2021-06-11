@@ -14,6 +14,8 @@
         "menu_sightings_speciesData": "Artsstatistikk",
         "menu_sightings_speciesData_compareSpeciesStatistics": "Sammenlikne artsstatistikk",
         "menu_sightings_speciesData_speciesLists": "Artslister",
+        "menu_sightings_speciesData_speciesLists_countyData": "Fylkesdata",
+        "menu_sightings_speciesData_speciesLists_municipalityData": "Kommunedata",
         "menu_sightings_speciesInventory": "Artsinventar (tidl. atlastkart)",
         "menu_statistics": "Tall og statistikk",
         "menu_statistics_about": "Om statistikkene våre",
@@ -68,6 +70,10 @@
         "search_searchArea": "Søk område"
     },
     "headings": {},
+    "buttonText": {        
+        "selectStatistics": "Velg statistikk",
+        "selectArea": "Velg områdetype"
+    },
     "account": {
         "account_register": "Registrer deg",
         "account_login": "Logg inn",
