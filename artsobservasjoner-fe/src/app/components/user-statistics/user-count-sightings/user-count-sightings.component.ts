@@ -4,7 +4,6 @@ import { debounceTime, map, switchMap } from 'rxjs/operators';
 import { AREA_TYPE } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
 import { LayoutService } from 'src/app/services/layout.service';
-import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
 import { PAGE_SIZE } from 'src/app/models/filter';
 import { FilterService } from 'src/app/services/filter.service';

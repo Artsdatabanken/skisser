@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DropdownOption } from 'src/app/models/reusable';
 import { Area, Category } from 'src/app/models/shared';
-import { AreasService } from 'src/app/services/areas.service';
+import { AreaService } from 'src/app/services/area.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesService } from 'src/app/services/species.service';
 import { TranslationService } from 'src/app/services/translation.service';
@@ -155,7 +155,7 @@ export class AreaListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private layoutService: LayoutService,
     private translationService: TranslationService,
-    private areaService: AreasService,
+    private areaService: AreaService,
     private speciesService: SpeciesService
   ) { }
 

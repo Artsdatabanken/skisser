@@ -8,7 +8,7 @@ import { Area } from '../models/shared';
   providedIn: 'root'
 })
 
-export class AreasService {
+export class AreaService {
 
   areaApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/Search?search=';
   countiesAndMunicipalityApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/CountyAndMunicipality/Search?search=';
@@ -70,7 +70,7 @@ export class AreasService {
             areas.push(area);
 
           });
-        
+
         }
 
         return areas.sort((a, b) => a.name.localeCompare(b.name));
@@ -78,6 +78,40 @@ export class AreasService {
       }),
       shareReplay()
     );
+
+  }
+
+  getAreaById(id: number): Observable<Area> {
+
+    const api: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/';
+
+    return this.httpClient.get(api + id).pipe(
+      map((response: any) => {
+
+        const area: Area = {
+          id: response.id,
+          name: response.name,
+          type: response.areaDataset
+        }
+
+        return area;
+
+      })
+    );
+
+  }
+
+  getAreaNameById(id: number): Observable<string> {
+
+    const area: Observable<Area> = this.getAreaById(id);
+
+    const areaName: Observable<string> = area.pipe(
+      map((data: Area) => {
+        return data.name;
+      })
+    );
+
+    return areaName;
 
   }
 
@@ -140,16 +174,5 @@ export class AreasService {
     );
 
   }
-
-  private extractData(res: Response) {
-    let body = res.json();  // If response is a JSON use json()
-    if (body) {
-      return body['data'] || body;
-    }
-    else {
-      return {};
-    }
-  }
-
 
 }

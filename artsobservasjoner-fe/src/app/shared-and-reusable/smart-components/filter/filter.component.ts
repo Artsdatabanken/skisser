@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { ActiveFilters } from 'src/app/models/filter';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { Taxon } from 'src/app/models/taxon';
-import { AreasService } from 'src/app/services/areas.service';
+import { AreaService } from 'src/app/services/area.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { SpeciesService } from 'src/app/services/species.service';
 import { TaxonService } from 'src/app/services/taxon.service';
@@ -49,7 +49,7 @@ export class FilterComponent implements OnInit {
     private translationService: TranslationService,
     private filterService: FilterService,
     private speciesService: SpeciesService,
-    private areaService: AreasService,
+    private areaService: AreaService,
     private taxonService: TaxonService,
     private utilitiesService: UtilitiesService
   ) { }

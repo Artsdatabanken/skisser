@@ -178,6 +178,7 @@
         "userStats_position": "Posisjon",
         "userStats_observer": "Observatør",
         "userStats_sightingsCount": "Antall observasjoner",
-        "userStats_mediaCount": "Antall bilder"
+        "userStats_mediaCount": "Antall bilder",
+        "speciesCount": "Antall arter"
     }
 }

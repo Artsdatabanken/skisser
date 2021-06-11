@@ -1,19 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { debounceTime, map, switchMap } from 'rxjs/operators';
-import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
+import { PAGE_SIZE } from 'src/app/models/filter';
+import { AREA_TYPE } from 'src/app/models/shared';
 import { TOTAL_COUNT_STATISTICS, UserStatistics } from 'src/app/models/statistics';
-import { Taxon } from 'src/app/models/taxon';
-import { AreasService } from 'src/app/services/areas.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { LayoutService } from 'src/app/services/layout.service';
-import { SpeciesService } from 'src/app/services/species.service';
-import { TaxonService } from 'src/app/services/taxon.service';
-import { TranslationService } from 'src/app/services/translation.service';
 import { UserStatisticsService } from 'src/app/services/user-statistics.service';
-import { UtilitiesService } from 'src/app/services/utilities.service';
-
-const PAGE_SIZE: number = 20;
 
 @Component({
   selector: 'app-user-count-pictures',

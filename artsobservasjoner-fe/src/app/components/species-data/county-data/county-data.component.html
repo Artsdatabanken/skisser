@@ -1,1 +1,32 @@
-<p>county-data works!</p>
+<div class="child">
+
+    <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
+
+    <div class="section">
+
+        <table role="table" *ngIf="speciesData$ | async as speciesData; else noData">
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader" scope="col">{{ 'shared.area_county' | translate }}</th>
+                    <th role="columnheader" scope="col" class="th-number">
+                        {{ 'statistics.speciesCount' | translate }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr role="row" *ngFor="let item of speciesData.results">
+                    <th role="rowheader" scope="row" *ngIf="item.areaName | async as areaName">{{ areaName }}
+                        {{item.areaId}}</th>
+                    <td role="cell" class="td-number">{{ item.speciesCount }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ng-template #noData>
+            <app-error-message></app-error-message>
+        </ng-template>
+
+
+    </div>
+
+</div>

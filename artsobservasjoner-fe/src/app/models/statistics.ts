@@ -1,6 +1,5 @@
 // VIEWMODELS FOR ALL STATISTICS ITEMS
 
-import { Observable } from "rxjs";
 import { Category } from "./shared";
 
 export interface StatisticsItem {
@@ -56,6 +55,15 @@ export interface TotalCountStatistic {
     count: number;
     iconSource?: string;
     text?: string;
+}
+
+// 
+
+export interface PaginatedStatistics {
+    pageNumber: number;
+    pageSize: number;
+    results: object[];
+    totalCount: number;
 }
 
 // USER STATISTICS
