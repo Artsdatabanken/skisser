@@ -21,7 +21,7 @@
                         {{item.areaId}}</th>
                     <td role="cell" class="td-number">{{ item.speciesCount | formatNumber }}</td>
                     <td>
-                        <a class="button button--link" [routerLink]="['/sightings-data/species-data/species-lists/detailed-species-list/', item.areaId]">
+                        <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]">
                             {{ 'shared.readMore_speciesList' | translate }}
                         </a>
                     </td>

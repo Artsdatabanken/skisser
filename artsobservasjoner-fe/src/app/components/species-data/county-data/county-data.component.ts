@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { Area } from 'src/app/models/shared';
 import { AreaService } from 'src/app/services/area.service';
 import { LayoutService } from 'src/app/services/layout.service';
@@ -15,6 +16,7 @@ export class CountyDataComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   speciesData$;
+  DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
 
   constructor(
     private layoutService: LayoutService,
