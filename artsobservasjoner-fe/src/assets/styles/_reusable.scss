@@ -247,6 +247,15 @@
         }
     }
 
+    &--dropdown-x {
+        @extend .button--dropdown;
+        background-position: center center;
+        height: 44px;
+        padding: 0;
+        text-align: center;
+        width: 44px;
+    }
+
     &--display {
         background-position: center center;
         background-repeat: no-repeat;

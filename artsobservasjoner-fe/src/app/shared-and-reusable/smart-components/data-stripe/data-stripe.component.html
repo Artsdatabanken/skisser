@@ -1,0 +1,25 @@
+<!--REUSABLE non dummy component-->
+
+<div class="stripe" [class]="'stripe--' +styleClass">
+
+    <div class="stripe__cell">
+        {{ position }}
+    </div>
+
+    <div class="stripe__cell">
+        <strong><i>{{ data.scientificName }}</i></strong>
+        <br>
+        <span style="font-size: 0.9em">{{ data.vernacularName }}</span>
+    </div>
+
+    <div class="stripe__cell">
+        {{ data.date | date: 'dd.MM.yyyy' }}
+    </div>
+
+    <div class="stripe__cell">
+        <button class="button button--dropdown button--dropdown-x"></button>
+    </div>
+
+</div>
+
+<!--REUSABLE non dummy component-->

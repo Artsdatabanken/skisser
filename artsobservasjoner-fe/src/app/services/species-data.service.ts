@@ -82,14 +82,43 @@ export class SpeciesDataService {
 
     return this.httpClient.get(api, { observe: 'response' }).pipe(
       map((response: any) => {
+
         console.log('response', response)
 
-        return response
+        let paginatedStatisticItem: PaginatedStatistics;
+
+        let obj: object;
+        let objs: object[] = [];
+
+        response.body.result.forEach((element) => {
+
+          obj = {
+            taxonId: element.taxonId,
+            scientificName: element.scientificTaxonName,
+            vernacularName: element.preferredTaxonName,
+            date: element.startDate,
+            sortOrder: element.sortOrder
+          };
+
+          objs.push(obj);
+
+        });
+
+        paginatedStatisticItem = {
+          pageNumber: response.body.pageNumber,
+          pageSize: response.body.pageSize,
+          results: objs,
+          totalCount: response.body.totalCount
+        }
+
+        console.log('paginatedStatisticItem', paginatedStatisticItem)
+        return paginatedStatisticItem;
+
       }),
       publishReplay(1),
       refCount()
     );
-    
+
   }
 
   // getSpeciesList(

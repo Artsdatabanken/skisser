@@ -129,6 +129,7 @@ import { CompareDataComponent } from './components/species-data/compare-data/com
 import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
 import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
+import { DataStripeComponent } from './shared-and-reusable/smart-components/data-stripe/data-stripe.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -251,7 +252,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     CompareDataComponent,
     CountyDataComponent,
     MunicipalityDataComponent,
-    DetailedSpeciesListComponent
+    DetailedSpeciesListComponent,
+    DataStripeComponent
   ],
   imports: [
     BrowserModule,

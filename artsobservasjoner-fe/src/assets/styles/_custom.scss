@@ -318,6 +318,11 @@
         grid-template-columns: 100px 1fr 1fr 1fr;
     }
 
+    &--spcl {
+        grid-template-columns: 100px 3fr 2fr 1fr;
+        grid-gap: 20px;
+    }
+
     &__cell {
         align-self: center;
         padding: 10px;
@@ -355,6 +360,27 @@
             @include customVar(font-family, fontSecondary);
             font-size: 19px;
             font-weight: 600;
+        }
+
+        .stripe--spcl & {
+            // border: 1px solid red;
+            
+            &:nth-child(1) {
+                justify-self: start;
+                text-align: left;
+            }
+
+            &:nth-child(3) {
+                @include customVar(font-family, fontPrimary);
+                font-size: initial;
+                justify-self: end;
+                text-align: right;
+            }
+    
+            &:nth-child(4) {
+                @include customVar(font-family, fontPrimary);
+                justify-self: end;
+            }
         }
     }
 

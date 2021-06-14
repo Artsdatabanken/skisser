@@ -8,7 +8,50 @@
 
     <div class="page__content">
 
-      
+        <h3>{{ 'shared.filter' | translate }}</h3>
+
+        <app-filter [embeddedIn]="pageRouteId"></app-filter>
+
+        <br><br><br><br>
+
+        <div *ngIf="detailedData$ | async as detailedSpeciesData">
+
+            <ng-container *ngIf="detailedSpeciesData.totalCount === 0">
+                {{ 'shared.noResults' | translate }}
+                <br><br>
+            </ng-container>
+
+            <div class="stripe stripe--dummy" *ngIf="detailedSpeciesData.totalCount > 0">
+
+                <div class="stripe__cell">
+                    X
+                </div>
+                <div class="stripe__cell">
+                    Y
+                </div>
+                <div class="stripe__cell">
+                    Z
+                </div>
+
+            </div>
+
+            <ng-container *ngFor="let item of detailedSpeciesData.results; let i = index">
+
+                <!-- <app-data-stripe [position]="getPosition(i, detailedSpeciesData.pageNumber, detailedSpeciesData.pageSize)"
+                    [data]="item">
+                </app-data-stripe> -->
+
+                <app-data-stripe [data]="item">
+                </app-data-stripe>
+
+            </ng-container>
+
+        </div>
+
+        <br><br><br><br>
+
+        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+            (switchedPage)="onPaginationClick($event)"></app-pagination>
 
     </div>
 

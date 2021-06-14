@@ -8,7 +8,7 @@
 
     <div class="page__content" *ngIf="announcement">
 
-        <div class="date">{{ announcement.published | date: 'dd.MM.yyyy'}}</div>
+        <div class="date">{{ announcement.published | date: 'dd.MM.yyyy' }}</div>
 
         <div class="page__body" [innerHtml]="announcement.body"></div>
 
