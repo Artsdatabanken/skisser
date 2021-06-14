@@ -26,6 +26,7 @@
         "menu_statistics_speciesList": "Species lists",
         "menu_sightings_speciesData_speciesLists_countyData": "County data",
         "menu_sightings_speciesData_speciesLists_municipalityData": "Municipality data",
+        "menu_sightings_speciesData_speciesLists_detailedSpeciesList": "Detailed species list",
         "menu_statistics_userStatistics": "User statistics",
         "menu_statistics_userStatistics_topObservers": "Sightings count per user",
         "menu_statistics_userStatistics_topPhotographers": "Pictures count per user",
@@ -67,7 +68,8 @@
         "searchHits": "Hits",
         "search_chosenFilters": "You have filtered by",
         "search_searchTaxon": "Search taxon",
-        "search_searchArea": "Search area"
+        "search_searchArea": "Search area",
+        "readMore_speciesList": "See detailed species list"
     },
     "headings": {},
     "buttonText": {        
@@ -139,6 +141,7 @@
         "tableDescription_imageCountPerSpeciesGroup": "The table shows the number of images per species group and the number of images per species group where the image has an open license. An open license is one of the following Creative Commons licenses: <ul> <li> CC BY 4.0 - Attribution </li> <li> CC BY-SA - Creative Commons Attribution-ShareAlike </li> <li> CC BY-NC-SA - Creative Commons Non-Commercial Share-alike </li> </ul> <br> The alternative to the three open licenses is <em> All rights reserved </em>. ",
         "tableDescription_sightsByRegisterType": "The table shows the number of users who have registered sightings via the various registration methods, web form, Excelimport, the mobile app, Sabimas Artsjakten app and projects. The table also shows the number of sightings registered per registration method",
         "tableDescription_monthlySightings": "The table shows the number of sightings made each month per species group. Note that it is regardless of when the observation was registered (for example, you can observe a species in March, but you registered the observation two months later). For a more detailed overview of a species group, please go to the <a href=\"/search\">search page</a>.",
+        "tableCaption_countySpeciesData": "Number of species found by county",
         "tableCaption_validatedData": "Number of validated observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_validatedData2": "Validated sightings count by validation category",

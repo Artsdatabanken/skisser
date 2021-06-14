@@ -16,6 +16,7 @@
         "menu_sightings_speciesData_speciesLists": "Artslister",
         "menu_sightings_speciesData_speciesLists_countyData": "Fylkesdata",
         "menu_sightings_speciesData_speciesLists_municipalityData": "Kommunedata",
+        "menu_sightings_speciesData_speciesLists_detailedSpeciesList": "Detaljert artsliste",
         "menu_sightings_speciesInventory": "Artsinventar (tidl. atlastkart)",
         "menu_statistics": "Tall og statistikk",
         "menu_statistics_about": "Om statistikkene våre",
@@ -67,7 +68,8 @@
         "searchHits": "Treff",
         "search_chosenFilters": "Du har søkt på",
         "search_searchTaxon": "Søk takson",
-        "search_searchArea": "Søk område"
+        "search_searchArea": "Søk område",
+        "readMore_speciesList": "Se detaljert artsliste"
     },
     "headings": {},
     "buttonText": {        
@@ -139,6 +141,7 @@
         "tableDescription_imageCountPerSpeciesGroup": "Tabellen viser antall bilder per artsgruppe og antall bilder per artsgruppe der bildet har en åpen lisens. En åpen lisens er en av følgende Creative Commons-lisenser:<ul><li>CC BY 4.0 - Navngivelse</li><li>CC BY-SA - Navngivelse-DelPåSammeVilkår </li><li>CC BY-NC-SA - Navngivelse-IkkeKommersiell-DelPåSammeVilkår</li></ul><br>Alternativet til de tre åpne lisensene er <em>Alle rettigheter forbeholdt</em>.",
         "tableDescription_sightsByRegisterType": "Tabellen viser antall brukere som har registrert observasjoner via de ulike registreringsmåtene nettskjema, Excelimport, mobilløsningen, Sabimas Artsjakten app og prosjekter. Tabellen viser også antall observasjoner som er registrert per registreringsmåte.",
         "tableDescription_monthlySightings": "Tabellen viser antall observasjoner som er gjort hver måned per artsgruppe. Merk at det er uavhengig av når observasjonen ble rapportert (du kan f.eks. observere en art i mars, men du rapporterte observasjonen to måneder senere). For mer detaljert oversikt over en artsgruppe, vennligst gå til <a href=\"/search\">søket</a>.",
+        "tableCaption_countySpeciesData": "Antall arter funnet per fylke",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",

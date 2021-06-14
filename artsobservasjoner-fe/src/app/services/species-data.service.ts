@@ -67,5 +67,45 @@ export class SpeciesDataService {
 
   }
 
+  getSpeciesListByArea(
+    pageNumber: number,
+    pageSize: number,
+    areaId: string,
+    year?: string,
+    speciesGroupId?: string,
+    taxonId?: string
+  ): Observable<any> {
+
+    const baseUrl: string = ' https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/SpeciesList?';
+    const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
+
+
+    return this.httpClient.get(api, { observe: 'response' }).pipe(
+      map((response: any) => {
+        console.log('response', response)
+
+        return response
+      }),
+      publishReplay(1),
+      refCount()
+    );
+    
+  }
+
+  // getSpeciesList(
+  //   pageNumber: number,
+  //   pageSize: number,
+  //   year?: string,
+  //   speciesGroupId?: string,
+  //   taxonId?: string,
+  //   areaId?: string
+  // ): Observable<any> {
+
+  //   const baseUrl: string = ' https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/SpeciesList?';
+  //   const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
+
+
+  //   return null
+  // }
 
 }

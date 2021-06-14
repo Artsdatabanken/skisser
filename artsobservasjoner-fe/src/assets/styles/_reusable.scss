@@ -220,6 +220,15 @@
 
     // special cases
 
+    &--link {
+        background-image: url(../images/iconChevronRight.png);
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 7px;
+        padding: 11px 45px 11px 22px;
+        text-align: left;
+    }
+
     &--dropdown {
         background-image: url(../images/iconChevronDown.png);
         background-position: right 15px center;

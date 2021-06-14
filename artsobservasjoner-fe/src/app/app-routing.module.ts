@@ -58,6 +58,7 @@ import { CompareDataComponent } from './components/species-data/compare-data/com
 import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
 import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
 import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
+import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
 
 /*
 
@@ -371,6 +372,22 @@ const sightingsRoutes: Routes = [
         }
       }
     ]
+  },
+  {
+    path: 'sightings-data/species-data/species-lists/detailed-species-list/:id',
+    component: DetailedSpeciesListComponent,
+    data: {
+      text: 'Detaljert artsliste',
+      title: 'menu.menu_sightings_speciesData_speciesLists_detailedSpeciesList',
+      id: 'detailed-species-list',
+      layout: 'page',
+      rank: '',
+      parent: '',
+      menu: '',
+      metaTitle: '',
+      metaDescription: '',
+      hidden: false
+    }
   }
 ];
 
