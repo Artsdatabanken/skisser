@@ -10,7 +10,7 @@
 
         <h3>{{ 'shared.filter' | translate }}</h3>
 
-        <app-filter [embeddedIn]="pageRouteId"></app-filter>
+        <app-filter></app-filter>
 
         <br><br><br><br>
 
@@ -21,16 +21,16 @@
                 <br><br>
             </ng-container>
 
-            <div class="stripe stripe--dummy" *ngIf="detailedSpeciesData.totalCount > 0">
+            <div class="stripe stripe--dummy stripe--accordion" style="max-width: 100%;" *ngIf="detailedSpeciesData.totalCount > 0">
 
                 <div class="stripe__cell">
-                    X
+                    {{ 'tables.tableHeading_species' | translate }}
                 </div>
                 <div class="stripe__cell">
-                    Y
+                    {{ 'tables.tableHeading_species_firstSeen' | translate }}
                 </div>
                 <div class="stripe__cell">
-                    Z
+                    
                 </div>
 
             </div>
@@ -41,8 +41,8 @@
                     [data]="item">
                 </app-data-stripe> -->
 
-                <app-data-stripe [data]="item">
-                </app-data-stripe>
+                <app-accordion-stripe [data]="item">
+                </app-accordion-stripe>
 
             </ng-container>
 
@@ -50,8 +50,8 @@
 
         <br><br><br><br>
 
-        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
-            (switchedPage)="onPaginationClick($event)"></app-pagination>
+        <!-- <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+            (switchedPage)="onPaginationClick($event)"></app-pagination> -->
 
     </div>
 

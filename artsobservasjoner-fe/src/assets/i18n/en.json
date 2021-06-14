@@ -104,6 +104,10 @@
         "news": "Go to news",
         "currently": "Currently"
     },
+    "tables": {        
+        "tableHeading_species": "Species",        
+        "tableHeading_species_firstSeen": "First seen"
+    },
     "statistics": {
         "intro": "",
         "intro_validatedData": "A number of observations are quality checked by validators. Both the species identification, time and locality, as well as the provided documentation, are checked. Red-listed species, alien species and other species important for nature management, are prioritized for validation. Read more about <a href=\"/about/305407\">data validation</a> under 'About'.",

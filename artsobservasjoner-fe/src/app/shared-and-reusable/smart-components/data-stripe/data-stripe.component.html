@@ -3,10 +3,6 @@
 <div class="stripe" [class]="'stripe--' +styleClass">
 
     <div class="stripe__cell">
-        {{ position }}
-    </div>
-
-    <div class="stripe__cell">
         <strong><i>{{ data.scientificName }}</i></strong>
         <br>
         <span style="font-size: 0.9em">{{ data.vernacularName }}</span>
@@ -17,9 +13,18 @@
     </div>
 
     <div class="stripe__cell">
-        <button class="button button--dropdown button--dropdown-x"></button>
+        <button class="button button--dropdown button--dropdown-x" (click)="toggle(this, $event)"></button>
     </div>
 
+</div>
+
+<div class="stripe stripe--single" [ngClass]="{'stripe--expanded': isExpanded}">
+    <div class="stripe__cell">
+        
+        <br><br><br><br><br>
+        Eksempel data for takson {{ data.taxonId }}
+        <br><br><br><br><br>
+    </div>
 </div>
 
 <!--REUSABLE non dummy component-->

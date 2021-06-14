@@ -293,16 +293,10 @@
     }
 }
 
-// league / awards / user statistics
+// stripe, stripe accordion ++
 
-.badge {
-    @include customVar(font-family, fontSecondary);
-    @include customVar(font-family, fontSecondary);
-    display: block;
-    font-size: 28px;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
+.stripe-wrapper {
+    width: 100%;
 }
 
 .stripe {
@@ -314,14 +308,38 @@
     max-width: 65%;
     width: auto;
 
+    &--dummy {
+        @include customVar(border-bottom-color, clrAccent);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        margin-bottom: 0;
+    }
+
     &--special {
         grid-template-columns: 100px 1fr 1fr 1fr;
     }
 
-    &--spcl {
-        grid-template-columns: 100px 3fr 2fr 1fr;
-        grid-gap: 20px;
+    &--accordion {
+        grid-template-columns: 3fr 2fr 1fr;
+        grid-gap: 30px;
+        max-width: inherit;
     }
+
+    &--single {
+        @include customVar(background-color, clrShadow);
+        grid-template-columns: 1fr;
+        display: none;
+        max-width: inherit;
+        opacity: 1;
+    }
+
+    &--expanded {
+        display: grid;
+        animation: growDown 500ms ease-in-out forwards;
+        transform-origin: top center;
+    }
+
+    // child elements
 
     &__cell {
         align-self: center;
@@ -355,40 +373,51 @@
             text-align: right !important;
         }
 
-        // gjelder for alle children of stripe--dummy
+        // location: gjelder for alle children 
+
         .stripe--dummy & {
-            @include customVar(font-family, fontSecondary);
-            font-size: 19px;
-            font-weight: 600;
+            @include customVar(font-family, fontSecondary, !important);
+            font-size: 19px !important;
+            font-weight: 600 !important;
         }
 
-        .stripe--spcl & {
-            // border: 1px solid red;
-            
+        .stripe--accordion & {
+
             &:nth-child(1) {
                 justify-self: start;
                 text-align: left;
             }
 
-            &:nth-child(3) {
+            &:nth-child(2) {
                 @include customVar(font-family, fontPrimary);
-                font-size: initial;
+                font-size: 0.85em;
+                font-weight: 600;
                 justify-self: end;
                 text-align: right;
             }
-    
-            &:nth-child(4) {
-                @include customVar(font-family, fontPrimary);
+
+            &:nth-child(3) {
                 justify-self: end;
             }
         }
     }
 
-    &--dummy {
-        @include customVar(border-bottom-color, clrAccent);
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
-        margin-bottom: 0;
+    &__toggle {
+        background-color: transparent;
+        background-image: url(../images/iconChevronDown.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 24px;
+        border: none;
+        cursor: pointer;
+        height: 44px;
+        padding: 0;
+        text-align: center;
+        width: 44px;
+
+        &--active {
+            background-image: url(../images/iconChevronUp.png);
+        }
     }
 }
 
@@ -653,4 +682,3 @@
     //     }
     // }
 }
-

@@ -250,10 +250,16 @@
     &--dropdown-x {
         @extend .button--dropdown;
         background-position: center center;
+        background-size: 24px;
+        border: none;
         height: 44px;
         padding: 0;
         text-align: center;
         width: 44px;
+
+        &:hover {
+            
+        }
     }
 
     &--display {

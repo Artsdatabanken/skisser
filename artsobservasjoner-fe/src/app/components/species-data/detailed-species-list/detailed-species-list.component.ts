@@ -18,6 +18,7 @@ export class DetailedSpeciesListComponent implements OnInit {
   areaId: string;
   areaName$: Observable<string>;
   PAGE_SIZE = PAGE_SIZE;
+  totalPages$: Observable<number>;
   detailedData$;
 
   constructor(

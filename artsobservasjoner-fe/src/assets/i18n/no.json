@@ -104,6 +104,10 @@
         "news": "Gå til nyhetsoversikt",
         "currently": "Aktuelt"
     },
+    "tables": {        
+        "tableHeading_species": "Artsnavn",
+        "tableHeading_species_firstSeen": "Først observert"
+    },
     "statistics": {
         "intro": "",
         "intro_validatedData": "En andel av observasjonene som blir rapportert, blir kvalitetssjekket av utpekte artskjennere som kalles validatorer. Både artsbestemmelsen, tidspunkt og plassering og bakgrunnsdokumentasjonen på observasjonen, blir sjekket. Det er spesielt rødlistede arter, fremmede arter og andre forvaltningsrelevante arter som prioriteres for kvalitetssjekk. Du finner mer informasjon om <a href=\"/about/305425\">kvalitetssikringen av data</a> under 'Om tjenesten'.",

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-data-stripe',
@@ -13,10 +13,14 @@ export class DataStripeComponent implements OnInit {
   @Input() position?: number;
   @Input() styleClass?: string | null = 'spcl';
 
+  isExpanded: boolean = false;
+
   constructor() { }
 
-  ngOnInit(): void {
-    console.log('data', this.data)
+  ngOnInit(): void { }
+
+  toggle(smth: any, event: any) {
+    this.isExpanded = !this.isExpanded;
   }
 
 }
