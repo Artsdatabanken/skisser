@@ -26,6 +26,8 @@ export class FilterComponent implements OnInit {
   @Input() showAreaSearch: boolean;
   @Input() embeddedIn?: string;
 
+  @Input() predefinedArea?: string;
+
   areaType: typeof AREA_TYPE = AREA_TYPE;
   years: number[];
   speciesGroups$: Observable<Category[]>;
@@ -62,17 +64,17 @@ export class FilterComponent implements OnInit {
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
 
-    // for (let property in this.activeFilters) {
-    //   console.log(this.activeFilters[property], this.activeFilters[property] === null);
+    // check predefined filters
 
-    //   if (this.activeFilters[property] != null) {
-    //     this.showResetButton = true;
-    //   }
-    // }
+    if (this.predefinedArea) {
+      this.activeFilters.area = this.predefinedArea;
+    }
+
+    // then check if not empty to show labels
 
     if (!this.isEmpty()) {
       this.showResetButton = true;
-    }
+    }  
 
   }
 
@@ -122,7 +124,6 @@ export class FilterComponent implements OnInit {
     this.filterService.updateArea(id);
     this.activeFilters.area = name;
     this.showAreaPane = false;
-
     this.showResetButton = true;
 
   }
@@ -218,7 +219,5 @@ export class FilterComponent implements OnInit {
     }
 
   }
-
-
 
 }

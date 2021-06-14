@@ -769,6 +769,10 @@ main {
     &__header {
         @media screen and (max-width: 1200px) {
         }
+
+        h2 {
+            margin: 0;
+        }
     }
 
     &__intro {
@@ -807,6 +811,10 @@ main {
     &__content {
         @media screen and (max-width: 1200px) {
             padding: 30px 0 0;
+        }
+
+        h3 {
+            font-size: 22px;
         }
     }
 
