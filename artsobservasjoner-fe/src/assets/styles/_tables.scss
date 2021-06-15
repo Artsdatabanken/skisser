@@ -31,7 +31,6 @@ table {
 
     tr {
         &:hover {
-
             th[role="rowheader"],
             td {
                 //background: #ffee58 !important;
@@ -142,6 +141,22 @@ table {
     overflow: auto;
 }
 
+.tr-toggle {
+    display: none;
+    max-width: inherit;
+    opacity: 1;
+
+    &--expanded {
+        display: table-row;
+        animation: growDown 500ms ease-in-out forwards;
+        transform-origin: top center;
+    }
+
+    td {
+        @include customVar(background-color, clrShadow);
+    }
+}
+
 .td-hidden {
     visibility: hidden;
 
@@ -185,6 +200,10 @@ table {
 }
 
 .td-text {
+    &--md {
+        font-size: 1.1em;
+    }
+
     &--lg {
         font-size: 1.2em;
         font-weight: 600;
@@ -307,5 +326,4 @@ table {
             font-size: 16px;
         }
     }
-
 }

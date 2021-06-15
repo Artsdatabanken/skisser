@@ -227,6 +227,10 @@
         background-size: 7px;
         padding: 11px 45px 11px 22px;
         text-align: left;
+
+        &:hover {
+            background-image: url(../images/iconChevronWhiteRight.png);
+        }
     }
 
     &--dropdown {
@@ -258,7 +262,6 @@
         width: 44px;
 
         &:hover {
-            
         }
     }
 
@@ -1333,7 +1336,7 @@
             text-align: right !important;
         }
 
-        // location: gjelder for alle children 
+        // location: gjelder for alle children
 
         .stripe--dummy & {
             @include customVar(font-family, fontSecondary, !important);

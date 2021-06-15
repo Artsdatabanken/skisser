@@ -20,6 +20,7 @@ export class DetailedSpeciesListComponent implements OnInit {
   PAGE_SIZE = PAGE_SIZE;
   totalPages$: Observable<number>;
   detailedData$;
+  buttonClicked: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,10 +39,17 @@ export class DetailedSpeciesListComponent implements OnInit {
       this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
     });
 
+  }
 
+  toggle(event: any, index: number) {
+
+    if (this.buttonClicked === index) this.buttonClicked = -1;
+    else this.buttonClicked = index;
+    
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
 }

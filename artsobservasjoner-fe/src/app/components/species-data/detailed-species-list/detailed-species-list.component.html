@@ -15,8 +15,9 @@
         <ng-container *ngIf="areaName$ | async as area">
             <app-filter [predefinedArea]="area"></app-filter>
         </ng-container>
-        
-        <br><br><br><br>
+
+        <br>
+        <br>
 
         <div *ngIf="detailedData$ | async as detailedSpeciesData">
 
@@ -25,34 +26,67 @@
                 <br><br>
             </ng-container>
 
-            <div class="stripe stripe--dummy stripe--accordion" style="max-width: 100%;" *ngIf="detailedSpeciesData.totalCount > 0">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+                style="min-width: 75%; width: auto;">
 
-                <div class="stripe__cell">
-                    {{ 'tables.tableHeading_species' | translate }}
-                </div>
-                <div class="stripe__cell">
-                    {{ 'tables.tableHeading_species_firstSeen' | translate }}
-                </div>
-                <div class="stripe__cell">
-                    
-                </div>
+                <table *ngIf="detailedSpeciesData.totalCount > 0">
+
+                    <caption id="caption1">Here comes a description</caption>
+
+                    <thead>
+                        <tr>
+                            <th> {{ 'tables.tableHeading_species' | translate }}</th>
+                            <th> {{ 'tables.tableHeading_species_firstSeen' | translate }}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let item of detailedSpeciesData.results; let i = index">
+
+                        <!--
+                            NOTE: ng-template creates an scope so that when we toggle the expandable 
+                            table-row, it only expands the one belonging to the correct item and not all of them
+                        -->
+
+
+
+                        <tr>
+                            <td style="width: auto;">
+                                <strong><i>{{ item.scientificName }}</i></strong>
+                                <br>
+                                <span style="font-size: 0.9em">{{ item.vernacularName }}</span>
+                            </td>
+                            <td style="width: 240px;">
+                                {{ item.date | date: 'dd.MM.yyyy' }}
+                            </td>
+                            <td style="width: 50px;">
+                                <button class="toggle" [ngClass]="{'toggle--active': buttonClicked === i}"
+                                    (click)="toggle($event, i)"></button>
+                            </td>
+                        </tr>
+
+                        <ng-container *ngIf="buttonClicked === i">
+
+                            <tr class="tr-toggle" [ngClass]="{'tr-toggle--expanded': buttonClicked === i}">
+                                <td colspan="3">
+                                    <br><br><br><br><br>
+                                    Eksempel data for takson {{ item.taxonId }}
+                                    <br><br><br><br><br>
+                                </td>
+                            </tr>
+
+                        </ng-container>
+
+                    </tbody>
+
+                </table>
 
             </div>
 
-            <ng-container *ngFor="let item of detailedSpeciesData.results; let i = index">
-
-                <!-- <app-data-stripe [position]="getPosition(i, detailedSpeciesData.pageNumber, detailedSpeciesData.pageSize)"
-                    [data]="item">
-                </app-data-stripe> -->
-
-                <app-accordion-stripe [data]="item">
-                </app-accordion-stripe>
-
-            </ng-container>
-
         </div>
 
-        <br><br><br><br>
+        <br>
+        <br>
 
         <!-- <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
             (switchedPage)="onPaginationClick($event)"></app-pagination> -->
