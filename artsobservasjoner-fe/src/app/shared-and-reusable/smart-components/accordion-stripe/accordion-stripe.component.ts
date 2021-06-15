@@ -11,6 +11,7 @@ export class AccordionStripeComponent implements OnInit {
   @Input() data: any;
   @Input() position?: number;
   @Input() styleClass?: string | null = 'accordion';
+  @Input() width?: string | null = 'wide';
 
   isExpanded: boolean = false;
 

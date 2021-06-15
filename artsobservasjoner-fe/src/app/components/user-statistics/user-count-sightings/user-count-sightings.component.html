@@ -8,9 +8,10 @@
 
         <h3>{{ 'shared.filter' | translate }}</h3>
 
-        <app-filter [embeddedIn]="pageRouteId"></app-filter>
+        <app-filter></app-filter>
 
-        <br><br><br><br>
+        <br>
+        <br>
 
         <div *ngIf="filteredData$ | async as userStatistics">
 
@@ -19,31 +20,45 @@
                 <br><br>
             </ng-container>
 
-            <div class="stripe stripe--dummy" *ngIf="userStatistics.totalCount > 0">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="min-width: 75%; width: auto;">
 
-                <div class="stripe__cell">
-                    {{ 'statistics.userStats_position' | translate }}
-                </div>
-                <div class="stripe__cell">
-                    {{ 'statistics.userStats_observer' | translate }}
-                </div>
-                <div class="stripe__cell">
-                    {{ 'statistics.userStats_sightingsCount' | translate }}
-                </div>
+                <table *ngIf="userStatistics.totalCount > 0">
+                    <caption id="caption1"></caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" role="columnheader"> {{ 'statistics.userStats_position' | translate }} </th>
+                            <th scope="col" role="columnheader"> {{ 'statistics.userStats_observer' | translate }} </th>
+                            <th scope="col" role="columnheader" class="th-number"> 
+                                {{ 'statistics.userStats_sightingsCount' | translate }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let topObserver of userStatistics.topObservers; let i = index">
+
+                        <tr>
+                            <td class="td-center td-index" style="width: auto;">
+                                {{ getPosition(i, userStatistics.pageNumber, userStatistics.pageSize) }}
+                            </td>
+                            <td>
+                                <strong style="font-size: 1.2em">{{ topObserver.name }}</strong>
+                                <br>
+                                <span style="font-size: 0.9em">{{ topObserver.city }}</span>
+                            </td>
+                            <td class="td-number td-text td-text--lg">
+                                {{ topObserver.sightingsCount | formatNumber }}
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
 
-            <ng-container *ngFor="let topObserver of userStatistics.topObservers; let i = index">
-
-                <app-user-stats-stripe [position]="getPosition(i, userStatistics.pageNumber, userStatistics.pageSize)"
-                    [topObserver]="topObserver">
-                </app-user-stats-stripe>
-
-            </ng-container>
-
         </div>
 
-        <br><br><br><br>
+        <br>
+        <br>
 
         <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
             (switchedPage)="onPaginationClick($event)"></app-pagination>

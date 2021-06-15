@@ -62,12 +62,6 @@ export class UserCountPicturesComponent implements OnInit {
       debounceTime(0),
       map(filters => {
 
-        // for (let filter in this.filters) { // hacky; må fikses
-        //   if (this.filters[filter].getValue() !== null) {
-        //     this.showResetButton = true;
-        //   }
-        // }
-
         return filters;
 
       }),
