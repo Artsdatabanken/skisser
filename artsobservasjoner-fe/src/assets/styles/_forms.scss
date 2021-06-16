@@ -303,7 +303,7 @@ input:focus::-moz-placeholder {
     }
 }
 
-// FILTER & SEARCH-BOX
+// FILTER & filter-box
 
 .filter {
     display: grid;
@@ -317,7 +317,7 @@ input:focus::-moz-placeholder {
     }
 }
 
-.search-box {
+.filter-box {
     position: relative;
     width: 100%;
 
@@ -326,7 +326,7 @@ input:focus::-moz-placeholder {
         background-position: left 15px center;
         background-repeat: no-repeat;
         background-size: 17px;
-        padding-left: 42px;
+        padding: 9px 15px 9px 42px;
         width: calc(100% - 60px);
 
         &--active {
@@ -335,11 +335,7 @@ input:focus::-moz-placeholder {
 
         &:focus {
             @include customVar(background-color, clrFocus);
-            // background-image: url(../images/iconSearch.png);
-            // background-position: right 10px center;
-            // background-repeat: no-repeat;
-            // background-size: 20px;
-            @extend .search-box__input;
+            @extend .filter-box__input;
         }
 
         &:disabled {
@@ -357,6 +353,30 @@ input:focus::-moz-placeholder {
         }
     }
 
+    &__button {
+        @include customVar(background-color, transparent);
+        @extend .button;
+        background-image: url(../images/iconChevronDown.png);
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        padding-right: 45px;
+        text-align: left;
+        height: 54px;
+        padding: 9px 42px 9px 15px;
+        text-align: left !important;
+        width: 100% !important;
+
+        &:hover {
+            background-image: url(../images/iconChevronWhiteDown.png);
+        }
+
+        &:active,
+        &:focus {
+            background-image: url(../images/iconChevronWhiteUp.png);
+        }
+    }
+
     &__field {
         display: none;
         margin-top: 10px;
@@ -365,6 +385,12 @@ input:focus::-moz-placeholder {
 
         &--show {
             display: block;
+        }
+
+        &--tall {
+            height: 60vh;
+            margin-top: 10px;
+            overflow-y: scroll;
         }
     }
 

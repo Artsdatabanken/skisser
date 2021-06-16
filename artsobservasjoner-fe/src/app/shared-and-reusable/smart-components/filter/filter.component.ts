@@ -20,11 +20,10 @@ export class FilterComponent implements OnInit {
 
   currentLanguage$: Observable<string>;
 
-  @Input() showYears: boolean;
-  @Input() showSpeciesGroups: boolean;
-  @Input() showTaxonSearch: boolean;
-  @Input() showAreaSearch: boolean;
-  @Input() embeddedIn?: string;
+  @Input() displayYearsFilter: boolean;
+  @Input() displaySpeciesFilter: boolean;
+  @Input() displayTaxonFilter: boolean;
+  @Input() displayAreaFilter: boolean;
 
   @Input() predefinedArea?: string;
 
@@ -36,6 +35,8 @@ export class FilterComponent implements OnInit {
 
   activeFilters: ActiveFilters = new ActiveFilters();
 
+  showYearsPane: boolean = false;
+  showSpeciesGroupsPane: boolean = false;
   showTaxonPane: boolean = false;
   showAreaPane: boolean = false;
   showResetButton: boolean = false;
@@ -58,8 +59,6 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('embeddedIn', this.embeddedIn)
-
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
@@ -74,7 +73,7 @@ export class FilterComponent implements OnInit {
 
     if (!this.isEmpty()) {
       this.showResetButton = true;
-    }  
+    }
 
   }
 
@@ -87,16 +86,19 @@ export class FilterComponent implements OnInit {
     this.filterService.updateYear(year);
     this.activeFilters.year = year;
 
+    console.log('years pane', this.showYearsPane)
+    this.showYearsPane = false;
     this.showResetButton = true;
 
   }
 
-  onSpeciesGroupSelection(id: string): void {
+  onSpeciesGroupsSelection(id: string): void {
 
     this.filterService.updateSpeciesGroup(id);
     this.activeFilters.speciesGroup = id;
     this.isTaxonDisabled = true;
 
+    this.showSpeciesGroupsPane = false;
     this.showResetButton = true;
 
   }
@@ -200,6 +202,29 @@ export class FilterComponent implements OnInit {
       this.showAreaPane = true;
     }
 
+  }
+
+  // ----------***
+
+  toggleYearsDropdown(): void {
+    this.showYearsPane = !this.showYearsPane;
+
+  }
+
+  toggleSpeciesGroupsDropdown(): void {
+    this.showSpeciesGroupsPane = !this.showSpeciesGroupsPane;
+  }
+
+  closeYearsPane(pane: any): void {
+    this.showYearsPane = false;
+  }
+
+  closeSpeciesGroupsPane(pane: any): void {
+    // if (this.showSpeciesGroupsPane) {
+    //   this.showSpeciesGroupsPane = false;
+    // }
+
+    this.showSpeciesGroupsPane = false;
   }
 
   closeTaxonPane(pane: any): void {

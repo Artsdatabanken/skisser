@@ -4,7 +4,26 @@
 
     <!--years-->
 
-    <select name="yearSelector" id="years" [(ngModel)]="activeFilters.year" (ngModelChange)="onYearSelection($event)">
+    <div class="filter-box" (clickElsewhere)="closeYearsPane(this)">
+
+        <button class="filter-box__button" #speciesGroup (click)="toggleYearsDropdown()">
+            {{ 'shared.select_years' | translate }}
+        </button>
+
+        <div class="filter-box__field filter-box__field--tall" [ngClass]="{'filter-box__field--show': showYearsPane}"
+            *ngIf="years">
+
+            <div class="filter-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
+
+                <h2> {{ year }} </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <select name="yearSelector" id="years" [(ngModel)]="activeFilters.year" (ngModelChange)="onYearSelection($event)">
 
         <option [ngValue]="null">
             {{ 'shared.select_years' | translate }}
@@ -14,13 +33,36 @@
             {{ year }}
         </option>
 
-    </select>
+    </select> -->
 
     <!--years-->
 
     <!--species groups-->
 
-    <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="activeFilters.speciesGroup" #speciesGroup
+    <div class="filter-box" (clickElsewhere)="closeSpeciesGroupsPane(this)">
+
+        <button class="filter-box__button" #speciesGroup (click)="toggleSpeciesGroupsDropdown()">
+            {{ 'shared.select_speciesGroups' | translate }}
+        </button>
+
+        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showSpeciesGroupsPane}"
+            *ngIf="speciesGroups$ | async as speciesGroups">
+
+            <div class="filter-box__stripe" *ngFor="let sg of speciesGroups" (click)="onSpeciesGroupsSelection(sg.id)">
+
+                <h2>
+                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                    </ng-container>
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="activeFilters.speciesGroup" #speciesGroup
         (ngModelChange)="onSpeciesGroupSelection($event)" [disabled]="isSpeciesGroupDisabled">
 
         <option [ngValue]="null">
@@ -33,21 +75,21 @@
             </ng-container>
         </option>
 
-    </select>
+    </select> -->
 
     <!--species groups-->
 
     <!--taxon-->
 
-    <div class="search-box">
+    <div class="filter-box">
 
-        <input class="search-box__input" [ngModel]="activeFilters.taxon" #taxon (keyup)="getTaxon(taxon.value)" [disabled]="isTaxonDisabled"
-            placeholder="{{ 'shared.search_searchTaxon' | translate }}">
+        <input class="filter-box__input" [ngModel]="activeFilters.taxon" #taxon (keyup)="getTaxon(taxon.value)"
+            [disabled]="isTaxonDisabled" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
-        <div class="search-box__field" [ngClass]="{'search-box__field--show': showTaxonPane}"
+        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showTaxonPane}"
             *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
 
-            <div class="search-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
+            <div class="filter-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
 
                 <h2>
                     <span [ngClass]="{'text-italics': taxon.taxonCategoryId > 13}">
@@ -65,7 +107,7 @@
                     </small>
                 </h3>
 
-                <div class="search-box__details">
+                <div class="filter-box__details">
 
                     <span class="tag"
                         *ngIf="taxon.scientificNameSynonyms.length > 0 || taxon.vernacularNameSynonyms.length > 0">
@@ -93,7 +135,7 @@
 
             </div>
 
-            <div class="search-box__stripe" *ngIf="taxons.length === 0">
+            <div class="filter-box__stripe" *ngIf="taxons.length === 0">
                 {{ 'shared.noHits' | translate }}
             </div>
 
@@ -102,17 +144,18 @@
     </div>
 
     <!--taxon-->
+
     <!--area-->
 
-    <div class="search-box">
+    <div class="filter-box">
 
-        <input class="search-box__input" [ngModel]="activeFilters.area" #area (keyup)="getArea(area.value)"
+        <input class="filter-box__input" [ngModel]="activeFilters.area" #area (keyup)="getArea(area.value)"
             placeholder="{{ 'shared.search_searchArea' | translate }}">
 
-        <div class="search-box__field" [ngClass]="{'search-box__field--show': showAreaPane}"
+        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showAreaPane}"
             *ngIf="areas$ | async as areas" (clickElsewhere)="closeAreaPane(this)">
 
-            <div class="search-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id, area.name)">
+            <div class="filter-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id, area.name)">
 
                 <h2>
                     <span> {{ area.name }} {{ area.id }}</span>
@@ -125,7 +168,7 @@
 
             </div>
 
-            <div class="search-box__stripe" *ngIf="areas.length === 0">
+            <div class="filter-box__stripe" *ngIf="areas.length === 0">
                 {{ 'shared.noHits' | translate }}
             </div>
 
@@ -159,7 +202,7 @@
 
     </ng-container>
 
-    <button class="button button--xs button--close" *ngIf="showResetButton" (click)="resetFilters()">
+    <button class="button button--xs button--cta" *ngIf="showResetButton" (click)="resetFilters()">
         {{ 'shared.resetFilters' | translate }}
     </button>
 
