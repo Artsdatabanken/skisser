@@ -85,8 +85,6 @@ export class FilterComponent implements OnInit {
 
     this.filterService.updateYear(year);
     this.activeFilters.year = year;
-
-    console.log('years pane', this.showYearsPane)
     this.showYearsPane = false;
     this.showResetButton = true;
 
@@ -97,7 +95,6 @@ export class FilterComponent implements OnInit {
     this.filterService.updateSpeciesGroup(id);
     this.activeFilters.speciesGroup = id;
     this.isTaxonDisabled = true;
-
     this.showSpeciesGroupsPane = false;
     this.showResetButton = true;
 
@@ -116,7 +113,6 @@ export class FilterComponent implements OnInit {
     }
 
     this.isSpeciesGroupDisabled = true;
-
     this.showResetButton = true;
 
   }

@@ -19,7 +19,7 @@
         <br>
         <br>
 
-        <div *ngIf="detailedData$ | async as detailedSpeciesData">
+        <div *ngIf="filteredData$ | async as detailedSpeciesData">
 
             <ng-container *ngIf="detailedSpeciesData.totalCount === 0">
                 {{ 'shared.noResults' | translate }}
@@ -43,14 +43,7 @@
 
                     <tbody *ngFor="let item of detailedSpeciesData.results; let i = index">
 
-                        <!--
-                            NOTE: ng-template creates an scope so that when we toggle the expandable 
-                            table-row, it only expands the one belonging to the correct item and not all of them
-                        -->
-
-
-
-                        <tr>
+                         <tr>
                             <td style="width: auto;">
                                 <strong><i>{{ item.scientificName }}</i></strong>
                                 <br>

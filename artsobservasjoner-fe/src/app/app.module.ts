@@ -131,6 +131,7 @@ import { MunicipalityDataComponent } from './components/species-data/municipalit
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
 import { DataStripeComponent } from './shared-and-reusable/smart-components/data-stripe/data-stripe.component';
 import { AccordionStripeComponent } from './shared-and-reusable/smart-components/accordion-stripe/accordion-stripe.component';
+import { ButtonLinkComponent } from './shared-and-reusable/dummy-components/button-link/button-link.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -255,7 +256,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     MunicipalityDataComponent,
     DetailedSpeciesListComponent,
     DataStripeComponent,
-    AccordionStripeComponent
+    AccordionStripeComponent,
+    ButtonLinkComponent
   ],
   imports: [
     BrowserModule,

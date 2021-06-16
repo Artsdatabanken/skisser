@@ -6,7 +6,7 @@
 
     <div class="filter-box" (clickElsewhere)="closeYearsPane(this)">
 
-        <button class="filter-box__button" #speciesGroup (click)="toggleYearsDropdown()">
+        <button class="filter-box__button" (click)="toggleYearsDropdown()">
             {{ 'shared.select_years' | translate }}
         </button>
 
@@ -41,7 +41,7 @@
 
     <div class="filter-box" (clickElsewhere)="closeSpeciesGroupsPane(this)">
 
-        <button class="filter-box__button" #speciesGroup (click)="toggleSpeciesGroupsDropdown()">
+        <button class="filter-box__button" [disabled]="isSpeciesGroupDisabled" (click)="toggleSpeciesGroupsDropdown()">
             {{ 'shared.select_speciesGroups' | translate }}
         </button>
 

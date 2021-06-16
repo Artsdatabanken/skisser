@@ -313,7 +313,7 @@ input:focus::-moz-placeholder {
     width: 100%;
 
     & > * {
-        // border: 1px solid blue;
+        // border: 1px  solid blue;
     }
 }
 
@@ -374,6 +374,15 @@ input:focus::-moz-placeholder {
         &:active,
         &:focus {
             background-image: url(../images/iconChevronWhiteUp.png);
+        }
+
+        &:disabled {
+            background-image: url(../images/iconChevronDisabledDown.png);
+            @include customVar(border-color, paletteColor1);
+            @include customVar(color, paletteColor2);
+            border-style: solid;
+            border-width: 2px;
+            pointer-events: none;
         }
     }
 
