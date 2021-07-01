@@ -20,7 +20,7 @@ export class UserStatisticsService {
     taxonId?: string,
     areaId?: string): Observable<UserStatistics> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/ObserverSpeciesCount?';
+    const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/ObserverSpeciesCount?';
     const api: string = this.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     return this.httpClient.get(api).pipe(
@@ -73,7 +73,7 @@ export class UserStatisticsService {
     taxonId?: string,
     areaId?: string): Observable<UserStatistics> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/UsersMediaCount?';
+    const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/UsersMediaCount?';
 
     const api: string = this.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 

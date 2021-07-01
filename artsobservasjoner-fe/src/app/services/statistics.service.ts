@@ -36,22 +36,22 @@ export class StatisticsService {
 
   // API
 
-  VALIDATED_DATA_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetValidatedData';
-  VALIDATED_DATA_BY_STATUS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsValidatedCountData';
-  ASSESSED_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetAssessmentList?assessmentListType=';
+  VALIDATED_DATA_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetValidatedData';
+  VALIDATED_DATA_BY_STATUS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingsValidatedCountData';
+  ASSESSED_SPECIES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetAssessmentList?assessmentListType=';
 
-  SPECIES_GROUP_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
-  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
-  VALIDATION_STATUS_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
+  SPECIES_GROUP_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetSpeciesGroupList';
+  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
+  VALIDATION_STATUS_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetValidationStatusList';
 
-  USER_COUNT1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountThisYear';
-  USER_COUNT2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLastYear';
-  USER_COUNT3_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLast7Days';
+  USER_COUNT1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountThisYear';
+  USER_COUNT2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLastYear';
+  USER_COUNT3_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLast7Days';
 
-  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
-  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
-  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
-  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
+  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSightingsCount';
+  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSpeciesCount';
+  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalImagesCount';
+  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalUsersCount';
 
   // ------------------------------------------------------------ ***
 

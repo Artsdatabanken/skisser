@@ -19,7 +19,7 @@ export interface LanguageItem {
 
 export class TranslationService {
 
-  translationApi: string = 'https://ao3-resourcesapi-test.azurewebsites.net/api/v1/Resources';
+  translationApi: string = 'https://ao3-resourcesapi.test.artsobservasjoner.no/api/v1/Resources';
   errorMessage: string;
 
   norwegian = Norwegian;

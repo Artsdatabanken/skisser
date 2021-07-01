@@ -10,7 +10,7 @@ import { Taxon, TaxonName } from '../models/taxon';
 
 export class TaxonService {
 
-  taxonApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/TaxonName/Search?';
+  taxonApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/TaxonName/Search?';
 
   constructor(private httpClient: HttpClient) { }
 

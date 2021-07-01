@@ -18,9 +18,9 @@ export class SpeciesService {
   private validationStatusesCache$: Observable<Category[]>;
 
   // API
-  SPECIES_GROUP_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetSpeciesGroupList';
-  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
-  VALIDATION_STATUS_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetValidationStatusList';
+  SPECIES_GROUP_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetSpeciesGroupList';
+  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
+  VALIDATION_STATUS_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetValidationStatusList';
 
   // enums
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;

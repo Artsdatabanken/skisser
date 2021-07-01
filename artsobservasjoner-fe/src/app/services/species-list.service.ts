@@ -10,8 +10,8 @@ import { ApiService } from './api.service';
 
 export class SpeciesListService {
 
-  countySpeciesCountApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/CountySpeciesCount?PageNumber=1&PageSize=10';
-  municipalitySpeciesCountApi: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/CountySpeciesCount?PageNumber=1&PageSize=10';
+  countySpeciesCountApi: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/CountySpeciesCount?PageNumber=1&PageSize=10';
+  municipalitySpeciesCountApi: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/CountySpeciesCount?PageNumber=1&PageSize=10';
 
   constructor(
     private httpClient: HttpClient,
