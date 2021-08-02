@@ -76,7 +76,7 @@ export class SpeciesDataService {
     taxonId?: string
   ): Observable<any> {
 
-    const baseUrl: string = ' https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/SpeciesList?';
+    const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/SpeciesList?';
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
 

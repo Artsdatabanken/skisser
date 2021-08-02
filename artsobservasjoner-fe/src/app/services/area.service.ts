@@ -10,10 +10,10 @@ import { Area } from '../models/shared';
 
 export class AreaService {
 
-  areaApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/Search?search=';
-  countiesAndMunicipalityApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/CountyAndMunicipality/Search?search=';
-  countiesApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/County';
-  municipalitySearchApi: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/ByAreaDataset/Municipality/';
+  areaApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/Search?search=';
+  countiesAndMunicipalityApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/ByAreaDataset/CountyAndMunicipality/Search?search=';
+  countiesApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/ByAreaDataset/County';
+  municipalitySearchApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/ByAreaDataset/Municipality/';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -19,27 +19,27 @@ export class OverviewStatisticsService {
 
   // API
 
-  DATA_SOURCE_LIST_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetDatasourceTypeList';
-  DATA_SOURCE_LIS2_API: string = 'https://ao3-listsapi-staging.azurewebsites.net/api/v1/Lists/GetApiList';
+  DATA_SOURCE_LIST_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetDatasourceTypeList';
+  DATA_SOURCE_LIS2_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetApiList';
 
-  OVERVIEW_STATS_1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
-  OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetImagesPerSpeciesGroupData';
-  OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYear';
-  OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
-  OVERVIEW_STATS_SIGHTINGS_PER_AREA_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingPerCountyData';
+  OVERVIEW_STATS_1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
+  OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetImagesPerSpeciesGroupData';
+  OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSumOfSightingsCountPerYear';
+  OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
+  OVERVIEW_STATS_SIGHTINGS_PER_AREA_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingPerCountyData';
 
-  SIGHTINGS_PER_SOURCE_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingsDataPerDataSource';
-  MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetSightingCountObservedPerMonth';
+  SIGHTINGS_PER_SOURCE_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingsDataPerDataSource';
+  MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingCountObservedPerMonth';
 
-  USER_COUNT1_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountThisYear';
-  USER_COUNT2_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLastYear';
-  USER_COUNT3_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetReportersCountLast7Days';
+  USER_COUNT1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountThisYear';
+  USER_COUNT2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLastYear';
+  USER_COUNT3_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLast7Days';
 
-  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSightingsCount';
-  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalSpeciesCount';
-  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalImagesCount';
-  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetTotalUsersCount';
-  TOTAL_COUNT_PROJECTS_API: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/Statistics/GetProjectData';
+  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSightingsCount';
+  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSpeciesCount';
+  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalImagesCount';
+  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalUsersCount';
+  TOTAL_COUNT_PROJECTS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetProjectData';
 
   constructor(
     private httpClient: HttpClient,

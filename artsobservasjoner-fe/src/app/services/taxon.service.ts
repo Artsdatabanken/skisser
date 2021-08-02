@@ -19,7 +19,7 @@ export class TaxonService {
     onlyReportable?: boolean
   ): Observable<Taxon[]> {
 
-    const baseUrl: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/TaxonName/Search?';
+    const baseUrl: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/TaxonName/Search?';
     const api: string = this.createApiUrl(baseUrl, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
 
     return this.httpClient.get(api).pipe(
