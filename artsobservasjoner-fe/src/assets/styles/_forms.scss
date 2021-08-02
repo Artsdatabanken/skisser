@@ -453,4 +453,12 @@ input:focus::-moz-placeholder {
         font-weight: 600;
         margin: 0;
     }
+
+    label {
+        @include customVar(font-family, fontSecondary);
+        color: #666;
+        font-size: 14px;
+        font-weight: 600;
+        padding-left: 30px;
+    }
 }

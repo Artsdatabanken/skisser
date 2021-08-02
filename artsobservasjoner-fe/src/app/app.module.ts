@@ -110,7 +110,6 @@ import { ValidationStatusComponent } from './shared-and-reusable/smart-component
 import { AssessmentCategoriesComponent } from './shared-and-reusable/smart-components/assessment-categories/assessment-categories.component';
 import { HttpResponseInterceptor } from './interceptors/http-response.interceptor';
 import { StripeComponent } from './shared-and-reusable/dummy-components/stripe/stripe.component';
-import { UserStatsStripeComponent } from './shared-and-reusable/smart-components/user-stats-stripe/user-stats-stripe.component';
 import { PaginationDirective } from './directives/pagination.directive';
 import { PaginationComponent } from './shared-and-reusable/dummy-components/pagination/pagination.component';
 import { TestComponent } from './misc/test/test.component';
@@ -129,8 +128,6 @@ import { CompareDataComponent } from './components/species-data/compare-data/com
 import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
 import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
-import { DataStripeComponent } from './shared-and-reusable/smart-components/data-stripe/data-stripe.component';
-import { AccordionStripeComponent } from './shared-and-reusable/smart-components/accordion-stripe/accordion-stripe.component';
 import { ButtonLinkComponent } from './shared-and-reusable/dummy-components/button-link/button-link.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
@@ -237,7 +234,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     SightingsDataComponent,
     AssessmentCategoriesComponent,
     StripeComponent,
-    UserStatsStripeComponent,
     PaginationDirective,
     PaginationComponent,
     TestComponent,
@@ -255,8 +251,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     CountyDataComponent,
     MunicipalityDataComponent,
     DetailedSpeciesListComponent,
-    DataStripeComponent,
-    AccordionStripeComponent,
     ButtonLinkComponent
   ],
   imports: [

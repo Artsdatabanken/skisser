@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
-import { debounceTime, filter, map, switchMap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject, combineLatest, Observable, of, Subscription } from 'rxjs';
+import { debounceTime, filter, map, mergeMap, switchMap } from 'rxjs/operators';
+import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { PAGE_SIZE } from 'src/app/models/filter';
 import { Area } from 'src/app/models/shared';
 import { PaginatedStatistics } from 'src/app/models/statistics';
@@ -20,15 +21,17 @@ export class DetailedSpeciesListComponent implements OnInit {
   subscription: Subscription;
   areaId: string;
   areaName$: Observable<string>;
-  PAGE_SIZE = PAGE_SIZE;
+  PAGE_SIZE = PAGE_SIZE;  
+  DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
   pageNumber$: BehaviorSubject<number> = new BehaviorSubject(1);
   totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
-  detailedData$;
   filteredData$;
   buttonClicked: number;
+  noArea: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private areaService: AreaService,
     private speciesDataService: SpeciesDataService,
     private filterService: FilterService
@@ -37,15 +40,16 @@ export class DetailedSpeciesListComponent implements OnInit {
   ngOnInit(): void {
 
     this.subscription = this.activatedRoute.params.subscribe(params => {
-      this.areaId = params['id'];
-
-      // this.detailedData$ = this.speciesDataService.getSpeciesListByArea(1, this.PAGE_SIZE, this.areaId);
-      // this.detailedData$.subscribe()
-
-      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
-      this.getFilteredData(this.areaId);
-
+      
+      this.areaId = params['id']; 
+      console.group(' this.areaId',  this.areaId)
+      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);      
+      //this.getFilteredData(this.areaId);
+      this.filterService.filters.area$.next(this.areaId)
+     
     });
+
+    this.getFilteredData();
 
   }
 
@@ -56,7 +60,9 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   }
 
-  getFilteredData(areaId: string) {
+  getFilteredData(): void {
+    
+    // this.filterService.filters.area$.next(areaId);
 
     this.filteredData$ = combineLatest([
       this.filterService.filters.area$,
@@ -77,42 +83,66 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         console.group('filters', filters)
 
+        Object.entries(filters).forEach(f => console.log('filter', f))
+
         return filters;
 
       }),
 
-      switchMap(filters => {
+      mergeMap(filters => {
 
-        console.group('areaId', areaId)
+        if (filters.area !== null) {
+          
+          //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
 
-        let area: string;
-        
-        if (filters.area === null) {
-          area = areaId;
+          //this.areaName$ = this.areaService.getAreaNameById(+filters.area);  
+
+          return this.speciesDataService.getSpeciesListByArea(
+            +filters.pageNumber,
+            PAGE_SIZE,
+            filters.area,
+            filters.year,
+            filters.speciesGroup,
+            filters.taxon,
+          );
+
         }
         else {
-          area = filters.area;
+          
+         // this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, areaId]);
+          return of(null);
+
         }
 
-        return this.speciesDataService.getSpeciesListByArea(
-          +filters.pageNumber,
-          PAGE_SIZE,
-          area,
-          filters.year,
-          filters.speciesGroup,
-          filters.taxon,
-        );
+ 
+        // return this.speciesDataService.getSpeciesListByArea(
+        //   +filters.pageNumber,
+        //   PAGE_SIZE, 
+        //   filters.area,
+        //   filters.year,
+        //   filters.speciesGroup,
+        //   filters.taxon,
+        // );
 
       }),
       map((response: PaginatedStatistics) => {
 
-        this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
+        if (response !== null) {
+          this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
+        }
+        else {
+          this.totalPages$.next(0);
+        }
 
         return response;
 
       }),
     );
 
+  }
+
+  onPaginationClick(pageNumber: number): void {
+    this.pageNumber$.next(pageNumber);
   }
 
   ngOnDestroy() {

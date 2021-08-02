@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, publishReplay, refCount } from 'rxjs/operators';
+import { map, publishReplay, refCount, shareReplay } from 'rxjs/operators';
 import { PaginatedStatistics } from '../models/statistics';
 import { ApiService } from './api.service';
 import { AreaService } from './area.service';
@@ -80,7 +80,46 @@ export class SpeciesDataService {
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
 
-    return this.httpClient.get(api, { observe: 'response' }).pipe(
+    // return this.httpClient.get(api, { observe: 'response' }).pipe(
+    //   map((response: any) => {
+
+    //     console.log('response', response)
+
+    //     let paginatedStatisticItem: PaginatedStatistics;
+
+    //     let obj: object;
+    //     let objs: object[] = [];
+
+    //     response.body.result.forEach((element) => {
+
+    //       obj = {
+    //         taxonId: element.taxonId,
+    //         scientificName: element.scientificTaxonName,
+    //         vernacularName: element.preferredTaxonName,
+    //         date: element.startDate,
+    //         sortOrder: element.sortOrder
+    //       };
+
+    //       objs.push(obj);
+
+    //     });
+
+    //     paginatedStatisticItem = {
+    //       pageNumber: response.body.pageNumber,
+    //       pageSize: response.body.pageSize,
+    //       results: objs,
+    //       totalCount: response.body.totalCount
+    //     }
+
+    //     console.log('paginatedStatisticItem', paginatedStatisticItem)
+    //     return paginatedStatisticItem;
+
+    //   }),
+    //   publishReplay(1),
+    //   refCount()
+    // );
+
+    return this.httpClient.get(api).pipe(
       map((response: any) => {
 
         console.log('response', response)
@@ -90,7 +129,7 @@ export class SpeciesDataService {
         let obj: object;
         let objs: object[] = [];
 
-        response.body.result.forEach((element) => {
+        response.result.forEach((element) => {
 
           obj = {
             taxonId: element.taxonId,
@@ -105,18 +144,17 @@ export class SpeciesDataService {
         });
 
         paginatedStatisticItem = {
-          pageNumber: response.body.pageNumber,
-          pageSize: response.body.pageSize,
+          pageNumber: response.pageNumber,
+          pageSize: response.pageSize,
           results: objs,
-          totalCount: response.body.totalCount
+          totalCount: response.totalCount
         }
 
         console.log('paginatedStatisticItem', paginatedStatisticItem)
         return paginatedStatisticItem;
 
       }),
-      publishReplay(1),
-      refCount()
+     shareReplay()
     );
 
   }

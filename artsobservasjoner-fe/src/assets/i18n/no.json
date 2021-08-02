@@ -65,6 +65,7 @@
         "area_county": "Fylke",
         "area_municipality": "Kommune",
         "area_protected": "Verneområde",
+        "area_noAreaMessage": "Du må velge et fylke eller kommune. Vennligst bruk filteret over for velge et område.",
         "searchHits": "Treff",
         "search_chosenFilters": "Du har søkt på",
         "search_searchTaxon": "Søk takson",
@@ -75,6 +76,12 @@
     "buttonText": {        
         "selectStatistics": "Velg statistikk",
         "selectArea": "Velg områdetype"
+    },
+    "filters": {
+        "year": "År",
+        "speciesGroup": "Artsgruppe",
+        "taxon": "Takson",
+        "area": "Område"
     },
     "account": {
         "account_register": "Registrer deg",

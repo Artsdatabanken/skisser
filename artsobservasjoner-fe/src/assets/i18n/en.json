@@ -65,6 +65,7 @@
         "area_county": "County",
         "area_municipality": "Municipality",
         "area_protected": "Protected area",
+        "area_noAreaMessage": "You must select a county or municipality. Please, use the filters above to select an area.",
         "searchHits": "Hits",
         "search_chosenFilters": "You have filtered by",
         "search_searchTaxon": "Search taxon",
@@ -72,9 +73,15 @@
         "readMore_speciesList": "See detailed species list"
     },
     "headings": {},
-    "buttonText": {        
+    "buttonText": {
         "selectStatistics": "Select statistics",
         "selectArea": "Select type of area"
+    },
+    "filters": {
+        "year": "Year",
+        "speciesGroup": "Species group",
+        "taxon": "Taxon",
+        "area": "Area"
     },
     "account": {
         "account_register": "Register",
@@ -104,8 +111,8 @@
         "news": "Go to news",
         "currently": "Currently"
     },
-    "tables": {        
-        "tableHeading_species": "Species",        
+    "tables": {
+        "tableHeading_species": "Species",
         "tableHeading_species_firstSeen": "First seen"
     },
     "statistics": {
@@ -185,7 +192,7 @@
         "userStats_position": "Position",
         "userStats_observer": "Observer",
         "userStats_sightingsCount": "Number of sightings",
-        "userStats_mediaCount": "Media count",        
+        "userStats_mediaCount": "Media count",
         "speciesCount": "ANumber of species"
     }
 }

@@ -19,7 +19,7 @@
         <br>
         <br>
 
-        <div *ngIf="filteredData$ | async as detailedSpeciesData">
+        <div *ngIf="filteredData$ | async as detailedSpeciesData; else noData">
 
             <ng-container *ngIf="detailedSpeciesData.totalCount === 0">
                 {{ 'shared.noResults' | translate }}
@@ -78,11 +78,14 @@
 
         </div>
 
+        <ng-template #noData>
+            {{ 'shared.area_noAreaMessage' | translate }}
+        </ng-template>
         <br>
         <br>
 
-        <!-- <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
-            (switchedPage)="onPaginationClick($event)"></app-pagination> -->
+        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+            (switchedPage)="onPaginationClick($event)"></app-pagination>
 
     </div>
 
