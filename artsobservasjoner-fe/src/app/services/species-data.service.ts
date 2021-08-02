@@ -122,7 +122,7 @@ export class SpeciesDataService {
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
-        console.log('response', response)
+        //console.log('response', response)
 
         let paginatedStatisticItem: PaginatedStatistics;
 
@@ -150,7 +150,8 @@ export class SpeciesDataService {
           totalCount: response.totalCount
         }
 
-        console.log('paginatedStatisticItem', paginatedStatisticItem)
+        //console.log('paginatedStatisticItem', paginatedStatisticItem)
+        
         return paginatedStatisticItem;
 
       }),

@@ -103,6 +103,21 @@
     "about": {
         "intro": "Below you can find information on the Norwegian Species Observations System and how to contact us with questions."
     },
+    "taxon": {
+        "biologicalClassification": "Classification",
+        "classification": {
+            "root": "Root",
+            "kingdom": "Kingdom",
+            "organismGroup": "Organism group",
+            "phylum": "Phylum",
+            "subphylum": "Subphylum",
+            "class": "Class",
+            "order": "Order",
+            "suborder": "Suborder",
+            "family": "Family",
+            "genus": "Genus"
+        }
+    },
     "press": {
         "intro": "",
         "intro_announcements": "",

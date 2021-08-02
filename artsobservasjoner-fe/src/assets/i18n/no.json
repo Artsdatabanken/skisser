@@ -103,6 +103,21 @@
     "about": {
         "intro": "På denne siden finner du informasjon om ulike deler <br>av tjenesten Artsobservasjoner og hvordan du kan kontakte oss."
     },
+    "taxon": {      
+        "biologicalClassification": "Klassifisering",
+        "classification": {
+            "root": "Rot",
+            "kingdom": "Rike",
+            "organismGroup": "Organismegruppe",
+            "phylum": "Rekke",
+            "subphylum": "Underrekke",
+            "class": "Klasse",
+            "order": "Order",
+            "suborder": "Underorden",
+            "family": "Familie",
+            "genus": "Slekt"
+        }
+    }, 
     "press": {
         "intro": "",
         "intro_announcements": "",

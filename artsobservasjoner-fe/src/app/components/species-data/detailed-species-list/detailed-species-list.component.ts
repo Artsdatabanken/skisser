@@ -9,6 +9,7 @@ import { PaginatedStatistics } from 'src/app/models/statistics';
 import { AreaService } from 'src/app/services/area.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
+import { TaxonService } from 'src/app/services/taxon.service';
 
 @Component({
   selector: 'app-detailed-species-list',
@@ -21,11 +22,12 @@ export class DetailedSpeciesListComponent implements OnInit {
   subscription: Subscription;
   areaId: string;
   areaName$: Observable<string>;
-  PAGE_SIZE = PAGE_SIZE;  
+  PAGE_SIZE = PAGE_SIZE;
   DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
   pageNumber$: BehaviorSubject<number> = new BehaviorSubject(1);
   totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
   filteredData$;
+  taxonData$;
   buttonClicked: number;
   noArea: boolean = false;
 
@@ -34,34 +36,37 @@ export class DetailedSpeciesListComponent implements OnInit {
     private router: Router,
     private areaService: AreaService,
     private speciesDataService: SpeciesDataService,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private taxonService: TaxonService
   ) { }
 
   ngOnInit(): void {
 
     this.subscription = this.activatedRoute.params.subscribe(params => {
-      
-      this.areaId = params['id']; 
-      console.group(' this.areaId',  this.areaId)
-      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);      
-      //this.getFilteredData(this.areaId);
+
+      this.areaId = params['id'];
+      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
       this.filterService.filters.area$.next(this.areaId)
-     
+
     });
 
     this.getFilteredData();
 
   }
 
-  toggle(event: any, index: number) {
+  toggle(event: any, index: number, taxonId: number) {
 
     if (this.buttonClicked === index) this.buttonClicked = -1;
     else this.buttonClicked = index;
 
+    //console.log('taxonid clicked', taxonId)
+
+    this.taxonData$ = this.taxonService.getTaxonData(taxonId);
+
   }
 
   getFilteredData(): void {
-    
+
     // this.filterService.filters.area$.next(areaId);
 
     this.filteredData$ = combineLatest([
@@ -81,9 +86,9 @@ export class DetailedSpeciesListComponent implements OnInit {
       debounceTime(0),
       map(filters => {
 
-        console.group('filters', filters)
+       // console.group('filters', filters)
 
-        Object.entries(filters).forEach(f => console.log('filter', f))
+        // Object.entries(filters).forEach(f => console.log('filter', f))
 
         return filters;
 
@@ -92,7 +97,7 @@ export class DetailedSpeciesListComponent implements OnInit {
       mergeMap(filters => {
 
         if (filters.area !== null) {
-          
+
           //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
 
           //this.areaName$ = this.areaService.getAreaNameById(+filters.area);  
@@ -108,13 +113,13 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         }
         else {
-          
-         // this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, areaId]);
+
+          // this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, areaId]);
           return of(null);
 
         }
 
- 
+
         // return this.speciesDataService.getSpeciesListByArea(
         //   +filters.pageNumber,
         //   PAGE_SIZE, 

@@ -43,28 +43,85 @@
 
                     <tbody *ngFor="let item of detailedSpeciesData.results; let i = index">
 
-                         <tr>
+                        <tr>
+
                             <td style="width: auto;">
                                 <strong><i>{{ item.scientificName }}</i></strong>
                                 <br>
                                 <span style="font-size: 0.9em">{{ item.vernacularName }}</span>
                             </td>
+
                             <td style="width: 240px;">
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
+
                             <td style="width: 50px;">
+
                                 <button class="toggle" [ngClass]="{'toggle--active': buttonClicked === i}"
-                                    (click)="toggle($event, i)"></button>
+                                    (click)="toggle($event, i, item.taxonId)"></button>
+
                             </td>
+
                         </tr>
 
                         <ng-container *ngIf="buttonClicked === i">
 
                             <tr class="tr-toggle" [ngClass]="{'tr-toggle--expanded': buttonClicked === i}">
+
                                 <td colspan="3">
-                                    <br><br><br><br><br>
-                                    Eksempel data for takson {{ item.taxonId }}
-                                    <br><br><br><br><br>
+
+                                    <ng-container *ngIf="taxonData$ | async as taxonData">
+
+                                        {{item.taxonId}}
+
+                                        <p>{{ taxonData.scientificName.auctor }}</p>
+
+                                        <h1 *ngIf="taxonData.scientificNameSynonyms || taxonData.vernacularNameSynonyms">
+                                            {{ 'shared.synonyms' | translate }}:
+                                        </h1>
+
+                                        <div>
+
+                                            <ng-container *ngIf="taxonData.scientificNameSynonyms">
+                                                <small *ngFor="let synonym of taxonData.scientificNameSynonyms">
+                                                    <i>{{ synonym.name }}</i><br>
+                                                </small>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="taxonData.vernacularNameSynonyms">
+                                                <small *ngFor="let synonym of taxonData.vernacularNameSynonyms">
+                                                    {{ synonym.name }}<br>
+                                                </small>
+                                            </ng-container>
+
+                                        </div>
+
+                                        <div *ngIf="taxonData.parentTaxons">
+                                            <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
+
+                                            <small *ngFor="let parent of taxonData.parentTaxons">
+
+                                                <span style="color: red">
+
+                                                    <app-taxon-classification
+                                                        [taxonClassificationId]="parent.taxonCategoryId">
+                                                    </app-taxon-classification>
+
+                                                    &nbsp;
+                                                </span>
+
+                                                <strong>{{ parent.scientificName }}</strong>
+
+                                                <ng-container *ngIf="parent.vernacularName">
+                                                    ( {{ parent.vernacularName }} )
+                                                </ng-container>
+
+                                                <br>
+                                            </small>
+                                        </div>
+
+                                    </ng-container>
+
                                 </td>
                             </tr>
 

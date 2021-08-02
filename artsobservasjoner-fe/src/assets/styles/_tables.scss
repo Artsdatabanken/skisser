@@ -154,6 +154,14 @@ table {
 
     td {
         @include customVar(background-color, clrShadow);
+        font-size: 15px;
+    }
+
+    h1 {
+        @include customVar(font-family, fontSecondary);
+        font-size: 16px;
+        font-weight: 600;
+        margin: 20px 0 10px;
     }
 }
 

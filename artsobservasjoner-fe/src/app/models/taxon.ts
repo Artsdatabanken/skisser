@@ -1,3 +1,5 @@
+import { Category } from "./shared";
+
 export interface Taxon {
     taxonId: number;
     taxonCategoryId: number;
@@ -14,4 +16,8 @@ export interface TaxonName {
     author: string;
     taxonLanguage: string;
     isSearchMatch: boolean;
+}
+
+export interface TaxonClassification extends Category {  
+    sortOrder: number;
 }
