@@ -134,14 +134,14 @@ export class TaxonService {
 
   }
 
-  getTaxonData(taxonId: number): Observable<any> {
-
+  getTaxonData(taxonId: number): Observable<object> {
 
     const baseUrl: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Taxons/' + taxonId + '/Information';
 
     return this.httpClient.get(baseUrl).pipe(
       map((response: any) => {
         
+        console.log('taxondata', response)
         return response;
 
       }),

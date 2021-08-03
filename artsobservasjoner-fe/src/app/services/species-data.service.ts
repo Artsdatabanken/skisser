@@ -5,6 +5,7 @@ import { map, publishReplay, refCount, shareReplay } from 'rxjs/operators';
 import { PaginatedStatistics } from '../models/statistics';
 import { ApiService } from './api.service';
 import { AreaService } from './area.service';
+import { TaxonService } from './taxon.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class SpeciesDataService {
   constructor(
     private httpClient: HttpClient,
     private apiService: ApiService,
-    private areaService: AreaService
+    private areaService: AreaService,
+    private taxonService: TaxonService
   ) { }
 
   getCountySpeciesCount(
@@ -79,7 +81,6 @@ export class SpeciesDataService {
     const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/SpeciesList?';
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
-
     // return this.httpClient.get(api, { observe: 'response' }).pipe(
     //   map((response: any) => {
 
@@ -136,7 +137,8 @@ export class SpeciesDataService {
             scientificName: element.scientificTaxonName,
             vernacularName: element.preferredTaxonName,
             date: element.startDate,
-            sortOrder: element.sortOrder
+            sortOrder: element.sortOrder,
+            taxonData: this.taxonService.getTaxonData(element.taxonId)
           };
 
           objs.push(obj);
@@ -150,7 +152,7 @@ export class SpeciesDataService {
           totalCount: response.totalCount
         }
 
-        //console.log('paginatedStatisticItem', paginatedStatisticItem)
+        console.log('paginatedStatisticItem', paginatedStatisticItem)
         
         return paginatedStatisticItem;
 
@@ -159,21 +161,5 @@ export class SpeciesDataService {
     );
 
   }
-
-  // getSpeciesList(
-  //   pageNumber: number,
-  //   pageSize: number,
-  //   year?: string,
-  //   speciesGroupId?: string,
-  //   taxonId?: string,
-  //   areaId?: string
-  // ): Observable<any> {
-
-  //   const baseUrl: string = ' https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/SpeciesList?';
-  //   const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
-
-
-  //   return null
-  // }
 
 }

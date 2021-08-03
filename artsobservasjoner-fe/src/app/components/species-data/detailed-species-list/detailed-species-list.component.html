@@ -43,7 +43,7 @@
 
                     <tbody *ngFor="let item of detailedSpeciesData.results; let i = index">
 
-                        <tr>
+                        <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
                             <td style="width: auto;">
                                 <strong><i>{{ item.scientificName }}</i></strong>
@@ -64,68 +64,117 @@
 
                         </tr>
 
-                        <ng-container *ngIf="buttonClicked === i">
+                        <tr class="tr-toggle" [ngClass]="{'tr-toggle--expanded': buttonClicked === i}"
+                            *ngIf="buttonClicked === i">
 
-                            <tr class="tr-toggle" [ngClass]="{'tr-toggle--expanded': buttonClicked === i}">
+                            <td colspan="3">
 
-                                <td colspan="3">
+                                <div class="tr-toggle__content" *ngIf="item.taxonData | async as taxonData">
 
-                                    <ng-container *ngIf="taxonData$ | async as taxonData">
+                                    <p>{{ taxonData.scientificName.auctor }}</p>
 
-                                        {{item.taxonId}}
+                                    <h1
+                                        *ngIf="taxonData.scientificNameSynonyms.length > 0 || taxonData.vernacularNameSynonyms.length > 0">
+                                        {{ 'shared.synonyms' | translate }}
+                                    </h1>
 
-                                        <p>{{ taxonData.scientificName.auctor }}</p>
+                                    <div>
 
-                                        <h1 *ngIf="taxonData.scientificNameSynonyms || taxonData.vernacularNameSynonyms">
-                                            {{ 'shared.synonyms' | translate }}:
-                                        </h1>
+                                        <ng-container *ngIf="taxonData.scientificNameSynonyms">
+                                            <span *ngFor="let synonym of taxonData.scientificNameSynonyms">
+                                                <i>{{ synonym.name }}</i><br>
+                                            </span>
+                                        </ng-container>
 
-                                        <div>
+                                        <ng-container *ngIf="taxonData.vernacularNameSynonyms">
+                                            <span *ngFor="let synonym of taxonData.vernacularNameSynonyms">
+                                                {{ synonym.name }}<br>
+                                            </span>
+                                        </ng-container>
 
-                                            <ng-container *ngIf="taxonData.scientificNameSynonyms">
-                                                <small *ngFor="let synonym of taxonData.scientificNameSynonyms">
-                                                    <i>{{ synonym.name }}</i><br>
-                                                </small>
+                                    </div>
+
+                                    <div *ngIf="taxonData.parentTaxons">
+                                        <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
+
+                                        <small *ngFor="let parent of taxonData.parentTaxons">
+
+                                            <span style="color: #91534d">
+
+                                                <app-taxon-classification
+                                                    [taxonClassificationId]="parent.taxonCategoryId">
+                                                </app-taxon-classification>
+
+                                                &nbsp;
+                                            </span>
+
+                                            <strong>{{ parent.scientificName }}</strong>
+
+                                            <ng-container *ngIf="parent.vernacularName">
+                                                ( {{ parent.vernacularName }} )
                                             </ng-container>
 
-                                            <ng-container *ngIf="taxonData.vernacularNameSynonyms">
-                                                <small *ngFor="let synonym of taxonData.vernacularNameSynonyms">
-                                                    {{ synonym.name }}<br>
-                                                </small>
+                                            <br>
+                                        </small>
+                                    </div>
+
+                                </div>
+
+                                <!-- <ng-container *ngIf="taxonData$ | async as taxonData"> 
+
+                                    <p>{{ taxonData.scientificName.auctor }}</p>
+
+                                    <h1
+                                        *ngIf="taxonData.scientificNameSynonyms.length > 0 || taxonData.vernacularNameSynonyms.length > 0">
+                                        {{ 'shared.synonyms' | translate }}
+                                    </h1>
+
+                                    <div>
+
+                                        <ng-container *ngIf="taxonData.scientificNameSynonyms">
+                                            <span *ngFor="let synonym of taxonData.scientificNameSynonyms">
+                                                <i>{{ synonym.name }}</i><br>
+                                            </span>
+                                        </ng-container>
+
+                                        <ng-container *ngIf="taxonData.vernacularNameSynonyms">
+                                            <span *ngFor="let synonym of taxonData.vernacularNameSynonyms">
+                                                {{ synonym.name }}<br>
+                                            </span>
+                                        </ng-container>
+
+                                    </div>
+
+                                    <div *ngIf="taxonData.parentTaxons">
+                                        <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
+
+                                        <small *ngFor="let parent of taxonData.parentTaxons">
+
+                                            <span style="color: #91534d">
+
+                                                <app-taxon-classification
+                                                    [taxonClassificationId]="parent.taxonCategoryId">
+                                                </app-taxon-classification>
+
+                                                &nbsp;
+                                            </span>
+
+                                            <strong>{{ parent.scientificName }}</strong>
+
+                                            <ng-container *ngIf="parent.vernacularName">
+                                                ( {{ parent.vernacularName }} )
                                             </ng-container>
 
-                                        </div>
+                                            <br>
+                                        </small>
+                                    </div>
 
-                                        <div *ngIf="taxonData.parentTaxons">
-                                            <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
+                                </ng-container>  -->
 
-                                            <small *ngFor="let parent of taxonData.parentTaxons">
+                            </td>
 
-                                                <span style="color: red">
+                        </tr>
 
-                                                    <app-taxon-classification
-                                                        [taxonClassificationId]="parent.taxonCategoryId">
-                                                    </app-taxon-classification>
-
-                                                    &nbsp;
-                                                </span>
-
-                                                <strong>{{ parent.scientificName }}</strong>
-
-                                                <ng-container *ngIf="parent.vernacularName">
-                                                    ( {{ parent.vernacularName }} )
-                                                </ng-container>
-
-                                                <br>
-                                            </small>
-                                        </div>
-
-                                    </ng-container>
-
-                                </td>
-                            </tr>
-
-                        </ng-container>
 
                     </tbody>
 

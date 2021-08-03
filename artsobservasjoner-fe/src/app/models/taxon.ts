@@ -21,3 +21,8 @@ export interface TaxonName {
 export interface TaxonClassification extends Category {  
     sortOrder: number;
 }
+
+export interface TaxonData {
+    taxon: Taxon;
+    taxonClassification: TaxonClassification;
+}

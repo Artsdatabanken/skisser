@@ -148,13 +148,12 @@ table {
 
     &--expanded {
         display: table-row;
-        animation: growDown 500ms ease-in-out forwards;
+        animation: growDown 1000ms ease-in-out forwards;
         transform-origin: top center;
-    }
 
-    td {
-        @include customVar(background-color, clrShadow);
-        font-size: 15px;
+        td {
+            padding: 0;
+        }
     }
 
     h1 {
@@ -162,6 +161,19 @@ table {
         font-size: 16px;
         font-weight: 600;
         margin: 20px 0 10px;
+    }
+
+    &__content {
+        @include customVar(background-color, clrShadow);
+        font-size: 14px;
+        min-height: 40vh;
+        padding: 30px 15px;
+    }
+}
+
+.tr-toggle-parent {
+    td {
+        @include customVar(background-color, clrShadow);
     }
 }
 

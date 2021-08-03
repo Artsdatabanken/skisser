@@ -1,6 +1,7 @@
 // VIEWMODELS FOR ALL STATISTICS ITEMS
 
 import { Category } from "./shared";
+import { TaxonData } from "./taxon";
 
 export interface StatisticsItem {
     id: number;
@@ -62,7 +63,7 @@ export interface TotalCountStatistic {
 export interface PaginatedStatistics {
     pageNumber: number;
     pageSize: number;
-    results: object[];
+    results: object[] | TaxonData[];
     totalCount: number;
 }
 

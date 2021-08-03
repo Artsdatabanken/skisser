@@ -56,12 +56,17 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   toggle(event: any, index: number, taxonId: number) {
 
-    if (this.buttonClicked === index) this.buttonClicked = -1;
-    else this.buttonClicked = index;
+    // if (this.buttonClicked === index) this.buttonClicked = -1;
+    // else this.buttonClicked = index;
 
-    //console.log('taxonid clicked', taxonId)
+    if (this.buttonClicked === index) {
+      this.buttonClicked = -1;
+    }
+    else {
+      this.buttonClicked = index;
+      //this.taxonData$ = this.taxonService.getTaxonData(taxonId);
+    }
 
-    this.taxonData$ = this.taxonService.getTaxonData(taxonId);
 
   }
 
@@ -86,7 +91,7 @@ export class DetailedSpeciesListComponent implements OnInit {
       debounceTime(0),
       map(filters => {
 
-       // console.group('filters', filters)
+        // console.group('filters', filters)
 
         // Object.entries(filters).forEach(f => console.log('filter', f))
 
@@ -139,10 +144,13 @@ export class DetailedSpeciesListComponent implements OnInit {
           this.totalPages$.next(0);
         }
 
+        console.log('xxxx', response)
+
         return response;
 
       }),
     );
+
 
   }
 

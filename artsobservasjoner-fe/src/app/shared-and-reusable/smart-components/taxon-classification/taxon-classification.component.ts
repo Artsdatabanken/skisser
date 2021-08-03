@@ -27,9 +27,6 @@ export class TaxonClassificationComponent implements OnInit {
 
     this.currentLanguage$ = this.translationService.currentLanguage$;
 
-    
-    console.log('taxon taxonClassificationId', this.taxonClassificationId);
-
     this.taxonClassificationLabel$ = combineLatest([
       this.currentLanguage$,
       this.taxonService.taxonClassifications
