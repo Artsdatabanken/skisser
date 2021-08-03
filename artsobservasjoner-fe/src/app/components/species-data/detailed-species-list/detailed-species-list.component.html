@@ -95,27 +95,31 @@
                                     </div>
 
                                     <div *ngIf="taxonData.parentTaxons">
+
                                         <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
 
-                                        <small *ngFor="let parent of taxonData.parentTaxons">
+                                        <ng-container *ngFor="let parent of taxonData.parentTaxons">
 
-                                            <span style="color: #91534d">
+                                            <strong>
 
                                                 <app-taxon-classification
                                                     [taxonClassificationId]="parent.taxonCategoryId">
                                                 </app-taxon-classification>
 
-                                                &nbsp;
+                                                : &nbsp;  
+
+                                            </strong>
+
+                                            <span>{{ parent.scientificName }}</span>
+
+                                            <span *ngIf="parent.vernacularName">
+                                                ( {{ parent.vernacularName }} )
                                             </span>
 
-                                            <strong>{{ parent.scientificName }}</strong>
-
-                                            <ng-container *ngIf="parent.vernacularName">
-                                                ( {{ parent.vernacularName }} )
-                                            </ng-container>
-
                                             <br>
-                                        </small>
+
+                                        </ng-container>
+
                                     </div>
 
                                 </div>
