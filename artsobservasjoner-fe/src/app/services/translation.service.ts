@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import Norwegian from '../../assets/i18n/no.json';
 import English from '../../assets/i18n/en.json';
 import { map, shareReplay } from 'rxjs/operators';
+import { ApiService } from './api.service';
 
 export interface LanguageItem {
   languageCode?: string;
@@ -19,7 +20,7 @@ export interface LanguageItem {
 
 export class TranslationService {
 
-  translationApi: string = 'https://ao3-resourcesapi.test.artsobservasjoner.no/api/v1/Resources';
+  translationApi: string = this.apiService.RESOURCES.translations;
   errorMessage: string;
 
   norwegian = Norwegian;
@@ -29,7 +30,8 @@ export class TranslationService {
 
   constructor(
     private translate: TranslateService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private apiService: ApiService
   ) { }
 
   handleLanguage(): void {

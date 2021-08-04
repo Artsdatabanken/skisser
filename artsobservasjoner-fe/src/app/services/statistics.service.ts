@@ -21,6 +21,7 @@ import {
 } from '../models/statistics';
 
 import { SpeciesService } from './species.service';
+import { ApiService } from './api.service';
 
 
 @Injectable({
@@ -36,14 +37,6 @@ export class StatisticsService {
 
   // API
 
-  VALIDATED_DATA_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetValidatedData';
-  VALIDATED_DATA_BY_STATUS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingsValidatedCountData';
-  ASSESSED_SPECIES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetAssessmentList?assessmentListType=';
-
-  SPECIES_GROUP_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetSpeciesGroupList';
-  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
-  VALIDATION_STATUS_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetValidationStatusList';
-
   USER_COUNT1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountThisYear';
   USER_COUNT2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLastYear';
   USER_COUNT3_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLast7Days';
@@ -58,7 +51,8 @@ export class StatisticsService {
   constructor(
     private httpClient: HttpClient,
     private speciesService: SpeciesService,
-    private utilitiesService: UtilitiesService
+    private utilitiesService: UtilitiesService,
+    private apiService: ApiService
   ) { }
 
   // ------------------------------------------------------------ ***
@@ -67,7 +61,7 @@ export class StatisticsService {
 
   getValidatedData(): Observable<ValidatedDataItem[]> {
 
-    return this.httpClient.get(this.VALIDATED_DATA_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.validatedData).pipe(
       map((response: any) => {
 
         let validatedSightings: ValidatedDataItem[] = [];
@@ -100,7 +94,7 @@ export class StatisticsService {
 
   getValidatedDataCountByStatus(): Observable<ValidatedDataItemByStatus[]> {
 
-    return this.httpClient.get(this.VALIDATED_DATA_BY_STATUS_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.validatedDataCountByStatus).pipe(
       map(response => {
 
         let statisticsItem: ValidatedDataItemByStatus;
@@ -172,11 +166,11 @@ export class StatisticsService {
 
     switch (categoryVariant) {
       case this.assessmentCategoryTypes.redlist:
-        api = this.ASSESSED_SPECIES_API + this.assessmentCategoryTypes.redlist;
+        api = this.apiService.STATISTICS.assessedSpecies + this.assessmentCategoryTypes.redlist;
         break;
 
       case this.assessmentCategoryTypes.alienlist:
-        api = this.ASSESSED_SPECIES_API + this.assessmentCategoryTypes.alienlist;
+        api = this.apiService.STATISTICS.assessedSpecies + this.assessmentCategoryTypes.alienlist;
         break;
 
       default:
@@ -292,31 +286,31 @@ export class StatisticsService {
 
     switch (stats) {
       case this.totalCountStatistics.totalSightings:
-        api = this.TOTAL_COUNT_SIGHTINGS_API;
+        api = this.apiService.STATISTICS.totalSightingsCount;
         break;
 
       case this.totalCountStatistics.totalSpecies:
-        api = this.TOTAL_COUNT_SPECIES_API;
+        api = this.apiService.STATISTICS.totalSpeciesCount;
         break;
 
       case this.totalCountStatistics.totalImages:
-        api = this.TOTAL_COUNT_IMAGES_API;
+        api = this.apiService.STATISTICS.totalImagesCount;
         break;
 
       case this.totalCountStatistics.totalUsers:
-        api = this.TOTAL_COUNT_USERS_API;
+        api = this.apiService.STATISTICS.totalUsersCount;
         break;
 
       case this.totalCountStatistics.usersThisYear:
-        api = this.USER_COUNT1_API;
+        api = this.apiService.STATISTICS.reportersCountThisYear;
         break;
 
       case this.totalCountStatistics.usersLastYear:
-        api = this.USER_COUNT2_API;
+        api = this.apiService.STATISTICS.reportersCountLastYear;
         break;
 
       case this.totalCountStatistics.usersLast7Days:
-        api = this.USER_COUNT3_API;
+        api = this.apiService.STATISTICS.reportersCountLast7Days;
         break;
 
       default:
@@ -353,6 +347,5 @@ export class StatisticsService {
     );
 
   }
-
 
 }

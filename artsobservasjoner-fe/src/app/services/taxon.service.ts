@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Taxon, TaxonClassification, TaxonName } from '../models/taxon';
+import { ApiService } from './api.service';
 
 const CACHE_SIZE = 1;
 
@@ -11,10 +12,13 @@ const CACHE_SIZE = 1;
 })
 
 export class TaxonService {
-  
+
   private taxonClassificationsCache$: Observable<TaxonClassification[]>;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private apiService: ApiService
+  ) { }
 
   getTaxon(
     searchString: string,
@@ -23,7 +27,7 @@ export class TaxonService {
     onlyReportable?: boolean
   ): Observable<Taxon[]> {
 
-    const baseUrl: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/TaxonName/Search?';
+    const baseUrl: string = this.apiService.TAXONS.taxonNameSearch;
     const api: string = this.createApiUrl(baseUrl, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
 
     return this.httpClient.get(api).pipe(
@@ -136,11 +140,12 @@ export class TaxonService {
 
   getTaxonData(taxonId: number): Observable<object> {
 
-    const baseUrl: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Taxons/' + taxonId + '/Information';
+    const baseUrl: string = this.apiService.TAXONS.taxonData + taxonId + '/Information';
+    console.log('sdgfdgdfg', baseUrl)
 
     return this.httpClient.get(baseUrl).pipe(
       map((response: any) => {
-        
+
         console.log('taxondata', response)
         return response;
 
@@ -203,7 +208,7 @@ export class TaxonService {
 
   private requestTaxonClassifications(): Observable<TaxonClassification[]> {
 
-    const api: string = "https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Taxons/TaxonCategories";
+    const api: string = this.apiService.TAXONS.taxonClassification;
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Category } from '../models/shared';
 import { AssessmentCategory, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS } from '../models/statistics';
+import { ApiService } from './api.service';
 
 const CACHE_SIZE = 1;
 
@@ -17,17 +18,13 @@ export class SpeciesService {
   private assessmentCategoriesCache$: Observable<AssessmentCategory[]>;
   private validationStatusesCache$: Observable<Category[]>;
 
-  // API
-  SPECIES_GROUP_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetSpeciesGroupList';
-  ASSESSMENT_CATEGORIES_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetAssessmentCategories?assessmentListType=';
-  VALIDATION_STATUS_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetValidationStatusList';
-
   // enums
   assessmentCategoryTypes: typeof ASSESSMENT_CATEGORY_TYPES = ASSESSMENT_CATEGORY_TYPES;
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private apiService: ApiService
   ) { }
 
   // SPECIES GROUPS / ARTSGRUPPER
@@ -44,7 +41,7 @@ export class SpeciesService {
 
   private requestSpeciesGroups(): Observable<Category[]> {
 
-    return this.httpClient.get(this.SPECIES_GROUP_API).pipe(
+    return this.httpClient.get(this.apiService.SPECIES.speciesGroupsList).pipe(
       map((response: any) => {
 
         const speciesGroups: Category[] = [];
@@ -96,11 +93,11 @@ export class SpeciesService {
 
     switch (categoryVariant) {
       case this.assessmentCategoryTypes.redlist:
-        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.redlist;
+        api = this.apiService.SPECIES.assessmentCategories + this.assessmentCategoryTypes.redlist;
         break;
 
       case this.assessmentCategoryTypes.alienlist:
-        api = this.ASSESSMENT_CATEGORIES_API + this.assessmentCategoryTypes.alienlist;
+        api = this.apiService.SPECIES.assessmentCategories + this.assessmentCategoryTypes.alienlist;
         break;
 
       default:
@@ -135,7 +132,7 @@ export class SpeciesService {
   // VALIDATION STATUS & CATEGORIES
 
   getValidationStatus(group?: string): Observable<Category[]> {
-    return this.requestValidationStatus(group).pipe(shareReplay(CACHE_SIZE)); 
+    return this.requestValidationStatus(group).pipe(shareReplay(CACHE_SIZE));
   }
 
   getCacheValidationStatus(group?: string): Observable<Category[]> {
@@ -144,7 +141,6 @@ export class SpeciesService {
       this.validationStatusesCache$ = this.requestValidationStatus(group).pipe(shareReplay(CACHE_SIZE));
     }
 
-    console.log('validationStatusesCache', this.validationStatusesCache$)
     return this.validationStatusesCache$;
 
   }
@@ -152,7 +148,7 @@ export class SpeciesService {
   private requestValidationStatus(group?: string): Observable<Category[]> {
 
     let apiUrl: string;
-    apiUrl = group ? apiUrl = this.VALIDATION_STATUS_API + '?group=' + group : apiUrl = this.VALIDATION_STATUS_API;
+    apiUrl = group ? apiUrl = this.apiService.SPECIES.validationStatuses + '?group=' + group : apiUrl = this.apiService.SPECIES.validationStatuses;
 
     return this.httpClient.get(apiUrl).pipe(
       map((response: any) => {

@@ -142,7 +142,7 @@ export class OverviewStatisticsService {
 
   getProjectsCount(): Observable<object> {
 
-    return this.httpClient.get(this.apiService.STATISTICS.projectCount).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.projectsCount).pipe(
       map((response: any) => {
 
         const projectsCount: object = {

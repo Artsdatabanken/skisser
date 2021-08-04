@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, publishReplay, refCount, shareReplay } from 'rxjs/operators';
 import { TopObserver, UserStatistics } from '../models/statistics';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ import { TopObserver, UserStatistics } from '../models/statistics';
 
 export class UserStatisticsService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private apiService: ApiService
+  ) { }
 
   getTopObservers(
     pageNumber: number,
@@ -20,8 +24,8 @@ export class UserStatisticsService {
     taxonId?: string,
     areaId?: string): Observable<UserStatistics> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/ObserverSpeciesCount?';
-    const api: string = this.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
+    const baseUrl: string = this.apiService.USER_STATISTICS.observerSpeciesCount;
+    const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -61,10 +65,6 @@ export class UserStatisticsService {
 
   }
 
-  // getTopPhotographers(): Observable<any> {
-  //   return null;
-  // }
-
   getTopPhotographers(
     pageNumber: number,
     pageSize: number,
@@ -73,8 +73,8 @@ export class UserStatisticsService {
     taxonId?: string,
     areaId?: string): Observable<UserStatistics> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/UsersMediaCount?';
-    const api: string = this.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
+    const baseUrl: string = this.apiService.USER_STATISTICS.usersMediaCount;
+    const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -114,55 +114,55 @@ export class UserStatisticsService {
 
   }
 
-  private createApiUrl(
-    baseUrl: string,
-    pageNumberParam: number,
-    pageSizeParam: number,
-    yearParam?: string,
-    speciesGroupParam?: string,
-    taxonParam?: string,
-    areaParam?: string
-  ): string {
+  // private createApiUrl(
+  //   baseUrl: string,
+  //   pageNumberParam: number,
+  //   pageSizeParam: number,
+  //   yearParam?: string,
+  //   speciesGroupParam?: string,
+  //   taxonParam?: string,
+  //   areaParam?: string
+  // ): string {
 
-    let api: string;
-    let params: URLSearchParams = new URLSearchParams();
+  //   let api: string;
+  //   let params: URLSearchParams = new URLSearchParams();
 
-    // console.log('params year', yearParam);
-    // console.log('params species group', speciesGroupParam);
-    // console.log('params taxon', taxonParam);
-    // console.log('params område', areaParam);
-    // console.log('params pageNumber', pageNumberParam);
-    // console.log('params pageSize', pageSizeParam);
+  //   // console.log('params year', yearParam);
+  //   // console.log('params species group', speciesGroupParam);
+  //   // console.log('params taxon', taxonParam);
+  //   // console.log('params område', areaParam);
+  //   // console.log('params pageNumber', pageNumberParam);
+  //   // console.log('params pageSize', pageSizeParam);
 
-    const addParam = (key, value) => {
+  //   const addParam = (key, value) => {
 
-      if (value) {
-        params.append(key, value.toString());
-      }
+  //     if (value) {
+  //       params.append(key, value.toString());
+  //     }
 
-    };
+  //   };
 
-    addParam('Year', yearParam);
-    addParam('SpeciesGroupId', speciesGroupParam);
-    addParam('TaxonId', taxonParam);
-    addParam('AreaId', areaParam);
-    addParam('PageNumber', pageNumberParam);
-    addParam('PageSize', pageSizeParam);
+  //   addParam('Year', yearParam);
+  //   addParam('SpeciesGroupId', speciesGroupParam);
+  //   addParam('TaxonId', taxonParam);
+  //   addParam('AreaId', areaParam);
+  //   addParam('PageNumber', pageNumberParam);
+  //   addParam('PageSize', pageSizeParam);
 
-    // if (yearParam) params.append('Year', yearParam.toString());
-    // if (speciesGroupParam) params.append('SpeciesGroupId', speciesGroupParam.toString());
-    // if (taxonParam) params.append('TaxonId', taxonParam.toString());
-    // if (areaParam) params.append('AreaId', areaParam.toString());
-    // if (pageNumberParam) params.append('PageNumber', pageNumberParam.toString());
-    // if (pageSizeParam) params.append('PageSize', pageSizeParam.toString());
+  //   // if (yearParam) params.append('Year', yearParam.toString());
+  //   // if (speciesGroupParam) params.append('SpeciesGroupId', speciesGroupParam.toString());
+  //   // if (taxonParam) params.append('TaxonId', taxonParam.toString());
+  //   // if (areaParam) params.append('AreaId', areaParam.toString());
+  //   // if (pageNumberParam) params.append('PageNumber', pageNumberParam.toString());
+  //   // if (pageSizeParam) params.append('PageSize', pageSizeParam.toString());
 
-    api = baseUrl + params.toString();
+  //   api = baseUrl + params.toString();
 
-    //console.log('api', api)
+  //   //console.log('api', api)
 
-    return api;
+  //   return api;
 
-  }
+  // }
 
   getPosition(index: number, pageNumber: number, pageSize: number): number {
 

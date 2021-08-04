@@ -4,10 +4,12 @@ import { Injectable } from '@angular/core';
 // DISSE MÅ ENDRES BASERT PÅ ENVIRONMENT
 
 export const CORE_BASE_URL: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Lists/';
+export const LISTS_BASE_URL: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/';
 export const AREAS_BASE_URL: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/';
 export const LIST_BASE_URL: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/';
 export const STATISTICS_BASE_URL: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/';
 export const TOPLIST_BASE_URL: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/';
+export const TAXONS_BASE_URL: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Taxons/';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +51,12 @@ export class ApiService {
     totalSpeciesCount: STATISTICS_BASE_URL + 'GetTotalSpeciesCount',
     totalImagesCount: STATISTICS_BASE_URL + 'GetTotalImagesCount',
     totalUsersCount: STATISTICS_BASE_URL + 'GetTotalUsersCount',
-    projectCount: STATISTICS_BASE_URL + 'GetProjectData'
+    projectsCount: STATISTICS_BASE_URL + 'GetProjectData',
+
+    validatedData: STATISTICS_BASE_URL + 'GetValidatedData',
+    validatedDataCountByStatus: STATISTICS_BASE_URL + 'GetSightingsValidatedCountData',
+    assessedSpecies: STATISTICS_BASE_URL + 'GetAssessmentList?assessmentListType='
+
   }
 
   TOP_LISTS: any = {
@@ -57,7 +64,26 @@ export class ApiService {
     speciesList: TOPLIST_BASE_URL + 'SpeciesList?'
   }
 
+  SPECIES: any = {
+    speciesGroupsList: LISTS_BASE_URL + 'GetSpeciesGroupList',
+    assessmentCategories: LISTS_BASE_URL + 'GetAssessmentCategories?assessmentListType=',
+    validationStatuses: LISTS_BASE_URL + 'GetValidationStatusList'
+  }
 
+  TAXONS: any = {
+    taxonData: 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Taxons/',
+    taxonNameSearch: 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/TaxonName/Search?',
+    taxonClassification: TAXONS_BASE_URL + 'TaxonCategories'
+  }
+
+  RESOURCES: any = {
+    translations: 'https://ao3-resourcesapi.test.artsobservasjoner.no/api/v1/Resources'
+  }
+
+  USER_STATISTICS: any = {
+    observerSpeciesCount: TOPLIST_BASE_URL + 'ObserverSpeciesCount?',
+    usersMediaCount: TOPLIST_BASE_URL + 'UsersMediaCount?'
+  }
 
   //------------------------------------------------------------------------------------***
 
