@@ -36,7 +36,7 @@
                     <thead>
                         <tr>
                             <th> {{ 'tables.tableHeading_species' | translate }}</th>
-                            <th> {{ 'tables.tableHeading_species_firstSeen' | translate }}</th>
+                            <th class="th-date"> {{ 'tables.tableHeading_species_firstSeen' | translate }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -51,7 +51,7 @@
                                 <span style="font-size: 0.9em">{{ item.vernacularName }}</span>
                             </td>
 
-                            <td style="width: 240px;">
+                            <td class="td-date" style="font-weight: 600; width: 240px;">
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
 
@@ -106,7 +106,7 @@
                                                     [taxonClassificationId]="parent.taxonCategoryId">
                                                 </app-taxon-classification>
 
-                                                : &nbsp;  
+                                                : &nbsp;
 
                                             </strong>
 

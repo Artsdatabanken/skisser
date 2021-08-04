@@ -4,6 +4,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { map, publishReplay, refCount } from 'rxjs/operators';
 import { Category } from '../models/shared';
 import { TOTAL_COUNT_STATISTICS, ASSESSMENT_CATEGORY_TYPES, VALIDATION_STATUS, SIGHTINGS_PER_YEAR, ImageStatisticsItem, StatisticsItem } from '../models/statistics';
+import { ApiService } from './api.service';
 import { SpeciesService } from './species.service';
 
 @Injectable({
@@ -17,40 +18,17 @@ export class OverviewStatisticsService {
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
 
-  // API
-
-  DATA_SOURCE_LIST_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetDatasourceTypeList';
-  DATA_SOURCE_LIS2_API: string = 'https://ao3-listsapi.test.artsobservasjoner.no/api/v1/Lists/GetApiList';
-
-  OVERVIEW_STATS_1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingsCountPerSpeciesGroup';
-  OVERVIEW_STATS_2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetImagesPerSpeciesGroupData';
-  OVERVIEW_STATS_3A_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSumOfSightingsCountPerYear';
-  OVERVIEW_STATS_3B_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSumOfSightingsCountPerYearArtskart';
-  OVERVIEW_STATS_SIGHTINGS_PER_AREA_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingPerCountyData';
-
-  SIGHTINGS_PER_SOURCE_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingsDataPerDataSource';
-  MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetSightingCountObservedPerMonth';
-
-  USER_COUNT1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountThisYear';
-  USER_COUNT2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLastYear';
-  USER_COUNT3_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLast7Days';
-
-  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSightingsCount';
-  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSpeciesCount';
-  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalImagesCount';
-  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalUsersCount';
-  TOTAL_COUNT_PROJECTS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetProjectData';
-
   constructor(
     private httpClient: HttpClient,
-    private speciesService: SpeciesService
+    private speciesService: SpeciesService,
+    private apiService: ApiService
   ) { }
 
   // OVERVIEW STATISTICS
 
   getSightingsCountPerSpeciesGroup(): Observable<object[]> {
 
-    return this.httpClient.get(this.OVERVIEW_STATS_1_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.sightingsCountPerSpeciesGroup).pipe(
       map((response: any) => {
 
         let statisticsItem: object;
@@ -84,7 +62,7 @@ export class OverviewStatisticsService {
 
   getImageCountPerSpeciesGroup(): Observable<ImageStatisticsItem[]> {
 
-    return this.httpClient.get(this.OVERVIEW_STATS_2_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.imagesPerSpeciesGroup).pipe(
       map((response: any) => {
 
         let statisticsItem: ImageStatisticsItem;
@@ -121,11 +99,11 @@ export class OverviewStatisticsService {
 
     switch (variant) {
       case this.sightingsCountPerYear.artsobs:
-        api = this.OVERVIEW_STATS_3A_API;
+        api = this.apiService.STATISTICS.sumOfSightingsCountPerYear;
         break;
 
       case this.sightingsCountPerYear.artskart:
-        api = this.OVERVIEW_STATS_3B_API;
+        api = this.apiService.STATISTICS.sumOfSightingsCountPerYearArtskart;
         break;
 
       default:
@@ -164,7 +142,7 @@ export class OverviewStatisticsService {
 
   getProjectsCount(): Observable<object> {
 
-    return this.httpClient.get(this.TOTAL_COUNT_PROJECTS_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.projectCount).pipe(
       map((response: any) => {
 
         const projectsCount: object = {
@@ -183,7 +161,7 @@ export class OverviewStatisticsService {
 
   getSightingsPerDataSource(): Observable<object[]> {
 
-    return this.httpClient.get(this.SIGHTINGS_PER_SOURCE_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.sightingsPerDataSource).pipe(
       map((response: any) => {
 
         let sightingsPerDataSource: object[] = [];
@@ -214,7 +192,7 @@ export class OverviewStatisticsService {
 
   getSightingsByArea(): Observable<object[]> {
 
-    return this.httpClient.get(this.OVERVIEW_STATS_SIGHTINGS_PER_AREA_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.sightingPerCounty).pipe(
       map((response: any) => {
 
         let item: object;
@@ -282,7 +260,7 @@ export class OverviewStatisticsService {
   }
 
   getMonthlySightingsOrRegistrationsBySpeciesGroup(): Observable<StatisticsItem[]> {
-    return this.httpClient.get(this.MONTHLY_SIGHTINGS_PER_SPECIES_GROUP_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.sightingCountObservedPerMonth).pipe(
       map((response: any) => {
 
         let items: StatisticsItem[] = [];
@@ -310,7 +288,7 @@ export class OverviewStatisticsService {
 
   getDataSourceList(): Observable<Category[]> {
 
-    return this.httpClient.get(this.DATA_SOURCE_LIST_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.dataSourceList1).pipe(
       map((response: any) => {
 
         let objs: Category[] = [];
@@ -337,7 +315,7 @@ export class OverviewStatisticsService {
 
   getApiDataSourceList(): Observable<object[]> {
 
-    return this.httpClient.get(this.DATA_SOURCE_LIS2_API).pipe(
+    return this.httpClient.get(this.apiService.STATISTICS.dataSourceList2).pipe(
       map((response: any) => {
 
         let objs: object[] = [];

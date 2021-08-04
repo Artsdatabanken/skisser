@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Area } from '../models/shared';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,10 @@ import { Area } from '../models/shared';
 
 export class AreaService {
 
-  areaApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/Search?search=';
-  countiesAndMunicipalityApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/ByAreaDataset/CountyAndMunicipality/Search?search=';
-  countiesApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/ByAreaDataset/County';
-  municipalitySearchApi: string = 'https://ao3-coreapi.test.artsobservasjoner.no/api/v1/Areas/Names/ByAreaDataset/Municipality/';
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private apiService: ApiService
+  ) { }
 
   // getArea(searchString: string): Observable<Area[]> {
   //   return this.httpClient.get(this.countiesAndMunicipalityApi + searchString).pipe(
@@ -49,7 +48,7 @@ export class AreaService {
   // }
 
   getArea(searchString: string): Observable<Area[]> {
-    return this.httpClient.get(this.countiesAndMunicipalityApi + searchString, { observe: 'response' }).pipe(
+    return this.httpClient.get(this.apiService.AREA.countiesAndMunicipalitiesSearch + searchString, { observe: 'response' }).pipe(
       map((response: any) => {
 
         let area: Area;
@@ -83,9 +82,7 @@ export class AreaService {
 
   getAreaById(id: number): Observable<Area> {
 
-    const api: string = 'https://ao3-coreapi-test.azurewebsites.net/api/v1/Areas/Names/';
-
-    return this.httpClient.get(api + id).pipe(
+    return this.httpClient.get(this.apiService.AREA.allAreas + id).pipe(
       map((response: any) => {
 
         const area: Area = {
@@ -117,7 +114,7 @@ export class AreaService {
 
   getCounties(): Observable<Area[]> {
 
-    return this.httpClient.get(this.countiesApi).pipe(
+    return this.httpClient.get(this.apiService.AREA.counties).pipe(
       map((response: any) => {
 
         /*
@@ -159,7 +156,7 @@ export class AreaService {
 
   getMunicipality(searchString: string): Observable<object[]> {
 
-    return this.httpClient.get(this.municipalitySearchApi + searchString).pipe(
+    return this.httpClient.get(this.apiService.AREA.municipalities + searchString).pipe(
       map((response: any) => {
 
         /*

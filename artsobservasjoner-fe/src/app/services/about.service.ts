@@ -17,14 +17,14 @@ export class AboutService {
   // APIs
 
   readonly drupalAbout: string = 'https://artsdatabanken.no/api/Resource/?Collection=Nodes/302996';
-
-  constructor(private http: HttpClient) { }
+  
+  constructor(private httpClient: HttpClient) { }
 
   getAboutPagesById(id: number): Observable<AboutPage[]> {
 
     let aboutPages: AboutPage[] = [];
 
-    return this.http.get<any>('https://artsdatabanken.no/api/Content/' + id).pipe(
+    return this.httpClient.get<any>('https://artsdatabanken.no/api/Content/' + id).pipe(
       map(response => {
 
         let order: number = 0;

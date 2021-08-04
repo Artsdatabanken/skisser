@@ -29,12 +29,14 @@ export class SpeciesDataService {
     areaId?: string
   ): Observable<PaginatedStatistics> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi-test.azurewebsites.net/api/v1/TopList/CountySpeciesCount?';
+    const baseUrl: string = this.apiService.TOP_LISTS.countySpeciesCount;
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
+
+        console.log('TEST', response)
         let paginatedStatisticItem: PaginatedStatistics;
 
         let obj: object;
@@ -59,7 +61,7 @@ export class SpeciesDataService {
           totalCount: response.totalCount
         }
 
-        console.log('paginatedStatisticItem', paginatedStatisticItem)
+        // console.log('paginatedStatisticItem', paginatedStatisticItem)
         return paginatedStatisticItem;
 
       }),
@@ -78,7 +80,8 @@ export class SpeciesDataService {
     taxonId?: string
   ): Observable<any> {
 
-    const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/SpeciesList?';
+    // const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/SpeciesList?';
+    const baseUrl: string = this.apiService.TOP_LISTS.speciesList;
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     // return this.httpClient.get(api, { observe: 'response' }).pipe(
@@ -153,11 +156,11 @@ export class SpeciesDataService {
         }
 
         console.log('paginatedStatisticItem', paginatedStatisticItem)
-        
+
         return paginatedStatisticItem;
 
       }),
-     shareReplay()
+      shareReplay()
     );
 
   }
