@@ -23,11 +23,13 @@ export class ApiService {
   }
 
   AREA: any = {
-    allAreas: AREAS_BASE_URL + 'Names/',
-    areaSearch: AREAS_BASE_URL + 'Names/Search?search=',
-    countiesAndMunicipalitiesSearch: AREAS_BASE_URL + 'Names/ByAreaDataset/CountyAndMunicipality/Search?search=',
+    areaById: AREAS_BASE_URL + 'Names/',
+    //areasByString: AREAS_BASE_URL + 'Names/Search?Search=',
+    areasByString: AREAS_BASE_URL + 'Names/ByAreaDataset/CountyAndMunicipality/Search?Search=',
     counties: AREAS_BASE_URL + 'Names/ByAreaDataset/County/',
     municipalities: AREAS_BASE_URL + 'Names/ByAreaDataset/Municipality/',
+    countiesByString: AREAS_BASE_URL + 'Names/ByAreaDataset/County/Search?Search=',
+    municipalitiesByString: AREAS_BASE_URL + 'Names/ByAreaDataset/Municipality/Search?Search='
   }
 
   STATISTICS: any = {
@@ -61,6 +63,7 @@ export class ApiService {
 
   TOP_LISTS: any = {
     countySpeciesCount: TOPLIST_BASE_URL + 'CountySpeciesCount?',
+    municipalitySpeciesCount: TOPLIST_BASE_URL + 'MunicipalitySpeciesCount?',
     speciesList: TOPLIST_BASE_URL + 'SpeciesList?'
   }
 

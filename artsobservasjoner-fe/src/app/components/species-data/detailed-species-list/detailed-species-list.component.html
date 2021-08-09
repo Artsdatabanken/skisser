@@ -45,17 +45,17 @@
 
                         <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
-                            <td style="width: auto;">
+                            <td style="width: max-content;">
                                 <strong><i>{{ item.scientificName }}</i></strong>
                                 <br>
-                                <span style="font-size: 0.9em">{{ item.vernacularName }}</span>
+                                <span style="font-size: 0.95em">{{ item.vernacularName }}</span>
                             </td>
 
-                            <td class="td-date" style="font-weight: 600; width: 240px;">
+                            <td class="td-date" style="font-weight: 600; width: 20%;">
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
 
-                            <td style="width: 50px;">
+                            <td class="td-right" style="width: 30%;">
 
                                 <button class="toggle" [ngClass]="{'toggle--active': buttonClicked === i}"
                                     (click)="toggle($event, i, item.taxonId)"></button>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, publishReplay, refCount, shareReplay } from 'rxjs/operators';
+import { AREA_TYPE } from '../models/shared';
 import { PaginatedStatistics } from '../models/statistics';
 import { ApiService } from './api.service';
 import { AreaService } from './area.service';
@@ -13,6 +14,8 @@ import { TaxonService } from './taxon.service';
 
 export class SpeciesDataService {
 
+  areaType: typeof AREA_TYPE = AREA_TYPE;
+
   constructor(
     private httpClient: HttpClient,
     private apiService: ApiService,
@@ -20,7 +23,8 @@ export class SpeciesDataService {
     private taxonService: TaxonService
   ) { }
 
-  getCountySpeciesCount(
+  getAreaSpeciesCount(
+    areaType: string,
     pageNumber: number,
     pageSize: number,
     year?: string,
@@ -29,14 +33,13 @@ export class SpeciesDataService {
     areaId?: string
   ): Observable<PaginatedStatistics> {
 
-    const baseUrl: string = this.apiService.TOP_LISTS.countySpeciesCount;
+    let baseUrl: string = areaType === this.areaType.county? this.apiService.TOP_LISTS.countySpeciesCount: this.apiService.TOP_LISTS.municipalitySpeciesCount;
+
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
 
-
-        console.log('TEST', response)
         let paginatedStatisticItem: PaginatedStatistics;
 
         let obj: object;
@@ -61,7 +64,9 @@ export class SpeciesDataService {
           totalCount: response.totalCount
         }
 
-        // console.log('paginatedStatisticItem', paginatedStatisticItem)
+        
+        console.log('TEST', paginatedStatisticItem)
+
         return paginatedStatisticItem;
 
       }),

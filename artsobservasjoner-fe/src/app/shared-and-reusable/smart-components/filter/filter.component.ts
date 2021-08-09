@@ -20,10 +20,10 @@ export class FilterComponent implements OnInit {
 
   currentLanguage$: Observable<string>;
 
-  @Input() displayYearsFilter: boolean;
-  @Input() displaySpeciesFilter: boolean;
-  @Input() displayTaxonFilter: boolean;
-  @Input() displayAreaFilter: boolean;
+  @Input() dfYears?: boolean = true;
+  @Input() dfSpeciesGroups?: boolean = true;
+  @Input() dfTaxon?: boolean = true;
+  @Input() dfArea?: boolean = true;
 
   @Input() predefinedArea?: string;
 
@@ -194,7 +194,7 @@ export class FilterComponent implements OnInit {
   getArea(searchString: string): void {
 
     if (searchString.length > 1) {
-      this.areas$ = this.areaService.getArea(searchString);
+      this.areas$ = this.areaService.getAreasByString(searchString);
       this.showAreaPane = true;
     }
 

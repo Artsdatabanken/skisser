@@ -35,17 +35,6 @@ export class StatisticsService {
   validationStatuses: typeof VALIDATION_STATUS = VALIDATION_STATUS;
   sightingsCountPerYear: typeof SIGHTINGS_PER_YEAR = SIGHTINGS_PER_YEAR;
 
-  // API
-
-  USER_COUNT1_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountThisYear';
-  USER_COUNT2_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLastYear';
-  USER_COUNT3_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetReportersCountLast7Days';
-
-  TOTAL_COUNT_SIGHTINGS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSightingsCount';
-  TOTAL_COUNT_SPECIES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalSpeciesCount';
-  TOTAL_COUNT_IMAGES_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalImagesCount';
-  TOTAL_COUNT_USERS_API: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/Statistics/GetTotalUsersCount';
-
   // ------------------------------------------------------------ ***
 
   constructor(

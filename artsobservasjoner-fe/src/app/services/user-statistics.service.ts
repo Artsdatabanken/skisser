@@ -114,56 +114,6 @@ export class UserStatisticsService {
 
   }
 
-  // private createApiUrl(
-  //   baseUrl: string,
-  //   pageNumberParam: number,
-  //   pageSizeParam: number,
-  //   yearParam?: string,
-  //   speciesGroupParam?: string,
-  //   taxonParam?: string,
-  //   areaParam?: string
-  // ): string {
-
-  //   let api: string;
-  //   let params: URLSearchParams = new URLSearchParams();
-
-  //   // console.log('params year', yearParam);
-  //   // console.log('params species group', speciesGroupParam);
-  //   // console.log('params taxon', taxonParam);
-  //   // console.log('params område', areaParam);
-  //   // console.log('params pageNumber', pageNumberParam);
-  //   // console.log('params pageSize', pageSizeParam);
-
-  //   const addParam = (key, value) => {
-
-  //     if (value) {
-  //       params.append(key, value.toString());
-  //     }
-
-  //   };
-
-  //   addParam('Year', yearParam);
-  //   addParam('SpeciesGroupId', speciesGroupParam);
-  //   addParam('TaxonId', taxonParam);
-  //   addParam('AreaId', areaParam);
-  //   addParam('PageNumber', pageNumberParam);
-  //   addParam('PageSize', pageSizeParam);
-
-  //   // if (yearParam) params.append('Year', yearParam.toString());
-  //   // if (speciesGroupParam) params.append('SpeciesGroupId', speciesGroupParam.toString());
-  //   // if (taxonParam) params.append('TaxonId', taxonParam.toString());
-  //   // if (areaParam) params.append('AreaId', areaParam.toString());
-  //   // if (pageNumberParam) params.append('PageNumber', pageNumberParam.toString());
-  //   // if (pageSizeParam) params.append('PageSize', pageSizeParam.toString());
-
-  //   api = baseUrl + params.toString();
-
-  //   //console.log('api', api)
-
-  //   return api;
-
-  // }
-
   getPosition(index: number, pageNumber: number, pageSize: number): number {
 
     const position: number = (pageNumber - 1) * pageSize + index + 1;

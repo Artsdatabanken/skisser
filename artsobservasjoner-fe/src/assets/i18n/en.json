@@ -70,6 +70,7 @@
         "search_chosenFilters": "You have filtered by",
         "search_searchTaxon": "Search taxon",
         "search_searchArea": "Search area",
+        "search_municipality": "Select municipality",
         "readMore_speciesList": "See detailed species list"
     },
     "headings": {},
@@ -81,7 +82,8 @@
         "year": "Year",
         "speciesGroup": "Species group",
         "taxon": "Taxon",
-        "area": "Area"
+        "area": "Area",
+        "municipality": "Municipality"
     },
     "account": {
         "account_register": "Register",
@@ -168,6 +170,7 @@
         "tableDescription_sightsByRegisterType": "The table shows the number of users who have registered sightings via the various registration methods, web form, Excelimport, the mobile app, Sabimas Artsjakten app and projects. The table also shows the number of sightings registered per registration method",
         "tableDescription_monthlySightings": "The table shows the number of sightings made each month per species group. Note that it is regardless of when the observation was registered (for example, you can observe a species in March, but you registered the observation two months later). For a more detailed overview of a species group, please go to the <a href=\"/search\">search page</a>.",
         "tableCaption_countySpeciesData": "Number of species found by county",
+        "tableCaption_municipalitySpeciesData": "Number of species found by municipality",
         "tableCaption_validatedData": "Number of validated observations per species group",
         "tableCaption_validatedDataOriginal": "Number of taxa observed and number of observations per species group",
         "tableCaption_validatedData2": "Validated sightings count by validation category",
@@ -175,7 +178,8 @@
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
         "tableCaption_geographicalDistribution": "Sightings count per species group per area (county)",
         "tableHeading_year": "Year",
-        "tableHeading_county": "Area",
+        "tableHeading_county": "County",
+        "tableHeading_municipality": "Municipality",
         "tableHeading_yearlyIncrease": "Yearly increase",
         "tableHeading_speciesGroup": "Species group",
         "tableHeading_imageCount": "Image count",

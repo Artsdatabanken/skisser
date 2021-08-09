@@ -70,10 +70,11 @@
         "search_chosenFilters": "Du har søkt på",
         "search_searchTaxon": "Søk takson",
         "search_searchArea": "Søk område",
+        "search_municipality": "Velg kommune",
         "readMore_speciesList": "Se detaljert artsliste"
     },
     "headings": {},
-    "buttonText": {        
+    "buttonText": {
         "selectStatistics": "Velg statistikk",
         "selectArea": "Velg områdetype"
     },
@@ -81,7 +82,8 @@
         "year": "År",
         "speciesGroup": "Artsgruppe",
         "taxon": "Takson",
-        "area": "Område"
+        "area": "Område",
+        "municipality": "Kommune"
     },
     "account": {
         "account_register": "Registrer deg",
@@ -103,7 +105,7 @@
     "about": {
         "intro": "På denne siden finner du informasjon om ulike deler <br>av tjenesten Artsobservasjoner og hvordan du kan kontakte oss."
     },
-    "taxon": {      
+    "taxon": {
         "biologicalClassification": "Klassifisering",
         "classification": {
             "root": "Rot",
@@ -117,7 +119,7 @@
             "family": "Familie",
             "genus": "Slekt"
         }
-    }, 
+    },
     "press": {
         "intro": "",
         "intro_announcements": "",
@@ -126,7 +128,7 @@
         "news": "Gå til nyhetsoversikt",
         "currently": "Aktuelt"
     },
-    "tables": {        
+    "tables": {
         "tableHeading_species": "Artsnavn",
         "tableHeading_species_firstSeen": "Først observert"
     },
@@ -168,6 +170,7 @@
         "tableDescription_sightsByRegisterType": "Tabellen viser antall brukere som har registrert observasjoner via de ulike registreringsmåtene nettskjema, Excelimport, mobilløsningen, Sabimas Artsjakten app og prosjekter. Tabellen viser også antall observasjoner som er registrert per registreringsmåte.",
         "tableDescription_monthlySightings": "Tabellen viser antall observasjoner som er gjort hver måned per artsgruppe. Merk at det er uavhengig av når observasjonen ble rapportert (du kan f.eks. observere en art i mars, men du rapporterte observasjonen to måneder senere). For mer detaljert oversikt over en artsgruppe, vennligst gå til <a href=\"/search\">søket</a>.",
         "tableCaption_countySpeciesData": "Antall arter funnet per fylke",
+        "tableCaption_municipalitySpeciesData": "Antall arter funnet per kommune",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",
@@ -175,6 +178,7 @@
         "tableCaption_alienSpeciesData": "Antall observasjoner av fremmede arter etter artsgruppe",
         "tableCaption_geographicalDistribution": "Antall observasjoner per artsgruppe per fylke",
         "tableHeading_county": "Fylke",
+        "tableHeading_municipality": "Kommune",
         "tableHeading_year": "År",
         "tableHeading_yearlyIncrease": "Årlig økning",
         "tableHeading_speciesGroup": "Artsgruppe",

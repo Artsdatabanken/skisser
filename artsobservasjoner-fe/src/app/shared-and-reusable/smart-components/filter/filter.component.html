@@ -4,7 +4,7 @@
 
     <!--years-->
 
-    <div class="filter-box" (clickElsewhere)="closeYearsPane(this)">
+    <div class="filter-box" *ngIf="dfYears === true" (clickElsewhere)="closeYearsPane(this)">
 
         <label for="fltrYear">{{ 'filters.year' | translate }}</label>
 
@@ -41,11 +41,13 @@
 
     <!--species groups-->
 
-    <div class="filter-box" (clickElsewhere)="closeSpeciesGroupsPane(this)">
+    <div class="filter-box" *ngIf="dfSpeciesGroups === true"
+        (clickElsewhere)="closeSpeciesGroupsPane(this)">
 
         <label for="fltrSpeciesGroup">{{ 'filters.speciesGroup' | translate }}</label>
 
-        <button class="filter-box__button" id="fltrSpeciesGroup" [disabled]="isSpeciesGroupDisabled" (click)="toggleSpeciesGroupsDropdown()">
+        <button class="filter-box__button" id="fltrSpeciesGroup" [disabled]="isSpeciesGroupDisabled"
+            (click)="toggleSpeciesGroupsDropdown()">
             {{ 'shared.select_speciesGroups' | translate }}
         </button>
 
@@ -85,12 +87,13 @@
 
     <!--taxon-->
 
-    <div class="filter-box">
+    <div class="filter-box" *ngIf="dfTaxon === true">
 
         <label for="fltrTaxon">{{ 'filters.taxon' | translate }}</label>
 
-        <input class="filter-box__input" id="fltrTaxon" [ngModel]="activeFilters.taxon" #taxon (keyup)="getTaxon(taxon.value)"
-            [disabled]="isTaxonDisabled" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
+        <input class="filter-box__input" id="fltrTaxon" [ngModel]="activeFilters.taxon" #taxon
+            (keyup)="getTaxon(taxon.value)" [disabled]="isTaxonDisabled"
+            placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
         <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showTaxonPane}"
             *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
@@ -153,12 +156,12 @@
 
     <!--area-->
 
-    <div class="filter-box">
+    <div class="filter-box" *ngIf="dfArea === true">
 
         <label for="fltrArea">{{ 'filters.area' | translate }}</label>
-        
-        <input class="filter-box__input" id="fltrArea" [ngModel]="activeFilters.area" #area (keyup)="getArea(area.value)"
-            placeholder="{{ 'shared.search_searchArea' | translate }}">
+
+        <input class="filter-box__input" id="fltrArea" [ngModel]="activeFilters.area" #area
+            (keyup)="getArea(area.value)" placeholder="{{ 'shared.search_searchArea' | translate }}">
 
         <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showAreaPane}"
             *ngIf="areas$ | async as areas" (clickElsewhere)="closeAreaPane(this)">

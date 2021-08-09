@@ -16,39 +16,8 @@ export class AreaService {
     private apiService: ApiService
   ) { }
 
-  // getArea(searchString: string): Observable<Area[]> {
-  //   return this.httpClient.get(this.countiesAndMunicipalityApi + searchString).pipe(
-  //     map((response: any) => {
-
-  //       console.log('areas response', response)
-  //       console.log('areas response body', response.body)
-
-  //       let area: Area;
-  //       let areas: Area[] = [];
-
-  //       response.forEach(element => {
-
-  //         area = {
-  //           id: element.id,
-  //           name: element.name,
-  //           type: element.areaDataset
-  //         }
-
-  //         areas.push(area);
-
-  //       });
-
-  //       console.log('areas', areas)
-  //       return areas.sort((a, b) => a.name.localeCompare(b.name));
-
-  //     }),
-  //     shareReplay()
-  //   );
-
-  // }
-
-  getArea(searchString: string): Observable<Area[]> {
-    return this.httpClient.get(this.apiService.AREA.countiesAndMunicipalitiesSearch + searchString, { observe: 'response' }).pipe(
+  getAreasByString(searchString: string): Observable<Area[]> {
+    return this.httpClient.get(this.apiService.AREA.areasByString + searchString, { observe: 'response' }).pipe(
       map((response: any) => {
 
         let area: Area;
@@ -82,7 +51,7 @@ export class AreaService {
 
   getAreaById(id: number): Observable<Area> {
 
-    return this.httpClient.get(this.apiService.AREA.allAreas + id).pipe(
+    return this.httpClient.get(this.apiService.AREA.areaById + id).pipe(
       map((response: any) => {
 
         const area: Area = {
@@ -111,6 +80,45 @@ export class AreaService {
     return areaName;
 
   }
+
+  // --------------------***
+  
+  getMunicipalitiesByString(searchString: string): Observable<Area[]> {
+    return this.httpClient.get(this.apiService.AREA.municipalitiesByString + searchString, { observe: 'response' }).pipe(
+      map((response: any) => {
+
+        console.log('munis by string', response.body);
+
+        let area: Area;
+        let areas: Area[] = [];
+
+        const data = response.body;
+
+        if (data) {
+
+          data.forEach(element => {
+
+            area = {
+              id: element.id,
+              name: element.name,
+              type: element.areaDataset
+            }
+
+            areas.push(area);
+
+          });
+
+        }
+
+        return areas.sort((a, b) => a.name.localeCompare(b.name));
+
+      }),
+      shareReplay()
+    );
+
+  }
+
+  // --------------------***
 
   getCounties(): Observable<Area[]> {
 
@@ -154,14 +162,25 @@ export class AreaService {
 
   }
 
-  getMunicipality(searchString: string): Observable<object[]> {
+  getMunicipalities(): Observable<Area[]> {
 
-    return this.httpClient.get(this.apiService.AREA.municipalities + searchString).pipe(
+    return this.httpClient.get(this.apiService.AREA.municipalities).pipe(
       map((response: any) => {
 
-        /*
-         * her kan vi mappe til et std javascript-objekt, lage egne viewmodels eller sende responsen fra API direkte 
-         */
+        let area: Area;
+        let areas: Area[] = [];
+
+        response.forEach(element => {
+
+          area = {
+            id: element.id,
+            name: element.name,
+            type: element.areaDataset
+          }
+
+          areas.push(area);
+
+        });
 
         console.log('municipalities', response)
 

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
-import { Area } from 'src/app/models/shared';
-import { AreaService } from 'src/app/services/area.service';
+import { AREA_TYPE } from 'src/app/models/shared';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
 
@@ -15,7 +14,8 @@ import { SpeciesDataService } from 'src/app/services/species-data.service';
 export class CountyDataComponent implements OnInit {
 
   pageTitle$: Observable<string>;
-  speciesData$;
+  speciesData$;  
+  areaType: typeof AREA_TYPE = AREA_TYPE;
   DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
 
   constructor(
@@ -26,7 +26,7 @@ export class CountyDataComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.speciesData$ = this.speciesDataService.getCountySpeciesCount(1, 100);
+    this.speciesData$ = this.speciesDataService.getAreaSpeciesCount(this.areaType.county, 1, 100);
   }
 
 }
