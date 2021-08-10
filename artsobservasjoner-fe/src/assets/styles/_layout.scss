@@ -1085,6 +1085,26 @@ main {
         }
     }
 
+    &--2xx {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0 20px;
+        align-items: center;
+        justify-items: start;
+
+        & > * {
+            align-self: end;
+        }
+
+        @media screen and (max-width: 1366px) {
+            grid-template-columns: 1fr;
+        }
+
+        @media screen and (max-width: 1024px) {
+            grid-gap: 40px 0;
+        }
+    }
+
     &--filters {
         align-items: center;
         margin-top: 10px;

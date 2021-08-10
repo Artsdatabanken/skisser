@@ -87,8 +87,6 @@ export class AreaService {
     return this.httpClient.get(this.apiService.AREA.municipalitiesByString + searchString, { observe: 'response' }).pipe(
       map((response: any) => {
 
-        console.log('munis by string', response.body);
-
         let area: Area;
         let areas: Area[] = [];
 

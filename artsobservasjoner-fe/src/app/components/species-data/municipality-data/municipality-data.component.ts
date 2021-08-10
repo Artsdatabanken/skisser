@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { Area, AREA_TYPE } from 'src/app/models/shared';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
 import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { AreaService } from 'src/app/services/area.service';
+import { PaginatedStatistics } from 'src/app/models/statistics';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
+import { SpeciesInventoryComponent } from '../../sightings-data/species-inventory/species-inventory.component';
 
 @Component({
   selector: 'app-municipality-data',
@@ -16,11 +19,13 @@ export class MunicipalityDataComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   areaType: typeof AREA_TYPE = AREA_TYPE;
-  speciesData$;
+  speciesData$: Observable<PaginatedStatistics>;
+  data$: Observable<PaginatedStatistics>;
 
-  municipalities$: Observable<Area[]>; 
+  municipalities$: Observable<Area[]>;
+  municipality$: BehaviorSubject<any> = new BehaviorSubject(null);
   showMunicipalityPane: boolean = false;
-  
+
   @ViewChild('municipality') municipalityInput: any;
   DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
 
@@ -33,7 +38,10 @@ export class MunicipalityDataComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.speciesData$ = this.speciesDataService.getAreaSpeciesCount(this.areaType.municipality, 1, 500);
+    this.data$ = this.speciesData$;
+
   }
 
   getMunicipality(searchString: string): void {
@@ -47,7 +55,50 @@ export class MunicipalityDataComponent implements OnInit {
 
   onMunicipalitySelection(id: string, name: string): void {
 
-    console.log('jhgdsjhgsdjfhsdf', id, name)
+    this.municipality$.next(id);
+
+    // this.data$ = combineLatest([
+    //   this.municipality$,
+    //   this.speciesData$
+    // ]).pipe(
+    //   map(data => ({
+    //     municipality: data[0],
+    //     speciesData: data[1],
+    //   })),
+    //   debounceTime(0),
+    //   map(data => {
+
+    //     console.log('data', data)
+
+    //     const newData: any = data.speciesData.results.find(municipality => municipality['areaId'] == data.municipality);
+
+    //     console.log('newData', newData)
+
+    //     return newData;
+
+    //   })
+    // );
+
+    this.data$ = combineLatest([
+      this.municipality$,
+      this.speciesData$
+    ]).pipe(
+      map(([municipalityId, speciesData]) => {
+
+        let paginatedStatistics: PaginatedStatistics;
+        const newData: any = speciesData.results.filter(municipality => municipality['areaId'] == municipalityId);
+
+        paginatedStatistics = {
+          pageNumber: speciesData.pageNumber,
+          pageSize: speciesData.pageSize,
+          results: newData,
+          totalCount: 1
+        }
+
+        return paginatedStatistics;
+
+      })
+    );
 
     this.showMunicipalityPane = false;
 
@@ -64,5 +115,9 @@ export class MunicipalityDataComponent implements OnInit {
 
   }
 
+  resetFilter(): void {
+    this.municipality$.next(null);
+    this.data$ = this.speciesData$;
+  }
 
 }

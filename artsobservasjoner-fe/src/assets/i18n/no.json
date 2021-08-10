@@ -75,6 +75,7 @@
     },
     "headings": {},
     "buttonText": {
+        "reset": "Nullstill",
         "selectStatistics": "Velg statistikk",
         "selectArea": "Velg områdetype"
     },

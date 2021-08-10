@@ -75,6 +75,7 @@
     },
     "headings": {},
     "buttonText": {
+        "reset": "Reset",
         "selectStatistics": "Select statistics",
         "selectArea": "Select type of area"
     },

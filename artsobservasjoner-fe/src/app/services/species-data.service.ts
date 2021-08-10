@@ -83,7 +83,7 @@ export class SpeciesDataService {
     year?: string,
     speciesGroupId?: string,
     taxonId?: string
-  ): Observable<any> {
+  ): Observable<PaginatedStatistics> {
 
     // const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/SpeciesList?';
     const baseUrl: string = this.apiService.TOP_LISTS.speciesList;
