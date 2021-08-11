@@ -33,7 +33,7 @@
             </div>
 
             <div *ngIf="municipality$ | async as municipality">
-                <button class="button button--filter button--close" *ngIf="municipality !== null"
+                <button class="button button--filter button--close button--cta" *ngIf="municipality !== null"
                     (click)="resetFilter()">{{ 'buttonText.reset' | translate }}</button>
             </div>
 

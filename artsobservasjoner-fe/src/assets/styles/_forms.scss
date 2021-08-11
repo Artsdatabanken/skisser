@@ -16,51 +16,7 @@ form {
         }
     }
 
-    input {
-        @include customVar(background-color, clrWash);
-        @include customVar(border-color, clrDark);
-        @include customVar(font-family, fontPrimary);
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 50px;
-        display: block;
-        font-size: 18px;
-        font-weight: 500;
-        padding: 12px 24px 9px;
-        width: 100%;
 
-        &:disabled {
-            @include customVar(border-color, clrAccent);
-            border: 2px solid #666;
-        }
-
-        &:active,
-        &:focus {
-            padding: 12px 18px 9px;
-        }
-
-        &[type="date"],
-        &[type="time"] {
-            font-weight: 600;
-        }
-
-        &[type="submit"] {
-            @include customVar(font-family, fontSecondary);
-            float: right;
-            font-size: 24px;
-            font-weight: 500;
-            font-weight: 400;
-            padding: 14px 24px;
-        }
-
-        @media screen and (max-width: 1024px) {
-            margin: 5px 0 20px;
-        }
-
-        .form__group--light & {
-            @include customVar(background-color, clrWhite);
-        }
-    }
 
     textarea {
         @include customVar(background-color, clrWhite);
@@ -97,8 +53,56 @@ form {
     }
 }
 
+button, input, select {
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    line-height: 50px;
+}
+
 button {
     @include customVar(color, clrBlack);
+}
+
+input {
+    @include customVar(background-color, clrWhite);
+    @include customVar(border-color, clrDark);
+    @include customVar(font-family, fontPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+    display: block;
+    padding: 0 24px;
+    width: 100%;
+
+    &:disabled {
+        @include customVar(border-color, clrAccent);
+        border: 2px solid #666;
+    }
+
+    &:active,
+    &:focus {
+        //padding: 12px 18px 9px;
+    }
+
+    &[type="date"],
+    &[type="time"] {
+        font-weight: 600;
+    }
+
+    &[type="submit"] {
+        @include customVar(font-family, fontSecondary);
+        float: right;
+        font-size: 24px;
+        font-weight: 500;
+        font-weight: 400;
+        //padding: 14px 24px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        margin: 5px 0 20px;
+    }
+
 }
 
 select {
@@ -113,7 +117,7 @@ select {
     font-size: 16px;
     font-weight: 600;
     line-height: 2;
-    padding: 7px 21px;
+    padding: 0 21px;
 
     &:focus,
     &:active {
@@ -145,15 +149,10 @@ select {
     }
 }
 
-input {
-    @extend select;
-    padding: 9px 15px;
-}
-
 // PLACEHOLDERS
 
 ::placeholder {
-    color: #666;
+    color: #555;
     font-size: inherit;
 
     &:focus,
@@ -284,25 +283,6 @@ input:focus::-moz-placeholder {
     font-weight: 700;
 }
 
-.menu-search {
-    form {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        width: 100%;
-    }
-
-    input {
-        margin-right: 20px;
-        width: 40%;
-    }
-
-    & > form > * {
-        justify-self: center;
-    }
-}
-
 // FILTER & filter-box
 
 .filter {
@@ -313,7 +293,7 @@ input:focus::-moz-placeholder {
     width: 100%;
 
     & > * {
-        // border: 1px  solid blue;
+        //border: 1px  solid blue;
     }
 }
 
@@ -326,8 +306,8 @@ input:focus::-moz-placeholder {
         background-position: left 15px center;
         background-repeat: no-repeat;
         background-size: 17px;
-        padding: 9px 15px 9px 42px;
-        width: calc(100% - 60px);
+        padding: 0 15px 0 42px;
+        //width: calc(100% - 60px);
 
         &--active {
             @include customVar(background-color, clrFocus);
@@ -351,6 +331,12 @@ input:focus::-moz-placeholder {
                 font-size: inherit;
             }
         }
+
+        @media screen and (max-width: 1024px) {
+            font-size: 14px;
+            height: 40px;
+            padding: 0 15px 0 42px;
+        }
     }
 
     &__button {
@@ -360,10 +346,8 @@ input:focus::-moz-placeholder {
         background-position: right 15px center;
         background-repeat: no-repeat;
         background-size: 15px;
-        padding-right: 45px;
-        text-align: left;
-        height: 54px;
         padding: 9px 42px 9px 15px;
+        padding: 0 42px 0 15px;
         text-align: left !important;
         width: 100% !important;
 
