@@ -53,8 +53,7 @@ import { UserStatisticsComponent } from './components/user-statistics/user-stati
 import { UserCountSightingsComponent } from './components/user-statistics/user-count-sightings/user-count-sightings.component';
 import { UserCountPicturesComponent } from './components/user-statistics/user-count-pictures/user-count-pictures.component';
 import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
-import { SpeciesDataComponent } from './components/species-data/species-data.component';
-import { CompareDataComponent } from './components/species-data/compare-data/compare-data.component';
+import { CompareDataComponent } from './components/statistics/compare-data/compare-data.component';
 import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
 import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
 import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
@@ -293,47 +292,15 @@ const sightingsRoutes: Routes = [
     }
   },
   {
-    path: 'sightings-data/species-data',
-    component: SpeciesDataComponent,
-    data: {
-      text: 'Artsstatistikk',
-      title: 'menu.menu_sightings_speciesData',
-      id: 'species-data',
-      layout: 'landing',
-      rank: 'primary',
-      parent: 'sightings-data',
-      menu: 'mainMenu',
-      metaTitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
-    path: 'sightings-data/species-data/compare-data',
-    component: CompareDataComponent,
-    data: {
-      text: 'Sammenlikn observasjonsstatistikk',
-      title: 'menu.menu_sightings_speciesData_compareSpeciesStatistics',
-      id: 'compare-data',
-      layout: 'page',
-      rank: '',
-      parent: 'species-data',
-      menu: '',
-      metaTitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
-  {
     path: 'sightings-data/species-data/species-lists',
     component: SpeciesListsComponent,
     data: {
-      text: 'Artslister',
+      text: 'Arter per område',
       title: 'menu.menu_sightings_speciesData_speciesLists',
       id: 'species-lists',
       layout: 'spa',
       rank: '',
-      parent: 'species-data',
+      parent: 'sightings-data',
       menu: '',
       metaTitle: '',
       metaDescription: '',
@@ -567,55 +534,7 @@ const statisticsRoutes: Routes = [
           metaDescription: '',
           hidden: false
         }
-      },
-      // {
-      //   path: 'overview-9',
-      //   component: OverviewChild9Component,
-      //   data: {
-      //     text: 'Rapporteringsoversikt per artsgruppe totalt og per år',
-      //     title: 'statistics.overviewStats_heading_9',
-      //     id: 'overview-9',
-      //     layout: 'spa',
-      //     rank: 'secondary',
-      //     parent: 'overview',
-      //     menu: '',
-      //     metaTitle: '',
-      //     metaDescription: '',
-      //     hidden: false
-      //   }
-      // },
-      // {
-      //   path: 'overview-10',
-      //   component: OverviewChild10Component,
-      //   data: {
-      //     text: 'Månedlige registreringer per artsgruppe totalt og per år',
-      //     title: 'statistics.overviewStats_heading_10',
-      //     id: 'overview-10',
-      //     layout: 'spa',
-      //     rank: 'secondary',
-      //     parent: 'overview',
-      //     menu: '',
-      //     metaTitle: 'r',
-      //     metaDescription: '',
-      //     hidden: false
-      //   }
-      // },
-      // {
-      //   path: 'overview-11',
-      //   component: OverviewChild11Component,
-      //   data: {
-      //     text: '',
-      //     title: '',
-      //     id: 'overview-11',
-      //     layout: 'spa',
-      //     rank: 'secondary',
-      //     parent: 'overview',
-      //     menu: '',
-      //     metaTitle: '',
-      //     metaDescription: '',
-      //     hidden: false
-      //   }
-      // }
+      }
     ]
   },
   {
@@ -677,7 +596,23 @@ const statisticsRoutes: Routes = [
       metaTitle: '',
       metaDescription: ''
     }
-  }
+  },
+  {
+    path: 'sightings-data/statistics/compare-data',
+    component: CompareDataComponent,
+    data: {
+      text: 'Sammenlikn observasjonsstatistikk',
+      title: 'menu.menu_statistics_compareSpeciesStatistics',
+      id: 'compare-data',
+      layout: 'page',
+      rank: '',
+      parent: 'statistics',
+      menu: '',
+      metaTitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
 ];
 
 const userStatisticsRoutes: Routes = [

@@ -12,8 +12,7 @@
         "menu_sightings_exploreSightings": "Explore sightings",
         "menu_sightings_sighting": "Sighting",
         "menu_sightings_speciesData": "Species statistics",
-        "menu_sightings_speciesData_compareSpeciesStatistics": "Compare species statistics",
-        "menu_sightings_speciesData_speciesLists": "Species lists",
+        "menu_sightings_speciesData_speciesLists": "Species per area",
         "menu_sightings_speciesInventory": "Species inventory",
         "menu_statistics": "Statistics",
         "menu_statistics_about": "About our statistics",
@@ -23,7 +22,8 @@
         "menu_statistics_alienSpecies": "Alien species",
         "menu_statistics_knowledgeGaps": "Knowledge gaps",
         "menu_statistics_areaLists": "Area lists",
-        "menu_statistics_speciesList": "Species lists",
+        "menu_statistics_speciesList": "Species per area",
+        "menu_statistics_compareSpeciesStatistics": "Compare species statistics",
         "menu_sightings_speciesData_speciesLists_countyData": "County data",
         "menu_sightings_speciesData_speciesLists_municipalityData": "Municipality data",
         "menu_sightings_speciesData_speciesLists_detailedSpeciesList": "Detailed species list",
@@ -77,7 +77,7 @@
     "buttonText": {
         "reset": "Reset",
         "selectStatistics": "Select statistics",
-        "selectArea": "Select type of area"
+        "selectArea": "Select are type"
     },
     "filters": {
         "year": "Year",

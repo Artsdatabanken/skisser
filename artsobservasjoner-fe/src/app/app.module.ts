@@ -124,7 +124,7 @@ import { FilterComponent } from './shared-and-reusable/smart-components/filter/f
 import { SpeciesInventoryComponent } from './components/sightings-data/species-inventory/species-inventory.component';
 import { SpeciesDataComponent } from './components/species-data/species-data.component';
 import { SpeciesListsComponent } from './components/species-data/species-lists/species-lists.component';
-import { CompareDataComponent } from './components/species-data/compare-data/compare-data.component';
+import { CompareDataComponent } from './components/statistics/compare-data/compare-data.component';
 import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
 import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
