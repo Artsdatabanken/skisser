@@ -4,11 +4,12 @@ import { BehaviorSubject, combineLatest, Observable, of, Subscription } from 'rx
 import { debounceTime, filter, map, mergeMap, switchMap } from 'rxjs/operators';
 import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { PAGE_SIZE } from 'src/app/models/filter';
-import { Area } from 'src/app/models/shared';
 import { PaginatedStatistics } from 'src/app/models/statistics';
 import { AreaService } from 'src/app/services/area.service';
 import { FilterService } from 'src/app/services/filter.service';
+import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-detailed-species-list',
@@ -18,7 +19,8 @@ import { SpeciesDataService } from 'src/app/services/species-data.service';
 
 export class DetailedSpeciesListComponent implements OnInit {
 
-  subscription: Subscription;
+  pageTitle$: Observable<string>;
+  currentLanguage$: Observable<string>;
   areaId: string;
   areaName$: Observable<string>;
   PAGE_SIZE = PAGE_SIZE;
@@ -33,7 +35,10 @@ export class DetailedSpeciesListComponent implements OnInit {
   subscriptions: Subscription[] = [];
 
   constructor(
+    private layoutService: LayoutService,
+    private translationService: TranslationService,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private areaService: AreaService,
     private speciesDataService: SpeciesDataService,
     private filterService: FilterService
@@ -41,14 +46,8 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.subscription = this.activatedRoute.params.subscribe(params => {
-
-    //   this.areaId = params['id'];
-    //   this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
-    //   this.filterService.filters.area$.next(this.areaId);
-
-    // });
-
+    this.currentLanguage$ = this.translationService.currentLanguage$;
+    this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_sightings_speciesData_speciesLists');
 
     this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
 
@@ -72,6 +71,7 @@ export class DetailedSpeciesListComponent implements OnInit {
     }
     else {
       this.buttonClicked = index;
+      // hvis vi vil hente data kun on click
       //this.taxonData$ = this.taxonService.getTaxonData(taxonId);
     }
 
@@ -97,25 +97,28 @@ export class DetailedSpeciesListComponent implements OnInit {
       debounceTime(0),
       map(filters => {
 
-        // console.group('filters', filters)
+        //console.group('filters', filters)
 
         return filters;
 
       }),
 
-      mergeMap(filters => {
+      switchMap(filters => {
 
         if (filters.area !== null) {
-
+        
           this.subscriptions.push(this.areaService.getAreaNameById(+filters.area).subscribe(
             area => {
 
+              console.group('filters.area', area, filters.area)
               this.tableCaption = area;
               return this.tableCaption;
 
             })
           );
 
+          this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
+          
           return this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
             PAGE_SIZE,
@@ -128,6 +131,7 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
         else {
 
+          // this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, areaId]);
           return of(null);
 
         }
@@ -144,6 +148,9 @@ export class DetailedSpeciesListComponent implements OnInit {
 
       }),
       map((response: PaginatedStatistics) => {
+
+        
+        //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
 
         if (response !== null) {
           this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
@@ -167,7 +174,6 @@ export class DetailedSpeciesListComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 

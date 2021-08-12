@@ -33,7 +33,7 @@ export class SpeciesDataService {
     areaId?: string
   ): Observable<PaginatedStatistics> {
 
-    let baseUrl: string = areaType === this.areaType.county? this.apiService.TOP_LISTS.countySpeciesCount: this.apiService.TOP_LISTS.municipalitySpeciesCount;
+    let baseUrl: string = areaType === this.areaType.county ? this.apiService.TOP_LISTS.countySpeciesCount : this.apiService.TOP_LISTS.municipalitySpeciesCount;
 
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
@@ -64,7 +64,7 @@ export class SpeciesDataService {
           totalCount: response.totalCount
         }
 
-        
+
         console.log('TEST', paginatedStatisticItem)
 
         return paginatedStatisticItem;
@@ -157,7 +157,8 @@ export class SpeciesDataService {
           pageNumber: response.pageNumber,
           pageSize: response.pageSize,
           results: objs,
-          totalCount: response.totalCount
+          totalCount: response.totalCount,
+          areaId: +areaId
         }
 
         console.log('paginatedStatisticItem', paginatedStatisticItem)
@@ -165,7 +166,8 @@ export class SpeciesDataService {
         return paginatedStatisticItem;
 
       }),
-      shareReplay()
+      publishReplay(1),
+      refCount()
     );
 
   }

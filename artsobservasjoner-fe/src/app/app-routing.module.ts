@@ -347,7 +347,7 @@ const sightingsRoutes: Routes = [
       text: 'Detaljert artsliste',
       title: 'menu.menu_sightings_speciesData_speciesLists_detailedSpeciesList',
       id: 'detailed-species-list',
-      layout: 'page',
+      layout: 'spa',
       rank: '',
       parent: '',
       menu: '',

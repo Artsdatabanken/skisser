@@ -65,6 +65,7 @@ export interface PaginatedStatistics {
     pageSize: number;
     results: object[] | TaxonData[];
     totalCount: number;
+    areaId?: number;
 }
 
 // USER STATISTICS

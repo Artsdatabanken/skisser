@@ -1,6 +1,10 @@
 <div class="page page--landing">
 
     <header class="page__header">
+        <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
+            {{ pageTitle }}
+            <span *ngIf="areaName$ | async as area"> &mdash; {{ area }}</span>
+        </h1>
         <h2 *ngIf="areaName$ | async as area">{{ area }}</h2>
     </header>
 
@@ -8,7 +12,7 @@
 
     <div class="page__content">
 
-        <p class="body-text">{{ 'tables.tableDescription_countySpeciesList' | translate }}</p>
+        <!-- <p class="body-text">{{ 'tables.tableDescription_countySpeciesList' | translate }}</p> -->
 
         <h3>{{ 'shared.filter' | translate }}</h3>
 
@@ -31,7 +35,8 @@
 
                 <table *ngIf="detailedSpeciesData.totalCount > 0">
 
-                    <caption id="caption1">{{ 'tables.tableCaption_detailedSpeciesList' | translate: { value: tableCaption } }}</caption>
+                    <caption id="caption1">{{ 'tables.tableCaption_detailedSpeciesList' | translate: { value:
+                        tableCaption } }}</caption>
 
                     <thead>
                         <tr>
