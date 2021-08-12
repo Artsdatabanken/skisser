@@ -129,10 +129,6 @@
         "news": "Gå til nyhetsoversikt",
         "currently": "Aktuelt"
     },
-    "tables": {
-        "tableHeading_species": "Artsnavn",
-        "tableHeading_species_firstSeen": "Først observert"
-    },
     "statistics": {
         "intro": "",
         "intro_validatedData": "En andel av observasjonene som blir rapportert, blir kvalitetssjekket av utpekte artskjennere som kalles validatorer. Både artsbestemmelsen, tidspunkt og plassering og bakgrunnsdokumentasjonen på observasjonen, blir sjekket. Det er spesielt rødlistede arter, fremmede arter og andre forvaltningsrelevante arter som prioriteres for kvalitetssjekk. Du finner mer informasjon om <a href=\"/about/305425\">kvalitetssikringen av data</a> under 'Om tjenesten'.",
@@ -158,7 +154,11 @@
         "overviewStats_heading_5": "Antall prosjekter",
         "overviewStats_heading_6": "Antall registrerte observasjoner etter registreringsmåte",
         "overviewStats_heading_7": "Geografisk fordeling",
-        "overviewStats_heading_8": "Månedlige observasjoner per artsgruppe",
+        "overviewStats_heading_8": "Månedlige observasjoner per artsgruppe"
+    },
+      "tables": {
+        "tableHeading_species": "Artsnavn",
+        "tableHeading_species_firstSeen": "Først observert",
         "shared_tableDescription_content": "Tabellen viser antall observasjoner av {{ value }} etter artsgruppe, med en av kategoriene nedenfor. ",
         "shared_tableDescription_includedData": "Kategorier uten artsobservasjoner er utelatt fra tabellen.",
         "shared_tableDescription_includedDataExplanation": "For en beskrivelse av dataene i tabellen(e), se xxxxxxx [Lenke til tekst som forklarer reglene for inkludering og ekskludering av parametere bak volumstatistikk.]. Tallene blir oppdatert hver natt.",
@@ -170,8 +170,9 @@
         "tableDescription_imageCountPerSpeciesGroup": "Tabellen viser antall bilder per artsgruppe og antall bilder per artsgruppe der bildet har en åpen lisens. En åpen lisens er en av følgende Creative Commons-lisenser:<ul><li>CC BY 4.0 - Navngivelse</li><li>CC BY-SA - Navngivelse-DelPåSammeVilkår </li><li>CC BY-NC-SA - Navngivelse-IkkeKommersiell-DelPåSammeVilkår</li></ul><br>Alternativet til de tre åpne lisensene er <em>Alle rettigheter forbeholdt</em>.",
         "tableDescription_sightsByRegisterType": "Tabellen viser antall brukere som har registrert observasjoner via de ulike registreringsmåtene nettskjema, Excelimport, mobilløsningen, Sabimas Artsjakten app og prosjekter. Tabellen viser også antall observasjoner som er registrert per registreringsmåte.",
         "tableDescription_monthlySightings": "Tabellen viser antall observasjoner som er gjort hver måned per artsgruppe. Merk at det er uavhengig av når observasjonen ble rapportert (du kan f.eks. observere en art i mars, men du rapporterte observasjonen to måneder senere). For mer detaljert oversikt over en artsgruppe, vennligst gå til <a href=\"/search\">søket</a>.",
-        "tableCaption_countySpeciesData": "Antall arter funnet per fylke",
-        "tableCaption_municipalitySpeciesData": "Antall arter funnet per kommune",
+        "tableCaption_countySpeciesData": "Antall arter observert per fylke gjennom tidene",
+        "tableCaption_municipalitySpeciesData": "Antall arter observert per kommune gjennom tidene",
+        "tableCaption_detailedSpeciesList": "Detaljert artsliste for {{value}}",
         "tableCaption_validatedData": "Antall kvalitetssikrede observasjoner per artsgruppe",
         "tableCaption_validatedDataOriginal": "Antall taxa observert og antall observasjoner per artsgruppe",
         "tableCaption_validatedData2": "Antall observasjoner kvalitetssjekket per valideringskategori",

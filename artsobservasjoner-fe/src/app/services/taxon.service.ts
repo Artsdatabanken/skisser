@@ -128,7 +128,7 @@ export class TaxonService {
 
         });
 
-        console.log('taxons', taxons);
+        // console.log('taxons', taxons);
 
         return taxons;
 
@@ -141,12 +141,10 @@ export class TaxonService {
   getTaxonData(taxonId: number): Observable<object> {
 
     const baseUrl: string = this.apiService.TAXONS.taxonData + taxonId + '/Information';
-    console.log('sdgfdgdfg', baseUrl)
-
+ 
     return this.httpClient.get(baseUrl).pipe(
       map((response: any) => {
 
-        console.log('taxondata', response)
         return response;
 
       }),

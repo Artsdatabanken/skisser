@@ -9,7 +9,6 @@ import { PaginatedStatistics } from 'src/app/models/statistics';
 import { AreaService } from 'src/app/services/area.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
-import { TaxonService } from 'src/app/services/taxon.service';
 
 @Component({
   selector: 'app-detailed-species-list',
@@ -30,25 +29,34 @@ export class DetailedSpeciesListComponent implements OnInit {
   taxonData$;
   buttonClicked: number;
   noArea: boolean = false;
+  tableCaption: string;
+  subscriptions: Subscription[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private areaService: AreaService,
     private speciesDataService: SpeciesDataService,
-    private filterService: FilterService,
-    private taxonService: TaxonService
+    private filterService: FilterService
   ) { }
 
   ngOnInit(): void {
 
-    this.subscription = this.activatedRoute.params.subscribe(params => {
+    // this.subscription = this.activatedRoute.params.subscribe(params => {
+
+    //   this.areaId = params['id'];
+    //   this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
+    //   this.filterService.filters.area$.next(this.areaId);
+
+    // });
+
+
+    this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
 
       this.areaId = params['id'];
       this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
-      this.filterService.filters.area$.next(this.areaId)
+      this.filterService.filters.area$.next(this.areaId);
 
-    });
+    }));
 
     this.getFilteredData();
 
@@ -72,8 +80,6 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   getFilteredData(): void {
 
-    // this.filterService.filters.area$.next(areaId);
-
     this.filteredData$ = combineLatest([
       this.filterService.filters.area$,
       this.filterService.filters.year$,
@@ -93,8 +99,6 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         // console.group('filters', filters)
 
-        // Object.entries(filters).forEach(f => console.log('filter', f))
-
         return filters;
 
       }),
@@ -103,9 +107,14 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         if (filters.area !== null) {
 
-          //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
+          this.subscriptions.push(this.areaService.getAreaNameById(+filters.area).subscribe(
+            area => {
 
-          //this.areaName$ = this.areaService.getAreaNameById(+filters.area);  
+              this.tableCaption = area;
+              return this.tableCaption;
+
+            })
+          );
 
           return this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
@@ -119,7 +128,6 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
         else {
 
-          // this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, areaId]);
           return of(null);
 
         }
@@ -159,7 +167,8 @@ export class DetailedSpeciesListComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
 }
