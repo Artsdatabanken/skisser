@@ -57,6 +57,11 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     }));
 
+    this.filterService.filters.area$.subscribe(area => {
+      console.log('area before', area)
+      //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, area]);
+    });
+
     this.getFilteredData();
 
   }
@@ -106,7 +111,7 @@ export class DetailedSpeciesListComponent implements OnInit {
       switchMap(filters => {
 
         if (filters.area !== null) {
-        
+
           this.subscriptions.push(this.areaService.getAreaNameById(+filters.area).subscribe(
             area => {
 
@@ -117,8 +122,6 @@ export class DetailedSpeciesListComponent implements OnInit {
             })
           );
 
-          this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
-          
           return this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
             PAGE_SIZE,
@@ -149,8 +152,10 @@ export class DetailedSpeciesListComponent implements OnInit {
       }),
       map((response: PaginatedStatistics) => {
 
-        
-        //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
+        this.filterService.filters.area$.subscribe(area => {
+          console.log('area after', area)
+          //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, area]);
+        });
 
         if (response !== null) {
           this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
