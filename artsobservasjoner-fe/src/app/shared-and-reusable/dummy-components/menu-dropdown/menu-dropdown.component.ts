@@ -1,13 +1,13 @@
-import { Component, Directive, Host, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DropdownOption } from 'src/app/models/reusable';
 
 @Component({
-  selector: 'app-dropdown-menu',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  selector: 'app-menu-dropdown',
+  templateUrl: './menu-dropdown.component.html',
+  styleUrls: ['./menu-dropdown.component.scss']
 })
 
-export class DropdownComponent implements OnInit {
+export class MenuDropdownComponent implements OnInit {
 
   @Input() id: string;
   @Input() title: string;
@@ -37,5 +37,6 @@ export class DropdownComponent implements OnInit {
     return `dropdown__link--${iconClass}`;
 
   }
+
 
 }

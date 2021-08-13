@@ -94,7 +94,7 @@ import { AccordionItemComponent } from './shared-and-reusable/dummy-components/a
 import { AccordionComponent } from './shared-and-reusable/dummy-components/accordion/accordion.component';
 import { ButtonComponent } from './shared-and-reusable/dummy-components/button/button.component';
 import { CardComponent } from './shared-and-reusable/dummy-components/card/card.component';
-import { DropdownComponent, CloseDropdownDirective } from './shared-and-reusable/dummy-components/dropdown/dropdown.component';
+import { CloseDropdownDirective } from './directives/close-dropdown.directive';
 import { FootnoteComponent } from './shared-and-reusable/dummy-components/footnotes/footnote/footnote.component';
 import { FootnotesComponent } from './shared-and-reusable/dummy-components/footnotes/footnotes.component';
 import { IconBadgeComponent } from './shared-and-reusable/dummy-components/icon-badge/icon-badge.component';
@@ -130,6 +130,7 @@ import { MunicipalityDataComponent } from './components/species-data/municipalit
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
 import { ButtonLinkComponent } from './shared-and-reusable/dummy-components/button-link/button-link.component';
 import { TaxonClassificationComponent } from './shared-and-reusable/smart-components/taxon-classification/taxon-classification.component';
+import { MenuDropdownComponent } from './shared-and-reusable/dummy-components/menu-dropdown/menu-dropdown.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -215,7 +216,6 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     IntersectionComponent,
     ErrorResponseComponent,
     StatusPageComponent,
-    DropdownComponent,
     AnnouncementsComponent,
     AnnouncementComponent,
     CloseDropdownDirective,
@@ -253,7 +253,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     MunicipalityDataComponent,
     DetailedSpeciesListComponent,
     ButtonLinkComponent,
-    TaxonClassificationComponent
+    TaxonClassificationComponent,
+    MenuDropdownComponent
   ],
   imports: [
     BrowserModule,
