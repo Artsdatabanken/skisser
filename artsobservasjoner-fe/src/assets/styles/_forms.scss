@@ -60,6 +60,17 @@ button {
 }
 
 .button {
+    height: 54px;
+    line-height: 50px;
+
+    &:hover {
+        @include customVar(background-color, clrBlack);
+        @include customVar(border-color, clrBlack);
+        @include customVar(color, clrWhite);
+        height: 54px;
+        line-height: 50px;
+    }
+
     // modifiers (types of buttons)
 
     &--primary {
@@ -149,14 +160,20 @@ button {
     &--xs {
         font-size: 14px;
         font-weight: 600;
-        line-height: 1;
-        min-height: initial;
-        padding: 9px 22px 7px;
+        height: 40px;
+        line-height: 38px;
+        padding: 0 22px;
         width: auto;
 
         @media screen and (max-width: 1024px) {
             font-size: 28px;
         }
+
+        &:hover {
+            height: 40px;
+            line-height: 38px;
+        }
+    
     }
 
     &--xxs {
@@ -213,17 +230,6 @@ button {
         }
     }
 
-    &--filter {
-        background-position: right 25px center !important;
-        background-size: 10px !important;
-        font-size: 16px;
-        min-width: 140px;
-
-        @media screen and (max-width: 1024px) {
-            font-size: 14px;
-        }
-    }
-
     &--dropdown {
         background-image: url(../images/iconChevronDown.png);
         background-position: right 20px center;
@@ -233,8 +239,6 @@ button {
         text-align: left;
 
         &:hover {
-            @include customVar(background-color, clrBlack);
-            @include customVar(color, clrWhite);
             background-image: url(../images/iconChevronWhiteDown.png);
         }
 
@@ -253,57 +257,13 @@ button {
         }
     }
 
-    &--dropdown-x {
-        @extend .button--dropdown;
-        background-position: center center;
-        background-size: 24px;
-        border: none;
-        height: 44px;
-        padding: 0;
-        text-align: center;
-        width: 44px;
-
-        &:hover {
-        }
-    }
-
-    &--display {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 25px;
-        margin-left: 7px;
-
-        @media screen and (max-width: 1024px) {
-            font-size: 0;
-            height: 48px;
-            width: 48px;
-        }
-    }
-
-    &--display-1 {
-        @media screen and (max-width: 1024px) {
-            background-image: url(../images/iconDisplayMap.png);
-        }
-    }
-
-    &--display-2 {
-        @media screen and (max-width: 1024px) {
-            background-image: url(../images/iconDisplayTable.png);
-        }
-    }
-
-    &--display-3 {
-        @media screen and (max-width: 1024px) {
-            background-image: url(../images/iconDisplayGallery.png);
-        }
-    }
-
     &--close {
         background-image: url(../images/iconClose.png);
-        background-position: right 11px center;
+        background-position: right 15px center;
         background-repeat: no-repeat;
-        background-size: 8px;
-        padding-right: 33px;
+        background-size: 10px;
+        padding: 0 45px 0 15px;
+        text-align: left;
 
         &:hover {
             background-image: url(../images/iconCloseWhite.png);

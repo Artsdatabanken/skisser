@@ -196,16 +196,20 @@
     border-bottom-width: 2px;
     border-radius: 0;
     cursor: pointer;
+    display: inline;
     font-size: 16px;
     font-weight: 700;
+    height: auto;
+    line-height: 1;
     padding: 10px 0;
     text-decoration: underline;
     text-indent: 0;
-    transition: border 0.5s;
+    transition: none;
+    width: auto;
 
     &--active {
         // active here is the current selected language; we don't want this to stand out
-        font-weight: 600;
+        font-weight: 500;
         text-decoration: none;
     }
 
@@ -214,8 +218,17 @@
     &:hover {
         // @include customVar(background-color, clrBlack);
         // @include customVar(color, clrWhite);
+        background: none;
+        border: none !important;
+        height: auto;
+        line-height: 1;
         outline: 0;
-        padding: 10px 0;
+        padding: 0;
+        width: auto;
+    }
+
+    &:hover {
+        text-decoration: underline;
     }
 
     button {
