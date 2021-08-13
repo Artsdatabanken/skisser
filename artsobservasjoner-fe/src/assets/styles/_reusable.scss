@@ -31,6 +31,7 @@
     display: block;
     padding: 15px 45px 15px 30px;
     text-align: left;
+    transition: all 0.5s;
 
     &:hover {
         @include customVar(background-color, clrBlack);
@@ -60,10 +61,6 @@
         }
     }
 }
-
-/*button*/
-
-
 
 /*items / gallery*/
 

@@ -5,7 +5,7 @@
     <div class="section">
 
         <p class="body-text">
-            {{ 'statistics.tableDescription_sightsByRegisterType' | translate }}
+            {{ 'statistics.description_sightsByRegisterType' | translate }}
         </p>
 
         <ng-container *ngIf="data$ | async as data; else noData">
@@ -16,22 +16,22 @@
                     <thead>
                         <tr>
                             <th role="columnheader" scope="col">
-                                {{ 'statistics.tableHeading_reportingMethod' | translate }}
+                                {{ 'tables.tableHeading_reportingMethod' | translate }}
                             </th>
                             <th role="columnheader" scope="col">
-                                {{ 'statistics.tableHeading_reportingMethod' | translate }}
+                                {{ 'tables.tableHeading_reportingMethod' | translate }}
                             </th>
                             <th role="columnheader" scope="col" class="th-number">
-                                {{ 'statistics.tableHeading_usersCount' | translate }}
+                                {{ 'tables.tableHeading_usersCount' | translate }}
                             </th>
                             <th role="columnheader" scope="col" class="th-number">
-                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                                {{ 'tables.tableHeading_sightingsCount' | translate }}
                             </th>
                             <th role="columnheader" scope="col" class="th-number">
-                                {{ 'statistics.tableHeading_totalPercentage' | translate }} **
+                                {{ 'tables.tableHeading_totalPercentage' | translate }} **
                             </th>
                             <th role="columnheader" scope="col" class="th-number">
-                                {{ 'statistics.tableHeading_nullFindingsTotal' | translate }} ***
+                                {{ 'tables.tableHeading_nullFindingsTotal' | translate }} ***
                             </th>
                         </tr>
                     </thead>

@@ -25,6 +25,7 @@ export class OverviewChild8Component implements OnInit {
   speciesGroups$: Observable<Category[]>;
   selectedSpeciesGroup: number | null = null;
 
+  showSpeciesGroupsPane: boolean = false;
   months: Months = new Months();
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
@@ -145,6 +146,14 @@ export class OverviewChild8Component implements OnInit {
       }
     });
 
+  }
+
+  toggleSpeciesGroupsDropdown(): void {
+    this.showSpeciesGroupsPane = !this.showSpeciesGroupsPane;
+  }
+
+  closeSpeciesGroupsPane(pane: any): void {
+    this.showSpeciesGroupsPane = false;
   }
 
   // buildChart(labels?: string[], datasets?: object[]): void {

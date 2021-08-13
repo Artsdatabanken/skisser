@@ -5,7 +5,7 @@
     <div class="section">
 
         <p class="body-text">
-            {{ 'statistics.tableDescription_sightingCountArtsobsVsArtskart' | translate }}
+            {{ 'statistics.description_sightingCountArtsobsVsArtskart' | translate }}
         </p>
 
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
@@ -16,23 +16,21 @@
                 <thead role="rowgroup">
                     <tr role="row">
                         <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_year' | translate }}
+                            {{ 'tables.tableHeading_year' | translate }}
                         </th>
-                        <th scope="col" role="columnheader" class="th-number" [innerHTML]="'statistics.tableHeading_aggregatedSightingsCount1' | translate">
+                        <th scope="col" role="columnheader" class="th-number" [innerHTML]="'tables.tableHeading_aggregatedSightingsCount1' | translate">
                             <!-- {{ 'statistics.tableHeading_aggregatedSightingsCount' | translate }} Artsobservasjoner -->
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_newSightingsCount' | translate }} Artsobservasjoner.no
+                            {{ 'tables.tableHeading_newSightingsCount' | translate }} Artsobservasjoner.no
                         </th>
-                        <th scope="col" role="columnheader" class="th-number" [innerHTML]="'statistics.tableHeading_aggregatedSightingsCount2' | translate ">
-                            <!-- {{ 'statistics.tableHeading_aggregatedSightingsCount' | translate }} Artskart -->
+                        <th scope="col" role="columnheader" class="th-number" [innerHTML]="'tables.tableHeading_aggregatedSightingsCount2' | translate ">
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_newSightingsCount' | translate }} Artskart
+                            {{ 'tables.tableHeading_newSightingsCount' | translate }} Artskart
                         </th>
                         <th scope="col" role="columnheader" class="th-number"
-                            [innerHTML]="'statistics.tableHeading_percentArtsobsInArtskart' | translate">
-                            <!-- % {{ 'statistics.tableHeading_percentArtsobsInArtskart' | translate }} -->
+                            [innerHTML]="'tables.tableHeading_percentArtsobsInArtskart' | translate">
                         </th>
                     </tr>
                 </thead>

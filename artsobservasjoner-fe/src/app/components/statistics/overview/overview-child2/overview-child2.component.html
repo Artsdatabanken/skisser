@@ -4,7 +4,7 @@
 
     <div class="section">
 
-        <p class="body-text" [innerHTML]="'statistics.tableDescription_imageCountPerSpeciesGroup' | translate"></p>
+        <p class="body-text" [innerHTML]="'statistics.description_imageCountPerSpeciesGroup' | translate"></p>
 
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" *ngIf="data$ | async as data; else noData">
 
@@ -15,13 +15,13 @@
                 <thead role="rowgroup">
                     <tr role="row">
                         <th scope="col" role="columnheader">
-                            {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                            {{ 'tables.tableHeading_speciesGroup' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_imageCount' | translate }}
+                            {{ 'tables.tableHeading_imageCount' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
-                            {{ 'statistics.tableHeading_imageCountWithOpenLicence' | translate }}
+                            {{ 'tables.tableHeading_imageCountWithOpenLicence' | translate }}
                         </th>
                         <th scope="col" role="columnheader" class="th-number">
                             %

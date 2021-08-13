@@ -8,7 +8,7 @@
         <ng-container *ngIf="data$ | async"></ng-container>
         <!-- DENNE MÅ VÆRE MED -->
 
-        <p class="body-text" [innerHTML]="'statistics.tableDescription_monthlySightings' | translate"></p>
+        <p class="body-text" [innerHTML]="'statistics.description_monthlySightings' | translate"></p>
 
         <br><br>
 
@@ -26,6 +26,33 @@
             </option>
 
         </select>
+
+
+
+        <div class="select-box" style="width: 22%" (clickElsewhere)="closeSpeciesGroupsPane(this)">
+
+            <button class="button button--dropdown" id="fltrSpeciesGroup" [disabled]="isSpeciesGroupDisabled"
+                (click)="toggleSpeciesGroupsDropdown()">
+                {{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}
+            </button>
+
+            <div class="select-box__field" [ngClass]="{'select-box__field--show': showSpeciesGroupsPane}"
+                *ngIf="speciesGroups$ | async as speciesGroups">
+
+                <div class="select-box__stripe" *ngFor="let sg of speciesGroups"
+                    (click)="onSpeciesGroupsSelection(sg.id)">
+
+                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                    </ng-container>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
 
         <div class="chart-container" *ngIf="selectedSpeciesGroup">
             <canvas id="myCanvas" #myCanvas></canvas>

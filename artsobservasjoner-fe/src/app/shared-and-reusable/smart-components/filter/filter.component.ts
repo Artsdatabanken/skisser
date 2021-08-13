@@ -216,10 +216,6 @@ export class FilterComponent implements OnInit {
   }
 
   closeSpeciesGroupsPane(pane: any): void {
-    // if (this.showSpeciesGroupsPane) {
-    //   this.showSpeciesGroupsPane = false;
-    // }
-
     this.showSpeciesGroupsPane = false;
   }
 

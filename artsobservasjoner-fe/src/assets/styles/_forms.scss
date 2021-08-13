@@ -31,7 +31,7 @@ select {
     font-size: 16px;
     font-weight: 600;
     height: 54px;
-    line-height: 52px;
+    line-height: 50px;
     padding-top: 0;
     padding-bottom: 0;
     padding: 0 24px;
@@ -45,7 +45,7 @@ select {
         @include customVar(background-color, clrFocus);
         @include customVar(color, clrBlack);
         height: 54px;
-        line-height: 52px;
+        line-height: 50px;
         outline: none !important;
         width: 100%;
     }
@@ -56,12 +56,17 @@ select {
     }
 }
 
-button {
-}
-
 .button {
+    @include customVar(background-color, clrWhite);
+    @include customVar(border-color, clrBlack);
+    @include customVar(color, clrBlack);
+    @include customVar(font-family, fontPrimary);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
     height: 54px;
     line-height: 50px;
+    transition: all 0.5s;
 
     &:hover {
         @include customVar(background-color, clrBlack);
@@ -119,18 +124,24 @@ button {
         display: inline-block;
         font-size: 26px;
         font-weight: 500;
-        padding: 17px 46px;
+        height: 80px;
+        line-height: 78px;
+        padding: 0 46px;
+
+        &:hover {
+            height: 80px;
+            line-height: 78px;
+        }
 
         @media screen and (max-width: 1600px) {
             font-size: 26px;
             font-weight: 600;
-            padding: 10px 30px;
+            padding: 0 30px;
         }
 
         @media screen and (max-width: 1024px) {
             font-size: 24px;
             font-weight: 500;
-            padding: 10px 30px;
         }
     }
 
@@ -173,7 +184,6 @@ button {
             height: 40px;
             line-height: 38px;
         }
-    
     }
 
     &--xxs {
@@ -244,6 +254,8 @@ button {
 
         &:active,
         &:focus {
+            @include customVar(background-color, clrBlack);
+            @include customVar(color, clrWhite);
             background-image: url(../images/iconChevronWhiteUp.png);
         }
 
@@ -513,12 +525,17 @@ input:focus::-moz-placeholder {
         border-bottom-style: solid;
         border-bottom-width: 2px;
         font-size: 16px;
+        font-weight: 600;
         overflow-wrap: break-word;
         padding: 15px;
 
         &:hover {
             @include customVar(background-color, paletteColor1);
             cursor: pointer;
+        }
+
+        &:last-child {
+            @include customVar(border-bottom-color, transparent);
         }
     }
 
