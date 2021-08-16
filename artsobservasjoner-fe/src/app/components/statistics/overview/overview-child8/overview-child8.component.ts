@@ -49,10 +49,6 @@ export class OverviewChild8Component implements OnInit {
 
   }
 
-  onSelection(event: Event): void {
-    this.getData();
-  }
-
   getData(): void {
 
     this.data$ = forkJoin([
@@ -146,6 +142,16 @@ export class OverviewChild8Component implements OnInit {
       }
     });
 
+  }
+
+  // onSelection(event: Event): void {
+  //   this.getData();
+  // } // DENNE BRUKER VI OM VI BRUKER EN TRADISJONELL SELECT BOX (HTML)
+
+  onSpeciesGroupsSelection(speciesGroupId: number): void {
+    this.selectedSpeciesGroup = speciesGroupId;
+    this.showSpeciesGroupsPane = false;
+    this.getData();
   }
 
   toggleSpeciesGroupsDropdown(): void {

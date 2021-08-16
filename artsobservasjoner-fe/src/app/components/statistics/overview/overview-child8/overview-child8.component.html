@@ -12,7 +12,7 @@
 
         <br><br>
 
-        <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
+        <!-- <select name="speciesGroupsSelector" id="speciesGroups" [(ngModel)]="selectedSpeciesGroup"
             (ngModelChange)="onSelection($event)">
 
             <option [ngValue]="null">
@@ -25,13 +25,11 @@
                 </ng-container>
             </option>
 
-        </select>
-
-
+        </select> -->
 
         <div class="select-box" style="width: 22%" (clickElsewhere)="closeSpeciesGroupsPane(this)">
 
-            <button class="button button--dropdown" id="fltrSpeciesGroup" [disabled]="isSpeciesGroupDisabled"
+            <button class="button button--dropdown" id="fltrSpeciesGroup"
                 (click)="toggleSpeciesGroupsDropdown()">
                 {{ 'statistics.overviewStats_selectSpeciesGroup' | translate }}
             </button>
@@ -51,8 +49,6 @@
             </div>
 
         </div>
-
-
 
         <div class="chart-container" *ngIf="selectedSpeciesGroup">
             <canvas id="myCanvas" #myCanvas></canvas>
