@@ -120,7 +120,10 @@
     border-width: 2px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 55px;
+    line-height: 53px;
     padding: 7px 22px;
+    padding: 0 22px;
     width: 136px;
 
     @media screen and (max-width: 1024px) {
@@ -135,6 +138,9 @@
 
     &:active,
     &:focus {
+        background-color: transparent;
+        height: 55px;
+        line-height: 53px;
         outline: none;
     }
 
@@ -142,6 +148,8 @@
         @include customVar(background-color, transparent);
         @include customVar(border-color, transparent);
         @include customVar(color, clrBlack);
+        height: 55px;
+        line-height: 53px;
     }
 
     // childs & elements
@@ -924,7 +932,6 @@ main {
     width: 100%;
 
     & > * {
-      
     }
 
     &--buttons {
