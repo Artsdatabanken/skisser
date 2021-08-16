@@ -188,8 +188,10 @@ table {
 .th-number,
 .th-date,
 .td-number,
-.td-date {
-    text-align: right;
+.td-date,
+.th-right,
+.td-right {
+    text-align: right !important;
 }
 
 .td-number {

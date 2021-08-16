@@ -85,53 +85,11 @@ export class SpeciesDataService {
     taxonId?: string
   ): Observable<PaginatedStatistics> {
 
-    // const baseUrl: string = 'https://ao3-statisticsapi.test.artsobservasjoner.no/api/v1/TopList/SpeciesList?';
     const baseUrl: string = this.apiService.TOP_LISTS.speciesList;
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
-    // return this.httpClient.get(api, { observe: 'response' }).pipe(
-    //   map((response: any) => {
-
-    //     console.log('response', response)
-
-    //     let paginatedStatisticItem: PaginatedStatistics;
-
-    //     let obj: object;
-    //     let objs: object[] = [];
-
-    //     response.body.result.forEach((element) => {
-
-    //       obj = {
-    //         taxonId: element.taxonId,
-    //         scientificName: element.scientificTaxonName,
-    //         vernacularName: element.preferredTaxonName,
-    //         date: element.startDate,
-    //         sortOrder: element.sortOrder
-    //       };
-
-    //       objs.push(obj);
-
-    //     });
-
-    //     paginatedStatisticItem = {
-    //       pageNumber: response.body.pageNumber,
-    //       pageSize: response.body.pageSize,
-    //       results: objs,
-    //       totalCount: response.body.totalCount
-    //     }
-
-    //     console.log('paginatedStatisticItem', paginatedStatisticItem)
-    //     return paginatedStatisticItem;
-
-    //   }),
-    //   publishReplay(1),
-    //   refCount()
-    // );
-
     return this.httpClient.get(api).pipe(
       map((response: any) => {
-
-        //console.log('response', response)
 
         let paginatedStatisticItem: PaginatedStatistics;
 
@@ -161,7 +119,7 @@ export class SpeciesDataService {
           areaId: +areaId
         }
 
-        console.log('paginatedStatisticItem', paginatedStatisticItem)
+        // console.log('paginatedStatisticItem', paginatedStatisticItem)
 
         return paginatedStatisticItem;
 

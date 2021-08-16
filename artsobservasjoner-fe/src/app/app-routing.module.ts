@@ -301,7 +301,7 @@ const sightingsRoutes: Routes = [
       layout: 'spa',
       rank: '',
       parent: 'sightings-data',
-      menu: '',
+      menu: 'mainMenu',
       metaTitle: '',
       metaDescription: '',
       hidden: false

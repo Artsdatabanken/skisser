@@ -40,7 +40,7 @@
                     <thead>
                         <tr>
                             <th> {{ 'tables.tableHeading_species' | translate }}</th>
-                            <th class="th-date"> {{ 'tables.tableHeading_species_firstSeen' | translate }}</th>
+                            <th class="th-date" style="padding-right: 10%; width: 30%;"> {{ 'tables.tableHeading_species_firstSeen' | translate }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -55,13 +55,13 @@
                                 <span style="font-size: 0.95em">{{ item.vernacularName }}</span>
                             </td>
 
-                            <td class="td-date" style="font-weight: 600; width: 20%;">
+                            <td class="td-date" style="font-weight: 600; padding-right: 10%; width: 30%;">
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
 
-                            <td class="td-right" style="width: 30%;">
+                            <td class="td-right" style="width: 65px">
 
-                                <button class="toggle" [ngClass]="{'toggle--active': buttonClicked === i}"
+                                <button class="toggle" style="margin-right: 0;" [ngClass]="{'toggle--active': buttonClicked === i}"
                                     (click)="toggle($event, i, item.taxonId)"></button>
 
                             </td>

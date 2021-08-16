@@ -173,6 +173,13 @@
     &--active {
         background-image: url(../images/iconChevronUp.png);
     }
+
+    &:hover,
+    &:active,
+    &:focus {
+        height: 60px;
+        width: 60px;
+    }
 }
 
 .error-message {
