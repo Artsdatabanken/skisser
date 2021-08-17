@@ -8,23 +8,23 @@
 
         <div class="loop loop--2xx" style="margin: 0 auto; width: 75%;">
 
-            <div class="filter-box">
+            <div class="select-box">
 
                 <label for="fltrArea">{{ 'filters.municipality' | translate }}</label>
 
-                <input class="filter-box__input" id="fltrArea" #municipality
+                <input class="input input--search" id="fltrArea" #municipality
                     (keyup)="getMunicipality(municipality.value)"
                     placeholder="{{ 'shared.search_municipality' | translate }}">
 
-                <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showMunicipalityPane}"
+                <div class="select-box__field" [ngClass]="{'select-box__field--show': showMunicipalityPane}"
                     (clickElsewhere)="closeMunicipalityPane(this)" *ngIf="municipalities$ | async as municipalities">
 
-                    <div class="filter-box__stripe" *ngFor="let municipality of municipalities"
+                    <div class="select-box__stripe" *ngFor="let municipality of municipalities"
                         (click)="onMunicipalitySelection(municipality.id, municipality.name)">
 
-                        <h2>
-                            <span> {{ municipality.name }} </span>
-                        </h2>
+                        <!-- <h2> -->
+                        <span> {{ municipality.name }} </span>
+                        <!-- </h2> -->
 
                     </div>
 
@@ -33,7 +33,7 @@
             </div>
 
             <div *ngIf="municipality$ | async as municipality">
-                <button class="button button--filter button--close button--cta" *ngIf="municipality !== null"
+                <button class="button button--filter button--sm button--close button--cta" *ngIf="municipality !== null"
                     (click)="resetFilter()">{{ 'buttonText.reset' | translate }}</button>
             </div>
 

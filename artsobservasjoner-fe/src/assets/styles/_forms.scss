@@ -148,7 +148,7 @@ select {
     &--md {
         font-size: 18px;
         font-weight: 600;
-        padding: 15px 36px;
+        padding: 0 46px;
 
         @media screen and (max-width: 1024px) {
             font-size: 16px;
@@ -161,7 +161,7 @@ select {
         font-weight: 500;
         line-height: 36px;
         min-height: 34px;
-        padding: 10px 30px;
+        padding: 0 40px;
 
         @media screen and (max-width: 1024px) {
             font-size: 14px;
@@ -274,15 +274,16 @@ select {
 
     &--close {
         background-image: url(../images/iconClose.png);
-        background-position: right 15px center;
+        background-position: right 20px center;
         background-repeat: no-repeat;
         background-size: 10px;
-        padding: 0 45px 0 15px;
+        padding: 0 45px 0 20px;
         text-align: left;
 
         &:hover {
             background-image: url(../images/iconCloseWhite.png);
         }
+
     }
 
     // elements
