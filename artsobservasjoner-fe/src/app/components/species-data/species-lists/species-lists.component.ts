@@ -42,8 +42,12 @@ export class SpeciesListsComponent implements OnInit {
 
       this.dropdownOptions.push(item);
 
+
     });
 
+    
+    console.log('xxxx', this.dropdownOptions)
+    
   }
 
   ngOnDestroy(): void {
