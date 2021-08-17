@@ -64,13 +64,6 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     }));
 
-    this.activatedRoute.url.subscribe(url => console.log('url', url))
-
-    //this.areaName$ = this.areaService.getAreaNameById(+window.location.pathname.split('/').pop());
-    // this.filterService.filters.area$.next(window.location.pathname.split('/').pop());
-
-    //console.log('TESSSSSTTTTTTT', window.location.pathname.split('/').pop())
-
     this.getFilteredData();
 
   }
@@ -241,6 +234,7 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
 
         console.log('xxxx', response)
+        console.log('xxxx', window.location.pathname.split('/').pop())
 
         return response;
 
