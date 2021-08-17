@@ -180,9 +180,12 @@ select {
             font-size: 28px;
         }
 
+        &:active,
+        &:focus,
         &:hover {
             height: 40px;
             line-height: 38px;
+            width: auto;
         }
     }
 
