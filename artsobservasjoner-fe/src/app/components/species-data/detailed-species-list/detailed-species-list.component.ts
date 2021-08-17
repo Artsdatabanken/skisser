@@ -192,20 +192,19 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         console.group('filter area', filters.area)
 
-        if (filters.area !== null) {
+        if (filters.area !== null) { 
 
           this.subscriptions.push(this.areaService.getAreaNameById(+filters.area).subscribe(
             area => {
 
               this.tableCaption = area;
+              this.areaName$ = of(area); // reset område etter å ha filtrert
               return this.tableCaption;
 
             })
           );
 
           this.location.go(this.pathName + '/' + filters.area);
-
-          //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, filters.area]);
 
           return this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
