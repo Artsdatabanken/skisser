@@ -86,20 +86,27 @@
 
         &--first {
             background-image: url(../images/iconDoubleChevronLeft.png);
+            background-position: right 18px center;
+            background-size: 13px;
         }
 
         &--prev {
             background-image: url(../images/iconChevronLeft.png);
+            background-position: right 20px center;
             background-size: 8px;
+
         }
 
         &--next {
             background-image: url(../images/iconChevronRight.png);
+            background-position: left 21px center;
             background-size: 8px;
         }
 
         &--last {
             background-image: url(../images/iconDoubleChevronRight.png);
+            background-position: left 19px center;
+            background-size: 13px;
         }
 
         &:active,
