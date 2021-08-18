@@ -1,0 +1,102 @@
+<div class="child">
+
+    <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
+
+    <div class="section">
+
+        <!--area-->
+
+        <div class="loop loop--2xx" style="margin: 0 auto; width: 75%;">
+
+            <div class="select-box">
+
+                <label for="fltrArea">{{ 'filters.municipality' | translate }}</label>
+
+                <input class="input input--search" id="fltrArea" #municipality
+                    (keyup)="getMunicipality(municipality.value)"
+                    placeholder="{{ 'shared.search_municipality' | translate }}">
+
+                <div class="select-box__field" [ngClass]="{'select-box__field--show': showMunicipalityPane}"
+                    (clickElsewhere)="closeMunicipalityPane(this)" *ngIf="municipalities$ | async as municipalities">
+
+                    <div class="select-box__stripe" *ngFor="let municipality of municipalities"
+                        (click)="onMunicipalitySelection(municipality.id, municipality.name)">
+
+                        <!-- <h2> -->
+                        <span> {{ municipality.name }} </span>
+                        <!-- </h2> -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div *ngIf="municipality$ | async as municipality">
+                <button class="button button--filter button--sm button--close button--cta" *ngIf="municipality !== null"
+                    (click)="resetFilter()">{{ 'buttonText.reset' | translate }}</button>
+            </div>
+
+        </div>
+
+        <!--area-->
+
+        <br>
+
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            style="min-width: 75%; width: auto;" *ngIf="data$ | async as speciesData; else noData">
+
+            <table role="table" style="min-width: 75%; width: auto;">
+
+                <caption id="caption1">{{ 'tables.tableCaption_municipalitySpeciesData' | translate }}</caption>
+
+                <thead role="rowgroup">
+
+                    <tr role="row">
+                        <th role="columnheader" scope="col">{{ 'shared.area_municipality' | translate }}</th>
+                        <th role="columnheader" scope="col" class="th-number">
+                            {{ 'tables.tableHeading_speciesCount' | translate }}
+                        </th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody role="rowgroup">
+
+                    <tr role="row" *ngFor="let item of speciesData.results; let i = index">
+
+                        <th role="rowheader" scope="row" *ngIf="item.areaName | async as areaName">
+                            {{ areaName }}
+                        </th>
+
+                        <td role="cell" class="td-number td-text td-text--md">
+                            {{ item.speciesCount | formatNumber }}
+                        </td>
+
+                        <td style="text-align: right;">
+                            <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]">
+                                {{ 'shared.readMore_speciesList' | translate }}
+                            </a>
+
+                            <!-- <app-button-link [link]="DETAILED_SPECIES_LIST_LINK" [param]="item.areaId" [text]="'shared.readMore_speciesList' | translate"></app-button-link> -->
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <ng-template #noData>
+            <div style="margin: 0 auto; width: 75%;">
+                <app-error-response></app-error-response>
+            </div>
+        </ng-template>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="child">
+
+    <h2 *ngIf="pageTitle$ | async as pageTitle">{{ pageTitle }}</h2>
+
+    <div class="section">
+
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            style="min-width: 75%; width: auto;">
+
+            <table role="table" style="min-width: 75%; width: auto;"
+                *ngIf="speciesData$ | async as speciesData; else noData">
+
+                <caption id="caption1">{{ 'tables.tableCaption_countySpeciesData' | translate }}</caption>
+
+                <thead role="rowgroup">
+
+                    <tr role="row">
+                        <th role="columnheader" scope="col">{{ 'shared.area_county' | translate }}</th>
+                        <th role="columnheader" scope="col" class="th-number">
+                            {{ 'tables.tableHeading_speciesCount' | translate }}
+                        </th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody role="rowgroup">
+
+                    <tr role="row" *ngFor="let item of speciesData.results">
+                        <th role="rowheader" scope="row" *ngIf="item.areaName | async as areaName">
+                            {{ areaName }}
+                            {{item.areaId}}
+                        </th>
+
+                        <td role="cell" class="td-number td-text td-text--md">
+                            {{ item.speciesCount | formatNumber }}
+                        </td>
+
+                        <td style="text-align: right;">
+                            <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]">
+                                {{ 'shared.readMore_speciesList' | translate }}
+                            </a>
+
+                            <!-- <app-button-link [link]="DETAILED_SPECIES_LIST_LINK" [param]="item.areaId" [text]="'shared.readMore_speciesList' | translate"></app-button-link> -->
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <ng-template #noData>
+            <app-error-response></app-error-response>
+        </ng-template>
+
+
+    </div>
+
+</div>

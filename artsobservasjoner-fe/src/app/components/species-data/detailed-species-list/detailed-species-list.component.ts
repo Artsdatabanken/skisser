@@ -34,6 +34,7 @@ export class DetailedSpeciesListComponent implements OnInit {
   buttonClicked: number;
   noArea: boolean = false;
   tableCaption: string;
+  subscription: Subscription;
   subscriptions: Subscription[] = [];
   pathName: string;
   urlPathArray: string[];
@@ -54,33 +55,9 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     this.currentLanguage$ = this.translationService.currentLanguage$;
     this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_sightings_speciesData_speciesLists');
-    this.pathName = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-
-    this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
-
-      this.areaId = params.id;
-      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
-      this.filterService.filters.area$.next(this.areaId);
-
-    }));
+    //this.pathName = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
 
     this.getFilteredData();
-
-  }
-
-  toggle(event: any, index: number, taxonId: number) {
-
-    if (this.buttonClicked === index) this.buttonClicked = -1;
-    else this.buttonClicked = index;
-
-    // if (this.buttonClicked === index) {
-    //   this.buttonClicked = -1;
-    // }
-    // else {
-    //   this.buttonClicked = index;
-    //   // hvis vi vil hente data kun on click
-    //   //this.taxonData$ = this.taxonService.getTaxonData(taxonId);
-    // }
 
   }
 
@@ -165,6 +142,17 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   getFilteredData(): void {
 
+    this.subscription = this.activatedRoute.params.subscribe(params => {
+
+      console.group('params', params)
+      console.group('1', params.id)
+
+      this.areaId = params.id;
+      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
+      this.filterService.filters.area$.next(this.areaId);
+
+    });
+
     this.filteredData$ = combineLatest([
       this.filterService.filters.area$,
       this.filterService.filters.year$,
@@ -180,19 +168,19 @@ export class DetailedSpeciesListComponent implements OnInit {
         pageNumber: filters[4]
       })),
       //debounceTime(0),
-      map(filters => {
+      // map(filters => {
 
-        console.group('FILTERS AREA', filters.area)
+      //   console.group('2', filters.area)
 
-        return filters;
+      //   return filters;
 
-      }),
+      // }),
 
       switchMap(filters => {
 
-        console.group('filter area', filters.area)
+        console.group('2', filters.area)
 
-        if (filters.area !== null) { 
+        if (filters.area !== null) {
 
           this.subscriptions.push(this.areaService.getAreaNameById(+filters.area).subscribe(
             area => {
@@ -204,7 +192,7 @@ export class DetailedSpeciesListComponent implements OnInit {
             })
           );
 
-          this.location.go(this.pathName + '/' + filters.area);
+          // this.location.go(this.pathName + '/' + filters.area);
 
           return this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
@@ -233,13 +221,33 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
 
         console.log('xxxx', response)
-        console.log('xxxx', window.location.pathname.split('/').pop())
+
+        this.filterService.filters.area$.subscribe(area => {
+
+          console.log('3', area)
+          this.router.navigate([this.DETAILED_SPECIES_LIST_LINK + area]);
+
+          // this.router.navigate([this.activatedRoute.url]);
+          // this.router.navigateByUrl(this.DETAILED_SPECIES_LIST_LINK + area, { skipLocationChange: true }).then(() => {
+          //   this.router.navigate([this.activatedRoute.url]);
+          // });
+
+        });
+
+
+
 
         return response;
 
       }),
     );
 
+  }
+  
+  toggle(event: any, index: number) {
+
+    if (this.buttonClicked === index) this.buttonClicked = -1;
+    else this.buttonClicked = index;
 
   }
 
@@ -248,6 +256,7 @@ export class DetailedSpeciesListComponent implements OnInit {
   }
 
   ngOnDestroy() {
+    this.subscription.unsubscribe();
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 

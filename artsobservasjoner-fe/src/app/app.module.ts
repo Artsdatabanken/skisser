@@ -131,6 +131,9 @@ import { DetailedSpeciesListComponent } from './components/species-data/detailed
 import { ButtonLinkComponent } from './shared-and-reusable/dummy-components/button-link/button-link.component';
 import { TaxonClassificationComponent } from './shared-and-reusable/smart-components/taxon-classification/taxon-classification.component';
 import { MenuDropdownComponent } from './shared-and-reusable/dummy-components/menu-dropdown/menu-dropdown.component';
+import { MunicipalitiesComponent } from './components/species-data/municipalities/municipalities.component';
+import { CountiesComponent } from './components/species-data/counties/counties.component';
+import { DetailedSpeciesListTableComponent } from './components/species-data/detailed-species-list-table/detailed-species-list-table.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -254,7 +257,10 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     DetailedSpeciesListComponent,
     ButtonLinkComponent,
     TaxonClassificationComponent,
-    MenuDropdownComponent
+    MenuDropdownComponent,
+    MunicipalitiesComponent,
+    CountiesComponent,
+    DetailedSpeciesListTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,136 @@
+<div class="child">
+
+    <h2 class="page-title" *ngIf="pageTitle$ | async as pageTitle"> {{ pageTitle }} </h2>
+    <br>
+    <br>
+
+    <div *ngIf="data | async as detailedSpeciesData; else noData">
+
+        <ng-container *ngIf="detailedSpeciesData.totalCount === 0">
+            {{ 'shared.noResults' | translate }}
+            <br><br>
+        </ng-container>
+
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+            style="min-width: 75%; width: auto;">
+
+            <table *ngIf="detailedSpeciesData.totalCount > 0">
+
+                <caption id="caption1">{{ 'tables.tableCaption_detailedSpeciesList' | translate: { value:
+                    tableCaption } }}</caption>
+
+                <thead>
+                    <tr>
+                        <th> {{ 'tables.tableHeading_species' | translate }}</th>
+                        <th class="th-date" style="padding-right: 10%; width: 30%;"> {{
+                            'tables.tableHeading_species_firstSeen' | translate }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody *ngFor="let item of detailedSpeciesData.results; let i = index">
+
+                    <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
+
+                        <td style="width: max-content;">
+                            <strong><i>{{ item.scientificName }}</i></strong>
+                            <br>
+                            <span style="font-size: 0.95em">{{ item.vernacularName }}</span>
+                        </td>
+
+                        <td class="td-date" style="font-weight: 600; padding-right: 10%; width: 30%;">
+                            {{ item.date | date: 'dd.MM.yyyy' }}
+                        </td>
+
+                        <td class="td-right" style="width: 65px">
+
+                            <button class="toggle" style="margin-right: 0;"
+                                [ngClass]="{'toggle--active': buttonClicked === i}"
+                                (click)="toggle($event, i)"></button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="tr-toggle" [ngClass]="{'tr-toggle--expanded': buttonClicked === i}"
+                        *ngIf="buttonClicked === i">
+
+                        <td colspan="3">
+
+                            <div class="tr-toggle__content" *ngIf="item.taxonData | async as taxonData">
+
+                                <p>{{ taxonData.scientificName.auctor }}</p>
+
+                                <h1
+                                    *ngIf="taxonData.scientificNameSynonyms.length > 0 || taxonData.vernacularNameSynonyms.length > 0">
+                                    {{ 'shared.synonyms' | translate }}
+                                </h1>
+
+                                <div>
+
+                                    <ng-container *ngIf="taxonData.scientificNameSynonyms">
+                                        <span *ngFor="let synonym of taxonData.scientificNameSynonyms">
+                                            <i>{{ synonym.name }}</i><br>
+                                        </span>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="taxonData.vernacularNameSynonyms">
+                                        <span *ngFor="let synonym of taxonData.vernacularNameSynonyms">
+                                            {{ synonym.name }}<br>
+                                        </span>
+                                    </ng-container>
+
+                                </div>
+
+                                <div *ngIf="taxonData.parentTaxons">
+
+                                    <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
+
+                                    <ng-container *ngFor="let parent of taxonData.parentTaxons">
+
+                                        <strong>
+
+                                            <app-taxon-classification [taxonClassificationId]="parent.taxonCategoryId">
+                                            </app-taxon-classification>
+
+                                            : &nbsp;
+
+                                        </strong>
+
+                                        <span>{{ parent.scientificName }}</span>
+
+                                        <span *ngIf="parent.vernacularName">
+                                            ( {{ parent.vernacularName }} )
+                                        </span>
+
+                                        <br>
+
+                                    </ng-container>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <ng-template #noData>
+        <h1>SOMETHING'S WRONG</h1>
+    </ng-template>
+    <br>
+    <br>
+
+    <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+        (switchedPage)="onPaginationClick($event)"></app-pagination>
+
+</div>

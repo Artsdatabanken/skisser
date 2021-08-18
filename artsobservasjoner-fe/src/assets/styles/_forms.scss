@@ -20,7 +20,7 @@ label {
 button,
 input,
 select {
-    @include customVar(background-color, clrWhite);
+    @include customVar(background-color, transparent);
     @include customVar(border-color, clrBlack);
     @include customVar(color, clrBlack);
     @include customVar(font-family, fontPrimary);
@@ -57,13 +57,14 @@ select {
 }
 
 .button {
-    @include customVar(background-color, clrWhite);
+    @include customVar(background-color, transparent);
     @include customVar(border-color, clrBlack);
     @include customVar(color, clrBlack);
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
     border-radius: 50px;
+    font-weight: 500;
     height: 54px;
     line-height: 50px;
     transition: all 0.5s;
@@ -235,11 +236,23 @@ select {
         background-position: right 15px center;
         background-repeat: no-repeat;
         background-size: 7px;
-        padding: 11px 45px 11px 22px;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        height: 44px;
+        line-height: 40px;
+        padding: 0 45px 0 22px;
         text-align: left;
 
         &:hover {
             background-image: url(../images/iconChevronWhiteRight.png);
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            height: 44px;
+            line-height: 40px;
         }
     }
 
@@ -248,6 +261,7 @@ select {
         background-position: right 20px center;
         background-repeat: no-repeat;
         background-size: 15px;
+        font-weight: 600;
         padding-right: 50px;
         text-align: left;
 
@@ -278,6 +292,7 @@ select {
         background-repeat: no-repeat;
         background-size: 10px;
         padding: 0 45px 0 20px;
+        font-weight: 600;
         text-align: left;
 
         &:hover {

@@ -58,6 +58,8 @@ import { SpeciesListsComponent } from './components/species-data/species-lists/s
 import { CountyDataComponent } from './components/species-data/county-data/county-data.component';
 import { MunicipalityDataComponent } from './components/species-data/municipality-data/municipality-data.component';
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
+import { CountiesComponent } from './components/species-data/counties/counties.component';
+import { MunicipalitiesComponent } from './components/species-data/municipalities/municipalities.component';
 
 /*
 
@@ -309,7 +311,7 @@ const sightingsRoutes: Routes = [
     children: [
       {
         path: 'county-data',
-        component: CountyDataComponent,
+        component: CountiesComponent,
         data: {
           text: 'Fylkesliga',
           title: 'menu.menu_sightings_speciesData_speciesLists_countyData',
@@ -324,7 +326,7 @@ const sightingsRoutes: Routes = [
         }
       }, {
         path: 'municipality-data',
-        component: MunicipalityDataComponent,
+        component: MunicipalitiesComponent,
         data: {
           text: 'Fylkesliga',
           title: 'menu.menu_sightings_speciesData_speciesLists_municipalityData',
