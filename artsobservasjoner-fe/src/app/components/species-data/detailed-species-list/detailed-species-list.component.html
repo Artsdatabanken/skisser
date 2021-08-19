@@ -22,11 +22,6 @@
         <br>
         <br>
 
-        <!-- <app-detailed-species-list-table *ngIf="filteredData$ | async as data" [data]="data"></app-detailed-species-list-table>
-
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-
         <div *ngIf="filteredData$ | async as detailedSpeciesData; else noData">
 
             <ng-container *ngIf="detailedSpeciesData.totalCount === 0">

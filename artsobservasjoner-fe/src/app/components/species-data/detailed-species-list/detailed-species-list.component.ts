@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, Observable, of, Subscription } from 'rxjs';
-import { debounceTime, filter, map, mergeMap, share, shareReplay, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, flatMap, map, mergeMap, share, shareReplay, switchMap } from 'rxjs/operators';
 import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { PAGE_SIZE } from 'src/app/models/filter';
 import { PaginatedStatistics } from 'src/app/models/statistics';
@@ -11,6 +11,7 @@ import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
 import { TranslationService } from 'src/app/services/translation.service';
 import { Location } from '@angular/common';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-detailed-species-list',
@@ -22,7 +23,6 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   pageTitle$: Observable<string>;
   currentLanguage$: Observable<string>;
-  areaId: string;
   areaName$: Observable<string>;
   PAGE_SIZE = PAGE_SIZE;
   DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
@@ -104,6 +104,8 @@ export class DetailedSpeciesListComponent implements OnInit {
   //         this.areaName$ = this.areaService.getAreaNameById(+filters.area);
   //         this.location.go(this.pathName + '/' + filters.area);
 
+
+  // this.location.go(this.pathName + '/' + filters.area);
   //         return this.speciesDataService.getSpeciesListByArea(
   //           +filters.pageNumber,
   //           PAGE_SIZE,
@@ -142,14 +144,12 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   getFilteredData(): void {
 
+    console.log('START get filtered data')
+
     this.subscription = this.activatedRoute.params.subscribe(params => {
 
-      console.group('params', params)
-      console.group('1', params.id)
-
-      this.areaId = params.id;
-      this.areaName$ = this.areaService.getAreaNameById(+this.areaId);
-      this.filterService.filters.area$.next(this.areaId);
+      this.areaName$ = this.areaService.getAreaNameById(+params.id);
+      this.filterService.updateArea(params.id);
 
     });
 
@@ -160,90 +160,19 @@ export class DetailedSpeciesListComponent implements OnInit {
       this.filterService.filters.taxon$,
       this.pageNumber$
     ]).pipe(
-      map(filters => ({
-        area: filters[0],
-        year: filters[1],
-        speciesGroup: filters[2],
-        taxon: filters[3],
-        pageNumber: filters[4]
-      })),
-      //debounceTime(0),
-      // map(filters => {
+      map(([area, year, speciesGroups, taxon, pageNumber]) => {
 
-      //   console.group('2', filters.area)
-
-      //   return filters;
-
-      // }),
-
-      switchMap(filters => {
-
-        console.group('2', filters.area)
-
-        if (filters.area !== null) {
-
-          this.subscriptions.push(this.areaService.getAreaNameById(+filters.area).subscribe(
-            area => {
-
-              this.tableCaption = area;
-              this.areaName$ = of(area); // reset område etter å ha filtrert
-              return this.tableCaption;
-
-            })
-          );
-
-          // this.location.go(this.pathName + '/' + filters.area);
-
-          return this.speciesDataService.getSpeciesListByArea(
-            +filters.pageNumber,
-            PAGE_SIZE,
-            filters.area,
-            filters.year,
-            filters.speciesGroup,
-            filters.taxon,
-          );
-
-        }
-        else {
-
-          return of(null);
-
-        }
+        this.areaName$ = this.areaService.getAreaNameById(+area);
+        console.log('area', area)
+        this.tableCaption = area;
+        //this.router.navigate([this.DETAILED_SPECIES_LIST_LINK, area]);
 
       }),
-      map((response: PaginatedStatistics) => {
 
-        if (response !== null) {
-          this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
-        }
-        else {
-          this.totalPages$.next(0);
-        }
-
-        console.log('xxxx', response)
-
-        this.filterService.filters.area$.subscribe(area => {
-
-          console.log('3', area)
-          this.router.navigate([this.DETAILED_SPECIES_LIST_LINK + area]);
-
-          // this.router.navigate([this.activatedRoute.url]);
-          // this.router.navigateByUrl(this.DETAILED_SPECIES_LIST_LINK + area, { skipLocationChange: true }).then(() => {
-          //   this.router.navigate([this.activatedRoute.url]);
-          // });
-
-        });
-
-
-
-
-        return response;
-
-      }),
     );
 
   }
-  
+
   toggle(event: any, index: number) {
 
     if (this.buttonClicked === index) this.buttonClicked = -1;

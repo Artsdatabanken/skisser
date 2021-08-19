@@ -119,13 +119,12 @@ export class SpeciesDataService {
           areaId: +areaId
         }
 
-        // console.log('paginatedStatisticItem', paginatedStatisticItem)
+        //console.log('paginatedStatisticItem SERVICE', paginatedStatisticItem)
 
         return paginatedStatisticItem;
 
       }),
-      publishReplay(1),
-      refCount()
+      shareReplay()
     );
 
   }

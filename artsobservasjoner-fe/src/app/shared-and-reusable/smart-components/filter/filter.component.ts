@@ -162,9 +162,6 @@ export class FilterComponent implements OnInit {
       this.isTaxonDisabled = false;
     }
 
-    //const isEmpty: boolean = Object.values(this.activeFilters).every(x => x === null);
-    // eller mer effektiv: const isEmpty = !Object.values(object).some(x => x !== null);
-
     if (this.isEmpty()) {
       this.showResetButton = false;
     }

@@ -5,15 +5,17 @@
     <div class="frontpage__intro">
 
         <div>
-            <p class="frontpage__paragraph frontpage__paragraph--sm" [innerHTML]="'frontpage.frontpage_introText1' | translate">
+            <p class="frontpage__paragraph frontpage__paragraph--sm"
+                [innerHTML]="'frontpage.frontpage_introText1' | translate">
                 <!-- {{ 'frontpage.frontpage_introText1' | translate }} -->
             </p>
 
             <br>
 
             <div class="aligncenter">
-                <a class="button button--cta button--md" routerLink="/about/contribute">{{
-                    'frontpage.frontpage_introText2' | translate }}</a>
+                <a class="button button--cta button--md" routerLink="/about/contribute">
+                    {{ 'frontpage.frontpage_introText2' | translate }}
+                </a>
             </div>
 
         </div>
