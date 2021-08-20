@@ -7,15 +7,15 @@
     <div class="page__content">
 
         <p class="body-text">
-            {{ 'statistics.shared_tableDescription_content' | translate: { value: translationParamValue } }}
-            {{ 'statistics.shared_tableDescription_includedData' | translate }}
+            {{ 'statistics.description_content' | translate: { value: translationParamValue } }}
+            {{ 'statistics.description_includedData' | translate }}
         </p>
 
         <app-assessment-categories [categoryVariant]="assessmentCategoryTypes.redlist"></app-assessment-categories>
 
         <br>
         <p class="body-text">
-            {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }}
+            {{ 'statistics.description_includedDataExplanation' | translate }}
         </p>
         
         <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
@@ -24,26 +24,26 @@
             <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
 
                 <table class="custom-table" aria-describedby="redlist">
-                    <caption id="caption1">{{ 'statistics.tableCaption_redlistedSpeciesData' | translate }}</caption>
+                    <caption id="caption1">{{ 'tables.tableCaption_redlistedSpeciesData' | translate }}</caption>
                     <thead role="rowgroup">
                         <tr role="row">
                             <th scope="col" role="columnheader">
-                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                                {{ 'tables.tableHeading_speciesGroup' | translate }}
                             </th>
                             <th scope="col" role="columnheader">
-                                {{ 'statistics.tableHeading_riskGroup' | translate }}
+                                {{ 'tables.tableHeading_riskGroup' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                                {{ 'tables.tableHeading_sightingsCount' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_withMedia' | translate }}
+                                {{ 'tables.tableHeading_withMedia' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validated' | translate }}
+                                {{ 'tables.tableHeading_validated' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                                {{ 'tables.tableHeading_validatedAndApproved' | translate }}
                             </th>
                         </tr>
                     </thead>
@@ -94,9 +94,9 @@
             </ng-container>
 
             <p>
-                {{ 'statistics.shared_tableDescription_excluded' | translate }}
+                {{ 'statistics.description_excluded' | translate }}
                 <br />
-                {{ 'statistics.shared_tableDescription_approved' | translate }}
+                {{ 'statistics.description_approved' | translate }}
             </p>
 
             <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">

@@ -8,37 +8,37 @@
 
     <div class="page__content">
 
-        <p class="body-text"> {{ 'statistics.tableDescription_validatedData' | translate }} </p>
+        <p class="body-text"> {{ 'statistics.description_validatedData' | translate }} </p>
 
-        <p class="body-text"> {{ 'statistics.shared_tableDescription_includedDataExplanation' | translate }} </p>
+        <p class="body-text"> {{ 'statistics.description_includedDataExplanation' | translate }} </p>
 
         <ng-container *ngIf="data$ | async as data; else noData">
 
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1">
 
                 <table>
-                    <caption id="caption1">{{ 'statistics.tableCaption_validatedDataOriginal' | translate }}
+                    <caption id="caption1">{{ 'tables.tableCaption_validatedDataOriginal' | translate }}
                     </caption>
                     <thead role="rowgroup">
                         <tr role="row">
                             <th scope="col" role="columnheader">
-                                {{ 'statistics.tableHeading_speciesGroup' | translate }}
+                                {{ 'tables.tableHeading_speciesGroup' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sightedTaxonCount' | translate }}
+                                {{ 'tables.tableHeading_sightedTaxonCount' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_sightingsCount' | translate }}
+                                {{ 'tables.tableHeading_sightingsCount' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_withMedia' | translate }}
+                                {{ 'tables.tableHeading_withMedia' | translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validated' |
+                                {{ 'tables.tableHeading_validated' |
                                 translate }}
                             </th>
                             <th scope="col" role="columnheader" class="th-number">
-                                {{ 'statistics.tableHeading_validatedAndApproved' | translate }}
+                                {{ 'tables.tableHeading_validatedAndApproved' | translate }}
                             </th>
                         </tr>
                     </thead>
@@ -117,9 +117,9 @@
             </div> -->
 
             <p>
-                {{ 'statistics.shared_tableDescription_excluded' | translate }}
+                {{ 'statistics.description_excluded' | translate }}
                 <br />
-                {{ 'statistics.shared_tableDescription_approved' | translate }}
+                {{ 'statistics.description_approved' | translate }}
             </p>
 
             <app-validation-status-list [validationStatusType]="validationStatuses.approved" style="margin: auto;">
@@ -133,19 +133,19 @@
 
         <ng-container *ngIf="validatedDataByStatus$ | async as validatedDataByStatus; else noData">
 
-            <h2>{{ 'statistics.tableCaption_validatedData2' | translate }}</h2>
+            <h2>{{ 'tables.tableCaption_validatedData2' | translate }}</h2>
 
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption3">
 
                 <table class="custom-table">
-                    <caption id="caption3">{{ 'statistics.tableCaption_validatedData2' | translate }}</caption>
+                    <caption id="caption3">{{ 'tables.tableCaption_validatedData2' | translate }}</caption>
 
                     <thead role="rowgroup">
 
                         <tr role="row">
 
                             <th role="columnheader" scope="column">
-                                {{ 'statistics.tableHeading_validationCategory' | translate }}
+                                {{ 'tables.tableHeading_validationCategory' | translate }}
                             </th>
 
                             <!-- <ng-container *ngFor="let item of validatedDataByStatus | newKeyValue | slice: 0 : 1">

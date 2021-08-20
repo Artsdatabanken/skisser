@@ -683,7 +683,10 @@
 
         font-size: 20px;
         font-weight: 600;
-        padding: 15px 90px 15px 30px;
+        // height: 55px;
+        // line-height: 53px;
+        padding: 18px 90px 18px 30px;
+        //padding: 0 90px 0 30px;
         text-align: left;
         transition: background-image 0.3s;
 
@@ -707,6 +710,7 @@
 
         &:focus,
         &:active {
+            background-color: transparent;
             outline: 0;
         }
 
