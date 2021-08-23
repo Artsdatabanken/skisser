@@ -44,9 +44,6 @@ export class SpeciesListsComponent implements OnInit {
 
 
     });
-
-    
-    console.log('xxxx', this.dropdownOptions)
     
   }
 

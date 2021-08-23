@@ -14,19 +14,19 @@ export class FilterService {
   //----------UPDATE FILTERS ON SELECTION
 
   updateYear(year: string): void {
-    this.filters.year$.next(year);
+    this.filters.year$.next(+year);
   }
 
   updateSpeciesGroup(speciesGroupId: string): void {
-    this.filters.speciesGroup$.next(speciesGroupId);
+    this.filters.speciesGroup$.next(+speciesGroupId);
   }
 
   updateTaxon(taxonId: string): void {    
-    this.filters.taxon$.next(taxonId);
+    this.filters.taxon$.next(+taxonId);
   }
 
   updateArea(areaId: string): void {    
-    this.filters.area$.next(areaId);
+    this.filters.area$.next(+areaId);
   }
 
   //----------RESET FILTERS
@@ -34,7 +34,7 @@ export class FilterService {
   resetFilters(): void {
 
     for (let filter in this.filters) {
-      this.filters[filter].next(null);
+      this.filters[filter].next(0);
     }
 
   }
@@ -42,7 +42,7 @@ export class FilterService {
   resetFilter(key: string): void {
 
     if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
-      this.filters[`${key}$`].next(null);
+      this.filters[`${key}$`].next(0);
     }
 
   }

@@ -51,7 +51,7 @@ export class AreaService {
 
   getAreaById(id: number): Observable<Area> {
 
-    return this.httpClient.get(this.apiService.AREA.areaById + id).pipe(
+    return this.httpClient.get<Area>(this.apiService.AREA.areaById + id).pipe(
       map((response: any) => {
 
         const area: Area = {
@@ -69,20 +69,16 @@ export class AreaService {
 
   getAreaNameById(id: number): Observable<string> {
 
-    const area: Observable<Area> = this.getAreaById(id);
-
-    const areaName: Observable<string> = area.pipe(
-      map((data: Area) => {
-        return data.name;
+    return this.httpClient.get(this.apiService.AREA.areaById + id).pipe(
+      map((response: any) => {
+        return response.name;
       })
     );
-
-    return areaName;
 
   }
 
   // --------------------***
-  
+
   getMunicipalitiesByString(searchString: string): Observable<Area[]> {
     return this.httpClient.get(this.apiService.AREA.municipalitiesByString + searchString, { observe: 'response' }).pipe(
       map((response: any) => {

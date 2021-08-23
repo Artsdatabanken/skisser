@@ -5,10 +5,10 @@ import { BehaviorSubject } from "rxjs";
 export const PAGE_SIZE: number = 20;
 
 export class Filters {
-  year$: BehaviorSubject<string> = new BehaviorSubject(null);
-  speciesGroup$: BehaviorSubject<string> = new BehaviorSubject(null);
-  taxon$: BehaviorSubject<string> = new BehaviorSubject(null);
-  area$: BehaviorSubject<string> = new BehaviorSubject(null);
+  year$: BehaviorSubject<number> = new BehaviorSubject(0);
+  speciesGroup$: BehaviorSubject<number> = new BehaviorSubject(0);
+  taxon$: BehaviorSubject<number> = new BehaviorSubject(0);
+  area$: BehaviorSubject<number> = new BehaviorSubject(0);
 }
 
 export class ActiveFilters {

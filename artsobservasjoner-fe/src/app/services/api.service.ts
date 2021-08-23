@@ -146,10 +146,10 @@ export class ApiService {
     baseUrl: string,
     pageNumberParam: number,
     pageSizeParam: number,
-    yearParam?: string,
-    speciesGroupParam?: string,
-    taxonParam?: string,
-    areaParam?: string
+    yearParam?: number | string,
+    speciesGroupParam?: number | string,
+    taxonParam?: number | string,
+    areaParam?: number | string
   ): string {
 
     let api: string;

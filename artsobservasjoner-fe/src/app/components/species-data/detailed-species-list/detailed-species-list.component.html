@@ -1,26 +1,33 @@
 <div class="page page--landing">
 
-    <header class="page__header">
-        <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
-            {{ pageTitle }}
-            <span *ngIf="areaName$ | async as area"> &mdash; {{ area }}</span>
-        </h1>
-    </header>
+    <ng-container *ngIf="area$ | async as area">
 
-    <div class="page__intro"></div>
+        <header class="page__header">
+            <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
+                {{ pageTitle }}
+                <span> &mdash; {{ area.name }}</span>
+                <ng-container *ngIf="filters">
+                    {{filters}}
+                </ng-container>
+            </h1>
+        </header>
+
+        <div class="page__intro">
+
+            <h3>{{ 'shared.filter' | translate }}</h3>
+            <app-filter [predefinedArea]="area.name"></app-filter>
+
+        </div>
+
+    </ng-container>
+
+    <br><br>
 
     <div class="page__content">
 
         <!-- <p class="body-text">{{ 'tables.tableDescription_countySpeciesList' | translate }}</p> -->
 
-        <h3>{{ 'shared.filter' | translate }}</h3>
 
-        <ng-container *ngIf="areaName$ | async as area">
-            <app-filter [predefinedArea]="area"></app-filter>
-        </ng-container>
-
-        <br>
-        <br>
 
         <div *ngIf="filteredData$ | async as detailedSpeciesData; else noData">
 
@@ -40,7 +47,8 @@
                     <thead>
                         <tr>
                             <th> {{ 'tables.tableHeading_species' | translate }}</th>
-                            <th class="th-date" style="padding-right: 10%; width: 30%;"> {{ 'tables.tableHeading_species_firstSeen' | translate }}</th>
+                            <th class="th-date" style="padding-right: 10%; width: 30%;"> {{
+                                'tables.tableHeading_species_firstSeen' | translate }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -61,7 +69,8 @@
 
                             <td class="td-right" style="width: 65px">
 
-                                <button class="toggle" style="margin-right: 0;" [ngClass]="{'toggle--active': buttonClicked === i}"
+                                <button class="toggle" style="margin-right: 0;"
+                                    [ngClass]="{'toggle--active': buttonClicked === i}"
                                     (click)="toggle($event, i)"></button>
 
                             </td>

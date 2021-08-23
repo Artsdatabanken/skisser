@@ -28,7 +28,7 @@ export class TaxonService {
   ): Observable<Taxon[]> {
 
     const baseUrl: string = this.apiService.TAXONS.taxonNameSearch;
-    const api: string = this.createApiUrl(baseUrl, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
+    const api: string = this.createTaxonApiUrl(baseUrl, searchString, speciesGroupId, includeSubSpecies, onlyReportable);
 
     return this.httpClient.get(api).pipe(
       map((response: any) => {
@@ -233,7 +233,7 @@ export class TaxonService {
 
   }
 
-  private createApiUrl(
+  private createTaxonApiUrl(
     baseUrl: string,
     searchParam: string,
     speciesGroupParam?: number,

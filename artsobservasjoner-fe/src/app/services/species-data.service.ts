@@ -79,24 +79,25 @@ export class SpeciesDataService {
   getSpeciesListByArea(
     pageNumber: number,
     pageSize: number,
-    areaId: string,
-    year?: string,
-    speciesGroupId?: string,
-    taxonId?: string
+    areaId: number,
+    year?: number,
+    speciesGroupId?: number,
+    taxonId?: number
   ): Observable<PaginatedStatistics> {
 
     const baseUrl: string = this.apiService.TOP_LISTS.speciesList;
     const api: string = this.apiService.createApiUrl(baseUrl, pageNumber, pageSize, year, speciesGroupId, taxonId, areaId);
 
-    return this.httpClient.get(api).pipe(
+    return this.httpClient.get(api, { observe: 'response' }).pipe(
       map((response: any) => {
 
         let paginatedStatisticItem: PaginatedStatistics;
 
         let obj: object;
         let objs: object[] = [];
+        const data: any = response.body;
 
-        response.result.forEach((element) => {
+        data.result.forEach((element) => {
 
           obj = {
             taxonId: element.taxonId,
@@ -112,10 +113,10 @@ export class SpeciesDataService {
         });
 
         paginatedStatisticItem = {
-          pageNumber: response.pageNumber,
-          pageSize: response.pageSize,
+          pageNumber: data.pageNumber,
+          pageSize: data.pageSize,
           results: objs,
-          totalCount: response.totalCount,
+          totalCount: data.totalCount,
           areaId: +areaId
         }
 
