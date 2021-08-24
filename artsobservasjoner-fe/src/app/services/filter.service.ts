@@ -14,19 +14,19 @@ export class FilterService {
   //----------UPDATE FILTERS ON SELECTION
 
   updateYear(year: string): void {
-    this.filters.year$.next(+year);
+    this.filters.year$.next(year);
   }
 
   updateSpeciesGroup(speciesGroupId: string): void {
-    this.filters.speciesGroup$.next(+speciesGroupId);
+    this.filters.speciesGroup$.next(speciesGroupId);
   }
 
   updateTaxon(taxonId: string): void {    
-    this.filters.taxon$.next(+taxonId);
+    this.filters.taxon$.next(taxonId);
   }
 
   updateArea(areaId: string): void {    
-    this.filters.area$.next(+areaId);
+    this.filters.area$.next(areaId);
   }
 
   //----------RESET FILTERS

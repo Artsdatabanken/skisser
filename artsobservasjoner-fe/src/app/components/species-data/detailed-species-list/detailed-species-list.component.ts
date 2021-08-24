@@ -144,7 +144,7 @@ export class DetailedSpeciesListComponent implements OnInit {
 
   ngOnDestroy(): void {
     // this.subscription.unsubscribe();
-    // this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   getFilteredData(): void {
@@ -153,6 +153,7 @@ export class DetailedSpeciesListComponent implements OnInit {
 
       this.area$ = this.areaService.getAreaById(parseInt(params.id, 10));
       this.filterService.updateArea(params.id);
+      console.log('params', params)
 
     });
 
@@ -185,21 +186,28 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         this.filters = filters.area;
 
-        if (filters.area !== 0) {
+        this.subscriptions.push(
+          this.areaService.getAreaById(+filters.area).subscribe(area => {
+            this.tableCaption = area.name;
+            this.area$ = of(area);
+          })
+        );
+
+        if (filters.area !== null) {
 
           console.group('FILTERS after switchmap', filters.area)
 
           this.location.replaceState(this.pathName + '/' + filters.area);
 
-          this.area$ = this.areaService.getAreaById(+filters.area);
+          //this.area$ = this.areaService.getAreaById(+filters.area);
 
           return this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
             PAGE_SIZE,
-            +filters.area,
-            +filters.year,
-            +filters.speciesGroup,
-            +filters.taxon,
+            filters.area,
+            filters.year,
+            filters.speciesGroup,
+            filters.taxon,
           );
 
         }
