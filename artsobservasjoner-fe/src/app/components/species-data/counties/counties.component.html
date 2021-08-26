@@ -37,11 +37,17 @@
                         </td>
 
                         <td style="text-align: right;">
-                            <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]">
+                            <!-- <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]"
+                            [queryParams]="{prop: 'xxx'}">
+                                {{ 'shared.readMore_speciesList' | translate }}
+                            </a> -->
+
+
+                            <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK]"
+                                [queryParams]="{areaId: item.areaId}">
                                 {{ 'shared.readMore_speciesList' | translate }}
                             </a>
 
-                            <!-- <app-button-link [link]="DETAILED_SPECIES_LIST_LINK" [param]="item.areaId" [text]="'shared.readMore_speciesList' | translate"></app-button-link> -->
                         </td>
                     </tr>
 

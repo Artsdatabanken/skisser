@@ -21,8 +21,6 @@
 
     </ng-container>
 
-    <br><br>
-
     <div class="page__content">
 
         <!-- <p class="body-text">{{ 'tables.tableDescription_countySpeciesList' | translate }}</p> -->
@@ -41,14 +39,20 @@
 
                 <table *ngIf="detailedSpeciesData.totalCount > 0">
 
-                    <caption id="caption1">{{ 'tables.tableCaption_detailedSpeciesList' | translate: { value:
-                        tableCaption } }}</caption>
+                    <caption id="caption1">
+                        {{ 'tables.tableCaption_detailedSpeciesList' | translate: { value: tableCaption } }}
+                    </caption>
 
                     <thead>
                         <tr>
-                            <th> {{ 'tables.tableHeading_species' | translate }}</th>
-                            <th class="th-date" style="padding-right: 10%; width: 30%;"> {{
-                                'tables.tableHeading_species_firstSeen' | translate }}</th>
+                            <th> 
+                                {{ 'tables.tableHeading_species' | translate }}
+
+                                {{ detailedSpeciesData.areaId }}
+                            </th>
+                            <th class="th-date" style="padding-right: 10%; width: 30%;">
+                                {{ 'tables.tableHeading_species_firstSeen' | translate }}
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -58,6 +62,9 @@
                         <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
                             <td style="width: max-content;">
+                                <div>{{ detailedSpeciesData.areaId }}</div>
+                                    
+                            
                                 <strong><i>{{ item.scientificName }}</i></strong>
                                 <br>
                                 <span style="font-size: 0.95em">{{ item.vernacularName }}</span>
@@ -207,8 +214,8 @@
         <br>
         <br>
 
-        <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
-            (switchedPage)="onPaginationClick($event)"></app-pagination>
+        <!-- <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
+            (switchedPage)="onPaginationClick($event)"></app-pagination> -->
 
     </div>
 

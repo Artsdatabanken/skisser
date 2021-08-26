@@ -33,8 +33,10 @@ export class FilterService {
 
   resetFilters(): void {
 
+    console.log('ødelegger alt')
+
     for (let filter in this.filters) {
-      this.filters[filter].next(0);
+      this.filters[filter].next(null);
     }
 
   }

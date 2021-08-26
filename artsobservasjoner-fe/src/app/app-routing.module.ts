@@ -342,8 +342,24 @@ const sightingsRoutes: Routes = [
       }
     ]
   },
+  // {
+  //   path: 'sightings-data/species-data/species-lists/detailed-species-list/:id',
+  //   component: DetailedSpeciesListComponent,
+  //   data: {
+  //     text: 'Detaljert artsliste',
+  //     title: 'menu.menu_sightings_speciesData_speciesLists_detailedSpeciesList',
+  //     id: 'detailed-species-list',
+  //     layout: 'spa',
+  //     rank: '',
+  //     parent: '',
+  //     menu: '',
+  //     metaTitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // }
   {
-    path: 'sightings-data/species-data/species-lists/detailed-species-list/:id',
+    path: 'sightings-data/species-data/species-lists/detailed-species-list',
     component: DetailedSpeciesListComponent,
     data: {
       text: 'Detaljert artsliste',
