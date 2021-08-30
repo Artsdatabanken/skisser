@@ -278,11 +278,11 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
   ],
   providers: [
     { provide: DatePipe },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpResponseInterceptor,
-      multi: true
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpResponseInterceptor,
+    //   multi: true
+    // },
   ],
   bootstrap: [AppComponent]
 })

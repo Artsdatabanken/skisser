@@ -6,9 +6,6 @@
             <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
                 {{ pageTitle }}
                 <span> &mdash; {{ area.name }}</span>
-                <ng-container *ngIf="filters">
-                    {{filters}}
-                </ng-container>
             </h1>
         </header>
 

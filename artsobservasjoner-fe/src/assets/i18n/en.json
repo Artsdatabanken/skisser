@@ -67,7 +67,7 @@
         "area_protected": "Protected area",
         "area_noAreaMessage": "You must select a county or municipality. Please, use the filters above to select an area.",
         "searchHits": "Hits",
-        "search_chosenFilters": "You have filtered by",
+        "search_chosenFilters": "Active filters",
         "search_searchTaxon": "Search taxon",
         "search_searchArea": "Search area",
         "search_municipality": "Select municipality",

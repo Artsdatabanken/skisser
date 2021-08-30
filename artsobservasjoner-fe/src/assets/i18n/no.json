@@ -67,7 +67,7 @@
         "area_protected": "Verneområde",
         "area_noAreaMessage": "Du må velge et fylke eller kommune. Vennligst bruk filteret over for velge et område.",
         "searchHits": "Treff",
-        "search_chosenFilters": "Du har søkt på",
+        "search_chosenFilters": "Aktive filtre",
         "search_searchTaxon": "Søk takson",
         "search_searchArea": "Søk område",
         "search_municipality": "Velg kommune",

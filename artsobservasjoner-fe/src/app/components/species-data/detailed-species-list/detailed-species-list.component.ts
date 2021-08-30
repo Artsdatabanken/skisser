@@ -59,24 +59,11 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     this.subscriptions.push(this.activatedRoute.queryParams.subscribe(params => {
 
-      console.log('params 1', params)
+      console.log('params', params)
       this.area$ = this.areaService.getAreaById(+params.areaId);
       this.filterService.updateArea(params.areaId);
-      // this.router.navigateByUrl(this.DETAILED_SPECIES_LIST_LINK + params.id);
-      //console.log('params 2', params)
 
     }));
-
-    // this.filterService.filters.area$.subscribe(area => {
-
-
-    //   console.log('area 1', area)
-    //   this.area$ = this.areaService.getAreaById(+area);
-    //   this.router.navigateByUrl(this.DETAILED_SPECIES_LIST_LINK + area);
-
-    //   console.log('area 2', area)
-
-    // });
 
     this.getFilteredData();
 
@@ -101,8 +88,6 @@ export class DetailedSpeciesListComponent implements OnInit {
       })),
       tap(data => console.log('t2', data)),
       mergeMap(filters => {
-
-        this.filters = filters.area;
 
         this.subscriptions.push(
           this.areaService.getAreaById(+filters.area).subscribe(area => {
@@ -153,11 +138,12 @@ export class DetailedSpeciesListComponent implements OnInit {
           this.totalPages$.next(0);
         }
 
-        console.log('SLUTT', response)
+        //console.log('SLUTT', response)
 
         return response;
 
       }),
+      tap(data => console.log('SLUTT t4', data))
     );
 
   }
