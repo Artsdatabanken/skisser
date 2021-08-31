@@ -87,7 +87,7 @@ export class DetailedSpeciesListComponent implements OnInit {
         pageNumber: filters[4]
       })),
       tap(data => console.log('t2', data)),
-      mergeMap(filters => {
+      switchMap(filters => {
 
         this.subscriptions.push(
           this.areaService.getAreaById(+filters.area).subscribe(area => {

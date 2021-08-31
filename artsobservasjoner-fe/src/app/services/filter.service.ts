@@ -35,9 +35,9 @@ export class FilterService {
 
     console.log('RESETTER ALLE FILTRE VED KOMPONENT DESTROY')
 
-    // for (let filter in this.filters) {
-    //   this.filters[filter].next(null);
-    // }
+    for (let filter in this.filters) {
+      this.filters[filter].next(null);
+    }
 
   }
 

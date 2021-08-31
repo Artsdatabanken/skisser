@@ -78,7 +78,7 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.filterService.resetFilters(); // reset filters when navigating away
+    //this.filterService.resetFilters(); // reset filters when navigating away (we don't need to do this)
   }
 
   onYearSelection(year: string): void {
