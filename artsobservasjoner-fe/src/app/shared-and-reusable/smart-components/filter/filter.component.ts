@@ -83,6 +83,8 @@ export class FilterComponent implements OnInit {
 
   onYearSelection(year: string): void {
 
+    console.log('year', year)
+
     this.filterService.updateYear(year);
     this.activeFilters.year = year;
     this.showYearsPane = false;
@@ -91,6 +93,9 @@ export class FilterComponent implements OnInit {
   }
 
   onSpeciesGroupsSelection(id: string): void {
+
+    
+    console.log('speciesGroup', id)
 
     this.filterService.updateSpeciesGroup(id);
     this.activeFilters.speciesGroup = id;
@@ -101,6 +106,9 @@ export class FilterComponent implements OnInit {
   }
 
   onTaxonSelection(taxon: Taxon): void {
+
+    
+    console.log('taxon', taxon.taxonId)
 
     this.filterService.updateTaxon(taxon.taxonId.toString());
     this.showTaxonPane = false;

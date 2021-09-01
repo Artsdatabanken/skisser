@@ -103,10 +103,15 @@ export class DetailedSpeciesListComponent implements OnInit {
           //this.router.navigateByUrl(this.DETAILED_SPECIES_LIST_LINK + filters.area);
 
           this.router.navigate(
-            [], 
+            [],
             {
               relativeTo: this.activatedRoute,
-              queryParams: { areaId: filters.area },
+              queryParams: {
+                areaId: filters.area,
+                year: filters.year,
+                speciesGroupId: filters.speciesGroup,
+                taxonId: filters.taxon
+              },
               queryParamsHandling: 'merge', // remove to replace all query params by provided
             });
 
