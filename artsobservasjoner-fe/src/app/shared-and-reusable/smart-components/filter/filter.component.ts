@@ -80,7 +80,7 @@ export class FilterComponent implements OnInit {
         taxon: filters[3]
       })),
       tap(data => console.log('...filters BEFORE SWITCHMAP', data)),
-      mergeMap(filters => {
+      switchMap(filters => {
 
         if (filters.year) this.activeFilters.year = filters.year;
 
@@ -125,7 +125,6 @@ export class FilterComponent implements OnInit {
       }),
       tap(t => console.log('...filters SLUTT'))
     ).subscribe(data => console.log());
-
 
   }
 
@@ -177,6 +176,7 @@ export class FilterComponent implements OnInit {
     this.filterService.resetFilters();
 
     for (let property in this.activeFilters) {
+      console.log('reset active filters?', property)
       this.activeFilters[property] = null;
     }
 

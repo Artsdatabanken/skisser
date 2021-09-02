@@ -99,7 +99,7 @@ export class DetailedSpeciesListComponent implements OnInit {
           })
         );
 
-        if (filters.area !== null) {
+        if (filters !== null) {
 
           this.router.navigate(
             [],
@@ -131,7 +131,7 @@ export class DetailedSpeciesListComponent implements OnInit {
             {
               relativeTo: this.activatedRoute,
               queryParams: {
-                areaId: filters.area
+                //areaId: filters.area
               },
               queryParamsHandling: 'merge', // remove to replace all query params by provided
             });

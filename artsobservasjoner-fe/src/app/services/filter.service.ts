@@ -36,8 +36,6 @@ export class FilterService {
     console.log('..........................RESETTER ALLE FILTRE')
 
     // for (let filter in this.filters) {
-    //   console.log('================================================================all filters?', filter)
-    //   console.log('================================================================all filters?', this.filters[filter])
     //   this.filters[filter].next(null);
     // }
 
