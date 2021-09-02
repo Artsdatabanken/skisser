@@ -99,7 +99,9 @@ export class DetailedSpeciesListComponent implements OnInit {
           })
         );
 
-        if (filters !== null) {
+        console.log('filtrando, filtrando, AMIGOS ADIÓS', filters)
+
+        if (filters !== null) { // må vi endre måten denne sjekkes på
 
           this.router.navigate(
             [],
