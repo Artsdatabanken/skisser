@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivationEnd, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, Observable, of, Subscription } from 'rxjs';
-import { filter, map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { PAGE_SIZE } from 'src/app/models/filter';
 import { PaginatedStatistics } from 'src/app/models/statistics';
@@ -10,7 +10,6 @@ import { FilterService } from 'src/app/services/filter.service';
 import { LayoutService } from 'src/app/services/layout.service';
 import { SpeciesDataService } from 'src/app/services/species-data.service';
 import { TranslationService } from 'src/app/services/translation.service';
-import { Location } from '@angular/common';
 import { Area } from 'src/app/models/shared';
 
 @Component({
@@ -38,9 +37,6 @@ export class DetailedSpeciesListComponent implements OnInit {
   subscription: Subscription;
   subscriptions: Subscription[] = [];
 
-  pathName: string;
-  filters: any;
-
   constructor(
     private layoutService: LayoutService,
     private translationService: TranslationService,
@@ -48,7 +44,6 @@ export class DetailedSpeciesListComponent implements OnInit {
     private areaService: AreaService,
     private speciesDataService: SpeciesDataService,
     private filterService: FilterService,
-    private location: Location,
     private router: Router
   ) { }
 
@@ -59,9 +54,17 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     this.subscriptions.push(this.activatedRoute.queryParams.subscribe(params => {
 
-      console.log('params', params)
+      console.log('params AREA', params.areaId)
+      console.log('params YEAR', params.year)
+      console.log('params SP GROUP', params.speciesGroupId)
+      console.log('params TAXON', params.taxonId)
+
       this.area$ = this.areaService.getAreaById(+params.areaId);
-      this.filterService.updateArea(params.areaId);
+
+      if (params.areaId !== undefined) this.filterService.updateArea(params.areaId);
+      if (params.year !== undefined) this.filterService.updateYear(params.year);
+      if (params.speciesGroupId !== undefined) this.filterService.updateSpeciesGroup(params.speciesGroupId);
+      if (params.taxonId !== undefined) this.filterService.updateTaxon(params.taxonId);
 
     }));
 
@@ -86,7 +89,7 @@ export class DetailedSpeciesListComponent implements OnInit {
         taxon: filters[3],
         pageNumber: filters[4]
       })),
-      tap(data => console.log('t2', data)),
+      tap(data => console.log('before switchmap t2', data)),
       switchMap(filters => {
 
         this.subscriptions.push(
@@ -97,10 +100,6 @@ export class DetailedSpeciesListComponent implements OnInit {
         );
 
         if (filters.area !== null) {
-
-          console.group('FILTERS after switchmap', filters.area)
-
-          //this.router.navigateByUrl(this.DETAILED_SPECIES_LIST_LINK + filters.area);
 
           this.router.navigate(
             [],
@@ -127,12 +126,22 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
         else {
 
+          this.router.navigate(
+            [],
+            {
+              relativeTo: this.activatedRoute,
+              queryParams: {
+                areaId: filters.area
+              },
+              queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
+
           return of(null);
 
         }
 
       }),
-      tap(data => console.log('t3', data)),
+      tap(data => console.log('after switchmap t3', data)),
       map((response: PaginatedStatistics) => {
 
         if (response !== null) {

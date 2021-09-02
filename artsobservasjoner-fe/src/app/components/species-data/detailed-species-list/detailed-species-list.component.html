@@ -12,7 +12,7 @@
         <div class="page__intro">
 
             <h3>{{ 'shared.filter' | translate }}</h3>
-            <app-filter [predefinedArea]="area.name"></app-filter>
+            <app-filter></app-filter>
 
         </div>
 
@@ -22,8 +22,6 @@
 
         <!-- <p class="body-text">{{ 'tables.tableDescription_countySpeciesList' | translate }}</p> -->
 
-
-
         <div *ngIf="filteredData$ | async as detailedSpeciesData; else noData">
 
             <ng-container *ngIf="detailedSpeciesData.totalCount === 0">
@@ -32,7 +30,7 @@
             </ng-container>
 
             <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
-                style="min-width: 75%; width: auto;">
+                style="width: auto;">
 
                 <table *ngIf="detailedSpeciesData.totalCount > 0">
 
@@ -44,8 +42,6 @@
                         <tr>
                             <th> 
                                 {{ 'tables.tableHeading_species' | translate }}
-
-                                {{ detailedSpeciesData.areaId }}
                             </th>
                             <th class="th-date" style="padding-right: 10%; width: 30%;">
                                 {{ 'tables.tableHeading_species_firstSeen' | translate }}
@@ -59,12 +55,9 @@
                         <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
                             <td style="width: max-content;">
-                                <div>{{ detailedSpeciesData.areaId }}</div>
-                                    
-                            
-                                <strong><i>{{ item.scientificName }}</i></strong>
+                                <strong style="font-size: 1em"><i>{{ item.scientificName }}</i></strong>
                                 <br>
-                                <span style="font-size: 0.95em">{{ item.vernacularName }}</span>
+                                <span style="font-size: 0.975em">{{ item.vernacularName }}</span>
                             </td>
 
                             <td class="td-date" style="font-weight: 600; padding-right: 10%; width: 30%;">
