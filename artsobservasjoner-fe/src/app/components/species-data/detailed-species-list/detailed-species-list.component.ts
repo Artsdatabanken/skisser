@@ -82,7 +82,7 @@ export class DetailedSpeciesListComponent implements OnInit {
       this.filterService.filters.taxon$,
       this.pageNumber$
     ]).pipe(
-      tap(data => console.log('START t1', data)),
+      tap(data => console.log('\n', '\n', '\n', '\n', '\n', 'START >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', data)),
       map(filters => ({
         area: filters[0],
         year: filters[1],
@@ -100,7 +100,7 @@ export class DetailedSpeciesListComponent implements OnInit {
           })
         );
 
-        if (filters !== null) { // må vi endre måten denne sjekkes på
+        if (filters.area !== null) { // må vi endre måten denne sjekkes på
 
           this.router.navigate(
             [],
@@ -128,15 +128,15 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
         else {
 
-          this.router.navigate(
-            [],
-            {
-              relativeTo: this.activatedRoute,
-              queryParams: {
-                //areaId: filters.area
-              },
-              queryParamsHandling: 'merge', // remove to replace all query params by provided
-            });
+          // this.router.navigate(
+          //   [],
+          //   {
+          //     relativeTo: this.activatedRoute,
+          //     queryParams: {
+          //       //areaId: filters.area
+          //     },
+          //     queryParamsHandling: 'merge', // remove to replace all query params by provided
+          //   });
 
           return of(null);
 
@@ -159,7 +159,7 @@ export class DetailedSpeciesListComponent implements OnInit {
         return response;
 
       }),
-      tap(data => console.log('SLUTT t4', data))
+      tap(data => console.log('SLUTT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', data, '\n', '\n', '\n', '\n', '\n',))
     );
 
   }

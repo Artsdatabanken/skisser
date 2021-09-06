@@ -66,37 +66,20 @@ export class FilterComponent implements OnInit {
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
 
-    // this.filterSubscription = combineLatest([
-    //   this.filterService.filters.area$,
-    //   this.filterService.filters.year$,
-    //   this.filterService.filters.speciesGroup$,
-    //   this.filterService.filters.taxon$
-    // ]).pipe(
-    //   tap(data => console.log('...filters START', data)),
-    //   map(filters => ({
-    //     area: filters[0],
-    //     year: filters[1],
-    //     speciesGroup: filters[2],
-    //     taxon: filters[3]
-    //   })),
-    //   tap(data => console.log('...filters BEFORE SWITCHMAP', data)),
-    //   switchMap(filters => {
-
-
     this.filtersSubscription = combineLatest([
       this.filterService.filters.area$,
       this.filterService.filters.year$,
       this.filterService.filters.speciesGroup$,
       this.filterService.filters.taxon$
     ]).pipe(
-      tap(data => console.log('START t1', data)),
+      tap(data => console.log('============== filters start t1', data)),
       map(filters => ({
         area: filters[0],
         year: filters[1],
         speciesGroup: filters[2],
         taxon: filters[3],
       })),
-      tap(data => console.log('t2', data)),
+      tap(data => console.log('============== filters t2', data)),
       map(filters => {
 
         if (filters.year) this.activeFilters.year = filters.year;
@@ -134,8 +117,7 @@ export class FilterComponent implements OnInit {
 
         return of(null);
 
-      }),
-      tap(t => console.log('...filters SLUTT'))
+      })
     ).subscribe(data => console.log());
 
   }
