@@ -33,18 +33,23 @@ export class FilterService {
 
   resetFilters(): void {
 
-    console.log('RESETTER ALLE FILTRE VED KOMPONENT DESTROY')
+    console.log('..........................RESETTER ALLE FILTRE')
 
-    for (let filter in this.filters) {
-      this.filters[filter].next(null);
-    }
+    // for (let filter in this.filters) {
+    //   this.filters[filter].next(null);
+    // }
+
+    this.filters.year$.next(null);
+    this.filters.speciesGroup$.next(null);
+    this.filters.taxon$.next(null);
+    this.filters.area$.next(null);
 
   }
 
   resetFilter(key: string): void {
 
     if (this.filters[`${key}$`] || typeof this.filters[`${key}$`] !== 'undefined') {
-      this.filters[`${key}$`].next(0);
+      this.filters[`${key}$`].next(null);
     }
 
   }

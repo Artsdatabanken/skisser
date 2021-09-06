@@ -66,9 +66,6 @@ export class SpeciesDataService {
           totalCount: response.body.totalCount
         }
 
-
-        console.log('TEST', paginatedStatisticItem)
-
         return paginatedStatisticItem;
 
       }),

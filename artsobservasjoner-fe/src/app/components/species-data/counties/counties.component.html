@@ -29,7 +29,6 @@
                     <tr role="row" *ngFor="let item of speciesData.results">
                         <th role="rowheader" scope="row" *ngIf="item.areaName | async as areaName">
                             {{ areaName }}
-                            {{item.areaId}}
                         </th>
 
                         <td role="cell" class="td-number td-text td-text--md">

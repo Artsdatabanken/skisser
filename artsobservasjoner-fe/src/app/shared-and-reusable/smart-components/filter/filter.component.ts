@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { combineLatest, Observable, Subscription } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, Subscription, combineLatest, of } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 import { ActiveFilters } from 'src/app/models/filter';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { Taxon } from 'src/app/models/taxon';
@@ -47,9 +47,9 @@ export class FilterComponent implements OnInit {
   isSpeciesGroupDisabled: boolean = false;
   isTaxonDisabled: boolean = false;
 
-  activeFiltersSubscription: Subscription;
-  taxonSubscription: Subscription;
-  areaSubscription: Subscription;
+  filtersSubscription: Subscription;
+  taxonSubscription: Subscription = new Subscription();
+  areaSubscription: Subscription = new Subscription();
 
   constructor(
     private translationService: TranslationService,
@@ -66,9 +66,24 @@ export class FilterComponent implements OnInit {
     this.years = this.utilitiesService.generateYears();
     this.speciesGroups$ = this.speciesService.speciesGroups;
 
-    // check predefined filters
+    // this.filterSubscription = combineLatest([
+    //   this.filterService.filters.area$,
+    //   this.filterService.filters.year$,
+    //   this.filterService.filters.speciesGroup$,
+    //   this.filterService.filters.taxon$
+    // ]).pipe(
+    //   tap(data => console.log('...filters START', data)),
+    //   map(filters => ({
+    //     area: filters[0],
+    //     year: filters[1],
+    //     speciesGroup: filters[2],
+    //     taxon: filters[3]
+    //   })),
+    //   tap(data => console.log('...filters BEFORE SWITCHMAP', data)),
+    //   switchMap(filters => {
 
-    this.activeFiltersSubscription = combineLatest([
+
+    this.filtersSubscription = combineLatest([
       this.filterService.filters.area$,
       this.filterService.filters.year$,
       this.filterService.filters.speciesGroup$,
@@ -84,10 +99,16 @@ export class FilterComponent implements OnInit {
       tap(data => console.log('t2', data)),
       map(filters => {
 
-        this.activeFilters.year = filters.year;
-        this.activeFilters.speciesGroup = filters.speciesGroup;
+        if (filters.year) this.activeFilters.year = filters.year;
 
+        if (filters.speciesGroup) {
+          this.isTaxonDisabled = true;
+          this.activeFilters.speciesGroup = filters.speciesGroup;
+        }
+    
         if (filters.taxon) {
+
+          this.isSpeciesGroupDisabled = true;
 
           const taxonObject$: Observable<object> = this.taxonService.getTaxonData(+filters.taxon);
 
@@ -107,23 +128,22 @@ export class FilterComponent implements OnInit {
           this.areaSubscription = areaObject$.subscribe(area => this.activeFilters.area = area.name);
         }
 
-        // check if any filters are active to show labels and reset buttons
-
         if (!this.isEmpty(filters)) {
           this.showResetButton = true;
         }
 
-        return filters;
+        return of(null);
 
-      })
-    ).subscribe(res => console.log('ACTIVE FILTERS?', res));
+      }),
+      tap(t => console.log('...filters SLUTT'))
+    ).subscribe(data => console.log());
 
   }
 
   ngOnDestroy(): void {
     //this.filterService.resetFilters(); // reset filters when navigating away (we don't need to do this actually; it was a bug)
 
-    this.activeFiltersSubscription.unsubscribe();
+    this.filtersSubscription.unsubscribe();
     this.taxonSubscription.unsubscribe();
     this.areaSubscription.unsubscribe();
 
@@ -133,10 +153,7 @@ export class FilterComponent implements OnInit {
 
   onYearSelection(year: string): void {
 
-    console.log('year', year)
-
     this.filterService.updateYear(year);
-    // this.activeFilters.year = year;
     this.showYearsPane = false;
     this.showResetButton = true;
 
@@ -144,10 +161,7 @@ export class FilterComponent implements OnInit {
 
   onSpeciesGroupsSelection(id: string): void {
 
-    console.log('speciesGroup', id)
-
     this.filterService.updateSpeciesGroup(id);
-    //this.activeFilters.speciesGroup = id;
     this.isTaxonDisabled = true;
     this.showSpeciesGroupsPane = false;
     this.showResetButton = true;
@@ -155,8 +169,6 @@ export class FilterComponent implements OnInit {
   }
 
   onTaxonSelection(taxon: Taxon): void {
-
-    console.log('taxon', taxon.taxonId)
 
     this.filterService.updateTaxon(taxon.taxonId.toString());
     this.showTaxonPane = false;
@@ -168,6 +180,7 @@ export class FilterComponent implements OnInit {
     //   this.activeFilters.taxon = taxon.scientificName.name;
     // }
 
+    this.showTaxonPane = false;
     this.isSpeciesGroupDisabled = true;
     this.showResetButton = true;
 
@@ -176,19 +189,19 @@ export class FilterComponent implements OnInit {
   onAreaSelection(id: string, name: string): void {
 
     this.filterService.updateArea(id);
-    //this.activeFilters.area = name;
     this.showAreaPane = false;
     this.showResetButton = true;
 
   }
 
-  // RESET 
+  // ----------***
 
   resetFilters(): void {
 
     this.filterService.resetFilters();
 
     for (let property in this.activeFilters) {
+      console.log('reset active filters?', property)
       this.activeFilters[property] = null;
     }
 
@@ -202,6 +215,8 @@ export class FilterComponent implements OnInit {
   }
 
   resetFilter(key: string): void {
+
+    console.log('filter to be deleted', key)
 
     this.filterService.resetFilter(key);
 

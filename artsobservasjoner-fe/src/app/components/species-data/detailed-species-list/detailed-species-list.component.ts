@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, Observable, of, Subscription } from 'rxjs';
-import { map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { DETAILED_SPECIES_LIST } from 'src/app/data/url';
 import { PAGE_SIZE } from 'src/app/models/filter';
 import { PaginatedStatistics } from 'src/app/models/statistics';
@@ -53,14 +53,19 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     this.subscriptions.push(this.activatedRoute.queryParams.subscribe(params => {
 
-      console.log('params', params.areaId, params.year, params.speciesGroupId, params.taxonId)
+
+      console.log('params AREA', params.areaId)
+      console.log('params YEAR', params.year)
+      console.log('params SP GROUP', params.speciesGroupId)
+      console.log('params TAXON', params.taxonId)
 
       this.area$ = this.areaService.getAreaById(+params.areaId);
-      this.filterService.updateArea(params.areaId);
 
+      if (params.areaId !== undefined) this.filterService.updateArea(params.areaId);
       if (params.year !== undefined) this.filterService.updateYear(params.year);
       if (params.speciesGroupId !== undefined) this.filterService.updateSpeciesGroup(params.speciesGroupId);
       if (params.taxonId !== undefined) this.filterService.updateTaxon(params.taxonId);
+
 
     }));
 
@@ -85,7 +90,7 @@ export class DetailedSpeciesListComponent implements OnInit {
         taxon: filters[3],
         pageNumber: filters[4]
       })),
-      tap(data => console.log('t2', data)),
+      tap(data => console.log('before switchmap t2', data)),
       switchMap(filters => {
 
         this.subscriptions.push(
@@ -95,10 +100,7 @@ export class DetailedSpeciesListComponent implements OnInit {
           })
         );
 
-        if (filters.area !== null) {
-
-          console.group('FILTERS after switchmap AREA', filters.area,
-            'YEAR', filters.year, 'SPECIES GROUP', filters.speciesGroup, 'TAXON', filters.taxon)
+        if (filters !== null) { // må vi endre måten denne sjekkes på
 
           this.router.navigate(
             [],
@@ -126,12 +128,22 @@ export class DetailedSpeciesListComponent implements OnInit {
         }
         else {
 
+          this.router.navigate(
+            [],
+            {
+              relativeTo: this.activatedRoute,
+              queryParams: {
+                //areaId: filters.area
+              },
+              queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
+
           return of(null);
 
         }
 
       }),
-      tap(data => console.log('t3', data)),
+      tap(data => console.log('after switchmap t3', data)),
       map((response: PaginatedStatistics) => {
 
         if (response !== null) {
