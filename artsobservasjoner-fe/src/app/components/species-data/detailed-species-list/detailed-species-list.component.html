@@ -12,7 +12,7 @@
         <div class="page__intro">
 
             <h3>{{ 'shared.filter' | translate }}</h3>
-            <app-filter [predefinedArea]="area.name"></app-filter>
+            <app-filter></app-filter>
 
         </div>
 
@@ -44,8 +44,6 @@
                         <tr>
                             <th> 
                                 {{ 'tables.tableHeading_species' | translate }}
-
-                                {{ detailedSpeciesData.areaId }}
                             </th>
                             <th class="th-date" style="padding-right: 10%; width: 30%;">
                                 {{ 'tables.tableHeading_species_firstSeen' | translate }}
@@ -59,9 +57,6 @@
                         <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
                             <td style="width: max-content;">
-                                <div>{{ detailedSpeciesData.areaId }}</div>
-                                    
-                            
                                 <strong><i>{{ item.scientificName }}</i></strong>
                                 <br>
                                 <span style="font-size: 0.95em">{{ item.vernacularName }}</span>
