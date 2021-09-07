@@ -2,37 +2,51 @@
 
 <div class="search" id="search">
 
-    <div class="search__toggle">
+    <button class="button button--primary button--md" (click)="toggle()">Søk og filtrer</button>
+
+    <br><br><br><br>
+
+    <!-- <div class="search__toggle">
         <span style="font-size: 50px; font-family: monospace;">&laquo;</span>
 
         {{ 'shared.toggleFilters' | translate }}
-    </div>
+    </div> -->
 
-    <div class="search__content">
+    <div class="search__content" [ngClass]="{'search__content--active' : isActive}">
+
+        <button class="button" (click)="close()">Lukk</button>
+        <br><br>
 
         <input class="input input--search" id="fltrTaxon" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
         <div class="bulk">
             <button class="button button--dropdown">Filterbolk 1</button>
+            <div class="bulk__content">
+                <input type="text" class="input input--search" placeholder="Søk noe">
+            </div>
         </div>
 
         <div class="bulk">
             <button class="button button--dropdown">Filterbolk 2</button>
+            <div class="bulk__content"></div>
         </div>
 
 
         <div class="bulk">
             <button class="button button--dropdown">Filterbolk 3</button>
+            <div class="bulk__content"></div>
         </div>
 
 
         <div class="bulk">
             <button class="button button--dropdown">Filterbolk 4</button>
+            <div class="bulk__content"></div>
         </div>
 
 
         <div class="bulk">
             <button class="button button--dropdown">Filterbolk 5</button>
+            <div class="bulk__content"></div>
         </div>
 
     </div>

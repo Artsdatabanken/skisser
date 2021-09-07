@@ -578,16 +578,53 @@ input:focus::-moz-placeholder {
 
 .search {
     border: 1px solid red;
-    display: grid;
-    grid-template-columns: 150px auto;
+    // display: grid;
+    // grid-template-columns: 150px auto;
+
+    & > * {
+    }
 
     &__toggle {
     }
 
     &__content {
+        background: lightblue;
+        border: 1px solid blue;
+        height: 99vh;
+        padding: 30px;
+        position: absolute;
+        right: -25vw;
+        top: 80px;
+        width: 25vw;
+
+        &--active {
+            -webkit-animation: slide 0.5s forwards;
+            //-webkit-animation-delay: 2s;
+            animation: slide 0.5s forwards;
+            //animation-delay: 2s;
+        }
+    }
+}
+
+@-webkit-keyframes slide {
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes slide {
+    100% {
+        right: 0;
     }
 }
 
 .bulk {
     margin: 15px 0;
+
+    &__content {
+        @include customVar(border-color, clrAccent);
+        border-style: solid;
+        border-width: 1px;
+        padding: 10px;
+    }
 }

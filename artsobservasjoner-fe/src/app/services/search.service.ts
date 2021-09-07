@@ -13,9 +13,10 @@ export class SearchService {
 
   fetchData(): Observable<any> {
 
-    return this.httpClient.get('https://fakestoreapi.com/products/1').pipe(
+    return this.httpClient.get('https://fakestoreapi.com/products/').pipe(
       map((response: any) => {
 
+        console.log('response', response)
         return response;
 
       })

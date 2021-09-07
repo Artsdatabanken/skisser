@@ -60,6 +60,7 @@ import { MunicipalityDataComponent } from './components/species-data/municipalit
 import { DetailedSpeciesListComponent } from './components/species-data/detailed-species-list/detailed-species-list.component';
 import { CountiesComponent } from './components/species-data/counties/counties.component';
 import { MunicipalitiesComponent } from './components/species-data/municipalities/municipalities.component';
+import { SightingsComponent } from './components/sightings-data/sightings/sightings.component';
 
 /*
 
@@ -223,6 +224,22 @@ const sightingsRoutes: Routes = [
       layout: 'landing',
       rank: 'primary',
       parent: '',
+      menu: 'mainMenu',
+      metaTitle: '',
+      metaDescription: '',
+      hidden: false
+    }
+  },
+  {
+    path: 'sightings-data/test',
+    component: SightingsComponent,
+    data: {
+      text: 'Se, søk og filtrer observasjoner',
+      title: 'menu.menu_sightings_sightingsCollection',
+      id: 'sightings',
+      layout: 'landing',
+      rank: 'primary',
+      parent: 'sightings-data',
       menu: 'mainMenu',
       metaTitle: '',
       metaDescription: '',

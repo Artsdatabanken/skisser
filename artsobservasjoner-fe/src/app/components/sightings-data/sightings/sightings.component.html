@@ -2,7 +2,31 @@
 
     <header class="page__header"></header>
 
+    <div class="page__intro">
+        <app-search></app-search>
+    </div>
+
     <div class="page__content">
+
+        <div *ngIf="sightings$ | async as sightings">
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3">TEST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sighting of sightings">
+                        <td>{{ sighting.id }}</td>
+                        <td>{{ sighting.title }}</td>
+                        <!-- <td>{{ sighting.description | truncateText: 50 }}</td> -->
+                        <td>{{ sighting.category }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
 
     </div>
 

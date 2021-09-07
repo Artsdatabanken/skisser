@@ -8,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class SearchComponent implements OnInit {
 
+  isActive: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggle(): void {
+    this.isActive = !this.isActive;
+  }
+
+  close(): void {
+    this.isActive = false;
   }
 
 }
