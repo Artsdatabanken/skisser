@@ -127,57 +127,6 @@
 
                                 </div>
 
-                                <!-- <ng-container *ngIf="taxonData$ | async as taxonData"> 
-
-                                    <p>{{ taxonData.scientificName.auctor }}</p>
-
-                                    <h1
-                                        *ngIf="taxonData.scientificNameSynonyms.length > 0 || taxonData.vernacularNameSynonyms.length > 0">
-                                        {{ 'shared.synonyms' | translate }}
-                                    </h1>
-
-                                    <div>
-
-                                        <ng-container *ngIf="taxonData.scientificNameSynonyms">
-                                            <span *ngFor="let synonym of taxonData.scientificNameSynonyms">
-                                                <i>{{ synonym.name }}</i><br>
-                                            </span>
-                                        </ng-container>
-
-                                        <ng-container *ngIf="taxonData.vernacularNameSynonyms">
-                                            <span *ngFor="let synonym of taxonData.vernacularNameSynonyms">
-                                                {{ synonym.name }}<br>
-                                            </span>
-                                        </ng-container>
-
-                                    </div>
-
-                                    <div *ngIf="taxonData.parentTaxons">
-                                        <h1>{{ 'taxon.biologicalClassification' | translate }}</h1>
-
-                                        <small *ngFor="let parent of taxonData.parentTaxons">
-
-                                            <span style="color: #91534d">
-
-                                                <app-taxon-classification
-                                                    [taxonClassificationId]="parent.taxonCategoryId">
-                                                </app-taxon-classification>
-
-                                                &nbsp;
-                                            </span>
-
-                                            <strong>{{ parent.scientificName }}</strong>
-
-                                            <ng-container *ngIf="parent.vernacularName">
-                                                ( {{ parent.vernacularName }} )
-                                            </ng-container>
-
-                                            <br>
-                                        </small>
-                                    </div>
-
-                                </ng-container>  -->
-
                             </td>
 
                         </tr>
@@ -199,6 +148,8 @@
 
         <!-- <app-pagination *ngIf="totalPages$ | async as totalPages" [totalPages]="totalPages"
             (switchedPage)="onPaginationClick($event)"></app-pagination> -->
+
+        <app-pagination  *ngIf="totalPages !== 0" [totalPages]="totalPages" (switchedPage)="onPaginationClick($event)"></app-pagination>
 
     </div>
 

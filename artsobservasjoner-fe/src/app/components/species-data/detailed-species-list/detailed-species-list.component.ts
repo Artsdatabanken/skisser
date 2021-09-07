@@ -27,10 +27,8 @@ export class DetailedSpeciesListComponent implements OnInit {
   DETAILED_SPECIES_LIST_LINK = DETAILED_SPECIES_LIST;
   pageNumber$: BehaviorSubject<number> = new BehaviorSubject(1);
   totalPages$: BehaviorSubject<number> = new BehaviorSubject(0);
-  filteredData$;
-
-  taxonData$;
-
+  totalPages: number = 0;
+  filteredData$: Observable<PaginatedStatistics>;
   buttonClicked: number;
   noArea: boolean = false;
   tableCaption: string;
@@ -59,13 +57,14 @@ export class DetailedSpeciesListComponent implements OnInit {
       console.log('params TAXON', params.taxonId)
       console.log('\n', '\n', '\n', '\n', '\n')
 
-      if (params.areaId) this.area$ = this.areaService.getAreaById(+params.areaId);
+      if (params.areaId) {
+        this.area$ = this.areaService.getAreaById(+params.areaId);
+        this.filterService.updateArea(params.areaId);
+      }
 
-      if (params.areaId !== undefined) this.filterService.updateArea(params.areaId);
       if (params.year !== undefined) this.filterService.updateYear(params.year);
       if (params.speciesGroupId !== undefined) this.filterService.updateSpeciesGroup(params.speciesGroupId);
       if (params.taxonId !== undefined) this.filterService.updateTaxon(params.taxonId);
-
 
     }));
 
@@ -102,7 +101,7 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         if (filters.area !== null) {
 
-          const data$: Observable<any> = this.speciesDataService.getSpeciesListByArea(
+          const data$: Observable<PaginatedStatistics> = this.speciesDataService.getSpeciesListByArea(
             +filters.pageNumber,
             PAGE_SIZE,
             filters.area,
@@ -124,8 +123,6 @@ export class DetailedSpeciesListComponent implements OnInit {
               queryParamsHandling: 'merge', // remove to replace all query params by provided
             }
           );
-
-          data$.subscribe(data => console.log('data', data))
 
           return data$;
 
@@ -155,13 +152,13 @@ export class DetailedSpeciesListComponent implements OnInit {
 
         if (response !== null) {
           this.totalPages$.next(Math.ceil(response.totalCount / PAGE_SIZE));
+          this.totalPages = Math.ceil(response.totalCount / PAGE_SIZE);
 
         }
         else {
           this.totalPages$.next(0);
+          this.totalPages = 0;
         }
-
-        //console.log('SLUTT', response)
 
         return response;
 
