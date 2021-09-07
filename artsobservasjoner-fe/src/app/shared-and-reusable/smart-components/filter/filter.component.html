@@ -63,7 +63,7 @@
 
         <label for="fltrTaxon">{{ 'filters.taxon' | translate }}</label>
 
-        <input class="input input--search" id="fltrTaxon" [ngModel]="activeFilters.taxon" #taxon
+        <input class="input input--search" id="fltrTaxon" #taxon
             (keyup)="getTaxon(taxon.value)" [disabled]="isTaxonDisabled"
             placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
@@ -132,7 +132,7 @@
 
         <label for="fltrArea">{{ 'filters.area' | translate }}</label>
 
-        <input class="input input--search" id="fltrArea" [ngModel]="activeFilters.area" #area
+        <input class="input input--search" id="fltrArea" #area
             (keyup)="getArea(area.value)" placeholder="{{ 'shared.search_searchArea' | translate }}">
 
         <div class="select-box__field" [ngClass]="{'select-box__field--show': showAreaPane}"

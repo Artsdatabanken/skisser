@@ -136,6 +136,7 @@ export class FilterComponent implements OnInit {
     this.showTaxonPane = false;
     this.isSpeciesGroupDisabled = true;
     this.showResetButton = true;
+    this.taxonInput.nativeElement.value = '';
 
   }
 
@@ -144,6 +145,7 @@ export class FilterComponent implements OnInit {
     this.filterService.updateArea(id);
     this.showAreaPane = false;
     this.showResetButton = true;
+    this.areaInput.nativeElement.value = '';
 
   }
 
@@ -154,14 +156,9 @@ export class FilterComponent implements OnInit {
     this.filterService.resetFilters();
 
     for (let key in this.activeFilters) {
-      console.log('reset active filters? 1111111111111111', key, ': ', this.activeFilters[key], '\n')
-      // this.activeFilters[key] = null;
-
-      if (this.activeFilters[key] || typeof this.activeFilters[key] !== 'undefined') {
+       if (this.activeFilters[key] || typeof this.activeFilters[key] !== 'undefined') {
         this.activeFilters[key] = null;
       }
-
-      console.log('reset active filters? 222222222222222', key, ': ', this.activeFilters[key], '\n')
     }
 
     // this.activeFilters.year = null;
@@ -179,8 +176,6 @@ export class FilterComponent implements OnInit {
   }
 
   resetFilter(key: string): void {
-
-    console.log('filter to be deleted', key)
 
     this.filterService.resetFilter(key);
 
