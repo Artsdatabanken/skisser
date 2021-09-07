@@ -169,16 +169,25 @@
 
     <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
 
-    <ng-container *ngFor="let prop of activeFilters | keyvalue">
+    <ng-container *ngFor="let activeFilter of activeFilters | keyvalue">
 
-        <button class="button button--xs button--close" *ngIf="prop.value !== null" (click)="resetFilter(prop.key)">
+        <button class="button button--xs button--close" *ngIf="activeFilter.value !== null"
+            (click)="resetFilter(activeFilter.key)">
 
-            <ng-container *ngIf="prop.key !== 'speciesGroup'">
-                {{ prop.value }}
+            <ng-container *ngIf="activeFilter.key === 'year'">
+                {{ activeFilter.value }}
             </ng-container>
 
-            <ng-container *ngIf="prop.key === 'speciesGroup'">
-                <app-species-group [speciesGroupId]="prop.value"></app-species-group>
+            <ng-container *ngIf="activeFilter.key === 'speciesGroup'">
+                <app-species-group [speciesGroupId]="activeFilter.value"></app-species-group>
+            </ng-container>
+
+            <ng-container *ngIf="activeFilter.key === 'taxon'">
+                <app-taxon [taxonId]="activeFilter.value"></app-taxon>
+            </ng-container>
+
+            <ng-container *ngIf="activeFilter.key === 'area'">
+                <app-area [areaId]="activeFilter.value"></app-area>
             </ng-container>
 
         </button>

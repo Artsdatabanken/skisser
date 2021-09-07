@@ -575,3 +575,19 @@ input:focus::-moz-placeholder {
         }
     }
 }
+
+.search {
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 150px auto;
+
+    &__toggle {
+    }
+
+    &__content {
+    }
+}
+
+.bulk {
+    margin: 15px 0;
+}

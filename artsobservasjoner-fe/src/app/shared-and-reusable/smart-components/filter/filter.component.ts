@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscription, combineLatest, of } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, switchMap, concatMap } from 'rxjs/operators';
 import { ActiveFilters } from 'src/app/models/filter';
 import { Area, AREA_TYPE, Category } from 'src/app/models/shared';
 import { Taxon } from 'src/app/models/taxon';
@@ -48,8 +48,6 @@ export class FilterComponent implements OnInit {
   isTaxonDisabled: boolean = false;
 
   filtersSubscription: Subscription;
-  taxonSubscription: Subscription = new Subscription();
-  areaSubscription: Subscription = new Subscription();
 
   constructor(
     private translationService: TranslationService,
@@ -67,20 +65,20 @@ export class FilterComponent implements OnInit {
     this.speciesGroups$ = this.speciesService.speciesGroups;
 
     this.filtersSubscription = combineLatest([
-      this.filterService.filters.area$,
       this.filterService.filters.year$,
       this.filterService.filters.speciesGroup$,
-      this.filterService.filters.taxon$
+      this.filterService.filters.taxon$,
+      this.filterService.filters.area$,
     ]).pipe(
-      tap(data => console.log('============== filters start t1', data)),
+      tap(data => console.log('============== filters t1', data)),
       map(filters => ({
-        area: filters[0],
-        year: filters[1],
-        speciesGroup: filters[2],
-        taxon: filters[3],
+        year: filters[0],
+        speciesGroup: filters[1],
+        taxon: filters[2],
+        area: filters[3]
       })),
       tap(data => console.log('============== filters t2', data)),
-      map(filters => {
+      switchMap(filters => {
 
         if (filters.year) this.activeFilters.year = filters.year;
 
@@ -88,47 +86,29 @@ export class FilterComponent implements OnInit {
           this.isTaxonDisabled = true;
           this.activeFilters.speciesGroup = filters.speciesGroup;
         }
-    
+
         if (filters.taxon) {
-
           this.isSpeciesGroupDisabled = true;
-
-          const taxonObject$: Observable<object> = this.taxonService.getTaxonData(+filters.taxon);
-
-          this.taxonSubscription = taxonObject$.subscribe(taxon => {
-            if (taxon['vernacularName']) {
-              this.activeFilters.taxon = taxon['scientificName'].name + ' - ' + taxon['vernacularName']?.name;
-            }
-            else {
-              this.activeFilters.taxon = taxon['scientificName'].name;
-            }
-          });
-
+          this.activeFilters.taxon = filters.taxon;
         }
 
-        if (filters.area) {
-          const areaObject$: Observable<Area> = this.areaService.getAreaById(+filters.area);
-          this.areaSubscription = areaObject$.subscribe(area => this.activeFilters.area = area.name);
-        }
+        if (filters.area) this.activeFilters.area = filters.area;
 
         if (!this.isEmpty(filters)) {
           this.showResetButton = true;
         }
 
-        return of(null);
+        return of(filters);
 
-      })
-    ).subscribe(data => console.log());
+      }),
+      map(filters => console.log('filters', filters, '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n'))
+    ).subscribe();
 
   }
 
   ngOnDestroy(): void {
-    //this.filterService.resetFilters(); // reset filters when navigating away (we don't need to do this actually; it was a bug)
-
+    //this.filterService.resetFilters(); // (we don't need to reset filters actually; it creates a bug)
     this.filtersSubscription.unsubscribe();
-    this.taxonSubscription.unsubscribe();
-    this.areaSubscription.unsubscribe();
-
   }
 
   // ON SELECTION
@@ -154,15 +134,6 @@ export class FilterComponent implements OnInit {
 
     this.filterService.updateTaxon(taxon.taxonId.toString());
     this.showTaxonPane = false;
-
-    // if (taxon.vernacularName) {
-    //   this.activeFilters.taxon = taxon.scientificName.name + ' - ' + taxon.vernacularName?.name;
-    // }
-    // else {
-    //   this.activeFilters.taxon = taxon.scientificName.name;
-    // }
-
-    this.showTaxonPane = false;
     this.isSpeciesGroupDisabled = true;
     this.showResetButton = true;
 
@@ -182,10 +153,21 @@ export class FilterComponent implements OnInit {
 
     this.filterService.resetFilters();
 
-    for (let property in this.activeFilters) {
-      console.log('reset active filters?', property)
-      this.activeFilters[property] = null;
+    for (let key in this.activeFilters) {
+      console.log('reset active filters? 1111111111111111', key, ': ', this.activeFilters[key], '\n')
+      // this.activeFilters[key] = null;
+
+      if (this.activeFilters[key] || typeof this.activeFilters[key] !== 'undefined') {
+        this.activeFilters[key] = null;
+      }
+
+      console.log('reset active filters? 222222222222222', key, ': ', this.activeFilters[key], '\n')
     }
+
+    // this.activeFilters.year = null;
+    // this.activeFilters.speciesGroup = null;
+    // this.activeFilters.taxon = null;
+    // this.activeFilters.area = null;
 
     this.showTaxonPane = false;
     this.showAreaPane = false;
@@ -256,7 +238,6 @@ export class FilterComponent implements OnInit {
 
   toggleYearsDropdown(): void {
     this.showYearsPane = !this.showYearsPane;
-
   }
 
   toggleSpeciesGroupsDropdown(): void {

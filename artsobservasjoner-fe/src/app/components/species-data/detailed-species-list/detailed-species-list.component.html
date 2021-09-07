@@ -1,22 +1,16 @@
 <div class="page page--landing">
 
-    <ng-container *ngIf="area$ | async as area">
 
-        <header class="page__header">
-            <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
-                {{ pageTitle }}
-                <span> &mdash; {{ area.name }}</span>
-            </h1>
-        </header>
+    <header class="page__header">
+        <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
+            {{ pageTitle }}
+            <span *ngIf="area$ | async as area"> &mdash; {{ area.name }}</span>
+        </h1>
+    </header>
 
-        <div class="page__intro">
-
-            <h3>{{ 'shared.filter' | translate }}</h3>
-            <app-filter></app-filter>
-
-        </div>
-
-    </ng-container>
+    <div class="page__intro">
+        <app-filter></app-filter>
+    </div>
 
     <div class="page__content">
 
@@ -29,8 +23,7 @@
                 <br><br>
             </ng-container>
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
-                style="width: auto;">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="width: auto;">
 
                 <table *ngIf="detailedSpeciesData.totalCount > 0">
 
@@ -40,7 +33,7 @@
 
                     <thead>
                         <tr>
-                            <th> 
+                            <th>
                                 {{ 'tables.tableHeading_species' | translate }}
                             </th>
                             <th class="th-date" style="padding-right: 10%; width: 30%;">

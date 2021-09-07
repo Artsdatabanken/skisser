@@ -58,6 +58,7 @@
         "noHits": "No results match your search",
         "filter": "Filter by",
         "resetFilters": "Reset filters",
+        "toggleFilters": "More filters",
         "select_speciesGroups": "All species groups",
         "select_years": "All years",
         "select_area": "All areas",

@@ -58,6 +58,7 @@
         "noHits": "Ingen treff",
         "filter": "Filtrer",
         "resetFilters": "Nullstill filtre",
+        "toggleFilters": "Flere filtre",
         "select_speciesGroups": "Alle artsgrupper",
         "select_years": "Alle år",
         "select_area": "Hele Norge",

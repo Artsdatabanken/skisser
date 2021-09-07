@@ -53,13 +53,13 @@ export class DetailedSpeciesListComponent implements OnInit {
 
     this.subscriptions.push(this.activatedRoute.queryParams.subscribe(params => {
 
-
       console.log('params AREA', params.areaId)
       console.log('params YEAR', params.year)
       console.log('params SP GROUP', params.speciesGroupId)
       console.log('params TAXON', params.taxonId)
+      console.log('\n', '\n', '\n', '\n', '\n')
 
-      this.area$ = this.areaService.getAreaById(+params.areaId);
+      if (params.areaId) this.area$ = this.areaService.getAreaById(+params.areaId);
 
       if (params.areaId !== undefined) this.filterService.updateArea(params.areaId);
       if (params.year !== undefined) this.filterService.updateYear(params.year);
@@ -82,7 +82,7 @@ export class DetailedSpeciesListComponent implements OnInit {
       this.filterService.filters.taxon$,
       this.pageNumber$
     ]).pipe(
-      tap(data => console.log('\n', '\n', '\n', '\n', '\n', 'START >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', data)),
+      tap(data => console.log('START >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', data)),
       map(filters => ({
         area: filters[0],
         year: filters[1],
@@ -100,7 +100,16 @@ export class DetailedSpeciesListComponent implements OnInit {
           })
         );
 
-        if (filters.area !== null) { // må vi endre måten denne sjekkes på
+        if (filters.area !== null) {
+
+          const data$: Observable<any> = this.speciesDataService.getSpeciesListByArea(
+            +filters.pageNumber,
+            PAGE_SIZE,
+            filters.area,
+            filters.year,
+            filters.speciesGroup,
+            filters.taxon,
+          );
 
           this.router.navigate(
             [],
@@ -116,27 +125,25 @@ export class DetailedSpeciesListComponent implements OnInit {
             }
           );
 
-          return this.speciesDataService.getSpeciesListByArea(
-            +filters.pageNumber,
-            PAGE_SIZE,
-            filters.area,
-            filters.year,
-            filters.speciesGroup,
-            filters.taxon,
-          );
+          data$.subscribe(data => console.log('data', data))
+
+          return data$;
 
         }
         else {
 
-          // this.router.navigate(
-          //   [],
-          //   {
-          //     relativeTo: this.activatedRoute,
-          //     queryParams: {
-          //       //areaId: filters.area
-          //     },
-          //     queryParamsHandling: 'merge', // remove to replace all query params by provided
-          //   });
+          this.router.navigate(
+            [],
+            {
+              relativeTo: this.activatedRoute,
+              queryParams: {
+                areaId: null,
+                year: null,
+                speciesGroupId: null,
+                taxonId: null
+              },
+              queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
 
           return of(null);
 
