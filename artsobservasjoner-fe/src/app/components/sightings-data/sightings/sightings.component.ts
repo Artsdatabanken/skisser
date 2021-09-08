@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-sightings',
@@ -10,15 +8,8 @@ import { SearchService } from 'src/app/services/search.service';
 
 export class SightingsComponent implements OnInit {
 
-  sightings$: Observable<object[]>;
+  constructor() { }
 
-  constructor(private searchSearvice: SearchService) { }
-
-  ngOnInit(): void {
-
-    this.sightings$ = this.searchSearvice.fetchData();
-
-
-  }
+  ngOnInit(): void {}
 
 }

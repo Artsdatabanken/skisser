@@ -1,0 +1,78 @@
+<div class="page">
+
+    <header class="page__header"></header>
+
+    <div class="page__intro">
+
+        <!--shareable non dummy component-->
+
+        <div class="search-wrapper" id="search">
+
+            <button class="button button--primary button--md" style="width: auto;" (click)="toggle()">
+                Søk og filtrer
+            </button>
+
+            <br><br><br><br>
+
+            <div class="search" [ngClass]="{'search--active' : isActive}">
+
+                <div class="search__content">
+
+                    <input class="input input--search" id=""
+                        placeholder="{{ 'shared.search_searchTaxon' | translate }}">
+
+                    <div class="bulk" *ngFor="let item of array; let i = index">
+                        <button class="button button--dropdown" (click)="toggleBulk($event, i)">Filterbolk {{ i + 1 }}</button>
+                        <div class="bulk__content" [ngClass]="{'bulk__content--expanded': buttonClicked === i}"
+                            *ngIf="buttonClicked === i">
+                            <app-bulk></app-bulk>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="search__bar">
+                    <button class="button button--sm">Lukk</button>
+                    <button class="button button--sm button--full">Søk</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <!--shareable non dummy component-->
+
+    </div>
+
+    <div class="page__content">
+
+        <div *ngIf="sightings$ | async as sightings">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="7">TEST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sighting of sightings">
+                        <td>{{ sighting.id }}</td>
+                        <td><i>{{ sighting.taxon?.name }}</i></td>
+                        <td>{{ sighting.taxon?.rank }}</td>
+                        <td>{{ sighting.observed_on | date: 'dd.MM.YYYY' }}</td>
+                        <td>{{ sighting.created_at | date: 'dd.MM.YYYY' }}</td>
+                        <td>{{ sighting.user_login }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <footer class="page__footer"></footer>
+
+
+</div>

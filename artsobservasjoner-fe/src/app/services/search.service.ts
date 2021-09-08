@@ -13,7 +13,7 @@ export class SearchService {
 
   fetchData(): Observable<any> {
 
-    return this.httpClient.get('https://fakestoreapi.com/products/').pipe(
+    return this.httpClient.get('https://www.inaturalist.org/observations.json').pipe(
       map((response: any) => {
 
         console.log('response', response)

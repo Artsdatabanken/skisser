@@ -135,6 +135,9 @@ import { MunicipalitiesComponent } from './components/species-data/municipalitie
 import { CountiesComponent } from './components/species-data/counties/counties.component';
 import { AreaComponent } from './shared-and-reusable/smart-components/area/area.component';
 import { TaxonComponent } from './shared-and-reusable/smart-components/taxon/taxon.component';
+import { Test1Component } from './components/search/test1/test1.component';
+import { Test2Component } from './components/search/test2/test2.component';
+import { BulkComponent } from './components/search/bulk/bulk.component';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -262,7 +265,10 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     MunicipalitiesComponent,
     CountiesComponent,
     AreaComponent,
-    TaxonComponent
+    TaxonComponent,
+    Test1Component,
+    Test2Component,
+    BulkComponent
   ],
   imports: [
     BrowserModule,

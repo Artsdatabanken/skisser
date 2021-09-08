@@ -4,7 +4,7 @@
 
     <!--years-->
 
-    <div class="select-box" *ngIf="dfYears === true" (clickElsewhere)="closeYearsPane(this)">
+    <div class="filter-box" *ngIf="dfYears === true" (clickElsewhere)="closeYearsPane(this)">
 
         <label for="fltrYear">{{ 'filters.year' | translate }}</label>
 
@@ -12,10 +12,10 @@
             {{ 'shared.select_years' | translate }}
         </button>
 
-        <div class="select-box__field select-box__field--tall" [ngClass]="{'select-box__field--show': showYearsPane}"
+        <div class="filter-box__field filter-box__field--tall" [ngClass]="{'filter-box__field--show': showYearsPane}"
             *ngIf="years">
 
-            <div class="select-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
+            <div class="filter-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
 
                 <h2> {{ year }} </h2>
 
@@ -29,7 +29,7 @@
 
     <!--species groups-->
 
-    <div class="select-box" *ngIf="dfSpeciesGroups === true" (clickElsewhere)="closeSpeciesGroupsPane(this)">
+    <div class="filter-box" *ngIf="dfSpeciesGroups === true" (clickElsewhere)="closeSpeciesGroupsPane(this)">
 
         <label for="fltrSpeciesGroup">{{ 'filters.speciesGroup' | translate }}</label>
 
@@ -38,10 +38,10 @@
             {{ 'shared.select_speciesGroups' | translate }}
         </button>
 
-        <div class="select-box__field" [ngClass]="{'select-box__field--show': showSpeciesGroupsPane}"
+        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showSpeciesGroupsPane}"
             *ngIf="speciesGroups$ | async as speciesGroups">
 
-            <div class="select-box__stripe" *ngFor="let sg of speciesGroups" (click)="onSpeciesGroupsSelection(sg.id)">
+            <div class="filter-box__stripe" *ngFor="let sg of speciesGroups" (click)="onSpeciesGroupsSelection(sg.id)">
 
                 <h2>
                     <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
@@ -59,7 +59,7 @@
 
     <!--taxon-->
 
-    <div class="select-box" *ngIf="dfTaxon === true">
+    <div class="filter-box" *ngIf="dfTaxon === true">
 
         <label for="fltrTaxon">{{ 'filters.taxon' | translate }}</label>
 
@@ -67,10 +67,10 @@
             (keyup)="getTaxon(taxon.value)" [disabled]="isTaxonDisabled"
             placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
-        <div class="select-box__field" [ngClass]="{'select-box__field--show': showTaxonPane}"
+        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showTaxonPane}"
             *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
 
-            <div class="select-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
+            <div class="filter-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
 
                 <h2>
                     <span [ngClass]="{'text-italics': taxon.taxonCategoryId > 13}">
@@ -88,7 +88,7 @@
                     </small>
                 </h3>
 
-                <div class="select-box__details">
+                <div class="filter-box__details">
 
                     <span class="tag"
                         *ngIf="taxon.scientificNameSynonyms.length > 0 || taxon.vernacularNameSynonyms.length > 0">
@@ -116,7 +116,7 @@
 
             </div>
 
-            <div class="select-box__stripe" *ngIf="taxons.length === 0">
+            <div class="filter-box__stripe" *ngIf="taxons.length === 0">
                 {{ 'shared.noHits' | translate }}
             </div>
 
@@ -128,17 +128,17 @@
 
     <!--area-->
 
-    <div class="select-box" *ngIf="dfArea === true">
+    <div class="filter-box" *ngIf="dfArea === true">
 
         <label for="fltrArea">{{ 'filters.area' | translate }}</label>
 
         <input class="input input--search" id="fltrArea" #area
             (keyup)="getArea(area.value)" placeholder="{{ 'shared.search_searchArea' | translate }}">
 
-        <div class="select-box__field" [ngClass]="{'select-box__field--show': showAreaPane}"
+        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showAreaPane}"
             *ngIf="areas$ | async as areas" (clickElsewhere)="closeAreaPane(this)">
 
-            <div class="select-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id, area.name)">
+            <div class="filter-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id, area.name)">
 
                 <h2>
                     <span> {{ area.name }} {{ area.id }}</span>
@@ -151,7 +151,7 @@
 
             </div>
 
-            <div class="select-box__stripe" *ngIf="areas.length === 0">
+            <div class="filter-box__stripe" *ngIf="areas.length === 0">
                 {{ 'shared.noHits' | translate }}
             </div>
 
