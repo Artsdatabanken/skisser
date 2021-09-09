@@ -16,6 +16,8 @@ export class Test1Component implements OnInit {
   sightings$: Observable<object[]>;
   array: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
+  toggledItems$: Observable<string[]>;
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
@@ -25,6 +27,12 @@ export class Test1Component implements OnInit {
   ngOnInit(): void {
 
     this.sightings$ = this.searchSearvice.fetchData();
+
+    //---------------------------------------------------------***
+
+    this.toggledItems$ = this.searchSearvice.toggledItems$;
+
+    //---------------------------------------------------------***
 
   }
 

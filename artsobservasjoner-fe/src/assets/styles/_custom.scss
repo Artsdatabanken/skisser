@@ -185,6 +185,13 @@
     }
 }
 
+.error-message {
+    //@include customVar(color, #ff0000);
+    color: red;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 // language switcher
 
 .language-switcher {

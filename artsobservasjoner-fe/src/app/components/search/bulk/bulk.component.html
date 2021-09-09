@@ -1,7 +1,16 @@
 <!---->
-<input type="text" class="input input--search" placeholder="Søk noe">
-<br>
-<div class="checkboxes">
+
+<!-- <div *ngFor="let array of COLORS">
+
+    <div *ngFor="let item of array">
+
+        <button class="button button--yyyy">{{item}}</button>
+
+    </div>
+
+</div> -->
+
+<!-- <div class="checkboxes">
     <label class="checkbox">
         <span class="checkbox__input">
             <input type="checkbox" name="checkbox">
@@ -16,7 +25,7 @@
         <span class="radio__label">Checkbox</span>
     </label>
 
-    <!-- Change color, as for an error state-->
+
     <label class="checkbox">
         <span class="checkbox__input">
             <input type="checkbox" name="checked" checked>
@@ -58,5 +67,23 @@
         </span>
         <span class="radio__label">Checkbox - Disabled Checked</span>
     </label>
-</div>
+</div> -->
 <!---->
+
+<div class="bulk" *ngFor="let item of array; let i = index">
+    <button class="bulk__button" [ngClass]="{'bulk__button--active' : buttonClicked === i}"
+        [attr.aria-expanded]="buttonClicked === i" (click)="toggleBulk($event, i)">
+        Filterbolk {{ i + 1 }}
+    </button>
+
+    <div class="bulk__content" [ngClass]="{'bulk__content--expanded': buttonClicked === i}"
+        *ngIf="buttonClicked === i">
+
+        <div *ngFor="let item of colors">
+
+            <button class="button button--yyyy" (click)="toggleItem(item, i)">{{item}}</button>
+    
+        </div>
+
+    </div>
+</div>

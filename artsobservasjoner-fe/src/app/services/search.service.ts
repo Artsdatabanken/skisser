@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
-import { Taxon, TaxonName } from '../models/taxon';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
+
+  toggledItems$: BehaviorSubject<string[]> = new BehaviorSubject([]);
+  items: string[] = [];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,5 +26,9 @@ export class SearchService {
 
   }
 
-  
+  toggleItem(item: string, bulk: number): void {
+    this.items.push(item);
+    this.toggledItems$.next(this.items);
+  }
+
 }

@@ -555,10 +555,13 @@
         @include customVar(border-bottom-color, clrPrimary);
         border-bottom-style: solid;
         border-bottom-width: 2px;
+        border-radius: 0;
 
         cursor: pointer;
         font-size: 23px;
         font-weight: 500;
+        height: auto;
+        line-height: 1;
         padding: 15px 0;
         position: relative;
         text-align: left;
@@ -566,10 +569,14 @@
 
         &:hover,
         &:focus {
+            height: auto;
+            line-height: 1;
         }
 
-        &:focus {
+        &:focus,
+        &:active {
             outline: 0;
+            padding-left: 15px;
         }
 
         &--active {

@@ -4,9 +4,34 @@
 
     <div class="page__intro">
 
+        <div class="active-search" *ngIf="toggledItems$ | async as items">
+            {{ items.length }}
+
+            <!-- <div *ngFor="let item of items">
+                {{ item }}
+            </div> -->
+
+            <ng-container *ngIf="items.length < 3; else isBigger">
+                <div style="border: 1px solid red;"  *ngFor="let item of items">
+                    {{ item }}
+                </div>
+            </ng-container>
+
+            <ng-template #isBigger>
+                <div style="border: 1px dotted black;" *ngFor="let item of items | slice: 0 : 1">
+                    {{item}}
+                </div>
+                <br>
+                <div style="border: 1px solid black;" *ngFor="let item of items | slice: 1">
+                    {{item}}
+                </div>
+            </ng-template>
+
+        </div>
+
         <!--shareable non dummy component-->
 
-        <button class="button button--primary button--md" style="width: auto;" (click)="toggle()">
+        <button class="button button--primary button--md" style="width: auto;" (click)="toggle()" aria-controls="t1">
             Søk og filtrer
         </button>
 
@@ -15,20 +40,24 @@
         <div class="search-wrapper" [ngClass]="{'search-wrapper--active' : isActive}" (click)="close()">
         </div>
 
-        <div class="search" [ngClass]="{'search--active' : isActive}">
+        <div class="search" [ngClass]="{'search--active' : isActive}" [attr.aria-expanded]="isActive">
 
             <div class="search__content">
 
                 <input class="input input--search" id="" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
+                <br>
+                <!-- <div class="bulk" *ngFor="let item of array; let i = index">
+                    <button class="bulk__button" [ngClass]="{'bulk__button--active' : buttonClicked === i}"
+                        [attr.aria-expanded]="buttonClicked === i" (click)="toggleBulk($event, i)">
+                        Filterbolk {{ i + 1 }}
+                    </button>
 
-                <div class="bulk" *ngFor="let item of array; let i = index">
-                    <button class="button button--dropdown" (click)="toggleBulk($event, i)">Filterbolk {{ i + 1
-                        }}</button>
                     <div class="bulk__content" [ngClass]="{'bulk__content--expanded': buttonClicked === i}"
                         *ngIf="buttonClicked === i">
                         <app-bulk></app-bulk>
                     </div>
-                </div>
+                </div> -->
+                <app-bulk></app-bulk>
 
             </div>
 
@@ -49,7 +78,7 @@
 
     <div class="page__content">
 
-        <div *ngIf="sightings$ | async as sightings">
+        <!-- <div *ngIf="sightings$ | async as sightings">
 
             <table>
                 <thead>
@@ -69,7 +98,7 @@
                 </tbody>
             </table>
 
-        </div>
+        </div> -->
 
     </div>
 
