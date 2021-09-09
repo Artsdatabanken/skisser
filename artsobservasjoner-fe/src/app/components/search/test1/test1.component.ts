@@ -13,6 +13,7 @@ export class Test1Component implements OnInit {
 
   isActive: boolean = false;
   buttonClicked: number;
+  showActiveFiltersPane: boolean = false;
   sightings$: Observable<object[]>;
   array: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -57,6 +58,10 @@ export class Test1Component implements OnInit {
     if (this.buttonClicked === index) this.buttonClicked = -1;
     else this.buttonClicked = index;
 
+  }
+
+  toggleActiveFilters(): void {
+    this.showActiveFiltersPane = !this.showActiveFiltersPane;
   }
 
 }

@@ -4,30 +4,38 @@
 
     <div class="page__intro">
 
-        <div class="active-search" *ngIf="toggledItems$ | async as items">
-            {{ items.length }}
+        <ng-container *ngIf="toggledItems$ | async as items">
 
-            <!-- <div *ngFor="let item of items">
-                {{ item }}
-            </div> -->
+            <div class="active-search" style="width: 50%;" *ngIf="items.length > 0">
+                <small>{{ 'shared.search_chosenFilters' | translate}}: {{ items.length }}</small>
 
-            <ng-container *ngIf="items.length < 3; else isBigger">
-                <div style="border: 1px solid red;"  *ngFor="let item of items">
-                    {{ item }}
-                </div>
-            </ng-container>
+                <ng-container *ngIf="items.length < 3; else isBigger">
 
-            <ng-template #isBigger>
-                <div style="border: 1px dotted black;" *ngFor="let item of items | slice: 0 : 1">
-                    {{item}}
-                </div>
-                <br>
-                <div style="border: 1px solid black;" *ngFor="let item of items | slice: 1">
-                    {{item}}
-                </div>
-            </ng-template>
+                    <div class="active-search__content" style="border: 1px solid red;" *ngFor="let item of items">
+                        {{ item }}
+                    </div>
 
-        </div>
+                </ng-container>
+
+                <ng-template #isBigger>
+
+                    <div class="active-search__content" [ngClass]="{'active-search__content--toggle': items.length > 2}"
+                        *ngFor="let item of items | slice: 0 : 1" (click)="toggleActiveFilters()">
+                        {{item}}
+                    </div>
+
+                    <br>
+
+                    <div class="active-search__box" [ngClass]="{'active-search__box--expanded': showActiveFiltersPane}"
+                        style="border: 1px solid black;" *ngFor="let item of items | slice: 1">
+                        {{item}}
+                    </div>
+
+                </ng-template>
+
+            </div>
+
+        </ng-container>
 
         <!--shareable non dummy component-->
 
