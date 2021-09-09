@@ -6,41 +6,42 @@
 
         <!--shareable non dummy component-->
 
-        <div class="search-wrapper" id="search">
+        <button class="button button--primary button--md" style="width: auto;" (click)="toggle()">
+            Søk og filtrer
+        </button>
 
-            <button class="button button--primary button--md" style="width: auto;" (click)="toggle()">
-                Søk og filtrer
-            </button>
+        <br><br><br><br>
 
-            <br><br><br><br>
+        <div class="search-wrapper" [ngClass]="{'search-wrapper--active' : isActive}" (click)="close()">
+        </div>
 
-            <div class="search" [ngClass]="{'search--active' : isActive}">
+        <div class="search" [ngClass]="{'search--active' : isActive}">
 
-                <div class="search__content">
+            <div class="search__content">
 
-                    <input class="input input--search" id=""
-                        placeholder="{{ 'shared.search_searchTaxon' | translate }}">
+                <input class="input input--search" id="" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
-                    <div class="bulk" *ngFor="let item of array; let i = index">
-                        <button class="button button--dropdown" (click)="toggleBulk($event, i)">Filterbolk {{ i + 1 }}</button>
-                        <div class="bulk__content" [ngClass]="{'bulk__content--expanded': buttonClicked === i}"
-                            *ngIf="buttonClicked === i">
-                            <app-bulk></app-bulk>
-                        </div>
+                <div class="bulk" *ngFor="let item of array; let i = index">
+                    <button class="button button--dropdown" (click)="toggleBulk($event, i)">Filterbolk {{ i + 1
+                        }}</button>
+                    <div class="bulk__content" [ngClass]="{'bulk__content--expanded': buttonClicked === i}"
+                        *ngIf="buttonClicked === i">
+                        <app-bulk></app-bulk>
                     </div>
-
-                </div>
-
-                <div class="search__bar">
-                    <button class="button button--sm">Lukk</button>
-                    <button class="button button--sm button--full">Søk</button>
                 </div>
 
             </div>
 
-
+            <div class="search__bar">
+                <button class="button button--sm" (click)="close()">Lukk</button>
+                <button class="button button--sm button--full">Søk</button>
+            </div>
 
         </div>
+
+
+
+
 
         <!--shareable non dummy component-->
 

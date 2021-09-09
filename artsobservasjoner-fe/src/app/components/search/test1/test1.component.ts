@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SearchService } from 'src/app/services/search.service';
 
@@ -15,7 +16,11 @@ export class Test1Component implements OnInit {
   sightings$: Observable<object[]>;
   array: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  constructor(private searchSearvice: SearchService) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2,
+    private searchSearvice: SearchService
+  ) { }
 
   ngOnInit(): void {
 
@@ -25,10 +30,18 @@ export class Test1Component implements OnInit {
 
   toggle(): void {
     this.isActive = !this.isActive;
+
+    if (this.isActive === true) {
+      this.renderer.addClass(this.document.body, 'prevent-scroll');
+    }
+    else {
+      this.renderer.removeClass(this.document.body, 'prevent-scroll');
+    }
   }
 
   close(): void {
     this.isActive = false;
+    this.renderer.removeClass(this.document.body, 'prevent-scroll');
   }
 
   toggleBulk(event: any, index: number) {
@@ -37,5 +50,5 @@ export class Test1Component implements OnInit {
     else this.buttonClicked = index;
 
   }
-  
+
 }

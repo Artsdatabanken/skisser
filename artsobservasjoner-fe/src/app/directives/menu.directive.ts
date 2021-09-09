@@ -9,7 +9,7 @@ import { MenuService } from '../services/menu.service';
 export class MenuDirective {
 
   @HostListener('click') onClick() {
-    this.renderer.removeClass(this.document.body, 'active-menu');
+    this.renderer.removeClass(this.document.body, 'prevent-scroll');
     this.renderer.removeClass(this.document.getElementById('hamburger'), 'hamburger--is-active');
     this.renderer.removeClass(this.document.getElementById('menu'), 'menu--open');
     this.menuService.closeMenu();

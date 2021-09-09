@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    this.renderer.removeClass(this.document.body, 'active-menu');
+    this.renderer.removeClass(this.document.body, 'prevent-scroll');
     this.subscription.unsubscribe();
   }
 
@@ -40,10 +40,10 @@ export class MenuComponent implements OnInit {
     this.menuService.toggleMenu(); 
     
     if (this.menuService.activeMenu) {
-      this.renderer.addClass(this.document.body, 'active-menu');
+      this.renderer.addClass(this.document.body, 'prevent-scroll');
     }
     else {
-      this.renderer.removeClass(this.document.body, 'active-menu');
+      this.renderer.removeClass(this.document.body, 'prevent-scroll');
     }
 
   }

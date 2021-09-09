@@ -29,7 +29,8 @@ body {
     font-size: 16px;
   }
 
-  &.active-menu {
+  &.prevent-scroll {
+    height: 100vh;
     position: absolute;
     overflow-y: hidden;
   }

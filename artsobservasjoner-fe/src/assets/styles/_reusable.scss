@@ -1,19 +1,5 @@
 // ----------REUSABLE (only for angular shareable / reusable components)
 
-// animations
-
-@keyframes growDown {
-    0% {
-        transform: scaleY(0);
-    }
-    60% {
-        transform: scaleY(1);
-    }
-    100% {
-        transform: scaleY(1);
-    }
-}
-
 // intersection
 
 .intersection {
@@ -680,13 +666,9 @@
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
-
         font-size: 20px;
         font-weight: 600;
-        // height: 55px;
-        // line-height: 53px;
         padding: 18px 90px 18px 30px;
-        //padding: 0 90px 0 30px;
         text-align: left;
         transition: background-image 0.3s;
 

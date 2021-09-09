@@ -636,7 +636,7 @@ input:focus::-moz-placeholder {
 
 // filter box
 
-.filter-box, 
+.filter-box,
 .select-box {
     position: relative;
     width: 100%;
@@ -690,24 +690,54 @@ input:focus::-moz-placeholder {
 
 // search
 
+.search-wrapper {
+    background: rgba(0, 0, 0, 0.35);
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+
+    &--active {
+        display: block;
+    }
+}
+
 .search {
     background: lightblue;
     @include customVar(background-color, clrShadow);
     position: absolute;
     position: fixed;
     bottom: 10vh;
+    bottom: 0;
     right: -25vw;
     top: 80px;
     top: 10vh;
+    top: 0;
     width: 25vw;
     z-index: 500;
 
-    &--active {
-        -webkit-animation: searchSlide 0.5s forwards;
-        //-webkit-animation-delay: 2s;
-        animation: searchSlide 0.5s forwards;
-        //animation-delay: 2s;
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.5);
     }
+
+    &--active {
+        -webkit-animation: slideRight 0.5s forwards;
+        animation: slideRight 0.5s forwards;
+    }
+
+    // media queries
+
+    @media screen and (min-width: 3000px) {
+        right: -20vw;
+        width: 20vw;
+    }
+
+    // elements
 
     & > * {
     }
@@ -717,6 +747,7 @@ input:focus::-moz-placeholder {
 
     &__content {
         height: 75vh;
+        height: calc(100vh - 115px);
         overflow-y: scroll;
         padding: 30px 30px 90px;
     }
@@ -725,6 +756,7 @@ input:focus::-moz-placeholder {
         @include customVar(background-color, clrPrimary);
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 115px;
         grid-gap: 0 10px;
         padding: 30px;
         top: auto;
@@ -734,23 +766,10 @@ input:focus::-moz-placeholder {
     }
 }
 
-@-webkit-keyframes searchSlide {
-    100% {
-        right: 0;
-    }
-}
-
-@keyframes searchSlide {
-    100% {
-        right: 0;
-    }
-}
-
 .bulk {
     margin: 30px 0;
 
     &__content {
-        //@include customVar(background-color, clrWhite);
         border: 2px dotted white;
         display: none;
         margin: 10px 0 0;
