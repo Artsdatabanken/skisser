@@ -23,7 +23,7 @@
                 <br><br>
             </ng-container>
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="width: 100%; border: 1px solid red;">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="width: 100%">
 
                 <table *ngIf="detailedSpeciesData.totalCount > 0">
 
@@ -57,7 +57,7 @@
                                 <span style="font-size: 0.975em">{{ item.vernacularName }}</span>
                             </td>
 
-                            <td class="td-date" style="font-weight: 600; padding-right: 10%; width: 30%;">
+                            <td class="td-date" style="font-weight: 600; width: fit-content;">
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
 

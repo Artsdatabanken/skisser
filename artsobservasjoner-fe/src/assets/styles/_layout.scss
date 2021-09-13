@@ -1113,6 +1113,8 @@ main {
 
     &--filters {
         align-items: center;
+        
+        grid-gap: 10px;
         margin-top: 10px;
 
         & > * {

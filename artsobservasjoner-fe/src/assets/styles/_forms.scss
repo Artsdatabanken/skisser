@@ -246,24 +246,26 @@ select {
     }
 
     &--xxs {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
         min-height: auto;
         line-height: 1;
-        height: 38px;
-        line-height: 1;
+        height: 36px;
+        line-height: 34px;
         margin: 0;
-        padding: 0;
+        padding: 0 15px;
+        width: auto;
 
         @media screen and (max-width: 1024px) {
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 700;
         }
 
         &:hover,
         &:active,
         &:focus {
-            height: 38px;
-            line-height: 1;
+            height: 36px;
+            line-height: 34px;
         }
     }
 
@@ -388,7 +390,7 @@ select {
         background-repeat: no-repeat;
         background-size: 10px;
         padding: 0 45px 0 20px;
-        font-weight: 600;
+        font-weight: 700;
         text-align: left;
 
         &:hover {
