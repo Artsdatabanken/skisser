@@ -107,7 +107,7 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    //this.filterService.resetFilters(); // (we don't need to reset filters actually; it creates a bug)
+    this.filterService.resetFilters(); // (we need to test this more: without it, the filters stay wherever the filter component is used; we need to see if resetting them creates bugs while using in the same component and filtering)
     this.filtersSubscription.unsubscribe();
   }
 

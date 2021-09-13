@@ -1118,6 +1118,11 @@ main {
         & > * {
             margin-right: 10px;
         }
+
+        @media screen and (max-width: 1024px) {
+            grid-gap: 10px;
+        }
+        
     }
 }
 

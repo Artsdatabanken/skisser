@@ -78,7 +78,11 @@
     "buttonText": {
         "reset": "Nullstill",
         "selectStatistics": "Velg statistikk",
-        "selectArea": "Velg fylke eller kommune"
+        "selectArea": "Velg fylke eller kommune",
+        "pagination_first": "Første side",
+        "pagination_prev": "Forrige side",
+        "pagination_next": "Neste side",
+        "pagination_last": "Siste side"
     },
     "filters": {
         "year": "År",

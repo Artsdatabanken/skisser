@@ -7,11 +7,11 @@
         <ng-container *ngIf="toggledItems$ | async as items">
 
             <div class="active-search" style="width: 50%;" *ngIf="items.length > 0">
-                <small>{{ 'shared.search_chosenFilters' | translate}}: {{ items.length }}</small>
+                <small>{{ 'shared.search_chosenFilters' | translate }}: {{ items.length }}</small>
 
                 <ng-container *ngIf="items.length < 3; else isBigger">
 
-                    <div class="active-search__content" style="border: 1px solid red;" *ngFor="let item of items">
+                    <div class="active-search__content" *ngFor="let item of items">
                         {{ item }}
                     </div>
 
@@ -20,15 +20,19 @@
                 <ng-template #isBigger>
 
                     <div class="active-search__content" [ngClass]="{'active-search__content--toggle': items.length > 2}"
-                        *ngFor="let item of items | slice: 0 : 1" (click)="toggleActiveFilters()">
-                        {{item}}
+                        (click)="toggleActiveFilters()">
+                        {{ 'shared.search_chosenFilters' | translate }}
                     </div>
 
                     <br>
 
-                    <div class="active-search__box" [ngClass]="{'active-search__box--expanded': showActiveFiltersPane}"
-                        style="border: 1px solid black;" *ngFor="let item of items | slice: 1">
-                        {{item}}
+                    <div class="active-search__box" [ngClass]="{'active-search__box--expanded': showActiveFiltersPane}">
+
+                        <button class="button button--xxs button--close" style="margin: 5px 0;" *ngFor="let item of items">
+                            {{item}}
+                        </button>
+                        <br>
+
                     </div>
 
                 </ng-template>
@@ -39,16 +43,18 @@
 
         <!--shareable non dummy component-->
 
+        <app-filter [dfYears]="false"></app-filter>
+
         <button class="button button--primary button--md" style="width: auto;" (click)="toggle()" aria-controls="t1">
             Søk og filtrer
         </button>
 
         <br><br><br><br>
 
-        <div class="search-wrapper" [ngClass]="{'search-wrapper--active' : isActive}" (click)="close()">
+        <div class="slide-wrapper" [ngClass]="{'slide-wrapper--active' : isActive}" (click)="close()">
         </div>
 
-        <div class="search" [ngClass]="{'search--active' : isActive}" [attr.aria-expanded]="isActive">
+        <div class="slide-box" [ngClass]="{'slide-box--active' : isActive}" [attr.aria-expanded]="isActive">
 
             <div class="search__content">
 
@@ -86,7 +92,7 @@
 
     <div class="page__content">
 
-        <!-- <div *ngIf="sightings$ | async as sightings">
+     <div *ngIf="sightings$ | async as sightings">
 
             <table>
                 <thead>
@@ -106,7 +112,7 @@
                 </tbody>
             </table>
 
-        </div> -->
+        </div> 
 
     </div>
 

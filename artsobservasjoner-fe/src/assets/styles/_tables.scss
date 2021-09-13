@@ -8,7 +8,7 @@ table {
     width: 100%;
 
     @media screen and (max-width: 1200px) {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     caption {
@@ -83,6 +83,10 @@ table {
     th,
     td {
         padding: 10px 20px;
+
+        @media screen and (max-width: 1024px) {
+            padding: 10px;
+        }
     }
 
     @media screen and (max-width: 1024px) {
@@ -161,6 +165,10 @@ table {
         font-size: 18px;
         font-weight: 500;
         margin: 20px 0 10px;
+
+        @media screen and (max-width: 1024px) {
+            font-weight: 600;
+        }
     }
 
     &__content {

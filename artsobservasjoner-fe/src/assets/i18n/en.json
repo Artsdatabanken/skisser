@@ -78,7 +78,11 @@
     "buttonText": {
         "reset": "Reset",
         "selectStatistics": "Select statistics",
-        "selectArea": "Select are type"
+        "selectArea": "Select are type",
+        "pagination_first": "First page",
+        "pagination_prev": "Previous page",
+        "pagination_next": "Next page",
+        "pagination_last": "Last page"
     },
     "filters": {
         "year": "Year",

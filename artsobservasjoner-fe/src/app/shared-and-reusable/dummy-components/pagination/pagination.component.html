@@ -4,16 +4,21 @@
     <!--back buttons-->
 
     <button class="pagination__button pagination__button--first" (click)="pagination.first()"
-        [disabled]="pagination.isFirst"> </button>
+        [disabled]="pagination.isFirst">
+        <span class="sr-only"> {{ 'buttonText.pagination_first' | translate }} </span>
+    </button>
 
     <button class="pagination__button pagination__button--prev" (click)="pagination.prev()"
-        [disabled]="pagination.isFirst"> </button>
+        [disabled]="pagination.isFirst">     
+        <span class="sr-only"> {{ 'buttonText.pagination_prev' | translate }} </span>
+    </button>
 
     <!--back buttons-->
 
     <!-- input -->
 
-    <input appPagination #pagination="appPagination" [totalPages]="totalPages" (pageChange)="onPageChange($event)" />
+    <input class="pagination__input" appPagination #pagination="appPagination" [totalPages]="totalPages"
+        (pageChange)="onPageChange($event)" />
 
     <!-- input -->
 
@@ -22,10 +27,14 @@
     <!--forward buttons-->
 
     <button class="pagination__button pagination__button--next" (click)="pagination.next()"
-        [disabled]="pagination.isLast"> </button>
+        [disabled]="pagination.isLast"> 
+        <span class="sr-only"> {{ 'buttonText.pagination_next' | translate }} </span>
+    </button>
 
     <button class="pagination__button pagination__button--last" (click)="pagination.last()"
-        [disabled]="pagination.isLast"> </button>
+        [disabled]="pagination.isLast">        
+        <span class="sr-only"> {{ 'buttonText.pagination_last' | translate }} </span>
+    </button>
 
     <!--forward buttons-->
 

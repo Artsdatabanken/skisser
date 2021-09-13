@@ -23,7 +23,7 @@ export class TaxonService {
   getTaxon(
     searchString: string,
     speciesGroupId?: number,
-    includeSubSpecies?: boolean,
+    includeSubSpecies: boolean = true, // vi vil vise alt for øyeblikket
     onlyReportable?: boolean
   ): Observable<Taxon[]> {
 

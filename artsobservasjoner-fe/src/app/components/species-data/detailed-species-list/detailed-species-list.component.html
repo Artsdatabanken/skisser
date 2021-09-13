@@ -23,7 +23,7 @@
                 <br><br>
             </ng-container>
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="width: auto;">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="width: 100%; border: 1px solid red;">
 
                 <table *ngIf="detailedSpeciesData.totalCount > 0">
 
@@ -36,7 +36,11 @@
                             <th>
                                 {{ 'tables.tableHeading_species' | translate }}
                             </th>
-                            <th class="th-date" style="padding-right: 10%; width: 30%;">
+                            <!-- <th class="th-date" style="padding-right: 10%; width: 30%;">
+                                {{ 'tables.tableHeading_species_firstSeen' | translate }}
+                            </th> -->
+
+                            <th class="th-date">
                                 {{ 'tables.tableHeading_species_firstSeen' | translate }}
                             </th>
                             <th></th>
@@ -47,7 +51,7 @@
 
                         <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
-                            <td style="width: max-content;">
+                            <td style="width: fit-content;">
                                 <strong style="font-size: 1em"><i>{{ item.scientificName }}</i></strong>
                                 <br>
                                 <span style="font-size: 0.975em">{{ item.vernacularName }}</span>
@@ -57,7 +61,7 @@
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
 
-                            <td class="td-right" style="width: 65px">
+                            <td class="td-right" style="width: fit-content;">
 
                                 <button class="toggle" style="margin-right: 0;"
                                     [ngClass]="{'toggle--active': buttonClicked === i}"
