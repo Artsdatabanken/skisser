@@ -1,202 +1,218 @@
 <!--shareable non dummy component-->
 
-<div class="filter">
+<button class="button button--xs mobile" (click)="toggleFilterBox()">
+    {{ 'buttonText.toggle_filters' | translate }}
+</button>
 
-    <!--years-->
+<div class="filter-wrapper" [ngClass]="{ 'filter-wrapper--active': showFiltersBox }">
 
-    <div class="filter-box" *ngIf="dfYears === true" (clickElsewhere)="closeYearsPane(this)">
+    <button class="button button--close button--close-sm" style="margin-right: 0;" *ngIf="showFiltersBox" (click)="closeFilterBox()">
+        {{ 'buttonText.toggle_closeFilters' | translate }}
+    </button>
 
-        <label for="fltrYear">{{ 'filters.year' | translate }}</label>
+    <br>
+    <br>
 
-        <button class="button button--dropdown" id="fltrYear" (click)="toggleYearsDropdown()">
-            {{ 'shared.select_years' | translate }}
-        </button>
+    <div class="filter">
 
-        <div class="filter-box__field filter-box__field--tall" [ngClass]="{'filter-box__field--show': showYearsPane}"
-            *ngIf="years">
+        <!--years-->
 
-            <div class="filter-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
+        <div class="filter-box" *ngIf="dfYears === true" (clickElsewhere)="closeYearsPane(this)">
 
-                <h2> {{ year }} </h2>
+            <label for="fltrYear">{{ 'filters.year' | translate }}</label>
 
-            </div>
+            <button class="button button--dropdown" id="fltrYear" (click)="toggleYearsDropdown()">
+                {{ 'shared.select_years' | translate }}
+            </button>
 
-        </div>
+            <div class="filter-box__field filter-box__field--tall"
+                [ngClass]="{'filter-box__field--show': showYearsPane}" *ngIf="years">
 
-    </div>
+                <div class="filter-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
 
-    <!--years-->
-
-    <!--species groups-->
-
-    <div class="filter-box" *ngIf="dfSpeciesGroups === true" (clickElsewhere)="closeSpeciesGroupsPane(this)">
-
-        <label for="fltrSpeciesGroup">{{ 'filters.speciesGroup' | translate }}</label>
-
-        <button class="button button--dropdown" id="fltrSpeciesGroup" [disabled]="isSpeciesGroupDisabled"
-            (click)="toggleSpeciesGroupsDropdown()">
-            {{ 'shared.select_speciesGroups' | translate }}
-        </button>
-
-        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showSpeciesGroupsPane}"
-            *ngIf="speciesGroups$ | async as speciesGroups">
-
-            <div class="filter-box__stripe" *ngFor="let sg of speciesGroups" (click)="onSpeciesGroupsSelection(sg.id)">
-
-                <h2>
-                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
-                    </ng-container>
-                </h2>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!--species groups-->
-
-    <!--taxon-->
-
-    <div class="filter-box" *ngIf="dfTaxon === true">
-
-        <label for="fltrTaxon">{{ 'filters.taxon' | translate }}</label>
-
-        <input class="input input--search" id="fltrTaxon" #taxon
-            (keyup)="getTaxon(taxon.value)" [disabled]="isTaxonDisabled"
-            placeholder="{{ 'shared.search_searchTaxon' | translate }}">
-
-        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showTaxonPane}"
-            *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
-
-            <div class="filter-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
-
-                <h2>
-                    <span [ngClass]="{'text-italics': taxon.taxonCategoryId > 13}">
-                        {{ taxon.scientificName.name }}
-                    </span>
-
-                    <small class="text-uppercase" *ngIf="taxon.scientificName.author">
-                        {{ taxon.scientificName.author }}
-                    </small>
-                </h2>
-                <h3>
-                    {{ taxon.vernacularName?.name | lowercase }}
-                    <small class="text-uppercase" *ngIf="taxon.vernacularName?.author">
-                        {{ taxon.vernacularName.author }}
-                    </small>
-                </h3>
-
-                <div class="filter-box__details">
-
-                    <span class="tag"
-                        *ngIf="taxon.scientificNameSynonyms.length > 0 || taxon.vernacularNameSynonyms.length > 0">
-                        {{ 'shared.synonyms' | translate }}
-                    </span>
-
-                    <ng-container *ngIf="taxon.scientificNameSynonyms.length > 0">
-
-                        <div *ngFor="let synonym of taxon.scientificNameSynonyms">
-                            <small [ngClass]="{'text-bold': synonym.isSearchMatch}"><i> {{ synonym.name }}
-                                </i></small>
-                        </div>
-
-                    </ng-container>
-
-                    <ng-container *ngIf="taxon.vernacularNameSynonyms.length > 0">
-
-                        <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
-                            <small [ngClass]="{'text-bold': synonym.isSearchMatch}"> {{ synonym.name }} </small>
-                        </div>
-
-                    </ng-container>
+                    <h2> {{ year }} </h2>
 
                 </div>
 
             </div>
 
-            <div class="filter-box__stripe" *ngIf="taxons.length === 0">
-                {{ 'shared.noHits' | translate }}
+        </div>
+
+        <!--years-->
+
+        <!--species groups-->
+
+        <div class="filter-box" *ngIf="dfSpeciesGroups === true" (clickElsewhere)="closeSpeciesGroupsPane(this)">
+
+            <label for="fltrSpeciesGroup">{{ 'filters.speciesGroup' | translate }}</label>
+
+            <button class="button button--dropdown" id="fltrSpeciesGroup" [disabled]="isSpeciesGroupDisabled"
+                (click)="toggleSpeciesGroupsDropdown()">
+                {{ 'shared.select_speciesGroups' | translate }}
+            </button>
+
+            <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showSpeciesGroupsPane}"
+                *ngIf="speciesGroups$ | async as speciesGroups">
+
+                <div class="filter-box__stripe" *ngFor="let sg of speciesGroups"
+                    (click)="onSpeciesGroupsSelection(sg.id)">
+
+                    <h2>
+                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                            {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                        </ng-container>
+                    </h2>
+
+                </div>
+
             </div>
 
         </div>
 
-    </div>
+        <!--species groups-->
 
-    <!--taxon-->
+        <!--taxon-->
 
-    <!--area-->
+        <div class="filter-box" *ngIf="dfTaxon === true">
 
-    <div class="filter-box" *ngIf="dfArea === true">
+            <label for="fltrTaxon">{{ 'filters.taxon' | translate }}</label>
 
-        <label for="fltrArea">{{ 'filters.area' | translate }}</label>
+            <input class="input input--search" id="fltrTaxon" #taxon (keyup)="getTaxon(taxon.value)"
+                [disabled]="isTaxonDisabled" placeholder="{{ 'shared.search_searchTaxon' | translate }}">
 
-        <input class="input input--search" id="fltrArea" #area
-            (keyup)="getArea(area.value)" placeholder="{{ 'shared.search_searchArea' | translate }}">
+            <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showTaxonPane}"
+                *ngIf="taxons$ | async as taxons" (clickElsewhere)="closeTaxonPane(this)">
 
-        <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showAreaPane}"
-            *ngIf="areas$ | async as areas" (clickElsewhere)="closeAreaPane(this)">
+                <div class="filter-box__stripe" *ngFor="let taxon of taxons" (click)="onTaxonSelection(taxon)">
 
-            <div class="filter-box__stripe" *ngFor="let area of areas" (click)="onAreaSelection(area.id, area.name)">
+                    <h2>
+                        <span [ngClass]="{'text-italics': taxon.taxonCategoryId > 13}">
+                            {{ taxon.scientificName.name }}
+                        </span>
 
-                <h2>
-                    <span> {{ area.name }} {{ area.id }}</span>
-                    <ng-container *ngIf="area.name == 'Oslo'">
-                        <small *ngIf="area.type == areaType.county">
-                            ({{ 'shared.area_county' | translate | lowercase }})
+                        <small class="text-uppercase" *ngIf="taxon.scientificName.author">
+                            {{ taxon.scientificName.author }}
                         </small>
-                    </ng-container>
-                </h2>
+                    </h2>
+                    <h3>
+                        {{ taxon.vernacularName?.name | lowercase }}
+                        <small class="text-uppercase" *ngIf="taxon.vernacularName?.author">
+                            {{ taxon.vernacularName.author }}
+                        </small>
+                    </h3>
 
-            </div>
+                    <div class="filter-box__details">
 
-            <div class="filter-box__stripe" *ngIf="areas.length === 0">
-                {{ 'shared.noHits' | translate }}
+                        <span class="tag"
+                            *ngIf="taxon.scientificNameSynonyms.length > 0 || taxon.vernacularNameSynonyms.length > 0">
+                            {{ 'shared.synonyms' | translate }}
+                        </span>
+
+                        <ng-container *ngIf="taxon.scientificNameSynonyms.length > 0">
+
+                            <div *ngFor="let synonym of taxon.scientificNameSynonyms">
+                                <small [ngClass]="{'text-bold': synonym.isSearchMatch}"><i> {{ synonym.name }}
+                                    </i></small>
+                            </div>
+
+                        </ng-container>
+
+                        <ng-container *ngIf="taxon.vernacularNameSynonyms.length > 0">
+
+                            <div *ngFor="let synonym of taxon.vernacularNameSynonyms">
+                                <small [ngClass]="{'text-bold': synonym.isSearchMatch}"> {{ synonym.name }} </small>
+                            </div>
+
+                        </ng-container>
+
+                    </div>
+
+                </div>
+
+                <div class="filter-box__stripe" *ngIf="taxons.length === 0">
+                    {{ 'shared.noHits' | translate }}
+                </div>
+
             </div>
 
         </div>
 
+        <!--taxon-->
+
+        <!--area-->
+
+        <div class="filter-box" *ngIf="dfArea === true">
+
+            <label for="fltrArea">{{ 'filters.area' | translate }}</label>
+
+            <input class="input input--search" id="fltrArea" #area (keyup)="getArea(area.value)"
+                placeholder="{{ 'shared.search_searchArea' | translate }}">
+
+            <div class="filter-box__field" [ngClass]="{'filter-box__field--show': showAreaPane}"
+                *ngIf="areas$ | async as areas" (clickElsewhere)="closeAreaPane(this)">
+
+                <div class="filter-box__stripe" *ngFor="let area of areas"
+                    (click)="onAreaSelection(area.id, area.name)">
+
+                    <h2>
+                        <span> {{ area.name }} {{ area.id }}</span>
+                        <ng-container *ngIf="area.name == 'Oslo'">
+                            <small *ngIf="area.type == areaType.county">
+                                ({{ 'shared.area_county' | translate | lowercase }})
+                            </small>
+                        </ng-container>
+                    </h2>
+
+                </div>
+
+                <div class="filter-box__stripe" *ngIf="areas.length === 0">
+                    {{ 'shared.noHits' | translate }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--area-->
+
     </div>
 
-    <!--area-->
+    <br>
 
-</div>
+    <div class="loop loop--filters">
 
-<br>
+        <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
 
-<div class="loop loop--filters">
+        <ng-container *ngFor="let activeFilter of activeFilters | keyvalue">
 
-    <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
+            <button class="button button--xxs button--close" *ngIf="activeFilter.value !== null"
+                (click)="resetFilter(activeFilter.key)">
 
-    <ng-container *ngFor="let activeFilter of activeFilters | keyvalue">
+                <ng-container *ngIf="activeFilter.key === 'year'">
+                    {{ activeFilter.value }}
+                </ng-container>
 
-        <button class="button button--xxs button--close" *ngIf="activeFilter.value !== null"
-            (click)="resetFilter(activeFilter.key)">
+                <ng-container *ngIf="activeFilter.key === 'speciesGroup'">
+                    <app-species-group [speciesGroupId]="activeFilter.value"></app-species-group>
+                </ng-container>
 
-            <ng-container *ngIf="activeFilter.key === 'year'">
-                {{ activeFilter.value }}
-            </ng-container>
+                <ng-container *ngIf="activeFilter.key === 'taxon'">
+                    <app-taxon [taxonId]="activeFilter.value"></app-taxon>
+                </ng-container>
 
-            <ng-container *ngIf="activeFilter.key === 'speciesGroup'">
-                <app-species-group [speciesGroupId]="activeFilter.value"></app-species-group>
-            </ng-container>
+                <ng-container *ngIf="activeFilter.key === 'area'">
+                    <app-area [areaId]="activeFilter.value"></app-area>
+                </ng-container>
 
-            <ng-container *ngIf="activeFilter.key === 'taxon'">
-                <app-taxon [taxonId]="activeFilter.value"></app-taxon>
-            </ng-container>
+            </button>
 
-            <ng-container *ngIf="activeFilter.key === 'area'">
-                <app-area [areaId]="activeFilter.value"></app-area>
-            </ng-container>
+        </ng-container>
 
+        <button class="button button--xxs button--cta" *ngIf="showResetButton" (click)="resetFilters()">
+            {{ 'shared.resetFilters' | translate }}
         </button>
 
-    </ng-container>
-
-    <button class="button button--xxs button--cta" *ngIf="showResetButton" (click)="resetFilters()">
-        {{ 'shared.resetFilters' | translate }}
-    </button>
+    </div>
 
 </div>
 

@@ -389,12 +389,34 @@ select {
         background-position: right 20px center;
         background-repeat: no-repeat;
         background-size: 10px;
-        padding: 0 45px 0 20px;
         font-weight: 700;
+        padding: 0 45px 0 20px;
         text-align: left;
 
         &:hover {
             background-image: url(../images/iconCloseWhite.png);
+        }
+    }
+
+    &--close-sm {
+        @include customVar(background-color, clrBlack);
+        background-image: url(../images/iconCloseWhite.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        display: block;
+        font-size: 0;
+        height: 50px;
+        margin: auto;
+        padding: 0;
+        text-align: center;
+        width: 50px;
+
+        &:hover {
+            @include customVar(background-color, transparent);
+            background-image: url(../images/iconClose.png);
+            height: 50px;
+            width: 50px;
         }
     }
 
@@ -678,6 +700,25 @@ input:focus::-moz-placeholder {
 
 //----------------------------------------custom form elements
 
+.filter-wrapper {
+    @media screen and (max-width: 1024px) {
+        @include customVar(background-color, clrShadow);
+        overflow-y: scroll;
+        padding: 15px;
+        position: fixed;
+        bottom: 0;
+        right: -100%;
+        top: 0;
+        width: 100%;
+        z-index: 500;
+
+        &--active {
+            -webkit-animation: slideRight 0.5s forwards;
+            animation: slideRight 0.5s forwards;
+        }
+    }
+}
+
 // filter box
 
 .filter-box,
@@ -847,8 +888,6 @@ input:focus::-moz-placeholder {
     width: 100%;
 
     @media screen and (max-width: 1200px) {
-        //@extend .slide-box;
-
         grid-template-columns: 1fr;
     }
 

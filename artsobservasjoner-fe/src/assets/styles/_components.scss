@@ -274,15 +274,10 @@
 // slide box
 
 .slide-box {
-    background: lightblue;
     @include customVar(background-color, clrShadow);
-    position: absolute;
     position: fixed;
-    bottom: 10vh;
     bottom: 0;
     right: -25vw;
-    top: 80px;
-    top: 10vh;
     top: 0;
     width: 25vw;
     z-index: 500;

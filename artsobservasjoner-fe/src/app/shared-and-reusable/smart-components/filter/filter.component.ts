@@ -40,6 +40,8 @@ export class FilterComponent implements OnInit {
   showAreaPane: boolean = false;
   showResetButton: boolean = false;
 
+  showFiltersBox: boolean = false;
+
   @ViewChild('speciesGroup') speciesGroupInput: any;
   @ViewChild('taxon') taxonInput: any;
   @ViewChild('area') areaInput: any;
@@ -111,6 +113,16 @@ export class FilterComponent implements OnInit {
     this.filtersSubscription.unsubscribe();
   }
 
+  // TOGGLE FILTERS ON MOBILE
+
+  toggleFilterBox(): void {
+    this.showFiltersBox = !this.showFiltersBox;
+  }
+
+  closeFilterBox(): void {
+    this.showFiltersBox = false;
+  }
+
   // ON SELECTION
 
   onYearSelection(year: string): void {
@@ -156,7 +168,7 @@ export class FilterComponent implements OnInit {
     this.filterService.resetFilters();
 
     for (let key in this.activeFilters) {
-       if (this.activeFilters[key] || typeof this.activeFilters[key] !== 'undefined') {
+      if (this.activeFilters[key] || typeof this.activeFilters[key] !== 'undefined') {
         this.activeFilters[key] = null;
       }
     }
