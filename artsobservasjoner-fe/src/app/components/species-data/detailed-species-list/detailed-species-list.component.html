@@ -52,17 +52,17 @@
 
                         <tr [ngClass]="{'tr-toggle-parent': buttonClicked === i}">
 
-                            <td style="width: fit-content;">
+                            <td>
                                 <strong style="font-size: 1em"><i>{{ item.scientificName }}</i></strong>
                                 <br>
                                 <span style="font-size: 0.975em">{{ item.vernacularName }}</span>
                             </td>
 
-                            <td class="td-date" style="font-weight: 600; width: fit-content;">
+                            <td class="td-date">
                                 {{ item.date | date: 'dd.MM.yyyy' }}
                             </td>
 
-                            <td class="td-right" style="width: fit-content;">
+                            <td class="td-right">
 
                                 <button class="toggle" style="margin-right: 0;"
                                     [ngClass]="{'toggle--active': buttonClicked === i}"

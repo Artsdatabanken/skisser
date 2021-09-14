@@ -210,6 +210,39 @@
     }
 }
 
+// links
+
+.link {
+        background-image: url(../images/iconChevronRight.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 5px;
+        @include customVar(border-bottom-color, clrAccent);
+        @include customVar(border-bottom-color, clrBlack);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 0 15px 0 0;
+        text-align: left;
+
+        &:hover {
+            @include customVar(border-bottom-color, clrBlack);
+            @include customVar(border-bottom-color, transparent);
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+        }
+
+        @media screen and (max-width: 1024px) {
+            font-size: 12px;
+        }
+    
+}
+
 // tags
 
 .tag {
@@ -296,6 +329,11 @@
     @media screen and (min-width: 3000px) {
         right: -20vw;
         width: 20vw;
+    }
+
+    @media screen and (max-width: 1024px) {
+        right: -100%;
+        width: 100%;
     }
 
     // elements

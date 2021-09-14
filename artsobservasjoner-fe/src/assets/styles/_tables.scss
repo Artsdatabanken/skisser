@@ -5,6 +5,8 @@ table {
     font-size: 17px;
     margin: 50px auto 50px;
     //table-layout: fixed;
+    table-layout: auto;
+    //white-space: nowrap;
     width: 100%;
 
     @media screen and (max-width: 1200px) {
@@ -33,7 +35,6 @@ table {
         &:hover {
             th[role="rowheader"],
             td {
-                //background: #ffee58 !important;
                 @include customVar(background-color, clrFocus, !important);
             }
         }
@@ -47,6 +48,7 @@ table {
         font-size: 19px;
         font-weight: 500;
         text-align: left;
+        vertical-align: middle;
 
         @media screen and (max-width: 1200px) {
             border-top: 2px solid rgba(240, 240, 240);
@@ -74,10 +76,8 @@ table {
         border-bottom-width: 2px;
         margin-bottom: 2px;
         text-align: left;
-
-        &::before {
-            display: none;
-        }
+        width: fit-content;
+        width: auto;
     }
 
     th,
@@ -200,6 +200,10 @@ table {
 .th-right,
 .td-right {
     text-align: right !important;
+}
+
+.td-date {
+    @include customVar(font-family, fontAccent);
 }
 
 .td-number {

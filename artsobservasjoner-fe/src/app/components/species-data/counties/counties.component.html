@@ -4,11 +4,9 @@
 
     <div class="section">
 
-        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
-            style="width: auto;">
+        <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="width: auto;">
 
-            <table role="table" style="width: 100%;"
-                *ngIf="speciesData$ | async as speciesData; else noData">
+            <table role="table" class="tbl" *ngIf="speciesData$ | async as speciesData; else noData">
 
                 <caption id="caption1">{{ 'tables.tableCaption_countySpeciesData' | translate }}</caption>
 
@@ -27,7 +25,8 @@
                 <tbody role="rowgroup">
 
                     <tr role="row" *ngFor="let item of speciesData.results">
-                        <th role="rowheader" scope="row" *ngIf="item.areaName | async as areaName">
+
+                        <th role="rowheader" scope="row" *ngIf="item.areaName | async as areaName" style="width: 30%">
                             {{ areaName }}
                         </th>
 
@@ -36,18 +35,14 @@
                         </td>
 
                         <td style="text-align: right;">
-                            <!-- <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]"
-                            [queryParams]="{prop: 'xxx'}">
-                                {{ 'shared.readMore_speciesList' | translate }}
-                            </a> -->
 
-
-                            <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK]"
+                            <a class="link" [routerLink]="[DETAILED_SPECIES_LIST_LINK]"
                                 [queryParams]="{areaId: item.areaId}">
                                 {{ 'shared.readMore_speciesList' | translate }}
                             </a>
 
                         </td>
+
                     </tr>
 
                 </tbody>

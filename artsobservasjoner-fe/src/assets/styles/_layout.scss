@@ -200,6 +200,7 @@
 
     @media screen and (max-width: 1024px) {
         min-height: 100vh;
+        overflow-y: scroll;
         padding: 30px 15px;
     }
 
@@ -724,7 +725,6 @@ main {
     }
 
     & > * {
-        //border: 2px dotted black;
         align-self: stretch;
         justify-self: stretch;
 
@@ -764,6 +764,7 @@ main {
     @media screen and (max-width: 1024px) {
         display: block;
         padding: 45px 15px;
+        padding: 0 15px;
     }
 }
 
@@ -788,10 +789,10 @@ main {
         margin-bottom: 60px;
 
         @media screen and (max-width: 1200px) {
-            font-size: 21px;
+            font-size: 19px;
             font-weight: 700;
             line-height: 1.2;
-            margin-top: 30px;
+            margin: 30px 0;
         }
 
         &:empty {
@@ -811,6 +812,12 @@ main {
 
             @media screen and (max-width: 1024px) {
                 width: 100%;
+            }
+        }
+
+        br {
+            @media screen and (max-width: 1024px) {
+                display: none;
             }
         }
     }
@@ -1113,7 +1120,7 @@ main {
 
     &--filters {
         align-items: center;
-        
+
         grid-gap: 10px;
         margin-top: 10px;
 
@@ -1124,7 +1131,6 @@ main {
         @media screen and (max-width: 1024px) {
             grid-gap: 10px;
         }
-        
     }
 }
 

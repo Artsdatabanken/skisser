@@ -259,6 +259,8 @@ select {
         @media screen and (max-width: 1024px) {
             font-size: 13px;
             font-weight: 700;
+            height: 32px;
+            line-height: 30px;
         }
 
         &:hover,
@@ -351,6 +353,10 @@ select {
         &:focus {
             height: 44px;
             line-height: 40px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            font-size: 12px;
         }
     }
 
@@ -853,19 +859,26 @@ input:focus::-moz-placeholder {
     padding: 30px;
 
     &__content {
-        &:first-child {
-            border: 1px dashed black;
-        }
+        // &:first-child {
+        //     border: 1px dashed black;
+        // }
 
         &--toggle {
-            background: yellow;
+            // background: yellow;
             background-image: url(../images/iconChevronDown.png);
             background-position: right 15px center;
             background-repeat: no-repeat;
             background-size: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 5px 8px 3px 8px;
 
             [aria-expanded="true"] {
                 background-image: url(../images/iconChevronUp.png);
+            }
+
+            @media screen and (max-width: 1024px) {
+                font-size: 14px;
             }
         }
     }
@@ -875,7 +888,19 @@ input:focus::-moz-placeholder {
 
         &--expanded {
             display: block;
+            padding: 5px 0 0;
         }
+
+        small {
+            @media screen and (max-width: 1024px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        padding: 10px;
+        width: 100%;
     }
 }
 
