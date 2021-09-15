@@ -1,12 +1,52 @@
 <!--shareable non dummy component-->
 
-<button class="button button--xs mobile" (click)="toggleFilterBox()">
-    {{ 'buttonText.toggle_filters' | translate }}
-</button>
+<div class="mobile">
+    <button class="button button--sm button--cta mobile" (click)="toggleFilterBox()">
+        {{ 'buttonText.toggle_filters' | translate }}
+    </button>
+
+    <!--active filters-->
+    <div class="loop loop--filters" style="margin-top: 15px;">
+
+        <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
+
+        <ng-container *ngFor="let activeFilter of activeFilters | keyvalue">
+
+            <button class="button button--xxs button--close" *ngIf="activeFilter.value !== null"
+                (click)="resetFilter(activeFilter.key)">
+
+                <ng-container *ngIf="activeFilter.key === 'year'">
+                    {{ activeFilter.value }}
+                </ng-container>
+
+                <ng-container *ngIf="activeFilter.key === 'speciesGroup'">
+                    <app-species-group [speciesGroupId]="activeFilter.value"></app-species-group>
+                </ng-container>
+
+                <ng-container *ngIf="activeFilter.key === 'taxon'">
+                    <app-taxon [taxonId]="activeFilter.value"></app-taxon>
+                </ng-container>
+
+                <ng-container *ngIf="activeFilter.key === 'area'">
+                    <app-area [areaId]="activeFilter.value"></app-area>
+                </ng-container>
+
+            </button>
+
+        </ng-container>
+
+        <button class="button button--xxs button--cta" *ngIf="showResetButton" (click)="resetFilters()">
+            {{ 'shared.resetFilters' | translate }}
+        </button>
+
+    </div>
+    <!--active filters-->
+</div>
 
 <div class="filter-wrapper" [ngClass]="{ 'filter-wrapper--active': showFiltersBox }">
 
-    <button class="button button--close button--close-sm" style="margin-right: 0;" *ngIf="showFiltersBox" (click)="closeFilterBox()">
+    <button class="button button--close button--close-sm" style="margin-right: 0;" *ngIf="showFiltersBox"
+        (click)="closeFilterBox()">
         {{ 'buttonText.toggle_closeFilters' | translate }}
     </button>
 
@@ -179,6 +219,7 @@
 
     <br>
 
+    <!--active filters-->
     <div class="loop loop--filters">
 
         <small *ngIf="showResetButton">{{ 'shared.search_chosenFilters' | translate }}: </small>
@@ -213,7 +254,10 @@
         </button>
 
     </div>
+    <!--active filters-->
 
 </div>
+
+
 
 <!--shareable non dummy component-->

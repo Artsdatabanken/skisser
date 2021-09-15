@@ -47,7 +47,7 @@ export class DetailedSpeciesListComponent implements OnInit {
   ngOnInit(): void {
 
     this.currentLanguage$ = this.translationService.currentLanguage$;
-    this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_sightings_speciesData_speciesLists');
+    this.pageTitle$ = this.layoutService.setPageTitle('menu.menu_sightings_speciesData_speciesLists_detailedSpeciesList');
 
     this.subscriptions.push(this.activatedRoute.queryParams.subscribe(params => {
 

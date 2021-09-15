@@ -3,19 +3,18 @@
     <header class="page__header">
         <h1 class="page-title" *ngIf="pageTitle$ | async as pageTitle">
             {{ pageTitle }}
-            <span *ngIf="area$ | async as area"> &mdash; {{ area.name }}</span>
+            <!-- <span *ngIf="area$ | async as area"> &mdash; {{ area.name }}</span> -->
         </h1>
     </header>
 
     <div class="page__intro">
 
-        <app-filter></app-filter>
 
     </div>
 
     <div class="page__content">
 
-        <!-- <p class="body-text">{{ 'tables.tableDescription_countySpeciesList' | translate }}</p> -->
+        <app-filter></app-filter>
 
         <div *ngIf="filteredData$ | async as detailedSpeciesData; else noData">
 

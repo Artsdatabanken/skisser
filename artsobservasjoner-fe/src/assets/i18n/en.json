@@ -74,7 +74,9 @@
         "search_municipality": "Select municipality",
         "readMore_speciesList": "See detailed species list"
     },
-    "headings": {},
+    "headings": {
+        "detailedSpeciesList": "Detailed species list"
+    },
     "buttonText": {
         "reset": "Reset",
         "selectStatistics": "Select statistics",
@@ -180,8 +182,6 @@
         "description_monthlySightings": "The table shows the number of sightings made each month per species group. Note that it is regardless of when the observation was registered (for example, you can observe a species in March, but you registered the observation two months later). For a more detailed overview of a species group, please go to the <a href=\"/search\">search page</a>."
     },
     "tables": {
-        "tableHeading_species": "Species",
-        "tableHeading_species_firstSeen": "First seen",
         "tableCaption_countySpeciesData": "Number of species sighted by county over the years",
         "tableCaption_municipalitySpeciesData": "Number of species sighted by municipality over the years",
         "tableCaption_detailedSpeciesList": "Detailed species list for {{value}}",
@@ -191,6 +191,8 @@
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
         "tableCaption_geographicalDistribution": "Sightings count per species group per area (county)",
+        "tableHeading_species": "Species",
+        "tableHeading_species_firstSeen": "First seen",
         "tableHeading_year": "Year",
         "tableHeading_county": "County",
         "tableHeading_municipality": "Municipality",
@@ -220,6 +222,7 @@
         "tableHeading_usersCount": "Users count",
         "tableHeading_totalPercentage": "Total share in %",
         "tableHeading_nullFindingsTotal": "Null findings total",
+        "tableHeading_detailedSpeciesList": "Detaljert artsliste",
         "tableFootnote_totalSightinsDifference": "The total shows fewer sightings than other statistics because of some sightings might not have a user attached to them",
         "tableFootnote_percentByRegisterType": "How many of all sightings are registered this way",
         "tableFootnote_nullFindings": "The species individual is been search for but not found"

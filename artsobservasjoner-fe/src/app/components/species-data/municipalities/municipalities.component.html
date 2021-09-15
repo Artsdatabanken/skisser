@@ -57,7 +57,9 @@
                         <th role="columnheader" scope="col" class="th-number">
                             {{ 'tables.tableHeading_speciesCount' | translate }}
                         </th>
-                        <th></th>
+                        <th role="columnheader" scope="col" class="th-right">
+                            {{ 'tables.tableHeading_detailedSpeciesList' | translate }}
+                        </th>
                     </tr>
 
                 </thead>
@@ -75,16 +77,10 @@
                         </td>
 
                         <td style="text-align: right;">
-                            <!-- <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK, item.areaId]">
-                                {{ 'shared.readMore_speciesList' | translate }} {{ item.areaId }}
-                            </a> -->
-
-                            <a class="button button--link" [routerLink]="[DETAILED_SPECIES_LIST_LINK]"
+                            <a class="link" [routerLink]="[DETAILED_SPECIES_LIST_LINK]"
                                 [queryParams]="{areaId: item.areaId}">
                                 {{ 'shared.readMore_speciesList' | translate }}
                             </a>
-
-                            <!-- <app-button-link [link]="DETAILED_SPECIES_LIST_LINK" [param]="item.areaId" [text]="'shared.readMore_speciesList' | translate"></app-button-link> -->
                         </td>
 
                     </tr>

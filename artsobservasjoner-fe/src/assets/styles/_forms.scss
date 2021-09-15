@@ -256,18 +256,26 @@ select {
         padding: 0 15px;
         width: auto;
 
-        @media screen and (max-width: 1024px) {
-            font-size: 13px;
-            font-weight: 700;
-            height: 32px;
-            line-height: 30px;
-        }
-
         &:hover,
         &:active,
         &:focus {
             height: 36px;
             line-height: 34px;
+            width: auto;
+        }
+
+        @media screen and (max-width: 1024px) {
+            font-size: 13px;
+            font-weight: 700;
+            height: 32px;
+            line-height: 30px;
+
+            &:hover,
+            &:active,
+            &:focus {
+                height: 32px;
+                line-height: 30px;
+            }
         }
     }
 
@@ -725,61 +733,6 @@ input:focus::-moz-placeholder {
     }
 }
 
-// filter box
-
-.filter-box,
-.select-box {
-    position: relative;
-    width: 100%;
-
-    &__field {
-        display: none;
-        margin-top: 10px;
-        position: absolute;
-        width: 100%;
-        z-index: 100;
-
-        &--show {
-            display: block;
-        }
-
-        &--tall {
-            height: 40vh;
-            margin-top: 10px;
-            overflow-y: scroll;
-        }
-    }
-
-    &__stripe {
-        @include customVar(background-color, clrFocus);
-        @include customVar(border-bottom-color, clrWhite);
-        @include customVar(color, clrBlack);
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
-        font-size: 16px;
-        font-weight: 600;
-        overflow-wrap: break-word;
-        padding: 15px;
-
-        &:hover {
-            @include customVar(background-color, paletteColor1);
-            cursor: pointer;
-        }
-
-        &:last-child {
-            @include customVar(border-bottom-color, transparent);
-        }
-    }
-
-    &__details {
-        margin-top: 10px;
-
-        &:empty {
-            margin: 0;
-        }
-    }
-}
-
 .bulk {
     &__content {
         @include customVar(background-color, clrFocus);
@@ -949,5 +902,61 @@ input:focus::-moz-placeholder {
         font-size: 14px;
         font-weight: 600;
         padding-left: 30px;
+    }
+}
+
+// filter box
+
+.filter-box,
+.select-box {
+    position: relative;
+    width: 100%;
+
+    &__field {
+        display: none;
+        margin-top: 10px;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+
+        &--show {
+            display: block;
+        }
+
+        &--tall {
+            height: 40vh;
+            margin-top: 10px;
+            overflow-y: scroll;
+        }
+    }
+
+    &__stripe {
+        @include customVar(background-color, clrFocus);
+        @include customVar(border-bottom-color, clrWhite);
+        @include customVar(color, clrBlack);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        font-size: 16px;
+        font-weight: 600;
+        overflow-wrap: break-word;
+        padding: 15px;
+
+        &:hover {
+            @include customVar(background-color, paletteColor1);
+            @include customVar(background-color, clrShadow);
+            cursor: pointer;
+        }
+
+        &:last-child {
+            @include customVar(border-bottom-color, transparent);
+        }
+    }
+
+    &__details {
+        margin-top: 10px;
+
+        &:empty {
+            margin: 0;
+        }
     }
 }
