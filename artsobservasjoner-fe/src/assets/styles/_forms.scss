@@ -587,6 +587,13 @@ input {
         padding: 0 20px 0 55px;
         padding: 0 35px 0 0;
         width: auto !important;
+
+        &:active,
+        &:focus,
+        &:hover {
+            height: 40px;
+            line-height: 38px;
+        }
     }
 
     // elements
