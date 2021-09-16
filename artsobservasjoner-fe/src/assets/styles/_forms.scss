@@ -56,6 +56,42 @@ select {
     }
 }
 
+select {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 11px;
+}
+
+textarea {
+    @include customVar(background-color, clrWhite);
+    @include customVar(border-color, clrBlack);
+    @include customVar(font-family, fontPrimary);
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-width: 2px;
+    min-height: 25vh;
+    padding: 15px;
+    width: 100%;
+
+    &:focus,
+    &:active {
+        padding: 15px;
+    }
+}
+
+input {
+    text-align: left;
+    &[type="date"],
+    &[type="time"] {
+        font-weight: 600;
+    }
+
+    &[type="submit"] {
+    }
+}
+
+// custom button
+
 .button {
     @include customVar(background-color, transparent);
     @include customVar(border-color, clrBlack);
@@ -115,7 +151,7 @@ select {
     &--primary {
         @include customVar(background-color, clrAccent);
         @include customVar(border-color, clrAccent);
-        @include customVar(color, clrWhite);
+        @include customVar(color, clrBlack);
         text-align: center !important;
     }
 
@@ -479,6 +515,80 @@ select {
         }
     }
 
+    &--filter {
+        @include customVar(background-color, clrAccent);
+        @include customVar(border-color, clrAccent);
+        background-image: url(../images/iconFilter.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        border-radius: 50px;
+        display: block;
+        display: inline-block;
+        font-size: 0;
+        height: 55px;
+        padding: 0 5px;
+        width: 55px;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-image: url(../images/iconFilterWhite.png);
+            height: 55px;
+            width: 55px;
+        }
+    }
+
+    &--filter-x {
+        @include customVar(background-color, clrAccent);
+        @include customVar(background-color, transparent);
+        @include customVar(border-color, clrAccent);
+        @include customVar(border-color, transparent);
+
+        @include customVar(color, clrWhite);
+        @include customVar(color, clrBlack);
+        border-bottom: 2px solid #555;
+        border: none;
+        background-image: url(../images/iconFilter.png);
+        background-position: left 20px center;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 24px;
+        background-size: 25px;
+        border-radius: 50px;
+        border-radius: 0;
+        display: block;
+        font-weight: 600;
+        height: 40px;
+        line-height: 38px;
+        padding: 0 20px 0 55px;
+        padding: 0 0 0 35px;
+        width: auto !important;
+    }
+
+    &--filter-y {
+        @include customVar(background-color, transparent);
+        @include customVar(border-color, transparent);
+        @include customVar(color, clrBlack);
+        border-bottom: 2px solid #555;
+        border: none;
+        background-image: url(../images/iconFilter.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 24px;
+        background-size: 25px;
+        border-radius: 50px;
+        border-radius: 0;
+        display: block;
+        font-weight: 600;
+        height: 40px;
+        line-height: 38px;
+        margin: auto 0 auto auto;
+        padding: 0 20px 0 55px;
+        padding: 0 35px 0 0;
+        width: auto !important;
+    }
+
     // elements
 
     &__text {
@@ -500,16 +610,19 @@ select {
     }
 }
 
-input {
-    text-align: left;
-    &[type="date"],
-    &[type="time"] {
-        font-weight: 600;
-    }
+.sssss {
+    display: flex;
+    align-items: center;
 
-    &[type="submit"] {
+    span {
+        &:last-child {
+            font-weight: 600;
+            padding-left: 10px;
+        }
     }
 }
+
+// custom input
 
 .input {
     &--search {
@@ -544,29 +657,6 @@ input {
             @include customVar(color, paletteColor2);
             font-size: inherit;
         }
-    }
-}
-
-select {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0 11px;
-}
-
-textarea {
-    @include customVar(background-color, clrWhite);
-    @include customVar(border-color, clrBlack);
-    @include customVar(font-family, fontPrimary);
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
-    border-width: 2px;
-    min-height: 25vh;
-    padding: 15px;
-    width: 100%;
-
-    &:focus,
-    &:active {
-        padding: 15px;
     }
 }
 
@@ -615,11 +705,6 @@ textarea {
 // }
 
 // CHECKBOX
-
-:root {
-    --color: black;
-    --disabled: #666;
-}
 
 .checkbox {
     @include customVar(font-family, fontPrimary);
@@ -713,25 +798,6 @@ input:focus::-moz-placeholder {
 }
 
 //----------------------------------------custom form elements
-
-.filter-wrapper {
-    @media screen and (max-width: 1024px) {
-        @include customVar(background-color, clrShadow);
-        overflow-y: scroll;
-        padding: 15px;
-        position: fixed;
-        bottom: 0;
-        right: -100%;
-        top: 0;
-        width: 100%;
-        z-index: 500;
-
-        &--active {
-            -webkit-animation: slideRight 0.5s forwards;
-            animation: slideRight 0.5s forwards;
-        }
-    }
-}
 
 .bulk {
     &__content {
@@ -859,6 +925,25 @@ input:focus::-moz-placeholder {
 
 // FILTER & filter-box
 
+.filter-wrapper {
+    @media screen and (max-width: 1024px) {
+        @include customVar(background-color, clrShadow);
+        overflow-y: scroll;
+        padding: 15px;
+        position: fixed;
+        bottom: 0;
+        right: -100%;
+        top: 0;
+        width: 100%;
+        z-index: 500;
+
+        &--active {
+            -webkit-animation: slideRight 0.5s forwards;
+            animation: slideRight 0.5s forwards;
+        }
+    }
+}
+
 .filter {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -907,8 +992,7 @@ input:focus::-moz-placeholder {
 
 // filter box
 
-.filter-box,
-.select-box {
+.filter-box {
     position: relative;
     width: 100%;
 

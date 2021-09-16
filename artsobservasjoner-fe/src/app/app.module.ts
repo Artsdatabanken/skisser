@@ -275,6 +275,7 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // SortablejsModule.forRoot({ animation: 150 }),
     TranslateModule.forRoot(
       {
         loader: {
