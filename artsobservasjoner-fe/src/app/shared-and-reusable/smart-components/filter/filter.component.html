@@ -7,9 +7,9 @@
         {{ 'buttonText.showFilters' | translate }}
     </button>  -->
 
-    <button class="button button--filter-y mobile" (click)="toggleFilterBox()">
+    <!-- <button class="button button--filter-y mobile" (click)="toggleFilterBox()">
         {{ 'buttonText.filters2' | translate }}
-    </button>
+    </button> -->
 
     <!--active filters-->
     <div class="loop loop--filters" style="margin-top: 15px;">
@@ -43,6 +43,10 @@
 
         <button class="button button--xxs button--cta" *ngIf="showResetButton" (click)="resetFilters()">
             {{ 'shared.resetFilters' | translate }}
+        </button>
+
+        <button class="button button--xxs button--filter-z mobile" (click)="toggleFilterBox()">
+            {{ 'buttonText.allFilters' | translate }}
         </button>
 
     </div>

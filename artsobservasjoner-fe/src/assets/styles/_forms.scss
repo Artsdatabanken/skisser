@@ -596,6 +596,26 @@ input {
         }
     }
 
+    &--filter-z {
+        // @include customVar(background-color, transparent);
+        // @include customVar(border-color, transparent);
+        // @include customVar(color, clrBlack);
+
+        @include customVar(border-color, clrAccent);
+        background-image: url(../images/iconFilter.png);
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        font-weight: 600;
+        padding-right: 45px;
+        width: auto !important;
+
+        &:active,
+        &:focus,
+        &:hover {
+        }
+    }
+
     // elements
 
     &__text {
