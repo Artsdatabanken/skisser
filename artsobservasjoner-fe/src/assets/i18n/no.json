@@ -78,6 +78,7 @@
         "detailedSpeciesList": "Detaljert artsliste"
     },
     "buttonText": {
+        "scrollToTop": "Tilbake til toppen",
         "reset": "Nullstill",
         "selectStatistics": "Velg statistikk",
         "selectArea": "Velg fylke eller kommune",

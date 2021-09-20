@@ -48,7 +48,22 @@ export class MenuComponent implements OnInit {
 
   }
 
-  @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {    
+  // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {    
+  //   this.renderer.removeClass(this.document.body, 'prevent-scroll');
+  //   this.menuService.closeMenu();
+  // }
+
+  // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
+
+  //   console.log('HOSTLISTENER', event)
+  //   if (this.activeMenu) {
+  //     this.renderer.removeClass(this.document.body, 'prevent-scroll');
+  //     this.menuService.closeMenu();
+  //   }
+
+  // }
+
+  closeMenu(event: KeyboardEvent) {
     this.renderer.removeClass(this.document.body, 'prevent-scroll');
     this.menuService.closeMenu();
   }

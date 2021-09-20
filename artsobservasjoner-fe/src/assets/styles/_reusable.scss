@@ -779,7 +779,7 @@
         &--active {
             @include customVar(background-color, clrFocus);
             @include customVar(background-color, paletteColor1);
-            @include customVar(background-color, clrShadow);
+            @include customVar(background-color, clrWash3);
             display: block;
             width: 100%;
         }

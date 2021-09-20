@@ -78,6 +78,7 @@
         "detailedSpeciesList": "Detailed species list"
     },
     "buttonText": {
+        "scrollToTop": "Scroll to top",
         "reset": "Reset",
         "selectStatistics": "Select statistics",
         "selectArea": "Select are type",

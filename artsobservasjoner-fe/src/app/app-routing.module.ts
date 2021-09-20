@@ -1018,6 +1018,7 @@ const pressRoutes: Routes = [
     component: NewsItemComponent,
     data: {
       text: 'News item',
+      title: '',
       id: 'news',
       layout: 'article',
       rank: '',
@@ -1150,7 +1151,8 @@ const testRoutes: Routes = [  // for testing purposes
     component: TestComponent,
     data: {
       text: 'Test',
-      id: '',
+      title: 'TEST',
+      id: 'test',
       layout: 'page',
       rank: '',
       parent: '',
@@ -1160,21 +1162,6 @@ const testRoutes: Routes = [  // for testing purposes
       hidden: false
     }
   },
-  // {
-  //   path: 'search-taxon',
-  //   component: SearchTaxonComponent,
-  //   data: {
-  //     text: 'Søk takson',
-  //     id: '',
-  //     layout: 'page',
-  //     rank: '',
-  //     parent: '',
-  //     menu: '',
-  //     metaTitle: '',
-  //     metaDescription: '',
-  //     hidden: false
-  //   }
-  // },
   {
     path: 'design',
     component: DesignComponent,
