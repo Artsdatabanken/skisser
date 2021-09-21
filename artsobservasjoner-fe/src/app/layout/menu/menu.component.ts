@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Inject, Renderer2, HostListener } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
 
@@ -13,13 +12,8 @@ export class MenuComponent implements OnInit {
 
   activeMenu: boolean;
   subscription: Subscription;
-  @Input() ariaLabel: string;
-
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
-    private menuService: MenuService
-  ) {
+  
+  constructor(private menuService: MenuService) {
 
     this.activeMenu = this.menuService.activeMenu;
     this.subscription = this.menuService.menuVisibility.subscribe((value) => {
@@ -31,29 +25,19 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    this.renderer.removeClass(this.document.body, 'prevent-scroll');
+    this.menuService.closeMenu();
     this.subscription.unsubscribe();
   }
 
   toggleMenu(): void {
-
     this.menuService.toggleMenu();
-
-    if (this.menuService.activeMenu) {
-      this.renderer.addClass(this.document.body, 'prevent-scroll');
-    }
-    else {
-      this.renderer.removeClass(this.document.body, 'prevent-scroll');
-    }
-
   }
 
-  // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {    
-  //   this.renderer.removeClass(this.document.body, 'prevent-scroll');
-  //   this.menuService.closeMenu();
-  // }
+  closeMenu(event: KeyboardEvent): void {
+    this.menuService.closeMenu();
+  }
 
-  // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
+    // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
 
   //   console.log('HOSTLISTENER', event)
   //   if (this.activeMenu) {
@@ -62,10 +46,5 @@ export class MenuComponent implements OnInit {
   //   }
 
   // }
-
-  closeMenu(event: KeyboardEvent) {
-    this.renderer.removeClass(this.document.body, 'prevent-scroll');
-    this.menuService.closeMenu();
-  }
 
 }

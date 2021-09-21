@@ -88,6 +88,11 @@ input {
 
     &[type="submit"] {
     }
+
+    
+    &:focus, &:active {
+        border-style: dotted;
+    }
 }
 
 // custom button
@@ -667,6 +672,7 @@ input {
                 font-size: inherit;
             }
         }
+
     }
 
     &--active {
@@ -1044,6 +1050,8 @@ input:focus::-moz-placeholder {
     &__stripe {
         @include customVar(background-color, clrFocus);
         @include customVar(border-bottom-color, clrWhite);
+        @include customVar(background-color, clrSecondary);
+        @include customVar(border-bottom-color, clrSec0);
         @include customVar(color, clrBlack);
         border-bottom-style: solid;
         border-bottom-width: 2px;
@@ -1053,8 +1061,9 @@ input:focus::-moz-placeholder {
         padding: 15px;
 
         &:hover {
-            @include customVar(background-color, paletteColor1);
-            @include customVar(background-color, clrShadow);
+            @include customVar(background-color, clrSec1);
+            @include customVar(background-color, clrAccent);
+            @include customVar(border-bottom-color, clrWhite);
             cursor: pointer;
         }
 

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +10,35 @@ export class MenuService {
 
   activeMenu: boolean;
   menuVisibility: Subject<boolean> = new Subject<boolean>();
+  private renderer: Renderer2;
 
-  constructor() {
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    rendererFactory: RendererFactory2
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
     this.activeMenu = false;
   }
 
   toggleMenu(): void {
     this.activeMenu = !this.activeMenu;
     this.menuVisibility.next(this.activeMenu);
+
+    if (this.activeMenu) {
+      this.renderer.addClass(this.document.body, 'prevent-scroll');
+    }
+    else {
+      this.renderer.removeClass(this.document.body, 'prevent-scroll');
+    }
+
   }
 
   closeMenu(): void {
+
     this.activeMenu = false;
     this.menuVisibility.next(this.activeMenu);
+    this.renderer.removeClass(this.document.body, 'prevent-scroll');
+
   }
 
 }

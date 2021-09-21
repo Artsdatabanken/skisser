@@ -729,8 +729,8 @@
 
         &:before,
         &::before {
-            @include customVar(border-bottom-color, clrWash1);
             @include customVar(border-bottom-color, clrFocus);
+            @include customVar(border-bottom-color, clrSecondary);
             border-left: 18px solid transparent;
             border-right: 18px solid transparent;
             border-bottom: 18px solid #eef2aa;
@@ -777,9 +777,7 @@
         &:focus,
         &:active,
         &--active {
-            @include customVar(background-color, clrFocus);
-            @include customVar(background-color, paletteColor1);
-            @include customVar(background-color, clrWash3);
+            @include customVar(background-color, clrSec0);
             display: block;
             width: 100%;
         }
