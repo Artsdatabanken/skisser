@@ -78,10 +78,16 @@
         "detailedSpeciesList": "Detailed species list"
     },
     "buttonText": {
+        "scrollToTop": "Scroll to top",
         "reset": "Reset",
         "selectStatistics": "Select statistics",
         "selectArea": "Select are type",
-        "toggle_filters": "Open/close filters",
+        "filters": "More filters",
+        "filters2": "Filter",
+        "allFilters": "All filters",
+        "showFilters": "Show filters",
+        "closeFilters": "Hide filters",
+        "toggle_filters": "Toggle filters",
         "toggle_openFilters": "Open filters",
         "toggle_closeFilters": "Close filters",
         "pagination_first": "First page",

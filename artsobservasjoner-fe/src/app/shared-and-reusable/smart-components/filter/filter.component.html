@@ -1,9 +1,15 @@
 <!--shareable non dummy component-->
 
 <div class="mobile">
-    <button class="button button--sm button--cta mobile" (click)="toggleFilterBox()">
-        {{ 'buttonText.toggle_filters' | translate }}
-    </button>
+
+
+    <!-- <button class="button button--filter mobile" (click)="toggleFilterBox()">
+        {{ 'buttonText.showFilters' | translate }}
+    </button>  -->
+
+    <!-- <button class="button button--filter-y mobile" (click)="toggleFilterBox()">
+        {{ 'buttonText.filters2' | translate }}
+    </button> -->
 
     <!--active filters-->
     <div class="loop loop--filters" style="margin-top: 15px;">
@@ -39,17 +45,31 @@
             {{ 'shared.resetFilters' | translate }}
         </button>
 
+        <button class="button button--xxs button--filter-z mobile" (click)="toggleFilterBox()">
+            {{ 'buttonText.allFilters' | translate }}
+        </button>
+
     </div>
     <!--active filters-->
+    <!-- <br>
 
-    <br>
+    <button class="button button--primary button--filter-x mobile" (click)="toggleFilterBox()">
+        {{ 'buttonText.filters' | translate }}
+    </button> -->
+
+    <!-- <div class="sssss" (click)="toggleFilterBox()">
+  
+        <span class="button--filter"></span>
+        <span style="text-transform: uppercase;">{{ 'buttonText.filters' | translate }}</span>
+
+    </div> -->
 </div>
 
 <div class="filter-wrapper" [ngClass]="{ 'filter-wrapper--active': showFiltersBox }">
 
     <button class="button button--close button--close-sm" style="margin-right: 0;" *ngIf="showFiltersBox"
         (click)="closeFilterBox()">
-        {{ 'buttonText.toggle_closeFilters' | translate }}
+        {{ 'buttonText.closeFilters' | translate }}
     </button>
 
     <br>

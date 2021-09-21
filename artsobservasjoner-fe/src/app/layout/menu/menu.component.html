@@ -1,5 +1,6 @@
 <button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
-    type="button" (click)="toggleMenu()" arial-label="Vis navigasjonsmeny">
+    type="button" (click)="toggleMenu()" (keyup)="closeMenu($event)"
+    aria-controls="menu" [attr.aria-haspopup]="activeMenu" [attr.aria-expanded]="activeMenu">
     <span class="hamburger__text" aria-hidden="true">
         {{ 'menu.menu' | translate }}
     </span>
@@ -8,7 +9,7 @@
     </span>
 </button>
 
-<div class="menu" id="menu" [ngClass]="{'menu--open': activeMenu}" [attr.aria-expanded]="activeMenu">
+<div class="menu" id="menu" role="menu" aria-labelledby="hamburger" [ngClass]="{'menu--open': activeMenu}">
 
     <header class="menu__header">
         <!-- <app-language-switcher></app-language-switcher> -->

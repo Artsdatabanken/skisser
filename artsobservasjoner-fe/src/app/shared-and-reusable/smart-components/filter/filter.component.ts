@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscription, combineLatest, of } from 'rxjs';
 import { tap, map, switchMap, concatMap } from 'rxjs/operators';
 import { ActiveFilters } from 'src/app/models/filter';
@@ -121,6 +121,13 @@ export class FilterComponent implements OnInit {
 
   closeFilterBox(): void {
     this.showFiltersBox = false;
+  }
+
+  @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
+    this.showYearsPane = false;
+    this.showSpeciesGroupsPane = false;
+    this.showTaxonPane = false;
+    this.showAreaPane = false;
   }
 
   // ON SELECTION

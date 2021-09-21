@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, Inject, Renderer2, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
@@ -37,8 +37,8 @@ export class MenuComponent implements OnInit {
 
   toggleMenu(): void {
 
-    this.menuService.toggleMenu(); 
-    
+    this.menuService.toggleMenu();
+
     if (this.menuService.activeMenu) {
       this.renderer.addClass(this.document.body, 'prevent-scroll');
     }
@@ -46,6 +46,26 @@ export class MenuComponent implements OnInit {
       this.renderer.removeClass(this.document.body, 'prevent-scroll');
     }
 
+  }
+
+  // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {    
+  //   this.renderer.removeClass(this.document.body, 'prevent-scroll');
+  //   this.menuService.closeMenu();
+  // }
+
+  // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
+
+  //   console.log('HOSTLISTENER', event)
+  //   if (this.activeMenu) {
+  //     this.renderer.removeClass(this.document.body, 'prevent-scroll');
+  //     this.menuService.closeMenu();
+  //   }
+
+  // }
+
+  closeMenu(event: KeyboardEvent) {
+    this.renderer.removeClass(this.document.body, 'prevent-scroll');
+    this.menuService.closeMenu();
   }
 
 }
