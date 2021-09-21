@@ -6,7 +6,6 @@ table {
     margin: 50px auto 50px;
     //table-layout: fixed;
     table-layout: auto;
-    //white-space: nowrap;
     width: 100%;
 
     @media screen and (max-width: 1200px) {
@@ -14,7 +13,10 @@ table {
     }
 
     caption {
-        border-bottom: 2px solid rgba(240, 240, 240);
+        border-bottom: 2px solid rgba(240, 240, 240);        
+        @include customVar(border-bottom-color, clrSec1);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
         font-size: 15px;
         font-weight: 600;
         margin: 0 auto;
@@ -35,30 +37,28 @@ table {
         &:hover {
             th[role="rowheader"],
             td {
-                @include customVar(background-color, clrFocus, !important);
-                @include customVar(background-color, clrWash3, !important);
+                @include customVar(background-color, clrSecondary, !important);
             }
         }
     }
 
     th {
         @include customVar(border-bottom-color, clrAccent);
-        @include customVar(font-family, fontSecondary);
+        // @include customVar(font-family, fontSecondary);
         border-bottom-style: solid;
         border-bottom-width: 2px;
-        font-size: 19px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 600;
         text-align: left;
         vertical-align: middle;
 
         @media screen and (max-width: 1200px) {
             border-top: 2px solid rgba(240, 240, 240);
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 15px;
         }
 
         &[scope="row"] {
-            @include customVar(background-color, clrWash2);
+            @include customVar(background-color, clrGrey0);
             @include customVar(font-family, fontPrimary);
             @include customVar(border-bottom-color, clrWhite);
             font-size: 17px;
@@ -71,7 +71,7 @@ table {
     }
 
     td {
-        @include customVar(background-color, clrWash2);
+        @include customVar(background-color, clrGrey0);
         @include customVar(border-bottom-color, clrWhite);
         border-bottom-style: solid;
         border-bottom-width: 2px;
@@ -246,6 +246,12 @@ table {
     @include customVar(font-family, fontSecondary);
     font-size: 24px;
     font-weight: 600;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 20px;
+        border: 1px solid red ;
+        width: 60px;
+    }
 }
 
 .td-text {

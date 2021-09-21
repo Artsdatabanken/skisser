@@ -115,7 +115,6 @@
     @include customVar(padding-right, paddingStd);
     @include customVar(border-color, clrBlack);
     @include customVar(color, clrBlack);
-    border-radius: 50px;
     border-style: solid;
     border-width: 2px;
     display: grid;

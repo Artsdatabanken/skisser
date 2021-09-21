@@ -6,8 +6,6 @@
 
         <!--toppobservatører-->
 
-        <h3>{{ 'shared.filter' | translate }}</h3>
-
         <app-filter></app-filter>
 
         <br>
@@ -20,15 +18,16 @@
                 <br><br>
             </ng-container>
 
-            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1" style="min-width: 75%; width: auto;">
+            <div class="table-container" tabindex="0" role="region" aria-labelledby="caption1"
+                style="min-width: 75%; width: auto;">
 
                 <table *ngIf="userStatistics.totalCount > 0">
-                    <caption id="caption1"></caption>
+                    <caption id="caption1">{{ 'tables.tableCaption_sightingsCountByUser' | translate }}</caption>
                     <thead>
                         <tr>
                             <th scope="col" role="columnheader"> {{ 'tables.userStats_position' | translate }} </th>
                             <th scope="col" role="columnheader"> {{ 'tables.userStats_observer' | translate }} </th>
-                            <th scope="col" role="columnheader" class="th-number"> 
+                            <th scope="col" role="columnheader" class="th-number">
                                 {{ 'tables.userStats_sightingsCount' | translate }}
                             </th>
                         </tr>

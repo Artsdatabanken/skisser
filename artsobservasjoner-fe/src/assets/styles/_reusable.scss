@@ -13,7 +13,6 @@
     background-size: 10px 18px;
     border-style: solid;
     border-width: 2px;
-    border-radius: 50px;
     display: block;
     padding: 15px 45px 15px 30px;
     text-align: left;
@@ -665,7 +664,6 @@
         background-position: right 30px center;
         background-repeat: no-repeat;
         background-size: 20px;
-        border-radius: 50px;
         border-style: solid;
         border-width: 2px;
         cursor: pointer;
@@ -675,7 +673,10 @@
         align-items: center;
         font-size: 20px;
         font-weight: 600;
-        padding: 18px 90px 18px 30px;
+        height: 60px;
+        line-height: 58px;
+        padding: 22px 90px 22px 30px;
+        padding: 0 90px 0 30px;
         text-align: left;
         transition: background-image 0.3s;
 
@@ -700,12 +701,16 @@
         &:focus,
         &:active {
             background-color: transparent;
+            border-style: solid;
+            height: 60px;
+            line-height: 58px;
             outline: 0;
         }
 
         @media screen and (max-width: 1600px) {
             background-position: right 25px center;
-            padding: 20px 75px 20px 30px;
+            // padding: 20px 75px 20px 30px;
+            padding: 0 75px 0 30px;
         }
 
         @media screen and (max-width: 1200px) {
@@ -713,7 +718,8 @@
             background-size: 15px;
             font-size: 17px;
             line-height: 1.2;
-            padding: 15px 60px 15px 30px;
+            //padding: 15px 60px 15px 30px;
+            padding: 0 60px 0 30px;
         }
     }
 
@@ -729,11 +735,10 @@
 
         &:before,
         &::before {
-            @include customVar(border-bottom-color, clrFocus);
             @include customVar(border-bottom-color, clrSecondary);
             border-left: 18px solid transparent;
             border-right: 18px solid transparent;
-            border-bottom: 18px solid #eef2aa;
+            border-bottom: 18px solid #abebc6;
             content: "";
             height: 0;
             width: 0;
@@ -751,8 +756,8 @@
     }
 
     &__link {
-        @include customVar(background-color, clrFocus);
-        @include customVar(border-bottom-color, clrWhite);
+        @include customVar(background-color, clrSecondary);
+        @include customVar(border-bottom-color, clrSec0);
         @include customVar(color, clrBlack);
         border-bottom-style: solid;
         border-bottom-width: 2px;
@@ -777,7 +782,7 @@
         &:focus,
         &:active,
         &--active {
-            @include customVar(background-color, clrSec0);
+            @include customVar(background-color, clrAccent);
             display: block;
             width: 100%;
         }

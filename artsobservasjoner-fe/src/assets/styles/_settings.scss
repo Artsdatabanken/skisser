@@ -22,17 +22,16 @@ $vars: (
   clrSecondary: #abebc6,
   clrSec0: #eafaf1,
   clrSec1: #d5f5e3, 
-
-  clrWash1: #f5f5f5,
-  clrWash2: #fafafa,
   
   clrDanger: #f5b7b1,
   // clrFocus: #eef2aa,
-  clrFocus: #eef2aa,
+  clrFocus: #e9f7ef,
 
-  clrGrey0: #ededed,
-  clrGrey1: #e3e3e3,
-  clrGrey2: #cccccc,
+  clrGrey0: #f5f5f5,
+  clrGrey1: #fafafa,
+  clrGrey2: #ededed,
+  clrGrey3: #e3e3e3,
+  clrGrey4: #cccccc,
 
   paddingStd: 15px,
   transparent: transparent,
@@ -65,6 +64,8 @@ $vars: (
   --clrGrey0: #{map-get($vars, clrGrey0)};
   --clrGrey1: #{map-get($vars, clrGrey1)};
   --clrGrey2: #{map-get($vars, clrGrey2)};
+  --clrGrey3: #{map-get($vars, clrGrey3)};  
+  --clrGrey4: #{map-get($vars, clrGrey4)};
   
   --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};

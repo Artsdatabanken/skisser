@@ -26,7 +26,7 @@ select {
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
-    border-radius: 50px;
+    //border-radius: 50px;
     display: block;
     font-size: 16px;
     font-weight: 600;
@@ -42,8 +42,11 @@ select {
 
     &:active,
     &:focus {
-        @include customVar(background-color, clrFocus);
-        @include customVar(color, clrBlack);
+        // @include customVar(background-color, clrFocus);
+        //@include customVar(color, clrBlack);
+        // @include customVar(outline-color, clrFocus);
+        //box-shadow: 0 0 0 3px #48c9b0;
+        border-style: dotted;
         height: 54px;
         line-height: 50px;
         outline: none !important;
@@ -89,10 +92,38 @@ input {
     &[type="submit"] {
     }
 
-    
-    &:focus, &:active {
-        border-style: dotted;
+    &:-webkit-autofill::first-line {
+        @include customVar(font-family, fontPrimary, important);
+        font-family: zabal !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
     }
+}
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//     @include customVar(font-family, fontPrimary, important);
+//     box-shadow: none !important;
+//     -webkit-box-shadow: none !important;
+//     transition: background-color 5000s ease-in-out 0s;
+// }
+
+input:-webkit-autofill {
+    &,
+    &::first-line,
+    &:hover,
+    &:focus,
+    &:active {
+        @include customVar(font-family, fontPrimary, important);
+        transition-delay: 9999s;
+        transition-property: background-color, color;
+    }
+}
+
+input:-webkit-autofill::first-line {
+    @include customVar(font-family, fontPrimary, important);
 }
 
 // custom button
@@ -104,7 +135,7 @@ input {
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
-    border-radius: 50px;
+    //border-radius: 50px;
     cursor: pointer;
     display: inline-block;
     font-weight: 500;
@@ -172,6 +203,7 @@ input {
         @include customVar(background-color, transparent);
         @include customVar(border-color, clrAccent);
         @include customVar(color, clrBlack);
+        border-style: double !important;
     }
 
     &--full {
@@ -672,7 +704,6 @@ input {
                 font-size: inherit;
             }
         }
-
     }
 
     &--active {
@@ -832,6 +863,132 @@ input:focus::-moz-placeholder {
 
 //----------------------------------------custom form elements
 
+// FILTER & filter-box
+
+.filter-wrapper {
+    @media screen and (max-width: 1024px) {
+        @include customVar(background-color, clrGrey0);
+        @include customVar(background-color, clrSec1);
+        overflow-y: scroll;
+        padding: 15px;
+        position: fixed;
+        bottom: 0;
+        right: -100%;
+        top: 0;
+        width: 100%;
+        z-index: 500;
+
+        &--active {
+            -webkit-animation: slideRight 0.5s forwards;
+            animation: slideRight 0.5s forwards;
+        }
+    }
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        @include customVar(font-family, fontPrimary);
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+        overflow-wrap: break-word;
+        width: auto;
+
+        span {
+            font-weight: 600;
+        }
+
+        small {
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 4px;
+            overflow-wrap: break-word;
+        }
+    }
+
+    h3 {
+        @include customVar(font-family, fontPrimary);
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    label {
+        @include customVar(font-family, fontSecondary);
+        color: #666;
+        font-size: 14px;
+        font-weight: 600;
+        padding-left: 30px;
+    }
+}
+
+// filter box
+
+.select-box {
+    position: relative;
+    width: 100%;
+
+    &__field {
+        display: none;
+        margin-top: 10px;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+
+        &--show {
+            display: block;
+        }
+
+        &--tall {
+            height: 40vh;
+            margin-top: 10px;
+            overflow-y: scroll;
+        }
+    }
+
+    &__stripe {
+        @include customVar(background-color, clrFocus);
+        @include customVar(border-bottom-color, clrWhite);
+        @include customVar(background-color, clrSecondary);
+        @include customVar(border-bottom-color, clrSec0);
+        @include customVar(color, clrBlack);
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        font-size: 16px;
+        font-weight: 600;
+        overflow-wrap: break-word;
+        padding: 15px;
+
+        &:hover {
+            @include customVar(background-color, clrSec1);
+            @include customVar(background-color, clrAccent);
+            @include customVar(border-bottom-color, clrWhite);
+            cursor: pointer;
+        }
+
+        &:last-child {
+            @include customVar(border-bottom-color, transparent);
+        }
+    }
+
+    &__details {
+        margin-top: 10px;
+
+        &:empty {
+            margin: 0;
+        }
+    }
+}
+
 .bulk {
     &__content {
         @include customVar(background-color, clrFocus);
@@ -956,127 +1113,3 @@ input:focus::-moz-placeholder {
     }
 }
 
-// FILTER & filter-box
-
-.filter-wrapper {
-    @media screen and (max-width: 1024px) {
-        @include customVar(background-color, clrShadow);
-        overflow-y: scroll;
-        padding: 15px;
-        position: fixed;
-        bottom: 0;
-        right: -100%;
-        top: 0;
-        width: 100%;
-        z-index: 500;
-
-        &--active {
-            -webkit-animation: slideRight 0.5s forwards;
-            animation: slideRight 0.5s forwards;
-        }
-    }
-}
-
-.filter {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    width: 100%;
-
-    @media screen and (max-width: 1200px) {
-        grid-template-columns: 1fr;
-    }
-
-    h2 {
-        @include customVar(font-family, fontPrimary);
-        font-size: 16px;
-        font-weight: 600;
-        margin: 0;
-        overflow-wrap: break-word;
-        width: auto;
-
-        span {
-            font-weight: 600;
-        }
-
-        small {
-            font-size: 11px;
-            font-weight: 600;
-            margin-left: 4px;
-            overflow-wrap: break-word;
-        }
-    }
-
-    h3 {
-        @include customVar(font-family, fontPrimary);
-        font-size: 16px;
-        font-weight: 600;
-        margin: 0;
-    }
-
-    label {
-        @include customVar(font-family, fontSecondary);
-        color: #666;
-        font-size: 14px;
-        font-weight: 600;
-        padding-left: 30px;
-    }
-}
-
-// filter box
-
-.filter-box {
-    position: relative;
-    width: 100%;
-
-    &__field {
-        display: none;
-        margin-top: 10px;
-        position: absolute;
-        width: 100%;
-        z-index: 100;
-
-        &--show {
-            display: block;
-        }
-
-        &--tall {
-            height: 40vh;
-            margin-top: 10px;
-            overflow-y: scroll;
-        }
-    }
-
-    &__stripe {
-        @include customVar(background-color, clrFocus);
-        @include customVar(border-bottom-color, clrWhite);
-        @include customVar(background-color, clrSecondary);
-        @include customVar(border-bottom-color, clrSec0);
-        @include customVar(color, clrBlack);
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
-        font-size: 16px;
-        font-weight: 600;
-        overflow-wrap: break-word;
-        padding: 15px;
-
-        &:hover {
-            @include customVar(background-color, clrSec1);
-            @include customVar(background-color, clrAccent);
-            @include customVar(border-bottom-color, clrWhite);
-            cursor: pointer;
-        }
-
-        &:last-child {
-            @include customVar(border-bottom-color, transparent);
-        }
-    }
-
-    &__details {
-        margin-top: 10px;
-
-        &:empty {
-            margin: 0;
-        }
-    }
-}

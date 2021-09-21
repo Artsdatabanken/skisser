@@ -197,6 +197,8 @@
         "tableCaption_redlistedSpeciesData": "Number of sightings of endangered species by species group",
         "tableCaption_alienSpeciesData": "Number of sightings of alien species by species group",
         "tableCaption_geographicalDistribution": "Sightings count per species group per area (county)",
+        "tableCaption_sightingsCountByUser": "Sightings count per user",
+        "tableCaption_mediaCountByUser": "Media count per user",
         "tableHeading_species": "Species",
         "tableHeading_species_firstSeen": "First seen",
         "tableHeading_year": "Year",

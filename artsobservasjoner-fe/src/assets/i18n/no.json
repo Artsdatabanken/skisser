@@ -193,6 +193,8 @@
         "tableCaption_redlistedSpeciesData": "Antall observasjoner i rødliste kategori etter artsgruppe",
         "tableCaption_alienSpeciesData": "Antall observasjoner av fremmede arter etter artsgruppe",
         "tableCaption_geographicalDistribution": "Antall observasjoner per artsgruppe per fylke",
+        "tableCaption_sightingsCountByUser": "Antall observasjoner per bruker",
+        "tableCaption_mediaCountByUser": "Antall bilder per bruker",
         "tableHeading_species": "Artsnavn",
         "tableHeading_species_firstSeen": "Først observert",
         "tableHeading_county": "Fylke",

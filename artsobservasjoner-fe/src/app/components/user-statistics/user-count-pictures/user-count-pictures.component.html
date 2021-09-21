@@ -6,8 +6,6 @@
 
         <!--toppobservatører-->
 
-        <h3>{{ 'shared.filter' | translate }}</h3>
-
         <app-filter></app-filter>
 
         <br>
@@ -24,7 +22,7 @@
                 style="min-width: 75%; width: auto;">
 
                 <table *ngIf="userStatistics.totalCount > 0">
-                    <caption id="caption1"></caption>
+                    <caption id="caption1">{{ 'tables.tableCaption_mediaCountByUser' | translate }}</caption>
                     <thead>
                         <tr>
                             <th scope="col" role="columnheader"> {{ 'tables.userStats_position' | translate }} </th>
