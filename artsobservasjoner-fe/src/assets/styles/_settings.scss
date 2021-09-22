@@ -24,7 +24,6 @@ $vars: (
   clrSec1: #d5f5e3, 
   
   clrDanger: #f5b7b1,
-  // clrFocus: #eef2aa,
   clrFocus: #e9f7ef,
 
   clrGrey0: #f5f5f5,
@@ -32,6 +31,8 @@ $vars: (
   clrGrey2: #ededed,
   clrGrey3: #e3e3e3,
   clrGrey4: #cccccc,
+  clrGrey5: #aaaaaa,
+  clrGrey: #b4b4b4,
 
   paddingStd: 15px,
   transparent: transparent,
@@ -66,6 +67,8 @@ $vars: (
   --clrGrey2: #{map-get($vars, clrGrey2)};
   --clrGrey3: #{map-get($vars, clrGrey3)};  
   --clrGrey4: #{map-get($vars, clrGrey4)};
+  --clrGrey5: #{map-get($vars, clrGrey5)};
+  --clrGrey: #{map-get($vars, clrGrey)};
   
   --backgroundColor: #{map-get($vars, clrWhite)};
   --textColor: #{map-get($vars, clrBlack)};

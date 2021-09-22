@@ -39,10 +39,10 @@ body {
 /**/
 
 *:focus {
-  // @include customVar(outline-color, clrBlack);
-  // outline-style: solid;
-  // outline-offset: 3px;
-  // outline-width: 3px;
+  @include customVar(outline-color, clrBlack);
+  outline-style: dotted;
+  outline-offset: 3px;
+  outline-width: 2px;
   // margin: 0;
   // padding: 0;
 }
@@ -51,12 +51,7 @@ body {
 
 a {
   @include customVar(color, clrBlack);
-  //display: inline-block;
   text-decoration: none !important;
-
-  &:focus {
-    //display: inline-block;
-  }
 }
 
 a:not([class]) {
@@ -110,7 +105,7 @@ h1 {
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
-  hyphens: auto;  
+  hyphens: auto;
 
   @media screen and (max-width: 1024px) {
     font-size: 40px;
@@ -243,4 +238,3 @@ abbr[title] {
   //   z-index: -1;
   // }
 }
-

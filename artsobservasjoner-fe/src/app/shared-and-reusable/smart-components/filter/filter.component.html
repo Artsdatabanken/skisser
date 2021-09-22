@@ -2,7 +2,6 @@
 
 <div class="mobile">
 
-
     <!-- <button class="button button--filter mobile" (click)="toggleFilterBox()">
         {{ 'buttonText.showFilters' | translate }}
     </button>  -->
@@ -83,20 +82,20 @@
 
             <label for="fltrYear">{{ 'filters.year' | translate }}</label>
 
-            <button class="button button--dropdown" id="fltrYear" (click)="toggleYearsDropdown()">
+            <button class="button button--dropdown" aria-haspopup="listbox" id="fltrYear" (click)="toggleYearsDropdown()">
                 {{ 'shared.select_years' | translate }}
             </button>
 
-            <div class="select-box__field select-box__field--tall"
+            <ul tabindex="-1" role="listbox" class="select-box__field select-box__field--tall"
                 [ngClass]="{'select-box__field--show': showYearsPane}" *ngIf="years">
 
-                <div class="select-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
+                <li role="option" class="select-box__stripe" *ngFor="let year of years" (click)="onYearSelection(year)">
 
-                    <h2> {{ year }} </h2>
+                    {{ year }}
 
-                </div>
+                </li>
 
-            </div>
+            </ul>
 
         </div>
 
@@ -119,11 +118,9 @@
                 <div class="select-box__stripe" *ngFor="let sg of speciesGroups"
                     (click)="onSpeciesGroupsSelection(sg.id)">
 
-                    <h2>
-                        <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
-                            {{ currentLanguage === 'no' ? sg.no : sg.en }}
-                        </ng-container>
-                    </h2>
+                    <ng-container *ngIf="currentLanguage$ | async as currentLanguage">
+                        {{ currentLanguage === 'no' ? sg.no : sg.en }}
+                    </ng-container>
 
                 </div>
 

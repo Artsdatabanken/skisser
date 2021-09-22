@@ -112,9 +112,9 @@
 
 .hamburger {
     @include customVar(background-color, transparent);
-    @include customVar(padding-right, paddingStd);
     @include customVar(border-color, clrBlack);
     @include customVar(color, clrBlack);
+    @include customVar(padding-right, paddingStd);
     border-style: solid;
     border-width: 2px;
     display: grid;
@@ -139,7 +139,9 @@
         background-color: transparent;
         height: 55px;
         line-height: 53px;
-        outline: none;
+        outline: 2px dotted black !important;
+        @include customVar(outline-color, clrBlack);
+        //outline-offset: 3px;
     }
 
     &:hover {

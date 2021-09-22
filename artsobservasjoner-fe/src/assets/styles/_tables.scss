@@ -13,11 +13,12 @@ table {
     }
 
     caption {
-        border-bottom: 2px solid rgba(240, 240, 240);        
+        border-bottom: 2px solid rgba(240, 240, 240);
         @include customVar(border-bottom-color, clrSec1);
         border-bottom-style: solid;
         border-bottom-width: 2px;
         font-size: 15px;
+        font-size: inherit;
         font-weight: 600;
         margin: 0 auto;
         padding: 0 0 5px;
@@ -163,9 +164,15 @@ table {
 
     h1 {
         @include customVar(font-family, fontSecondary);
+        @include customVar(border-bottom-color, clrAccent, important);
+        border: none;
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+        display: inline-block;
         font-size: 18px;
         font-weight: 500;
         margin: 20px 0 10px;
+        width: auto;
 
         @media screen and (max-width: 1024px) {
             font-weight: 600;
@@ -250,7 +257,7 @@ table {
 
     @media screen and (max-width: 1024px) {
         font-size: 20px;
-        border: 1px solid red ;
+        border: 1px solid red;
         width: 60px;
     }
 }

@@ -26,7 +26,6 @@ select {
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
-    //border-radius: 50px;
     display: block;
     font-size: 16px;
     font-weight: 600;
@@ -37,25 +36,43 @@ select {
     padding: 0 24px;
     text-align: center;
     width: auto;
-    transition: all 0.5s;
+    transition: background-color 0.5s;
     width: 100%;
 
     &:active,
     &:focus {
-        // @include customVar(background-color, clrFocus);
-        //@include customVar(color, clrBlack);
-        // @include customVar(outline-color, clrFocus);
-        //box-shadow: 0 0 0 3px #48c9b0;
-        border-style: dotted;
         height: 54px;
         line-height: 50px;
-        outline: none !important;
         width: 100%;
     }
 
-    &:disabled {
-        @include customVar(border-color, clrAccent);
-        border: 2px solid #666;
+    &:disabled,
+    &[disabled] {
+        // @include customVar(border-color, clrGrey);
+        // @include customVar(color, clrGrey5, important);
+        // border-style: solid;
+        // border-width: 2px;
+        // pointer-events: none;
+
+        opacity: 0.4;
+        pointer-events: none;
+
+        &:hover {
+            opacity: 0.4; 
+        }
+
+        &::placeholder {
+            @include customVar(color, clrGrey5, important);
+            font-size: inherit;
+        }
+
+        &::-webkit-input-placeholder,
+        &:-moz-placeholder,
+        &::-moz-placeholder,
+        :-ms-input-placeholder {
+            @include customVar(color, clrGrey5, important);
+            font-size: inherit;
+        }
     }
 }
 
@@ -84,12 +101,20 @@ textarea {
 
 input {
     text-align: left;
+
     &[type="date"],
-    &[type="time"] {
+    &[type="time"],
+    &[type="submit"] {
         font-weight: 600;
     }
 
-    &[type="submit"] {
+    &::placeholder,
+    &:focus:-moz-placeholder,
+    &:focus::-moz-placeholder,
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:focus::-webkit-input-placeholder {
+        @include customVar(color, clrBlack, important);
     }
 
     &:-webkit-autofill::first-line {
@@ -98,19 +123,7 @@ input {
         font-size: 16px !important;
         font-weight: 600 !important;
     }
-}
 
-// input:-webkit-autofill,
-// input:-webkit-autofill:hover,
-// input:-webkit-autofill:focus,
-// input:-webkit-autofill:active {
-//     @include customVar(font-family, fontPrimary, important);
-//     box-shadow: none !important;
-//     -webkit-box-shadow: none !important;
-//     transition: background-color 5000s ease-in-out 0s;
-// }
-
-input:-webkit-autofill {
     &,
     &::first-line,
     &:hover,
@@ -122,10 +135,6 @@ input:-webkit-autofill {
     }
 }
 
-input:-webkit-autofill::first-line {
-    @include customVar(font-family, fontPrimary, important);
-}
-
 // custom button
 
 .button {
@@ -135,13 +144,11 @@ input:-webkit-autofill::first-line {
     @include customVar(font-family, fontPrimary);
     border-style: solid;
     border-width: 2px;
-    //border-radius: 50px;
     cursor: pointer;
     display: inline-block;
     font-weight: 500;
     height: 54px;
     line-height: 50px;
-    transition: all 0.5s;
 
     &--display {
         background-position: center center;
@@ -463,11 +470,6 @@ input:-webkit-autofill::first-line {
 
         &:disabled {
             background-image: url(../images/iconChevronDisabledDown.png);
-            @include customVar(border-color, paletteColor1);
-            @include customVar(color, paletteColor2);
-            border-style: solid;
-            border-width: 2px;
-            pointer-events: none;
         }
     }
 
@@ -696,79 +698,21 @@ input:-webkit-autofill::first-line {
         background-size: 17px;
         padding-left: 50px;
 
+        // &:focus {
+        //     padding-left: 50px;
+        // }
+
         &:disabled {
             background-image: url(../images/iconSearchDisabledRight.png);
-
-            ::placeholder {
-                @include customVar(color, paletteColor3);
-                font-size: inherit;
-            }
         }
     }
 
     &--active {
         @include customVar(background-color, clrFocus);
     }
-
-    &:disabled {
-        @include customVar(border-color, paletteColor1);
-        @include customVar(color, paletteColor2);
-        border-style: solid;
-        border-width: 2px;
-        pointer-events: none;
-
-        ::placeholder {
-            @include customVar(color, paletteColor2);
-            font-size: inherit;
-        }
-    }
 }
 
-// select {
-//     @extend input;
-//     @include customVar(background-color, clrWhite);
-//     @include customVar(border-color, clrBlack);
-//     @include customVar(font-family, fontPrimary);
-//     border-style: solid;
-//     border-width: 2px;
-//     border-radius: 50px;
-//     box-sizing: content-box;
-//     font-size: 16px;
-//     font-weight: 600;
-//     line-height: 2;
-//     padding: 7px 21px;
-
-//     &:focus,
-//     &:active {
-//         background: #eee8aa;
-//         @include customVar(background-color, clrFocus);
-//         @include customVar(border-color, clrBlack);
-//         border-style: solid;
-//         border-width: 2px;
-//         border-radius: 50px;
-//         outline: none !important;
-//     }
-
-//     &:disabled {
-//         @include customVar(border-color, paletteColor1);
-//         @include customVar(color, paletteColor2);
-//         border-style: solid;
-//         border-width: 2px;
-//         pointer-events: none;
-
-//         ::placeholder {
-//             @include customVar(color, paletteColor2);
-//             font-size: inherit;
-//         }
-//     }
-
-//     option {
-//         font-weight: 500;
-//         padding: 15px;
-//     }
-// }
-
-// CHECKBOX
+// custom checkbox
 
 .checkbox {
     @include customVar(font-family, fontPrimary);
@@ -826,39 +770,6 @@ input:-webkit-autofill::first-line {
             color: var(--disabled);
         }
     }
-}
-
-// PLACEHOLDERS
-
-::placeholder {
-    color: #666;
-    font-size: inherit;
-
-    &:focus,
-    &:active {
-        @include customVar(color, clrDark);
-    }
-}
-
-input:focus::-webkit-input-placeholder {
-    @include customVar(color, clrDark);
-}
-
-/* Firefox < 19 */
-
-input:-moz-placeholder {
-}
-
-input:focus:-moz-placeholder {
-    @include customVar(color, clrDark);
-}
-
-/* Firefox > 19 */
-input::-moz-placeholder {
-}
-
-input:focus::-moz-placeholder {
-    @include customVar(color, clrDark);
 }
 
 //----------------------------------------custom form elements
@@ -938,8 +849,11 @@ input:focus::-moz-placeholder {
     width: 100%;
 
     &__field {
+        @include customVar(background-color, clrSecondary);
         display: none;
         margin-top: 10px;
+        padding-inline-start: 0;
+        -webkit-padding-start: 0;
         position: absolute;
         width: 100%;
         z-index: 100;
@@ -965,8 +879,11 @@ input:focus::-moz-placeholder {
         border-bottom-width: 2px;
         font-size: 16px;
         font-weight: 600;
+        list-style: none;
         overflow-wrap: break-word;
+        margin: 0;
         padding: 15px;
+        text-indent: 0;
 
         &:hover {
             @include customVar(background-color, clrSec1);
@@ -1112,4 +1029,3 @@ input:focus::-moz-placeholder {
         width: 100%;
     }
 }
-
