@@ -1,5 +1,5 @@
 <button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
-    type="button" (click)="toggleMenu()" (keyup.escape)="closeMenu($event)"
+    type="button" (click)="toggleMenu()" (keyup.escape)="closeMenu($event)" (keyup.home)="setFocusOnFirstElement($event)"
     aria-controls="menu" [attr.aria-haspopup]="activeMenu" [attr.aria-expanded]="activeMenu">
     <span class="hamburger__text" aria-hidden="true">
         {{ 'menu.menu' | translate }}

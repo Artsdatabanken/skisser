@@ -138,6 +138,7 @@ import { TaxonComponent } from './shared-and-reusable/smart-components/taxon/tax
 import { Test1Component } from './components/search/test1/test1.component';
 import { Test2Component } from './components/search/test2/test2.component';
 import { BulkComponent } from './components/search/bulk/bulk.component';
+import { SetFocusDirective } from './directives/set-focus.directive';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -268,7 +269,8 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     TaxonComponent,
     Test1Component,
     Test2Component,
-    BulkComponent
+    BulkComponent,
+    SetFocusDirective
   ],
   imports: [
     BrowserModule,

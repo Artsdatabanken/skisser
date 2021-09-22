@@ -37,6 +37,11 @@ export class MenuComponent implements OnInit {
     this.menuService.closeMenu();
   }
 
+  setFocusOnFirstElement(event: KeyboardEvent): void {
+    console.log('trykket på home', event)
+    this.menuService.setFocusOnFirstElement();
+  }
+
     // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
 
   //   console.log('HOSTLISTENER', event)

@@ -372,7 +372,8 @@
     }
 
     &__link {
-        @include customVar(border-bottom-color, paletteColor1);
+        @include customVar(border-bottom-color, transparent);
+        @include customVar(color, clrBlack);
         border-bottom-style: solid;
         border-bottom-width: 2px;
         border: none;
@@ -386,6 +387,11 @@
         }
 
         // modifiers
+
+        &--focused {
+            color: red;
+            @extend :focus;
+        }
 
         &--primary {
             display: block;
@@ -498,7 +504,7 @@
             display: block;
             height: 3px;
             margin-top: -3px;
-            transition: width 0.3s;
+            transition: width 0.4s;
             width: 0;
         }
 
