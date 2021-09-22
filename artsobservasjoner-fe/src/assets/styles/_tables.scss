@@ -173,7 +173,7 @@ table {
     }
 
     &__content {
-        @include customVar(background-color, clrShadow);
+        @include customVar(background-color, clrSec0);
         font-size: 14px;
         min-height: 40vh;
         padding: 30px 15px;
@@ -187,8 +187,9 @@ table {
 
 .tr-toggle-parent {
     td {
-        @include customVar(background-color, clrShadow);
-        @include customVar(border-bottom-color, clrWash3);
+        @include customVar(background-color, clrSec0);
+        @include customVar(border-bottom-color, clrWhite);
+        @include customVar(border-bottom-color, clrSec0);
         border-bottom-style: solid;
         border-bottom-width: 2px;
 

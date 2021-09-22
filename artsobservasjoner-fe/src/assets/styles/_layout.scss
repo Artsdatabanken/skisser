@@ -1256,7 +1256,7 @@ main {
         }
 
         &:nth-child(even) {
-            @include customVar(background-color, clrShadow);
+            @include customVar(background-color, clrPrim1);
         }
 
         // @media screen and (max-width: 1600px) {
