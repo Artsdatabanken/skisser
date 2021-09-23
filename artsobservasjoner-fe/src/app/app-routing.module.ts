@@ -248,22 +248,22 @@ const sightingsRoutes: Routes = [
       hidden: false
     }
   },
-  {
-    path: 'sightings-data/test2',
-    component: Test2Component,
-    data: {
-      text: 'Se, søk og filtrer observasjoner',
-      title: 'menu.menu_sightings_sightingsCollection',
-      id: 'sightings',
-      layout: 'landing',
-      rank: 'primary',
-      parent: 'sightings-data',
-      menu: 'mainMenu',
-      metaTitle: '',
-      metaDescription: '',
-      hidden: false
-    }
-  },
+  // {
+  //   path: 'sightings-data/test2',
+  //   component: Test2Component,
+  //   data: {
+  //     text: 'Se, søk og filtrer observasjoner',
+  //     title: 'menu.menu_sightings_sightingsCollection',
+  //     id: 'sightings',
+  //     layout: 'landing',
+  //     rank: 'primary',
+  //     parent: 'sightings-data',
+  //     menu: 'mainMenu',
+  //     metaTitle: '',
+  //     metaDescription: '',
+  //     hidden: false
+  //   }
+  // },
   {
     path: 'sightings-data/search-sightings',
     component: SearchSightingsComponent,
@@ -320,7 +320,7 @@ const sightingsRoutes: Routes = [
       title: 'menu.menu_sightings_speciesInventory',
       id: 'species-inventory',
       layout: 'page',
-      rank: 'primary',
+      rank: 'secondary',
       parent: 'sightings-data',
       menu: 'mainMenu',
       metaTitle: '',
@@ -377,22 +377,6 @@ const sightingsRoutes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'sightings-data/species-data/species-lists/detailed-species-list/:id',
-  //   component: DetailedSpeciesListComponent,
-  //   data: {
-  //     text: 'Detaljert artsliste',
-  //     title: 'menu.menu_sightings_speciesData_speciesLists_detailedSpeciesList',
-  //     id: 'detailed-species-list',
-  //     layout: 'spa',
-  //     rank: '',
-  //     parent: '',
-  //     menu: '',
-  //     metaTitle: '',
-  //     metaDescription: '',
-  //     hidden: false
-  //   }
-  // }
   {
     path: 'sightings-data/species-data/species-lists/detailed-species-list',
     component: DetailedSpeciesListComponent,

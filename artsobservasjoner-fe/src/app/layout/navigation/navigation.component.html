@@ -14,7 +14,7 @@
                 <ng-container *ngIf="first; else notFirstNavElement">
 
                     <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" #firstNavigationElement closeMenu>
-                        {{first}}{{ menuItem.heading | translate }}
+                        {{ menuItem.heading | translate }}
                     </a>
 
                 </ng-container>
@@ -34,7 +34,7 @@
                     [attr.id]="'navigationLink' + i + j" routerLinkActive="navigation__link--active"
                     routerLink="/{{ child.path }}" *ngFor="let child of menuItem.children; let j = index" closeMenu>
 
-                    <span class="navigation__label">{{i}}{{j}} {{ child.heading | translate }} </span>
+                    <span class="navigation__label">{{ child.heading | translate }} </span>
 
                 </a>
 
