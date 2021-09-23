@@ -9,7 +9,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class MenuService {
 
   activeMenu: boolean;
-  // menuVisibility: Subject<boolean> = new Subject<boolean>();
   menuVisibility: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   
   private renderer: Renderer2;

@@ -1,9 +1,6 @@
-<button class="hamburger hamburger--squeeze" id="hamburger" [ngClass]="{'hamburger--is-active': activeMenu}"
-    type="button" (click)="toggleMenu()" 
-    
-    
-    aria-controls="menu"
-    [attr.aria-haspopup]="activeMenu" [attr.aria-expanded]="activeMenu">
+<button id="hamburger" class="hamburger hamburger--squeeze" [ngClass]="{'hamburger--is-active': activeMenu}"
+    type="button" #hamburgerMenu (click)="toggleMenu()" aria-controls="menu" [attr.aria-haspopup]="activeMenu"
+    [attr.aria-expanded]="activeMenu">
 
     <span class="hamburger__text" aria-hidden="true">
         {{ 'menu.menu' | translate }}
@@ -30,7 +27,7 @@
 
 </div>
 
-  <!-- (keyup.escape)="closeMenu($event)"
+<!-- (keyup.escape)="closeMenu($event)"
     (keyup.home)="setFocusOnFirstElement($event)"
     
     (keyup.end)="setFocusOnLastElement($event)"  -->
