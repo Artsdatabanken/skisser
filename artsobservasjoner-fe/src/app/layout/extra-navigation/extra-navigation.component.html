@@ -9,6 +9,11 @@
 
             <div class="navigation__section navigation__section--special">
 
+                <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
+                    routerLink="{{ link.path }}" #navigationElement closeMenu *ngFor="let link of extraMenu; let last = last">
+                    <span class="navigation__label"> {{ link.heading | translate }}</span>
+                </a>
+                <!-- 
                 <ng-container *ngFor="let link of extraMenu; let last = last">
 
                     <ng-container *ngIf="last;">
@@ -30,7 +35,7 @@
 
                     </ng-container>
 
-                </ng-container>
+                </ng-container> -->
 
             </div>
 

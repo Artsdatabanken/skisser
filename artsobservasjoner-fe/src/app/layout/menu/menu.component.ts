@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
 import { ExtraNavigationComponent } from '../extra-navigation/extra-navigation.component';
@@ -20,6 +20,8 @@ export class MenuComponent implements OnInit {
   @ViewChild(ExtraNavigationComponent) extraNavigationComponent: ExtraNavigationComponent;
   @ViewChild('hamburgerMenu') menuButton: ElementRef;
 
+  // @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private menuService: MenuService
@@ -32,7 +34,31 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('TEST', this.document.activeElement)
+
+
+    // cons
+    // .navigationLinks.toArray().forEach(navigationLink => {
+    //   console.log('nav link ------------->>>>', navigationLink)
+    // })
+  }
+
+  ngAfterViewInit(): void {
+
+    console.log('TEST', this.navigationComponent)
+
+    // this.navigationComponent.navigationLinks.toArray().forEach(navigationLink => {
+    //   console.log('nav link ------------->>>>', navigationLink)
+    // });
+
+    // this.extraNavigationComponent.navigationLinks.toArray().forEach(navigationLink => {
+    //   console.log('nav link ------------->>>>', navigationLink)
+    // });
+
+    const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
+
+    allNavigationLinks.forEach(element => {
+      console.log('nav link ------------->>>>', element)
+    });
   }
 
   ngOnDestroy(): void {
@@ -48,34 +74,33 @@ export class MenuComponent implements OnInit {
     this.menuService.closeMenu();
   }
 
-  @HostListener('document:keyup', ['$event'])
-  onKeyupHandler(event: KeyboardEvent) {
-
-    // console.log('TEST', this.document.activeElement)
-    console.log('TEST', this.document.activeElement === this.extraNavigationComponent.lastNavElement.nativeElement)
-
-    if (this.document.activeElement === this.extraNavigationComponent.lastNavElement.nativeElement) {
-      this.menuButton.nativeElement.focus();
-    }
-
-  }
-
   @HostListener('document:keydown', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
 
     // console.log('HOSTLISTENER', event)
 
+    console.log('TEST', this.document.activeElement)
+    console.log('TEST', this.document.activeElement === this.extraNavigationComponent.lastNavElement.nativeElement)
+
+    let activeFocusedElement: any = this.document.activeElement;
+
+    if (activeFocusedElement === this.document.activeElement) {
+      this.menuButton.nativeElement.focus();
+    }
+
     if (this.activeMenu) {
+
       if (event.key === 'Escape' || event.code === 'Escape') {
         this.menuService.closeMenu();
       }
       else if (event.key === 'Home' || event.code === 'Home') {
-        this.navigationComponent.firstNavElement.nativeElement.focus();
+        // this.navigationComponent.firstNavElement.nativeElement.focus();
         // this.menuService.setFocusOnFirstElement(); // if we want to use a service
       }
       else if (event.key === 'End' || event.code === 'End') {
         this.extraNavigationComponent.lastNavElement.nativeElement.focus();
       }
+
     }
 
   }

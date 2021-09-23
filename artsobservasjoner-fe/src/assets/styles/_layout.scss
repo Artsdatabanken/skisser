@@ -137,11 +137,14 @@
     &:active,
     &:focus {
         background-color: transparent;
+        background-color: yellow !important;
         height: 55px;
         line-height: 53px;
-        outline: 2px dotted black !important;
-        @include customVar(outline-color, clrBlack);
-        //outline-offset: 3px;
+        // outline: 2px dotted black !important;
+        @include customVar(outline-color, clrBlack, important);
+        outline-style: dotted;
+        outline-width: 2px;
+        outline-offset: 2px;
     }
 
     &:hover {
@@ -205,7 +208,7 @@
     @media screen and (max-width: 1200px) {
         padding: 45px 30px 30px;
     }
-    
+
     @media screen and (max-width: 1024px) {
         border: 1px solid blue;
         min-height: calc(100vh - 70px);
@@ -237,7 +240,6 @@
 }
 
 .navigation {
-
     // modifiers
 
     &--primary {

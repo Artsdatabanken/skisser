@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -10,7 +10,8 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class ExtraNavigationComponent implements OnInit {
 
   extraMenu: any[];  
-  @ViewChild('lastNavigationElement') lastNavElement: ElementRef;
+  @ViewChild('lastNavigationElement') lastNavElement: ElementRef;  
+  @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
 
   constructor(private navigationService: NavigationService) { }
 

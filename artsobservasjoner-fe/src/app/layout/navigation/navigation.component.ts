@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service.js';
 
 @Component({
@@ -11,7 +11,8 @@ export class NavigationComponent implements OnInit {
 
   mainMenu: object = {};
   @ViewChild('firstNavigationElement') firstNavElement: ElementRef;
-
+  @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
+  
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {   
