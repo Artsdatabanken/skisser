@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { ElementRef, Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,9 @@ import { Subject } from 'rxjs';
 export class MenuService {
 
   activeMenu: boolean;
-  menuVisibility: Subject<boolean> = new Subject<boolean>();
+  // menuVisibility: Subject<boolean> = new Subject<boolean>();
+  menuVisibility: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  
   private renderer: Renderer2;
 
   constructor(
@@ -44,8 +46,8 @@ export class MenuService {
   setFocusOnFirstElement(): void {
     this.renderer.selectRootElement('#navigationLink00', true).focus(); // this feels wrong and hacky as selctrootelement wasn't intended for this user
 
-    console.log('TEST', this.document.getElementById('navigationLink00'))
-    console.log('TEST', this.renderer.selectRootElement('#navigationLink00', true))
+    // console.log('TEST', this.document.getElementById('navigationLink00'))
+    // console.log('TEST', this.renderer.selectRootElement('#navigationLink00', true))
   }
 
 }

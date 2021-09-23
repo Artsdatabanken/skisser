@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
+import { ExtraNavigationComponent } from '../extra-navigation/extra-navigation.component';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-menu',
@@ -13,9 +15,11 @@ export class MenuComponent implements OnInit {
   activeMenu: boolean;
   subscription: Subscription;
   
-  constructor(private menuService: MenuService) {
+  @ViewChild(NavigationComponent) navigationComponent: NavigationComponent;
+  @ViewChild(ExtraNavigationComponent) extraNavigationComponent: ExtraNavigationComponent;
 
-    this.activeMenu = this.menuService.activeMenu;
+  constructor(private menuService: MenuService) {
+    
     this.subscription = this.menuService.menuVisibility.subscribe((value) => {
       this.activeMenu = value;
     });
@@ -38,18 +42,12 @@ export class MenuComponent implements OnInit {
   }
 
   setFocusOnFirstElement(event: KeyboardEvent): void {
-    console.log('trykket på home', event)
-    this.menuService.setFocusOnFirstElement();
+    this.navigationComponent.firstNavElement.nativeElement.focus();
+    // this.menuService.setFocusOnFirstElement(); // if we want to use a service
   }
 
-    // @HostListener('document:keyup.escape', ['$event']) onKeyupHandler(event: KeyboardEvent) {
-
-  //   console.log('HOSTLISTENER', event)
-  //   if (this.activeMenu) {
-  //     this.renderer.removeClass(this.document.body, 'prevent-scroll');
-  //     this.menuService.closeMenu();
-  //   }
-
-  // }
+  setFocusOnLastElement(event: KeyboardEvent): void {
+    this.extraNavigationComponent.lastNavElement.nativeElement.focus();
+  }
 
 }

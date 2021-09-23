@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service.js';
 
 @Component({
@@ -9,9 +9,8 @@ import { NavigationService } from 'src/app/services/navigation.service.js';
 
 export class NavigationComponent implements OnInit {
 
-  mainMenu: {};
-
-  @Input() ariaLabel: string;
+  mainMenu: object = {};
+  @ViewChild('firstNavigationElement') firstNavElement: ElementRef;
 
   constructor(private navigationService: NavigationService) { }
 
