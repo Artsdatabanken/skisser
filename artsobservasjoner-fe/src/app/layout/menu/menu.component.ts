@@ -1,4 +1,5 @@
 import { DOCUMENT } from '@angular/common';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, ElementRef, HostListener, Inject, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
@@ -19,6 +20,8 @@ export class MenuComponent implements OnInit {
   @ViewChild(NavigationComponent) navigationComponent: NavigationComponent;
   @ViewChild(ExtraNavigationComponent) extraNavigationComponent: ExtraNavigationComponent;
   @ViewChild('hamburgerMenu') menuButton: ElementRef;
+  focusedElements: any[] = [];
+
 
   // @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
 
@@ -44,8 +47,6 @@ export class MenuComponent implements OnInit {
 
   ngAfterViewInit(): void {
 
-    console.log('TEST', this.navigationComponent)
-
     // this.navigationComponent.navigationLinks.toArray().forEach(navigationLink => {
     //   console.log('nav link ------------->>>>', navigationLink)
     // });
@@ -54,11 +55,8 @@ export class MenuComponent implements OnInit {
     //   console.log('nav link ------------->>>>', navigationLink)
     // });
 
-    const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
+    this.onKeyupHandler();
 
-    allNavigationLinks.forEach(element => {
-      console.log('nav link ------------->>>>', element)
-    });
   }
 
   ngOnDestroy(): void {
@@ -74,19 +72,54 @@ export class MenuComponent implements OnInit {
     this.menuService.closeMenu();
   }
 
+  @HostListener('document:keyup', ['$event'])
+  onKeyupHandler(event?: KeyboardEvent) {
+  
+    this.focusedElements.push(this.document.activeElement);
+
+    // console.log('focused elements', this.focusedElements)
+
+    const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
+
+
+    allNavigationLinks.forEach(link => {
+      this.focusedElements.forEach(element => {
+        console.log('nav link ------------->>>>', link)
+        console.log('focused element ------------->>>>', element)
+        console.log('TEST ------------->>>>', link === element)
+
+
+      });
+    });
+
+  }
+
   @HostListener('document:keydown', ['$event'])
-  onKeydownHandler(event: KeyboardEvent) {
+  onKeydownHandler(event?: KeyboardEvent) {
 
-    // console.log('HOSTLISTENER', event)
+    // const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
 
-    console.log('TEST', this.document.activeElement)
-    console.log('TEST', this.document.activeElement === this.extraNavigationComponent.lastNavElement.nativeElement)
+    // // console.log('ACTIVE ELEMENT', this.document.activeElement)
 
-    let activeFocusedElement: any = this.document.activeElement;
+    // allNavigationLinks.forEach(link => {
+    //   console.log('nav link ------------->>>>', link)
 
-    if (activeFocusedElement === this.document.activeElement) {
-      this.menuButton.nativeElement.focus();
-    }
+    // console.log('ACTIVE ELEMENT', this.document.activeElement)
+    //   console.log('TEST ----------------------->>>> ', this.document.activeElement == link);
+    // });
+
+
+    //console.log('TEST', this.document.activeElement === this.extraNavigationComponent.lastNavElement.nativeElement)
+
+
+
+    
+
+
+
+    // if (activeFocusedElement === this.document.activeElement) {
+    //   this.menuButton.nativeElement.focus();
+    // }
 
     if (this.activeMenu) {
 
@@ -98,7 +131,7 @@ export class MenuComponent implements OnInit {
         // this.menuService.setFocusOnFirstElement(); // if we want to use a service
       }
       else if (event.key === 'End' || event.code === 'End') {
-        this.extraNavigationComponent.lastNavElement.nativeElement.focus();
+        //this.extraNavigationComponent.lastNavElement.nativeElement.focus();
       }
 
     }
