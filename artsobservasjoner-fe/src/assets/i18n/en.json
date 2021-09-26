@@ -1,6 +1,8 @@
 {
     "menu": {
         "menu": "Menu",
+        "menu_buttonLabel": "Menu",
+        "menu_buttonToggle": "Toggle menu",
         "menu_report": "Report sightings",
         "menu_report_addSighting": "Add sighting",
         "menu_report_addByChecklist": "Add sightings with checklist",

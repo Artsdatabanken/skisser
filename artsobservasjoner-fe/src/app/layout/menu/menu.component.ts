@@ -36,26 +36,11 @@ export class MenuComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-
-
-    // cons
-    // .navigationLinks.toArray().forEach(navigationLink => {
-    //   console.log('nav link ------------->>>>', navigationLink)
-    // })
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
 
-    // this.navigationComponent.navigationLinks.toArray().forEach(navigationLink => {
-    //   console.log('nav link ------------->>>>', navigationLink)
-    // });
-
-    // this.extraNavigationComponent.navigationLinks.toArray().forEach(navigationLink => {
-    //   console.log('nav link ------------->>>>', navigationLink)
-    // });
-
-    this.onKeyupHandler();
+    this.onKeydownHandler();
 
   }
 
@@ -72,54 +57,49 @@ export class MenuComponent implements OnInit {
     this.menuService.closeMenu();
   }
 
-  @HostListener('document:keyup', ['$event'])
-  onKeyupHandler(event?: KeyboardEvent) {
-  
-    this.focusedElements.push(this.document.activeElement);
+  // @HostListener('document:keyup', ['$event'])
+  // onKeyupHandler(event?: KeyboardEvent) {
 
-    // console.log('focused elements', this.focusedElements)
+  //   this.focusedElements.push(this.document.activeElement);
 
-    const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
+  //   // console.log('focused elements', this.focusedElements)
 
-
-    allNavigationLinks.forEach(link => {
-      this.focusedElements.forEach(element => {
-        console.log('nav link ------------->>>>', link)
-        console.log('focused element ------------->>>>', element)
-        console.log('TEST ------------->>>>', link === element)
+  //   const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
 
 
-      });
-    });
+  //   allNavigationLinks.forEach(link => {
+  //     this.focusedElements.forEach(element => {
+  //       console.log('nav link ------------->>>>', link)
+  //       console.log('focused element ------------->>>>', element)
+  //       console.log('TEST ------------->>>>', link === element)
 
-  }
+
+  //     });
+  //   });
+
+  // }
+
+  // @HostListener('document:keypress', ['$event'])
+  // onKeypressHandler(event?: KeyboardEvent) {
+
+  //   console.log('event ---------->>>>>>', event)
+  //   console.log('active ---------->>>>>>', this.document.activeElement)
+  //   console.log('TEST ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.lastNavigationElement.nativeElement)
+
+
+
+  // }
 
   @HostListener('document:keydown', ['$event'])
   onKeydownHandler(event?: KeyboardEvent) {
 
-    // const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
-
-    // // console.log('ACTIVE ELEMENT', this.document.activeElement)
-
-    // allNavigationLinks.forEach(link => {
-    //   console.log('nav link ------------->>>>', link)
-
-    // console.log('ACTIVE ELEMENT', this.document.activeElement)
-    //   console.log('TEST ----------------------->>>> ', this.document.activeElement == link);
-    // });
-
-
-    //console.log('TEST', this.document.activeElement === this.extraNavigationComponent.lastNavElement.nativeElement)
-
-
-
-    
-
-
-
-    // if (activeFocusedElement === this.document.activeElement) {
+    // if (this.extraNavigationComponent.secondLastNavigationElement.nativeElement === this.document.activeElement) {
     //   this.menuButton.nativeElement.focus();
     // }
+
+    console.log('TEST second last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.secondLastNavigationElement.nativeElement)
+    console.log('TEST last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.lastNavigationElement.nativeElement)
+
 
     if (this.activeMenu) {
 
@@ -127,11 +107,11 @@ export class MenuComponent implements OnInit {
         this.menuService.closeMenu();
       }
       else if (event.key === 'Home' || event.code === 'Home') {
-        // this.navigationComponent.firstNavElement.nativeElement.focus();
+        this.navigationComponent.firstNavigationElement.nativeElement.focus();
         // this.menuService.setFocusOnFirstElement(); // if we want to use a service
       }
       else if (event.key === 'End' || event.code === 'End') {
-        //this.extraNavigationComponent.lastNavElement.nativeElement.focus();
+        this.extraNavigationComponent.lastNavigationElement.nativeElement.focus();
       }
 
     }
@@ -171,15 +151,5 @@ export class MenuComponent implements OnInit {
   //   }
 
   // }
-
-  @HostListener('document.focus', ['$event'])
-  onFocus(event) {
-    console.log('FOCUS', event)
-  }
-
-  @HostListener('blur', ['$event'])
-  onblur(event) {
-    console.log('FOCUS', event)
-  }
 
 }

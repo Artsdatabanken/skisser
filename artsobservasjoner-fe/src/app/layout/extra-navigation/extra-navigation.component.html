@@ -9,14 +9,33 @@
 
             <div class="navigation__section navigation__section--special">
 
-                <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
-                    routerLink="{{ link.path }}" #navigationElement closeMenu *ngFor="let link of extraMenu; let last = last">
+                <!-- <a class="navigation__link navigation__link--special" routerLinkActive="navigation__link--active"
+                    routerLink="{{ link.path }}" *ngFor="let link of extraMenu; let last = last" #navigationElement
+                    closeMenu>
                     <span class="navigation__label"> {{ link.heading | translate }}</span>
-                </a>
-                <!-- 
-                <ng-container *ngFor="let link of extraMenu; let last = last">
+                </a> -->
 
-                    <ng-container *ngIf="last;">
+                <ng-container *ngFor="let link of extraMenu; let first = first; let last = last">
+
+                    <ng-container *ngIf="(first && !last)">
+
+                        <a class="navigation__link navigation__link--special"
+                            routerLinkActive="navigation__link--active" routerLink="{{ link.path }}" closeMenu>
+                            <span class="navigation__label"> {{ link.heading | translate }}</span>
+                        </a>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="(!first && !last)">
+
+                        <a class="navigation__link navigation__link--special"
+                            routerLinkActive="navigation__link--active" routerLink="{{ link.path }}" #secondLastNavigationElement closeMenu>
+                            <span class="navigation__label"> {{ link.heading | translate }}</span>
+                        </a>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="last">
 
                         <a class="navigation__link navigation__link--special"
                             routerLinkActive="navigation__link--active" routerLink="{{ link.path }}"
@@ -26,10 +45,24 @@
 
                     </ng-container>
 
+                </ng-container>
+
+                <!-- <ng-container *ngFor="let link of extraMenu; let last = last">
+
                     <ng-container *ngIf="!last">
 
                         <a class="navigation__link navigation__link--special"
                             routerLinkActive="navigation__link--active" routerLink="{{ link.path }}" closeMenu>
+                            <span class="navigation__label"> {{ link.heading | translate }}</span>
+                        </a>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="last;">
+
+                        <a class="navigation__link navigation__link--special"
+                            routerLinkActive="navigation__link--active" routerLink="{{ link.path }}"
+                            #lastNavigationElement closeMenu>
                             <span class="navigation__label"> {{ link.heading | translate }}</span>
                         </a>
 

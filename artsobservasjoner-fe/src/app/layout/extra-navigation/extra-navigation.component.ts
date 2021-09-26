@@ -10,8 +10,8 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class ExtraNavigationComponent implements OnInit {
 
   extraMenu: any[];  
-  @ViewChild('lastNavigationElement') lastNavElement: ElementRef;  
-  @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
+  @ViewChild('lastNavigationElement') lastNavigationElement: ElementRef;  
+  @ViewChild('secondLastNavigationElement') secondLastNavigationElement: ElementRef;  
 
   constructor(private navigationService: NavigationService) { }
 

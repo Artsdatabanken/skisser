@@ -10,8 +10,7 @@ import { NavigationService } from 'src/app/services/navigation.service.js';
 export class NavigationComponent implements OnInit {
 
   mainMenu: object = {};
-  @ViewChild('firstNavigationElement') firstNavElement: ElementRef;
-  @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
+  @ViewChild('firstNavigationElement') firstNavigationElement: ElementRef;
   
   constructor(private navigationService: NavigationService) { }
 

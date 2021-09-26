@@ -8,26 +8,27 @@
 
             <h1 class="navigation__heading">
 
-                <ng-template #navigationElement>
-                    <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" closeMenu>
-                        {{ first }} {{ menuItem.heading | translate }}
-                    </a>
-                </ng-template>
-                <!-- <ng-container *ngIf="first; else notFirstNavElement">
+                <!-- <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" #navigationElement closeMenu>
+                    {{ first }} {{ menuItem.heading | translate }}
+                </a> -->
 
-                    <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" #firstNavigationElement closeMenu>
+
+                <ng-container *ngIf="first">
+
+                    <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" #firstNavigationElement
+                        closeMenu>
                         {{ menuItem.heading | translate }}
                     </a>
 
                 </ng-container>
 
-                <ng-template #notFirstNavElement>
+                <ng-container *ngIf="!first">
 
                     <a class="navigation__heading-link" routerLink="/{{ menuItem.path }}" closeMenu>
                         {{ menuItem.heading | translate }}
                     </a>
 
-                </ng-template> -->
+                </ng-container>
 
             </h1>
 
@@ -35,7 +36,7 @@
 
                 <a role="menuitem" class="navigation__link" [class]="'navigation__link--' + child.rank"
                     #navigationElement routerLinkActive="navigation__link--active" routerLink="/{{ child.path }}"
-                    *ngFor="let child of menuItem.children;" closeMenu>
+                    *ngFor="let child of menuItem.children" closeMenu>
 
                     <span class="navigation__label">{{ child.heading | translate }} </span>
 
@@ -44,8 +45,6 @@
             </div>
 
         </div>
-
-        <!-- <app-subnavigation></app-subnavigation> -->
 
     </div>
 
