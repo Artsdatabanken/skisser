@@ -1,5 +1,4 @@
 import { DOCUMENT } from '@angular/common';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, ElementRef, HostListener, Inject, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MenuService } from 'src/app/services/menu.service';
@@ -19,11 +18,10 @@ export class MenuComponent implements OnInit {
 
   @ViewChild(NavigationComponent) navigationComponent: NavigationComponent;
   @ViewChild(ExtraNavigationComponent) extraNavigationComponent: ExtraNavigationComponent;
-  @ViewChild('hamburgerMenu') menuButton: ElementRef;
-  focusedElements: any[] = [];
+  @ViewChild('menuToggle', { read: ElementRef, static: true }) private menuButton: ElementRef;
+  // static true: tells Angular that it’s OK to resolve query results before change detection runs, as the element is not dynamic.
 
-
-  // @ViewChildren('navigationElement') navigationLinks: QueryList<any>;
+  menuItems: ElementRef[] = [];
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -39,6 +37,8 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
+
+
 
     this.onKeydownHandler();
 
@@ -57,54 +57,41 @@ export class MenuComponent implements OnInit {
     this.menuService.closeMenu();
   }
 
-  // @HostListener('document:keyup', ['$event'])
-  // onKeyupHandler(event?: KeyboardEvent) {
-
-  //   this.focusedElements.push(this.document.activeElement);
-
-  //   // console.log('focused elements', this.focusedElements)
-
-  //   const allNavigationLinks: any = this.navigationComponent.navigationLinks.toArray().concat(this.extraNavigationComponent.navigationLinks.toArray());
 
 
-  //   allNavigationLinks.forEach(link => {
-  //     this.focusedElements.forEach(element => {
-  //       console.log('nav link ------------->>>>', link)
-  //       console.log('focused element ------------->>>>', element)
-  //       console.log('TEST ------------->>>>', link === element)
-
-
-  //     });
-  //   });
-
-  // }
-
-  // @HostListener('document:keypress', ['$event'])
-  // onKeypressHandler(event?: KeyboardEvent) {
-
-  //   console.log('event ---------->>>>>>', event)
-  //   console.log('active ---------->>>>>>', this.document.activeElement)
-  //   console.log('TEST ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.lastNavigationElement.nativeElement)
-
-
-
-  // }
-
-  @HostListener('document:keydown', ['$event'])
+  @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event?: KeyboardEvent) {
 
     // if (this.extraNavigationComponent.secondLastNavigationElement.nativeElement === this.document.activeElement) {
     //   this.menuButton.nativeElement.focus();
     // }
 
-    console.log('TEST second last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.secondLastNavigationElement.nativeElement)
-    console.log('TEST last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.lastNavigationElement.nativeElement)
+    // console.log('TEST second last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.secondLastNavigationElement.nativeElement)
+    // console.log('TEST last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.lastNavigationElement.nativeElement)
 
-
+    this.menuItems = this.navigationComponent.navigationElements.toArray().concat(this.extraNavigationComponent.navigationElements.toArray());
+   
     if (this.activeMenu) {
+
+      if (event.key === 'Tab' || event.code === 'Tab') {
+        event.stopPropagation();
+
+        // this.menuItems.forEach(menuItem => {
+
+        // });
+
+        console.log('last',  this.menuItems[this.menuItems.length -1].nativeElement)
+        console.log('active', this.document.activeElement )
+        console.log('TEST', this.document.activeElement === this.menuItems[this.menuItems.length -1].nativeElement)
+
+
+      }
+
+      // ----------***
 
       if (event.key === 'Escape' || event.code === 'Escape') {
         this.menuService.closeMenu();
+        this.menuButton.nativeElement.focus();
       }
       else if (event.key === 'Home' || event.code === 'Home') {
         this.navigationComponent.firstNavigationElement.nativeElement.focus();
