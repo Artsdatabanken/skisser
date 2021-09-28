@@ -139,6 +139,8 @@ import { Test1Component } from './components/search/test1/test1.component';
 import { Test2Component } from './components/search/test2/test2.component';
 import { BulkComponent } from './components/search/bulk/bulk.component';
 import { SetFocusDirective } from './directives/set-focus.directive';
+import { TrapFocusDirective } from './directives/trap-focus.directive';
+import { MenuFocusDirective } from './directives/menu-focus.directive';
 
 registerLocaleData(localeNor, 'no', localeNorExtra);
 
@@ -270,7 +272,9 @@ registerLocaleData(localeNor, 'no', localeNorExtra);
     Test1Component,
     Test2Component,
     BulkComponent,
-    SetFocusDirective
+    SetFocusDirective,
+    TrapFocusDirective,
+    MenuFocusDirective
   ],
   imports: [
     BrowserModule,

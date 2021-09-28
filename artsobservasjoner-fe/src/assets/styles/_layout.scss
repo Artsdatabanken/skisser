@@ -210,7 +210,6 @@
     }
 
     @media screen and (max-width: 1024px) {
-        border: 1px solid blue;
         min-height: calc(100vh - 70px);
         overflow-y: scroll;
         padding: 30px 15px;
@@ -236,6 +235,10 @@
         @media screen and (max-width: 1024px) {
             padding: 15px 0;
         }
+    }
+
+    &:focus-within {
+        //border: 10px solid red;
     }
 }
 

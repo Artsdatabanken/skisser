@@ -18,7 +18,11 @@ export class MenuComponent implements OnInit {
 
   @ViewChild(NavigationComponent) navigationComponent: NavigationComponent;
   @ViewChild(ExtraNavigationComponent) extraNavigationComponent: ExtraNavigationComponent;
-  @ViewChild('menuToggle', { read: ElementRef, static: true }) private menuButton: ElementRef;
+
+  @ViewChild('menuToggle', { read: ElementRef, static: true }) menuButton: ElementRef<HTMLElement>;
+  @ViewChild('menu', { read: ElementRef, static: true }) menu: ElementRef<HTMLElement>;
+  @ViewChild('menuWrapper', { read: ElementRef, static: true }) menuWrapper: ElementRef<HTMLElement>;
+
   // static true: tells Angular that it’s OK to resolve query results before change detection runs, as the element is not dynamic.
 
   menuItems: ElementRef[] = [];
@@ -38,10 +42,8 @@ export class MenuComponent implements OnInit {
 
   ngAfterViewInit(): void {
 
-
-
     this.onKeydownHandler();
-
+    // this.trapFocus(this.menuWrapper);
   }
 
   ngOnDestroy(): void {
@@ -57,9 +59,60 @@ export class MenuComponent implements OnInit {
     this.menuService.closeMenu();
   }
 
+  trapFocus(element: any): void {
 
+    const menuButton: any = document.querySelector('#hamburger');
 
-  @HostListener('document:keyup', ['$event'])
+    const allFocusableElements = element.querySelectorAll(
+      'a[href], button, textarea, input[type="text"],' +
+      'input[type="radio"], input[type="checkbox"], select'
+    );
+
+    const focusableElements = Array.from(allFocusableElements).filter((el: any) => !el.disabled);
+    const firstFocusableElement: any = focusableElements[1]; // because first is menu
+    const lastFocusableElement: any = focusableElements[focusableElements.length - 1];
+
+    console.log({ focusableElements })
+    // we ue native JS because we can't use @HostListener inside a method in Angular
+    
+    console.log('firstFocusableElementfirstFocusableElementfirstFocusableElement', firstFocusableElement)
+
+    element.addEventListener('keydown', function (event: KeyboardEvent) {
+
+      // is Tab being pressed
+      let isTabPressed: boolean = event.key === 'Tab' || event.code === 'Tab'; 
+
+      if (!isTabPressed) return;
+
+      if (event.shiftKey) /* shift + tab */ {
+
+        if (document.activeElement === firstFocusableElement) {
+          //lastFocusableElement.focus();
+          menuButton.focus();
+          event.preventDefault();
+        }
+
+        if (document.activeElement === menuButton) {
+          console.log('are we here', firstFocusableElement)
+          firstFocusableElement.focus();
+          event.preventDefault();
+        }
+
+      }
+      else /* tab */ {
+
+        if (document.activeElement === lastFocusableElement) {
+          //firstFocusableElement.focus();
+          menuButton.focus();
+          event.preventDefault();
+        }
+
+      }
+
+    });
+  }
+
+  @HostListener('document:keydown', ['$event'])
   onKeydownHandler(event?: KeyboardEvent) {
 
     // if (this.extraNavigationComponent.secondLastNavigationElement.nativeElement === this.document.activeElement) {
@@ -70,20 +123,31 @@ export class MenuComponent implements OnInit {
     // console.log('TEST last ---------->>>>>>', this.document.activeElement === this.extraNavigationComponent.lastNavigationElement.nativeElement)
 
     this.menuItems = this.navigationComponent.navigationElements.toArray().concat(this.extraNavigationComponent.navigationElements.toArray());
-   
+    //this.menuItems = this.extraNavigationComponent.navigationElements;
+
+    // console.log('safgsjfgadjgg', event)
+    // console.log('safgsjfgadjgg', event.shiftKey)
+
     if (this.activeMenu) {
 
       if (event.key === 'Tab' || event.code === 'Tab') {
-        event.stopPropagation();
+        //event.preventDefault();
 
-        // this.menuItems.forEach(menuItem => {
+        //console.log('active', this.document.activeElement)
 
-        // });
+        // console.log('second last', this.menuItems[this.menuItems.length - 2].nativeElement)
 
-        console.log('last',  this.menuItems[this.menuItems.length -1].nativeElement)
-        console.log('active', this.document.activeElement )
-        console.log('TEST', this.document.activeElement === this.menuItems[this.menuItems.length -1].nativeElement)
+        // console.log('last', this.menuItems[this.menuItems.length - 1].nativeElement)
+        // console.log('first', this.menuItems.first)
+        //console.log('last', this.menuItems.last)
+        // console.log('TEST', this.document.activeElement === this.menuItems[this.menuItems.length - 2].nativeElement)
+        //console.log('TEST', this.document.activeElement === this.menuItems[this.menuItems.length - 1].nativeElement)
 
+        //this.menuItems.get(this.menuItems.length - 1)
+
+        // if (this.document.activeElement === this.menuItems[this.menuItems.length - 1].nativeElement) {
+        //   this.menuButton.nativeElement.focus();
+        // }
 
       }
 

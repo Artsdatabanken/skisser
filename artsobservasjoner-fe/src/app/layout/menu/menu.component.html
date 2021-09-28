@@ -1,29 +1,31 @@
-<button id="hamburger" class="hamburger hamburger--squeeze" [ngClass]="{'hamburger--is-active': activeMenu}"
-    type="button" #menuToggle (click)="toggleMenu()" aria-controls="menu"
-    [attr.aria-label]="'menu.menu_buttonToggle' | translate" [attr.aria-haspopup]="activeMenu"
-    [attr.aria-expanded]="activeMenu">
+<div id="menu-wrapper" menuFocus>
+    <button id="hamburger" class="hamburger hamburger--squeeze" [ngClass]="{'hamburger--is-active': activeMenu}"
+        type="button" #menuToggle (click)="toggleMenu()" aria-controls="menu"
+        [attr.aria-label]="'menu.menu_buttonToggle' | translate" [attr.aria-haspopup]="activeMenu"
+        [attr.aria-expanded]="activeMenu">
 
-    <span class="hamburger__text" aria-hidden="true">
-        {{ 'menu.menu' | translate }}
-    </span>
-    <span class="hamburger__box" aria-hidden="true">
-        <span class="hamburger__inner"></span>
-    </span>
+        <span class="hamburger__text" aria-hidden="true">
+            {{ 'menu.menu' | translate }}
+        </span>
+        <span class="hamburger__box" aria-hidden="true">
+            <span class="hamburger__inner"></span>
+        </span>
 
-</button>
+    </button>
 
-<div class="menu" id="menu" role="menu" aria-labelledby="hamburger" [ngClass]="{'menu--open': activeMenu}">
+    <div class="menu" id="menu" role="menu" aria-labelledby="hamburger" [ngClass]="{'menu--open': activeMenu}">
 
-    <header class="menu__header">
-        <div class="mobile">
-            <app-language-switcher></app-language-switcher>
-        </div>
-    </header>
+        <header class="menu__header">
+            <div class="mobile">
+                <app-language-switcher></app-language-switcher>
+            </div>
+        </header>
 
-    <app-navigation></app-navigation>
-    <!-- <app-subnavigation></app-subnavigation> -->
-    <app-extra-navigation></app-extra-navigation>
+        <app-navigation></app-navigation>
+        <!-- <app-subnavigation></app-subnavigation> -->
+        <app-extra-navigation></app-extra-navigation>
 
-    <footer class="menu__footer"></footer>
+        <footer class="menu__footer"></footer>
 
+    </div>
 </div>
