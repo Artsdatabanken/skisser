@@ -1,4 +1,4 @@
-<div id="menu-wrapper" menuFocus>
+<div id="menu-wrapper" #menuWrapper>
     <button id="hamburger" class="hamburger hamburger--squeeze" [ngClass]="{'hamburger--is-active': activeMenu}"
         type="button" #menuToggle (click)="toggleMenu()" aria-controls="menu"
         [attr.aria-label]="'menu.menu_buttonToggle' | translate" [attr.aria-haspopup]="activeMenu"
@@ -13,7 +13,7 @@
 
     </button>
 
-    <div class="menu" id="menu" role="menu" aria-labelledby="hamburger" [ngClass]="{'menu--open': activeMenu}">
+    <div class="menu" id="menu" role="menu" #menu aria-labelledby="hamburger" [ngClass]="{'menu--open': activeMenu}">
 
         <header class="menu__header">
             <div class="mobile">
