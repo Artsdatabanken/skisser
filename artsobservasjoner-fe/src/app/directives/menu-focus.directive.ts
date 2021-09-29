@@ -37,17 +37,16 @@ export class MenuFocusDirective {
 
       if (event.shiftKey) /* shift + tab */ {
 
-        if (document.activeElement === firstFocusableElement) {
+        // if (document.activeElement === firstFocusableElement) {
 
-          console.log('active first')
-          //lastFocusableElement.focus();
-          menuButton.focus();
-          event.preventDefault();
-        }
+        //   console.log('active first')
+        //   //lastFocusableElement.focus();
+        //   menuButton.focus();
+        //   event.preventDefault();
+        // }
 
-        else if (document.activeElement === menuButton) {
-          console.log('active menu button')
-          firstFocusableElement.focus();
+        if (document.activeElement === menuButton) {
+          lastFocusableElement.focus();
           event.preventDefault();
         }
 
@@ -55,7 +54,6 @@ export class MenuFocusDirective {
       else /* tab */ {
 
         if (document.activeElement === lastFocusableElement) {
-          //firstFocusableElement.focus();
           menuButton.focus();
           event.preventDefault();
         }
